@@ -1,0 +1,18 @@
+generated: '2026-07-18'
+method: derived
+source: openapi/automile-openapi-original.json
+summary:
+  types:
+  - oauth2
+  oauth2_flows:
+  - implicit
+schemes:
+- name: oauth2
+  type: oauth2
+  flows:
+  - flow: implicit
+    authorizationUrl: https://api.automile.com/login/
+    scopes: 2
+  description: OAuth2 Implicit Grant
+  sources:
+  - openapi/automile-openapi-original.json
