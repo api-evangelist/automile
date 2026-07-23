@@ -1,0 +1,26 @@
+generated: '2026-07-18'
+method: derived
+source: openapi/automile-openapi-original.json
+note: >-
+  Cross-cutting standards conformance derived from the OpenAPI. No published
+  compliance-certification program (SOC 2 / ISO 27001 / PCI / HIPAA) was found on
+  the provider site, so no Compliance pointer is emitted.
+standards:
+- id: oauth2
+  conforms: true
+  evidence: securityDefinitions declares an oauth2 scheme (implicit flow, read/write scopes)
+- id: oidc
+  conforms: false
+  evidence: no openIdConnect scheme or /.well-known/openid-configuration
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: errors are HTTP-status + plain message body, not application/problem+json
+- id: rfc8594-sunset
+  conforms: false
+  evidence: no Sunset/Deprecation header support documented
+- id: rest-json
+  conforms: true
+  evidence: REST/JSON over HTTPS, resource-oriented /v1 paths
+- id: webhooks
+  conforms: true
+  evidence: publish/subscribe webhook surface with test-trigger operations

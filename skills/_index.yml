@@ -1,0 +1,12 @@
+generated: '2026-07-18'
+method: generated
+source: openapi/automile-openapi-original.json
+skills:
+- file: automile-fleet-and-trips.md
+  name: List Automile fleet vehicles and their trips
+  api: openapi/automile-openapi-original.json
+  operations: [GetResourceOwnerVehicles, GetResourceOwnerVehicle, GetResourceOwnerVehicleHealth, GetResourceOwnerTrips, GetResourceOwnerTrip]
+- file: automile-webhooks-and-triggers.md
+  name: Subscribe to Automile events and configure triggers
+  api: openapi/automile-openapi-original.json
+  operations: [GetPublishSubscribe, CreatePublishSubscribe, GetResourceOwnerTriggers, CreateResourceOwnerTrigger]

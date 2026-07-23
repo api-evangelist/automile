@@ -1,0 +1,35 @@
+# Automile
+
+> Automile is a fleet-telematics platform: a plug-and-play GPS "Automile Box" plus web/mobile apps that track vehicles in real time, log mileage automatically, and manage drivers, trips, geofences, expenses, inspections and work orders. Serving 15,000+ businesses. The REST/JSON API at api.automile.com (OAuth2) exposes the full fleet surface plus a publish/subscribe webhook stream.
+
+## APIs
+
+- [Automile API](https://api.automile.com): REST/JSON fleet-telematics API, Swagger 2.0, /v1, OAuth2 (read/write). 454 operations across vehicles, trips, contacts, geofences, triggers, vehicle health, expenses, inspections, work orders, and publish/subscribe webhooks.
+
+## Specs
+
+- [OpenAPI (Swagger 2.0)](https://api.automile.com/swagger/v1/swagger.json): the live spec (also mirrored at openapi/automile-openapi-original.json)
+- [Webhook event catalog](asyncapi/automile-webhooks.yml): trip, vehicle, contact and device events
+- [Authentication profile](authentication/automile-authentication.yml): OAuth2
+- [OAuth scopes](scopes/automile-scopes.yml): read, write
+- [Error catalog](errors/automile-problem-types.yml): HTTP-status keyed
+- [API conventions](conventions/automile-conventions.yml): auth, pagination, versioning, errors
+- [Data model](data-model/automile-data-model.yml): fleet entity graph
+
+## SDKs
+
+- [automile-php (Packagist)](https://packagist.org/packages/automile/automile-php)
+- [Automile.Net (NuGet)](https://www.nuget.org/packages/Automile.Net)
+- [automile-node (GitHub)](https://github.com/Automile/automile-node)
+- [automile-java (GitHub)](https://github.com/Automile/automile-java)
+
+## Docs
+
+- [Company site](https://www.automile.com/)
+- [Integrations & API](https://www.automile.com/en/integrations-api)
+- [Knowledge base](https://www.automile.com/en/knowledge-base)
+- [Help center](https://help.automile.com)
+- [Web app / login](https://app.automile.com)
+- [GitHub organization](https://github.com/Automile)
+- [Terms and conditions](https://www.automile.com/en/terms-and-conditions)
+- [Privacy policy](https://www.automile.com/en/privacy-policy)

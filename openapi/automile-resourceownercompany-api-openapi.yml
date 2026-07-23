@@ -1,0 +1,199 @@
+swagger: '2.0'
+info:
+  title: Automile ClientApi ResourceOwnerCompany API
+  version: v1
+tags:
+- name: ResourceOwnerCompany
+paths:
+  /v1/resourceowner/companies:
+    get:
+      tags:
+      - ResourceOwnerCompany
+      summary: Get a list of all companies that user is associated with
+      description: Only companies that the user is associated with will be returned by this operation.
+      operationId: GetResourceOwnerCompanies
+      produces:
+      - text/plain
+      - application/json
+      - text/json
+      responses:
+        '200':
+          description: The companies are returned
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/CompanyModel'
+        '500':
+          description: Internal server error
+      security:
+      - oauth2: []
+    post:
+      tags:
+      - ResourceOwnerCompany
+      summary: Creates a new company and associates it with the user
+      operationId: CreateResourceOwnerCompany
+      consumes:
+      - application/json
+      - text/json
+      - application/*+json
+      parameters:
+      - in: body
+        name: body
+        description: The company model
+        schema:
+          $ref: '#/definitions/CompanyCreateModel'
+      responses:
+        '200':
+          description: A link in the header is returned to the newly created company
+        '500':
+          description: Internal server error
+      security:
+      - oauth2: []
+  /v1/resourceowner/companies/{companyId}:
+    get:
+      tags:
+      - ResourceOwnerCompany
+      summary: Get a company by id
+      description: The user only has access to contacts that it is associated with through the company
+      operationId: GetByCompanyId
+      produces:
+      - text/plain
+      - application/json
+      - text/json
+      parameters:
+      - in: path
+        name: companyId
+        description: The Id of the company
+        required: true
+        type: integer
+        format: int32
+      responses:
+        '200':
+          description: The company details are returned
+          schema:
+            $ref: '#/definitions/CompanyDetailModel'
+        '500':
+          description: Internal server error
+      security:
+      - oauth2: []
+    put:
+      tags:
+      - ResourceOwnerCompany
+      summary: Updates the given company id
+      description: This will update the company contact with the new model.
+      operationId: EditResourceOwnerCompany
+      consumes:
+      - application/json
+      - text/json
+      - application/*+json
+      parameters:
+      - in: path
+        name: companyId
+        description: The company id
+        required: true
+        type: integer
+        format: int32
+      - in: body
+        name: body
+        description: The company model
+        schema:
+          $ref: '#/definitions/CompanyEditModel'
+      responses:
+        '200':
+          description: The company was saved
+        '500':
+          description: Internal server error
+      security:
+      - oauth2: []
+    delete:
+      tags:
+      - ResourceOwnerCompany
+      summary: Removes the given company
+      description: This will delete the given company contact.
+      operationId: DeleteResourceOwnerCompany
+      parameters:
+      - in: path
+        name: companyId
+        description: The company id
+        required: true
+        type: integer
+        format: int32
+      responses:
+        '200':
+          description: The company has been deleted
+        '500':
+          description: Internal server error
+      security:
+      - oauth2: []
+definitions:
+  CompanyModel:
+    type: object
+    properties:
+      CompanyId:
+        format: int32
+        type: integer
+      RegisteredCompanyName:
+        type: string
+      RegistrationNumber:
+        type: string
+    additionalProperties: false
+  CompanyDetailModel:
+    type: object
+    properties:
+      CompanyId:
+        format: int32
+        type: integer
+      RegisteredCompanyName:
+        type: string
+      RegistrationNumber:
+        type: string
+      Description:
+        type: string
+      LastModified:
+        format: date-time
+        type: string
+      Created:
+        format: date-time
+        type: string
+    additionalProperties: false
+  CompanyEditModel:
+    required:
+    - RegisteredCompanyName
+    type: object
+    properties:
+      RegisteredCompanyName:
+        maxLength: 255
+        minLength: 0
+        type: string
+      RegistrationNumber:
+        type: string
+      Description:
+        type: string
+    additionalProperties: false
+  CompanyCreateModel:
+    required:
+    - CreateRelationshipToContactId
+    - RegisteredCompanyName
+    type: object
+    properties:
+      RegisteredCompanyName:
+        maxLength: 255
+        minLength: 0
+        type: string
+      RegistrationNumber:
+        type: string
+      Description:
+        type: string
+      CreateRelationshipToContactId:
+        format: int32
+        type: integer
+    additionalProperties: false
+securityDefinitions:
+  oauth2:
+    type: oauth2
+    flow: implicit
+    authorizationUrl: https://api.automile.com/login/
+    scopes:
+      read: Read access to protected resources
+      write: Write access to protected resources
+    description: OAuth2 Implicit Grant

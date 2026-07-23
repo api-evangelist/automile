@@ -1,0 +1,199 @@
+swagger: '2.0'
+info:
+  title: Automile ClientApi ClientOrder API
+  version: v1
+tags:
+- name: ClientOrder
+paths:
+  /v1/client/order/pro:
+    post:
+      tags:
+      - ClientOrder
+      summary: Creates a pro order
+      operationId: CreateClientOrder
+      consumes:
+      - application/json
+      - text/json
+      - application/*+json
+      parameters:
+      - in: body
+        name: body
+        description: The pro order model
+        schema:
+          $ref: '#/definitions/ProOrderModel'
+      responses:
+        '200':
+          description: A pro order is created
+        '500':
+          description: Internal server error
+      security:
+      - oauth2: []
+  /v1/client/order/propricing:
+    get:
+      tags:
+      - ClientOrder
+      summary: Get Pro PriceModel
+      operationId: GetProPricingClientCustom
+      produces:
+      - text/plain
+      - application/json
+      - text/json
+      parameters:
+      - in: query
+        name: countryCode
+        type: string
+      - in: query
+        name: numberOfUnits
+        type: integer
+        format: int32
+      responses:
+        '200':
+          description: The pro price details returned
+          schema:
+            $ref: '#/definitions/ApiPriceModel'
+        '500':
+          description: Internal server error
+      security:
+      - oauth2: []
+definitions:
+  ProOrderModel:
+    required:
+    - CompanyName
+    - Email
+    - FirstName
+    - LastName
+    - MobilePhoneNumber
+    type: object
+    properties:
+      ISO4217CurrencyCode:
+        type: string
+      NumberOfUnits:
+        format: int32
+        type: integer
+      NonOBDUnits:
+        type: boolean
+      ExtensionCables:
+        type: boolean
+      NumberOfExtensionCords:
+        format: int32
+        type: integer
+      CompanyName:
+        minLength: 1
+        type: string
+      FirstName:
+        minLength: 1
+        type: string
+      LastName:
+        minLength: 1
+        type: string
+      Email:
+        minLength: 1
+        type: string
+      MobilePhoneNumber:
+        minLength: 1
+        type: string
+      ShippingAddress:
+        $ref: '#/definitions/AddressModel'
+      UseShippingAddressForBillingAddress:
+        type: boolean
+      BillingAddress:
+        $ref: '#/definitions/AddressModel'
+    additionalProperties: false
+  AddressModel:
+    required:
+    - AddressLine2
+    - City
+    - ISO3166CountryCode
+    - ZipCode
+    type: object
+    properties:
+      AddressId:
+        format: int32
+        type: integer
+      CompanyName:
+        type: string
+      ContactNameAtAddress:
+        type: string
+      AddressLine2:
+        minLength: 1
+        type: string
+      AddressLine3:
+        type: string
+      AddressLine4:
+        type: string
+      ZipCode:
+        minLength: 1
+        type: string
+      City:
+        minLength: 1
+        type: string
+      StateOrProvince:
+        type: string
+      ISO3166CountryCode:
+        minLength: 1
+        type: string
+    additionalProperties: false
+  ApiPriceModel:
+    type: object
+    properties:
+      ISO4217CurrencyCode:
+        type: string
+      IsYearlySubscription:
+        type: boolean
+      SubscriptionFeePerDeviceAndMonth:
+        format: double
+        type: number
+      SubscriptionFeePerDeviceAndYear:
+        format: double
+        type: number
+      NumberOfUnits:
+        format: double
+        type: number
+      UnitFee:
+        format: double
+        type: number
+      UnitTotalFee:
+        format: double
+        type: number
+      SubscriptionFee:
+        format: double
+        type: number
+      SubscriptionTotalFee:
+        format: double
+        type: number
+      ShipmentFee:
+        format: double
+        type: number
+      TotalFee:
+        format: double
+        type: number
+      SubscriptionTotalFeeDescription:
+        type: string
+      UnitTotalFeeDescription:
+        type: string
+      ShipmentFeeDescription:
+        type: string
+      SubscriptionFeePerDeviceAndMonthDescription:
+        type: string
+      SubscriptionFeePerDeviceAndYearDescription:
+        type: string
+      FreightForwarderUrl:
+        type: string
+      FreightForwarderDescription:
+        type: string
+      ArticlePriceIdMonthlyPlan:
+        format: int32
+        type: integer
+      ArticlePriceIdYearlyPlan:
+        format: int32
+        type: integer
+    additionalProperties: false
+securityDefinitions:
+  oauth2:
+    type: oauth2
+    flow: implicit
+    authorizationUrl: https://api.automile.com/login/
+    scopes:
+      read: Read access to protected resources
+      write: Write access to protected resources
+    description: OAuth2 Implicit Grant

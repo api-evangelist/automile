@@ -1,0 +1,175 @@
+swagger: '2.0'
+info:
+  title: Automile ClientApi ResourceOwnerPlace2 API
+  version: v1
+tags:
+- name: ResourceOwnerPlace2
+paths:
+  /v1/resourceowner/place2:
+    post:
+      tags:
+      - ResourceOwnerPlace2
+      summary: Creates a new place
+      description: "This will create a new place and associate it with a number of vehicles.\r\n            Only vehicles authorized for edit will be added to the place."
+      operationId: CreateResourceOwnerPlace2
+      consumes:
+      - application/json
+      - text/json
+      - application/*+json
+      parameters:
+      - in: body
+        name: body
+        description: The place model
+        schema:
+          $ref: '#/definitions/Place2CreateModel'
+      responses:
+        '200':
+          description: A link in the header is returned to the newly created place
+        '500':
+          description: Internal server error
+        '400':
+          description: Bad request, could occur for a number of cases, see returned message
+        '403':
+          description: Request is forbidden, could occur for a number of reasons, see returned message
+      security:
+      - oauth2: []
+  /v1/resourceowner/place2/{placeId}:
+    put:
+      tags:
+      - ResourceOwnerPlace2
+      summary: Updates the given place with new model
+      description: "This will update information on an already existing place, as well as its vehicle connections.\r\n            Vehicle connections to the place will be updated/added from the VehicleIds list if user has edit authorization to the vehicles.\r\n            Already existing vehicle connections be removed if excluded in the VehicleIds list (if authorized to be edited).\r\n            This will update the given place id with a new model."
+      operationId: EditResourceOwnerPlace2
+      consumes:
+      - application/json
+      - text/json
+      - application/*+json
+      parameters:
+      - in: path
+        name: placeId
+        description: The place id
+        required: true
+        type: integer
+        format: int32
+      - in: body
+        name: body
+        description: The place model
+        schema:
+          $ref: '#/definitions/Place2EditModel'
+      responses:
+        '200':
+          description: The given place was saved
+        '500':
+          description: Internal server error
+        '400':
+          description: Bad request, could occur for a number of cases, see returned message
+        '403':
+          description: Request is forbidden, could occur for a number of reasons, see returned message
+      security:
+      - oauth2: []
+definitions:
+  PositionPointModel:
+    type: object
+    properties:
+      Longitude:
+        format: double
+        type: number
+      Latitude:
+        format: double
+        type: number
+    additionalProperties: false
+  Place2EditModel:
+    required:
+    - Name
+    - PositionPoint
+    - Radius
+    - VehicleIds
+    type: object
+    properties:
+      Name:
+        minLength: 1
+        type: string
+      VehicleIds:
+        type: array
+        items:
+          format: int32
+          type: integer
+      Radius:
+        format: int32
+        type: integer
+      PositionPoint:
+        $ref: '#/definitions/PositionPointModel'
+      Description:
+        type: string
+      TripType:
+        format: int32
+        enum:
+        - 0
+        - 1
+        - 2
+        - 3
+        type: integer
+      TripTypeTrigger:
+        format: int32
+        enum:
+        - 0
+        - 1
+        - 2
+        - 3
+        type: integer
+      DrivesBetweenAnotherPlaceId:
+        format: int32
+        type: integer
+    additionalProperties: false
+  Place2CreateModel:
+    required:
+    - Name
+    - PositionPoint
+    - Radius
+    - VehicleIds
+    type: object
+    properties:
+      Name:
+        minLength: 1
+        type: string
+      VehicleIds:
+        type: array
+        items:
+          format: int32
+          type: integer
+      Radius:
+        format: int32
+        type: integer
+      PositionPoint:
+        $ref: '#/definitions/PositionPointModel'
+      Description:
+        type: string
+      TripType:
+        format: int32
+        enum:
+        - 0
+        - 1
+        - 2
+        - 3
+        type: integer
+      TripTypeTrigger:
+        format: int32
+        enum:
+        - 0
+        - 1
+        - 2
+        - 3
+        type: integer
+      DrivesBetweenAnotherPlaceId:
+        format: int32
+        type: integer
+    additionalProperties: false
+securityDefinitions:
+  oauth2:
+    type: oauth2
+    flow: implicit
+    authorizationUrl: https://api.automile.com/login/
+    scopes:
+      read: Read access to protected resources
+      write: Write access to protected resources
+    description: OAuth2 Implicit Grant

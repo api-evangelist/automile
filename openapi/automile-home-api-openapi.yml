@@ -1,0 +1,38 @@
+swagger: '2.0'
+info:
+  title: Automile ClientApi Home API
+  version: v1
+tags:
+- name: Home
+paths:
+  /:
+    get:
+      tags:
+      - Home
+      parameters:
+      - in: query
+        name: token
+        type: string
+      responses:
+        '200':
+          description: Success
+  /o2c:
+    get:
+      tags:
+      - Home
+      parameters:
+      - in: query
+        name: token
+        type: string
+      responses:
+        '200':
+          description: Success
+securityDefinitions:
+  oauth2:
+    type: oauth2
+    flow: implicit
+    authorizationUrl: https://api.automile.com/login/
+    scopes:
+      read: Read access to protected resources
+      write: Write access to protected resources
+    description: OAuth2 Implicit Grant

@@ -1,0 +1,370 @@
+swagger: '2.0'
+info:
+  title: Automile ClientApi ResourceOwnerRegisteredTollV2 API
+  version: v1
+tags:
+- name: ResourceOwnerRegisteredTollV2
+paths:
+  /v1/resourceowner/registeredtoll:
+    get:
+      tags:
+      - ResourceOwnerRegisteredTollV2
+      summary: Get list of registered tolls
+      operationId: ResourceOwnerRegisteredTollController_GetRegisteredTollList
+      produces:
+      - text/plain
+      - application/json
+      - text/json
+      parameters:
+      - in: query
+        name: from
+        description: 'Registered tolls from this timestamp (default: 60 days back)'
+        type: string
+        format: date-time
+      - in: query
+        name: to
+        description: 'Registered tolls until this timestamp (default: current timestamp)'
+        type: string
+        format: date-time
+      - in: query
+        name: vehicleId
+        description: 'If set, only list tolls registered for this specific vehicle (default: all accessible vehicles)'
+        type: integer
+        format: int32
+      - in: query
+        name: driverContactId
+        description: 'If set, only list tolls registered for this specific driver (default: all drivers)'
+        type: integer
+        format: int32
+      responses:
+        '200':
+          description: Registered toll list successfully fetched
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/RegisteredTollModelGET'
+        '403':
+          description: Forbidden access to resource
+        '500':
+          description: Internal server error
+      security:
+      - oauth2: []
+    post:
+      tags:
+      - ResourceOwnerRegisteredTollV2
+      summary: Register a toll passage
+      operationId: ResourceOwnerRegisteredTollController_SaveRegisteredToll
+      consumes:
+      - application/json
+      - text/json
+      - application/*+json
+      parameters:
+      - in: body
+        name: body
+        description: Toll fee to register
+        schema:
+          $ref: '#/definitions/RegisteredTollModelPOST'
+      responses:
+        '200':
+          description: Success
+        '201':
+          description: Successfully created
+        '403':
+          description: Forbidden access to resource
+        '500':
+          description: Internal server error
+      security:
+      - oauth2: []
+  /v1/resourceowner/registeredtoll/multi-update:
+    put:
+      tags:
+      - ResourceOwnerRegisteredTollV2
+      summary: Update multiple toll passage registrations
+      operationId: ResourceOwnerRegisteredTollController_UpdateRegisteredTollList
+      consumes:
+      - application/json
+      - text/json
+      - application/*+json
+      parameters:
+      - in: body
+        name: body
+        description: Toll fee registration list
+        schema:
+          $ref: '#/definitions/RegisteredTollBatchUpdateModelPUT'
+      responses:
+        '200':
+          description: Successfully updated
+        '403':
+          description: Forbidden access to resource
+        '500':
+          description: Internal server error
+      security:
+      - oauth2: []
+  /v1/resourceowner/registeredtoll/{registeredTollId}:
+    put:
+      tags:
+      - ResourceOwnerRegisteredTollV2
+      summary: Update a toll passage
+      operationId: ResourceOwnerRegisteredTollController_UpdateRegisteredToll
+      consumes:
+      - application/json
+      - text/json
+      - application/*+json
+      parameters:
+      - in: path
+        name: registeredTollId
+        description: Which toll fee to edit
+        required: true
+        type: integer
+        format: int32
+      - in: body
+        name: body
+        description: Toll fee information
+        schema:
+          $ref: '#/definitions/RegisteredTollModelPUT'
+      responses:
+        '200':
+          description: Successfully updated
+        '403':
+          description: Forbidden access to resource
+        '500':
+          description: Internal server error
+      security:
+      - oauth2: []
+    get:
+      tags:
+      - ResourceOwnerRegisteredTollV2
+      summary: Get registered toll
+      operationId: ResourceOwnerRegisteredTollController_GetRegisteredToll
+      produces:
+      - text/plain
+      - application/json
+      - text/json
+      parameters:
+      - in: path
+        name: registeredTollId
+        description: Id of registered toll
+        required: true
+        type: integer
+        format: int32
+      responses:
+        '200':
+          description: Registered toll list successfully fetched
+          schema:
+            $ref: '#/definitions/RegisteredTollModelGET'
+        '403':
+          description: Forbidden access to resource
+        '500':
+          description: Internal server error
+      security:
+      - oauth2: []
+    delete:
+      tags:
+      - ResourceOwnerRegisteredTollV2
+      summary: Delete registered toll fee
+      operationId: ResourceOwnerRegisteredTollController_DeleteRegisteredToll
+      parameters:
+      - in: path
+        name: registeredTollId
+        description: The id for the registered toll to delete
+        required: true
+        type: integer
+        format: int32
+      responses:
+        '200':
+          description: Registered toll list successfully deleted
+        '403':
+          description: Forbidden access to resource
+        '500':
+          description: Internal server error
+      security:
+      - oauth2: []
+  /v1/resourceowner/registeredtoll/tollzone:
+    get:
+      tags:
+      - ResourceOwnerRegisteredTollV2
+      summary: Get the list of toll zones
+      operationId: ResourceOwnerRegisteredTollController_GetTollZoneList
+      produces:
+      - text/plain
+      - application/json
+      - text/json
+      responses:
+        '200':
+          description: Toll zone list successfully fetched
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/TollZoneModelGET'
+        '403':
+          description: Forbidden access to resource
+        '500':
+          description: Internal server error
+      security:
+      - oauth2: []
+definitions:
+  RegisteredTollModelGET:
+    type: object
+    properties:
+      TimestampUtc:
+        format: date-time
+        type: string
+      Fee:
+        format: double
+        type: number
+      TripId:
+        format: int32
+        type: integer
+      GeofenceId:
+        format: int32
+        type: integer
+      TollZoneId:
+        format: int32
+        type: integer
+      PriceAfterDiscount:
+        format: double
+        type: number
+      TollZoneName:
+        type: string
+      RegisteredTollId:
+        format: int32
+        type: integer
+      VehicleId:
+        format: int32
+        type: integer
+      VehicleUserFriendlyName:
+        type: string
+      VehicleMake:
+        type: string
+      VehicleModel:
+        type: string
+      VehicleNumberPlate:
+        type: string
+      DriverContactId:
+        format: int32
+        type: integer
+      DriverImageUrl:
+        type: string
+      DriverName:
+        type: string
+      CurrencyISO4271:
+        type: string
+      ReadOnly:
+        type: boolean
+      TripType:
+        format: int32
+        enum:
+        - 0
+        - 1
+        - 2
+        - 3
+        type: integer
+    additionalProperties: false
+  TollZoneModelGET:
+    type: object
+    properties:
+      TollZoneId:
+        format: int32
+        type: integer
+      Name:
+        type: string
+      TollGeofenceList:
+        type: array
+        items:
+          $ref: '#/definitions/TollGeofenceModelGET'
+    additionalProperties: false
+  RegisteredTollModelPUT:
+    type: object
+    properties:
+      TimestampUtc:
+        format: date-time
+        type: string
+      Fee:
+        format: double
+        type: number
+      TripId:
+        format: int32
+        type: integer
+      GeofenceId:
+        format: int32
+        type: integer
+      TollZoneId:
+        format: int32
+        type: integer
+      PriceAfterDiscount:
+        format: double
+        type: number
+    additionalProperties: false
+  TollGeofenceModelGET:
+    type: object
+    properties:
+      GeofenceId:
+        format: int32
+        type: integer
+      Name:
+        type: string
+    additionalProperties: false
+  RegisteredTollBatchUpdateModelPUT:
+    type: object
+    properties:
+      RegisteredTollList:
+        type: array
+        items:
+          $ref: '#/definitions/RegisteredTollMultiEditModelPUT'
+    additionalProperties: false
+  RegisteredTollModelPOST:
+    type: object
+    properties:
+      TimestampUtc:
+        format: date-time
+        type: string
+      Fee:
+        format: double
+        type: number
+      TripId:
+        format: int32
+        type: integer
+      GeofenceId:
+        format: int32
+        type: integer
+      TollZoneId:
+        format: int32
+        type: integer
+      PriceAfterDiscount:
+        format: double
+        type: number
+    additionalProperties: false
+  RegisteredTollMultiEditModelPUT:
+    type: object
+    properties:
+      TimestampUtc:
+        format: date-time
+        type: string
+      Fee:
+        format: double
+        type: number
+      TripId:
+        format: int32
+        type: integer
+      GeofenceId:
+        format: int32
+        type: integer
+      TollZoneId:
+        format: int32
+        type: integer
+      PriceAfterDiscount:
+        format: double
+        type: number
+      RegisteredTollId:
+        format: int32
+        type: integer
+    additionalProperties: false
+securityDefinitions:
+  oauth2:
+    type: oauth2
+    flow: implicit
+    authorizationUrl: https://api.automile.com/login/
+    scopes:
+      read: Read access to protected resources
+      write: Write access to protected resources
+    description: OAuth2 Implicit Grant

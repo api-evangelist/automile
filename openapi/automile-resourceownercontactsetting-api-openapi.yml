@@ -1,0 +1,112 @@
+swagger: '2.0'
+info:
+  title: Automile ClientApi ResourceOwnerContactSetting API
+  version: v1
+tags:
+- name: ResourceOwnerContactSetting
+paths:
+  /v1/resourceowner/contactsetting/{contactId}:
+    get:
+      tags:
+      - ResourceOwnerContactSetting
+      summary: Get a list of all settings available for a contact
+      operationId: contactsetting_GetSettingList
+      produces:
+      - text/plain
+      - application/json
+      - text/json
+      parameters:
+      - in: path
+        name: contactId
+        description: The contact id
+        required: true
+        type: integer
+        format: int32
+      responses:
+        '200':
+          description: The contacts are returned
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/ContactSettingModelGET'
+        '500':
+          description: Internal server error
+      security:
+      - oauth2: []
+    put:
+      tags:
+      - ResourceOwnerContactSetting
+      summary: Edit a setting for the user
+      operationId: contactsetting_EditSetting
+      consumes:
+      - application/json
+      - text/json
+      - application/*+json
+      parameters:
+      - in: path
+        name: contactId
+        description: The contact id
+        required: true
+        type: integer
+        format: int32
+      - in: body
+        name: body
+        description: The setting to edit and its new value (null = remove)
+        schema:
+          $ref: '#/definitions/ContactSettingModelPUT'
+      responses:
+        '200':
+          description: The setting was saved
+        '500':
+          description: Internal server error
+        '403':
+          description: Request is forbidden, this could occur if you are not associated with the contact
+      security:
+      - oauth2: []
+  /v1/resourceowner/contactsetting/settingkeylist:
+    get:
+      tags:
+      - ResourceOwnerContactSetting
+      summary: Get a list of all settings available to set on a contact
+      operationId: contactsetting_GetSettingKeyList
+      produces:
+      - text/plain
+      - application/json
+      - text/json
+      responses:
+        '200':
+          description: The contacts are returned
+          schema:
+            type: array
+            items:
+              type: string
+        '500':
+          description: Internal server error
+      security:
+      - oauth2: []
+definitions:
+  ContactSettingModelGET:
+    type: object
+    properties:
+      Name:
+        type: string
+      Value:
+        type: string
+    additionalProperties: false
+  ContactSettingModelPUT:
+    type: object
+    properties:
+      Name:
+        type: string
+      Value:
+        type: string
+    additionalProperties: false
+securityDefinitions:
+  oauth2:
+    type: oauth2
+    flow: implicit
+    authorizationUrl: https://api.automile.com/login/
+    scopes:
+      read: Read access to protected resources
+      write: Write access to protected resources
+    description: OAuth2 Implicit Grant

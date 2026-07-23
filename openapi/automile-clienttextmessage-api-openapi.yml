@@ -1,0 +1,144 @@
+swagger: '2.0'
+info:
+  title: Automile ClientApi ClientTextMessage API
+  version: v1
+tags:
+- name: ClientTextMessage
+paths:
+  /v1/client/textmessages/createpin:
+    post:
+      tags:
+      - ClientTextMessage
+      summary: Create and send pin code to login with
+      operationId: CreatePinCode
+      consumes:
+      - application/json
+      - text/json
+      - application/*+json
+      produces:
+      - text/plain
+      - application/json
+      - text/json
+      parameters:
+      - in: body
+        name: body
+        description: ''
+        schema:
+          $ref: '#/definitions/CreatePinModel'
+      responses:
+        '200':
+          description: The Pin code have been sent
+        '400':
+          description: Format error on phonenumber, To many SMS or no match on phonenumber
+          schema:
+            $ref: '#/definitions/ProblemDetails'
+      security:
+      - oauth2: []
+  /v1/client/textmessages/validatepin:
+    post:
+      tags:
+      - ClientTextMessage
+      summary: Validate Pin Code
+      operationId: ValidatePinCode
+      consumes:
+      - application/json
+      - text/json
+      - application/*+json
+      produces:
+      - text/plain
+      - application/json
+      - text/json
+      parameters:
+      - in: body
+        name: body
+        description: ''
+        schema:
+          $ref: '#/definitions/ValidatePinModel'
+      responses:
+        '200':
+          description: User logged in/User created and a user token returned in response
+          schema:
+            $ref: '#/definitions/TokenResponse'
+        '400':
+          description: Can't assoicate given username to a user
+          schema:
+            $ref: '#/definitions/ProblemDetails'
+        '401':
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/ProblemDetails'
+        '403':
+          description: Too many password attempts
+          schema:
+            $ref: '#/definitions/ProblemDetails'
+      security:
+      - oauth2: []
+definitions:
+  TokenResponse:
+    description: The token response
+    type: object
+    properties:
+      UserName:
+        type: string
+      AccessToken:
+        type: string
+      ExpiresInSeconds:
+        format: double
+        type: number
+      IssuedUtc:
+        format: date-time
+        type: string
+      ExpiresUtc:
+        format: date-time
+        type: string
+      RefreshToken:
+        type: string
+    additionalProperties: false
+  CreatePinModel:
+    type: object
+    properties:
+      UserName:
+        type: string
+      MobilePhoneNumber:
+        type: string
+      UserGuid:
+        format: uuid
+        type: string
+      Culture:
+        type: string
+    additionalProperties: false
+  ProblemDetails:
+    type: object
+    properties:
+      type:
+        type: string
+      title:
+        type: string
+      status:
+        format: int32
+        type: integer
+      detail:
+        type: string
+      instance:
+        type: string
+    additionalProperties: {}
+  ValidatePinModel:
+    type: object
+    properties:
+      UserName:
+        type: string
+      Pin:
+        type: string
+      UserGuid:
+        format: uuid
+        type: string
+    additionalProperties: false
+securityDefinitions:
+  oauth2:
+    type: oauth2
+    flow: implicit
+    authorizationUrl: https://api.automile.com/login/
+    scopes:
+      read: Read access to protected resources
+      write: Write access to protected resources
+    description: OAuth2 Implicit Grant

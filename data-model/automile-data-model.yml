@@ -1,0 +1,83 @@
+generated: '2026-07-18'
+method: derived
+source: openapi/automile-openapi-original.json
+note: 'Entity graph derived from OpenAPI definitions and *Id reference fields. Automile is a fleet-telematics
+  domain: vehicles emit trips, positions and OBD health; triggers + publish/subscribe drive alerts and
+  webhooks.'
+id_style: integer surrogate keys (e.g. vehicleId, tripId, contactId)
+entities:
+- name: Vehicle
+  definition: AutoPlanV2VehicleInfo
+- name: Trip
+  definition: EmailTripReportModel
+- name: Contact
+  definition: CompanyContactCreateModel
+- name: Geofence
+  definition: Geofence2CreateModel
+- name: Trigger
+  definition: MovePushTriggers
+- name: PublishSubscribe
+  definition: PublishSubscribeCreateModel
+- name: Place
+  definition: Place2CreateModel
+- name: ExpenseReport
+  definition: EmailExpenseReportModel
+- name: VehicleInspection
+  definition: VehicleInspectionCreateModel
+- name: TrackedAsset
+  definition: TrackedAssetHistoryModelGET
+- name: WorkOrder
+  definition: WorkOrderArticleModelGET
+- name: Task
+  definition: TaskContactModel
+- name: User
+  definition: ChangeUserNameModel
+- name: Company
+  definition: CompanyContactCreateModel
+- name: Device
+  definition: DeviceRegisteredModel
+- name: ImeiConfig
+  definition: IMEIConfig3Model
+- name: HoursOfService
+  definition: HoursOfServiceCycles
+- name: RoutePlanner
+  definition: RoutePlannerMissionLocationModel
+- name: Quote
+  definition: QuoteAttachmentModelGET
+- name: Order
+  definition: CreateOrderModel
+- name: Organization
+  definition: OrganizationEditModel
+relationships:
+- from: Trip
+  to: Vehicle
+  kind: belongs_to
+  via: VehicleId
+- from: Contact
+  to: Company
+  kind: belongs_to
+  via: CompanyId
+- from: PublishSubscribe
+  to: Vehicle
+  kind: belongs_to
+  via: VehicleId
+- from: VehicleInspection
+  to: Vehicle
+  kind: belongs_to
+  via: VehicleId
+- from: Task
+  to: Contact
+  kind: belongs_to
+  via: ContactId
+- from: Company
+  to: Contact
+  kind: belongs_to
+  via: ContactId
+- from: ImeiConfig
+  to: Vehicle
+  kind: belongs_to
+  via: VehicleId
+- from: ImeiConfig
+  to: Organization
+  kind: belongs_to
+  via: OrganizationId

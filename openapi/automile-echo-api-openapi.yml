@@ -1,0 +1,27 @@
+swagger: '2.0'
+info:
+  title: Automile ClientApi Echo API
+  version: v1
+tags:
+- name: Echo
+paths:
+  /v1/echo/validatetoken:
+    get:
+      tags:
+      - Echo
+      summary: Validates a given token
+      description: Simple operation to test that a valid OAuth2 Bearer token has been supplied
+      responses:
+        '200':
+          description: Success
+      security:
+      - oauth2: []
+securityDefinitions:
+  oauth2:
+    type: oauth2
+    flow: implicit
+    authorizationUrl: https://api.automile.com/login/
+    scopes:
+      read: Read access to protected resources
+      write: Write access to protected resources
+    description: OAuth2 Implicit Grant

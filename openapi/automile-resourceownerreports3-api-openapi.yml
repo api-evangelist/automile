@@ -1,0 +1,475 @@
+swagger: '2.0'
+info:
+  title: Automile ClientApi ResourceOwnerReports3 API
+  version: v1
+tags:
+- name: ResourceOwnerReports3
+paths:
+  /v1/resourceowner/reports3/tripsummary/{dateperiod}:
+    get:
+      tags:
+      - ResourceOwnerReports3
+      summary: Get a trip summary report
+      description: Only vehicles that the user is associated with will be returned by this operation. 400 bad request is returend if the date period parameter is not in a correct format
+      operationId: GetTripSummaryReport3
+      produces:
+      - text/plain
+      - application/json
+      - text/json
+      parameters:
+      - in: path
+        name: dateperiod
+        description: Date period parameter, in the form of only year (2014), year and month (201401), or interval {201301-201401}
+        required: true
+        type: string
+      responses:
+        '200':
+          description: The trip summary report are returned
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/TripSummaryReportModel'
+        '500':
+          description: Internal server error
+        '400':
+          description: Bad request, date period is not in a correct format
+      security:
+      - oauth2: []
+  /v1/resourceowner/reports3/tripsummary/{dateperiod}/{vehicleId}:
+    get:
+      tags:
+      - ResourceOwnerReports3
+      summary: Get a trip summary report filtered by vehicle
+      description: Only vehicles that the user is associated with will be returned by this operation. 400 bad request is returend if the date period parameter is not in a correct format
+      operationId: GetTripSummaryReporByVehicleId3
+      produces:
+      - text/plain
+      - application/json
+      - text/json
+      parameters:
+      - in: path
+        name: dateperiod
+        description: Date period parameter, in the form of only year (2014), year and month (201401), or interval {201301-201401}
+        required: true
+        type: string
+      - in: path
+        name: vehicleId
+        description: Report will be filtered on vehicle Id
+        required: true
+        type: integer
+        format: int32
+      responses:
+        '200':
+          description: The trip summary report are returned
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/TripSummaryReportModel'
+        '500':
+          description: Internal server error
+        '400':
+          description: Bad request, date period is not in a correct format
+      security:
+      - oauth2: []
+  /v1/resourceowner/reports3/vehiclesummary/{dateperiod}/{vehicleId}:
+    get:
+      tags:
+      - ResourceOwnerReports3
+      summary: Get a vehicle summary report
+      description: Only vehicles that the user is associated with will be returned by this operation. 400 bad request is returend if the date period parameter is not in a correct format
+      operationId: GetVehicleSummaryReportByVehicleId3
+      produces:
+      - text/plain
+      - application/json
+      - text/json
+      parameters:
+      - in: path
+        name: dateperiod
+        description: Date period parameter, in the form of only year (2014), year and month (201401), or interval {201301-201401}
+        required: true
+        type: string
+      - in: path
+        name: vehicleId
+        description: Report will be filtered on vehicle Id
+        required: true
+        type: integer
+        format: int32
+      responses:
+        '200':
+          description: The vehicle summary report returned
+          schema:
+            $ref: '#/definitions/VehicleSummaryModel'
+        '500':
+          description: Internal server error
+        '400':
+          description: Bad request, date period is not in a correct format
+      security:
+      - oauth2: []
+  /v1/resourceowner/reports3/vehiclessummary/{dateperiod}:
+    get:
+      tags:
+      - ResourceOwnerReports3
+      summary: Get vehicles summary report
+      description: Only vehicles that the user is associated with will be returned by this operation. 400 bad request is returend if the date period parameter is not in a correct format
+      operationId: GetVehiclesSummaryReport3
+      produces:
+      - text/plain
+      - application/json
+      - text/json
+      parameters:
+      - in: path
+        name: dateperiod
+        description: Date period parameter, in the form of only year (2014), year and month (201401), or interval {201301-201401}
+        required: true
+        type: string
+      responses:
+        '200':
+          description: The vehicles summary report is returned
+          schema:
+            $ref: '#/definitions/VehiclesSummaryModel'
+        '500':
+          description: Internal server error
+        '400':
+          description: Bad request, date period is not in a correct format
+      security:
+      - oauth2: []
+  /v1/resourceowner/reports3/emailtripreport:
+    post:
+      tags:
+      - ResourceOwnerReports3
+      summary: Email a trip journal report to a desired email address
+      description: Only vehicles that the user is associated will be allowed
+      operationId: EmailTripReport3
+      consumes:
+      - application/json
+      - text/json
+      - application/*+json
+      parameters:
+      - in: body
+        name: body
+        description: The company model
+        schema:
+          $ref: '#/definitions/EmailTripReportModel'
+      responses:
+        '200':
+          description: Email with trip journal has been sent
+        '500':
+          description: Internal server error
+        '404':
+          description: ISO 639 language code does not exist
+        '403':
+          description: Not allowed to vehicle
+      security:
+      - oauth2: []
+  /v1/resourceowner/reports3/geofencelog:
+    get:
+      tags:
+      - ResourceOwnerReports3
+      summary: ''
+      operationId: GetGeofenceLog3
+      produces:
+      - text/plain
+      - application/json
+      - text/json
+      parameters:
+      - in: query
+        name: vehicleId
+        description: ''
+        type: integer
+        format: int32
+      - in: query
+        name: geofenceId
+        description: ''
+        type: integer
+        format: int32
+      - in: query
+        name: fromDate
+        description: ''
+        type: string
+        format: date-time
+      - in: query
+        name: toDate
+        description: ''
+        type: string
+        format: date-time
+      responses:
+        '200':
+          description: Success
+          schema:
+            $ref: '#/definitions/GeofenceReportModel'
+      security:
+      - oauth2: []
+definitions:
+  TravelTimeReportModel:
+    type: object
+    properties:
+      Period:
+        format: int32
+        type: integer
+      BusinessTravelTimeInMinutes:
+        format: int32
+        type: integer
+      PersonalTravelTimeInMinutes:
+        format: int32
+        type: integer
+      OtherTravelTimeInMinutes:
+        format: int32
+        type: integer
+    additionalProperties: false
+  CO2ReportModel:
+    type: object
+    properties:
+      Period:
+        format: int32
+        type: integer
+      BusinessCO2InGrams:
+        format: double
+        type: number
+      PersonalCO2InGrams:
+        format: double
+        type: number
+      OtherCO2InGrams:
+        format: double
+        type: number
+    additionalProperties: false
+  TripSummaryReportModel:
+    type: object
+    properties:
+      ReportStartPeriod:
+        format: int32
+        type: integer
+      ReportEndPeriod:
+        format: int32
+        type: integer
+      VehicleId:
+        format: int32
+        type: integer
+      TripType:
+        format: int32
+        enum:
+        - 0
+        - 1
+        - 2
+        type: integer
+      DistanceInKilometers:
+        format: double
+        type: number
+      TravelTimeInMinutes:
+        format: int32
+        type: integer
+      FuelInLiters:
+        format: double
+        type: number
+      NumberOfTrips:
+        format: int32
+        type: integer
+    additionalProperties: false
+  GeofenceReportModel:
+    type: object
+    properties:
+      FromDate:
+        format: date-time
+        type: string
+      ToDate:
+        format: date-time
+        type: string
+      VehicleId:
+        format: int32
+        type: integer
+      GeofenceId:
+        format: int32
+        type: integer
+      Result:
+        type: array
+        items:
+          $ref: '#/definitions/GeofenceRecordReportModel'
+    additionalProperties: false
+  DistanceReportModel:
+    type: object
+    properties:
+      Period:
+        format: int32
+        type: integer
+      BusinessDistanceInKilometers:
+        format: double
+        type: number
+      PersonalDistanceInKilometers:
+        format: double
+        type: number
+      OtherDistanceInKilometers:
+        format: double
+        type: number
+    additionalProperties: false
+  IdleTimeReportModel:
+    type: object
+    properties:
+      Period:
+        format: int32
+        type: integer
+      BusinessIdleTimeInMinutes:
+        format: int32
+        type: integer
+      PersonalIdleTimeInMinutes:
+        format: int32
+        type: integer
+      OtherIdleTimeInMinutes:
+        format: int32
+        type: integer
+    additionalProperties: false
+  VehiclesSummaryModel:
+    type: object
+    properties:
+      DistanceReports:
+        type: array
+        items:
+          $ref: '#/definitions/DistanceReportModel'
+      FuelReports:
+        type: array
+        items:
+          $ref: '#/definitions/FuelReportModel'
+      TravelTimeReports:
+        type: array
+        items:
+          $ref: '#/definitions/TravelTimeReportModel'
+      CO2Reports:
+        type: array
+        items:
+          $ref: '#/definitions/CO2ReportModel'
+      IdleTimeReports:
+        type: array
+        items:
+          $ref: '#/definitions/IdleTimeReportModel'
+    additionalProperties: false
+  VehicleSummaryModel:
+    type: object
+    properties:
+      DistanceReports:
+        type: array
+        items:
+          $ref: '#/definitions/DistanceReportModel'
+      FuelReports:
+        type: array
+        items:
+          $ref: '#/definitions/FuelReportModel'
+      TravelTimeReports:
+        type: array
+        items:
+          $ref: '#/definitions/TravelTimeReportModel'
+      CO2Reports:
+        type: array
+        items:
+          $ref: '#/definitions/CO2ReportModel'
+      IdleTimeReports:
+        type: array
+        items:
+          $ref: '#/definitions/IdleTimeReportModel'
+      VehicleId:
+        format: int32
+        type: integer
+    additionalProperties: false
+  EmailTripReportModel:
+    type: object
+    properties:
+      VehicleId:
+        format: int32
+        type: integer
+      Period:
+        format: int32
+        type: integer
+      ToEmail:
+        type: string
+      ISO639LanguageCode:
+        type: string
+      ExcludeDetailsForPersonalTrips:
+        type: boolean
+      ExcludeEnvironmentalAndFuelData:
+        type: boolean
+    additionalProperties: false
+  FuelReportModel:
+    type: object
+    properties:
+      Period:
+        format: int32
+        type: integer
+      BusinessFuelInLiters:
+        format: double
+        type: number
+      PersonalFuelInLiters:
+        format: double
+        type: number
+      OtherFuelInLiters:
+        format: double
+        type: number
+    additionalProperties: false
+  VehicleTinyModel:
+    type: object
+    properties:
+      VehicleId:
+        format: int32
+        type: integer
+      NumberPlate:
+        type: string
+      Make:
+        type: string
+      Model:
+        type: string
+      FriendlyName:
+        type: string
+      FuelType:
+        format: int32
+        enum:
+        - 0
+        - 1
+        - 2
+        - 3
+        - 4
+        - 5
+        - 6
+        - 7
+        - 8
+        - 9
+        - 10
+        type: integer
+      ModelYear:
+        format: int32
+        type: integer
+      ImageUrlMake:
+        type: string
+      UserFriendlyName:
+        type: string
+    additionalProperties: false
+  GeofenceRecordReportModel:
+    type: object
+    properties:
+      TripId:
+        format: int32
+        type: integer
+      GeofenceId:
+        format: int32
+        type: integer
+      GeofenceName:
+        type: string
+      GeofenceType:
+        format: int32
+        enum:
+        - 0
+        - 1
+        - 2
+        type: integer
+      IsInside:
+        type: boolean
+      EventDateTime:
+        format: date-time
+        type: string
+      VehicleTinyModel:
+        $ref: '#/definitions/VehicleTinyModel'
+    additionalProperties: false
+securityDefinitions:
+  oauth2:
+    type: oauth2
+    flow: implicit
+    authorizationUrl: https://api.automile.com/login/
+    scopes:
+      read: Read access to protected resources
+      write: Write access to protected resources
+    description: OAuth2 Implicit Grant

@@ -1,0 +1,54 @@
+generated: '2026-07-18'
+method: derived
+status: candidate
+source: openapi/automile-openapi-original.json
+note: No official hosted/remote Automile MCP server was found. This is a candidate tool set derived from
+  representative OpenAPI operations (fleet vehicles, trips, contacts, geofences, triggers, webhooks, vehicle
+  health). Ground any implementation in the real operationIds.
+server:
+  name: automile
+  transport: stdio
+  base_url: https://api.automile.com
+tools:
+- name: GetResourceOwnerVehicles
+  description: Get all vehicles that the user has access to
+  source_operation: openapi/automile-openapi-original.json#GetResourceOwnerVehicles
+- name: GetResourceOwnerVehicle
+  description: Get the details about the vehicle
+  source_operation: openapi/automile-openapi-original.json#GetResourceOwnerVehicle
+- name: GetResourceOwnerTrips
+  description: Get all trips that the user has access to
+  source_operation: openapi/automile-openapi-original.json#GetResourceOwnerTrips
+- name: GetResourceOwnerTrip
+  description: Get the details about the trip
+  source_operation: openapi/automile-openapi-original.json#GetResourceOwnerTrip
+- name: GetResourceOwnerContacts
+  description: Get a list of all contacts that user is associated with
+  source_operation: openapi/automile-openapi-original.json#GetResourceOwnerContacts
+- name: GetResourceOwnerContact
+  description: Get a contact by id
+  source_operation: openapi/automile-openapi-original.json#GetResourceOwnerContact
+- name: GetResourceOwnerGeofences
+  description: Get a list of geofencese user is associated with
+  source_operation: openapi/automile-openapi-original.json#GetResourceOwnerGeofences
+- name: GetResourceOwnerGeofence
+  description: Get geofence
+  source_operation: openapi/automile-openapi-original.json#GetResourceOwnerGeofence
+- name: GetResourceOwnerTriggers
+  description: Get all triggers
+  source_operation: openapi/automile-openapi-original.json#GetResourceOwnerTriggers
+- name: CreateResourceOwnerTrigger
+  description: Creates a new trigger
+  source_operation: openapi/automile-openapi-original.json#CreateResourceOwnerTrigger
+- name: GetPublishSubscribe
+  description: Get all publish subscribe records the user has created
+  source_operation: openapi/automile-openapi-original.json#GetPublishSubscribe
+- name: CreatePublishSubscribe
+  description: Create an a publish subscribe record
+  source_operation: openapi/automile-openapi-original.json#CreatePublishSubscribe
+- name: GetResourceOwnerVehicleHealth
+  description: Get health indicators for a vehicle
+  source_operation: openapi/automile-openapi-original.json#GetResourceOwnerVehicleHealth
+- name: GetResourceOwnerPlaces
+  description: Get places
+  source_operation: openapi/automile-openapi-original.json#GetResourceOwnerPlaces

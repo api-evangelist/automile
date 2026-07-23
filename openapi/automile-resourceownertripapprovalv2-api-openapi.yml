@@ -1,0 +1,410 @@
+swagger: '2.0'
+info:
+  title: Automile ClientApi ResourceOwnerTripApprovalV2 API
+  version: v1
+tags:
+- name: ResourceOwnerTripApprovalV2
+paths:
+  /v1/resourceowner/tripapproval/unsubmitted/{vehicleId}:
+    get:
+      tags:
+      - ResourceOwnerTripApprovalV2
+      summary: List all trips which you as a user may submit for approval
+      description: Only returns tracked assets that the user have access to
+      operationId: ResourceOwnerTripApprovalController_GetUnsubmittedTripList
+      produces:
+      - text/plain
+      - application/json
+      - text/json
+      parameters:
+      - in: path
+        name: vehicleId
+        description: Show only trips for this vehicleId
+        required: true
+        type: integer
+        format: int32
+      - in: query
+        name: from
+        description: Show only trips from this date (default = 30 days back)
+        type: string
+        format: date-time
+      - in: query
+        name: to
+        description: Show only trips to this date, including the date (default = today)
+        type: string
+        format: date-time
+      - in: query
+        name: tripType
+        description: Show only trips with this category. 0 = Business, 2 = Other. (default = any type)
+        type: integer
+        format: int32
+        enum:
+        - 0
+        - 1
+        - 2
+        - 3
+      responses:
+        '200':
+          description: The list of trips is returned
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/TripModelGET'
+        '403':
+          description: Missing permission to access vehicle
+        '500':
+          description: Internal server error
+      security:
+      - oauth2: []
+  /v1/resourceowner/tripapproval/submit:
+    post:
+      tags:
+      - ResourceOwnerTripApprovalV2
+      summary: Submit trips for approval
+      operationId: ResourceOwnerTripApprovalController_SubmitTripList
+      consumes:
+      - application/json
+      - text/json
+      - application/*+json
+      produces:
+      - text/plain
+      - application/json
+      - text/json
+      parameters:
+      - in: body
+        name: body
+        description: Trip approval request information
+        schema:
+          $ref: '#/definitions/TripApprovalSubmitModelPOST'
+      responses:
+        '200':
+          description: Success
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/TripModelGET'
+        '201':
+          description: Request successfully created
+        '403':
+          description: Forbidden access to resource
+        '500':
+          description: Internal server error
+      security:
+      - oauth2: []
+  /v1/resourceowner/tripapproval/request/{tripApprovalRequestId}:
+    get:
+      tags:
+      - ResourceOwnerTripApprovalV2
+      summary: Get a trip approval request
+      operationId: ResourceOwnerTripApprovalController_GetTripApprovalRequest
+      produces:
+      - text/plain
+      - application/json
+      - text/json
+      parameters:
+      - in: path
+        name: tripApprovalRequestId
+        description: Trip approval request id
+        required: true
+        type: integer
+        format: int32
+      responses:
+        '200':
+          description: The trip approval request is returned
+          schema:
+            $ref: '#/definitions/TripApprovalRequestModelGET'
+        '403':
+          description: No access to request
+        '500':
+          description: Internal server error
+      security:
+      - oauth2: []
+  /v1/resourceowner/tripapproval/request:
+    get:
+      tags:
+      - ResourceOwnerTripApprovalV2
+      summary: List all requests for trip approval which is submitted
+      operationId: ResourceOwnerTripApprovalController_GetSubmittedTripApprovalRequestList
+      produces:
+      - text/plain
+      - application/json
+      - text/json
+      parameters:
+      - in: query
+        name: from
+        description: Show only requests submited from this date (default = 30 days back)
+        type: string
+        format: date-time
+      - in: query
+        name: to
+        description: Show only requests submited to this date (default = today)
+        type: string
+        format: date-time
+      - in: query
+        name: vehicleId
+        description: Show only trips for this vehicleId (default = all vehicles submitted for)
+        type: integer
+        format: int32
+      - in: query
+        name: statusType
+        description: Status on request, SentForApproval = 0, Declined = 1, Approved = 2 (default = any status)
+        type: integer
+        format: int32
+        enum:
+        - 0
+        - 1
+        - 2
+        - 3
+      responses:
+        '200':
+          description: The submitted requests are returned
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/TripApprovalRequestModelGET'
+        '500':
+          description: Internal server error
+      security:
+      - oauth2: []
+  /v1/resourceowner/tripapproval/{tripApprovalRequestId}/response:
+    put:
+      tags:
+      - ResourceOwnerTripApprovalV2
+      summary: Approve or decline a trip approval request
+      operationId: ResourceOwnerTripApprovalController_Response
+      consumes:
+      - application/json
+      - text/json
+      - application/*+json
+      parameters:
+      - in: path
+        name: tripApprovalRequestId
+        description: Trip approval request id to approve
+        required: true
+        type: integer
+        format: int32
+      - in: body
+        name: body
+        description: Approval information
+        schema:
+          $ref: '#/definitions/TripApprovalResponseModel'
+      responses:
+        '200':
+          description: The response has been successfully stored
+        '500':
+          description: Internal server error
+      security:
+      - oauth2: []
+  /v1/resourceowner/tripapproval/{tripApprovalRequestId}/revoke:
+    put:
+      tags:
+      - ResourceOwnerTripApprovalV2
+      summary: Revoke a trip approval request
+      description: Only allowed by the user who requested the approval and if no one has approved/declined the request
+      operationId: ResourceOwnerTripApprovalController_RevokeRequest
+      parameters:
+      - in: path
+        name: tripApprovalRequestId
+        description: Trip approval request id to decline
+        required: true
+        type: integer
+        format: int32
+      responses:
+        '200':
+          description: The request has been successfully revoked
+        '500':
+          description: Internal server error
+      security:
+      - oauth2: []
+definitions:
+  TripApprovalSubmitModelPOST:
+    type: object
+    properties:
+      From:
+        format: date-time
+        type: string
+      To:
+        format: date-time
+        type: string
+      TripIdList:
+        type: array
+        items:
+          format: int32
+          type: integer
+    additionalProperties: false
+  TripApprovalResponseModel:
+    type: object
+    properties:
+      Note:
+        type: string
+      Approved:
+        type: boolean
+    additionalProperties: false
+  TimeSpan:
+    type: object
+    properties:
+      Ticks:
+        format: int64
+        type: integer
+      Days:
+        format: int32
+        type: integer
+        readOnly: true
+      Hours:
+        format: int32
+        type: integer
+        readOnly: true
+      Milliseconds:
+        format: int32
+        type: integer
+        readOnly: true
+      Microseconds:
+        format: int32
+        type: integer
+        readOnly: true
+      Nanoseconds:
+        format: int32
+        type: integer
+        readOnly: true
+      Minutes:
+        format: int32
+        type: integer
+        readOnly: true
+      Seconds:
+        format: int32
+        type: integer
+        readOnly: true
+      TotalDays:
+        format: double
+        type: number
+        readOnly: true
+      TotalHours:
+        format: double
+        type: number
+        readOnly: true
+      TotalMilliseconds:
+        format: double
+        type: number
+        readOnly: true
+      TotalMicroseconds:
+        format: double
+        type: number
+        readOnly: true
+      TotalNanoseconds:
+        format: double
+        type: number
+        readOnly: true
+      TotalMinutes:
+        format: double
+        type: number
+        readOnly: true
+      TotalSeconds:
+        format: double
+        type: number
+        readOnly: true
+    additionalProperties: false
+  TripApprovalStatusModel:
+    type: object
+    properties:
+      Status:
+        format: int32
+        enum:
+        - 0
+        - 1
+        - 2
+        - 3
+        type: integer
+      ApproverFullName:
+        type: string
+    additionalProperties: false
+  TripModelGET:
+    type: object
+    properties:
+      TripId:
+        format: int32
+        type: integer
+      Category:
+        format: int32
+        enum:
+        - 0
+        - 1
+        - 2
+        - 3
+        type: integer
+      TripStartDateTime:
+        format: date-time
+        type: string
+      TripEndDateTime:
+        format: date-time
+        type: string
+      TripStartAddress:
+        type: string
+      TripEndAddress:
+        type: string
+      VehicleName:
+        type: string
+      DistanceInKilometer:
+        format: double
+        type: number
+      Duration:
+        $ref: '#/definitions/TimeSpan'
+      Note:
+        type: string
+    additionalProperties: false
+  TripApprovalRequestModelGET:
+    type: object
+    properties:
+      TripApprovalRequestId:
+        format: int32
+        type: integer
+      SubmitDateTime:
+        format: date-time
+        type: string
+      SubmitterContactId:
+        format: int32
+        type: integer
+      SubmitterProfileImage:
+        type: string
+      SubmitterFullName:
+        type: string
+      FromUtc:
+        format: date-time
+        type: string
+      ToUtc:
+        format: date-time
+        type: string
+      NrOfTrips:
+        format: int32
+        type: integer
+      VehicleId:
+        format: int32
+        type: integer
+      VehicleName:
+        type: string
+      TotalDistanceInKilometer:
+        format: double
+        type: number
+      TotalDuration:
+        $ref: '#/definitions/TimeSpan'
+      Status:
+        format: int32
+        enum:
+        - 0
+        - 1
+        - 2
+        - 3
+        type: integer
+      StatusList:
+        type: array
+        items:
+          $ref: '#/definitions/TripApprovalStatusModel'
+    additionalProperties: false
+securityDefinitions:
+  oauth2:
+    type: oauth2
+    flow: implicit
+    authorizationUrl: https://api.automile.com/login/
+    scopes:
+      read: Read access to protected resources
+      write: Write access to protected resources
+    description: OAuth2 Implicit Grant

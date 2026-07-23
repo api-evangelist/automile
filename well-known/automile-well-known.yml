@@ -1,0 +1,27 @@
+generated: '2026-07-18'
+method: searched
+note: >-
+  Probed the /.well-known/ discovery surface on the API host, marketing host and
+  app host. None returned 200 as of this pass (no security.txt, OIDC discovery,
+  OAuth authorization-server metadata, api-catalog or ai-plugin manifest).
+  Absence is recorded, not fabricated.
+hosts:
+- host: https://api.automile.com
+  documents:
+  - {path: /.well-known/security.txt, status: 404}
+  - {path: /.well-known/openid-configuration, status: 404}
+  - {path: /.well-known/oauth-authorization-server, status: 404}
+  - {path: /.well-known/api-catalog, status: 404}
+  - {path: /.well-known/ai-plugin.json, status: 404}
+- host: https://www.automile.com
+  documents:
+  - {path: /.well-known/security.txt, status: 404}
+  - {path: /.well-known/openid-configuration, status: 404}
+  - {path: /.well-known/oauth-authorization-server, status: 404}
+  - {path: /.well-known/api-catalog, status: 404}
+  - {path: /.well-known/ai-plugin.json, status: 404}
+- host: https://app.automile.com
+  documents:
+  - {path: /.well-known/security.txt, status: 404}
+  - {path: /.well-known/openid-configuration, status: 404}
+  - {path: /.well-known/oauth-authorization-server, status: 404}

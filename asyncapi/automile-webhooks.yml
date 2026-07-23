@@ -1,0 +1,61 @@
+generated: '2026-07-18'
+method: searched
+source: openapi/automile-openapi-original.json (ResourceOwnerPublishSubscribe) + https://www.automile.com/en/integrations-api
+spec_type: Webhooks
+type: Webhooks
+note: >-
+  Automile ships a real webhook / publish-subscribe surface. A subscriber
+  registers an endpoint via the publishsubscribe resource, then Automile POSTs
+  event payloads to it. The API exposes per-subscription test triggers that fire
+  a sample of each event type at the registered URL. No AsyncAPI document is
+  published by the provider, so this captures the event catalog directly from the
+  OpenAPI publish/subscribe operations.
+management_operations:
+- method: GET
+  path: /v1/resourceowner/publishsubscribe
+  operationId: GetPublishSubscribe
+  summary: List webhook subscriptions
+- method: POST
+  path: /v1/resourceowner/publishsubscribe
+  operationId: CreatePublishSubscribe
+  summary: Create a webhook subscription (register callback URL + event types)
+- method: GET
+  path: /v1/resourceowner/publishsubscribe/{publishSubscribeId}
+  operationId: GetPublishSubscribeById
+  summary: Get a subscription
+- method: PUT
+  path: /v1/resourceowner/publishsubscribe/{publishSubscribeId}
+  operationId: EditPublishSubscribe
+  summary: Edit a subscription
+- method: DELETE
+  path: /v1/resourceowner/publishsubscribe/{publishSubscribeId}
+  operationId: DeletePublishSubscribeRecord
+  summary: Delete a subscription
+events:
+- event: trip.start
+  test_operation: GET /v1/resourceowner/publishsubscribe/{publishSubscribeId}/testtripstart
+  description: A vehicle started a trip.
+- event: trip.end
+  test_operation: GET /v1/resourceowner/publishsubscribe/{publishSubscribeId}/testtripend
+  description: A vehicle ended a trip.
+- event: vehicle.created
+  test_operation: GET /v1/resourceowner/publishsubscribe/{publishSubscribeId}/testvehiclecreated
+  description: A vehicle was created.
+- event: vehicle.modified
+  test_operation: GET /v1/resourceowner/publishsubscribe/{publishSubscribeId}/testvehiclemodified
+  description: A vehicle was modified.
+- event: contact.created
+  test_operation: GET /v1/resourceowner/publishsubscribe/{publishSubscribeId}/testcontactcreated
+  description: A contact (driver) was created.
+- event: contact.modified
+  test_operation: GET /v1/resourceowner/publishsubscribe/{publishSubscribeId}/testcontactmodified
+  description: A contact (driver) was modified.
+- event: device.connected
+  test_operation: GET /v1/resourceowner/publishsubscribe/{publishSubscribeId}/testdeviceconnected
+  description: An Automile Box was connected to a vehicle.
+- event: device.disconnected
+  test_operation: GET /v1/resourceowner/publishsubscribe/{publishSubscribeId}/testdevicedisconnected
+  description: An Automile Box was disconnected from a vehicle.
+delivery:
+  transport: HTTPS POST to the subscriber-registered callback URL
+  auth: OAuth2 bearer token used to manage subscriptions; delivery payloads per subscription config

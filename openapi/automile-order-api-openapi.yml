@@ -1,0 +1,114 @@
+swagger: '2.0'
+info:
+  title: Automile ClientApi Order API
+  version: v1
+tags:
+- name: Order
+paths:
+  /v1/integration/order:
+    post:
+      tags:
+      - Order
+      summary: Creates a new order
+      operationId: CreateOrder
+      consumes:
+      - application/json
+      - text/json
+      - application/*+json
+      parameters:
+      - in: body
+        name: body
+        description: The CreateOrderModel
+        schema:
+          $ref: '#/definitions/CreateOrderModel'
+      responses:
+        '200':
+          description: Creates new order
+        '500':
+          description: Internal server error
+      security:
+      - oauth2: []
+definitions:
+  CreateOrderModel:
+    required:
+    - BillingAddress
+    - BillingAddressCountry
+    - BillingAddressState
+    - BillingAddressZipCode
+    - Company
+    - Email
+    - FirstName
+    - LastName
+    - MobilePhoneNumber
+    - NumberOfDevices
+    - OfficePhoneNumber
+    - ShippingAddress
+    - ShippingAddressCountry
+    - ShippingAddressState
+    - ShippingAddressZipCode
+    - SubscriptionCurrency
+    type: object
+    properties:
+      Company:
+        minLength: 1
+        type: string
+      FirstName:
+        minLength: 1
+        type: string
+      LastName:
+        minLength: 1
+        type: string
+      Email:
+        minLength: 1
+        type: string
+      NumberOfDevices:
+        format: int32
+        type: integer
+      ShippingAddress:
+        minLength: 1
+        type: string
+      ShippingAddressZipCode:
+        minLength: 1
+        type: string
+      ShippingAddressState:
+        minLength: 1
+        type: string
+      ShippingAddressCountry:
+        minLength: 1
+        type: string
+      BillingAddress:
+        minLength: 1
+        type: string
+      BillingAddressZipCode:
+        minLength: 1
+        type: string
+      BillingAddressState:
+        minLength: 1
+        type: string
+      BillingAddressCountry:
+        minLength: 1
+        type: string
+      UseShippingAddressAsBillingAddress:
+        type: boolean
+      SubscriptionCurrency:
+        minLength: 1
+        type: string
+      MobilePhoneNumber:
+        minLength: 1
+        type: string
+      OfficePhoneNumber:
+        minLength: 1
+        type: string
+      LeadId:
+        format: int32
+        type: integer
+    additionalProperties: false
+securityDefinitions:
+  oauth2:
+    type: oauth2
+    flow: implicit
+    authorizationUrl: https://api.automile.com/login/
+    scopes:
+      read: Read access to protected resources
+      write: Write access to protected resources
+    description: OAuth2 Implicit Grant

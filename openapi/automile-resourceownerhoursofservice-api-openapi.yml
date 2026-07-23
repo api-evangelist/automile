@@ -1,0 +1,715 @@
+swagger: '2.0'
+info:
+  title: Automile ClientApi ResourceOwnerHoursOfService API
+  version: v1
+tags:
+- name: ResourceOwnerHoursOfService
+paths:
+  /v1/resourceowner/hoursofservice:
+    delete:
+      tags:
+      - ResourceOwnerHoursOfService
+      operationId: HoursOfServiceDeleteCycles
+      responses:
+        '200':
+          description: Success
+      security:
+      - oauth2: []
+  /v1/resourceowner/hoursofservice/cycles:
+    get:
+      tags:
+      - ResourceOwnerHoursOfService
+      summary: "Parse Hours Of Service duty statuses to cycles and work shiftsS \r\nor ended in the date interval"
+      operationId: HoursOfServiceGetCycles
+      produces:
+      - text/plain
+      - application/json
+      - text/json
+      parameters:
+      - in: query
+        name: fromDate
+        description: Query on from date
+        type: string
+        format: date-time
+      - in: query
+        name: toDate
+        description: Query on to date
+        type: string
+        format: date-time
+      responses:
+        '200':
+          description: The settings is returned, null if no settings exist
+          schema:
+            $ref: '#/definitions/HoursOfServiceCycles'
+      security:
+      - oauth2: []
+  /v1/resourceowner/hoursofservice/statuses:
+    get:
+      tags:
+      - ResourceOwnerHoursOfService
+      summary: "Get the Hours of Service statuses that started in the date interval \r\nor ended in the date interval"
+      operationId: HoursOfServiceGetStatuses
+      produces:
+      - text/plain
+      - application/json
+      - text/json
+      parameters:
+      - in: query
+        name: fromDate
+        description: Query on from date
+        type: string
+        format: date-time
+      - in: query
+        name: toDate
+        description: Query on to date
+        type: string
+        format: date-time
+      - in: query
+        name: hoursOfServiceLogId
+        description: Query on id
+        type: integer
+        format: int32
+      - in: query
+        name: contactId
+        description: Get statuses for a contact
+        type: integer
+        format: int32
+      - in: query
+        name: vehicleId
+        description: Get statuses for a vehicle
+        type: integer
+        format: int32
+      - in: query
+        name: notes
+        description: Query on notes
+        type: string
+      responses:
+        '200':
+          description: The settings is returned, null if no settings exist
+          schema:
+            $ref: '#/definitions/HoursOfServiceDutyStatusesModel'
+      security:
+      - oauth2: []
+  /v1/resourceowner/hoursofservice/synch:
+    get:
+      tags:
+      - ResourceOwnerHoursOfService
+      summary: Get the Hours of Service statuses that have beend added, updated or deleted
+      operationId: HoursOfServiceGetSynch
+      produces:
+      - text/plain
+      - application/json
+      - text/json
+      parameters:
+      - in: query
+        name: lastSynchDate
+        description: Query on status that have been created, modified or deleted
+        type: string
+        format: date-time
+      - in: query
+        name: contactId
+        description: Get statuses for a contact
+        type: integer
+        format: int32
+      responses:
+        '200':
+          description: The settings is returned, null if no settings exist
+          schema:
+            $ref: '#/definitions/HoursOfServiceStatusSynchModel'
+      security:
+      - oauth2: []
+  /v1/resourceowner/hoursofservice/status:
+    post:
+      tags:
+      - ResourceOwnerHoursOfService
+      summary: Creates Hours Of Service duty status entry
+      operationId: HoursOfSerivceCreateStatus
+      consumes:
+      - application/json
+      - text/json
+      - application/*+json
+      parameters:
+      - in: body
+        name: body
+        description: The settings model
+        schema:
+          $ref: '#/definitions/HoursOfServiceStatusPostModel'
+      responses:
+        '200':
+          description: A link in the header is returned to the newly resource
+      security:
+      - oauth2: []
+  /v1/resourceowner/hoursofservice/settings:
+    get:
+      tags:
+      - ResourceOwnerHoursOfService
+      summary: Get the current user Hours of Service settings
+      operationId: HoursOfServiceGetSettings
+      produces:
+      - text/plain
+      - application/json
+      - text/json
+      parameters:
+      - in: query
+        name: contactHoursOfServiceSettingsId
+        description: ''
+        type: integer
+        format: int32
+      responses:
+        '200':
+          description: The settings is returned, null if no settings exist
+          schema:
+            $ref: '#/definitions/HoursOfServiceSettingsModel'
+      security:
+      - oauth2: []
+    post:
+      tags:
+      - ResourceOwnerHoursOfService
+      summary: Creates Hours Of Service Settings
+      operationId: HoursOfSerivceCreateSettings
+      consumes:
+      - application/json
+      - text/json
+      - application/*+json
+      parameters:
+      - in: body
+        name: body
+        description: The settings model
+        schema:
+          $ref: '#/definitions/HoursOfServiceSettingsCreateModel'
+      responses:
+        '200':
+          description: A link in the header is returned to the newly resource
+      security:
+      - oauth2: []
+  /v1/resourceowner/hoursofservice/export:
+    post:
+      tags:
+      - ResourceOwnerHoursOfService
+      summary: Export Hours Of Service Log
+      operationId: HoursOfSerivceExport
+      consumes:
+      - application/json
+      - text/json
+      - application/*+json
+      parameters:
+      - in: body
+        name: body
+        description: The export model
+        schema:
+          $ref: '#/definitions/HoursOfServiceExportModel'
+      responses:
+        '200':
+          description: A mail is sent to the email address
+      security:
+      - oauth2: []
+  /v1/resourceowner/hoursofservice/exportpdf:
+    post:
+      tags:
+      - ResourceOwnerHoursOfService
+      summary: Export Hours Of Service Log as a PDF
+      operationId: HoursOfSerivceExportExportPDF
+      consumes:
+      - application/json
+      - text/json
+      - application/*+json
+      parameters:
+      - in: body
+        name: body
+        description: The export model
+        schema:
+          $ref: '#/definitions/HoursOfServiceExportModel'
+      responses:
+        '200':
+          description: A mail is sent to the email address
+      security:
+      - oauth2: []
+definitions:
+  TimeSpan:
+    type: object
+    properties:
+      Ticks:
+        format: int64
+        type: integer
+      Days:
+        format: int32
+        type: integer
+        readOnly: true
+      Hours:
+        format: int32
+        type: integer
+        readOnly: true
+      Milliseconds:
+        format: int32
+        type: integer
+        readOnly: true
+      Microseconds:
+        format: int32
+        type: integer
+        readOnly: true
+      Nanoseconds:
+        format: int32
+        type: integer
+        readOnly: true
+      Minutes:
+        format: int32
+        type: integer
+        readOnly: true
+      Seconds:
+        format: int32
+        type: integer
+        readOnly: true
+      TotalDays:
+        format: double
+        type: number
+        readOnly: true
+      TotalHours:
+        format: double
+        type: number
+        readOnly: true
+      TotalMilliseconds:
+        format: double
+        type: number
+        readOnly: true
+      TotalMicroseconds:
+        format: double
+        type: number
+        readOnly: true
+      TotalNanoseconds:
+        format: double
+        type: number
+        readOnly: true
+      TotalMinutes:
+        format: double
+        type: number
+        readOnly: true
+      TotalSeconds:
+        format: double
+        type: number
+        readOnly: true
+    additionalProperties: false
+  WorkShift:
+    type: object
+    properties:
+      TotalTime:
+        $ref: '#/definitions/TimeSpan'
+      OffDutyTime:
+        $ref: '#/definitions/TimeSpan'
+      OnDutyTime:
+        $ref: '#/definitions/TimeSpan'
+      DrivingTime:
+        $ref: '#/definitions/TimeSpan'
+      SleeperBerthTime:
+        $ref: '#/definitions/TimeSpan'
+      DutyStatuses:
+        type: array
+        items:
+          $ref: '#/definitions/DutyStatus'
+      WorkShiftTime:
+        $ref: '#/definitions/TimeSpan'
+    additionalProperties: false
+  HoursOfServiceDutyStatusCreateModel:
+    type: object
+    properties:
+      VehicleId:
+        format: int32
+        type: integer
+      DutyStatusType:
+        format: int32
+        enum:
+        - 0
+        - 1
+        - 2
+        - 3
+        type: integer
+      FromDateTime:
+        format: date-time
+        description: From date UTC
+        type: string
+      ToDateTime:
+        format: date-time
+        description: To date UTC
+        type: string
+      Notes:
+        type: string
+      Location:
+        type: string
+      ExternalId:
+        format: uuid
+        type: string
+    additionalProperties: false
+  HoursOfServiceStatusPostModel:
+    type: object
+    properties:
+      Added:
+        type: array
+        items:
+          $ref: '#/definitions/HoursOfServiceDutyStatusCreateModel'
+      Updated:
+        type: array
+        items:
+          $ref: '#/definitions/HoursOfServiceDutyStatusModel'
+      LastSynchDate:
+        format: date-time
+        type: string
+    additionalProperties: false
+  HoursOfServiceCycles:
+    type: object
+    properties:
+      Cycles:
+        type: array
+        items:
+          $ref: '#/definitions/Cycle'
+    additionalProperties: false
+  HoursOfServiceStatusSynchModel:
+    type: object
+    properties:
+      LastSynchDate:
+        format: date-time
+        type: string
+        readOnly: true
+      Added:
+        type: array
+        items:
+          $ref: '#/definitions/HoursOfServiceDutyStatusModel'
+      Updated:
+        type: array
+        items:
+          $ref: '#/definitions/HoursOfServiceDutyStatusModel'
+    additionalProperties: false
+  HoursOfServiceSettingsModel:
+    type: object
+    properties:
+      TimeZoneType:
+        format: int32
+        enum:
+        - 0
+        - 1
+        - 2
+        - 3
+        - 4
+        - 5
+        - 6
+        - 7
+        - 8
+        type: integer
+      WorkDayStartTime:
+        $ref: '#/definitions/TimeSpan'
+      CycleRuleType:
+        format: int32
+        enum:
+        - 0
+        - 1
+        - 2
+        - 3
+        - 4
+        - 5
+        - 6
+        - 7
+        type: integer
+      CargoTypeType:
+        format: int32
+        enum:
+        - 0
+        - 1
+        - 2
+        type: integer
+      RestartRuleType:
+        format: int32
+        enum:
+        - 0
+        - 1
+        type: integer
+      RestBreakRuleType:
+        format: int32
+        enum:
+        - 0
+        - 1
+        type: integer
+      ShortHaulExceptionType:
+        format: int32
+        enum:
+        - 0
+        - 1
+        type: integer
+      OdometerUnitType:
+        format: int32
+        enum:
+        - 0
+        - 1
+        - 2
+        type: integer
+      WellSiteRuleType:
+        format: int32
+        enum:
+        - 0
+        - 1
+        type: integer
+      CarrierInfo:
+        $ref: '#/definitions/AddressModel'
+      IsEnabled:
+        type: boolean
+    additionalProperties: false
+  HoursOfServiceDutyStatusModel:
+    type: object
+    properties:
+      HoursOfServiceLogId:
+        format: int32
+        type: integer
+      VehicleId:
+        format: int32
+        type: integer
+      DutyStatusType:
+        format: int32
+        enum:
+        - 0
+        - 1
+        - 2
+        - 3
+        type: integer
+      FromDateTime:
+        format: date-time
+        description: From date UTC
+        type: string
+      ToDateTime:
+        format: date-time
+        description: To date UTC
+        type: string
+      Notes:
+        type: string
+      Location:
+        type: string
+      CycleRuleType:
+        format: int32
+        enum:
+        - 0
+        - 1
+        - 2
+        - 3
+        - 4
+        - 5
+        - 6
+        - 7
+        type: integer
+      WorkDayStartTime:
+        $ref: '#/definitions/TimeSpan'
+      DistanceInKm:
+        format: double
+        type: number
+      CreatedDateTime:
+        format: date-time
+        description: Created UTC
+        type: string
+      ModifiedDateTime:
+        format: date-time
+        description: Modified UTC
+        type: string
+      ExternalId:
+        format: uuid
+        type: string
+      IsDeleted:
+        type: boolean
+    additionalProperties: false
+  DutyStatus:
+    type: object
+    properties:
+      ContactId:
+        format: int32
+        type: integer
+      VehicleId:
+        format: int32
+        type: integer
+      DutyStatusType:
+        format: int32
+        enum:
+        - 0
+        - 1
+        - 2
+        - 3
+        type: integer
+      FromUtc:
+        format: date-time
+        type: string
+      ToUtc:
+        format: date-time
+        type: string
+      Notes:
+        type: string
+      Locations:
+        type: string
+      CycleRuleType:
+        format: int32
+        type: integer
+      WorkDayStartTime:
+        $ref: '#/definitions/TimeSpan'
+      DistanceInKm:
+        format: double
+        type: number
+    additionalProperties: false
+  AddressModel:
+    required:
+    - AddressLine2
+    - City
+    - ISO3166CountryCode
+    - ZipCode
+    type: object
+    properties:
+      AddressId:
+        format: int32
+        type: integer
+      CompanyName:
+        type: string
+      ContactNameAtAddress:
+        type: string
+      AddressLine2:
+        minLength: 1
+        type: string
+      AddressLine3:
+        type: string
+      AddressLine4:
+        type: string
+      ZipCode:
+        minLength: 1
+        type: string
+      City:
+        minLength: 1
+        type: string
+      StateOrProvince:
+        type: string
+      ISO3166CountryCode:
+        minLength: 1
+        type: string
+    additionalProperties: false
+  HoursOfServiceSettingsCreateModel:
+    type: object
+    properties:
+      TimeZoneType:
+        format: int32
+        enum:
+        - 0
+        - 1
+        - 2
+        - 3
+        - 4
+        - 5
+        - 6
+        - 7
+        - 8
+        type: integer
+      WorkDayStartTime:
+        $ref: '#/definitions/TimeSpan'
+      CycleRuleType:
+        format: int32
+        enum:
+        - 0
+        - 1
+        - 2
+        - 3
+        - 4
+        - 5
+        - 6
+        - 7
+        type: integer
+      CargoTypeType:
+        format: int32
+        enum:
+        - 0
+        - 1
+        - 2
+        type: integer
+      RestartRuleType:
+        format: int32
+        enum:
+        - 0
+        - 1
+        type: integer
+      RestBreakRuleType:
+        format: int32
+        enum:
+        - 0
+        - 1
+        type: integer
+      ShortHaulExceptionType:
+        format: int32
+        enum:
+        - 0
+        - 1
+        type: integer
+      OdometerUnitType:
+        format: int32
+        enum:
+        - 0
+        - 1
+        - 2
+        type: integer
+      WellSiteRuleType:
+        format: int32
+        enum:
+        - 0
+        - 1
+        type: integer
+      CarrierInfo:
+        $ref: '#/definitions/AddressModel'
+      IsEnabled:
+        type: boolean
+    additionalProperties: false
+  HoursOfServiceExportModel:
+    type: object
+    properties:
+      FromDate:
+        format: date-time
+        type: string
+      ToDate:
+        format: date-time
+        type: string
+      EmailAddress:
+        description: Recipient of the report
+        type: string
+    additionalProperties: false
+  Cycle:
+    type: object
+    properties:
+      WorkShifts:
+        type: array
+        items:
+          $ref: '#/definitions/WorkShift'
+      TotalTime:
+        $ref: '#/definitions/TimeSpan'
+      OffDutyTime:
+        $ref: '#/definitions/TimeSpan'
+      OnDutyTime:
+        $ref: '#/definitions/TimeSpan'
+      DrivingTime:
+        $ref: '#/definitions/TimeSpan'
+      SleeperBerthTime:
+        $ref: '#/definitions/TimeSpan'
+      NumberOfDays:
+        format: double
+        type: number
+        readOnly: true
+      OnDutyAndDriving:
+        format: double
+        type: number
+        readOnly: true
+    additionalProperties: false
+  HoursOfServiceDutyStatusesModel:
+    type: object
+    properties:
+      LastSynchDate:
+        format: date-time
+        type: string
+        readOnly: true
+      DutyStatuses:
+        type: array
+        items:
+          $ref: '#/definitions/HoursOfServiceDutyStatusModel'
+    additionalProperties: false
+securityDefinitions:
+  oauth2:
+    type: oauth2
+    flow: implicit
+    authorizationUrl: https://api.automile.com/login/
+    scopes:
+      read: Read access to protected resources
+      write: Write access to protected resources
+    description: OAuth2 Implicit Grant

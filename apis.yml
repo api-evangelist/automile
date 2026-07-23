@@ -1,8 +1,16 @@
 aid: automile
 name: Automile
-description: Automile is a company surfaced as a portfolio company of insight-partners, point-nine and
-  added to the API Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment
-  pipeline.
+description: >-
+  Automile is a fleet-telematics platform used by more than 15,000 businesses to
+  track and manage their vehicles. Its plug-and-play "Automile Box" streams GPS
+  position every fifteen seconds while web and mobile apps handle automatic
+  mileage logging, trips, drivers, geofences, expense reports, vehicle
+  inspections, work orders and OBD vehicle-health. The developer surface is a
+  REST/JSON API at api.automile.com (Swagger 2.0, OAuth2) with 454 operations and
+  a publish/subscribe webhook stream for trip, vehicle, contact and device
+  events, plus first-party SDKs for PHP, .NET, Node and Java. Automile was added
+  to the API Evangelist network as an insight-partners / point-nine portfolio
+  lead and enriched from its live public developer surface.
 url: https://raw.githubusercontent.com/api-evangelist/automile/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -11,17 +19,1227 @@ x-backed-by:
 - point-nine
 x-tier: stub
 x-tier-reason: portfolio-lead
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-18'
+image: https://www.automile.com/favicon.ico
 tags:
+- Fleet Management
+- Telematics
+- GPS Tracking
+- Vehicles
+- Transportation
+- Mileage
+- IoT
+- Logistics
 - Company
-apis: []
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
+apis:
+- aid: automile:automile-clientapi-api
+  name: Automile ClientApi API
+  description: The ClientApi API from Automile — 1 operation(s) for clientapi.
+  humanURL: https://www.automile.com/en/integrations-api
+  baseURL: https://api.automile.com
+  tags:
+  - ClientApi
+  properties:
+  - type: OpenAPI
+    url: openapi/automile-clientapi-api-openapi.yml
+  - type: APIReference
+    url: https://api.automile.com/swagger/v1/swagger.json
+  - type: Webhooks
+    url: asyncapi/automile-webhooks.yml
+- aid: automile:automile-clientapiauthorizations-api
+  name: Automile ClientApiAuthorizations API
+  description: >-
+    The ClientApiAuthorizations API from Automile — 2 operation(s) for clientapiauthorizations.
+  humanURL: https://www.automile.com/en/integrations-api
+  baseURL: https://api.automile.com
+  tags:
+  - ClientApiAuthorizations
+  properties:
+  - type: OpenAPI
+    url: openapi/automile-clientapiauthorizations-api-openapi.yml
+  - type: APIReference
+    url: https://api.automile.com/swagger/v1/swagger.json
+  - type: Webhooks
+    url: asyncapi/automile-webhooks.yml
+- aid: automile:automile-clientcontracts-api
+  name: Automile ClientContracts API
+  description: The ClientContracts API from Automile — 3 operation(s) for clientcontracts.
+  humanURL: https://www.automile.com/en/integrations-api
+  baseURL: https://api.automile.com
+  tags:
+  - ClientContracts
+  properties:
+  - type: OpenAPI
+    url: openapi/automile-clientcontracts-api-openapi.yml
+  - type: APIReference
+    url: https://api.automile.com/swagger/v1/swagger.json
+  - type: Webhooks
+    url: asyncapi/automile-webhooks.yml
+- aid: automile:automile-clientcustom-api
+  name: Automile ClientCustom API
+  description: The ClientCustom API from Automile — 10 operation(s) for clientcustom.
+  humanURL: https://www.automile.com/en/integrations-api
+  baseURL: https://api.automile.com
+  tags:
+  - ClientCustom
+  properties:
+  - type: OpenAPI
+    url: openapi/automile-clientcustom-api-openapi.yml
+  - type: APIReference
+    url: https://api.automile.com/swagger/v1/swagger.json
+  - type: Webhooks
+    url: asyncapi/automile-webhooks.yml
+- aid: automile:automile-clientonboarding-api
+  name: Automile ClientOnboarding API
+  description: The ClientOnboarding API from Automile — 2 operation(s) for clientonboarding.
+  humanURL: https://www.automile.com/en/integrations-api
+  baseURL: https://api.automile.com
+  tags:
+  - ClientOnboarding
+  properties:
+  - type: OpenAPI
+    url: openapi/automile-clientonboarding-api-openapi.yml
+  - type: APIReference
+    url: https://api.automile.com/swagger/v1/swagger.json
+  - type: Webhooks
+    url: asyncapi/automile-webhooks.yml
+- aid: automile:automile-clientorder-api
+  name: Automile ClientOrder API
+  description: The ClientOrder API from Automile — 2 operation(s) for clientorder.
+  humanURL: https://www.automile.com/en/integrations-api
+  baseURL: https://api.automile.com
+  tags:
+  - ClientOrder
+  properties:
+  - type: OpenAPI
+    url: openapi/automile-clientorder-api-openapi.yml
+  - type: APIReference
+    url: https://api.automile.com/swagger/v1/swagger.json
+  - type: Webhooks
+    url: asyncapi/automile-webhooks.yml
+- aid: automile:automile-clienttextmessage-api
+  name: Automile ClientTextMessage API
+  description: The ClientTextMessage API from Automile — 2 operation(s) for clienttextmessage.
+  humanURL: https://www.automile.com/en/integrations-api
+  baseURL: https://api.automile.com
+  tags:
+  - ClientTextMessage
+  properties:
+  - type: OpenAPI
+    url: openapi/automile-clienttextmessage-api-openapi.yml
+  - type: APIReference
+    url: https://api.automile.com/swagger/v1/swagger.json
+  - type: Webhooks
+    url: asyncapi/automile-webhooks.yml
+- aid: automile:automile-clientusers-api
+  name: Automile ClientUsers API
+  description: The ClientUsers API from Automile — 2 operation(s) for clientusers.
+  humanURL: https://www.automile.com/en/integrations-api
+  baseURL: https://api.automile.com
+  tags:
+  - ClientUsers
+  properties:
+  - type: OpenAPI
+    url: openapi/automile-clientusers-api-openapi.yml
+  - type: APIReference
+    url: https://api.automile.com/swagger/v1/swagger.json
+  - type: Webhooks
+    url: asyncapi/automile-webhooks.yml
+- aid: automile:automile-echo-api
+  name: Automile Echo API
+  description: The Echo API from Automile — 1 operation(s) for echo.
+  humanURL: https://www.automile.com/en/integrations-api
+  baseURL: https://api.automile.com
+  tags:
+  - Echo
+  properties:
+  - type: OpenAPI
+    url: openapi/automile-echo-api-openapi.yml
+  - type: APIReference
+    url: https://api.automile.com/swagger/v1/swagger.json
+  - type: Webhooks
+    url: asyncapi/automile-webhooks.yml
+- aid: automile:automile-home-api
+  name: Automile Home API
+  description: The Home API from Automile — 2 operation(s) for home.
+  humanURL: https://www.automile.com/en/integrations-api
+  baseURL: https://api.automile.com
+  tags:
+  - Home
+  properties:
+  - type: OpenAPI
+    url: openapi/automile-home-api-openapi.yml
+  - type: APIReference
+    url: https://api.automile.com/swagger/v1/swagger.json
+  - type: Webhooks
+    url: asyncapi/automile-webhooks.yml
+- aid: automile:automile-login-api
+  name: Automile Login API
+  description: The Login API from Automile — 1 operation(s) for login.
+  humanURL: https://www.automile.com/en/integrations-api
+  baseURL: https://api.automile.com
+  tags:
+  - Login
+  properties:
+  - type: OpenAPI
+    url: openapi/automile-login-api-openapi.yml
+  - type: APIReference
+    url: https://api.automile.com/swagger/v1/swagger.json
+  - type: Webhooks
+    url: asyncapi/automile-webhooks.yml
+- aid: automile:automile-oauth-api
+  name: Automile OAuth API
+  description: The OAuth API from Automile — 1 operation(s) for oauth.
+  humanURL: https://www.automile.com/en/integrations-api
+  baseURL: https://api.automile.com
+  tags:
+  - OAuth
+  properties:
+  - type: OpenAPI
+    url: openapi/automile-oauth-api-openapi.yml
+  - type: APIReference
+    url: https://api.automile.com/swagger/v1/swagger.json
+  - type: Webhooks
+    url: asyncapi/automile-webhooks.yml
+- aid: automile:automile-order-api
+  name: Automile Order API
+  description: The Order API from Automile — 1 operation(s) for order.
+  humanURL: https://www.automile.com/en/integrations-api
+  baseURL: https://api.automile.com
+  tags:
+  - Order
+  properties:
+  - type: OpenAPI
+    url: openapi/automile-order-api-openapi.yml
+  - type: APIReference
+    url: https://api.automile.com/swagger/v1/swagger.json
+  - type: Webhooks
+    url: asyncapi/automile-webhooks.yml
+- aid: automile:automile-phone-api
+  name: Automile Phone API
+  description: The Phone API from Automile — 2 operation(s) for phone.
+  humanURL: https://www.automile.com/en/integrations-api
+  baseURL: https://api.automile.com
+  tags:
+  - Phone
+  properties:
+  - type: OpenAPI
+    url: openapi/automile-phone-api-openapi.yml
+  - type: APIReference
+    url: https://api.automile.com/swagger/v1/swagger.json
+  - type: Webhooks
+    url: asyncapi/automile-webhooks.yml
+- aid: automile:automile-resourceownercompany-api
+  name: Automile ResourceOwnerCompany API
+  description: The ResourceOwnerCompany API from Automile — 2 operation(s) for resourceownercompany.
+  humanURL: https://www.automile.com/en/integrations-api
+  baseURL: https://api.automile.com
+  tags:
+  - ResourceOwnerCompany
+  properties:
+  - type: OpenAPI
+    url: openapi/automile-resourceownercompany-api-openapi.yml
+  - type: APIReference
+    url: https://api.automile.com/swagger/v1/swagger.json
+  - type: Webhooks
+    url: asyncapi/automile-webhooks.yml
+- aid: automile:automile-resourceownercompanycontacts-api
+  name: Automile ResourceOwnerCompanyContacts API
+  description: >-
+    The ResourceOwnerCompanyContacts API from Automile — 4 operation(s) for resourceownercompanycontacts.
+  humanURL: https://www.automile.com/en/integrations-api
+  baseURL: https://api.automile.com
+  tags:
+  - ResourceOwnerCompanyContacts
+  properties:
+  - type: OpenAPI
+    url: openapi/automile-resourceownercompanycontacts-api-openapi.yml
+  - type: APIReference
+    url: https://api.automile.com/swagger/v1/swagger.json
+  - type: Webhooks
+    url: asyncapi/automile-webhooks.yml
+- aid: automile:automile-resourceownercompanyvehicles-api
+  name: Automile ResourceOwnerCompanyVehicles API
+  description: >-
+    The ResourceOwnerCompanyVehicles API from Automile — 4 operation(s) for resourceownercompanyvehicles.
+  humanURL: https://www.automile.com/en/integrations-api
+  baseURL: https://api.automile.com
+  tags:
+  - ResourceOwnerCompanyVehicles
+  properties:
+  - type: OpenAPI
+    url: openapi/automile-resourceownercompanyvehicles-api-openapi.yml
+  - type: APIReference
+    url: https://api.automile.com/swagger/v1/swagger.json
+  - type: Webhooks
+    url: asyncapi/automile-webhooks.yml
+- aid: automile:automile-resourceownercontact-api
+  name: Automile ResourceOwnerContact API
+  description: The ResourceOwnerContact API from Automile — 5 operation(s) for resourceownercontact.
+  humanURL: https://www.automile.com/en/integrations-api
+  baseURL: https://api.automile.com
+  tags:
+  - ResourceOwnerContact
+  properties:
+  - type: OpenAPI
+    url: openapi/automile-resourceownercontact-api-openapi.yml
+  - type: APIReference
+    url: https://api.automile.com/swagger/v1/swagger.json
+  - type: Webhooks
+    url: asyncapi/automile-webhooks.yml
+- aid: automile:automile-resourceownercontact2-api
+  name: Automile ResourceOwnerContact2 API
+  description: The ResourceOwnerContact2 API from Automile — 12 operation(s) for resourceownercontact2.
+  humanURL: https://www.automile.com/en/integrations-api
+  baseURL: https://api.automile.com
+  tags:
+  - ResourceOwnerContact2
+  properties:
+  - type: OpenAPI
+    url: openapi/automile-resourceownercontact2-api-openapi.yml
+  - type: APIReference
+    url: https://api.automile.com/swagger/v1/swagger.json
+  - type: Webhooks
+    url: asyncapi/automile-webhooks.yml
+- aid: automile:automile-resourceownercontact3-api
+  name: Automile ResourceOwnerContact3 API
+  description: The ResourceOwnerContact3 API from Automile — 12 operation(s) for resourceownercontact3.
+  humanURL: https://www.automile.com/en/integrations-api
+  baseURL: https://api.automile.com
+  tags:
+  - ResourceOwnerContact3
+  properties:
+  - type: OpenAPI
+    url: openapi/automile-resourceownercontact3-api-openapi.yml
+  - type: APIReference
+    url: https://api.automile.com/swagger/v1/swagger.json
+  - type: Webhooks
+    url: asyncapi/automile-webhooks.yml
+- aid: automile:automile-resourceownercontactsetting-api
+  name: Automile ResourceOwnerContactSetting API
+  description: >-
+    The ResourceOwnerContactSetting API from Automile — 2 operation(s) for resourceownercontactsetting.
+  humanURL: https://www.automile.com/en/integrations-api
+  baseURL: https://api.automile.com
+  tags:
+  - ResourceOwnerContactSetting
+  properties:
+  - type: OpenAPI
+    url: openapi/automile-resourceownercontactsetting-api-openapi.yml
+  - type: APIReference
+    url: https://api.automile.com/swagger/v1/swagger.json
+  - type: Webhooks
+    url: asyncapi/automile-webhooks.yml
+- aid: automile:automile-resourceownercontactvehicle-api
+  name: Automile ResourceOwnerContactVehicle API
+  description: >-
+    The ResourceOwnerContactVehicle API from Automile — 4 operation(s) for resourceownercontactvehicle.
+  humanURL: https://www.automile.com/en/integrations-api
+  baseURL: https://api.automile.com
+  tags:
+  - ResourceOwnerContactVehicle
+  properties:
+  - type: OpenAPI
+    url: openapi/automile-resourceownercontactvehicle-api-openapi.yml
+  - type: APIReference
+    url: https://api.automile.com/swagger/v1/swagger.json
+  - type: Webhooks
+    url: asyncapi/automile-webhooks.yml
+- aid: automile:automile-resourceownercontent-api
+  name: Automile ResourceOwnerContent API
+  description: The ResourceOwnerContent API from Automile — 2 operation(s) for resourceownercontent.
+  humanURL: https://www.automile.com/en/integrations-api
+  baseURL: https://api.automile.com
+  tags:
+  - ResourceOwnerContent
+  properties:
+  - type: OpenAPI
+    url: openapi/automile-resourceownercontent-api-openapi.yml
+  - type: APIReference
+    url: https://api.automile.com/swagger/v1/swagger.json
+  - type: Webhooks
+    url: asyncapi/automile-webhooks.yml
+- aid: automile:automile-resourceownerexpensereport3v2-api
+  name: Automile ResourceOwnerExpenseReport3V2 API
+  description: >-
+    The ResourceOwnerExpenseReport3V2 API from Automile — 5 operation(s) for resourceownerexpensereport3v2.
+  humanURL: https://www.automile.com/en/integrations-api
+  baseURL: https://api.automile.com
+  tags:
+  - ResourceOwnerExpenseReport3V2
+  properties:
+  - type: OpenAPI
+    url: openapi/automile-resourceownerexpensereport3v2-api-openapi.yml
+  - type: APIReference
+    url: https://api.automile.com/swagger/v1/swagger.json
+  - type: Webhooks
+    url: asyncapi/automile-webhooks.yml
+- aid: automile:automile-resourceownerexpensereportrow3v2-api
+  name: Automile ResourceOwnerExpenseReportRow3V2 API
+  description: >-
+    The ResourceOwnerExpenseReportRow3V2 API from Automile — 2 operation(s) for resourceownerexpensereportrow3v2.
+  humanURL: https://www.automile.com/en/integrations-api
+  baseURL: https://api.automile.com
+  tags:
+  - ResourceOwnerExpenseReportRow3V2
+  properties:
+  - type: OpenAPI
+    url: openapi/automile-resourceownerexpensereportrow3v2-api-openapi.yml
+  - type: APIReference
+    url: https://api.automile.com/swagger/v1/swagger.json
+  - type: Webhooks
+    url: asyncapi/automile-webhooks.yml
+- aid: automile:automile-resourceownerexpensereportrowcontent3v2-api
+  name: Automile ResourceOwnerExpenseReportRowContent3V2 API
+  description: >-
+    The ResourceOwnerExpenseReportRowContent3V2 API from Automile — 2 operation(s) for resourceownerexpensereportrowcontent3v2.
+  humanURL: https://www.automile.com/en/integrations-api
+  baseURL: https://api.automile.com
+  tags:
+  - ResourceOwnerExpenseReportRowContent3V2
+  properties:
+  - type: OpenAPI
+    url: openapi/automile-resourceownerexpensereportrowcontent3v2-api-openapi.yml
+  - type: APIReference
+    url: https://api.automile.com/swagger/v1/swagger.json
+  - type: Webhooks
+    url: asyncapi/automile-webhooks.yml
+- aid: automile:automile-resourceownerexpensereportrowcontentv2-api
+  name: Automile ResourceOwnerExpenseReportRowContentV2 API
+  description: >-
+    The ResourceOwnerExpenseReportRowContentV2 API from Automile — 2 operation(s) for resourceownerexpensereportrowcontentv2.
+  humanURL: https://www.automile.com/en/integrations-api
+  baseURL: https://api.automile.com
+  tags:
+  - ResourceOwnerExpenseReportRowContentV2
+  properties:
+  - type: OpenAPI
+    url: openapi/automile-resourceownerexpensereportrowcontentv2-api-openapi.yml
+  - type: APIReference
+    url: https://api.automile.com/swagger/v1/swagger.json
+  - type: Webhooks
+    url: asyncapi/automile-webhooks.yml
+- aid: automile:automile-resourceownerexpensereportrowv2-api
+  name: Automile ResourceOwnerExpenseReportRowV2 API
+  description: >-
+    The ResourceOwnerExpenseReportRowV2 API from Automile — 2 operation(s) for resourceownerexpensereportrowv2.
+  humanURL: https://www.automile.com/en/integrations-api
+  baseURL: https://api.automile.com
+  tags:
+  - ResourceOwnerExpenseReportRowV2
+  properties:
+  - type: OpenAPI
+    url: openapi/automile-resourceownerexpensereportrowv2-api-openapi.yml
+  - type: APIReference
+    url: https://api.automile.com/swagger/v1/swagger.json
+  - type: Webhooks
+    url: asyncapi/automile-webhooks.yml
+- aid: automile:automile-resourceownerexpensereportv2-api
+  name: Automile ResourceOwnerExpenseReportV2 API
+  description: >-
+    The ResourceOwnerExpenseReportV2 API from Automile — 5 operation(s) for resourceownerexpensereportv2.
+  humanURL: https://www.automile.com/en/integrations-api
+  baseURL: https://api.automile.com
+  tags:
+  - ResourceOwnerExpenseReportV2
+  properties:
+  - type: OpenAPI
+    url: openapi/automile-resourceownerexpensereportv2-api-openapi.yml
+  - type: APIReference
+    url: https://api.automile.com/swagger/v1/swagger.json
+  - type: Webhooks
+    url: asyncapi/automile-webhooks.yml
+- aid: automile:automile-resourceownergeofence-api
+  name: Automile ResourceOwnerGeofence API
+  description: The ResourceOwnerGeofence API from Automile — 2 operation(s) for resourceownergeofence.
+  humanURL: https://www.automile.com/en/integrations-api
+  baseURL: https://api.automile.com
+  tags:
+  - ResourceOwnerGeofence
+  properties:
+  - type: OpenAPI
+    url: openapi/automile-resourceownergeofence-api-openapi.yml
+  - type: APIReference
+    url: https://api.automile.com/swagger/v1/swagger.json
+  - type: Webhooks
+    url: asyncapi/automile-webhooks.yml
+- aid: automile:automile-resourceownergeofence2-api
+  name: Automile ResourceOwnerGeofence2 API
+  description: >-
+    The ResourceOwnerGeofence2 API from Automile — 2 operation(s) for resourceownergeofence2.
+  humanURL: https://www.automile.com/en/integrations-api
+  baseURL: https://api.automile.com
+  tags:
+  - ResourceOwnerGeofence2
+  properties:
+  - type: OpenAPI
+    url: openapi/automile-resourceownergeofence2-api-openapi.yml
+  - type: APIReference
+    url: https://api.automile.com/swagger/v1/swagger.json
+  - type: Webhooks
+    url: asyncapi/automile-webhooks.yml
+- aid: automile:automile-resourceownergeofence3-api
+  name: Automile ResourceOwnerGeofence3 API
+  description: >-
+    The ResourceOwnerGeofence3 API from Automile — 2 operation(s) for resourceownergeofence3.
+  humanURL: https://www.automile.com/en/integrations-api
+  baseURL: https://api.automile.com
+  tags:
+  - ResourceOwnerGeofence3
+  properties:
+  - type: OpenAPI
+    url: openapi/automile-resourceownergeofence3-api-openapi.yml
+  - type: APIReference
+    url: https://api.automile.com/swagger/v1/swagger.json
+  - type: Webhooks
+    url: asyncapi/automile-webhooks.yml
+- aid: automile:automile-resourceownerhoursofservice-api
+  name: Automile ResourceOwnerHoursOfService API
+  description: >-
+    The ResourceOwnerHoursOfService API from Automile — 8 operation(s) for resourceownerhoursofservice.
+  humanURL: https://www.automile.com/en/integrations-api
+  baseURL: https://api.automile.com
+  tags:
+  - ResourceOwnerHoursOfService
+  properties:
+  - type: OpenAPI
+    url: openapi/automile-resourceownerhoursofservice-api-openapi.yml
+  - type: APIReference
+    url: https://api.automile.com/swagger/v1/swagger.json
+  - type: Webhooks
+    url: asyncapi/automile-webhooks.yml
+- aid: automile:automile-resourceownerhoursofserviceviolations-api
+  name: Automile ResourceOwnerHoursOfServiceViolations API
+  description: >-
+    The ResourceOwnerHoursOfServiceViolations API from Automile — 1 operation(s) for resourceownerhoursofserviceviolations.
+  humanURL: https://www.automile.com/en/integrations-api
+  baseURL: https://api.automile.com
+  tags:
+  - ResourceOwnerHoursOfServiceViolations
+  properties:
+  - type: OpenAPI
+    url: openapi/automile-resourceownerhoursofserviceviolations-api-openapi.yml
+  - type: APIReference
+    url: https://api.automile.com/swagger/v1/swagger.json
+  - type: Webhooks
+    url: asyncapi/automile-webhooks.yml
+- aid: automile:automile-resourceownerimeiconfig-api
+  name: Automile ResourceOwnerIMEIConfig API
+  description: >-
+    The ResourceOwnerIMEIConfig API from Automile — 2 operation(s) for resourceownerimeiconfig.
+  humanURL: https://www.automile.com/en/integrations-api
+  baseURL: https://api.automile.com
+  tags:
+  - ResourceOwnerIMEIConfig
+  properties:
+  - type: OpenAPI
+    url: openapi/automile-resourceownerimeiconfig-api-openapi.yml
+  - type: APIReference
+    url: https://api.automile.com/swagger/v1/swagger.json
+  - type: Webhooks
+    url: asyncapi/automile-webhooks.yml
+- aid: automile:automile-resourceownerimeiconfig3-api
+  name: Automile ResourceOwnerIMEIConfig3 API
+  description: >-
+    The ResourceOwnerIMEIConfig3 API from Automile — 2 operation(s) for resourceownerimeiconfig3.
+  humanURL: https://www.automile.com/en/integrations-api
+  baseURL: https://api.automile.com
+  tags:
+  - ResourceOwnerIMEIConfig3
+  properties:
+  - type: OpenAPI
+    url: openapi/automile-resourceownerimeiconfig3-api-openapi.yml
+  - type: APIReference
+    url: https://api.automile.com/swagger/v1/swagger.json
+  - type: Webhooks
+    url: asyncapi/automile-webhooks.yml
+- aid: automile:automile-resourceownerimeievent-api
+  name: Automile ResourceOwnerIMEIEvent API
+  description: >-
+    The ResourceOwnerIMEIEvent API from Automile — 4 operation(s) for resourceownerimeievent.
+  humanURL: https://www.automile.com/en/integrations-api
+  baseURL: https://api.automile.com
+  tags:
+  - ResourceOwnerIMEIEvent
+  properties:
+  - type: OpenAPI
+    url: openapi/automile-resourceownerimeievent-api-openapi.yml
+  - type: APIReference
+    url: https://api.automile.com/swagger/v1/swagger.json
+  - type: Webhooks
+    url: asyncapi/automile-webhooks.yml
+- aid: automile:automile-resourceownerintegration-api
+  name: Automile ResourceOwnerIntegration API
+  description: >-
+    The ResourceOwnerIntegration API from Automile — 11 operation(s) for resourceownerintegration.
+  humanURL: https://www.automile.com/en/integrations-api
+  baseURL: https://api.automile.com
+  tags:
+  - ResourceOwnerIntegration
+  properties:
+  - type: OpenAPI
+    url: openapi/automile-resourceownerintegration-api-openapi.yml
+  - type: APIReference
+    url: https://api.automile.com/swagger/v1/swagger.json
+  - type: Webhooks
+    url: asyncapi/automile-webhooks.yml
+- aid: automile:automile-resourceownerlead-api
+  name: Automile ResourceOwnerLead API
+  description: The ResourceOwnerLead API from Automile — 1 operation(s) for resourceownerlead.
+  humanURL: https://www.automile.com/en/integrations-api
+  baseURL: https://api.automile.com
+  tags:
+  - ResourceOwnerLead
+  properties:
+  - type: OpenAPI
+    url: openapi/automile-resourceownerlead-api-openapi.yml
+  - type: APIReference
+    url: https://api.automile.com/swagger/v1/swagger.json
+  - type: Webhooks
+    url: asyncapi/automile-webhooks.yml
+- aid: automile:automile-resourceownerorganization-api
+  name: Automile ResourceOwnerOrganization API
+  description: >-
+    The ResourceOwnerOrganization API from Automile — 2 operation(s) for resourceownerorganization.
+  humanURL: https://www.automile.com/en/integrations-api
+  baseURL: https://api.automile.com
+  tags:
+  - ResourceOwnerOrganization
+  properties:
+  - type: OpenAPI
+    url: openapi/automile-resourceownerorganization-api-openapi.yml
+  - type: APIReference
+    url: https://api.automile.com/swagger/v1/swagger.json
+  - type: Webhooks
+    url: asyncapi/automile-webhooks.yml
+- aid: automile:automile-resourceownerplace-api
+  name: Automile ResourceOwnerPlace API
+  description: The ResourceOwnerPlace API from Automile — 2 operation(s) for resourceownerplace.
+  humanURL: https://www.automile.com/en/integrations-api
+  baseURL: https://api.automile.com
+  tags:
+  - ResourceOwnerPlace
+  properties:
+  - type: OpenAPI
+    url: openapi/automile-resourceownerplace-api-openapi.yml
+  - type: APIReference
+    url: https://api.automile.com/swagger/v1/swagger.json
+  - type: Webhooks
+    url: asyncapi/automile-webhooks.yml
+- aid: automile:automile-resourceownerplace2-api
+  name: Automile ResourceOwnerPlace2 API
+  description: The ResourceOwnerPlace2 API from Automile — 2 operation(s) for resourceownerplace2.
+  humanURL: https://www.automile.com/en/integrations-api
+  baseURL: https://api.automile.com
+  tags:
+  - ResourceOwnerPlace2
+  properties:
+  - type: OpenAPI
+    url: openapi/automile-resourceownerplace2-api-openapi.yml
+  - type: APIReference
+    url: https://api.automile.com/swagger/v1/swagger.json
+  - type: Webhooks
+    url: asyncapi/automile-webhooks.yml
+- aid: automile:automile-resourceownerplace3-api
+  name: Automile ResourceOwnerPlace3 API
+  description: The ResourceOwnerPlace3 API from Automile — 2 operation(s) for resourceownerplace3.
+  humanURL: https://www.automile.com/en/integrations-api
+  baseURL: https://api.automile.com
+  tags:
+  - ResourceOwnerPlace3
+  properties:
+  - type: OpenAPI
+    url: openapi/automile-resourceownerplace3-api-openapi.yml
+  - type: APIReference
+    url: https://api.automile.com/swagger/v1/swagger.json
+  - type: Webhooks
+    url: asyncapi/automile-webhooks.yml
+- aid: automile:automile-resourceownerpublishsubscribe-api
+  name: Automile ResourceOwnerPublishSubscribe API
+  description: >-
+    The ResourceOwnerPublishSubscribe API from Automile — 10 operation(s) for resourceownerpublishsubscribe.
+  humanURL: https://www.automile.com/en/integrations-api
+  baseURL: https://api.automile.com
+  tags:
+  - ResourceOwnerPublishSubscribe
+  properties:
+  - type: OpenAPI
+    url: openapi/automile-resourceownerpublishsubscribe-api-openapi.yml
+  - type: APIReference
+    url: https://api.automile.com/swagger/v1/swagger.json
+  - type: Webhooks
+    url: asyncapi/automile-webhooks.yml
+- aid: automile:automile-resourceownerquote-api
+  name: Automile ResourceOwnerQuote API
+  description: The ResourceOwnerQuote API from Automile — 4 operation(s) for resourceownerquote.
+  humanURL: https://www.automile.com/en/integrations-api
+  baseURL: https://api.automile.com
+  tags:
+  - ResourceOwnerQuote
+  properties:
+  - type: OpenAPI
+    url: openapi/automile-resourceownerquote-api-openapi.yml
+  - type: APIReference
+    url: https://api.automile.com/swagger/v1/swagger.json
+  - type: Webhooks
+    url: asyncapi/automile-webhooks.yml
+- aid: automile:automile-resourceownerregisteredtollv2-api
+  name: Automile ResourceOwnerRegisteredTollV2 API
+  description: >-
+    The ResourceOwnerRegisteredTollV2 API from Automile — 4 operation(s) for resourceownerregisteredtollv2.
+  humanURL: https://www.automile.com/en/integrations-api
+  baseURL: https://api.automile.com
+  tags:
+  - ResourceOwnerRegisteredTollV2
+  properties:
+  - type: OpenAPI
+    url: openapi/automile-resourceownerregisteredtollv2-api-openapi.yml
+  - type: APIReference
+    url: https://api.automile.com/swagger/v1/swagger.json
+  - type: Webhooks
+    url: asyncapi/automile-webhooks.yml
+- aid: automile:automile-resourceownerreports-api
+  name: Automile ResourceOwnerReports API
+  description: The ResourceOwnerReports API from Automile — 10 operation(s) for resourceownerreports.
+  humanURL: https://www.automile.com/en/integrations-api
+  baseURL: https://api.automile.com
+  tags:
+  - ResourceOwnerReports
+  properties:
+  - type: OpenAPI
+    url: openapi/automile-resourceownerreports-api-openapi.yml
+  - type: APIReference
+    url: https://api.automile.com/swagger/v1/swagger.json
+  - type: Webhooks
+    url: asyncapi/automile-webhooks.yml
+- aid: automile:automile-resourceownerreports3-api
+  name: Automile ResourceOwnerReports3 API
+  description: The ResourceOwnerReports3 API from Automile — 6 operation(s) for resourceownerreports3.
+  humanURL: https://www.automile.com/en/integrations-api
+  baseURL: https://api.automile.com
+  tags:
+  - ResourceOwnerReports3
+  properties:
+  - type: OpenAPI
+    url: openapi/automile-resourceownerreports3-api-openapi.yml
+  - type: APIReference
+    url: https://api.automile.com/swagger/v1/swagger.json
+  - type: Webhooks
+    url: asyncapi/automile-webhooks.yml
+- aid: automile:automile-resourceownerrouteplanner-api
+  name: Automile ResourceOwnerRoutePlanner API
+  description: >-
+    The ResourceOwnerRoutePlanner API from Automile — 8 operation(s) for resourceownerrouteplanner.
+  humanURL: https://www.automile.com/en/integrations-api
+  baseURL: https://api.automile.com
+  tags:
+  - ResourceOwnerRoutePlanner
+  properties:
+  - type: OpenAPI
+    url: openapi/automile-resourceownerrouteplanner-api-openapi.yml
+  - type: APIReference
+    url: https://api.automile.com/swagger/v1/swagger.json
+  - type: Webhooks
+    url: asyncapi/automile-webhooks.yml
+- aid: automile:automile-resourceownertask-api
+  name: Automile ResourceOwnerTask API
+  description: The ResourceOwnerTask API from Automile — 3 operation(s) for resourceownertask.
+  humanURL: https://www.automile.com/en/integrations-api
+  baseURL: https://api.automile.com
+  tags:
+  - ResourceOwnerTask
+  properties:
+  - type: OpenAPI
+    url: openapi/automile-resourceownertask-api-openapi.yml
+  - type: APIReference
+    url: https://api.automile.com/swagger/v1/swagger.json
+  - type: Webhooks
+    url: asyncapi/automile-webhooks.yml
+- aid: automile:automile-resourceownertask3-api
+  name: Automile ResourceOwnerTask3 API
+  description: The ResourceOwnerTask3 API from Automile — 3 operation(s) for resourceownertask3.
+  humanURL: https://www.automile.com/en/integrations-api
+  baseURL: https://api.automile.com
+  tags:
+  - ResourceOwnerTask3
+  properties:
+  - type: OpenAPI
+    url: openapi/automile-resourceownertask3-api-openapi.yml
+  - type: APIReference
+    url: https://api.automile.com/swagger/v1/swagger.json
+  - type: Webhooks
+    url: asyncapi/automile-webhooks.yml
+- aid: automile:automile-resourceownertaskmessage-api
+  name: Automile ResourceOwnerTaskMessage API
+  description: >-
+    The ResourceOwnerTaskMessage API from Automile — 2 operation(s) for resourceownertaskmessage.
+  humanURL: https://www.automile.com/en/integrations-api
+  baseURL: https://api.automile.com
+  tags:
+  - ResourceOwnerTaskMessage
+  properties:
+  - type: OpenAPI
+    url: openapi/automile-resourceownertaskmessage-api-openapi.yml
+  - type: APIReference
+    url: https://api.automile.com/swagger/v1/swagger.json
+  - type: Webhooks
+    url: asyncapi/automile-webhooks.yml
+- aid: automile:automile-resourceownertaskmessage3-api
+  name: Automile ResourceOwnerTaskMessage3 API
+  description: >-
+    The ResourceOwnerTaskMessage3 API from Automile — 2 operation(s) for resourceownertaskmessage3.
+  humanURL: https://www.automile.com/en/integrations-api
+  baseURL: https://api.automile.com
+  tags:
+  - ResourceOwnerTaskMessage3
+  properties:
+  - type: OpenAPI
+    url: openapi/automile-resourceownertaskmessage3-api-openapi.yml
+  - type: APIReference
+    url: https://api.automile.com/swagger/v1/swagger.json
+  - type: Webhooks
+    url: asyncapi/automile-webhooks.yml
+- aid: automile:automile-resourceownertrackedasset-api
+  name: Automile ResourceOwnerTrackedAsset API
+  description: >-
+    The ResourceOwnerTrackedAsset API from Automile — 14 operation(s) for resourceownertrackedasset.
+  humanURL: https://www.automile.com/en/integrations-api
+  baseURL: https://api.automile.com
+  tags:
+  - ResourceOwnerTrackedAsset
+  properties:
+  - type: OpenAPI
+    url: openapi/automile-resourceownertrackedasset-api-openapi.yml
+  - type: APIReference
+    url: https://api.automile.com/swagger/v1/swagger.json
+  - type: Webhooks
+    url: asyncapi/automile-webhooks.yml
+- aid: automile:automile-resourceownertriggermessages-api
+  name: Automile ResourceOwnerTriggerMessages API
+  description: >-
+    The ResourceOwnerTriggerMessages API from Automile — 2 operation(s) for resourceownertriggermessages.
+  humanURL: https://www.automile.com/en/integrations-api
+  baseURL: https://api.automile.com
+  tags:
+  - ResourceOwnerTriggerMessages
+  properties:
+  - type: OpenAPI
+    url: openapi/automile-resourceownertriggermessages-api-openapi.yml
+  - type: APIReference
+    url: https://api.automile.com/swagger/v1/swagger.json
+  - type: Webhooks
+    url: asyncapi/automile-webhooks.yml
+- aid: automile:automile-resourceownertriggers-api
+  name: Automile ResourceOwnerTriggers API
+  description: The ResourceOwnerTriggers API from Automile — 6 operation(s) for resourceownertriggers.
+  humanURL: https://www.automile.com/en/integrations-api
+  baseURL: https://api.automile.com
+  tags:
+  - ResourceOwnerTriggers
+  properties:
+  - type: OpenAPI
+    url: openapi/automile-resourceownertriggers-api-openapi.yml
+  - type: APIReference
+    url: https://api.automile.com/swagger/v1/swagger.json
+  - type: Webhooks
+    url: asyncapi/automile-webhooks.yml
+- aid: automile:automile-resourceownertriggers3-api
+  name: Automile ResourceOwnerTriggers3 API
+  description: >-
+    The ResourceOwnerTriggers3 API from Automile — 5 operation(s) for resourceownertriggers3.
+  humanURL: https://www.automile.com/en/integrations-api
+  baseURL: https://api.automile.com
+  tags:
+  - ResourceOwnerTriggers3
+  properties:
+  - type: OpenAPI
+    url: openapi/automile-resourceownertriggers3-api-openapi.yml
+  - type: APIReference
+    url: https://api.automile.com/swagger/v1/swagger.json
+  - type: Webhooks
+    url: asyncapi/automile-webhooks.yml
+- aid: automile:automile-resourceownertrip3v2-api
+  name: Automile ResourceOwnerTrip3V2 API
+  description: The ResourceOwnerTrip3V2 API from Automile — 15 operation(s) for resourceownertrip3v2.
+  humanURL: https://www.automile.com/en/integrations-api
+  baseURL: https://api.automile.com
+  tags:
+  - ResourceOwnerTrip3V2
+  properties:
+  - type: OpenAPI
+    url: openapi/automile-resourceownertrip3v2-api-openapi.yml
+  - type: APIReference
+    url: https://api.automile.com/swagger/v1/swagger.json
+  - type: Webhooks
+    url: asyncapi/automile-webhooks.yml
+- aid: automile:automile-resourceownertripapprovalv2-api
+  name: Automile ResourceOwnerTripApprovalV2 API
+  description: >-
+    The ResourceOwnerTripApprovalV2 API from Automile — 6 operation(s) for resourceownertripapprovalv2.
+  humanURL: https://www.automile.com/en/integrations-api
+  baseURL: https://api.automile.com
+  tags:
+  - ResourceOwnerTripApprovalV2
+  properties:
+  - type: OpenAPI
+    url: openapi/automile-resourceownertripapprovalv2-api-openapi.yml
+  - type: APIReference
+    url: https://api.automile.com/swagger/v1/swagger.json
+  - type: Webhooks
+    url: asyncapi/automile-webhooks.yml
+- aid: automile:automile-resourceownertripmergev2-api
+  name: Automile ResourceOwnerTripMergeV2 API
+  description: >-
+    The ResourceOwnerTripMergeV2 API from Automile — 3 operation(s) for resourceownertripmergev2.
+  humanURL: https://www.automile.com/en/integrations-api
+  baseURL: https://api.automile.com
+  tags:
+  - ResourceOwnerTripMergeV2
+  properties:
+  - type: OpenAPI
+    url: openapi/automile-resourceownertripmergev2-api-openapi.yml
+  - type: APIReference
+    url: https://api.automile.com/swagger/v1/swagger.json
+  - type: Webhooks
+    url: asyncapi/automile-webhooks.yml
+- aid: automile:automile-resourceownertripscore-api
+  name: Automile ResourceOwnerTripScore API
+  description: >-
+    The ResourceOwnerTripScore API from Automile — 4 operation(s) for resourceownertripscore.
+  humanURL: https://www.automile.com/en/integrations-api
+  baseURL: https://api.automile.com
+  tags:
+  - ResourceOwnerTripScore
+  properties:
+  - type: OpenAPI
+    url: openapi/automile-resourceownertripscore-api-openapi.yml
+  - type: APIReference
+    url: https://api.automile.com/swagger/v1/swagger.json
+  - type: Webhooks
+    url: asyncapi/automile-webhooks.yml
+- aid: automile:automile-resourceownertripv2-api
+  name: Automile ResourceOwnerTripV2 API
+  description: The ResourceOwnerTripV2 API from Automile — 17 operation(s) for resourceownertripv2.
+  humanURL: https://www.automile.com/en/integrations-api
+  baseURL: https://api.automile.com
+  tags:
+  - ResourceOwnerTripV2
+  properties:
+  - type: OpenAPI
+    url: openapi/automile-resourceownertripv2-api-openapi.yml
+  - type: APIReference
+    url: https://api.automile.com/swagger/v1/swagger.json
+  - type: Webhooks
+    url: asyncapi/automile-webhooks.yml
+- aid: automile:automile-resourceowneruser-api
+  name: Automile ResourceOwnerUser API
+  description: The ResourceOwnerUser API from Automile — 6 operation(s) for resourceowneruser.
+  humanURL: https://www.automile.com/en/integrations-api
+  baseURL: https://api.automile.com
+  tags:
+  - ResourceOwnerUser
+  properties:
+  - type: OpenAPI
+    url: openapi/automile-resourceowneruser-api-openapi.yml
+  - type: APIReference
+    url: https://api.automile.com/swagger/v1/swagger.json
+  - type: Webhooks
+    url: asyncapi/automile-webhooks.yml
+- aid: automile:automile-resourceowneruserdevice-api
+  name: Automile ResourceOwnerUserDevice API
+  description: >-
+    The ResourceOwnerUserDevice API from Automile — 4 operation(s) for resourceowneruserdevice.
+  humanURL: https://www.automile.com/en/integrations-api
+  baseURL: https://api.automile.com
+  tags:
+  - ResourceOwnerUserDevice
+  properties:
+  - type: OpenAPI
+    url: openapi/automile-resourceowneruserdevice-api-openapi.yml
+  - type: APIReference
+    url: https://api.automile.com/swagger/v1/swagger.json
+  - type: Webhooks
+    url: asyncapi/automile-webhooks.yml
+- aid: automile:automile-resourceownervehicle2v2-api
+  name: Automile ResourceOwnerVehicle2V2 API
+  description: >-
+    The ResourceOwnerVehicle2V2 API from Automile — 9 operation(s) for resourceownervehicle2v2.
+  humanURL: https://www.automile.com/en/integrations-api
+  baseURL: https://api.automile.com
+  tags:
+  - ResourceOwnerVehicle2V2
+  properties:
+  - type: OpenAPI
+    url: openapi/automile-resourceownervehicle2v2-api-openapi.yml
+  - type: APIReference
+    url: https://api.automile.com/swagger/v1/swagger.json
+  - type: Webhooks
+    url: asyncapi/automile-webhooks.yml
+- aid: automile:automile-resourceownervehicle3v2-api
+  name: Automile ResourceOwnerVehicle3V2 API
+  description: >-
+    The ResourceOwnerVehicle3V2 API from Automile — 8 operation(s) for resourceownervehicle3v2.
+  humanURL: https://www.automile.com/en/integrations-api
+  baseURL: https://api.automile.com
+  tags:
+  - ResourceOwnerVehicle3V2
+  properties:
+  - type: OpenAPI
+    url: openapi/automile-resourceownervehicle3v2-api-openapi.yml
+  - type: APIReference
+    url: https://api.automile.com/swagger/v1/swagger.json
+  - type: Webhooks
+    url: asyncapi/automile-webhooks.yml
+- aid: automile:automile-resourceownervehicledefectcomments-api
+  name: Automile ResourceOwnerVehicleDefectComments API
+  description: >-
+    The ResourceOwnerVehicleDefectComments API from Automile — 2 operation(s) for resourceownervehicledefectcomments.
+  humanURL: https://www.automile.com/en/integrations-api
+  baseURL: https://api.automile.com
+  tags:
+  - ResourceOwnerVehicleDefectComments
+  properties:
+  - type: OpenAPI
+    url: openapi/automile-resourceownervehicledefectcomments-api-openapi.yml
+  - type: APIReference
+    url: https://api.automile.com/swagger/v1/swagger.json
+  - type: Webhooks
+    url: asyncapi/automile-webhooks.yml
+- aid: automile:automile-resourceownervehicledefectcomments3-api
+  name: Automile ResourceOwnerVehicleDefectComments3 API
+  description: >-
+    The ResourceOwnerVehicleDefectComments3 API from Automile — 2 operation(s) for resourceownervehicledefectcomments3.
+  humanURL: https://www.automile.com/en/integrations-api
+  baseURL: https://api.automile.com
+  tags:
+  - ResourceOwnerVehicleDefectComments3
+  properties:
+  - type: OpenAPI
+    url: openapi/automile-resourceownervehicledefectcomments3-api-openapi.yml
+  - type: APIReference
+    url: https://api.automile.com/swagger/v1/swagger.json
+  - type: Webhooks
+    url: asyncapi/automile-webhooks.yml
+- aid: automile:automile-resourceownervehicledefecttypes-api
+  name: Automile ResourceOwnerVehicleDefectTypes API
+  description: >-
+    The ResourceOwnerVehicleDefectTypes API from Automile — 1 operation(s) for resourceownervehicledefecttypes.
+  humanURL: https://www.automile.com/en/integrations-api
+  baseURL: https://api.automile.com
+  tags:
+  - ResourceOwnerVehicleDefectTypes
+  properties:
+  - type: OpenAPI
+    url: openapi/automile-resourceownervehicledefecttypes-api-openapi.yml
+  - type: APIReference
+    url: https://api.automile.com/swagger/v1/swagger.json
+  - type: Webhooks
+    url: asyncapi/automile-webhooks.yml
+- aid: automile:automile-resourceownervehiclegeofence-api
+  name: Automile ResourceOwnerVehicleGeofence API
+  description: >-
+    The ResourceOwnerVehicleGeofence API from Automile — 2 operation(s) for resourceownervehiclegeofence.
+  humanURL: https://www.automile.com/en/integrations-api
+  baseURL: https://api.automile.com
+  tags:
+  - ResourceOwnerVehicleGeofence
+  properties:
+  - type: OpenAPI
+    url: openapi/automile-resourceownervehiclegeofence-api-openapi.yml
+  - type: APIReference
+    url: https://api.automile.com/swagger/v1/swagger.json
+  - type: Webhooks
+    url: asyncapi/automile-webhooks.yml
+- aid: automile:automile-resourceownervehiclehealth-api
+  name: Automile ResourceOwnerVehicleHealth API
+  description: >-
+    The ResourceOwnerVehicleHealth API from Automile — 2 operation(s) for resourceownervehiclehealth.
+  humanURL: https://www.automile.com/en/integrations-api
+  baseURL: https://api.automile.com
+  tags:
+  - ResourceOwnerVehicleHealth
+  properties:
+  - type: OpenAPI
+    url: openapi/automile-resourceownervehiclehealth-api-openapi.yml
+  - type: APIReference
+    url: https://api.automile.com/swagger/v1/swagger.json
+  - type: Webhooks
+    url: asyncapi/automile-webhooks.yml
+- aid: automile:automile-resourceownervehiclehealth3-api
+  name: Automile ResourceOwnerVehicleHealth3 API
+  description: >-
+    The ResourceOwnerVehicleHealth3 API from Automile — 2 operation(s) for resourceownervehiclehealth3.
+  humanURL: https://www.automile.com/en/integrations-api
+  baseURL: https://api.automile.com
+  tags:
+  - ResourceOwnerVehicleHealth3
+  properties:
+  - type: OpenAPI
+    url: openapi/automile-resourceownervehiclehealth3-api-openapi.yml
+  - type: APIReference
+    url: https://api.automile.com/swagger/v1/swagger.json
+  - type: Webhooks
+    url: asyncapi/automile-webhooks.yml
+- aid: automile:automile-resourceownervehicleinspection-api
+  name: Automile ResourceOwnerVehicleInspection API
+  description: >-
+    The ResourceOwnerVehicleInspection API from Automile — 3 operation(s) for resourceownervehicleinspection.
+  humanURL: https://www.automile.com/en/integrations-api
+  baseURL: https://api.automile.com
+  tags:
+  - ResourceOwnerVehicleInspection
+  properties:
+  - type: OpenAPI
+    url: openapi/automile-resourceownervehicleinspection-api-openapi.yml
+  - type: APIReference
+    url: https://api.automile.com/swagger/v1/swagger.json
+  - type: Webhooks
+    url: asyncapi/automile-webhooks.yml
+- aid: automile:automile-resourceownervehicleinspection3-api
+  name: Automile ResourceOwnerVehicleInspection3 API
+  description: >-
+    The ResourceOwnerVehicleInspection3 API from Automile — 3 operation(s) for resourceownervehicleinspection3.
+  humanURL: https://www.automile.com/en/integrations-api
+  baseURL: https://api.automile.com
+  tags:
+  - ResourceOwnerVehicleInspection3
+  properties:
+  - type: OpenAPI
+    url: openapi/automile-resourceownervehicleinspection3-api-openapi.yml
+  - type: APIReference
+    url: https://api.automile.com/swagger/v1/swagger.json
+  - type: Webhooks
+    url: asyncapi/automile-webhooks.yml
+- aid: automile:automile-resourceownervehicleodometerv2-api
+  name: Automile ResourceOwnerVehicleOdometerV2 API
+  description: >-
+    The ResourceOwnerVehicleOdometerV2 API from Automile — 3 operation(s) for resourceownervehicleodometerv2.
+  humanURL: https://www.automile.com/en/integrations-api
+  baseURL: https://api.automile.com
+  tags:
+  - ResourceOwnerVehicleOdometerV2
+  properties:
+  - type: OpenAPI
+    url: openapi/automile-resourceownervehicleodometerv2-api-openapi.yml
+  - type: APIReference
+    url: https://api.automile.com/swagger/v1/swagger.json
+  - type: Webhooks
+    url: asyncapi/automile-webhooks.yml
+- aid: automile:automile-resourceownervehicleplace-api
+  name: Automile ResourceOwnerVehiclePlace API
+  description: >-
+    The ResourceOwnerVehiclePlace API from Automile — 2 operation(s) for resourceownervehicleplace.
+  humanURL: https://www.automile.com/en/integrations-api
+  baseURL: https://api.automile.com
+  tags:
+  - ResourceOwnerVehiclePlace
+  properties:
+  - type: OpenAPI
+    url: openapi/automile-resourceownervehicleplace-api-openapi.yml
+  - type: APIReference
+    url: https://api.automile.com/swagger/v1/swagger.json
+  - type: Webhooks
+    url: asyncapi/automile-webhooks.yml
+- aid: automile:automile-resourceownervehiclev2-api
+  name: Automile ResourceOwnerVehicleV2 API
+  description: >-
+    The ResourceOwnerVehicleV2 API from Automile — 3 operation(s) for resourceownervehiclev2.
+  humanURL: https://www.automile.com/en/integrations-api
+  baseURL: https://api.automile.com
+  tags:
+  - ResourceOwnerVehicleV2
+  properties:
+  - type: OpenAPI
+    url: openapi/automile-resourceownervehiclev2-api-openapi.yml
+  - type: APIReference
+    url: https://api.automile.com/swagger/v1/swagger.json
+  - type: Webhooks
+    url: asyncapi/automile-webhooks.yml
+- aid: automile:automile-resourceownerworkorder-api
+  name: Automile ResourceOwnerWorkOrder API
+  description: >-
+    The ResourceOwnerWorkOrder API from Automile — 12 operation(s) for resourceownerworkorder.
+  humanURL: https://www.automile.com/en/integrations-api
+  baseURL: https://api.automile.com
+  tags:
+  - ResourceOwnerWorkOrder
+  properties:
+  - type: OpenAPI
+    url: openapi/automile-resourceownerworkorder-api-openapi.yml
+  - type: APIReference
+    url: https://api.automile.com/swagger/v1/swagger.json
+  - type: Webhooks
+    url: asyncapi/automile-webhooks.yml
 common:
 - type: Website
   url: https://www.automile.com/
+- type: DeveloperPortal
+  url: https://www.automile.com/en/integrations-api
+- type: Documentation
+  url: https://www.automile.com/en/integrations-api
+- type: APIReference
+  url: https://api.automile.com/swagger/v1/swagger.json
+- type: Support
+  url: https://help.automile.com
+- type: GitHubOrganization
+  url: https://github.com/Automile
+- type: SignUp
+  url: https://app.automile.com
+- type: TermsOfService
+  url: https://www.automile.com/en/terms-and-conditions
+- type: PrivacyPolicy
+  url: https://www.automile.com/en/privacy-policy
+- type: Packages
+  url: packages/automile-packages.yml
+- type: SDKs
+  url: packages/automile-packages.yml
+- type: Authentication
+  url: authentication/automile-authentication.yml
+- type: OAuthScopes
+  url: scopes/automile-scopes.yml
+- type: Conventions
+  url: conventions/automile-conventions.yml
+- type: ErrorCatalog
+  url: errors/automile-problem-types.yml
+- type: Lifecycle
+  url: lifecycle/automile-lifecycle.yml
+- type: Conformance
+  url: conformance/automile-conformance.yml
+- type: DataModel
+  url: data-model/automile-data-model.yml
+- type: Webhooks
+  url: asyncapi/automile-webhooks.yml
+- type: MCPServer
+  url: mcp/automile-mcp.yml
+- type: AgentSkill
+  url: skills/_index.yml
+- type: LLMsTxt
+  url: llms/automile-llms.txt
+- type: Overlay
+  url: overlays/automile-openapi-overlay.yaml
+- type: DomainSecurity
+  url: security/automile-domain-security.yml
+x-enrichment:
+  date: '2026-07-19'
+  status: backfilled
+  pass: local-v1
+  note: backfilled from .gitignore signal + verified work evidence

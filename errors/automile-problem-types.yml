@@ -1,0 +1,370 @@
+generated: '2026-07-18'
+method: derived
+source: openapi/automile-openapi-original.json
+format: http-status
+note: Automile returns plain-text/JSON error messages keyed on HTTP status (not RFC 9457 problem+json).
+  Titles below are the response descriptions declared in the OpenAPI.
+envelope:
+  media_type: application/json
+  field: message
+  description: Human-readable error detail is returned in the response body message field.
+status_classes:
+- status: 400
+  meaning: Bad request - malformed parameters, bad date format, or invalid values.
+- status: 401
+  meaning: Unauthorized - missing/invalid OAuth2 bearer token, or an approval/authorization precondition
+    not met.
+- status: 403
+  meaning: Forbidden - authenticated but no access to the requested resource (e.g. vehicle not in your
+    account).
+- status: 404
+  meaning: Not found - the referenced resource does not exist.
+- status: 406
+  meaning: Not acceptable - request is not properly formatted.
+- status: 409
+  meaning: Conflict - e.g. multiple users associated to the account.
+- status: 500
+  meaning: Internal server error.
+- status: 501
+  meaning: Not implemented - e.g. the OBD PID is not supported/recorded by the vehicle.
+problems:
+- status: 500
+  title: Internal server error
+  source_operation: null
+- status: 403
+  title: Request is forbidden, meaning you dont' have access to this authorization
+  source_operation: openapi/automile-openapi-original.json#GetByAPIAuthorizationId
+- status: 400
+  title: Bad request, can happen when you supply values that are unacceptable
+  source_operation: openapi/automile-openapi-original.json#UserPhoneNumber
+- status: 409
+  title: Multiple users assoicated to the account
+  source_operation: openapi/automile-openapi-original.json#UserPhoneNumber
+- status: 400
+  title: Format error on phonenumber, To many SMS or no match on phonenumber
+  source_operation: openapi/automile-openapi-original.json#CreatePinCode
+- status: 400
+  title: Can't assoicate given username to a user
+  source_operation: openapi/automile-openapi-original.json#ValidatePinCode
+- status: 401
+  title: Unauthorized
+  source_operation: openapi/automile-openapi-original.json#ValidatePinCode
+- status: 403
+  title: Too many password attempts
+  source_operation: openapi/automile-openapi-original.json#ValidatePinCode
+- status: 403
+  title: Request is forbidden, meaning you don't have access to this user
+  source_operation: openapi/automile-openapi-original.json#GetClientUserByUserId
+- status: 403
+  title: Request is forbidden, this could occur if you try to associate to companies you are not associated
+    with
+  source_operation: openapi/automile-openapi-original.json#CreateResourceOwnerCompanyContact
+- status: 403
+  title: Request is forbidden, meaning you don't have access to this company vehicle relationship
+  source_operation: openapi/automile-openapi-original.json#GetResourceOwnerCompanyContact
+- status: 403
+  title: Request is forbidden, this could occur if you are not associated with the company contact
+  source_operation: openapi/automile-openapi-original.json#EditResourceOwnerCompanyContact
+- status: 404
+  title: The company contact that you tried to remove doesn't exist
+  source_operation: openapi/automile-openapi-original.json#DeleteResourceOwnerCompanyContact
+- status: 404
+  title: The company that you tried to use doesn't exist
+  source_operation: openapi/automile-openapi-original.json#CreateResourceOwnerCompanyVehicle
+- status: 404
+  title: The company, the vehicle or the company vehicle that you tried to update doesn't exist
+  source_operation: null
+- status: 403
+  title: Request is forbidden, this could occur if you are not associated with the company vehicle
+  source_operation: openapi/automile-openapi-original.json#DeleteResourceOwnerCompanyVehicle
+- status: 404
+  title: The company vehicle that you tried to remove doesn't exist
+  source_operation: openapi/automile-openapi-original.json#DeleteResourceOwnerCompanyVehicle
+- status: 403
+  title: Request is forbidden, this could occur if you try to associate the contact you are not associated
+    with
+  source_operation: openapi/automile-openapi-original.json#CreateResourceOwnerContact
+- status: 403
+  title: Request is forbidden, meaning you dont' have access to this contact
+  source_operation: openapi/automile-openapi-original.json#GetResourceOwnerContact
+- status: 404
+  title: Contact does not exist
+  source_operation: openapi/automile-openapi-original.json#GetResourceOwnerContact
+- status: 403
+  title: Request is forbidden, this could occur if you are not associated with the contact
+  source_operation: openapi/automile-openapi-original.json#EditResourceOwnerContact
+- status: 404
+  title: The contact that you tried to update doesn't exist
+  source_operation: openapi/automile-openapi-original.json#EditResourceOwnerContact
+- status: 403
+  title: Forbidden
+  source_operation: openapi/automile-openapi-original.json#DeleteResourceOwnerContact
+- status: 404
+  title: The contact that you tried to remove doesn't exist
+  source_operation: openapi/automile-openapi-original.json#DeleteResourceOwnerContact
+- status: 400
+  title: Request is bad, You can't delete a contact that is bound to a user
+  source_operation: openapi/automile-openapi-original.json#DeleteResourceOwnerContact
+- status: 403
+  title: Request is forbidden, meaning you don't have access to this vehicle
+  source_operation: openapi/automile-openapi-original.json#MeUpdateDefaultVehicle
+- status: 406
+  title: Request is not properly formatted
+  source_operation: openapi/automile-openapi-original.json#MeUploadImage
+- status: 403
+  title: Request is forbidden, meaning you dont' have access to this vehicle
+  source_operation: openapi/automile-openapi-original.json#GetResourceOwnerContactVehicleContactsBasedOnVehicleId
+- status: 404
+  title: The vehicle that you tried to update doesn't exist
+  source_operation: openapi/automile-openapi-original.json#GetResourceOwnerContactVehicleContactsBasedOnVehicleId
+- status: 403
+  title: Request is forbidden, this could occur if you are not associated with the contact vehicle
+  source_operation: openapi/automile-openapi-original.json#EditResourceOwnerContactVehicle
+- status: 404
+  title: The contact vehicle that you tried to update doesn't exist
+  source_operation: openapi/automile-openapi-original.json#EditResourceOwnerContactVehicle
+- status: 403
+  title: Request is forbidden, this could occur if you are not associated with the vehicle contact
+  source_operation: openapi/automile-openapi-original.json#DeleteResourceOwnerContactVehicle
+- status: 404
+  title: The vehicle contact that you tried to remove doesn't exist
+  source_operation: openapi/automile-openapi-original.json#DeleteResourceOwnerContactVehicle
+- status: 400
+  title: Missing or invalid data
+  source_operation: openapi/automile-openapi-original.json#ResourceOwnerContentController_Upload
+- status: 400
+  title: Bad request, could occur for a number of cases, see returned message
+  source_operation: openapi/automile-openapi-original.json#EditResourceOwnerExpenseReport3
+- status: 403
+  title: Request is forbidden, could occur for a number of reasons, see returned message
+  source_operation: openapi/automile-openapi-original.json#EditResourceOwnerExpenseReport3
+- status: 404
+  title: Not found, the expense report you tried to update can't be found
+  source_operation: openapi/automile-openapi-original.json#EditResourceOwnerExpenseReport3
+- status: 400
+  title: Bad Request
+  source_operation: openapi/automile-openapi-original.json#DeleteResourceOwnerExpenseReport3
+- status: 404
+  title: Not found, the expense report you tried to remove can't be found
+  source_operation: openapi/automile-openapi-original.json#DeleteResourceOwnerExpenseReport3
+- status: 404
+  title: No expense reports could be found with the given parameter values and access rights
+  source_operation: openapi/automile-openapi-original.json#CreateExpenseReportsEmailExport35
+- status: 404
+  title: Not found, the expense report row you tried to update can't be found
+  source_operation: openapi/automile-openapi-original.json#EditResourceOwnerExpenseReportRow3
+- status: 404
+  title: Not found, the expense report row you tried to remove can't be found
+  source_operation: openapi/automile-openapi-original.json#DeleteResourceOwnerExpenseReportRow3
+- status: 403
+  title: Request is forbidden, meaning you don't have access to this geofence
+  source_operation: openapi/automile-openapi-original.json#GetResourceOwnerGeofence
+- status: 404
+  title: Not found, the geofence you tried to update can't be found
+  source_operation: openapi/automile-openapi-original.json#EditResourceOwnerGeofence
+- status: 404
+  title: Not found, the geofence you tried to remove can't be found
+  source_operation: openapi/automile-openapi-original.json#DeleteResourceOwnerGeofence
+- status: 403
+  title: Request is forbidden, this could occur if you try to add an IMEI that already exists or if it
+    is not available in our systems. In addition, if the serialnumber to the IMEI device is incorrect
+  source_operation: openapi/automile-openapi-original.json#CreateResourceOwnerIMEIConfig
+- status: 403
+  title: Request is forbidden, meaning you dont' have access to this IMEIconfig
+  source_operation: openapi/automile-openapi-original.json#GetResourceOwnerIMEIConfigsBasedOnVehicleId
+- status: 404
+  title: The IMEIconfig that you tried to get doesn't exist
+  source_operation: openapi/automile-openapi-original.json#GetResourceOwnerIMEIConfigsBasedOnVehicleId
+- status: 404
+  title: The IMEIConfig that you tried to update doesn't exist
+  source_operation: openapi/automile-openapi-original.json#EditResourceOwnerIMEIConfig
+- status: 404
+  title: The IMEIConfig that you tried to remove doesn't exist
+  source_operation: openapi/automile-openapi-original.json#DeleteResourceOwnerIMEIConfig
+- status: 403
+  title: Request is forbidden, this could occur if you are not associated with the IMEIConfig
+  source_operation: openapi/automile-openapi-original.json#DeleteResourceOwnerIMEIConfig
+- status: 400
+  title: Bad request, you are using the wrong URI to retrieve this EMEIEvent
+  source_operation: openapi/automile-openapi-original.json#GetResourceOwnerMilEvent
+- status: 403
+  title: '>Request is forbidden, this could occur if you are not associated with the IMEIEvent'
+  source_operation: openapi/automile-openapi-original.json#GetResourceOwnerMilEvent
+- status: 404
+  title: The IMEIEvent that you tried to get doesn't exist
+  source_operation: openapi/automile-openapi-original.json#GetResourceOwnerMilEvent
+- status: 403
+  title: User have no organization or is not authorized to this organization
+  source_operation: openapi/automile-openapi-original.json#ResourceOwnerIntegrationController_UpdateIntegrationSettings
+- status: 400
+  title: Alphabet returned an error, this will usually be caused by entering wrong username or password
+  source_operation: openapi/automile-openapi-original.json#ResourceOwnerIntegrationController_AlphabetLogin
+- status: 400
+  title: Invalid parameter values
+  source_operation: openapi/automile-openapi-original.json#ResourceOwnerIntegrationController_GetAlphabetMileageLog
+- status: 403
+  title: You are not authorized to this vehicle
+  source_operation: openapi/automile-openapi-original.json#ResourceOwnerIntegrationController_GetAlphabetMileageLog
+- status: 400
+  title: Invalid personal identity number
+  source_operation: openapi/automile-openapi-original.json#ResourceOwnerIntegrationController_GetAutoPlanV2Information
+- status: 400
+  title: Autoplan returned an error, this will usually be caused by entering wrong username or password
+  source_operation: openapi/automile-openapi-original.json#ResourceOwnerIntegrationController_AutoplanLogin
+- status: 400
+  title: Invalid parameters
+  source_operation: openapi/automile-openapi-original.json#ResourceOwnerIntegrationController_GetAutoPlanV2DrivingJournal
+- status: 400
+  title: Invalid parameters or data mismatch
+  source_operation: openapi/automile-openapi-original.json#ResourceOwnerIntegrationController_SendAutoPlanV2DrivingJournal
+- status: 401
+  title: Not all trips in period are approved
+  source_operation: openapi/automile-openapi-original.json#ResourceOwnerIntegrationController_SendAutoPlanV2DrivingJournal
+- status: 400
+  title: User may not have activated any Bilreda integration
+  source_operation: openapi/automile-openapi-original.json#ResourceOwnerIntegrationController_GetBilredaInformation
+- status: 404
+  title: You are not authorized to edit the organization
+  source_operation: openapi/automile-openapi-original.json#EditResourceOwnerOrganization
+- status: 403
+  title: Request is forbidden, meaning you don't have access to this places
+  source_operation: openapi/automile-openapi-original.json#GetResourceOwnerPlace
+- status: 404
+  title: Not found, the place you tried to remove can't be found
+  source_operation: openapi/automile-openapi-original.json#DeleteResourceOwnerPlace
+- status: 403
+  title: Request is forbidden, meaning you dont' have access to this place
+  source_operation: openapi/automile-openapi-original.json#GetResourceOwnerPlace3
+- status: 403
+  title: Request is forbidden, this could occur if the user is not associated with the place
+  source_operation: openapi/automile-openapi-original.json#DeleteResourceOwnerPlace3
+- status: 404
+  title: The place that you tried to remove doesn't exist
+  source_operation: openapi/automile-openapi-original.json#DeleteResourceOwnerPlace3
+- status: 404
+  title: Not found, the publish subscribe record you tried to update can't be found
+  source_operation: openapi/automile-openapi-original.json#EditPublishSubscribe
+- status: 404
+  title: Not found, the publish subscribe records you tried to remove can't be found
+  source_operation: openapi/automile-openapi-original.json#DeletePublishSubscribeRecord
+- status: 404
+  title: Not found, the publish subscribe record you tried couldn't be found
+  source_operation: null
+- status: 500
+  title: Internal server error.
+  source_operation: openapi/automile-openapi-original.json#ResourceOwnerQuote_CreateQuote
+- status: 400
+  title: Bad request, could occur for various cases, see returned message.
+  source_operation: openapi/automile-openapi-original.json#ResourceOwnerQuote_CreateQuote
+- status: 403
+  title: Request is forbidden, could occur for various reasons, see returned message.
+  source_operation: openapi/automile-openapi-original.json#ResourceOwnerQuote_CreateQuote
+- status: 403
+  title: Forbidden access to resource
+  source_operation: openapi/automile-openapi-original.json#ResourceOwnerQuote_UpdateStatus
+- status: 400
+  title: Exceeded date range allowed
+  source_operation: openapi/automile-openapi-original.json#GetTripReport
+- status: 401
+  title: Not authorized to all supplied vehicles
+  source_operation: openapi/automile-openapi-original.json#GetTripReport
+- status: 400
+  title: Bad request, date period is not in a correct format
+  source_operation: openapi/automile-openapi-original.json#GetTripSummaryReport
+- status: 404
+  title: ISO 639 language code does not exist
+  source_operation: openapi/automile-openapi-original.json#EmailTripReport
+- status: 403
+  title: Not allowed to vehicle
+  source_operation: openapi/automile-openapi-original.json#EmailTripReport
+- status: 403
+  title: Not authorized to task
+  source_operation: openapi/automile-openapi-original.json#ResourceOwnerRoutePlanner_UpdateMission
+- status: 403
+  title: '>Not authorized to task'
+  source_operation: openapi/automile-openapi-original.json#EditResourceOwnerTaskOld
+- status: 403
+  title: Not authorized to task message
+  source_operation: openapi/automile-openapi-original.json#GetResourceOwnerTaskMessage
+- status: 404
+  title: The trigger message that you tried to get doesn't exist
+  source_operation: openapi/automile-openapi-original.json#GetResourceOwnerTriggerMessageHistory
+- status: 403
+  title: Request is forbidden, this could occur if you try to associate to other users than yourself
+  source_operation: openapi/automile-openapi-original.json#CreateResourceOwnerTrigger
+- status: 403
+  title: Request is forbidden, meaning you dont' have access to this notification config
+  source_operation: openapi/automile-openapi-original.json#GetResourceOwnerTrigger
+- status: 404
+  title: The notification config that you tried to update doesn't exist
+  source_operation: openapi/automile-openapi-original.json#GetResourceOwnerTrigger
+- status: 403
+  title: Request is forbidden, this could occur if you are not associated with the notification config
+  source_operation: openapi/automile-openapi-original.json#EditResourceOwnerTrigger
+- status: 404
+  title: The  notification config that you tried to update doesn't exist
+  source_operation: openapi/automile-openapi-original.json#EditResourceOwnerTrigger
+- status: 404
+  title: The  notification config that you tried to remove doesn't exist
+  source_operation: openapi/automile-openapi-original.json#DeleteResourceOwnerTrigger
+- status: 403
+  title: Request is forbidden, meaning you don't have access to this trip
+  source_operation: openapi/automile-openapi-original.json#GetResourceOwnerTripDetail2
+- status: 501
+  title: Not implemented, meaning the PID is not supported or is not recorded by the vehicle
+  source_operation: openapi/automile-openapi-original.json#GetResourceOwnerTripSpeed2
+- status: 400
+  title: Bad request, this operation explicitly require gzip compression by the client
+  source_operation: openapi/automile-openapi-original.json#GetGoogleurlToStaticMapEncodedPolyline2
+- status: 403
+  title: Missing permission to access vehicle
+  source_operation: openapi/automile-openapi-original.json#ResourceOwnerTripApprovalController_GetUnsubmittedTripList
+- status: 403
+  title: No access to request
+  source_operation: openapi/automile-openapi-original.json#ResourceOwnerTripApprovalController_GetTripApprovalRequest
+- status: 400
+  title: Request is bad, the password is too short or doesn't contains at least one uppercase character,
+    one lowercase character, one number and one complex characte that you tried to update doesn't exist
+  source_operation: openapi/automile-openapi-original.json#ChangePasswordResourceOwnerUser
+- status: 403
+  title: Request is forbidden, meaning that the password entered is invalid
+  source_operation: openapi/automile-openapi-original.json#ChangePasswordResourceOwnerUser
+- status: 400
+  title: Request is bad, This username is already used
+  source_operation: openapi/automile-openapi-original.json#ChangeUserNameResourceOwnerUser
+- status: 400
+  title: Request is bad, password reset type does not exist
+  source_operation: openapi/automile-openapi-original.json#ResetPasswordResourceOwnerUser
+- status: 404
+  title: Phone number is missing
+  source_operation: openapi/automile-openapi-original.json#ResetPasswordResourceOwnerUser
+- status: 403
+  title: No access to the client device
+  source_operation: openapi/automile-openapi-original.json#ResourceOwnerUserController_Logout
+- status: 403
+  title: Request is forbidden, meaning you don't have access to this user device
+  source_operation: openapi/automile-openapi-original.json#GetResourceOwnerUserDevice
+- status: 404
+  title: Not found, the vehicle you tried to update can't be found
+  source_operation: openapi/automile-openapi-original.json#EditResourceOwnerUserDevice
+- status: 404
+  title: Not found, the vehicle you tried to remove can't be found
+  source_operation: openapi/automile-openapi-original.json#DeleteResourceOwnerUserDevice
+- status: 404
+  title: Not trip for the vehicle could be found
+  source_operation: openapi/automile-openapi-original.json#GetResourceOwnerVehicleLastTrip2
+- status: 404
+  title: Not found, the vehicle defect comment you tried to update can't be found
+  source_operation: openapi/automile-openapi-original.json#EditResourceOwnerVehicleDefectComment
+- status: 403
+  title: Bad request, could occur for a number of cases, see returned message
+  source_operation: openapi/automile-openapi-original.json#EditResourceOwnerVehicleGeofence
+- status: 404
+  title: Not found, the vehicle inspection you tried to update can't be found
+  source_operation: openapi/automile-openapi-original.json#EditResourceOwnerVehicleInspection
+- status: 400
+  title: Bad request, could occur for a number of reasons, see return message
+  source_operation: openapi/automile-openapi-original.json#ResourceOwnerVehicleOdometerController_SaveVehicleOdometer
+- status: 403
+  title: Request is forbidden, meaning you don't have access to this place
+  source_operation: openapi/automile-openapi-original.json#GetResourceOwnerVehiclePlace

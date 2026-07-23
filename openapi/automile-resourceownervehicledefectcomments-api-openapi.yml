@@ -1,0 +1,165 @@
+swagger: '2.0'
+info:
+  title: Automile ClientApi ResourceOwnerVehicleDefectComments API
+  version: v1
+tags:
+- name: ResourceOwnerVehicleDefectComments
+paths:
+  /v1/resourceowner/vehicledefectcomments/{vehicleDefectCommentId}:
+    get:
+      tags:
+      - ResourceOwnerVehicleDefectComments
+      summary: Get all a vehicle defect comment
+      description: ''
+      operationId: GetResourceOwnerVehicleDefectComment
+      produces:
+      - text/plain
+      - application/json
+      - text/json
+      parameters:
+      - in: path
+        name: vehicleDefectCommentId
+        required: true
+        type: integer
+        format: int32
+      responses:
+        '200':
+          description: The vehicle defect comment is returned
+          schema:
+            $ref: '#/definitions/VehicleDefectCommentsModel'
+        '500':
+          description: Internal server error
+      security:
+      - oauth2: []
+    put:
+      tags:
+      - ResourceOwnerVehicleDefectComments
+      summary: Update a vehicle defect comment
+      description: This will update the given vehicle id with a new model.
+      operationId: EditResourceOwnerVehicleDefectComment
+      consumes:
+      - application/json
+      - text/json
+      - application/*+json
+      parameters:
+      - in: path
+        name: vehicleDefectCommentId
+        description: The vehicle defect comment id
+        required: true
+        type: integer
+        format: int32
+      - in: body
+        name: body
+        description: The new vehicle inspection model
+        schema:
+          $ref: '#/definitions/VehicleDefectCommentsEditModel'
+      responses:
+        '200':
+          description: The vehicle defect comment was saved
+        '400':
+          description: Bad request, could occur for a number of cases, see returned message
+        '403':
+          description: Request is forbidden, could occur for a number of reasons, see returned message
+        '404':
+          description: Not found, the vehicle defect comment you tried to update can't be found
+        '500':
+          description: Internal server error
+      security:
+      - oauth2: []
+  /v1/resourceowner/vehicledefectcomments:
+    get:
+      tags:
+      - ResourceOwnerVehicleDefectComments
+      summary: Get all vehicle defect comments that the user has access to
+      description: ''
+      operationId: GetResourceOwnerVehicleDefectComments
+      produces:
+      - text/plain
+      - application/json
+      - text/json
+      parameters:
+      - in: query
+        name: vehicleDefectId
+        type: integer
+        format: int32
+      responses:
+        '200':
+          description: The vehicle defect comments are returned
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/VehicleDefectCommentsModel'
+        '500':
+          description: Internal server error
+      security:
+      - oauth2: []
+    post:
+      tags:
+      - ResourceOwnerVehicleDefectComments
+      summary: Creates a new vehicle defect comment
+      description: This will create a new vehicle defect comment and make the association you set.
+      operationId: CreateResourceOwnerVehicleDefectComment
+      consumes:
+      - application/json
+      - text/json
+      - application/*+json
+      parameters:
+      - in: body
+        name: body
+        description: The vehicle defect comment
+        schema:
+          $ref: '#/definitions/VehicleDefectCommentsCreateModel'
+      responses:
+        '200':
+          description: A link in the header is returned to the newly created vehicle defect comment
+        '400':
+          description: Bad request, could occur for a number of cases, see returned message
+        '403':
+          description: Request is forbidden, could occur for a number of reasons, see returned message
+        '500':
+          description: Internal server error
+      security:
+      - oauth2: []
+definitions:
+  VehicleDefectCommentsModel:
+    type: object
+    properties:
+      VehicleDefectCommentId:
+        format: int32
+        type: integer
+      VehicleDefectId:
+        format: int32
+        type: integer
+      CreatedByContactId:
+        format: int32
+        type: integer
+      Comment:
+        type: string
+      CommentDateUtc:
+        format: date-time
+        type: string
+    additionalProperties: false
+  VehicleDefectCommentsCreateModel:
+    type: object
+    properties:
+      VehicleDefectId:
+        format: int32
+        type: integer
+      Comment:
+        type: string
+    additionalProperties: false
+  VehicleDefectCommentsEditModel:
+    type: object
+    properties:
+      Comment:
+        type: string
+    additionalProperties: false
+securityDefinitions:
+  oauth2:
+    type: oauth2
+    flow: implicit
+    authorizationUrl: https://api.automile.com/login/
+    scopes:
+      read: Read access to protected resources
+      write: Write access to protected resources
+    description: OAuth2 Implicit Grant

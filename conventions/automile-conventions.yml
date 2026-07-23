@@ -1,0 +1,47 @@
+generated: '2026-07-18'
+method: derived
+source: openapi/automile-openapi-original.json + https://github.com/Automile SDK READMEs
+note: >-
+  Cross-cutting request/response semantics for the Automile API, derived from the
+  OpenAPI and the first-party SDKs. Automile is a REST/JSON telematics API served
+  from a single host.
+base_url: https://api.automile.com
+media_type: application/json
+authentication:
+  style: oauth2
+  detail: >-
+    OAuth2. The OpenAPI declares an implicit flow (authorizationUrl
+    https://api.automile.com/login/, scopes read + write). First-party SDKs
+    authenticate with a private OAuth client (API client identifier + secret)
+    plus account username/password, exchange for a bearer token, and cache the
+    token locally for reuse. Bearer token sent on each request.
+  see: authentication/automile-authentication.yml
+idempotency:
+  supported: false
+  detail: >-
+    No Idempotency-Key header or idempotency contract is documented in the
+    OpenAPI or SDKs. Retries of write operations are not deduplicated by the API.
+pagination:
+  style: filter-based
+  detail: >-
+    Collection endpoints are filtered by resource id and by date range
+    (fromDate/toDate, from/to, dateperiod, year/month) rather than cursor/offset
+    paging. No page/pagesize/limit/offset parameters are declared.
+versioning:
+  scheme: uri-path
+  current: v1
+  detail: All operations are under the /v1/ path prefix.
+error_envelope:
+  style: http-status + message body
+  detail: >-
+    Errors are keyed on HTTP status (400/401/403/404/406/409/500/501). A
+    human-readable detail is returned in the response body message. Not RFC 9457
+    problem+json.
+  see: errors/automile-problem-types.yml
+webhooks:
+  supported: true
+  detail: Publish/subscribe webhook surface with trip, vehicle, contact and device events.
+  see: asyncapi/automile-webhooks.yml
+rate_limiting:
+  documented: false
+  detail: No rate-limit headers or published limits found in the OpenAPI or docs.

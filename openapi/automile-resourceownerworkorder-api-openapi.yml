@@ -1,0 +1,1721 @@
+swagger: '2.0'
+info:
+  title: Automile ClientApi ResourceOwnerWorkOrder API
+  version: v1
+tags:
+- name: ResourceOwnerWorkOrder
+paths:
+  /v1/resourceowner/workorders:
+    get:
+      tags:
+      - ResourceOwnerWorkOrder
+      summary: Retrieve a list of work orders and their containing attachments, items and notes
+      description: If no time is set on the "to" parameter, then it's assumed all entries on the date should be included, and the time part will be set to 11:59:59 PM
+      operationId: ResourceOwnerWorkOrder_GetWorkOrderList
+      produces:
+      - text/plain
+      - application/json
+      - text/json
+      parameters:
+      - in: query
+        name: from
+        description: Filter on JobDate to be on or after the specified date and time (default is from now)
+        type: string
+        format: date-time
+      - in: query
+        name: to
+        description: Filter on JobDate to be before the specified date and time (default is no limitation)
+        type: string
+        format: date-time
+      - in: query
+        name: jobStatus
+        description: Status on job (New = 0, Started = 1, Paused = 2, Completed = 3, Cancelled = 4, Invoiced = 5, Paid = 6) (default is all)
+        type: integer
+        format: int32
+        enum:
+        - 0
+        - 1
+        - 2
+        - 3
+        - 4
+        - 5
+        - 6
+      - in: query
+        name: includeUnassigned
+        description: Include unassigned jobs (default is true)
+        type: boolean
+        default: true
+      - in: query
+        name: includeDeleted
+        description: Include deleted jobs (default is false)
+        type: boolean
+        default: false
+      responses:
+        '200':
+          description: Successful request
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/WorkOrderModelGET'
+        '500':
+          description: Internal server error
+      security:
+      - oauth2: []
+    post:
+      tags:
+      - ResourceOwnerWorkOrder
+      summary: Create a work order and containing attachments, items and notes
+      operationId: ResourceOwnerWorkOrder_CreateWorkOrder
+      consumes:
+      - application/json
+      - text/json
+      - application/*+json
+      parameters:
+      - in: body
+        name: body
+        description: Work order model
+        schema:
+          $ref: '#/definitions/WorkOrderModelPOST'
+      responses:
+        '200':
+          description: Success
+        '201':
+          description: Successfully created
+        '500':
+          description: Internal server error
+      security:
+      - oauth2: []
+    put:
+      tags:
+      - ResourceOwnerWorkOrder
+      summary: Update or create one or many work orders
+      description: "For work orders, items, attachments and notes with an id is updated. When id is not provided new objects is created. If an \r\n            item, attachment or note is missing on an existing work order that item, attachment or note is removed."
+      operationId: ResourceOwnerWorkOrder_SaveWorkOrderList
+      consumes:
+      - application/json
+      - text/json
+      - application/*+json
+      produces:
+      - text/plain
+      - application/json
+      - text/json
+      parameters:
+      - in: body
+        name: body
+        description: List of Work Orders
+        schema:
+          type: array
+          items:
+            $ref: '#/definitions/WorkOrderModelSyncPUT'
+      responses:
+        '200':
+          description: Successful update
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/WorkOrderModelGET'
+        '500':
+          description: Internal server error.
+      security:
+      - oauth2: []
+  /v1/resourceowner/workorders/{workOrderId}:
+    get:
+      tags:
+      - ResourceOwnerWorkOrder
+      summary: Retrieve a work order
+      operationId: ResourceOwnerWorkOrder_GetWorkOrder
+      produces:
+      - text/plain
+      - application/json
+      - text/json
+      parameters:
+      - in: path
+        name: workOrderId
+        description: Work order id
+        required: true
+        type: integer
+        format: int32
+      responses:
+        '200':
+          description: Successful request
+          schema:
+            $ref: '#/definitions/WorkOrderModelGET'
+        '500':
+          description: Internal server error
+      security:
+      - oauth2: []
+    put:
+      tags:
+      - ResourceOwnerWorkOrder
+      summary: Update a work order
+      operationId: ResourceOwnerWorkOrder_UpdateWorkOrder
+      consumes:
+      - application/json
+      - text/json
+      - application/*+json
+      parameters:
+      - in: path
+        name: workOrderId
+        description: Work order id
+        required: true
+        type: integer
+        format: int32
+      - in: body
+        name: body
+        description: Work order
+        schema:
+          $ref: '#/definitions/WorkOrderModelPUT'
+      responses:
+        '200':
+          description: Successful update
+        '403':
+          description: Forbidden access to resource
+        '500':
+          description: Internal server error
+      security:
+      - oauth2: []
+    delete:
+      tags:
+      - ResourceOwnerWorkOrder
+      summary: Delete work order
+      operationId: ResourceOwnerWorkOrder_DeleteWorkOrder
+      parameters:
+      - in: path
+        name: workOrderId
+        description: Work order id
+        required: true
+        type: integer
+        format: int32
+      responses:
+        '200':
+          description: Successful delete
+        '403':
+          description: Forbidden access to resource
+        '500':
+          description: Internal server error
+      security:
+      - oauth2: []
+  /v1/resourceowner/workorders/getwithquoteid/{quoteId}:
+    get:
+      tags:
+      - ResourceOwnerWorkOrder
+      summary: Retrieve a work order by quote id
+      operationId: ResourceOwnerWorkOrder_GetWorkOrderByQuoteId
+      produces:
+      - text/plain
+      - application/json
+      - text/json
+      parameters:
+      - in: path
+        name: quoteId
+        description: Quote id
+        required: true
+        type: integer
+        format: int32
+      responses:
+        '200':
+          description: Successful request
+          schema:
+            $ref: '#/definitions/WorkOrderModelGET'
+        '500':
+          description: Internal server error
+      security:
+      - oauth2: []
+  /v1/resourceowner/workorders/{workOrderId}/attachments:
+    post:
+      tags:
+      - ResourceOwnerWorkOrder
+      summary: Creates an attachment and adds it to an existing work order
+      operationId: ResourceOwnerWorkOrder_CreateAttachment
+      consumes:
+      - application/json
+      - text/json
+      - application/*+json
+      parameters:
+      - in: path
+        name: workOrderId
+        description: The work order which the attachment will be associated with
+        required: true
+        type: integer
+        format: int32
+      - in: body
+        name: body
+        description: Attachment information
+        schema:
+          $ref: '#/definitions/WorkOrderAttachmentModelPOST'
+      responses:
+        '200':
+          description: Success
+        '201':
+          description: Successfully created
+        '403':
+          description: Forbidden access to resource
+        '500':
+          description: Internal server error
+      security:
+      - oauth2: []
+  /v1/resourceowner/workorders/{workOrderId}/status:
+    put:
+      tags:
+      - ResourceOwnerWorkOrder
+      summary: Update status of a work order
+      operationId: ResourceOwnerWorkOrder_UpdateWorkOrderStatus
+      consumes:
+      - application/json
+      - text/json
+      - application/*+json
+      parameters:
+      - in: path
+        name: workOrderId
+        description: The work order which the satus should be updated on
+        required: true
+        type: integer
+        format: int32
+      - in: body
+        name: body
+        description: Job status
+        schema:
+          $ref: '#/definitions/WorkOrderStatusModelPUT'
+      responses:
+        '200':
+          description: Successful update
+        '403':
+          description: Forbidden access to resource
+        '500':
+          description: Internal server error
+      security:
+      - oauth2: []
+  /v1/resourceowner/workorders/articles:
+    get:
+      tags:
+      - ResourceOwnerWorkOrder
+      summary: Get all articles
+      operationId: ResourceOwnerWorkOrder_GetArticleList
+      produces:
+      - text/plain
+      - application/json
+      - text/json
+      responses:
+        '200':
+          description: Successful request
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/WorkOrderArticleModelGET'
+        '403':
+          description: Forbidden access to resource
+        '500':
+          description: Internal server error
+      security:
+      - oauth2: []
+    post:
+      tags:
+      - ResourceOwnerWorkOrder
+      summary: Create a article
+      operationId: ResourceOwnerWorkOrder_CreateArticle
+      consumes:
+      - application/json
+      - text/json
+      - application/*+json
+      parameters:
+      - in: body
+        name: body
+        description: Article information
+        schema:
+          $ref: '#/definitions/WorkOrderArticleModelPOST'
+      responses:
+        '200':
+          description: Success
+        '201':
+          description: Successfully created
+        '403':
+          description: Forbidden access to resource
+        '500':
+          description: Internal server error
+      security:
+      - oauth2: []
+  /v1/resourceowner/workorders/articles/{workOrderArticleId}:
+    get:
+      tags:
+      - ResourceOwnerWorkOrder
+      summary: Get a specific article
+      operationId: ResourceOwnerWorkOrder_GetArticle
+      produces:
+      - text/plain
+      - application/json
+      - text/json
+      parameters:
+      - in: path
+        name: workOrderArticleId
+        description: Work order article id
+        required: true
+        type: integer
+        format: int32
+      responses:
+        '200':
+          description: Successful request
+          schema:
+            $ref: '#/definitions/WorkOrderArticleModelGET'
+        '403':
+          description: Forbidden access to resource
+        '500':
+          description: Internal server error
+      security:
+      - oauth2: []
+    put:
+      tags:
+      - ResourceOwnerWorkOrder
+      summary: Update a article
+      operationId: ResourceOwnerWorkOrder_UpdateArticle
+      consumes:
+      - application/json
+      - text/json
+      - application/*+json
+      parameters:
+      - in: path
+        name: workOrderArticleId
+        description: Work order article id
+        required: true
+        type: integer
+        format: int32
+      - in: body
+        name: body
+        description: Article information
+        schema:
+          $ref: '#/definitions/WorkOrderArticleModelPUT'
+      responses:
+        '200':
+          description: Successfully updated
+        '403':
+          description: Forbidden access to resource
+        '500':
+          description: Internal server error
+      security:
+      - oauth2: []
+    delete:
+      tags:
+      - ResourceOwnerWorkOrder
+      summary: Delete a article
+      operationId: ResourceOwnerWorkOrder_DeleteArticle
+      parameters:
+      - in: path
+        name: workOrderArticleId
+        description: Work order article id
+        required: true
+        type: integer
+        format: int32
+      responses:
+        '200':
+          description: Successfully deleted
+        '403':
+          description: Forbidden access to resource
+        '500':
+          description: Internal server error
+      security:
+      - oauth2: []
+  /v1/resourceowner/workorders/categories:
+    get:
+      tags:
+      - ResourceOwnerWorkOrder
+      summary: Get all categories
+      operationId: ResourceOwnerWorkOrder_GetCategoryList
+      produces:
+      - text/plain
+      - application/json
+      - text/json
+      responses:
+        '200':
+          description: Successful request
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/WorkOrderCategoryModelGET'
+        '403':
+          description: Forbidden access to resource
+        '500':
+          description: Internal server error
+      security:
+      - oauth2: []
+    post:
+      tags:
+      - ResourceOwnerWorkOrder
+      summary: Create a category
+      operationId: ResourceOwnerWorkOrder_CreateCategory
+      consumes:
+      - application/json
+      - text/json
+      - application/*+json
+      parameters:
+      - in: body
+        name: body
+        description: Category information
+        schema:
+          $ref: '#/definitions/WorkOrderCategoryModelPOST'
+      responses:
+        '200':
+          description: Success
+        '201':
+          description: Successfully created
+        '403':
+          description: Forbidden access to resource
+        '500':
+          description: Internal server error
+      security:
+      - oauth2: []
+  /v1/resourceowner/workorders/categories/{workOrderCategoryId}:
+    get:
+      tags:
+      - ResourceOwnerWorkOrder
+      summary: Get a specific category
+      operationId: ResourceOwnerWorkOrder_GetCategory
+      produces:
+      - text/plain
+      - application/json
+      - text/json
+      parameters:
+      - in: path
+        name: workOrderCategoryId
+        description: Work order category id
+        required: true
+        type: integer
+        format: int32
+      responses:
+        '200':
+          description: Successful request
+          schema:
+            $ref: '#/definitions/WorkOrderCategoryModelGET'
+        '403':
+          description: Forbidden access to resource
+        '500':
+          description: Internal server error
+      security:
+      - oauth2: []
+    delete:
+      tags:
+      - ResourceOwnerWorkOrder
+      summary: Delete a category
+      operationId: ResourceOwnerWorkOrder_DeleteCategory
+      parameters:
+      - in: path
+        name: workOrderCategoryId
+        description: Work order category id
+        required: true
+        type: integer
+        format: int32
+      responses:
+        '200':
+          description: Successfully deleted
+        '403':
+          description: Forbidden access to resource
+        '500':
+          description: Internal server error
+      security:
+      - oauth2: []
+  /v1/resourceowner/workorders/customers:
+    get:
+      tags:
+      - ResourceOwnerWorkOrder
+      summary: Get all customers
+      operationId: ResourceOwnerWorkOrder_GetCustomerList
+      produces:
+      - text/plain
+      - application/json
+      - text/json
+      responses:
+        '200':
+          description: Successful request
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/WorkOrderCustomerModelGET'
+        '403':
+          description: Forbidden access to resource
+        '500':
+          description: Internal server error
+      security:
+      - oauth2: []
+    post:
+      tags:
+      - ResourceOwnerWorkOrder
+      summary: Create a customer
+      operationId: ResourceOwnerWorkOrder_CreateCustomer
+      consumes:
+      - application/json
+      - text/json
+      - application/*+json
+      parameters:
+      - in: body
+        name: body
+        description: Customer information
+        schema:
+          $ref: '#/definitions/WorkOrderCustomerModelPOST'
+      responses:
+        '200':
+          description: Success
+        '201':
+          description: Successfully created
+        '403':
+          description: Forbidden access to resource
+        '500':
+          description: Internal server error
+      security:
+      - oauth2: []
+  /v1/resourceowner/workorders/customers/{workOrderCustomerId}:
+    get:
+      tags:
+      - ResourceOwnerWorkOrder
+      summary: Get a specific customer
+      operationId: ResourceOwnerWorkOrder_GetCustomer
+      produces:
+      - text/plain
+      - application/json
+      - text/json
+      parameters:
+      - in: path
+        name: workOrderCustomerId
+        description: Work order customer id
+        required: true
+        type: integer
+        format: int32
+      responses:
+        '200':
+          description: Successful request
+          schema:
+            $ref: '#/definitions/WorkOrderCustomerModelGET'
+        '403':
+          description: Forbidden access to resource
+        '500':
+          description: Internal server error
+      security:
+      - oauth2: []
+    put:
+      tags:
+      - ResourceOwnerWorkOrder
+      summary: Update a customer
+      operationId: ResourceOwnerWorkOrder_UpdateCustomer
+      consumes:
+      - application/json
+      - text/json
+      - application/*+json
+      produces:
+      - text/plain
+      - application/json
+      - text/json
+      parameters:
+      - in: path
+        name: workOrderCustomerId
+        description: Work order customer id
+        required: true
+        type: integer
+        format: int32
+      - in: body
+        name: body
+        description: Customer information
+        schema:
+          $ref: '#/definitions/WorkOrderCustomerModelPUT'
+      responses:
+        '200':
+          description: Successfully updated
+          schema:
+            $ref: '#/definitions/WorkOrderCustomerModelGET'
+        '403':
+          description: Forbidden access to resource
+        '500':
+          description: Internal server error
+      security:
+      - oauth2: []
+    delete:
+      tags:
+      - ResourceOwnerWorkOrder
+      summary: Delete a customer
+      operationId: ResourceOwnerWorkOrder_DeleteCustomer
+      parameters:
+      - in: path
+        name: workOrderCustomerId
+        description: Work order customer id
+        required: true
+        type: integer
+        format: int32
+      responses:
+        '200':
+          description: Successfully deleted
+        '403':
+          description: Forbidden access to resource
+        '500':
+          description: Internal server error
+      security:
+      - oauth2: []
+  /v1/resourceowner/workorders/referenceId:
+    get:
+      tags:
+      - ResourceOwnerWorkOrder
+      summary: Get a new reference id for a work order (not unique)
+      operationId: ResourceOwnerWorkOrder_GetNextWorkOrderId
+      produces:
+      - text/plain
+      - application/json
+      - text/json
+      responses:
+        '200':
+          description: Successful request
+          schema:
+            type: string
+        '403':
+          description: Forbidden access to resource
+        '500':
+          description: Internal server error
+      security:
+      - oauth2: []
+definitions:
+  WorkOrderNoteModelPOST:
+    required:
+    - Note
+    type: object
+    properties:
+      Note:
+        minLength: 1
+        type: string
+    additionalProperties: false
+  WorkOrderAttachmentModelGET:
+    required:
+    - AttachmentType
+    - URL
+    type: object
+    properties:
+      URL:
+        minLength: 1
+        type: string
+      Description:
+        type: string
+      AttachmentType:
+        format: int32
+        enum:
+        - 0
+        - 1
+        - 2
+        type: integer
+      WorkOrderAttachmentId:
+        format: int32
+        type: integer
+      CreatedByContactId:
+        format: int32
+        type: integer
+      Created:
+        format: date-time
+        type: string
+    additionalProperties: false
+  TimeSpan:
+    type: object
+    properties:
+      Ticks:
+        format: int64
+        type: integer
+      Days:
+        format: int32
+        type: integer
+        readOnly: true
+      Hours:
+        format: int32
+        type: integer
+        readOnly: true
+      Milliseconds:
+        format: int32
+        type: integer
+        readOnly: true
+      Microseconds:
+        format: int32
+        type: integer
+        readOnly: true
+      Nanoseconds:
+        format: int32
+        type: integer
+        readOnly: true
+      Minutes:
+        format: int32
+        type: integer
+        readOnly: true
+      Seconds:
+        format: int32
+        type: integer
+        readOnly: true
+      TotalDays:
+        format: double
+        type: number
+        readOnly: true
+      TotalHours:
+        format: double
+        type: number
+        readOnly: true
+      TotalMilliseconds:
+        format: double
+        type: number
+        readOnly: true
+      TotalMicroseconds:
+        format: double
+        type: number
+        readOnly: true
+      TotalNanoseconds:
+        format: double
+        type: number
+        readOnly: true
+      TotalMinutes:
+        format: double
+        type: number
+        readOnly: true
+      TotalSeconds:
+        format: double
+        type: number
+        readOnly: true
+    additionalProperties: false
+  WorkOrderModelGET:
+    type: object
+    properties:
+      JobDate:
+        format: date-time
+        type: string
+      JobTime:
+        $ref: '#/definitions/TimeSpan'
+      EstimatedTimeInMinutes:
+        format: int32
+        type: integer
+      JobDescription:
+        type: string
+      ExternalId:
+        type: string
+      CustomerContactName:
+        type: string
+      CustomerEmail:
+        type: string
+      CustomerName:
+        type: string
+      CustomerCommunicationLanguageISO639_2:
+        type: string
+      CustomerPhoneNumber:
+        type: string
+      CustomerJobAddress:
+        $ref: '#/definitions/CustomerJobAddressModel'
+      CustomerBillingAddress:
+        $ref: '#/definitions/CustomerBillingAddressModel'
+      NotificationType:
+        format: int32
+        enum:
+        - 0
+        - 1
+        - 2
+        - 3
+        type: integer
+      WorkOrderCategoryId:
+        format: int32
+        type: integer
+      CategoryName:
+        type: string
+      AssignedToContactId:
+        format: int32
+        type: integer
+      QuoteId:
+        format: int32
+        type: integer
+      WorkOrderCustomerId:
+        format: int32
+        type: integer
+      Status:
+        format: int32
+        enum:
+        - 0
+        - 1
+        - 2
+        - 3
+        - 4
+        - 5
+        - 6
+        type: integer
+      WorkOrderId:
+        format: int32
+        type: integer
+      Created:
+        format: date-time
+        type: string
+      IsDeleted:
+        type: boolean
+      Rating:
+        format: double
+        type: number
+      RequestedByContactId:
+        format: int32
+        type: integer
+      StatusHistory:
+        type: array
+        items:
+          $ref: '#/definitions/WorkOrderStatusHistoryModelGET'
+      Notes:
+        type: array
+        items:
+          $ref: '#/definitions/WorkOrderNoteModelGET'
+      Items:
+        type: array
+        items:
+          $ref: '#/definitions/WorkOrderItemModelGET'
+      Attachments:
+        type: array
+        items:
+          $ref: '#/definitions/WorkOrderAttachmentModelGET'
+    additionalProperties: false
+  PositionPointModel:
+    type: object
+    properties:
+      Longitude:
+        format: double
+        type: number
+      Latitude:
+        format: double
+        type: number
+    additionalProperties: false
+  WorkOrderCustomerModelPUT:
+    type: object
+    properties:
+      Name:
+        type: string
+      ContactName:
+        type: string
+      CommunicationLanguageISO639_2:
+        type: string
+      Email:
+        type: string
+      PhoneNumber:
+        type: string
+      BillingAddress:
+        $ref: '#/definitions/CustomerBillingAddressModel'
+      JobAddress:
+        $ref: '#/definitions/CustomerJobAddressModel'
+    additionalProperties: false
+  WorkOrderNoteModelGET:
+    required:
+    - Note
+    type: object
+    properties:
+      Note:
+        minLength: 1
+        type: string
+      WorkOrderNoteId:
+        format: int32
+        type: integer
+      CreatedByContactId:
+        format: int32
+        type: integer
+      Created:
+        format: date-time
+        type: string
+    additionalProperties: false
+  WorkOrderCategoryModelPOST:
+    required:
+    - CategoryName
+    type: object
+    properties:
+      CategoryName:
+        minLength: 1
+        type: string
+    additionalProperties: false
+  WorkOrderAttachmentModelPOST:
+    required:
+    - AttachmentType
+    - URL
+    type: object
+    properties:
+      URL:
+        minLength: 1
+        type: string
+      Description:
+        type: string
+      AttachmentType:
+        format: int32
+        enum:
+        - 0
+        - 1
+        - 2
+        type: integer
+    additionalProperties: false
+  WorkOrderModelPUT:
+    type: object
+    properties:
+      JobDate:
+        format: date-time
+        type: string
+      JobTime:
+        $ref: '#/definitions/TimeSpan'
+      EstimatedTimeInMinutes:
+        format: int32
+        type: integer
+      JobDescription:
+        type: string
+      ExternalId:
+        type: string
+      CustomerContactName:
+        type: string
+      CustomerEmail:
+        type: string
+      CustomerName:
+        type: string
+      CustomerCommunicationLanguageISO639_2:
+        type: string
+      CustomerPhoneNumber:
+        type: string
+      CustomerJobAddress:
+        $ref: '#/definitions/CustomerJobAddressModel'
+      CustomerBillingAddress:
+        $ref: '#/definitions/CustomerBillingAddressModel'
+      NotificationType:
+        format: int32
+        enum:
+        - 0
+        - 1
+        - 2
+        - 3
+        type: integer
+      WorkOrderCategoryId:
+        format: int32
+        type: integer
+      CategoryName:
+        type: string
+      AssignedToContactId:
+        format: int32
+        type: integer
+      QuoteId:
+        format: int32
+        type: integer
+      WorkOrderCustomerId:
+        format: int32
+        type: integer
+      Status:
+        format: int32
+        enum:
+        - 0
+        - 1
+        - 2
+        - 3
+        - 4
+        - 5
+        - 6
+        type: integer
+      Notes:
+        type: array
+        items:
+          $ref: '#/definitions/WorkOrderNoteModelPUT'
+      Items:
+        type: array
+        items:
+          $ref: '#/definitions/WorkOrderItemModelPUT'
+      Attachments:
+        type: array
+        items:
+          $ref: '#/definitions/WorkOrderAttachmentModelPUT'
+    additionalProperties: false
+  WorkOrderArticleModelPOST:
+    required:
+    - ArticleName
+    - PricePerQuantityExclVAT
+    - TaxRate
+    type: object
+    properties:
+      UnitType:
+        format: int32
+        enum:
+        - 1
+        - 2
+        - 3
+        - 4
+        - 5
+        - 6
+        - 7
+        - 8
+        - 9
+        - 10
+        - 11
+        - 12
+        - 13
+        - 14
+        - 15
+        - 16
+        - 17
+        - 18
+        - 19
+        - 20
+        - 21
+        - 22
+        - 23
+        - 24
+        - 25
+        - 26
+        - 27
+        - 28
+        - 29
+        - 30
+        - 31
+        - 32
+        - 33
+        - 34
+        type: integer
+      ArticleName:
+        minLength: 1
+        type: string
+      PricePerQuantityExclVAT:
+        format: double
+        type: number
+      TaxRate:
+        format: double
+        type: number
+    additionalProperties: false
+  WorkOrderModelPOST:
+    type: object
+    properties:
+      JobDate:
+        format: date-time
+        type: string
+      JobTime:
+        $ref: '#/definitions/TimeSpan'
+      EstimatedTimeInMinutes:
+        format: int32
+        type: integer
+      JobDescription:
+        type: string
+      ExternalId:
+        type: string
+      CustomerContactName:
+        type: string
+      CustomerEmail:
+        type: string
+      CustomerName:
+        type: string
+      CustomerCommunicationLanguageISO639_2:
+        type: string
+      CustomerPhoneNumber:
+        type: string
+      CustomerJobAddress:
+        $ref: '#/definitions/CustomerJobAddressModel'
+      CustomerBillingAddress:
+        $ref: '#/definitions/CustomerBillingAddressModel'
+      NotificationType:
+        format: int32
+        enum:
+        - 0
+        - 1
+        - 2
+        - 3
+        type: integer
+      WorkOrderCategoryId:
+        format: int32
+        type: integer
+      CategoryName:
+        type: string
+      AssignedToContactId:
+        format: int32
+        type: integer
+      QuoteId:
+        format: int32
+        type: integer
+      WorkOrderCustomerId:
+        format: int32
+        type: integer
+      Status:
+        format: int32
+        enum:
+        - 0
+        - 1
+        - 2
+        - 3
+        - 4
+        - 5
+        - 6
+        type: integer
+      Notes:
+        type: array
+        items:
+          $ref: '#/definitions/WorkOrderNoteModelPOST'
+      Items:
+        type: array
+        items:
+          $ref: '#/definitions/WorkOrderItemModelPOST'
+      Attachments:
+        type: array
+        items:
+          $ref: '#/definitions/WorkOrderAttachmentModelPOST'
+    additionalProperties: false
+  CustomerJobAddressModel:
+    type: object
+    properties:
+      Street:
+        type: string
+      Apartment:
+        type: string
+      CareOf:
+        type: string
+      ZipCode:
+        type: string
+      City:
+        type: string
+      StateOrProvince:
+        type: string
+      ISO3166CountryCode:
+        type: string
+      Position:
+        $ref: '#/definitions/PositionPointModel'
+    additionalProperties: false
+  WorkOrderArticleModelPUT:
+    required:
+    - ArticleName
+    - PricePerQuantityExclVAT
+    - TaxRate
+    type: object
+    properties:
+      UnitType:
+        format: int32
+        enum:
+        - 1
+        - 2
+        - 3
+        - 4
+        - 5
+        - 6
+        - 7
+        - 8
+        - 9
+        - 10
+        - 11
+        - 12
+        - 13
+        - 14
+        - 15
+        - 16
+        - 17
+        - 18
+        - 19
+        - 20
+        - 21
+        - 22
+        - 23
+        - 24
+        - 25
+        - 26
+        - 27
+        - 28
+        - 29
+        - 30
+        - 31
+        - 32
+        - 33
+        - 34
+        type: integer
+      ArticleName:
+        minLength: 1
+        type: string
+      PricePerQuantityExclVAT:
+        format: double
+        type: number
+      TaxRate:
+        format: double
+        type: number
+    additionalProperties: false
+  WorkOrderAttachmentModelPUT:
+    required:
+    - AttachmentType
+    - URL
+    type: object
+    properties:
+      URL:
+        minLength: 1
+        type: string
+      Description:
+        type: string
+      AttachmentType:
+        format: int32
+        enum:
+        - 0
+        - 1
+        - 2
+        type: integer
+      WorkOrderAttachmentId:
+        format: int32
+        type: integer
+    additionalProperties: false
+  WorkOrderCustomerModelPOST:
+    type: object
+    properties:
+      Name:
+        type: string
+      ContactName:
+        type: string
+      CommunicationLanguageISO639_2:
+        type: string
+      Email:
+        type: string
+      PhoneNumber:
+        type: string
+      BillingAddress:
+        $ref: '#/definitions/CustomerBillingAddressModel'
+      JobAddress:
+        $ref: '#/definitions/CustomerJobAddressModel'
+    additionalProperties: false
+  WorkOrderItemModelPOST:
+    required:
+    - Quantity
+    - WorkOrderArticleId
+    type: object
+    properties:
+      Quantity:
+        format: double
+        type: number
+      PricePerQuantityExclVAT:
+        format: double
+        type: number
+      DiscountInPercentage:
+        format: double
+        type: number
+      DiscountAmount:
+        format: double
+        type: number
+      TaxRate:
+        format: double
+        type: number
+      WorkOrderArticleId:
+        format: int32
+        type: integer
+      ArticleName:
+        type: string
+      UnitType:
+        format: int32
+        enum:
+        - 1
+        - 2
+        - 3
+        - 4
+        - 5
+        - 6
+        - 7
+        - 8
+        - 9
+        - 10
+        - 11
+        - 12
+        - 13
+        - 14
+        - 15
+        - 16
+        - 17
+        - 18
+        - 19
+        - 20
+        - 21
+        - 22
+        - 23
+        - 24
+        - 25
+        - 26
+        - 27
+        - 28
+        - 29
+        - 30
+        - 31
+        - 32
+        - 33
+        - 34
+        type: integer
+    additionalProperties: false
+  WorkOrderItemModelPUT:
+    required:
+    - Quantity
+    - WorkOrderArticleId
+    type: object
+    properties:
+      Quantity:
+        format: double
+        type: number
+      PricePerQuantityExclVAT:
+        format: double
+        type: number
+      DiscountInPercentage:
+        format: double
+        type: number
+      DiscountAmount:
+        format: double
+        type: number
+      TaxRate:
+        format: double
+        type: number
+      WorkOrderArticleId:
+        format: int32
+        type: integer
+      ArticleName:
+        type: string
+      UnitType:
+        format: int32
+        enum:
+        - 1
+        - 2
+        - 3
+        - 4
+        - 5
+        - 6
+        - 7
+        - 8
+        - 9
+        - 10
+        - 11
+        - 12
+        - 13
+        - 14
+        - 15
+        - 16
+        - 17
+        - 18
+        - 19
+        - 20
+        - 21
+        - 22
+        - 23
+        - 24
+        - 25
+        - 26
+        - 27
+        - 28
+        - 29
+        - 30
+        - 31
+        - 32
+        - 33
+        - 34
+        type: integer
+      WorkOrderItemId:
+        format: int32
+        type: integer
+    additionalProperties: false
+  WorkOrderItemModelGET:
+    required:
+    - Quantity
+    - WorkOrderArticleId
+    type: object
+    properties:
+      Quantity:
+        format: double
+        type: number
+      PricePerQuantityExclVAT:
+        format: double
+        type: number
+      DiscountInPercentage:
+        format: double
+        type: number
+      DiscountAmount:
+        format: double
+        type: number
+      TaxRate:
+        format: double
+        type: number
+      WorkOrderArticleId:
+        format: int32
+        type: integer
+      ArticleName:
+        type: string
+      UnitType:
+        format: int32
+        enum:
+        - 1
+        - 2
+        - 3
+        - 4
+        - 5
+        - 6
+        - 7
+        - 8
+        - 9
+        - 10
+        - 11
+        - 12
+        - 13
+        - 14
+        - 15
+        - 16
+        - 17
+        - 18
+        - 19
+        - 20
+        - 21
+        - 22
+        - 23
+        - 24
+        - 25
+        - 26
+        - 27
+        - 28
+        - 29
+        - 30
+        - 31
+        - 32
+        - 33
+        - 34
+        type: integer
+      ISO4217CurrencyCode:
+        type: string
+      WorkOrderItemId:
+        format: int32
+        type: integer
+      Created:
+        format: date-time
+        type: string
+    additionalProperties: false
+  WorkOrderStatusHistoryModelGET:
+    type: object
+    properties:
+      OccuredAt:
+        format: date-time
+        type: string
+      ContactId:
+        format: int32
+        type: integer
+      Status:
+        format: int32
+        enum:
+        - 0
+        - 1
+        - 2
+        - 3
+        - 4
+        - 5
+        - 6
+        type: integer
+    additionalProperties: false
+  WorkOrderStatusModelPUT:
+    required:
+    - Status
+    type: object
+    properties:
+      Status:
+        format: int32
+        enum:
+        - 0
+        - 1
+        - 2
+        - 3
+        - 4
+        - 5
+        - 6
+        type: integer
+    additionalProperties: false
+  CustomerBillingAddressModel:
+    type: object
+    properties:
+      Street:
+        type: string
+      Apartment:
+        type: string
+      CareOf:
+        type: string
+      ZipCode:
+        type: string
+      City:
+        type: string
+      StateOrProvince:
+        type: string
+      ISO3166CountryCode:
+        type: string
+      Position:
+        $ref: '#/definitions/PositionPointModel'
+    additionalProperties: false
+  WorkOrderCustomerModelGET:
+    type: object
+    properties:
+      Name:
+        type: string
+      ContactName:
+        type: string
+      CommunicationLanguageISO639_2:
+        type: string
+      Email:
+        type: string
+      PhoneNumber:
+        type: string
+      BillingAddress:
+        $ref: '#/definitions/CustomerBillingAddressModel'
+      JobAddress:
+        $ref: '#/definitions/CustomerJobAddressModel'
+      WorkOrderCustomerId:
+        format: int32
+        type: integer
+      CreatedDate:
+        format: date-time
+        type: string
+    additionalProperties: false
+  WorkOrderCategoryModelGET:
+    required:
+    - CategoryName
+    type: object
+    properties:
+      CategoryName:
+        minLength: 1
+        type: string
+      Created:
+        format: date-time
+        type: string
+      WorkOrderCategoryId:
+        format: int32
+        type: integer
+    additionalProperties: false
+  WorkOrderNoteModelPUT:
+    required:
+    - Note
+    type: object
+    properties:
+      Note:
+        minLength: 1
+        type: string
+      WorkOrderNoteId:
+        format: int32
+        type: integer
+    additionalProperties: false
+  WorkOrderArticleModelGET:
+    required:
+    - ArticleName
+    - PricePerQuantityExclVAT
+    - TaxRate
+    type: object
+    properties:
+      UnitType:
+        format: int32
+        enum:
+        - 1
+        - 2
+        - 3
+        - 4
+        - 5
+        - 6
+        - 7
+        - 8
+        - 9
+        - 10
+        - 11
+        - 12
+        - 13
+        - 14
+        - 15
+        - 16
+        - 17
+        - 18
+        - 19
+        - 20
+        - 21
+        - 22
+        - 23
+        - 24
+        - 25
+        - 26
+        - 27
+        - 28
+        - 29
+        - 30
+        - 31
+        - 32
+        - 33
+        - 34
+        type: integer
+      ArticleName:
+        minLength: 1
+        type: string
+      PricePerQuantityExclVAT:
+        format: double
+        type: number
+      TaxRate:
+        format: double
+        type: number
+      ISO4217CurrencyCode:
+        type: string
+      WorkOrderArticleId:
+        format: int32
+        type: integer
+      Created:
+        format: date-time
+        type: string
+    additionalProperties: false
+  WorkOrderModelSyncPUT:
+    type: object
+    properties:
+      JobDate:
+        format: date-time
+        type: string
+      JobTime:
+        $ref: '#/definitions/TimeSpan'
+      EstimatedTimeInMinutes:
+        format: int32
+        type: integer
+      JobDescription:
+        type: string
+      ExternalId:
+        type: string
+      CustomerContactName:
+        type: string
+      CustomerEmail:
+        type: string
+      CustomerName:
+        type: string
+      CustomerCommunicationLanguageISO639_2:
+        type: string
+      CustomerPhoneNumber:
+        type: string
+      CustomerJobAddress:
+        $ref: '#/definitions/CustomerJobAddressModel'
+      CustomerBillingAddress:
+        $ref: '#/definitions/CustomerBillingAddressModel'
+      NotificationType:
+        format: int32
+        enum:
+        - 0
+        - 1
+        - 2
+        - 3
+        type: integer
+      WorkOrderCategoryId:
+        format: int32
+        type: integer
+      CategoryName:
+        type: string
+      AssignedToContactId:
+        format: int32
+        type: integer
+      QuoteId:
+        format: int32
+        type: integer
+      WorkOrderCustomerId:
+        format: int32
+        type: integer
+      Status:
+        format: int32
+        enum:
+        - 0
+        - 1
+        - 2
+        - 3
+        - 4
+        - 5
+        - 6
+        type: integer
+      Notes:
+        type: array
+        items:
+          $ref: '#/definitions/WorkOrderNoteModelPUT'
+      Items:
+        type: array
+        items:
+          $ref: '#/definitions/WorkOrderItemModelPUT'
+      Attachments:
+        type: array
+        items:
+          $ref: '#/definitions/WorkOrderAttachmentModelPUT'
+      WorkOrderId:
+        format: int32
+        type: integer
+    additionalProperties: false
+securityDefinitions:
+  oauth2:
+    type: oauth2
+    flow: implicit
+    authorizationUrl: https://api.automile.com/login/
+    scopes:
+      read: Read access to protected resources
+      write: Write access to protected resources
+    description: OAuth2 Implicit Grant

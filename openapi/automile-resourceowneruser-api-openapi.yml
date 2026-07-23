@@ -1,0 +1,220 @@
+swagger: '2.0'
+info:
+  title: Automile ClientApi ResourceOwnerUser API
+  version: v1
+tags:
+- name: ResourceOwnerUser
+paths:
+  /v1/resourceowner/user:
+    get:
+      tags:
+      - ResourceOwnerUser
+      summary: This get's the details of the current user that you are logged in as
+      description: This will return the details of the current user.
+      operationId: GetResourceOwnerUser
+      produces:
+      - text/plain
+      - application/json
+      - text/json
+      responses:
+        '200':
+          description: The User is returned
+          schema:
+            $ref: '#/definitions/UserModel'
+        '500':
+          description: Internal server error
+      security:
+      - oauth2: []
+  /v1/resourceowner/user/changepassword:
+    put:
+      tags:
+      - ResourceOwnerUser
+      summary: Change the password of the current user that you are logged in as
+      description: This will change the password.
+      operationId: ChangePasswordResourceOwnerUser
+      consumes:
+      - application/json
+      - text/json
+      - application/*+json
+      parameters:
+      - in: body
+        name: body
+        description: The change password model
+        schema:
+          $ref: '#/definitions/ChangePasswordModel'
+      responses:
+        '200':
+          description: The password was saved
+        '400':
+          description: Request is bad, the password is too short or doesn't contains at least one uppercase character, one lowercase character, one number and one complex characte that you tried to update doesn't exist
+        '403':
+          description: Request is forbidden, meaning that the password entered is invalid
+        '500':
+          description: Internal server error
+      security:
+      - oauth2: []
+  /v1/resourceowner/user/userexistingpassword:
+    get:
+      tags:
+      - ResourceOwnerUser
+      summary: Check if the user has a password set
+      description: This will get info if user has existing password.
+      operationId: UserExistingPassword
+      produces:
+      - text/plain
+      - application/json
+      - text/json
+      responses:
+        '200':
+          description: The info is returned
+          schema:
+            $ref: '#/definitions/UserExistingPasswordModel'
+        '500':
+          description: Internal server error
+      security:
+      - oauth2: []
+  /v1/resourceowner/user/changeusername:
+    put:
+      tags:
+      - ResourceOwnerUser
+      summary: Change the username of the current user that you are logged in as
+      description: This will change the username.
+      operationId: ChangeUserNameResourceOwnerUser
+      consumes:
+      - application/json
+      - text/json
+      - application/*+json
+      parameters:
+      - in: body
+        name: body
+        description: The change  username model
+        schema:
+          $ref: '#/definitions/ChangeUserNameModel'
+      responses:
+        '200':
+          description: The username was saved
+        '400':
+          description: Request is bad, This username is already used
+        '500':
+          description: Internal server error
+      security:
+      - oauth2: []
+  /v1/resourceowner/user/resetpassword:
+    post:
+      tags:
+      - ResourceOwnerUser
+      summary: Reset the password by SMS for the current user logged in
+      operationId: ResetPasswordResourceOwnerUser
+      consumes:
+      - application/json
+      - text/json
+      - application/*+json
+      parameters:
+      - in: body
+        name: body
+        description: The reset password model
+        schema:
+          $ref: '#/definitions/ResetPasswordUserModel'
+      responses:
+        '200':
+          description: A reset password sms was sent
+        '400':
+          description: Request is bad, password reset type does not exist
+        '404':
+          description: Phone number is missing
+        '500':
+          description: Internal server error
+      security:
+      - oauth2: []
+  /v1/resourceowner/user/logout:
+    post:
+      tags:
+      - ResourceOwnerUser
+      summary: Logs out the user
+      description: Logs out the user and the users client device id will be removed from the users available client devices. A new user client device id will be created on login.
+      operationId: ResourceOwnerUserController_Logout
+      consumes:
+      - application/json
+      - text/json
+      - application/*+json
+      parameters:
+      - in: body
+        name: body
+        description: Model containing the users client device id
+        schema:
+          $ref: '#/definitions/LogoutModel'
+      responses:
+        '200':
+          description: Successful log out
+        '403':
+          description: No access to the client device
+        '500':
+          description: Internal server error
+      security:
+      - oauth2: []
+definitions:
+  ChangePasswordModel:
+    type: object
+    properties:
+      CurrentPassword:
+        type: string
+      NewPassword:
+        type: string
+    additionalProperties: false
+  ChangeUserNameModel:
+    type: object
+    properties:
+      NewUserName:
+        type: string
+    additionalProperties: false
+  LogoutModel:
+    required:
+    - UserDeviceId
+    type: object
+    properties:
+      UserDeviceId:
+        format: int32
+        type: integer
+    additionalProperties: false
+  UserModel:
+    type: object
+    properties:
+      UserId:
+        format: int32
+        type: integer
+      UserGuid:
+        format: uuid
+        type: string
+      UserName:
+        type: string
+      ContactId:
+        format: int32
+        type: integer
+    additionalProperties: false
+  ResetPasswordUserModel:
+    type: object
+    properties:
+      Email:
+        type: string
+      ResetPasswordType:
+        format: int32
+        enum:
+        - 0
+        - 1
+        type: integer
+    additionalProperties: false
+  UserExistingPasswordModel:
+    type: object
+    properties:
+      HasPassword:
+        type: boolean
+    additionalProperties: false
+securityDefinitions:
+  oauth2:
+    type: oauth2
+    flow: implicit
+    authorizationUrl: https://api.automile.com/login/
+    scopes:
+      read: Read access to protected resources
+      write: Write access to protected resources
+    description: OAuth2 Implicit Grant

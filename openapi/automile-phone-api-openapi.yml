@@ -1,0 +1,47 @@
+swagger: '2.0'
+info:
+  title: Automile ClientApi Phone API
+  version: v1
+tags:
+- name: Phone
+paths:
+  /maskedphonenumber/inboundvoice:
+    get:
+      tags:
+      - Phone
+      parameters:
+      - in: query
+        name: from
+        type: string
+      - in: query
+        name: to
+        type: string
+      responses:
+        '200':
+          description: Success
+  /maskedphonenumber/inboundtext:
+    get:
+      tags:
+      - Phone
+      parameters:
+      - in: query
+        name: from
+        type: string
+      - in: query
+        name: to
+        type: string
+      - in: query
+        name: body
+        type: string
+      responses:
+        '200':
+          description: Success
+securityDefinitions:
+  oauth2:
+    type: oauth2
+    flow: implicit
+    authorizationUrl: https://api.automile.com/login/
+    scopes:
+      read: Read access to protected resources
+      write: Write access to protected resources
+    description: OAuth2 Implicit Grant

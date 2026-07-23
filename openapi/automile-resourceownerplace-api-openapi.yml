@@ -1,0 +1,257 @@
+swagger: '2.0'
+info:
+  title: Automile ClientApi ResourceOwnerPlace API
+  version: v1
+tags:
+- name: ResourceOwnerPlace
+paths:
+  /v1/resourceowner/place:
+    get:
+      tags:
+      - ResourceOwnerPlace
+      summary: Get places
+      description: Only places that the user has access to are accessible.
+      operationId: GetResourceOwnerPlaces
+      produces:
+      - text/plain
+      - application/json
+      - text/json
+      responses:
+        '200':
+          description: The places are returned
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/PlaceModel'
+        '500':
+          description: Internal server error
+      security:
+      - oauth2: []
+    post:
+      tags:
+      - ResourceOwnerPlace
+      summary: Creates a new place
+      description: This will create a new place and associate it with a vehicle.
+      operationId: CreateResourceOwnerPlace
+      consumes:
+      - application/json
+      - text/json
+      - application/*+json
+      parameters:
+      - in: body
+        name: body
+        description: The place model
+        schema:
+          $ref: '#/definitions/PlaceCreateModel'
+      responses:
+        '200':
+          description: A link in the header is returned to the newly created place
+        '500':
+          description: Internal server error
+        '400':
+          description: Bad request, could occur for a number of cases, see returned message
+        '403':
+          description: Request is forbidden, could occur for a number of reasons, see returned message
+      security:
+      - oauth2: []
+  /v1/resourceowner/place/{placeId}:
+    get:
+      tags:
+      - ResourceOwnerPlace
+      summary: Get place
+      description: Only places that the user has access to are accessible.
+      operationId: GetResourceOwnerPlace
+      produces:
+      - text/plain
+      - application/json
+      - text/json
+      parameters:
+      - in: path
+        name: placeId
+        description: The places id
+        required: true
+        type: integer
+        format: int32
+      responses:
+        '200':
+          description: The place details are returned
+          schema:
+            $ref: '#/definitions/PlaceModel'
+        '500':
+          description: Internal server error
+        '403':
+          description: Request is forbidden, meaning you don't have access to this places
+      security:
+      - oauth2: []
+    put:
+      tags:
+      - ResourceOwnerPlace
+      summary: Updates the given place with new model
+      description: This will update the given place id with a new model.
+      operationId: EditResourceOwnerPlace
+      consumes:
+      - application/json
+      - text/json
+      - application/*+json
+      parameters:
+      - in: path
+        name: placeId
+        description: The vehicle id
+        required: true
+        type: integer
+        format: int32
+      - in: body
+        name: body
+        description: The new place model
+        schema:
+          $ref: '#/definitions/PlaceEditModel'
+      responses:
+        '200':
+          description: The given place was saved
+        '500':
+          description: Internal server error
+        '400':
+          description: Bad request, could occur for a number of cases, see returned message
+        '403':
+          description: Request is forbidden, could occur for a number of reasons, see returned message
+      security:
+      - oauth2: []
+    delete:
+      tags:
+      - ResourceOwnerPlace
+      summary: Removes the given company
+      description: Removes the given place.
+      operationId: DeleteResourceOwnerPlace
+      parameters:
+      - in: path
+        name: placeId
+        description: The place id
+        required: true
+        type: integer
+        format: int32
+      responses:
+        '200':
+          description: The place has been deleted
+        '500':
+          description: Internal server error
+        '404':
+          description: Not found, the place you tried to remove can't be found
+        '403':
+          description: Request is forbidden, could occur for a number of reasons, see returned message
+      security:
+      - oauth2: []
+definitions:
+  PositionPointModel:
+    type: object
+    properties:
+      Longitude:
+        format: double
+        type: number
+      Latitude:
+        format: double
+        type: number
+    additionalProperties: false
+  PlaceModel:
+    type: object
+    properties:
+      PlaceId:
+        format: int32
+        type: integer
+      Name:
+        type: string
+      Description:
+        type: string
+      PositionPoint:
+        $ref: '#/definitions/PositionPointModel'
+      TripType:
+        format: int32
+        enum:
+        - 0
+        - 1
+        - 2
+        - 3
+        type: integer
+      TripTypeTrigger:
+        format: int32
+        enum:
+        - 0
+        - 1
+        - 2
+        - 3
+        type: integer
+      Radius:
+        format: int32
+        type: integer
+      IsEditable:
+        type: boolean
+      VehicleIds:
+        type: array
+        items:
+          format: int32
+          type: integer
+      DrivesBetweenAnotherPlaceId:
+        format: int32
+        type: integer
+    additionalProperties: false
+  PlaceEditModel:
+    required:
+    - Name
+    - PositionPoint
+    type: object
+    properties:
+      Name:
+        minLength: 1
+        type: string
+      PositionPoint:
+        $ref: '#/definitions/PositionPointModel'
+    additionalProperties: false
+  PlaceCreateModel:
+    required:
+    - Name
+    - PositionPoint
+    - Radius
+    - VehicleId
+    type: object
+    properties:
+      Name:
+        minLength: 1
+        type: string
+      VehicleId:
+        format: int32
+        type: integer
+      Radius:
+        format: int32
+        type: integer
+      PositionPoint:
+        $ref: '#/definitions/PositionPointModel'
+      Description:
+        type: string
+      TripType:
+        format: int32
+        enum:
+        - 0
+        - 1
+        - 2
+        - 3
+        type: integer
+      TripTypeTrigger:
+        format: int32
+        enum:
+        - 0
+        - 1
+        - 2
+        - 3
+        type: integer
+      DrivesBetweenAnotherPlaceId:
+        format: int32
+        type: integer
+    additionalProperties: false
+securityDefinitions:
+  oauth2:
+    type: oauth2
+    flow: implicit
+    authorizationUrl: https://api.automile.com/login/
+    scopes:
+      read: Read access to protected resources
+      write: Write access to protected resources
+    description: OAuth2 Implicit Grant

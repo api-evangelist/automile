@@ -1,0 +1,20 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for Automile API
+  version: 1.0.0
+extends: openapi/automile-openapi-original.json
+actions:
+- target: $.info
+  update:
+    x-apievangelist-domain: fleet-telematics
+    x-apievangelist-provider: automile
+    x-apievangelist-base-url: https://api.automile.com
+    x-apievangelist-webhooks: asyncapi/automile-webhooks.yml
+    x-apievangelist-auth: oauth2
+- target: $.info
+  update:
+    x-apievangelist-notes: >-
+      Swagger 2.0, 328 paths / 454 operations / 367 definitions. OAuth2 (read,
+      write). Errors are HTTP-status keyed (not RFC 9457). Filter/date-range
+      querying rather than cursor pagination. Real publish/subscribe webhook
+      surface (trip, vehicle, contact, device events).

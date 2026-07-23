@@ -1,0 +1,598 @@
+swagger: '2.0'
+info:
+  title: Automile ClientApi ResourceOwnerVehicleInspection API
+  version: v1
+tags:
+- name: ResourceOwnerVehicleInspection
+paths:
+  /v1/resourceowner/vehicleinspection/{vehicleInspectionId}:
+    get:
+      tags:
+      - ResourceOwnerVehicleInspection
+      summary: Get a vehicle inspection
+      description: Only returns vehicle inspetions that the user have access to
+      operationId: GetResourceOwnerVehicleInspection
+      produces:
+      - text/plain
+      - application/json
+      - text/json
+      parameters:
+      - in: path
+        name: vehicleInspectionId
+        required: true
+        type: integer
+        format: int32
+      responses:
+        '200':
+          description: The vehicle inspection is returned
+          schema:
+            $ref: '#/definitions/VehicleInspectionModel'
+        '500':
+          description: Internal server error
+      security:
+      - oauth2: []
+    put:
+      tags:
+      - ResourceOwnerVehicleInspection
+      summary: Updates the given vehicle inspection with new model
+      description: This will update the given vehicle id with a new model.
+      operationId: EditResourceOwnerVehicleInspection
+      consumes:
+      - application/json
+      - text/json
+      - application/*+json
+      parameters:
+      - in: path
+        name: vehicleInspectionId
+        description: The vehicle inspection id
+        required: true
+        type: integer
+        format: int32
+      - in: body
+        name: body
+        description: The new vehicle inspection model
+        schema:
+          $ref: '#/definitions/VehicleInspectionEditModel'
+      responses:
+        '200':
+          description: The vehicle inspection was saved
+        '400':
+          description: Bad request, could occur for a number of cases, see returned message
+        '403':
+          description: Request is forbidden, could occur for a number of reasons, see returned message
+        '404':
+          description: Not found, the vehicle inspection you tried to update can't be found
+        '500':
+          description: Internal server error
+      security:
+      - oauth2: []
+  /v1/resourceowner/vehicleinspection:
+    get:
+      tags:
+      - ResourceOwnerVehicleInspection
+      summary: Get all vehicle inspections that the user has access to
+      description: Only returns vehicle inspetions that the user have access to
+      operationId: GetResourceOwnerVehicleInspections
+      produces:
+      - text/plain
+      - application/json
+      - text/json
+      parameters:
+      - in: query
+        name: vehicleInspectionId
+        type: integer
+        format: int32
+      - in: query
+        name: vehicleId
+        type: integer
+        format: int32
+      - in: query
+        name: fromDate
+        type: string
+        format: date-time
+      - in: query
+        name: toDate
+        type: string
+        format: date-time
+      - in: query
+        name: excludeArchived
+        type: boolean
+        default: true
+      responses:
+        '200':
+          description: The vehicle inspections are returned
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/VehicleInspectionModel'
+        '500':
+          description: Internal server error
+      security:
+      - oauth2: []
+    post:
+      tags:
+      - ResourceOwnerVehicleInspection
+      summary: Creates a new vehicle inspection
+      description: This will create a new vehicle inspection and make the association you set.
+      operationId: CreateResourceOwnerVehicleInspection
+      consumes:
+      - application/json
+      - text/json
+      - application/*+json
+      parameters:
+      - in: body
+        name: body
+        description: The vehicle inspection model
+        schema:
+          $ref: '#/definitions/VehicleInspectionCreateModel'
+      responses:
+        '200':
+          description: A link in the header is returned to the newly created vehicle inspection
+        '400':
+          description: Bad request, could occur for a number of cases, see returned message
+        '403':
+          description: Request is forbidden, could occur for a number of reasons, see returned message
+        '500':
+          description: Internal server error
+      security:
+      - oauth2: []
+  /v1/resourceowner/vehicleinspection/export/{vehicleInspectionId}:
+    post:
+      tags:
+      - ResourceOwnerVehicleInspection
+      summary: Export a vehicle inspection in pdf format via email
+      description: Only vehicle inspections that the user has access rights to are accessible.
+      operationId: ExportResourceOwnerVehicleInspection
+      consumes:
+      - application/json
+      - text/json
+      - application/*+json
+      parameters:
+      - in: path
+        name: vehicleInspectionId
+        description: The VehicleInspectionId of the Vehicle Inspection to export
+        required: true
+        type: integer
+        format: int32
+      - in: body
+        name: body
+        description: The model containing reciving email address and language of the email
+        schema:
+          $ref: '#/definitions/VehicleInspectionExportModel'
+      responses:
+        '200':
+          description: Success status if the operation was successfull and an email has been sent
+        '400':
+          description: Bad request, could occur for a number of cases, see returned message
+        '403':
+          description: Request is forbidden, could occur for a number of reasons, see returned message
+        '500':
+          description: Internal server error
+      security:
+      - oauth2: []
+definitions:
+  VehicleDefectCreateModel:
+    type: object
+    properties:
+      DefectType:
+        format: int32
+        enum:
+        - 0
+        - 1
+        - 2
+        - 3
+        - 4
+        - 5
+        - 6
+        - 7
+        - 8
+        - 9
+        - 10
+        - 11
+        - 12
+        - 13
+        - 14
+        - 15
+        - 16
+        - 17
+        - 18
+        - 19
+        - 20
+        - 21
+        - 22
+        - 23
+        - 24
+        - 25
+        - 26
+        - 27
+        - 28
+        - 29
+        - 30
+        - 31
+        type: integer
+      Notes:
+        type: string
+      VehicleDefectStatus:
+        type: array
+        items:
+          $ref: '#/definitions/VehicleDefectStatusCreateModel'
+      VehicleDefectAttachments:
+        type: array
+        items:
+          $ref: '#/definitions/VehicleDefectAttachmentCreateModel'
+      VehicleDefectComments:
+        type: array
+        items:
+          $ref: '#/definitions/VehicleDefectCommentsCreateModel'
+    additionalProperties: false
+  VehicleDefectAttachmentModel:
+    type: object
+    properties:
+      VehicleDefectAttachmentId:
+        format: int32
+        type: integer
+      VehicleDefectId:
+        format: int32
+        type: integer
+      AttachmentType:
+        format: int32
+        enum:
+        - 0
+        - 1
+        - 2
+        - 3
+        type: integer
+      AttachmentLocation:
+        type: string
+      AttachmentDateUtc:
+        format: date-time
+        type: string
+    additionalProperties: false
+  VehicleInspectionExportModel:
+    type: object
+    properties:
+      ToEmail:
+        type: string
+      ISO639LanguageCode:
+        type: string
+    additionalProperties: false
+  VehicleDefectAttachmentCreateModel:
+    type: object
+    properties:
+      AttachmentType:
+        format: int32
+        enum:
+        - 0
+        - 1
+        - 2
+        - 3
+        type: integer
+      Data:
+        type: string
+    additionalProperties: false
+  VehicleInspectionStatusModel:
+    type: object
+    properties:
+      VehicleInspectionStatusId:
+        format: int32
+        type: integer
+      VehicleInspectionId:
+        format: int32
+        type: integer
+      CreatedByContactId:
+        format: int32
+        type: integer
+      InspectionStatusType:
+        format: int32
+        enum:
+        - 0
+        - 1
+        - 2
+        - 3
+        - 4
+        - 5
+        - 6
+        - 7
+        type: integer
+      StatusDateUtc:
+        format: date-time
+        type: string
+    additionalProperties: false
+  VehicleDefectStatusCreateModel:
+    type: object
+    properties:
+      DefectStatus:
+        format: int32
+        enum:
+        - 0
+        - 1
+        type: integer
+    additionalProperties: false
+  VehicleDefectAttachmentEditModel:
+    type: object
+    properties:
+      VehicleDefectAttachmentId:
+        format: int32
+        type: integer
+      AttachmentType:
+        format: int32
+        enum:
+        - 0
+        - 1
+        - 2
+        - 3
+        type: integer
+      Data:
+        type: string
+    additionalProperties: false
+  VehicleDefectCommentsModel:
+    type: object
+    properties:
+      VehicleDefectCommentId:
+        format: int32
+        type: integer
+      VehicleDefectId:
+        format: int32
+        type: integer
+      CreatedByContactId:
+        format: int32
+        type: integer
+      Comment:
+        type: string
+      CommentDateUtc:
+        format: date-time
+        type: string
+    additionalProperties: false
+  VehicleDefectCommentsCreateModel:
+    type: object
+    properties:
+      VehicleDefectId:
+        format: int32
+        type: integer
+      Comment:
+        type: string
+    additionalProperties: false
+  VehicleDefectModel:
+    type: object
+    properties:
+      VehicleDefectId:
+        format: int32
+        type: integer
+      VehicleInspectionId:
+        format: int32
+        type: integer
+      DefectType:
+        format: int32
+        enum:
+        - 0
+        - 1
+        - 2
+        - 3
+        - 4
+        - 5
+        - 6
+        - 7
+        - 8
+        - 9
+        - 10
+        - 11
+        - 12
+        - 13
+        - 14
+        - 15
+        - 16
+        - 17
+        - 18
+        - 19
+        - 20
+        - 21
+        - 22
+        - 23
+        - 24
+        - 25
+        - 26
+        - 27
+        - 28
+        - 29
+        - 30
+        - 31
+        type: integer
+      CreatedByContactId:
+        format: int32
+        type: integer
+      DefectDateUtc:
+        format: date-time
+        type: string
+      Notes:
+        type: string
+      DefectStatusType:
+        format: int32
+        enum:
+        - 0
+        - 1
+        type: integer
+      VehicleDefectStatus:
+        type: array
+        items:
+          $ref: '#/definitions/VehicleDefectStatusModel'
+      VehicleDefectAttachments:
+        type: array
+        items:
+          $ref: '#/definitions/VehicleDefectAttachmentModel'
+      VehicleDefectComments:
+        type: array
+        items:
+          $ref: '#/definitions/VehicleDefectCommentsModel'
+    additionalProperties: false
+  VehicleInspectionCreateModel:
+    type: object
+    properties:
+      VehicleId:
+        format: int32
+        type: integer
+      InspectionDateUtc:
+        format: date-time
+        type: string
+      VehicleDefects:
+        type: array
+        items:
+          $ref: '#/definitions/VehicleDefectCreateModel'
+    additionalProperties: false
+  VehicleDefectStatusModel:
+    type: object
+    properties:
+      VehicleDefectStatusId:
+        format: int32
+        type: integer
+      VehicleDefectId:
+        format: int32
+        type: integer
+      CreatedByContactId:
+        format: int32
+        type: integer
+      DefectStatus:
+        format: int32
+        enum:
+        - 0
+        - 1
+        type: integer
+      DefectStatusDateUtc:
+        format: date-time
+        type: string
+    additionalProperties: false
+  VehicleDefectEditModel:
+    type: object
+    properties:
+      VehicleDefectId:
+        format: int32
+        type: integer
+      DefectType:
+        format: int32
+        enum:
+        - 0
+        - 1
+        - 2
+        - 3
+        - 4
+        - 5
+        - 6
+        - 7
+        - 8
+        - 9
+        - 10
+        - 11
+        - 12
+        - 13
+        - 14
+        - 15
+        - 16
+        - 17
+        - 18
+        - 19
+        - 20
+        - 21
+        - 22
+        - 23
+        - 24
+        - 25
+        - 26
+        - 27
+        - 28
+        - 29
+        - 30
+        - 31
+        type: integer
+      Notes:
+        type: string
+      DefectStatusType:
+        format: int32
+        enum:
+        - 0
+        - 1
+        type: integer
+      VehicleDefectAttachments:
+        type: array
+        items:
+          $ref: '#/definitions/VehicleDefectAttachmentEditModel'
+      VehicleDefectComments:
+        type: array
+        items:
+          $ref: '#/definitions/VehicleDefectCommentEditModel'
+    additionalProperties: false
+  VehicleInspectionEditModel:
+    type: object
+    properties:
+      VehicleId:
+        format: int32
+        type: integer
+      InspectionStatusType:
+        format: int32
+        enum:
+        - 0
+        - 1
+        - 2
+        - 3
+        - 4
+        - 5
+        - 6
+        - 7
+        type: integer
+      VehicleDefects:
+        type: array
+        items:
+          $ref: '#/definitions/VehicleDefectEditModel'
+    additionalProperties: false
+  VehicleDefectCommentEditModel:
+    type: object
+    properties:
+      VehicleDefectCommentId:
+        format: int32
+        type: integer
+      Comment:
+        type: string
+    additionalProperties: false
+  VehicleInspectionModel:
+    type: object
+    properties:
+      VehicleInspectionId:
+        format: int32
+        type: integer
+      VehicleId:
+        format: int32
+        type: integer
+      CreatedByContactId:
+        format: int32
+        type: integer
+      InspectionStatusType:
+        format: int32
+        enum:
+        - 0
+        - 1
+        - 2
+        - 3
+        - 4
+        - 5
+        - 6
+        - 7
+        type: integer
+      InspectionDateUtc:
+        format: date-time
+        type: string
+      VehicleDefects:
+        type: array
+        items:
+          $ref: '#/definitions/VehicleDefectModel'
+      InspectionStatus:
+        type: array
+        items:
+          $ref: '#/definitions/VehicleInspectionStatusModel'
+    additionalProperties: false
+securityDefinitions:
+  oauth2:
+    type: oauth2
+    flow: implicit
+    authorizationUrl: https://api.automile.com/login/
+    scopes:
+      read: Read access to protected resources
+      write: Write access to protected resources
+    description: OAuth2 Implicit Grant

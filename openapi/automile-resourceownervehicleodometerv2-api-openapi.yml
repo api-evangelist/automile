@@ -1,0 +1,230 @@
+swagger: '2.0'
+info:
+  title: Automile ClientApi ResourceOwnerVehicleOdometerV2 API
+  version: v1
+tags:
+- name: ResourceOwnerVehicleOdometerV2
+paths:
+  /v1/resourceowner/vehicles/odometer/{vehicleId}:
+    get:
+      tags:
+      - ResourceOwnerVehicleOdometerV2
+      summary: Get current odometer value
+      description: Only vehicles that the user has relationships with are allowed.
+      operationId: ResourceOwnerVehicleOdometerController_GetVehicleOdometer
+      produces:
+      - text/plain
+      - application/json
+      - text/json
+      parameters:
+      - in: path
+        name: vehicleId
+        description: Vehicle id
+        required: true
+        type: integer
+        format: int32
+      - in: query
+        name: fromDateUtc
+        description: Period from-date
+        type: string
+        format: date-time
+      - in: query
+        name: toDateUtc
+        description: Period to-date
+        type: string
+        format: date-time
+      responses:
+        '200':
+          description: The vehicle odmeter details are returned
+          schema:
+            $ref: '#/definitions/VehicleOdometerModelGET'
+        '403':
+          description: Request is forbidden, meaning you don't have access to this vehicle
+        '500':
+          description: Internal server error
+      security:
+      - oauth2: []
+  /v1/resourceowner/vehicles/odometer/{vehicleId}/calculate:
+    get:
+      tags:
+      - ResourceOwnerVehicleOdometerV2
+      summary: Calculate trips changes if odometer value changes
+      description: Only vehicles that the user has relationships with are allowed.
+      operationId: ResourceOwnerVehicleOdometerController_CalculateVehicleOdometer
+      produces:
+      - text/plain
+      - application/json
+      - text/json
+      parameters:
+      - in: path
+        name: vehicleId
+        description: Vehicle id
+        required: true
+        type: integer
+        format: int32
+      - in: query
+        name: fromDateUtc
+        description: Optional period from-date defaults to first day och last month
+        type: string
+        format: date-time
+      - in: query
+        name: toDateUtc
+        description: Optional period from-date defaults to last day of last month
+        type: string
+        format: date-time
+      - in: query
+        name: newOdometerValue
+        description: For calculating new trip values
+        type: number
+        format: double
+      responses:
+        '200':
+          description: The vehicle odmeter details are returned
+          schema:
+            $ref: '#/definitions/CalculatedOdometerModelGET'
+        '403':
+          description: Request is forbidden, meaning you don't have access to this vehicle
+        '500':
+          description: Internal server error
+      security:
+      - oauth2: []
+  /v1/resourceowner/vehicles/odometer/updateodometer:
+    put:
+      tags:
+      - ResourceOwnerVehicleOdometerV2
+      summary: Updates the given vehicle with new odometer value
+      description: 'This will update the odometer value of a vehicle. Max 5 percentage change of odometer value is permitted. Note: 23:59:59 is added to ToDateUtc.'
+      operationId: ResourceOwnerVehicleOdometerController_SaveVehicleOdometer
+      consumes:
+      - application/json
+      - text/json
+      - application/*+json
+      parameters:
+      - in: body
+        name: body
+        description: The new vehicle model
+        schema:
+          $ref: '#/definitions/VehicleOdometerModelPUT'
+      responses:
+        '200':
+          description: The odometer value was saved
+        '500':
+          description: Internal server error
+        '400':
+          description: Bad request, could occur for a number of reasons, see return message
+        '403':
+          description: Request is forbidden, meaning you don't have access to this vehicle
+        '404':
+          description: Not found, the vehicle you tried to update can't be found
+      security:
+      - oauth2: []
+definitions:
+  VehicleOdometerModelPUT:
+    required:
+    - VehicleId
+    type: object
+    properties:
+      VehicleId:
+        format: int32
+        type: integer
+      NewEndOdometer:
+        format: double
+        maximum: 2147483647
+        minimum: 1
+        type: number
+      FromDateUtc:
+        format: date-time
+        type: string
+      ToDateUtc:
+        format: date-time
+        type: string
+    additionalProperties: false
+  VehicleOdometerModelGET:
+    type: object
+    properties:
+      VehicleId:
+        format: int32
+        type: integer
+      DistanceBusiness:
+        format: double
+        type: number
+      DistancePrivate:
+        format: double
+        type: number
+      DistanceOther:
+        format: double
+        type: number
+      DistanceTotal:
+        format: double
+        type: number
+        readOnly: true
+      StartOdometer:
+        format: double
+        type: number
+      EndOdometer:
+        format: double
+        type: number
+      FromDateUtc:
+        format: date-time
+        type: string
+      ToDateUtc:
+        format: date-time
+        type: string
+    additionalProperties: false
+  CalculatedOdometerModelGET:
+    type: object
+    properties:
+      VehicleId:
+        format: int32
+        type: integer
+      DistanceBusiness:
+        format: double
+        type: number
+      DistancePrivate:
+        format: double
+        type: number
+      DistanceOther:
+        format: double
+        type: number
+      DistanceTotal:
+        format: double
+        type: number
+        readOnly: true
+      StartOdometer:
+        format: double
+        type: number
+      EndOdometer:
+        format: double
+        type: number
+      FromDateUtc:
+        format: date-time
+        type: string
+      ToDateUtc:
+        format: date-time
+        type: string
+      NewDistanceBusiness:
+        format: double
+        type: number
+      NewDistancePrivate:
+        format: double
+        type: number
+      NewDistanceOther:
+        format: double
+        type: number
+      NewDistanceTotal:
+        format: double
+        type: number
+        readOnly: true
+      NewEndOdometer:
+        format: double
+        type: number
+    additionalProperties: false
+securityDefinitions:
+  oauth2:
+    type: oauth2
+    flow: implicit
+    authorizationUrl: https://api.automile.com/login/
+    scopes:
+      read: Read access to protected resources
+      write: Write access to protected resources
+    description: OAuth2 Implicit Grant

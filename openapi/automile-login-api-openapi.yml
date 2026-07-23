@@ -1,0 +1,70 @@
+swagger: '2.0'
+info:
+  title: Automile ClientApi Login API
+  version: v1
+tags:
+- name: Login
+paths:
+  /login:
+    get:
+      tags:
+      - Login
+      parameters:
+      - in: query
+        name: client_id
+        type: string
+      - in: query
+        name: scope
+        type: string
+      - in: query
+        name: redirect_uri
+        type: string
+      - in: query
+        name: state
+        type: string
+      - in: query
+        name: response_type
+        type: string
+        default: token
+      responses:
+        '200':
+          description: Success
+    post:
+      tags:
+      - Login
+      parameters:
+      - in: query
+        name: UserName
+        required: true
+        type: string
+      - in: query
+        name: Password
+        required: true
+        type: string
+      - in: query
+        name: ClientId
+        type: string
+      - in: query
+        name: Scopes
+        type: string
+      - in: query
+        name: RedirectUri
+        type: string
+      - in: query
+        name: State
+        type: string
+      - in: query
+        name: ResponseType
+        type: string
+      responses:
+        '200':
+          description: Success
+securityDefinitions:
+  oauth2:
+    type: oauth2
+    flow: implicit
+    authorizationUrl: https://api.automile.com/login/
+    scopes:
+      read: Read access to protected resources
+      write: Write access to protected resources
+    description: OAuth2 Implicit Grant

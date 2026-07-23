@@ -1,0 +1,258 @@
+swagger: '2.0'
+info:
+  title: Automile ClientApi ResourceOwnerIMEIConfig3 API
+  version: v1
+tags:
+- name: ResourceOwnerIMEIConfig3
+paths:
+  /v1/resourceowner/imeiconfigs3:
+    get:
+      tags:
+      - ResourceOwnerIMEIConfig3
+      summary: Get all imeis(devices) that the logged in user has access to
+      description: Only vehicles that the user is associated with will be returned by this operation.
+      operationId: GetResourceOwnerImeiConfigs3
+      produces:
+      - text/plain
+      - application/json
+      - text/json
+      parameters:
+      - in: query
+        name: includeDeviceType
+        type: boolean
+        default: false
+      responses:
+        '200':
+          description: The Imeis are returned
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/IMEIConfig3Model'
+        '500':
+          description: Internal server error
+      security:
+      - oauth2: []
+    post:
+      tags:
+      - ResourceOwnerIMEIConfig3
+      summary: Creates a new IMEIConfig and associates it with vehicle
+      operationId: CreateResourceOwnerIMEIConfig3
+      consumes:
+      - application/json
+      - text/json
+      - application/*+json
+      parameters:
+      - in: body
+        name: body
+        description: The IMEI Config model
+        schema:
+          $ref: '#/definitions/IMEIConfigCreate3Model'
+      responses:
+        '200':
+          description: A link in the header is returned to the newly created ImeiConfig
+        '403':
+          description: Request is forbidden, this could occur if you try to add an IMEI that already exists or if it is not available in our systems. In addition, if the serialnumber to the IMEI device is incorrect
+        '500':
+          description: Internal server error
+      security:
+      - oauth2: []
+  /v1/resourceowner/imeiconfigs3/{imeiConfigId}:
+    get:
+      tags:
+      - ResourceOwnerIMEIConfig3
+      summary: Get IMEIconfig by IMEIconfigId
+      description: The user only has access to IMEIconfig that it is associated with through the companies or directly thorugh vehicles
+      operationId: GetResourceOwnerIMEIConfigsBasedOnVehicleId3
+      produces:
+      - text/plain
+      - application/json
+      - text/json
+      parameters:
+      - in: path
+        name: imeiConfigId
+        description: The IMEIconfig id
+        required: true
+        type: integer
+        format: int32
+      - in: query
+        name: includeDeviceType
+        description: ''
+        type: boolean
+        default: false
+      responses:
+        '200':
+          description: The Imeis are returned
+          schema:
+            $ref: '#/definitions/IMEIConfigDetail3Model'
+        '500':
+          description: Internal server error
+        '403':
+          description: Request is forbidden, meaning you dont' have access to this IMEIconfig
+        '404':
+          description: The IMEIconfig that you tried to get doesn't exist
+      security:
+      - oauth2: []
+    put:
+      tags:
+      - ResourceOwnerIMEIConfig3
+      summary: Updates the given IMEIConfig id
+      operationId: EditResourceOwnerIMEIConfig3
+      consumes:
+      - application/json
+      - text/json
+      - application/*+json
+      parameters:
+      - in: path
+        name: imeiConfigId
+        description: The IMEIConfig id that should be updated
+        required: true
+        type: integer
+        format: int32
+      - in: body
+        name: body
+        description: The IMEIConfig model
+        schema:
+          $ref: '#/definitions/IMEIConfigEdit3Model'
+      responses:
+        '200':
+          description: The IMEIConfig was saved
+        '500':
+          description: Internal server error
+        '404':
+          description: The IMEIConfig that you tried to update doesn't exist
+        '403':
+          description: Request is forbidden, this could occur if you try to add an IMEI that already exists or if it is not available in our systems. In addition, if the serialnumber to the IMEI device is incorrect
+      security:
+      - oauth2: []
+definitions:
+  IMEIConfigDetail3Model:
+    type: object
+    properties:
+      IMEIConfigId:
+        format: int32
+        type: integer
+      IMEI:
+        type: string
+      VehicleId:
+        format: int32
+        type: integer
+      DeviceType:
+        format: int32
+        enum:
+        - 0
+        - 1
+        - 2
+        - 3
+        - 4
+        - 5
+        - 6
+        - 7
+        - 8
+        - 9
+        - 255
+        type: integer
+    additionalProperties: false
+  IMEIConfigEdit3Model:
+    required:
+    - VehicleId
+    type: object
+    properties:
+      VehicleId:
+        format: int32
+        type: integer
+      IMEIDeviceType:
+        format: int32
+        enum:
+        - 0
+        - 1
+        - 2
+        - 3
+        - 4
+        - 5
+        - 6
+        - 7
+        - 8
+        - 9
+        - 255
+        type: integer
+      OrganizationNodeId:
+        format: int32
+        type: integer
+    additionalProperties: false
+  IMEIConfigCreate3Model:
+    type: object
+    properties:
+      IMEI:
+        type: string
+      VehicleId:
+        format: int32
+        type: integer
+      SerialNumber:
+        type: string
+      IMEIDeviceType:
+        format: int32
+        enum:
+        - 0
+        - 1
+        - 2
+        - 3
+        - 4
+        - 5
+        - 6
+        - 7
+        - 8
+        - 9
+        - 10
+        - 11
+        - 12
+        - 13
+        - 255
+        type: integer
+      OrganizationNodeId:
+        format: int32
+        type: integer
+    additionalProperties: false
+  IMEIConfig3Model:
+    type: object
+    properties:
+      IMEIConfigId:
+        format: int32
+        type: integer
+      IMEI:
+        type: string
+      VehicleId:
+        format: int32
+        type: integer
+      DeviceType:
+        format: int32
+        enum:
+        - 0
+        - 1
+        - 2
+        - 3
+        - 4
+        - 5
+        - 6
+        - 7
+        - 8
+        - 9
+        - 255
+        type: integer
+      OrganizationId:
+        format: int32
+        type: integer
+      IsEditable:
+        type: boolean
+      OrganizationNodeId:
+        format: int32
+        type: integer
+    additionalProperties: false
+securityDefinitions:
+  oauth2:
+    type: oauth2
+    flow: implicit
+    authorizationUrl: https://api.automile.com/login/
+    scopes:
+      read: Read access to protected resources
+      write: Write access to protected resources
+    description: OAuth2 Implicit Grant

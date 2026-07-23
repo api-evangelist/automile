@@ -1,0 +1,54 @@
+swagger: '2.0'
+info:
+  title: Automile ClientApi OAuth API
+  version: v1
+tags:
+- name: OAuth
+paths:
+  /OAuth2/Token:
+    post:
+      tags:
+      - OAuth
+      consumes:
+      - multipart/form-data
+      parameters:
+      - in: formData
+        name: grant_type
+        required: true
+        type: string
+      - in: formData
+        name: client_id
+        type: string
+      - in: formData
+        name: client_secret
+        type: string
+      - in: formData
+        name: username
+        type: string
+      - in: formData
+        name: password
+        type: string
+      - in: formData
+        name: scope
+        type: string
+      - in: formData
+        name: refresh_token
+        type: string
+      - in: formData
+        name: azure_access_token
+        type: string
+      - in: formData
+        name: azure_tenant_id
+        type: string
+      responses:
+        '200':
+          description: Success
+securityDefinitions:
+  oauth2:
+    type: oauth2
+    flow: implicit
+    authorizationUrl: https://api.automile.com/login/
+    scopes:
+      read: Read access to protected resources
+      write: Write access to protected resources
+    description: OAuth2 Implicit Grant

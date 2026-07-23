@@ -1,0 +1,224 @@
+swagger: '2.0'
+info:
+  title: Automile ClientApi ResourceOwnerTripMergeV2 API
+  version: v1
+tags:
+- name: ResourceOwnerTripMergeV2
+paths:
+  /v1/resourceowner/tripmerge:
+    post:
+      tags:
+      - ResourceOwnerTripMergeV2
+      summary: Merge trips
+      description: Url is returned as location in header
+      operationId: ResourceOwnerTripMergeController_MergeTrips
+      consumes:
+      - application/json
+      - text/json
+      - application/*+json
+      parameters:
+      - in: body
+        name: body
+        description: Model containing which and how trips should be mereged
+        schema:
+          $ref: '#/definitions/TripMergeModelPOST'
+      responses:
+        '200':
+          description: Success
+        '201':
+          description: Trips successfully merged
+        '403':
+          description: Forbidden access to resource
+        '500':
+          description: Internal server error
+      security:
+      - oauth2: []
+  /v1/resourceowner/tripmerge/{tripId}/unmerge:
+    put:
+      tags:
+      - ResourceOwnerTripMergeV2
+      summary: Unmerge trips
+      operationId: ResourceOwnerTripMergeController_UnmergeTrips
+      produces:
+      - text/plain
+      - application/json
+      - text/json
+      parameters:
+      - in: path
+        name: tripId
+        description: Trip id of merged trip
+        required: true
+        type: integer
+        format: int32
+      responses:
+        '200':
+          description: Success
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/TripModel'
+        '201':
+          description: Trips successfully unmerged
+        '403':
+          description: Forbidden access to resource
+        '500':
+          description: Internal server error
+      security:
+      - oauth2: []
+  /v1/resourceowner/tripmerge/{tripId}:
+    get:
+      tags:
+      - ResourceOwnerTripMergeV2
+      summary: Get all trips within a merged trip
+      operationId: ResourceOwnerTripMergeController_GetTripList
+      produces:
+      - text/plain
+      - application/json
+      - text/json
+      parameters:
+      - in: path
+        name: tripId
+        description: Trip id on merged trip
+        required: true
+        type: integer
+        format: int32
+      responses:
+        '200':
+          description: List containing all trips within the merged trip
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/TripModel'
+        '403':
+          description: Forbidden access to resource
+        '500':
+          description: Internal server error
+      security:
+      - oauth2: []
+definitions:
+  TripMergeModelPOST:
+    type: object
+    properties:
+      TripIdList:
+        type: array
+        items:
+          format: int32
+          type: integer
+    additionalProperties: false
+  TripModel:
+    type: object
+    properties:
+      TripId:
+        format: int32
+        type: integer
+      TripStartDateTime:
+        format: date-time
+        type: string
+      TripEndDateTime:
+        format: date-time
+        type: string
+      DistanceKilometers:
+        format: double
+        type: number
+      FuelConsumptionInLiters:
+        format: double
+        type: number
+      TripStartFormattedAddress:
+        type: string
+      TripEndFormattedAddress:
+        type: string
+      TripStartCustomAddress:
+        type: string
+      TripEndCustomAddress:
+        type: string
+      VehicleId:
+        format: int32
+        type: integer
+      TripType:
+        format: int32
+        enum:
+        - 0
+        - 1
+        - 2
+        - 3
+        type: integer
+      DriverContactId:
+        format: int32
+        type: integer
+      HasSpeedingViolation:
+        type: boolean
+      HasIdlingEvent:
+        type: boolean
+      HasAccelerationEvent:
+        type: boolean
+      HasAccident:
+        type: boolean
+      HasTurningEvent:
+        type: boolean
+      HasBrakingEvent:
+        type: boolean
+      ParkedForMinutesUntilNextTrip:
+        format: int32
+        type: integer
+      HasDrivingEvents:
+        type: boolean
+      CustomCategory:
+        type: string
+      TripTags:
+        type: string
+      HideStartRoute:
+        type: boolean
+      HideEndRoute:
+        type: boolean
+      VehicleType:
+        format: int32
+        enum:
+        - 0
+        - 1
+        - 2
+        - 3
+        - 4
+        - 5
+        - 6
+        - 255
+        type: integer
+      TripApprovalStatus:
+        format: int32
+        enum:
+        - 0
+        - 1
+        - 2
+        - 3
+        type: integer
+      IsMerged:
+        type: boolean
+      HasGermanTaxRules:
+        type: boolean
+      IsLocked:
+        type: boolean
+      LockReason:
+        format: int32
+        enum:
+        - 0
+        - 1
+        - 2
+        - 4
+        type: integer
+      TripStartCountry:
+        type: string
+      TripStartPostalCode:
+        type: string
+      TripEndCountry:
+        type: string
+      TripEndPostalCode:
+        type: string
+    additionalProperties: false
+securityDefinitions:
+  oauth2:
+    type: oauth2
+    flow: implicit
+    authorizationUrl: https://api.automile.com/login/
+    scopes:
+      read: Read access to protected resources
+      write: Write access to protected resources
+    description: OAuth2 Implicit Grant

@@ -1,0 +1,460 @@
+swagger: '2.0'
+info:
+  title: Automile ClientApi ResourceOwnerPublishSubscribe API
+  version: v1
+tags:
+- name: ResourceOwnerPublishSubscribe
+paths:
+  /v1/resourceowner/publishsubscribe:
+    get:
+      tags:
+      - ResourceOwnerPublishSubscribe
+      summary: Get all publish subscribe records the user has created
+      description: Only publish subscribe records that the user has access to are accessible.
+      operationId: GetPublishSubscribe
+      produces:
+      - text/plain
+      - application/json
+      - text/json
+      responses:
+        '200':
+          description: The publish subscribe records is returned
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/PublishSubscribeModel'
+        '500':
+          description: Internal server error
+      security:
+      - oauth2: []
+    post:
+      tags:
+      - ResourceOwnerPublishSubscribe
+      summary: Create an a publish subscribe record
+      description: ''
+      operationId: CreatePublishSubscribe
+      consumes:
+      - application/json
+      - text/json
+      - application/*+json
+      parameters:
+      - in: body
+        name: body
+        schema:
+          $ref: '#/definitions/PublishSubscribeCreateModel'
+      responses:
+        '200':
+          description: A header link containing the URL to the newly created resource
+        '500':
+          description: Internal server error
+      security:
+      - oauth2: []
+  /v1/resourceowner/publishsubscribe/{publishSubscribeId}:
+    get:
+      tags:
+      - ResourceOwnerPublishSubscribe
+      summary: Get the publish subscribe by record id
+      description: Only publis subscribe records that the user has access to are accessible.
+      operationId: GetPublishSubscribeById
+      produces:
+      - text/plain
+      - application/json
+      - text/json
+      parameters:
+      - in: path
+        name: publishSubscribeId
+        required: true
+        type: integer
+        format: int32
+      responses:
+        '200':
+          description: The publish subscribe details is returned
+          schema:
+            $ref: '#/definitions/PublishSubscribeModel'
+        '500':
+          description: Internal server error
+      security:
+      - oauth2: []
+    put:
+      tags:
+      - ResourceOwnerPublishSubscribe
+      summary: Updates the given publish subscribe record
+      description: This will update the given publish subscribe record id with a new model.
+      operationId: EditPublishSubscribe
+      consumes:
+      - application/json
+      - text/json
+      - application/*+json
+      parameters:
+      - in: path
+        name: publishSubscribeId
+        description: The publish subscribe record id
+        required: true
+        type: integer
+        format: int32
+      - in: body
+        name: body
+        description: The new publish subscribe model
+        schema:
+          $ref: '#/definitions/PublishSubscribeEditModel'
+      responses:
+        '200':
+          description: The publish subscribe record was saved
+        '500':
+          description: Internal server error
+        '400':
+          description: Bad request, could occur for a number of cases, see returned message
+        '403':
+          description: Request is forbidden, could occur for a number of reasons, see returned message
+        '404':
+          description: Not found, the publish subscribe record you tried to update can't be found
+      security:
+      - oauth2: []
+    delete:
+      tags:
+      - ResourceOwnerPublishSubscribe
+      summary: Removes the given publish subscribe record
+      operationId: DeletePublishSubscribeRecord
+      parameters:
+      - in: path
+        name: publishSubscribeId
+        description: The publish subscribe record id
+        required: true
+        type: integer
+        format: int32
+      responses:
+        '200':
+          description: The publish subscribe record been deleted
+        '500':
+          description: Internal server error
+        '403':
+          description: Request is forbidden, could occur for a number of reasons, see returned message
+        '404':
+          description: Not found, the publish subscribe records you tried to remove can't be found
+      security:
+      - oauth2: []
+  /v1/resourceowner/publishsubscribe/{publishSubscribeId}/testtripstart:
+    get:
+      tags:
+      - ResourceOwnerPublishSubscribe
+      summary: Publishes a test trip start to the publish subscribe endpoint
+      parameters:
+      - in: path
+        name: publishSubscribeId
+        description: The publish subscribe record id
+        required: true
+        type: integer
+        format: int32
+      - in: query
+        name: vehicleId
+        description: The vehicle id that has existing trip, last trip will be fetched
+        type: integer
+        format: int32
+      responses:
+        '200':
+          description: The trip start was published to your publish subscribe record endpoint
+        '500':
+          description: Internal server error
+        '400':
+          description: Bad request, could occur for a number of cases, see returned message
+        '403':
+          description: Request is forbidden, could occur for a number of reasons, see returned message
+        '404':
+          description: Not found, the publish subscribe record you tried couldn't be found
+      security:
+      - oauth2: []
+  /v1/resourceowner/publishsubscribe/{publishSubscribeId}/testtripend:
+    get:
+      tags:
+      - ResourceOwnerPublishSubscribe
+      summary: Publishes a test trip end to the publish subscribe endpoint
+      parameters:
+      - in: path
+        name: publishSubscribeId
+        description: The publish subscribe record id
+        required: true
+        type: integer
+        format: int32
+      - in: query
+        name: vehicleId
+        description: The vehicle id that has existing trip, last trip will be fetched
+        type: integer
+        format: int32
+      responses:
+        '200':
+          description: The trip end was published to your publish subscribe record endpoint
+        '500':
+          description: Internal server error
+        '400':
+          description: Bad request, could occur for a number of cases, see returned message
+        '403':
+          description: Request is forbidden, could occur for a number of reasons, see returned message
+        '404':
+          description: Not found, the publish subscribe record you tried couldn't be found
+      security:
+      - oauth2: []
+  /v1/resourceowner/publishsubscribe/{publishSubscribeId}/testvehiclecreated:
+    get:
+      tags:
+      - ResourceOwnerPublishSubscribe
+      summary: Publishes a created vehicled to the publish subscribe endpoint
+      parameters:
+      - in: path
+        name: publishSubscribeId
+        description: The publish subscribe record id
+        required: true
+        type: integer
+        format: int32
+      - in: query
+        name: vehicleId
+        description: The vehicle id that has existing trip, last trip will be fetched
+        type: integer
+        format: int32
+      responses:
+        '200':
+          description: The trip end was published to your publish subscribe record endpoint
+        '500':
+          description: Internal server error
+        '400':
+          description: Bad request, could occur for a number of cases, see returned message
+        '403':
+          description: Request is forbidden, could occur for a number of reasons, see returned message
+        '404':
+          description: Not found, the publish subscribe record you tried couldn't be found
+      security:
+      - oauth2: []
+  /v1/resourceowner/publishsubscribe/{publishSubscribeId}/testvehiclemodified:
+    get:
+      tags:
+      - ResourceOwnerPublishSubscribe
+      summary: Publishes a modified vehicled to the publish subscribe endpoint
+      parameters:
+      - in: path
+        name: publishSubscribeId
+        description: The publish subscribe record id
+        required: true
+        type: integer
+        format: int32
+      - in: query
+        name: vehicleId
+        description: The vehicle id that has existing trip, last trip will be fetched
+        type: integer
+        format: int32
+      responses:
+        '200':
+          description: The trip end was published to your publish subscribe record endpoint
+        '500':
+          description: Internal server error
+        '400':
+          description: Bad request, could occur for a number of cases, see returned message
+        '403':
+          description: Request is forbidden, could occur for a number of reasons, see returned message
+        '404':
+          description: Not found, the publish subscribe record you tried couldn't be found
+      security:
+      - oauth2: []
+  /v1/resourceowner/publishsubscribe/{publishSubscribeId}/testcontactcreated:
+    get:
+      tags:
+      - ResourceOwnerPublishSubscribe
+      summary: Publishes a created driver / contact to the publish subscribe endpoint
+      parameters:
+      - in: path
+        name: publishSubscribeId
+        description: The publish subscribe record id
+        required: true
+        type: integer
+        format: int32
+      - in: query
+        name: contactId
+        description: The vehicle id that has existing trip, last trip will be fetched
+        type: integer
+        format: int32
+      responses:
+        '200':
+          description: The contact end was published to your publish subscribe record endpoint
+        '500':
+          description: Internal server error
+        '400':
+          description: Bad request, could occur for a number of cases, see returned message
+        '403':
+          description: Request is forbidden, could occur for a number of reasons, see returned message
+        '404':
+          description: Not found, the publish subscribe record you tried couldn't be found
+      security:
+      - oauth2: []
+  /v1/resourceowner/publishsubscribe/{publishSubscribeId}/testcontactmodified:
+    get:
+      tags:
+      - ResourceOwnerPublishSubscribe
+      summary: Publishes a modified contact to the publish subscribe endpoint
+      parameters:
+      - in: path
+        name: publishSubscribeId
+        description: The publish subscribe record id
+        required: true
+        type: integer
+        format: int32
+      - in: query
+        name: contactId
+        description: The vehicle id that has existing trip, last trip will be fetched
+        type: integer
+        format: int32
+      responses:
+        '200':
+          description: The contact end was published to your publish subscribe record endpoint
+        '500':
+          description: Internal server error
+        '400':
+          description: Bad request, could occur for a number of cases, see returned message
+        '403':
+          description: Request is forbidden, could occur for a number of reasons, see returned message
+        '404':
+          description: Not found, the publish subscribe record you tried couldn't be found
+      security:
+      - oauth2: []
+  /v1/resourceowner/publishsubscribe/{publishSubscribeId}/testdeviceconnected:
+    get:
+      tags:
+      - ResourceOwnerPublishSubscribe
+      summary: Publishes vehicle information similar to when a device is connected to the publish subscribe endpoint
+      parameters:
+      - in: path
+        name: publishSubscribeId
+        description: The publish subscribe record id
+        required: true
+        type: integer
+        format: int32
+      - in: query
+        name: vehicleId
+        description: The vehicle id
+        type: integer
+        format: int32
+      responses:
+        '200':
+          description: The contact end was published to your publish subscribe record endpoint
+        '500':
+          description: Internal server error
+        '400':
+          description: Bad request, could occur for a number of cases, see returned message
+        '403':
+          description: Request is forbidden, could occur for a number of reasons, see returned message
+        '404':
+          description: Not found, the publish subscribe record you tried couldn't be found
+      security:
+      - oauth2: []
+  /v1/resourceowner/publishsubscribe/{publishSubscribeId}/testdevicedisconnected:
+    get:
+      tags:
+      - ResourceOwnerPublishSubscribe
+      summary: Publishes vehicle information similar to when a device is disconnected to the publish subscribe endpoint
+      parameters:
+      - in: path
+        name: publishSubscribeId
+        description: The publish subscribe record id
+        required: true
+        type: integer
+        format: int32
+      - in: query
+        name: vehicleId
+        description: The vehicle id
+        type: integer
+        format: int32
+      responses:
+        '200':
+          description: The contact end was published to your publish subscribe record endpoint
+        '500':
+          description: Internal server error
+        '400':
+          description: Bad request, could occur for a number of cases, see returned message
+        '403':
+          description: Request is forbidden, could occur for a number of reasons, see returned message
+        '404':
+          description: Not found, the publish subscribe record you tried couldn't be found
+      security:
+      - oauth2: []
+definitions:
+  PublishSubscribeEditModel:
+    type: object
+    properties:
+      PublishToUrl:
+        type: string
+      PublishType:
+        format: int32
+        enum:
+        - 0
+        type: integer
+      VehicleId:
+        format: int32
+        type: integer
+      AuthenticationType:
+        format: int32
+        enum:
+        - 0
+        - 1
+        - 2
+        - 3
+        type: integer
+      AuthenticationData:
+        type: string
+    additionalProperties: false
+  PublishSubscribeModel:
+    type: object
+    properties:
+      PublishSubscribeId:
+        format: int32
+        type: integer
+      PublishToUrl:
+        type: string
+      PublishType:
+        format: int32
+        enum:
+        - 0
+        type: integer
+      VehicleId:
+        format: int32
+        type: integer
+      AuthenticationType:
+        format: int32
+        enum:
+        - 0
+        - 1
+        - 2
+        - 3
+        type: integer
+      AuthenticationData:
+        type: string
+    additionalProperties: false
+  PublishSubscribeCreateModel:
+    type: object
+    properties:
+      PublishToUrl:
+        type: string
+      PublishType:
+        format: int32
+        enum:
+        - 0
+        type: integer
+      VehicleId:
+        format: int32
+        type: integer
+      AuthenticationType:
+        format: int32
+        enum:
+        - 0
+        - 1
+        - 2
+        - 3
+        type: integer
+      AuthenticationData:
+        type: string
+    additionalProperties: false
+securityDefinitions:
+  oauth2:
+    type: oauth2
+    flow: implicit
+    authorizationUrl: https://api.automile.com/login/
+    scopes:
+      read: Read access to protected resources
+      write: Write access to protected resources
+    description: OAuth2 Implicit Grant

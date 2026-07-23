@@ -1,0 +1,1475 @@
+swagger: '2.0'
+info:
+  title: Automile ClientApi ResourceOwnerVehicle3V2 API
+  version: v1
+tags:
+- name: ResourceOwnerVehicle3V2
+paths:
+  /v1/resourceowner/vehicles3:
+    get:
+      tags:
+      - ResourceOwnerVehicle3V2
+      summary: Get all vehicles that the user has access to
+      description: Only returns vehicles that the user have access to
+      operationId: GetResourceOwnerVehicles3
+      produces:
+      - text/plain
+      - application/json
+      - text/json
+      responses:
+        '200':
+          description: The vehicles are returned
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Vehicle3Model'
+        '500':
+          description: Internal server error
+      security:
+      - oauth2: []
+    post:
+      tags:
+      - ResourceOwnerVehicle3V2
+      summary: Creates a new vehicle
+      description: This will create a new vehicle and make the association you set.
+      operationId: CreateResourceOwnerVehicle3
+      consumes:
+      - application/json
+      - text/json
+      - application/*+json
+      parameters:
+      - in: body
+        name: body
+        description: The vehicle model
+        schema:
+          $ref: '#/definitions/Vehicle3CreateModel'
+      responses:
+        '200':
+          description: A link in the header is returned to the newly created vehicle
+        '400':
+          description: Bad request, could occur for a number of cases, see returned message
+        '403':
+          description: Request is forbidden, could occur for a number of reasons, see returned message
+        '500':
+          description: Internal server error
+      security:
+      - oauth2: []
+  /v1/resourceowner/vehicles3/{vehicleId}:
+    get:
+      tags:
+      - ResourceOwnerVehicle3V2
+      summary: Get the details about the vehicle
+      description: Only vehicles that the user has relationships with are allowed.
+      operationId: GetResourceOwnerVehicle3
+      produces:
+      - text/plain
+      - application/json
+      - text/json
+      parameters:
+      - in: path
+        name: vehicleId
+        description: The vehicle id
+        required: true
+        type: integer
+        format: int32
+      responses:
+        '200':
+          description: The vehicles are returned
+          schema:
+            $ref: '#/definitions/Vehicle3DetailModel'
+        '500':
+          description: Internal server error
+        '403':
+          description: Request is forbidden, meaning you don't have access to this vehicle
+      security:
+      - oauth2: []
+    put:
+      tags:
+      - ResourceOwnerVehicle3V2
+      summary: Updates the given vehicle with new model
+      description: This will update the given vehicle id with a new model.
+      operationId: EditResourceOwnerVehicle3
+      consumes:
+      - application/json
+      - text/json
+      - application/*+json
+      parameters:
+      - in: path
+        name: vehicleId
+        description: The vehicle id
+        required: true
+        type: integer
+        format: int32
+      - in: body
+        name: body
+        description: The new vehicle model
+        schema:
+          $ref: '#/definitions/Vehicle3EditModel'
+      responses:
+        '200':
+          description: The vehicle was saved
+        '400':
+          description: Bad request, could occur for a number of cases, see returned message
+        '403':
+          description: Request is forbidden, could occur for a number of reasons, see returned message
+        '404':
+          description: Not found, the vehicle you tried to update can't be found
+        '500':
+          description: Internal server error
+      security:
+      - oauth2: []
+  /v1/resourceowner/vehicles3/VehicleInformation:
+    get:
+      tags:
+      - ResourceOwnerVehicle3V2
+      summary: Returns the external information we have on the vehicle
+      operationId: GetVehicleInformation3
+      produces:
+      - text/plain
+      - application/json
+      - text/json
+      parameters:
+      - in: query
+        name: identifier
+        description: Numberplate or Vin
+        type: string
+      - in: query
+        name: identifierType
+        description: NumberPlate = 0, VehicleInformationNumber = 1
+        type: integer
+        format: int32
+        enum:
+        - 0
+        - 1
+      responses:
+        '200':
+          description: The vehicles are returned
+          schema:
+            $ref: '#/definitions/TransportstyrelsenInfoModel'
+        '500':
+          description: Internal server error
+        '403':
+          description: Request is forbidden, meaning you don't have access to this vehicle
+      security:
+      - oauth2: []
+  /v1/resourceowner/vehicles3/status:
+    get:
+      tags:
+      - ResourceOwnerVehicle3V2
+      summary: Get position and status of all vehicles that the user has access to
+      description: Only returns vehicles that the user have access to. LastKnownFormattedAddress, LastKnownStreetAddress, LastKnownCity is only returned if vehicle is parked.
+      operationId: GetResourceOwnerVehiclesStatus3
+      produces:
+      - text/plain
+      - application/json
+      - text/json
+      responses:
+        '200':
+          description: The vehicles are returned
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/VehicleStatusModel'
+        '500':
+          description: Internal server error
+      security:
+      - oauth2: []
+  /v1/resourceowner/vehicles3/status/{vehicleId}:
+    get:
+      tags:
+      - ResourceOwnerVehicle3V2
+      summary: Get position and status of specific vehicle
+      operationId: ResourceOwnerVehicle3Controller_GetVehicleStatus
+      produces:
+      - text/plain
+      - application/json
+      - text/json
+      parameters:
+      - in: path
+        name: vehicleId
+        description: The vehicle id
+        required: true
+        type: integer
+        format: int32
+      responses:
+        '200':
+          description: The status is returned
+          schema:
+            $ref: '#/definitions/VehicleStatusModel'
+        '500':
+          description: Internal server error
+      security:
+      - oauth2: []
+  /v1/resourceowner/vehicles3/checkin:
+    post:
+      tags:
+      - ResourceOwnerVehicle3V2
+      summary: Check-in to a vehicle
+      description: This will check-in the contact specified and if left empty it will check-in the calling user into a vehicle
+      operationId: CheckInResourceOwnerVehicle3
+      consumes:
+      - application/json
+      - text/json
+      - application/*+json
+      parameters:
+      - in: body
+        name: body
+        description: The vehicle checkin model
+        schema:
+          $ref: '#/definitions/Vehicle3CheckInModel'
+      responses:
+        '200':
+          description: The user is checked in to vehicle
+        '500':
+          description: Internal server error
+        '400':
+          description: Bad request, could occur for a number of cases, see returned message
+        '403':
+          description: Request is forbidden, could occur for a number of reasons, see returned message
+        '404':
+          description: Not found, the vehicle you tried to update can't be found
+      security:
+      - oauth2: []
+  /v1/resourceowner/vehicles3/checkout:
+    post:
+      tags:
+      - ResourceOwnerVehicle3V2
+      summary: Check-out from a vehicle
+      description: This will check-out the calling user from a vehicle
+      operationId: CheckOutResourceOwnerVehicle3
+      consumes:
+      - application/json
+      - text/json
+      - application/*+json
+      parameters:
+      - in: body
+        name: body
+        schema:
+          $ref: '#/definitions/VehicleCheckOutModel'
+      responses:
+        '200':
+          description: The user is checked out from the vehicle
+        '500':
+          description: Internal server error
+        '400':
+          description: Bad request, could occur for a number of cases, see returned message
+        '403':
+          description: Request is forbidden, could occur for a number of reasons, see returned message
+        '404':
+          description: Not found, the vehicle you tried to update can't be found
+      security:
+      - oauth2: []
+  /v1/resourceowner/vehicles3/{vehicleId}/lasttrip:
+    get:
+      tags:
+      - ResourceOwnerVehicle3V2
+      summary: Returns the last ongoing or ended trip for the vehicle specified
+      description: ''
+      operationId: GetResourceOwnerVehicleLastTrip3
+      produces:
+      - text/plain
+      - application/json
+      - text/json
+      parameters:
+      - in: path
+        name: vehicleId
+        description: Filter on companyId
+        required: true
+        type: integer
+        format: int32
+      responses:
+        '200':
+          description: The vehicles are returned
+          schema:
+            $ref: '#/definitions/TripConcatenationModel'
+        '404':
+          description: Not trip for the vehicle could be found
+        '500':
+          description: Internal server error
+      security:
+      - oauth2: []
+definitions:
+  TimeSpan:
+    type: object
+    properties:
+      Ticks:
+        format: int64
+        type: integer
+      Days:
+        format: int32
+        type: integer
+        readOnly: true
+      Hours:
+        format: int32
+        type: integer
+        readOnly: true
+      Milliseconds:
+        format: int32
+        type: integer
+        readOnly: true
+      Microseconds:
+        format: int32
+        type: integer
+        readOnly: true
+      Nanoseconds:
+        format: int32
+        type: integer
+        readOnly: true
+      Minutes:
+        format: int32
+        type: integer
+        readOnly: true
+      Seconds:
+        format: int32
+        type: integer
+        readOnly: true
+      TotalDays:
+        format: double
+        type: number
+        readOnly: true
+      TotalHours:
+        format: double
+        type: number
+        readOnly: true
+      TotalMilliseconds:
+        format: double
+        type: number
+        readOnly: true
+      TotalMicroseconds:
+        format: double
+        type: number
+        readOnly: true
+      TotalNanoseconds:
+        format: double
+        type: number
+        readOnly: true
+      TotalMinutes:
+        format: double
+        type: number
+        readOnly: true
+      TotalSeconds:
+        format: double
+        type: number
+        readOnly: true
+    additionalProperties: false
+  TripConcatenationSimplePoint:
+    type: object
+    properties:
+      Latitude:
+        format: double
+        type: number
+      Longitude:
+        format: double
+        type: number
+      RecordTimeStamp:
+        format: date-time
+        type: string
+      RecordTimeStampEpochMs:
+        format: int64
+        type: integer
+        readOnly: true
+    additionalProperties: false
+  Vehicle3DetailModel:
+    type: object
+    properties:
+      VehicleIdentificationNumber:
+        type: string
+      VehicleId:
+        format: int32
+        type: integer
+      NumberPlate:
+        type: string
+      Make:
+        type: string
+      Model:
+        type: string
+      ModelYear:
+        format: int32
+        type: integer
+      BodyStyle:
+        type: string
+      BodyType:
+        format: int32
+        enum:
+        - 0
+        - 1
+        - 2
+        - 3
+        - 4
+        - 5
+        - 6
+        - 7
+        - 8
+        type: integer
+      OwnedByName:
+        type: string
+      NumberOfTrips:
+        format: int32
+        type: integer
+      DistanceTravelledThisYear:
+        format: double
+        type: number
+      DistanceTravelledLastYear:
+        format: double
+        type: number
+      LastKnownLatitude:
+        format: double
+        type: number
+      LastKnownLongitude:
+        format: double
+        type: number
+      LastKnownGeoTimeStamp:
+        format: date-time
+        type: string
+      LastKnownFormattedAddress:
+        type: string
+      LastKnownCustomAddress:
+        type: string
+      LastKnownSpeed:
+        format: double
+        type: number
+      LastKnownTemperature:
+        format: double
+        type: number
+      LastKnownTemperatureTimeStamp:
+        format: date-time
+        type: string
+      LastTripEndLatitude:
+        format: double
+        type: number
+      LastTripEndLongitude:
+        format: double
+        type: number
+      LastTripStartGeoTimeStamp:
+        format: date-time
+        type: string
+      LastTripEndGeoTimeStamp:
+        format: date-time
+        type: string
+      ParkedForNumberOfSeconds:
+        format: int32
+        type: integer
+      OngoingTripId:
+        format: int32
+        type: integer
+      LastTripId:
+        format: int32
+        type: integer
+      MakeImageUrl:
+        type: string
+      CurrentOdometerInKilometers:
+        format: double
+        type: number
+      UserVehicleIdentificationNumber:
+        type: string
+      FuelType:
+        format: int32
+        enum:
+        - 0
+        - 1
+        - 2
+        - 3
+        - 4
+        - 5
+        - 6
+        type: integer
+      DefaultTripType:
+        format: int32
+        enum:
+        - 0
+        - 1
+        - 2
+        - 3
+        type: integer
+      AllowAutomaticUpdates:
+        type: boolean
+      AquiredDate:
+        format: date-time
+        type: string
+      YearlyTax:
+        format: double
+        type: number
+      LastSyncUtcWithVehicleExternalInformation:
+        format: date-time
+        type: string
+      NumberOfOwners:
+        format: int32
+        type: integer
+      Status1:
+        type: string
+      RegisteredInISO3166CountryCode:
+        type: string
+      AllowAutomaticVehicleExternalInformationUpdate:
+        type: boolean
+      CO2Urban:
+        format: double
+        type: number
+      CO2UrbanExtra:
+        format: double
+        type: number
+      CO2Combined:
+        format: double
+        type: number
+      FrontTyre:
+        type: string
+      RearTyre:
+        type: string
+      FrontWheelRim:
+        type: string
+      RearWheelRim:
+        type: string
+      TrailerHitch:
+        type: boolean
+      TrailerHitchMaxLoadKgWithoutBreaks:
+        format: double
+        type: number
+      TrailerHitchMaxLoadKgWithDefaultDriversLicence:
+        format: double
+        type: number
+      TrailerHitchMaxLoadKgWithAlternativeDriversLicence:
+        format: double
+        type: number
+      InspectionPeriodStart:
+        format: date-time
+        type: string
+      InspectionPeriodEnd:
+        format: date-time
+        type: string
+      Owner:
+        type: string
+      OwnerType:
+        format: int32
+        enum:
+        - 0
+        - 1
+        type: integer
+      LeaseCompany:
+        type: string
+      InsuranceCompany:
+        type: string
+      EngineSizekW:
+        format: int32
+        type: integer
+      DisplacementCm3:
+        format: int32
+        type: integer
+      VehicleMatureTax:
+        format: double
+        type: number
+      VehicleTax:
+        format: double
+        type: number
+      MaxNumberOfPassengers:
+        format: int32
+        type: integer
+      CurbWeightKg:
+        format: double
+        type: number
+      GrossWeightKg:
+        format: double
+        type: number
+      TaxWeightKg:
+        format: double
+        type: number
+      MaxGrossWeightWithTrailerKg:
+        format: double
+        type: number
+      IsImported:
+        type: boolean
+      FirstDateRegisteredInCurrentCountry:
+        format: date-time
+        type: string
+      VehicleManufacturedDate:
+        format: date-time
+        type: string
+      PaintColor:
+        type: string
+      AllowTripDrivingEventRecording:
+        type: boolean
+      InsuranceDate:
+        format: date-time
+        type: string
+      TrailerHitchMaxWeightKg:
+        format: double
+        type: number
+      LastInspectionDate:
+        format: date-time
+        type: string
+      CheckedInContactId:
+        format: int32
+        type: integer
+      CheckedInDateTimeUtc:
+        format: date-time
+        type: string
+      LastTripIdCheckedInContact:
+        format: int32
+        type: integer
+      FuelConsumptionCombinedLiters:
+        format: double
+        type: number
+      TransmissionType:
+        format: int32
+        enum:
+        - 0
+        - 1
+        - 2
+        type: integer
+      PriceExcludingEquipmentLocalCurrency:
+        format: double
+        type: number
+      AverageTripDistanceKm:
+        format: double
+        type: number
+      AverigeTripIdleTimeSeconds:
+        format: double
+        type: number
+      AverageFuelConsumptionLiter:
+        format: double
+        type: number
+      TransferIntervalInSeconds:
+        format: int32
+        type: integer
+      SampleHarshEvents:
+        type: boolean
+      Features:
+        type: array
+        items:
+          type: string
+      AllowSpeedRecording:
+        type: boolean
+      Nickname:
+        type: string
+      CategoryColor:
+        format: int32
+        type: integer
+      Tags:
+        type: string
+      OrganizationId:
+        format: int32
+        type: integer
+      OrganizationNodeId:
+        format: int32
+        type: integer
+      VehicleType:
+        format: int32
+        enum:
+        - 0
+        - 1
+        - 2
+        - 3
+        - 4
+        - 5
+        - 6
+        - 255
+        type: integer
+      DeleteTripDetailsAfter:
+        $ref: '#/definitions/TimeSpan'
+      DeleteTripsAfter:
+        $ref: '#/definitions/TimeSpan'
+    additionalProperties: false
+  TripConcatenationStartEndPoint:
+    type: object
+    properties:
+      Latitude:
+        format: double
+        type: number
+      Longitude:
+        format: double
+        type: number
+    additionalProperties: false
+  Vehicle3EditModel:
+    type: object
+    properties:
+      NumberPlate:
+        type: string
+      Make:
+        type: string
+      Model:
+        type: string
+      ModelYear:
+        format: int32
+        type: integer
+      BodyStyle:
+        type: string
+      BodyType:
+        format: int32
+        enum:
+        - 0
+        - 1
+        - 2
+        - 3
+        - 4
+        - 5
+        - 6
+        - 7
+        - 8
+        type: integer
+      UserVehicleIdentificationNumber:
+        type: string
+      FuelType:
+        format: int32
+        enum:
+        - 0
+        - 1
+        - 2
+        - 3
+        - 4
+        - 5
+        - 6
+        type: integer
+      DefaultTripType:
+        format: int32
+        enum:
+        - 0
+        - 1
+        - 2
+        - 3
+        type: integer
+      AllowAutomaticUpdates:
+        type: boolean
+      FrontTyre:
+        type: string
+      RearTyre:
+        type: string
+      FrontWheelRim:
+        type: string
+      RearWheelRim:
+        type: string
+      TrailerHitch:
+        type: boolean
+      OdometerInKilometers:
+        format: double
+        type: number
+      DefaultPrivacyPolicyType:
+        format: int32
+        enum:
+        - 1
+        type: integer
+      UpdateFromTransportstyrelsen:
+        type: boolean
+      AllowSpeedRecording:
+        type: boolean
+      Nickname:
+        type: string
+      Tags:
+        type: string
+      CategoryColor:
+        format: int32
+        description: "Supported colors (hex value), \r\n3652794 (#37BCBA),\r\n2591227 (#2789FB),\r\n11430900 (#AE6BF4),\r\n16478657 (#FB71C1),\r\n16735053 (#FF5B4D),\r\n16752644 (#FFA004),\r\n16772393 (#FFED29),\r\n13228106 (#C9D84A),\r\n6597394 (#64AB12),\r\n12096370 (#B89372)"
+        type: integer
+      OrganizationNodeId:
+        format: int32
+        type: integer
+      DeleteTripDetailsAfter:
+        $ref: '#/definitions/TimeSpan'
+      DeleteTripsAfter:
+        $ref: '#/definitions/TimeSpan'
+    additionalProperties: false
+  VehicleCheckOutModel:
+    type: object
+    properties:
+      VehicleId:
+        format: int32
+        type: integer
+    additionalProperties: false
+  TripConcatenationModel:
+    type: object
+    properties:
+      TripId:
+        format: int32
+        type: integer
+      VehicleId:
+        format: int32
+        type: integer
+      VehicleName:
+        type: string
+      MergedFromTripIds:
+        type: array
+        items:
+          format: int32
+          type: integer
+      SpeedGroups:
+        type: array
+        items:
+          $ref: '#/definitions/TripConcatenationSpeedGroup'
+      SpeedPoints:
+        type: array
+        items:
+          $ref: '#/definitions/TripConcatenationSpeedPoint'
+      RawPoints:
+        type: array
+        items:
+          $ref: '#/definitions/TripConcatenationPoint'
+      SnappedToRoadPoints:
+        type: array
+        items:
+          $ref: '#/definitions/TripConcatenationSimplePoint'
+      IdlingEvents:
+        type: array
+        items:
+          $ref: '#/definitions/TripConcatenationIdling'
+      DrivingEvents:
+        type: array
+        items:
+          $ref: '#/definitions/TripConcatenationEvent'
+      SpeedData:
+        type: array
+        items:
+          $ref: '#/definitions/TripConcatenationData'
+      SpeedLimitData:
+        type: array
+        items:
+          $ref: '#/definitions/TripConcatenationData'
+      RPMData:
+        type: array
+        items:
+          $ref: '#/definitions/TripConcatenationData'
+      FuelRateData:
+        type: array
+        items:
+          $ref: '#/definitions/TripConcatenationData'
+      StartDateTime:
+        format: date-time
+        type: string
+      EndDateTime:
+        format: date-time
+        type: string
+      TripTimeZone:
+        format: int32
+        type: integer
+      StartFormattedAddress:
+        type: string
+      EndFormattedAddress:
+        type: string
+      StartCustomAddress:
+        type: string
+      EndCustomAddress:
+        type: string
+      Distance:
+        format: double
+        type: number
+      FuelConsumption:
+        format: double
+        type: number
+      LengthInMinutes:
+        format: int32
+        type: integer
+      DriverContactId:
+        format: int32
+        type: integer
+      DriverName:
+        type: string
+      IdleRPMAverage:
+        format: int32
+        type: integer
+      IdleTimeInSecondsForAllTrip:
+        format: int32
+        type: integer
+      IdleTimeInSecondsFromStart:
+        format: int32
+        type: integer
+      CO2Emission:
+        format: double
+        type: number
+      MaxSpeed:
+        format: double
+        type: number
+      MaxRPM:
+        format: int32
+        type: integer
+      ParkedForMinutesUntilNextTrip:
+        format: int32
+        type: integer
+      StartPoint:
+        $ref: '#/definitions/TripConcatenationStartEndPoint'
+      EndPoint:
+        $ref: '#/definitions/TripConcatenationStartEndPoint'
+      Notes:
+        type: string
+      TripType:
+        format: int32
+        enum:
+        - 0
+        - 1
+        - 2
+        type: integer
+      AverageSpeedInKilometersPerHour:
+        format: double
+        type: number
+      CustomCategory:
+        type: string
+      HideStartRoute:
+        type: boolean
+      HideEndRoute:
+        type: boolean
+      IsImperial:
+        type: boolean
+      UnitType:
+        format: int32
+        enum:
+        - 0
+        - 1
+        - 2
+        type: integer
+      TripApprovalStatus:
+        format: int32
+        enum:
+        - 0
+        - 1
+        - 2
+        - 3
+        type: integer
+      RegisteredTollList:
+        type: array
+        items:
+          $ref: '#/definitions/RegisteredTollModelGET'
+      HasGermanTaxRules:
+        type: boolean
+        readOnly: true
+      BusinessContact:
+        type: string
+        readOnly: true
+      BusinessContactCompany:
+        type: string
+        readOnly: true
+      TripReason:
+        type: string
+        readOnly: true
+      IsLocked:
+        type: boolean
+        readOnly: true
+      LockReason:
+        format: int32
+        enum:
+        - 0
+        - 1
+        - 2
+        - 4
+        type: integer
+        readOnly: true
+    additionalProperties: false
+  Vehicle3Model:
+    type: object
+    properties:
+      VehicleId:
+        format: int32
+        type: integer
+      VehicleIdentificationNumber:
+        type: string
+      NumberPlate:
+        type: string
+      Make:
+        type: string
+      Model:
+        type: string
+      CurrentOdometerInKilometers:
+        format: double
+        type: number
+      UserVehicleIdentificationNumber:
+        type: string
+      ModelYear:
+        format: int32
+        type: integer
+      FuelType:
+        format: int32
+        enum:
+        - 0
+        - 1
+        - 2
+        - 3
+        - 4
+        - 5
+        - 6
+        type: integer
+      DefaultTripType:
+        format: int32
+        enum:
+        - 0
+        - 1
+        - 2
+        - 3
+        type: integer
+      AllowAutomaticUpdates:
+        type: boolean
+      DefaultPrivacyPolicyType:
+        format: int32
+        enum:
+        - 1
+        type: integer
+      CheckedInContactId:
+        format: int32
+        type: integer
+      CheckedInDateTimeUtc:
+        format: date-time
+        type: string
+      MakeImageUrl:
+        type: string
+      Features:
+        type: array
+        items:
+          type: string
+      AllowSpeedRecording:
+        type: boolean
+      Nickname:
+        type: string
+      CategoryColor:
+        format: int32
+        type: integer
+      Tags:
+        type: string
+      OrganizationId:
+        format: int32
+        type: integer
+      OrganizationNodeId:
+        format: int32
+        type: integer
+      CheckedInTripType:
+        format: int32
+        enum:
+        - 0
+        - 1
+        - 2
+        - 3
+        type: integer
+      CheckedInCustomTripName:
+        type: string
+      VehicleType:
+        format: int32
+        enum:
+        - 0
+        - 1
+        - 2
+        - 3
+        - 4
+        - 5
+        - 6
+        - 255
+        type: integer
+      DeleteTripDetailsAfter:
+        $ref: '#/definitions/TimeSpan'
+      DeleteTripsAfter:
+        $ref: '#/definitions/TimeSpan'
+      IsEditable:
+        type: boolean
+      IsOdometerEditable:
+        type: boolean
+    additionalProperties: false
+  Vehicle3CreateModel:
+    required:
+    - CreateRelationshipToId
+    - VehicleRelationshipType
+    type: object
+    properties:
+      NumberPlate:
+        type: string
+      Make:
+        type: string
+      Model:
+        type: string
+      ModelYear:
+        format: int32
+        type: integer
+      BodyStyle:
+        type: string
+      BodyType:
+        format: int32
+        enum:
+        - 0
+        - 1
+        - 2
+        - 3
+        - 4
+        - 5
+        - 6
+        - 7
+        - 8
+        type: integer
+      OwnerContactId:
+        format: int32
+        type: integer
+      OwnerCompanyId:
+        format: int32
+        type: integer
+      CreateRelationshipToId:
+        format: int32
+        type: integer
+      VehicleRelationshipType:
+        format: int32
+        enum:
+        - 0
+        - 1
+        type: integer
+      UserVehicleIdentificationNumber:
+        type: string
+      FuelType:
+        format: int32
+        enum:
+        - 0
+        - 1
+        - 2
+        - 3
+        - 4
+        - 5
+        - 6
+        type: integer
+      DefaultTripType:
+        format: int32
+        enum:
+        - 0
+        - 1
+        - 2
+        - 3
+        type: integer
+      AllowAutomaticUpdates:
+        type: boolean
+      DefaultPrivacyPolicyType:
+        format: int32
+        enum:
+        - 1
+        type: integer
+      Nickname:
+        type: string
+      Tags:
+        type: string
+      CategoryColor:
+        format: int32
+        type: integer
+      OrganizationNodeId:
+        format: int32
+        type: integer
+      DeleteTripDetailsAfter:
+        $ref: '#/definitions/TimeSpan'
+      DeleteTripsAfter:
+        $ref: '#/definitions/TimeSpan'
+    additionalProperties: false
+  TransportstyrelsenInfoModel:
+    type: object
+    properties:
+      HasInformation:
+        type: boolean
+      Make:
+        type: string
+      Model:
+        type: string
+      MakeImageUrl:
+        type: string
+      ModelYear:
+        format: int32
+        type: integer
+      BodyStyle:
+        type: string
+      FuelType:
+        format: int32
+        enum:
+        - 0
+        - 1
+        - 2
+        - 3
+        - 4
+        - 5
+        - 6
+        - 7
+        - 8
+        - 9
+        - 10
+        type: integer
+      TransmissionType:
+        format: int32
+        enum:
+        - 0
+        - 1
+        - 2
+        type: integer
+      TrailerHitch:
+        type: boolean
+    additionalProperties: false
+  TripConcatenationIdling:
+    type: object
+    properties:
+      Latitude:
+        format: double
+        type: number
+      Longitude:
+        format: double
+        type: number
+      RecordTimeStamp:
+        format: date-time
+        type: string
+      RecordTimeStampEpochMs:
+        format: int64
+        type: integer
+        readOnly: true
+      IdleInSeconds:
+        format: int32
+        type: integer
+    additionalProperties: false
+  RegisteredTollModelGET:
+    type: object
+    properties:
+      TimestampUtc:
+        format: date-time
+        type: string
+      Fee:
+        format: double
+        type: number
+      TripId:
+        format: int32
+        type: integer
+      GeofenceId:
+        format: int32
+        type: integer
+      TollZoneId:
+        format: int32
+        type: integer
+      PriceAfterDiscount:
+        format: double
+        type: number
+      TollZoneName:
+        type: string
+      RegisteredTollId:
+        format: int32
+        type: integer
+      VehicleId:
+        format: int32
+        type: integer
+      VehicleUserFriendlyName:
+        type: string
+      VehicleMake:
+        type: string
+      VehicleModel:
+        type: string
+      VehicleNumberPlate:
+        type: string
+      DriverContactId:
+        format: int32
+        type: integer
+      DriverImageUrl:
+        type: string
+      DriverName:
+        type: string
+      CurrencyISO4271:
+        type: string
+      ReadOnly:
+        type: boolean
+      TripType:
+        format: int32
+        enum:
+        - 0
+        - 1
+        - 2
+        - 3
+        type: integer
+    additionalProperties: false
+  Vehicle3CheckInModel:
+    type: object
+    properties:
+      ContactId:
+        format: int32
+        type: integer
+      VehicleId:
+        format: int32
+        type: integer
+      DefaultTripType:
+        format: int32
+        enum:
+        - 0
+        - 1
+        - 2
+        - 3
+        type: integer
+      CheckOutAtUtc:
+        format: date-time
+        type: string
+      UserDeviceType:
+        format: int32
+        enum:
+        - 0
+        - 1
+        - 2
+        type: integer
+      UserDeviceToken:
+        type: string
+    additionalProperties: false
+  TripConcatenationSpeedPoint:
+    type: object
+    properties:
+      Speed:
+        format: double
+        type: number
+      SpeedLimit:
+        format: double
+        type: number
+      Latitude:
+        format: double
+        type: number
+      Longitude:
+        format: double
+        type: number
+      RecordTimeStamp:
+        format: date-time
+        type: string
+      RecordTimeStampEpochMs:
+        format: int64
+        type: integer
+        readOnly: true
+    additionalProperties: false
+  TripConcatenationEvent:
+    type: object
+    properties:
+      TripDrivingEventType:
+        format: int32
+        enum:
+        - 0
+        - 1
+        - 2
+        - 3
+        - 4
+        - 5
+        - 6
+        - 7
+        - 8
+        - 9
+        - 10
+        - 11
+        - 12
+        - 13
+        type: integer
+      Latitude:
+        format: double
+        type: number
+      Longitude:
+        format: double
+        type: number
+      RecordTimeStamp:
+        format: date-time
+        type: string
+      RecordTimeStampEpochMs:
+        format: int64
+        type: integer
+        readOnly: true
+    additionalProperties: false
+  TripConcatenationSpeedGroup:
+    type: object
+    properties:
+      SpeedGroup:
+        format: uuid
+        type: string
+      SpeedingForMoreThan30Seconds:
+        type: boolean
+      DistanceOfSpeeding:
+        format: double
+        type: number
+      DistanceInSeconds:
+        format: int32
+        type: integer
+      ThresholdType:
+        format: int32
+        type: integer
+      SpeedPoints:
+        type: array
+        items:
+          $ref: '#/definitions/TripConcatenationSpeedPoint'
+    additionalProperties: false
+  VehicleStatusModel:
+    type: object
+    properties:
+      VehicleId:
+        format: int32
+        type: integer
+      LastPositionUtc:
+        format: date-time
+        type: string
+      LastKnownLatitude:
+        format: double
+        type: number
+      LastKnownLongitude:
+        format: double
+        type: number
+      IsDriving:
+        type: boolean
+      MakeImageUrl:
+        type: string
+      ParkedForNumberOfSeconds:
+        format: int32
+        type: integer
+      DrivingForNumberOfSeconds:
+        format: int32
+        type: integer
+      LastKnownFormattedAddress:
+        type: string
+      LastKnownStreetAddress:
+        type: string
+      LastKnownCity:
+        type: string
+      LastTripId:
+        format: int32
+        type: integer
+      LastLocationType:
+        format: int32
+        enum:
+        - 0
+        - 1
+        - 2
+        type: integer
+      CategoryColor:
+        format: int32
+        type: integer
+      Heading:
+        format: int32
+        type: integer
+    additionalProperties: false
+  TripConcatenationData:
+    type: object
+    properties:
+      RecordTimeStamp:
+        format: date-time
+        type: string
+      RecordTimeStampEpochMs:
+        format: int64
+        type: integer
+        readOnly: true
+      Value:
+        format: double
+        type: number
+    additionalProperties: false
+  TripConcatenationPoint:
+    type: object
+    properties:
+      Latitude:
+        format: double
+        type: number
+      Longitude:
+        format: double
+        type: number
+      RecordTimeStamp:
+        format: date-time
+        type: string
+      RecordTimeStampEpochMs:
+        format: int64
+        type: integer
+        readOnly: true
+      Speed:
+        format: double
+        type: number
+      RPM:
+        format: double
+        type: number
+      HeadingDegress:
+        format: int32
+        type: integer
+      Hdop:
+        format: int32
+        type: integer
+      NumberOfSatellites:
+        format: int32
+        type: integer
+    additionalProperties: false
+securityDefinitions:
+  oauth2:
+    type: oauth2
+    flow: implicit
+    authorizationUrl: https://api.automile.com/login/
+    scopes:
+      read: Read access to protected resources
+      write: Write access to protected resources
+    description: OAuth2 Implicit Grant

@@ -1,0 +1,102 @@
+swagger: '2.0'
+info:
+  title: Automile ClientApi ResourceOwnerTriggerMessages API
+  version: v1
+tags:
+- name: ResourceOwnerTriggerMessages
+paths:
+  /v1/resourceowner/triggermessageshistory:
+    get:
+      tags:
+      - ResourceOwnerTriggerMessages
+      summary: Get all trigger messages that the logged in user has access to
+      description: Only trigger messages that belongs to vehicles that the user has access to will be returned.
+      operationId: GetResourceOwnerTriggerMessagesHistory
+      produces:
+      - text/plain
+      - application/json
+      - text/json
+      responses:
+        '200':
+          description: The trigger messages are returned
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/TriggerMessageHistoryModel'
+        '500':
+          description: Internal server error
+      security:
+      - oauth2: []
+  /v1/resourceowner/triggermessageshistory/{triggerId}:
+    get:
+      tags:
+      - ResourceOwnerTriggerMessages
+      summary: Get trigger messages by trigger id
+      description: Only trigger messages that belongs to vehicles that the user has access to will be returned.
+      operationId: GetResourceOwnerTriggerMessageHistory
+      produces:
+      - text/plain
+      - application/json
+      - text/json
+      parameters:
+      - in: path
+        name: triggerId
+        description: The Id of the company
+        required: true
+        type: integer
+        format: int32
+      responses:
+        '200':
+          description: The trigger messages are returned
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/TriggerMessageHistoryModel'
+        '404':
+          description: The trigger message that you tried to get doesn't exist
+        '500':
+          description: Internal server error
+      security:
+      - oauth2: []
+definitions:
+  TriggerMessageHistoryModel:
+    type: object
+    properties:
+      TriggerMessageHistoryId:
+        format: int32
+        type: integer
+      TriggerId:
+        format: int32
+        type: integer
+      WasSentOn:
+        format: date-time
+        type: string
+      DestinationType:
+        format: int32
+        enum:
+        - 1
+        - 2
+        - 3
+        - 4
+        - 5
+        - 6
+        - 7
+        - 8
+        - 9
+        type: integer
+      DestinationData:
+        type: string
+      MessageData1:
+        type: string
+      MessageData2:
+        type: string
+    additionalProperties: false
+securityDefinitions:
+  oauth2:
+    type: oauth2
+    flow: implicit
+    authorizationUrl: https://api.automile.com/login/
+    scopes:
+      read: Read access to protected resources
+      write: Write access to protected resources
+    description: OAuth2 Implicit Grant

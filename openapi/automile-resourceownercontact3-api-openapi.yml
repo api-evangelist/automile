@@ -1,0 +1,1125 @@
+swagger: '2.0'
+info:
+  title: Automile ClientApi ResourceOwnerContact3 API
+  version: v1
+tags:
+- name: ResourceOwnerContact3
+paths:
+  /v1/resourceowner/contacts3:
+    get:
+      tags:
+      - ResourceOwnerContact3
+      summary: Get a list of all contacts that user is associated with
+      description: Only companies that the user is associated with will be returned by this operation.
+      operationId: GetResourceOwnerContacts3
+      produces:
+      - text/plain
+      - application/json
+      - text/json
+      responses:
+        '200':
+          description: The contacts are returned
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Contact3Model'
+        '500':
+          description: Internal server error
+      security:
+      - oauth2: []
+    post:
+      tags:
+      - ResourceOwnerContact3
+      summary: Creates a new contact
+      operationId: CreateResourceOwnerContact3
+      consumes:
+      - application/json
+      - text/json
+      - application/*+json
+      parameters:
+      - in: body
+        name: body
+        description: The contact model
+        schema:
+          $ref: '#/definitions/Contact3CreateModel'
+      responses:
+        '200':
+          description: A link in the header is returned to the newly created contact
+        '500':
+          description: Internal server error
+        '403':
+          description: Request is forbidden, this could occur if you try to associate the contact you are not associated with
+      security:
+      - oauth2: []
+  /v1/resourceowner/contacts3/{contactId}:
+    get:
+      tags:
+      - ResourceOwnerContact3
+      summary: Get a contact by id
+      description: The user only has access to companies that it is associated with
+      operationId: GetResourceOwnerContact3
+      produces:
+      - text/plain
+      - application/json
+      - text/json
+      parameters:
+      - in: path
+        name: contactId
+        description: The contact id
+        required: true
+        type: integer
+        format: int32
+      responses:
+        '200':
+          description: The contact is returned
+          schema:
+            $ref: '#/definitions/Contact3DetailModel'
+        '403':
+          description: Request is forbidden, meaning you dont' have access to this contact
+          schema:
+            $ref: '#/definitions/ProblemDetails'
+        '404':
+          description: Contact does not exist
+          schema:
+            $ref: '#/definitions/ProblemDetails'
+        '500':
+          description: Internal server error
+      security:
+      - oauth2: []
+    put:
+      tags:
+      - ResourceOwnerContact3
+      summary: Updates the given contact id
+      description: This will update the contact with the new model.
+      operationId: EditResourceOwnerContact3
+      consumes:
+      - application/json
+      - text/json
+      - application/*+json
+      produces:
+      - text/plain
+      - application/json
+      - text/json
+      parameters:
+      - in: path
+        name: contactId
+        description: The contact that should be updated
+        required: true
+        type: integer
+        format: int32
+      - in: body
+        name: body
+        description: The new contact model
+        schema:
+          $ref: '#/definitions/Contact3EditModel'
+      responses:
+        '200':
+          description: The contact was saved
+        '403':
+          description: Request is forbidden, this could occur if you are not associated with the contact
+          schema:
+            $ref: '#/definitions/ProblemDetails'
+        '404':
+          description: The contact that you tried to update doesn't exist
+          schema:
+            $ref: '#/definitions/ProblemDetails'
+        '500':
+          description: Internal server error
+      security:
+      - oauth2: []
+    delete:
+      tags:
+      - ResourceOwnerContact3
+      summary: Removes the given contact
+      operationId: DeleteResourceOwnerContact3
+      produces:
+      - text/plain
+      - application/json
+      - text/json
+      parameters:
+      - in: path
+        name: contactId
+        description: The company id
+        required: true
+        type: integer
+        format: int32
+      responses:
+        '200':
+          description: The contact has been deleted
+        '403':
+          description: Forbidden
+          schema:
+            $ref: '#/definitions/ProblemDetails'
+        '500':
+          description: Internal server error
+        '400':
+          description: Request is bad, You can't delete a contact that is bound to a user
+        '404':
+          description: The contact that you tried to remove doesn't exist
+      security:
+      - oauth2: []
+  /v1/resourceowner/contacts3/me:
+    get:
+      tags:
+      - ResourceOwnerContact3
+      summary: Get the contact representing myself
+      operationId: GetResourceOwnerContactMe3
+      produces:
+      - text/plain
+      - application/json
+      - text/json
+      responses:
+        '200':
+          description: The contact is returned
+          schema:
+            $ref: '#/definitions/Contact3DetailModel'
+        '403':
+          description: Request is forbidden, meaning you dont' have access to this contact
+          schema:
+            $ref: '#/definitions/ProblemDetails'
+        '404':
+          description: Contact does not exist
+          schema:
+            $ref: '#/definitions/ProblemDetails'
+        '500':
+          description: Internal server error
+      security:
+      - oauth2: []
+  /v1/resourceowner/contacts3/me/image:
+    get:
+      tags:
+      - ResourceOwnerContact3
+      summary: Get contact profile image
+      description: This will get the contact profile image, image data is returned in the response content
+      operationId: GetImage3
+      parameters:
+      - in: query
+        name: imageType
+        description: enum ApiImageType
+        type: integer
+        format: int32
+        enum:
+        - 0
+        - 1
+      responses:
+        '200':
+          description: Success
+      security:
+      - oauth2: []
+  /v1/resourceowner/contacts3/me/uploadimage:
+    post:
+      tags:
+      - ResourceOwnerContact3
+      summary: Upload contact profile image
+      description: This updates the contact profile image
+      operationId: MeUploadImage3
+      consumes:
+      - multipart/form-data
+      produces:
+      - text/plain
+      - application/json
+      - text/json
+      parameters:
+      - in: formData
+        name: image
+        type: file
+      responses:
+        '200':
+          description: Profile image was saved
+        '406':
+          description: Request is not properly formatted
+          schema:
+            $ref: '#/definitions/ProblemDetails'
+        '500':
+          description: Internal server error
+      security:
+      - oauth2: []
+  /v1/resourceowner/contacts3/me/removeimage:
+    put:
+      tags:
+      - ResourceOwnerContact3
+      summary: Removes the users profile image
+      description: This removes the contact profile image
+      operationId: MeRemoveImage3
+      responses:
+        '200':
+          description: The profile image has been deleted
+        '500':
+          description: Internal server error
+      security:
+      - oauth2: []
+  /v1/resourceowner/contacts3/me/updatedefaultvehicle/{vehicleId}:
+    put:
+      tags:
+      - ResourceOwnerContact3
+      summary: Updates the default vehicle
+      description: This will update the default vehicle
+      operationId: MeUpdateDefaultVehicle3
+      produces:
+      - text/plain
+      - application/json
+      - text/json
+      parameters:
+      - in: path
+        name: vehicleId
+        description: The vehicle id
+        required: true
+        type: integer
+        format: int32
+      responses:
+        '200':
+          description: The default vehicle on contact was saved
+        '403':
+          description: Request is forbidden, this could occur if you are not associated with the contact
+          schema:
+            $ref: '#/definitions/ProblemDetails'
+        '500':
+          description: Internal server error
+      security:
+      - oauth2: []
+  /v1/resourceowner/contacts3/updatedefaultvehicle/{vehicleId}:
+    put:
+      tags:
+      - ResourceOwnerContact3
+      summary: Updates the default vehicle
+      description: This will update the default vehicle
+      operationId: UpdateResourceOwnerContactDefaultVehicle3
+      produces:
+      - text/plain
+      - application/json
+      - text/json
+      parameters:
+      - in: path
+        name: vehicleId
+        description: The vehicle id
+        required: true
+        type: integer
+        format: int32
+      responses:
+        '200':
+          description: The default vehicle on contact was saved
+        '403':
+          description: Request is forbidden, this could occur if you are not associated with the contact
+          schema:
+            $ref: '#/definitions/ProblemDetails'
+        '500':
+          description: Internal server error
+      security:
+      - oauth2: []
+  /v1/resourceowner/contacts3/customcategory:
+    post:
+      tags:
+      - ResourceOwnerContact3
+      summary: Add and remove custom categories
+      operationId: ResourceOwnerContact3CustomCategory
+      consumes:
+      - application/json
+      - text/json
+      - application/*+json
+      parameters:
+      - in: body
+        name: body
+        description: The contact model
+        schema:
+          $ref: '#/definitions/CustomCategoryPostModel'
+      responses:
+        '200':
+          description: ''
+        '500':
+          description: Internal server error
+      security:
+      - oauth2: []
+  /v1/resourceowner/contacts3/{contactId}/customcategories/{customCategoryId}:
+    get:
+      tags:
+      - ResourceOwnerContact3
+      summary: Get a custom category
+      description: ''
+      operationId: GetCustomCategoryResourceOwnerContacts3
+      produces:
+      - text/plain
+      - application/json
+      - text/json
+      parameters:
+      - in: path
+        name: contactId
+        required: true
+        type: integer
+        format: int32
+      - in: path
+        name: customCategoryId
+        required: true
+        type: integer
+        format: int32
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/CustomCategoryModel'
+        '500':
+          description: Internal server error
+      security:
+      - oauth2: []
+  /v1/resourceowner/contacts3/{contactId}/customcategories:
+    get:
+      tags:
+      - ResourceOwnerContact3
+      summary: Get a all custom categories
+      description: ''
+      operationId: GetCustomCategoriesResourceOwnerContacts3
+      produces:
+      - text/plain
+      - application/json
+      - text/json
+      parameters:
+      - in: path
+        name: contactId
+        required: true
+        type: integer
+        format: int32
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/CustomCategoryModel'
+        '500':
+          description: Internal server error
+      security:
+      - oauth2: []
+  /v1/resourceowner/contacts3/getwebsocketauthenticationtoken:
+    get:
+      tags:
+      - ResourceOwnerContact3
+      summary: "Get an encrypted token to be used for header authentication to Web Socket API. The response\r\nwill also contain for how long the token is valid."
+      operationId: GetWebSocketAuthenticationToken
+      produces:
+      - text/plain
+      - application/json
+      - text/json
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/ContactWebSocketAuthenticationTokenModel'
+        '500':
+          description: Internal server error
+      security:
+      - oauth2: []
+definitions:
+  TripScoreLevelModel:
+    type: object
+    properties:
+      Color:
+        type: string
+      MinValue:
+        format: int32
+        type: integer
+      Text:
+        type: string
+    additionalProperties: false
+  TimeSpan:
+    type: object
+    properties:
+      Ticks:
+        format: int64
+        type: integer
+      Days:
+        format: int32
+        type: integer
+        readOnly: true
+      Hours:
+        format: int32
+        type: integer
+        readOnly: true
+      Milliseconds:
+        format: int32
+        type: integer
+        readOnly: true
+      Microseconds:
+        format: int32
+        type: integer
+        readOnly: true
+      Nanoseconds:
+        format: int32
+        type: integer
+        readOnly: true
+      Minutes:
+        format: int32
+        type: integer
+        readOnly: true
+      Seconds:
+        format: int32
+        type: integer
+        readOnly: true
+      TotalDays:
+        format: double
+        type: number
+        readOnly: true
+      TotalHours:
+        format: double
+        type: number
+        readOnly: true
+      TotalMilliseconds:
+        format: double
+        type: number
+        readOnly: true
+      TotalMicroseconds:
+        format: double
+        type: number
+        readOnly: true
+      TotalNanoseconds:
+        format: double
+        type: number
+        readOnly: true
+      TotalMinutes:
+        format: double
+        type: number
+        readOnly: true
+      TotalSeconds:
+        format: double
+        type: number
+        readOnly: true
+    additionalProperties: false
+  ProblemDetails:
+    type: object
+    properties:
+      type:
+        type: string
+      title:
+        type: string
+      status:
+        format: int32
+        type: integer
+      detail:
+        type: string
+      instance:
+        type: string
+    additionalProperties: {}
+  CustomCategoryPostModel:
+    type: object
+    properties:
+      ContactId:
+        format: int32
+        type: integer
+      Added:
+        description: Custom categories to add
+        type: array
+        items:
+          $ref: '#/definitions/CustomCategoryCreateModel'
+      Removed:
+        description: Custom categories to delete
+        type: array
+        items:
+          format: int32
+          type: integer
+    additionalProperties: false
+  CompanyScopesModel:
+    type: object
+    properties:
+      CompanyId:
+        format: int32
+        type: integer
+      VehicleIds:
+        type: array
+        items:
+          format: int32
+          type: integer
+      Scopes:
+        type: array
+        items:
+          type: string
+    additionalProperties: false
+  TripScoreInformationModel:
+    type: object
+    properties:
+      CrownValue:
+        format: int32
+        type: integer
+      EmptyMessage:
+        $ref: '#/definitions/TripScoreMessageModel'
+      HelpMessage:
+        $ref: '#/definitions/TripScoreMessageModel'
+      Levels:
+        type: array
+        items:
+          $ref: '#/definitions/TripScoreLevelModel'
+    additionalProperties: false
+  OrganizationModel:
+    type: object
+    properties:
+      OrganizationName:
+        type: string
+      LegalIdentificationNumber:
+        type: string
+      VATNumber:
+        type: string
+      BillingAddress:
+        $ref: '#/definitions/AddressModel'
+      ShipmentAddress:
+        $ref: '#/definitions/AddressModel'
+      Culture:
+        type: string
+      UnitType:
+        format: int32
+        enum:
+        - 0
+        - 1
+        - 2
+        type: integer
+      IsHierarchyEnabled:
+        type: boolean
+      ISO4217CurrencyCode:
+        type: string
+      OrganizationId:
+        format: int32
+        type: integer
+    additionalProperties: false
+  AccountOutstandingMessageModel:
+    type: object
+    properties:
+      Title:
+        type: string
+      Message:
+        type: string
+    additionalProperties: false
+  ContactWebSocketAuthenticationTokenModel:
+    type: object
+    properties:
+      ExpiresAtUtc:
+        format: date-time
+        type: string
+      EncryptedToken:
+        type: string
+      UseHeaderForAuthentication:
+        type: string
+    additionalProperties: false
+  ContactMenuLayoutModel:
+    type: object
+    properties:
+      MenuLayout:
+        type: object
+        additionalProperties:
+          format: int64
+          enum:
+          - 0
+          - 1
+          - 2
+          - 4
+          type: integer
+        readOnly: true
+      ExpiresAtUtc:
+        format: date-time
+        description: UTC date time when menu layout cache was refreshed
+        type: string
+      RefreshedAtUtc:
+        format: date-time
+        description: UTC date time when menu layout cache was refreshed
+        type: string
+    additionalProperties: false
+  SSOConfigurationModel:
+    type: object
+    properties:
+      ClientId:
+        type: string
+      TenantId:
+        type: string
+      Scopes:
+        type: array
+        items:
+          type: string
+    additionalProperties: false
+  AddressModel:
+    required:
+    - AddressLine2
+    - City
+    - ISO3166CountryCode
+    - ZipCode
+    type: object
+    properties:
+      AddressId:
+        format: int32
+        type: integer
+      CompanyName:
+        type: string
+      ContactNameAtAddress:
+        type: string
+      AddressLine2:
+        minLength: 1
+        type: string
+      AddressLine3:
+        type: string
+      AddressLine4:
+        type: string
+      ZipCode:
+        minLength: 1
+        type: string
+      City:
+        minLength: 1
+        type: string
+      StateOrProvince:
+        type: string
+      ISO3166CountryCode:
+        minLength: 1
+        type: string
+    additionalProperties: false
+  Contact3DetailModel:
+    type: object
+    properties:
+      ContactId:
+        format: int32
+        type: integer
+      FirstName:
+        type: string
+      LastName:
+        type: string
+      EmailAddress:
+        type: string
+      Description:
+        type: string
+      CultureName:
+        type: string
+      CountryCodeIso1366:
+        type: string
+      DefaultVehicleId:
+        format: int32
+        type: integer
+      UnitType:
+        format: int32
+        enum:
+        - 0
+        - 1
+        - 2
+        type: integer
+      SubscribeToNewsLetter:
+        type: boolean
+      MobilePhoneNumber:
+        type: string
+      MapType:
+        format: int32
+        enum:
+        - 0
+        - 1
+        - 2
+        type: integer
+      CheckedIntoVehicleId:
+        format: int32
+        type: integer
+      CheckedInDateTimeUtc:
+        format: date-time
+        type: string
+      CheckOutDateTimeUtc:
+        format: date-time
+        type: string
+      CheckedInTripType:
+        format: int32
+        enum:
+        - 0
+        - 1
+        - 2
+        - 3
+        type: integer
+      CheckedInCustomTripTypeName:
+        type: string
+      CompanyRoles:
+        type: array
+        items:
+          format: int32
+          enum:
+          - 0
+          - 1
+          - 2
+          - 3
+          - 4
+          - 5
+          type: integer
+      ProfileImageUrl:
+        type: string
+      OrganizationPermissions:
+        $ref: '#/definitions/OrganizationPermissionBooleans'
+      CurrencyCode:
+        description: ISO 4217 Currency code
+        type: string
+      CompaniesScopes:
+        type: array
+        items:
+          $ref: '#/definitions/CompanyScopesModel'
+      IsLocked:
+        type: boolean
+      CustomCategories:
+        type: array
+        items:
+          $ref: '#/definitions/CustomCategoryModel'
+      OrganizationNodeId:
+        format: int32
+        type: integer
+      Organization:
+        $ref: '#/definitions/OrganizationModel'
+      HoursOfServiceSettingsModel:
+        $ref: '#/definitions/HoursOfServiceSettingsModel'
+      FieldServiceEnabled:
+        type: boolean
+      FieldServiceEnabledWithinOrganization:
+        type: boolean
+      ContactMenuLayout:
+        $ref: '#/definitions/ContactMenuLayoutModel'
+      CreatedAt:
+        format: date-time
+        type: string
+        readOnly: true
+      AccountInformation:
+        $ref: '#/definitions/AccountInformationModel'
+      TripScoreInformation:
+        $ref: '#/definitions/TripScoreInformationModel'
+      SSO:
+        type: boolean
+      SSOConfig:
+        $ref: '#/definitions/SSOConfigurationModel'
+    additionalProperties: false
+  Contact3Model:
+    type: object
+    properties:
+      ContactId:
+        format: int32
+        type: integer
+      FirstName:
+        type: string
+      LastName:
+        type: string
+      EmailAddress:
+        type: string
+      MobilePhoneNumber:
+        type: string
+      ProfileImageUrl:
+        type: string
+      CheckedInDateTimeUtc:
+        format: date-time
+        type: string
+      CheckedIntoVehicleId:
+        format: int32
+        type: integer
+      IsManager:
+        type: boolean
+      CompanyRoles:
+        type: array
+        items:
+          format: int32
+          enum:
+          - 0
+          - 1
+          - 2
+          - 3
+          - 4
+          - 5
+          type: integer
+      CurrencyCode:
+        description: ISO 4217 Currency code
+        type: string
+      LastCheckedInTripType:
+        format: int32
+        enum:
+        - 0
+        - 1
+        - 2
+        - 3
+        type: integer
+      CheckedInCustomTripTypeName:
+        type: string
+      OrganizationNodeId:
+        format: int32
+        type: integer
+      OrganizationPermissions:
+        $ref: '#/definitions/OrganizationPermissionBooleans'
+      IsEditable:
+        type: boolean
+    additionalProperties: false
+  HoursOfServiceSettingsModel:
+    type: object
+    properties:
+      TimeZoneType:
+        format: int32
+        enum:
+        - 0
+        - 1
+        - 2
+        - 3
+        - 4
+        - 5
+        - 6
+        - 7
+        - 8
+        type: integer
+      WorkDayStartTime:
+        $ref: '#/definitions/TimeSpan'
+      CycleRuleType:
+        format: int32
+        enum:
+        - 0
+        - 1
+        - 2
+        - 3
+        - 4
+        - 5
+        - 6
+        - 7
+        type: integer
+      CargoTypeType:
+        format: int32
+        enum:
+        - 0
+        - 1
+        - 2
+        type: integer
+      RestartRuleType:
+        format: int32
+        enum:
+        - 0
+        - 1
+        type: integer
+      RestBreakRuleType:
+        format: int32
+        enum:
+        - 0
+        - 1
+        type: integer
+      ShortHaulExceptionType:
+        format: int32
+        enum:
+        - 0
+        - 1
+        type: integer
+      OdometerUnitType:
+        format: int32
+        enum:
+        - 0
+        - 1
+        - 2
+        type: integer
+      WellSiteRuleType:
+        format: int32
+        enum:
+        - 0
+        - 1
+        type: integer
+      CarrierInfo:
+        $ref: '#/definitions/AddressModel'
+      IsEnabled:
+        type: boolean
+    additionalProperties: false
+  Contact3CreateModel:
+    required:
+    - CreateRelationshipToCompanyId
+    - FirstName
+    - LastName
+    type: object
+    properties:
+      FirstName:
+        minLength: 1
+        type: string
+      LastName:
+        minLength: 1
+        type: string
+      EmailAddress:
+        type: string
+      Description:
+        type: string
+      CreateRelationshipToCompanyId:
+        format: int32
+        type: integer
+      CultureName:
+        type: string
+      CountryCodeIso1366:
+        type: string
+      DefaultVehicleId:
+        format: int32
+        type: integer
+      UnitType:
+        format: int32
+        enum:
+        - 0
+        - 1
+        - 2
+        type: integer
+      SubscribeToNewsLetter:
+        type: boolean
+      MobilePhoneNumber:
+        type: string
+      MapType:
+        format: int32
+        enum:
+        - 0
+        - 1
+        - 2
+        type: integer
+      CurrencyCode:
+        description: ISO 4217 Currency code
+        type: string
+      OrganizationNodeId:
+        format: int32
+        type: integer
+      OrganizationPermissions:
+        $ref: '#/definitions/OrganizationPermissionBooleans'
+    additionalProperties: false
+  CustomCategoryCreateModel:
+    type: object
+    properties:
+      Value:
+        type: string
+      CustomCategoryType:
+        format: int32
+        enum:
+        - 0
+        - 1
+        type: integer
+    additionalProperties: false
+  Contact3EditModel:
+    type: object
+    properties:
+      FirstName:
+        type: string
+      LastName:
+        type: string
+      EmailAddress:
+        type: string
+      Description:
+        type: string
+      CultureName:
+        type: string
+      CountryCodeIso1366:
+        type: string
+      DefaultVehicleId:
+        format: int32
+        type: integer
+      UnitType:
+        format: int32
+        enum:
+        - 0
+        - 1
+        - 2
+        type: integer
+      SubscribeToNewsLetter:
+        type: boolean
+      MobilePhoneNumber:
+        type: string
+      MapType:
+        format: int32
+        enum:
+        - 0
+        - 1
+        - 2
+        type: integer
+      CheckOutDateTimeUtc:
+        format: date-time
+        type: string
+      CheckedInTripType:
+        format: int32
+        enum:
+        - 0
+        - 1
+        - 2
+        - 3
+        type: integer
+      CheckedInCustomTripTypeName:
+        type: string
+      CurrencyCode:
+        description: ISO 4217 Currency code
+        type: string
+      OrganizationNodeId:
+        format: int32
+        type: integer
+      OrganizationPermissions:
+        $ref: '#/definitions/OrganizationPermissionBooleans'
+    additionalProperties: false
+  OrganizationPermissionBooleans:
+    type: object
+    properties:
+      OrganizationNodeViewVehicle:
+        type: boolean
+      OrganizationNodeCreateEditVehicle:
+        type: boolean
+      OrganizationNodeViewGeofence:
+        type: boolean
+      OrganizationNodeCreateEditGeofence:
+        type: boolean
+      OrganizationNodeViewPOI:
+        type: boolean
+      OrganizationNodeCreateEditPOI:
+        type: boolean
+      OrganizationNodeViewTrigger:
+        type: boolean
+      OrganizationNodeCreateEditTrigger:
+        type: boolean
+      OrganizationNodeViewTrip:
+        type: boolean
+      OrganizationNodeEditTrip:
+        type: boolean
+      OrganizationNodeViewTripIfDriver:
+        type: boolean
+      OrganizationNodeEditTripIfDriver:
+        type: boolean
+      OrganizationNodeView:
+        type: boolean
+      OrganizationNodeViewContact:
+        type: boolean
+      OrganizationNodeCreateEditContact:
+        type: boolean
+      OrganizationNodeViewSchedule:
+        type: boolean
+      OrganizationNodeCreateEditSchedule:
+        type: boolean
+      OrganizationNodeViewExpense:
+        type: boolean
+      OrganizationNodeCreateEditExpense:
+        type: boolean
+      OrganizationView:
+        type: boolean
+      OrganizationCreateEditDelete:
+        type: boolean
+      OrganizationNodeCreateEditDelete:
+        type: boolean
+      OrganizationNodeViewExcludePrivateTrips:
+        type: boolean
+      OrganizationNodeViewLive:
+        type: boolean
+      OrganizationNodeViewTripSpeed:
+        type: boolean
+      OrganizationNodeEditOdometer:
+        type: boolean
+    additionalProperties: false
+  TripScoreMessageModel:
+    type: object
+    properties:
+      Title:
+        type: string
+      Message:
+        type: string
+    additionalProperties: false
+  CustomCategoryModel:
+    type: object
+    properties:
+      CustomCategoryId:
+        format: int32
+        type: integer
+      Value:
+        type: string
+      CustomCategoryType:
+        format: int32
+        enum:
+        - 0
+        - 1
+        type: integer
+    additionalProperties: false
+  AccountInformationModel:
+    type: object
+    properties:
+      AccountOutstandingMessage:
+        $ref: '#/definitions/AccountOutstandingMessageModel'
+    additionalProperties: false
+securityDefinitions:
+  oauth2:
+    type: oauth2
+    flow: implicit
+    authorizationUrl: https://api.automile.com/login/
+    scopes:
+      read: Read access to protected resources
+      write: Write access to protected resources
+    description: OAuth2 Implicit Grant

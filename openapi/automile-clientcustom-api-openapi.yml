@@ -1,0 +1,485 @@
+swagger: '2.0'
+info:
+  title: Automile ClientApi ClientCustom API
+  version: v1
+tags:
+- name: ClientCustom
+paths:
+  /v1/client/custom/createuser:
+    post:
+      tags:
+      - ClientCustom
+      summary: Creates Client Custom User
+      operationId: CreateClientCustomUser
+      consumes:
+      - application/json
+      - text/json
+      - application/*+json
+      produces:
+      - text/plain
+      - application/json
+      - text/json
+      parameters:
+      - in: body
+        name: body
+        description: The custom user model
+        schema:
+          $ref: '#/definitions/CustomUserCreateModel'
+      responses:
+        '200':
+          description: Client Custom user created
+          schema:
+            $ref: '#/definitions/CreatedAtRoute'
+        '500':
+          description: Internal server error
+      security:
+      - oauth2: []
+  /v1/client/custom/resetpassword:
+    post:
+      tags:
+      - ClientCustom
+      summary: Reset User password
+      operationId: ResetPasswordClientCustom
+      consumes:
+      - application/json
+      - text/json
+      - application/*+json
+      parameters:
+      - in: body
+        name: body
+        description: The reset password model
+        schema:
+          $ref: '#/definitions/ResetPasswordUserModel'
+      responses:
+        '200':
+          description: Password reset sent
+        '500':
+          description: Internal server error
+      security:
+      - oauth2: []
+  /v1/client/custom/createuserwithoutpassword:
+    post:
+      tags:
+      - ClientCustom
+      summary: Create User without password
+      operationId: CreateClientCustomUserWithoutPassword
+      consumes:
+      - application/json
+      - text/json
+      - application/*+json
+      produces:
+      - text/plain
+      - application/json
+      - text/json
+      parameters:
+      - in: body
+        name: body
+        description: The reset password model
+        schema:
+          $ref: '#/definitions/CustomUserCreateWithoutPasswordModel'
+      responses:
+        '200':
+          description: Create User without password
+          schema:
+            $ref: '#/definitions/UserCreatedPasswordModel'
+        '500':
+          description: Internal server error
+      security:
+      - oauth2: []
+  /v1/client/custom/usernametaken:
+    get:
+      tags:
+      - ClientCustom
+      summary: Get UserName takenmodel
+      operationId: UsernameTaken
+      produces:
+      - text/plain
+      - application/json
+      - text/json
+      parameters:
+      - in: query
+        name: username
+        description: The username
+        type: string
+      responses:
+        '200':
+          description: The UserNametaken returned
+          schema:
+            $ref: '#/definitions/UsernameTakenModel'
+        '500':
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/UsernameTakenModel'
+      security:
+      - oauth2: []
+  /v1/client/custom/userphonenumber:
+    get:
+      tags:
+      - ClientCustom
+      summary: Get User assoicated to phonenumber or username
+      operationId: UserPhoneNumber
+      produces:
+      - text/plain
+      - application/json
+      - text/json
+      parameters:
+      - in: query
+        name: identifier
+        description: username or phonenumber
+        type: string
+      - in: query
+        name: region
+        description: Region for phonenumber
+        type: string
+      responses:
+        '200':
+          description: The user returned
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/UserPhoneNumberModel'
+        '400':
+          description: Bad request, can happen when you supply values that are unacceptable
+          schema:
+            $ref: '#/definitions/ProblemDetails'
+        '409':
+          description: Multiple users assoicated to the account
+          schema:
+            $ref: '#/definitions/ProblemDetails'
+        '500':
+          description: Internal server error
+      security:
+      - oauth2: []
+  /v1/client/custom/usersphonenumber:
+    get:
+      tags:
+      - ClientCustom
+      summary: Get user guids from phonenumber
+      operationId: UsernamesPhoneNumber
+      produces:
+      - text/plain
+      - application/json
+      - text/json
+      parameters:
+      - in: query
+        name: mobilePhoneNumber
+        description: ''
+        type: string
+      - in: query
+        name: region
+        description: Region for phonenumber
+        type: string
+      responses:
+        '200':
+          description: Success
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/UsernamesPhoneNumberModel'
+      security:
+      - oauth2: []
+  /v1/client/custom/existingusers:
+    get:
+      tags:
+      - ClientCustom
+      summary: Get user guids from identifier
+      operationId: ExistingUsersAccounts
+      produces:
+      - text/plain
+      - application/json
+      - text/json
+      parameters:
+      - in: query
+        name: identifier
+        description: ''
+        type: string
+      - in: query
+        name: region
+        description: Region for phonenumber
+        type: string
+      responses:
+        '200':
+          description: Success
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/UsernamesPhoneNumberModel'
+      security:
+      - oauth2: []
+  /v1/client/custom/validatephonenumber:
+    get:
+      tags:
+      - ClientCustom
+      summary: Check if user has the phonenumber
+      operationId: ValidatePhoneNumber
+      produces:
+      - text/plain
+      - application/json
+      - text/json
+      parameters:
+      - in: query
+        name: username
+        description: ''
+        type: string
+      - in: query
+        name: mobilePhoneNumber
+        description: ''
+        type: string
+      responses:
+        '200':
+          description: Success
+          schema:
+            type: boolean
+      security:
+      - oauth2: []
+  /v1/client/custom/deviceregistered:
+    get:
+      tags:
+      - ClientCustom
+      summary: Get DeviceRegistered
+      operationId: DeviceRegistered
+      produces:
+      - text/plain
+      - application/json
+      - text/json
+      parameters:
+      - in: query
+        name: imei
+        description: The Imei
+        type: string
+      responses:
+        '200':
+          description: The DeviceRegistered returned
+          schema:
+            $ref: '#/definitions/DeviceRegisteredModel'
+        '500':
+          description: Internal server error
+      security:
+      - oauth2: []
+  /v1/client/custom/reversegeocoding:
+    get:
+      tags:
+      - ClientCustom
+      summary: Get DeviceRegistered
+      operationId: ReverseGeocoding
+      produces:
+      - text/plain
+      - application/json
+      - text/json
+      parameters:
+      - in: query
+        name: latitude
+        description: The latitude
+        type: number
+        format: double
+      - in: query
+        name: longitude
+        description: The longitude
+        type: number
+        format: double
+      responses:
+        '200':
+          description: The DeviceRegistered returned
+          schema:
+            $ref: '#/definitions/ReverseGeocodingResult'
+        '500':
+          description: Internal server error
+      security:
+      - oauth2: []
+definitions:
+  SSOConfigurationModel:
+    type: object
+    properties:
+      ClientId:
+        type: string
+      TenantId:
+        type: string
+      Scopes:
+        type: array
+        items:
+          type: string
+    additionalProperties: false
+  CustomUserCreateModel:
+    required:
+    - EmailAddress
+    - IMEI
+    - SerialNumber
+    - UserName
+    type: object
+    properties:
+      UserName:
+        minLength: 1
+        type: string
+      FirstName:
+        type: string
+      LastName:
+        type: string
+      EmailAddress:
+        format: email
+        minLength: 1
+        type: string
+      MobilePhoneNumber:
+        type: string
+      Description:
+        type: string
+      Password:
+        type: string
+      IMEI:
+        minLength: 1
+        type: string
+      SerialNumber:
+        minLength: 1
+        type: string
+      Culture:
+        type: string
+      UnitType:
+        format: int32
+        enum:
+        - 0
+        - 1
+        - 2
+        type: integer
+    additionalProperties: false
+  DeviceRegisteredModel:
+    type: object
+    properties:
+      QueriedDeviceIMEI:
+        type: string
+      IsRegistered:
+        type: boolean
+    additionalProperties: false
+  UserCreatedPasswordModel:
+    type: object
+    properties:
+      Password:
+        type: string
+    additionalProperties: false
+  UsernamesPhoneNumberModel:
+    type: object
+    properties:
+      UserName:
+        type: string
+      UserGuid:
+        format: uuid
+        type: string
+      MobilePhoneNumber:
+        type: string
+      SSO:
+        type: boolean
+      SSOConfig:
+        $ref: '#/definitions/SSOConfigurationModel'
+    additionalProperties: false
+  UserPhoneNumberModel:
+    type: object
+    properties:
+      UserName:
+        type: string
+      PhoneNumber:
+        type: string
+      UserGuid:
+        format: uuid
+        type: string
+      OrganizationId:
+        format: int32
+        type: integer
+    additionalProperties: false
+  CustomUserCreateWithoutPasswordModel:
+    required:
+    - EmailAddress
+    - UserName
+    type: object
+    properties:
+      UserName:
+        minLength: 1
+        type: string
+      FirstName:
+        type: string
+      LastName:
+        type: string
+      EmailAddress:
+        format: email
+        minLength: 1
+        type: string
+      MobilePhoneNumber:
+        type: string
+      Description:
+        type: string
+      Culture:
+        type: string
+      IMEI:
+        type: string
+      SerialNumber:
+        type: string
+      UnitType:
+        format: int32
+        enum:
+        - 0
+        - 1
+        - 2
+        type: integer
+    additionalProperties: false
+  CreatedAtRoute:
+    type: object
+    properties:
+      RouteName:
+        type: string
+        readOnly: true
+      RouteValues:
+        type: object
+        additionalProperties: {}
+        readOnly: true
+      StatusCode:
+        format: int32
+        type: integer
+        readOnly: true
+    additionalProperties: false
+  UsernameTakenModel:
+    type: object
+    properties:
+      Username:
+        type: string
+      Taken:
+        type: boolean
+    additionalProperties: false
+  ReverseGeocodingResult:
+    type: object
+    properties:
+      FormattedAddress:
+        type: string
+    additionalProperties: false
+  ProblemDetails:
+    type: object
+    properties:
+      type:
+        type: string
+      title:
+        type: string
+      status:
+        format: int32
+        type: integer
+      detail:
+        type: string
+      instance:
+        type: string
+    additionalProperties: {}
+  ResetPasswordUserModel:
+    type: object
+    properties:
+      Email:
+        type: string
+      ResetPasswordType:
+        format: int32
+        enum:
+        - 0
+        - 1
+        type: integer
+    additionalProperties: false
+securityDefinitions:
+  oauth2:
+    type: oauth2
+    flow: implicit
+    authorizationUrl: https://api.automile.com/login/
+    scopes:
+      read: Read access to protected resources
+      write: Write access to protected resources
+    description: OAuth2 Implicit Grant

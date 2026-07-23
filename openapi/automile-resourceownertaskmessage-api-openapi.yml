@@ -1,0 +1,154 @@
+swagger: '2.0'
+info:
+  title: Automile ClientApi ResourceOwnerTaskMessage API
+  version: v1
+tags:
+- name: ResourceOwnerTaskMessage
+paths:
+  /v1/resourceowner/taskmessage/{taskMessageId}:
+    get:
+      tags:
+      - ResourceOwnerTaskMessage
+      summary: Get a task message
+      operationId: GetResourceOwnerTaskMessage
+      produces:
+      - text/plain
+      - application/json
+      - text/json
+      parameters:
+      - in: path
+        name: taskMessageId
+        description: The Id of the task message
+        required: true
+        type: integer
+        format: int32
+      responses:
+        '200':
+          description: The task message details are returned
+          schema:
+            $ref: '#/definitions/TaskMessageModel'
+        '500':
+          description: Internal server error
+        '403':
+          description: Not authorized to task message
+      security:
+      - oauth2: []
+    put:
+      tags:
+      - ResourceOwnerTaskMessage
+      summary: Update a task message
+      description: Only tasks that belongs to the user has access can be updated.
+      operationId: UpdateResourceOwnerTaskMessage
+      consumes:
+      - application/json
+      - text/json
+      - application/*+json
+      parameters:
+      - in: path
+        name: taskMessageId
+        description: The task id
+        required: true
+        type: integer
+        format: int32
+      - in: body
+        name: body
+        description: The task model
+        schema:
+          $ref: '#/definitions/TaskMessageEditModel'
+      responses:
+        '200':
+          description: The task was saved
+        '500':
+          description: Internal server error
+        '403':
+          description: Not authorized to task message
+      security:
+      - oauth2: []
+  /v1/resourceowner/taskmessage:
+    post:
+      tags:
+      - ResourceOwnerTaskMessage
+      summary: Create a task message
+      operationId: CreateResourceOwnerTaskMessage
+      consumes:
+      - application/json
+      - text/json
+      - application/*+json
+      parameters:
+      - in: body
+        name: body
+        description: The TaskMessageCreateModel
+        schema:
+          $ref: '#/definitions/TaskMessageCreateModel'
+      responses:
+        '200':
+          description: A link in the header is returned to the newly created task message
+        '500':
+          description: Internal server error
+        '403':
+          description: Not authorized to task message
+      security:
+      - oauth2: []
+definitions:
+  TaskMessageCreateModel:
+    type: object
+    properties:
+      TaskId:
+        format: int32
+        type: integer
+      MessageText:
+        type: string
+      Position:
+        $ref: '#/definitions/PositionModel'
+    additionalProperties: false
+  PositionModel:
+    type: object
+    properties:
+      Longitude:
+        format: double
+        type: number
+      Latitude:
+        format: double
+        type: number
+    additionalProperties: false
+  TaskMessageModel:
+    type: object
+    properties:
+      TaskMessageId:
+        format: int32
+        type: integer
+      SentByContactId:
+        format: int32
+        type: integer
+      ToContactId:
+        format: int32
+        type: integer
+      MessageText:
+        type: string
+      MessageSentAtUtc:
+        format: date-time
+        type: string
+      SentByContactName:
+        type: string
+      ToContactName:
+        type: string
+      MessageIsRead:
+        type: boolean
+      Position:
+        $ref: '#/definitions/PositionModel'
+    additionalProperties: false
+  TaskMessageEditModel:
+    type: object
+    properties:
+      IsRead:
+        type: boolean
+    additionalProperties: false
+securityDefinitions:
+  oauth2:
+    type: oauth2
+    flow: implicit
+    authorizationUrl: https://api.automile.com/login/
+    scopes:
+      read: Read access to protected resources
+      write: Write access to protected resources
+    description: OAuth2 Implicit Grant

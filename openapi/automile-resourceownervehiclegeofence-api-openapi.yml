@@ -1,0 +1,208 @@
+swagger: '2.0'
+info:
+  title: Automile ClientApi ResourceOwnerVehicleGeofence API
+  version: v1
+tags:
+- name: ResourceOwnerVehicleGeofence
+paths:
+  /v1/resourceowner/vehiclegeofence/{vehicleGeofenceId}:
+    get:
+      tags:
+      - ResourceOwnerVehicleGeofence
+      summary: Get vehicle geofence
+      description: Only vehicle geofences that the user has access to are accessible.
+      operationId: GetResourceOwnerVehicleGeofence
+      produces:
+      - text/plain
+      - application/json
+      - text/json
+      parameters:
+      - in: path
+        name: vehicleGeofenceId
+        description: The vehicle geofence id
+        required: true
+        type: integer
+        format: int32
+      responses:
+        '200':
+          description: The geofences are returned
+          schema:
+            $ref: '#/definitions/VehicleGeofenceModel'
+        '403':
+          description: Request is forbidden, meaning you don't have access to this geofence
+        '500':
+          description: Internal server error
+      security:
+      - oauth2: []
+    delete:
+      tags:
+      - ResourceOwnerVehicleGeofence
+      summary: Removes association between a vehicle and geofence
+      description: This will remove the association between a geofence and a vehicle.
+      operationId: DeleteResourceOwnerVehicleGeofence
+      parameters:
+      - in: path
+        name: vehicleGeofenceId
+        description: The vehicleGeofenceId association to remove
+        required: true
+        type: integer
+        format: int32
+      responses:
+        '200':
+          description: The vehcilegeofnece has been deleted
+        '400':
+          description: Bad request, could occur for a number of cases, see returned message
+        '403':
+          description: Request is forbidden, could occur for a number of reasons, see returned message
+        '500':
+          description: Internal server error
+      security:
+      - oauth2: []
+    put:
+      tags:
+      - ResourceOwnerVehicleGeofence
+      summary: Updates a vehicle geofence
+      description: This will update the given vehicle geofence id with a new model.
+      operationId: EditResourceOwnerVehicleGeofence
+      consumes:
+      - application/json
+      - text/json
+      - application/*+json
+      parameters:
+      - in: path
+        name: vehicleGeofenceId
+        description: The vehicleGeofenceId
+        required: true
+        type: integer
+        format: int32
+      - in: body
+        name: body
+        description: The new vehicleGeofence model
+        schema:
+          $ref: '#/definitions/VehicleGeofenceEditModel'
+      responses:
+        '200':
+          description: The vehiclegeofence was saved
+        '400':
+          description: Bad request, could occur for a number of cases, see returned message
+        '403':
+          description: Bad request, could occur for a number of cases, see returned message
+        '500':
+          description: Internal server error
+      security:
+      - oauth2: []
+  /v1/resourceowner/vehiclegeofence:
+    get:
+      tags:
+      - ResourceOwnerVehicleGeofence
+      summary: Get vehicle geofence
+      description: Only vehicle geofences that the user has access to are accessible.
+      operationId: GetResourceOwnerVehicleGeofenceGeofenceId
+      produces:
+      - text/plain
+      - application/json
+      - text/json
+      parameters:
+      - in: query
+        name: geofenceId
+        description: The geofence id
+        type: integer
+        format: int32
+      responses:
+        '200':
+          description: The geofences are returned
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/VehicleGeofenceModel'
+        '403':
+          description: Request is forbidden, meaning you don't have access to this geofence
+        '500':
+          description: Internal server error
+      security:
+      - oauth2: []
+    post:
+      tags:
+      - ResourceOwnerVehicleGeofence
+      summary: Associate a vehicle with a geofence
+      description: This will create a new association between a geofence and a vehicle.
+      operationId: CreateResourceOwnerVehicleGeofence
+      consumes:
+      - application/json
+      - text/json
+      - application/*+json
+      parameters:
+      - in: body
+        name: body
+        description: The company model
+        schema:
+          $ref: '#/definitions/VehicleGeofenceCreateModel'
+      responses:
+        '200':
+          description: A link in the header is returned to the newly created geofence
+        '400':
+          description: Bad request, could occur for a number of cases, see returned message
+        '403':
+          description: Request is forbidden, meaning you don't have access to this geofence
+        '500':
+          description: Internal server error
+      security:
+      - oauth2: []
+definitions:
+  VehicleGeofenceCreateModel:
+    required:
+    - GeofenceId
+    - VehicleId
+    type: object
+    properties:
+      VehicleId:
+        format: int32
+        type: integer
+      GeofenceId:
+        format: int32
+        type: integer
+      ValidFrom:
+        format: date-time
+        type: string
+      ValidTo:
+        format: date-time
+        type: string
+    additionalProperties: false
+  VehicleGeofenceModel:
+    type: object
+    properties:
+      VehicleGeofenceId:
+        format: int32
+        type: integer
+      VehicleId:
+        format: int32
+        type: integer
+      GeofenceId:
+        format: int32
+        type: integer
+      ValidFrom:
+        format: date-time
+        type: string
+      ValidTo:
+        format: date-time
+        type: string
+    additionalProperties: false
+  VehicleGeofenceEditModel:
+    type: object
+    properties:
+      ValidFrom:
+        format: date-time
+        type: string
+      ValidTo:
+        format: date-time
+        type: string
+    additionalProperties: false
+securityDefinitions:
+  oauth2:
+    type: oauth2
+    flow: implicit
+    authorizationUrl: https://api.automile.com/login/
+    scopes:
+      read: Read access to protected resources
+      write: Write access to protected resources
+    description: OAuth2 Implicit Grant

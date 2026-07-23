@@ -1,0 +1,847 @@
+swagger: '2.0'
+info:
+  title: Automile ClientApi ResourceOwnerTrackedAsset API
+  version: v1
+tags:
+- name: ResourceOwnerTrackedAsset
+paths:
+  /v1/resourceowner/trackedasset:
+    get:
+      tags:
+      - ResourceOwnerTrackedAsset
+      summary: List all tracked assets that the user has access to
+      description: Only returns tracked assets that the user have access to
+      operationId: TrackedAsset_GetTrackedAssetList
+      produces:
+      - text/plain
+      - application/json
+      - text/json
+      parameters:
+      - in: query
+        name: filterAssetType
+        description: "The asset type to list (All types = null, Vehicle = 0, Trailer = 1, ATV = 2, \r\n            Boat = 3, Excavator = 4, Cargo = 5). Default is all types."
+        type: integer
+        format: int32
+        enum:
+        - 0
+        - 1
+        - 2
+        - 3
+        - 4
+        - 5
+        - 6
+        - 255
+      responses:
+        '200':
+          description: The tracked assets are returned
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/TrackedAssetModelGet'
+        '500':
+          description: Internal server error
+      security:
+      - oauth2: []
+  /v1/resourceowner/trackedasset/{trackedAssetId}:
+    get:
+      tags:
+      - ResourceOwnerTrackedAsset
+      summary: Get a tracked asset
+      operationId: TrackedAsset_GetTrackedAsset
+      produces:
+      - text/plain
+      - application/json
+      - text/json
+      parameters:
+      - in: path
+        name: trackedAssetId
+        description: The tracked asset id
+        required: true
+        type: integer
+        format: int32
+      responses:
+        '200':
+          description: The tracked asset is returned
+          schema:
+            $ref: '#/definitions/TrackedAssetModelGet'
+        '500':
+          description: Internal server error
+      security:
+      - oauth2: []
+    put:
+      tags:
+      - ResourceOwnerTrackedAsset
+      summary: Update a tracked asset
+      operationId: TrackedAsset_UpdateTrackedAsset
+      consumes:
+      - application/json
+      - text/json
+      - application/*+json
+      parameters:
+      - in: path
+        name: trackedAssetId
+        description: The tracked asset id
+        required: true
+        type: integer
+        format: int32
+      - in: body
+        name: body
+        description: Tracked asset model
+        schema:
+          $ref: '#/definitions/TrackedAssetModelEdit'
+      responses:
+        '200':
+          description: Successfully updated
+        '500':
+          description: Internal server error
+      security:
+      - oauth2: []
+  /v1/resourceowner/trackedasset/{trackedAssetId}/sleep:
+    put:
+      tags:
+      - ResourceOwnerTrackedAsset
+      summary: Put a tracked asset to  sleep
+      operationId: TrackedAsset_SleepAsset
+      consumes:
+      - application/json
+      - text/json
+      - application/*+json
+      parameters:
+      - in: path
+        name: trackedAssetId
+        description: The tracked asset id
+        required: true
+        type: integer
+        format: int32
+      - in: body
+        name: body
+        description: Model describing sleep configuration
+        schema:
+          $ref: '#/definitions/TrackedAssetSleepConfigurationModelPUT'
+      responses:
+        '200':
+          description: Successfully put to sleep
+        '500':
+          description: Internal server error
+      security:
+      - oauth2: []
+  /v1/resourceowner/trackedasset/{trackedAssetId}/track:
+    put:
+      tags:
+      - ResourceOwnerTrackedAsset
+      summary: Start tracking a asset
+      operationId: TrackedAsset_TrackAsset
+      consumes:
+      - application/json
+      - text/json
+      - application/*+json
+      parameters:
+      - in: path
+        name: trackedAssetId
+        description: The tracked asset id
+        required: true
+        type: integer
+        format: int32
+      - in: body
+        name: body
+        description: Model describing tracking configuration
+        schema:
+          $ref: '#/definitions/TrackedAssetTrackConfigurationModelPUT'
+      responses:
+        '200':
+          description: Successfully started tracking
+        '500':
+          description: Internal server error
+      security:
+      - oauth2: []
+  /v1/resourceowner/trackedasset/{trackedAssetId}/shutdown:
+    put:
+      tags:
+      - ResourceOwnerTrackedAsset
+      summary: Shutdown a device that is tracking a asset
+      operationId: TrackedAsset_Shutdown
+      parameters:
+      - in: path
+        name: trackedAssetId
+        description: The tracked asset id
+        required: true
+        type: integer
+        format: int32
+      responses:
+        '200':
+          description: Successfully shut down device
+        '500':
+          description: Internal server error
+      security:
+      - oauth2: []
+  /v1/resourceowner/trackedasset/{trackedAssetId}/history:
+    get:
+      tags:
+      - ResourceOwnerTrackedAsset
+      summary: List tracked asset history
+      operationId: TrackedAsset_ListHistory
+      produces:
+      - text/plain
+      - application/json
+      - text/json
+      parameters:
+      - in: path
+        name: trackedAssetId
+        description: Id of tracked asset
+        required: true
+        type: integer
+        format: int32
+      - in: query
+        name: lastNumberOfDays
+        description: Last number of days to get trips for (default = 60)
+        type: integer
+        format: int32
+        default: 10
+      - in: query
+        name: historyType
+        description: "Bitmask to filter and only list specific history types. 1 = Move Alert, 2 = Temperature, \r\n            4 = Battery Alert, 8 = Heartbeat, 16 = Battery Level, 32 = External Power Voltage, 64 = Operating Time, 128 = Shutdown Pending, 256 = Shutdown, 512 = Offline, 1024 = Humidity (default = all types) \r\n            [Example: 7 = Move alert, temperature and battery alerts]"
+        type: integer
+        format: int32
+        enum:
+        - 0
+        - 1
+        - 2
+        - 4
+        - 8
+        - 16
+        - 32
+        - 64
+        - 128
+        - 256
+        - 512
+        - 1024
+      responses:
+        '200':
+          description: The history list returned
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/TrackedAssetHistoryModelGET'
+        '500':
+          description: Internal server error
+      security:
+      - oauth2: []
+  /v1/resourceowner/trackedasset/{trackedAssetId}/externaldevices:
+    get:
+      tags:
+      - ResourceOwnerTrackedAsset
+      summary: List external devices by asset
+      operationId: GetExternalDeviceListByAsset
+      produces:
+      - text/plain
+      - application/json
+      - text/json
+      parameters:
+      - in: path
+        name: trackedAssetId
+        description: Id of tracked asset
+        required: true
+        type: integer
+        format: int32
+      responses:
+        '200':
+          description: The external device list is returned
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/ExternalDeviceModelGET'
+        '500':
+          description: Internal server error
+      security:
+      - oauth2: []
+  /v1/resourceowner/trackedasset/externaldevices:
+    get:
+      tags:
+      - ResourceOwnerTrackedAsset
+      summary: List external devices
+      operationId: GetExternalDeviceList
+      produces:
+      - text/plain
+      - application/json
+      - text/json
+      responses:
+        '200':
+          description: The external device list is returned
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/ExternalDeviceModelGET'
+        '500':
+          description: Internal server error
+      security:
+      - oauth2: []
+  /v1/resourceowner/trackedasset/externaldevice/{externalDeviceId}:
+    get:
+      tags:
+      - ResourceOwnerTrackedAsset
+      summary: External device
+      operationId: GetExternalDevice
+      produces:
+      - text/plain
+      - application/json
+      - text/json
+      parameters:
+      - in: path
+        name: externalDeviceId
+        description: Id of external device
+        required: true
+        type: integer
+        format: int32
+      responses:
+        '200':
+          description: The external device is returned
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/ExternalDeviceModelGET'
+        '500':
+          description: Internal server error
+      security:
+      - oauth2: []
+    put:
+      tags:
+      - ResourceOwnerTrackedAsset
+      summary: Update an external device asset
+      operationId: UpdateExternalDevice
+      consumes:
+      - application/json
+      - text/json
+      - application/*+json
+      parameters:
+      - in: path
+        name: externalDeviceId
+        description: The external device id
+        required: true
+        type: integer
+        format: int32
+      - in: body
+        name: body
+        description: External device model
+        schema:
+          $ref: '#/definitions/ExternalDeviceModelPUT'
+      responses:
+        '200':
+          description: Successfully updated
+        '500':
+          description: Internal server error
+      security:
+      - oauth2: []
+  /v1/resourceowner/trackedasset/externaldevice/{externalDeviceId}/history:
+    get:
+      tags:
+      - ResourceOwnerTrackedAsset
+      summary: List external device history
+      operationId: GetExternalDeviceHistoryList
+      produces:
+      - text/plain
+      - application/json
+      - text/json
+      parameters:
+      - in: path
+        name: externalDeviceId
+        description: Id of tracked asset
+        required: true
+        type: integer
+        format: int32
+      - in: query
+        name: lastNumberOfDays
+        description: Last number of days to get history for (default = 10)
+        type: integer
+        format: int32
+        default: 10
+      - in: query
+        name: groupHistory
+        description: Group history items on the same day into one item (default = false)
+        type: boolean
+        default: false
+      responses:
+        '200':
+          description: The history list returned
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/ExternalDeviceHistoryModelGET'
+        '500':
+          description: Internal server error
+      security:
+      - oauth2: []
+  /v1/resourceowner/trackedasset/externaldevices/updateintervals:
+    get:
+      tags:
+      - ResourceOwnerTrackedAsset
+      summary: List available update intervals in seconds
+      operationId: GetAvailableUpdateIntervalList
+      produces:
+      - text/plain
+      - application/json
+      - text/json
+      responses:
+        '200':
+          description: The update interval list is returned
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/ExternalDeviceUpdateIntervalModelGET'
+        '500':
+          description: Internal server error
+      security:
+      - oauth2: []
+  /v1/resourceowner/trackedasset/sleepinterval:
+    get:
+      tags:
+      - ResourceOwnerTrackedAsset
+      summary: Lists available sleep intervals in minutes
+      operationId: TrackedAsset_GetAvailableSleepIntervalList
+      produces:
+      - text/plain
+      - application/json
+      - text/json
+      responses:
+        '200':
+          description: The sleep intervals in minutes
+          schema:
+            $ref: '#/definitions/TrackedAssetSleepIntervalModelGET'
+        '500':
+          description: Internal server error
+      security:
+      - oauth2: []
+  /v1/resourceowner/trackedasset/updateinterval:
+    get:
+      tags:
+      - ResourceOwnerTrackedAsset
+      summary: Lists available update intervals in seconds
+      operationId: TrackedAsset_GetAvailableAssetUpdateIntervalList
+      produces:
+      - text/plain
+      - application/json
+      - text/json
+      responses:
+        '200':
+          description: The sleep intervals in minutes
+          schema:
+            $ref: '#/definitions/TrackedAssetUpdateIntervalModelGET'
+        '500':
+          description: Internal server error
+      security:
+      - oauth2: []
+  /v1/resourceowner/trackedasset/enum:
+    get:
+      tags:
+      - ResourceOwnerTrackedAsset
+      summary: List all enumerations used on this endpoint
+      operationId: TrackedAsset_GetEnumList
+      produces:
+      - text/plain
+      - application/json
+      - text/json
+      responses:
+        '200':
+          description: The notifications are returned
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/EnumTypeModelGET'
+        '500':
+          description: Internal server error
+      security:
+      - oauth2: []
+definitions:
+  ExternalDeviceModelGET:
+    type: object
+    properties:
+      ExternalDeviceId:
+        format: int32
+        type: integer
+      Name:
+        type: string
+      ExternalDeviceType:
+        format: int32
+        enum:
+        - 0
+        - 1
+        type: integer
+        readOnly: true
+      SerialNumber:
+        type: string
+        readOnly: true
+      TrackedAssetId:
+        format: int32
+        type: integer
+        readOnly: true
+      TrackerName:
+        type: string
+        readOnly: true
+      UpdateIntervalInSeconds:
+        format: int32
+        type: integer
+        readOnly: true
+      UpdatedAtUtc:
+        format: date-time
+        type: string
+        readOnly: true
+      PropertyList:
+        type: array
+        items:
+          $ref: '#/definitions/PropertyModel'
+      IsConnected:
+        type: boolean
+        readOnly: true
+    additionalProperties: false
+  TrackedAssetSleepConfigurationModelPUT:
+    required:
+    - MinutesToSleep
+    type: object
+    properties:
+      MinutesToSleep:
+        format: int32
+        type: integer
+    additionalProperties: false
+  ExternalDeviceModelPUT:
+    type: object
+    properties:
+      ExternalDeviceId:
+        format: int32
+        type: integer
+      Name:
+        type: string
+      UpdateIntervalInSeconds:
+        format: int32
+        type: integer
+    additionalProperties: false
+  TrackedAssetSleepIntervalModelGET:
+    type: object
+    properties:
+      SleepIntervalList:
+        type: array
+        items:
+          format: int32
+          type: integer
+    additionalProperties: false
+  PositionPointModel:
+    type: object
+    properties:
+      Longitude:
+        format: double
+        type: number
+      Latitude:
+        format: double
+        type: number
+    additionalProperties: false
+  TrackedAssetHistoryModelGET:
+    type: object
+    properties:
+      TrackedAssetHistoryId:
+        format: int32
+        type: integer
+      OccuredAt:
+        format: date-time
+        type: string
+      HistoryType:
+        format: int32
+        enum:
+        - 0
+        - 1
+        - 2
+        - 3
+        - 4
+        - 5
+        - 6
+        - 7
+        - 8
+        - 9
+        - 10
+        type: integer
+      Position:
+        $ref: '#/definitions/PositionPointModel'
+      IsNew:
+        type: boolean
+      PropertyList:
+        type: array
+        items:
+          $ref: '#/definitions/PropertyModel'
+    additionalProperties: false
+  ExternalDeviceHistoryGroupModelGET:
+    type: object
+    properties:
+      OccuredAtUtc:
+        format: date-time
+        type: string
+      Value:
+        type: string
+    additionalProperties: false
+  ExternalDeviceHistoryModelGET:
+    type: object
+    properties:
+      ExternalDeviceHistoryId:
+        format: int32
+        type: integer
+      ExternalDeviceId:
+        format: int32
+        type: integer
+      OccuredAtUtc:
+        format: date-time
+        type: string
+      GroupList:
+        type: array
+        items:
+          $ref: '#/definitions/ExternalDeviceHistoryGroupModelGET'
+      HistoryType:
+        format: int32
+        enum:
+        - 0
+        - 1
+        - 2
+        - 3
+        - 4
+        - 5
+        - 6
+        - 7
+        - 8
+        - 9
+        - 10
+        type: integer
+      Position:
+        $ref: '#/definitions/PositionPointModel'
+      PropertyList:
+        type: array
+        items:
+          $ref: '#/definitions/PropertyModel'
+      TrackedAssetId:
+        format: int32
+        type: integer
+      TrackerName:
+        type: string
+        readOnly: true
+    additionalProperties: false
+  EnumTypeModelGET:
+    type: object
+    properties:
+      EnumValueList:
+        type: object
+        additionalProperties:
+          format: int32
+          type: integer
+    additionalProperties: false
+  TrackedAssetModelGet:
+    required:
+    - AssetType
+    type: object
+    properties:
+      Name:
+        type: string
+      ImageUrl:
+        type: string
+      DefaultSleepTimeInMinutes:
+        format: int32
+        type: integer
+      AssetType:
+        format: int32
+        enum:
+        - 0
+        - 1
+        - 2
+        - 3
+        - 4
+        - 5
+        - 6
+        - 255
+        type: integer
+      UpdateIntervalInSeconds:
+        format: int32
+        type: integer
+      IsBluetoothDiscoverable:
+        type: boolean
+      IsRegistrationModeOn:
+        type: boolean
+      TrackedAssetId:
+        format: int32
+        type: integer
+      IMEIDeviceType:
+        format: int32
+        enum:
+        - 0
+        - 1
+        - 2
+        - 3
+        - 4
+        - 5
+        - 6
+        - 7
+        - 8
+        - 9
+        - 255
+        type: integer
+      IMEI:
+        type: string
+      IMEIConfigId:
+        format: int32
+        type: integer
+      Status:
+        format: int32
+        enum:
+        - 0
+        - 1
+        - 2
+        - 3
+        - 4
+        - 5
+        type: integer
+      LastLocation:
+        $ref: '#/definitions/PositionPointModel'
+      LastLocationTimestamp:
+        format: date-time
+        type: string
+      LastContact:
+        format: date-time
+        type: string
+      NumberOfUnreadNotifications:
+        format: int32
+        type: integer
+      PropertyList:
+        type: array
+        items:
+          $ref: '#/definitions/PropertyModel'
+      AvailableCommandList:
+        type: array
+        items:
+          $ref: '#/definitions/AssetCommandModel'
+      LastKnownFormattedAddress:
+        type: string
+      IsEditable:
+        type: boolean
+      ExternalDevices:
+        type: array
+        items:
+          $ref: '#/definitions/ExternalDeviceModelGET'
+      MountedInCradle:
+        type: boolean
+    additionalProperties: false
+  PropertyModel:
+    type: object
+    properties:
+      PropertyType:
+        format: int32
+        enum:
+        - 0
+        - 1
+        - 2
+        - 3
+        - 5
+        - 6
+        - 7
+        - 8
+        - 9
+        - 10
+        - 11
+        - 12
+        - 13
+        - 14
+        - 15
+        - 16
+        type: integer
+      PropertyName:
+        type: string
+      ValueType:
+        type: string
+      Value:
+        type: string
+      Unit:
+        type: string
+    additionalProperties: false
+  ExternalDeviceUpdateIntervalModelGET:
+    type: object
+    properties:
+      UpdateIntervalInSecondsList:
+        type: array
+        items:
+          format: int32
+          type: integer
+    additionalProperties: false
+  TrackedAssetUpdateIntervalModelGET:
+    type: object
+    properties:
+      UpdateIntervalInSecondsList:
+        type: array
+        items:
+          format: int32
+          type: integer
+    additionalProperties: false
+  TrackedAssetModelEdit:
+    required:
+    - AssetType
+    type: object
+    properties:
+      Name:
+        type: string
+      ImageUrl:
+        type: string
+      DefaultSleepTimeInMinutes:
+        format: int32
+        type: integer
+      AssetType:
+        format: int32
+        enum:
+        - 0
+        - 1
+        - 2
+        - 3
+        - 4
+        - 5
+        - 6
+        - 255
+        type: integer
+      UpdateIntervalInSeconds:
+        format: int32
+        type: integer
+      IsBluetoothDiscoverable:
+        type: boolean
+      IsRegistrationModeOn:
+        type: boolean
+    additionalProperties: false
+  AssetCommandModel:
+    type: object
+    properties:
+      Command:
+        format: int32
+        enum:
+        - 1
+        - 2
+        - 3
+        type: integer
+      Endpoint:
+        type: string
+      AvailableUntil:
+        format: date-time
+        type: string
+      TrackingIntervalList:
+        type: array
+        items:
+          format: int32
+          type: integer
+    additionalProperties: false
+  TrackedAssetTrackConfigurationModelPUT:
+    required:
+    - MinutesToTrack
+    type: object
+    properties:
+      MinutesToTrack:
+        format: int32
+        type: integer
+      OriginalTriggerMessageHistoryId:
+        format: int32
+        type: integer
+    additionalProperties: false
+securityDefinitions:
+  oauth2:
+    type: oauth2
+    flow: implicit
+    authorizationUrl: https://api.automile.com/login/
+    scopes:
+      read: Read access to protected resources
+      write: Write access to protected resources
+    description: OAuth2 Implicit Grant

@@ -1,0 +1,225 @@
+swagger: '2.0'
+info:
+  title: Automile ClientApi ResourceOwnerTripScore API
+  version: v1
+tags:
+- name: ResourceOwnerTripScore
+paths:
+  /v1/resourceowner/tripscore/drivingscore/{driverContactId}:
+    get:
+      tags:
+      - ResourceOwnerTripScore
+      summary: Get latest driving score for a driver
+      description: "This is a BETA feature, under development and may change. <br /> \r\n            Reduction types are \"HarshAcceleration\", \"HarshBrake\", \"HarshTurn\", \"Idling\" or \"Speeding\". <br />\r\n            Returns latest driving score with points lost, weaknesses and strengths"
+      operationId: GetResourceOwnerLatestDrivingScore
+      produces:
+      - text/plain
+      - application/json
+      - text/json
+      parameters:
+      - in: path
+        name: driverContactId
+        description: Contact id to get driving score for
+        required: true
+        type: integer
+        format: int32
+      responses:
+        '200':
+          description: Success
+          schema:
+            $ref: '#/definitions/DrivingScoreModel'
+      security:
+      - oauth2: []
+  /v1/resourceowner/tripscore/summary/{driverContactId}:
+    get:
+      tags:
+      - ResourceOwnerTripScore
+      summary: Get trip score summary for a driver
+      description: "This is a BETA feature, under development and may change. <br /> \r\n            Reduction types are \"HarshAcceleration\", \"HarshBrake\", \"HarshTurn\", \"Idling\" or \"Speeding\". <br />\r\n            Returns summary for previous month and current month."
+      operationId: GetResourceOwnerTripScoreSummary
+      produces:
+      - text/plain
+      - application/json
+      - text/json
+      parameters:
+      - in: path
+        name: driverContactId
+        description: Contact id to get trip score for
+        required: true
+        type: integer
+        format: int32
+      responses:
+        '200':
+          description: Success
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/TripScoreSummaryModel'
+      security:
+      - oauth2: []
+  /v1/resourceowner/tripscore/chartdata/{driverContactId}:
+    get:
+      tags:
+      - ResourceOwnerTripScore
+      summary: Get trip score chart data for a driver
+      description: This is a BETA feature, under development and may change.
+      operationId: GetResourceOwnerTripScoreChartData
+      produces:
+      - text/plain
+      - application/json
+      - text/json
+      parameters:
+      - in: path
+        name: driverContactId
+        description: Contact id to get chart for
+        required: true
+        type: integer
+        format: int32
+      responses:
+        '200':
+          description: Success
+          schema:
+            $ref: '#/definitions/TripScoreChartDataListModel'
+      security:
+      - oauth2: []
+  /v1/resourceowner/tripscore/triplist/{driverContactId}:
+    get:
+      tags:
+      - ResourceOwnerTripScore
+      summary: Get list of trips with trip score for a driver
+      description: "This is a BETA feature, under development and may change. <br /> \r\n            Max return count is 100 trips."
+      operationId: GetResourceOwnerTripScoreTripList
+      produces:
+      - text/plain
+      - application/json
+      - text/json
+      parameters:
+      - in: path
+        name: driverContactId
+        description: Contact id to get trip score for
+        required: true
+        type: integer
+        format: int32
+      - in: query
+        name: skip
+        description: Optional skip number of trips
+        type: integer
+        format: int32
+      responses:
+        '200':
+          description: Success
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/TripScoreTripModel'
+      security:
+      - oauth2: []
+definitions:
+  TripScoreReductionModel:
+    type: object
+    properties:
+      Type:
+        format: int32
+        type: integer
+      Value:
+        format: double
+        type: number
+      Text:
+        type: string
+    additionalProperties: false
+  DrivingScoreModel:
+    type: object
+    properties:
+      Date:
+        format: date-time
+        type: string
+      DrivingScore:
+        format: int32
+        type: integer
+      OrganizationScore:
+        format: int32
+        type: integer
+      Reductions:
+        type: array
+        items:
+          $ref: '#/definitions/TripScoreReductionModel'
+      Strengths:
+        type: array
+        items:
+          $ref: '#/definitions/TripScoreReductionModel'
+    additionalProperties: false
+  TripScoreChartDataModel:
+    type: object
+    properties:
+      AverageTripScore:
+        format: int32
+        type: integer
+      DrivingScore:
+        format: int32
+        type: integer
+      Date:
+        type: string
+    additionalProperties: false
+  TripScoreSummaryModel:
+    type: object
+    properties:
+      AverageTripScore:
+        format: int32
+        type: integer
+      FromDate:
+        type: string
+      Reductions:
+        type: array
+        items:
+          $ref: '#/definitions/TripScoreReductionModel'
+      Strengths:
+        type: array
+        items:
+          $ref: '#/definitions/TripScoreReductionModel'
+      ToDate:
+        type: string
+    additionalProperties: false
+  TripScoreTripModel:
+    type: object
+    properties:
+      AuthorizedToViewTrip:
+        type: boolean
+      TripId:
+        format: int32
+        type: integer
+      TripEndAddress:
+        type: string
+      TripEndDateTime:
+        format: date-time
+        type: string
+      TripScore:
+        format: int32
+        type: integer
+      TripStartAddress:
+        type: string
+      TripStartDateTime:
+        format: date-time
+        type: string
+    additionalProperties: false
+  TripScoreChartDataListModel:
+    type: object
+    properties:
+      ContactChartDataList:
+        type: array
+        items:
+          $ref: '#/definitions/TripScoreChartDataModel'
+      OrganizationChartDataList:
+        type: array
+        items:
+          $ref: '#/definitions/TripScoreChartDataModel'
+        readOnly: true
+    additionalProperties: false
+securityDefinitions:
+  oauth2:
+    type: oauth2
+    flow: implicit
+    authorizationUrl: https://api.automile.com/login/
+    scopes:
+      read: Read access to protected resources
+      write: Write access to protected resources
+    description: OAuth2 Implicit Grant

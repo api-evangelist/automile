@@ -1,0 +1,293 @@
+swagger: '2.0'
+info:
+  title: Automile ClientApi ResourceOwnerIMEIEvent API
+  version: v1
+tags:
+- name: ResourceOwnerIMEIEvent
+paths:
+  /v1/resourceowner/imeievents:
+    get:
+      tags:
+      - ResourceOwnerIMEIEvent
+      summary: Get a list of all IMEIEvents that user is associated with
+      description: Only IMEIEvents that the user is associated with will be returned by this operation.
+      operationId: GetResourceOwnerImeiEvents
+      produces:
+      - text/plain
+      - application/json
+      - text/json
+      responses:
+        '200':
+          description: The IMEIEvents are returned
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/IMEIEventModel'
+        '500':
+          description: Internal server error
+      security:
+      - oauth2: []
+  /v1/resourceowner/imeievents/mil/{imeiEventId}:
+    get:
+      tags:
+      - ResourceOwnerIMEIEvent
+      summary: Gets MILIMEIevent for given imeiEventId
+      description: The user only has access to IMEIEvents that it is associated with
+      operationId: GetResourceOwnerMilEvent
+      produces:
+      - text/plain
+      - application/json
+      - text/json
+      parameters:
+      - in: path
+        name: imeiEventId
+        description: The id to IMEIevent
+        required: true
+        type: integer
+        format: int32
+      responses:
+        '200':
+          description: The IMEIEventMILs are returned
+          schema:
+            $ref: '#/definitions/IMEIEventMILModel'
+        '500':
+          description: Internal server error
+        '400':
+          description: Bad request, you are using the wrong URI to retrieve this EMEIEvent
+        '403':
+          description: '>Request is forbidden, this could occur if you are not associated with the IMEIEvent'
+        '404':
+          description: The IMEIEvent that you tried to get doesn't exist
+      security:
+      - oauth2: []
+  /v1/resourceowner/imeievents/dtc/{imeiEventId}:
+    get:
+      tags:
+      - ResourceOwnerIMEIEvent
+      summary: Gets DTCIMEIevent for given imeiEventId
+      description: The user only has access to IMEIEvents that it is associated with
+      operationId: GetResourceOwnerDTCEvent
+      produces:
+      - text/plain
+      - application/json
+      - text/json
+      parameters:
+      - in: path
+        name: imeiEventId
+        description: The id to IMEIevent
+        required: true
+        type: integer
+        format: int32
+      responses:
+        '200':
+          description: The DTCIMEIevents are returned
+          schema:
+            $ref: '#/definitions/IMEIEventDTCModel'
+        '500':
+          description: Internal server error
+        '400':
+          description: Bad request, you are using the wrong URI to retrieve this EMEIEvent
+        '403':
+          description: '>Request is forbidden, this could occur if you are not associated with the IMEIEvent'
+        '404':
+          description: The IMEIEvent that you tried to get doesn't exist
+      security:
+      - oauth2: []
+  /v1/resourceowner/imeievents/status/{imeiEventId}:
+    get:
+      tags:
+      - ResourceOwnerIMEIEvent
+      summary: Gets StatusIMEIevent for given imeiEventId
+      description: The user only has access to IMEIEvents that it is associated with
+      operationId: GetResourceOwnerStatusEvent
+      produces:
+      - text/plain
+      - application/json
+      - text/json
+      parameters:
+      - in: path
+        name: imeiEventId
+        description: The id to IMEIevent
+        required: true
+        type: integer
+        format: int32
+      responses:
+        '200':
+          description: The StatusIMEIevents are returned
+          schema:
+            $ref: '#/definitions/IMEIEventStatusModel'
+        '500':
+          description: Internal server error
+        '400':
+          description: Bad request, you are using the wrong URI to retrieve this EMEIEvent
+        '403':
+          description: '>Request is forbidden, this could occur if you are not associated with the IMEIEvent'
+        '404':
+          description: The IMEIEvent that you tried to get doesn't exist
+      security:
+      - oauth2: []
+definitions:
+  IMEIEventDTCModel:
+    type: object
+    properties:
+      Description:
+        type: string
+      TimeStamp:
+        format: date-time
+        type: string
+      TimeZone:
+        format: int32
+        type: integer
+      EventType:
+        type: string
+      PositionLongitude:
+        format: double
+        type: number
+      PositionLatitude:
+        format: double
+        type: number
+      PositionFormattedAddress:
+        type: string
+      CellTower:
+        format: int32
+        type: integer
+      CellTowerTimeZone:
+        format: int32
+        type: integer
+      VehicleIdentificationNumber:
+        type: string
+      IMEI:
+        type: string
+      DeviceSerialNumber:
+        type: string
+      Dtcs:
+        type: array
+        items:
+          $ref: '#/definitions/DTC'
+    additionalProperties: false
+  IMEIEventMILModel:
+    type: object
+    properties:
+      Description:
+        type: string
+      TimeStamp:
+        format: date-time
+        type: string
+      TimeZone:
+        format: int32
+        type: integer
+      EventType:
+        type: string
+      PositionLongitude:
+        format: double
+        type: number
+      PositionLatitude:
+        format: double
+        type: number
+      PositionFormattedAddress:
+        type: string
+      CellTower:
+        format: int32
+        type: integer
+      CellTowerTimeZone:
+        format: int32
+        type: integer
+      VehicleIdentificationNumber:
+        type: string
+      IMEI:
+        type: string
+      DeviceSerialNumber:
+        type: string
+      MilStatus:
+        type: boolean
+      NumberOfDTCs:
+        format: int32
+        type: integer
+      MILDistance:
+        format: int32
+        type: integer
+      CLRDistance:
+        format: int32
+        type: integer
+      TripDistance:
+        format: int32
+        type: integer
+      MILTime:
+        format: int32
+        type: integer
+      CLRTime:
+        format: int32
+        type: integer
+      TripTime:
+        format: int32
+        type: integer
+    additionalProperties: false
+  IMEIEventStatusModel:
+    type: object
+    properties:
+      Description:
+        type: string
+      TimeStamp:
+        format: date-time
+        type: string
+      TimeZone:
+        format: int32
+        type: integer
+      EventType:
+        type: string
+      PositionLongitude:
+        format: double
+        type: number
+      PositionLatitude:
+        format: double
+        type: number
+      PositionFormattedAddress:
+        type: string
+      CellTower:
+        format: int32
+        type: integer
+      CellTowerTimeZone:
+        format: int32
+        type: integer
+      VehicleIdentificationNumber:
+        type: string
+      IMEI:
+        type: string
+      DeviceSerialNumber:
+        type: string
+      Status:
+        type: string
+    additionalProperties: false
+  IMEIEventModel:
+    type: object
+    properties:
+      IMEIEventId:
+        format: int32
+        type: integer
+      IMEI:
+        type: string
+      EventType:
+        type: string
+      TimeStamp:
+        format: date-time
+        type: string
+    additionalProperties: false
+  DTC:
+    type: object
+    properties:
+      DTCCode:
+        type: string
+      FaultLocation:
+        type: string
+      ProbableCause:
+        type: string
+    additionalProperties: false
+securityDefinitions:
+  oauth2:
+    type: oauth2
+    flow: implicit
+    authorizationUrl: https://api.automile.com/login/
+    scopes:
+      read: Read access to protected resources
+      write: Write access to protected resources
+    description: OAuth2 Implicit Grant

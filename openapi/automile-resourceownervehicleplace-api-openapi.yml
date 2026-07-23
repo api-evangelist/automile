@@ -1,0 +1,263 @@
+swagger: '2.0'
+info:
+  title: Automile ClientApi ResourceOwnerVehiclePlace API
+  version: v1
+tags:
+- name: ResourceOwnerVehiclePlace
+paths:
+  /v1/resourceowner/vehicleplace/{vehiclePlaceId}:
+    get:
+      tags:
+      - ResourceOwnerVehiclePlace
+      summary: Get vehicle place
+      description: Only vehicle places that the user has access to are accessible.
+      operationId: GetResourceOwnerVehiclePlace
+      produces:
+      - text/plain
+      - application/json
+      - text/json
+      parameters:
+      - in: path
+        name: vehiclePlaceId
+        description: The vehicle place id
+        required: true
+        type: integer
+        format: int32
+      responses:
+        '200':
+          description: The vehicle places are returned
+          schema:
+            $ref: '#/definitions/VehiclePlaceModel'
+        '403':
+          description: Request is forbidden, meaning you don't have access to this place
+        '500':
+          description: Internal server error
+      security:
+      - oauth2: []
+    put:
+      tags:
+      - ResourceOwnerVehiclePlace
+      summary: Edit the relationship between the vehicle and the place
+      operationId: EditResourceOwnerVehiclePlace
+      consumes:
+      - application/json
+      - text/json
+      - application/*+json
+      parameters:
+      - in: path
+        name: vehiclePlaceId
+        description: The vehicle place id
+        required: true
+        type: integer
+        format: int32
+      - in: body
+        name: body
+        description: The new vehicle place model
+        schema:
+          $ref: '#/definitions/VehiclePlaceEditModel'
+      responses:
+        '200':
+          description: The vehiclegeofence was saved
+        '400':
+          description: Bad request, could occur for a number of cases, see returned message
+        '403':
+          description: Bad request, could occur for a number of cases, see returned message
+        '500':
+          description: Internal server error
+      security:
+      - oauth2: []
+    delete:
+      tags:
+      - ResourceOwnerVehiclePlace
+      summary: Removes association between a vehicle and place
+      description: This will remove the association between a place and a vehicle.
+      operationId: DeleteResourceOwnerVehiclePlace
+      parameters:
+      - in: path
+        name: vehiclePlaceId
+        description: The vehiclePlaceId association to remove
+        required: true
+        type: integer
+        format: int32
+      responses:
+        '200':
+          description: The vehicleplace has been deleted
+        '500':
+          description: Internal server error
+        '400':
+          description: Bad request, could occur for a number of cases, see returned message
+        '403':
+          description: Request is forbidden, could occur for a number of reasons, see returned message
+      security:
+      - oauth2: []
+  /v1/resourceowner/vehicleplace:
+    get:
+      tags:
+      - ResourceOwnerVehiclePlace
+      summary: Get vehicle place
+      description: Only vehicle places that the user has access to are accessible.
+      operationId: GetResourceOwnerVehiclePlaceId
+      produces:
+      - text/plain
+      - application/json
+      - text/json
+      parameters:
+      - in: query
+        name: placeId
+        description: The place id
+        type: integer
+        format: int32
+      responses:
+        '200':
+          description: The vehicle places are returned
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/VehiclePlaceModel'
+        '403':
+          description: Request is forbidden, meaning you don't have access to this place
+        '500':
+          description: Internal server error
+      security:
+      - oauth2: []
+    post:
+      tags:
+      - ResourceOwnerVehiclePlace
+      summary: Associate a vehicle with a place
+      operationId: CreateResourceOwnerVehiclePlace
+      consumes:
+      - application/json
+      - text/json
+      - application/*+json
+      parameters:
+      - in: body
+        name: body
+        description: The model which to create the association between vehicle and place
+        schema:
+          $ref: '#/definitions/VehiclePlaceCreateModel'
+      responses:
+        '200':
+          description: A link in the header is returned to the newly created Vehicle Place
+        '500':
+          description: Internal server error
+        '400':
+          description: Bad request, could occur for a number of cases, see returned message
+        '403':
+          description: Request is forbidden, could occur for a number of reasons, see returned message
+      security:
+      - oauth2: []
+definitions:
+  VehiclePlaceEditModel:
+    required:
+    - Radius
+    type: object
+    properties:
+      Description:
+        type: string
+      TripType:
+        format: int32
+        enum:
+        - 0
+        - 1
+        - 2
+        - 3
+        type: integer
+      TripTypeTrigger:
+        format: int32
+        enum:
+        - 0
+        - 1
+        - 2
+        - 3
+        type: integer
+      Radius:
+        format: int32
+        type: integer
+      DrivesBetweenAnotherPlaceId:
+        format: int32
+        type: integer
+    additionalProperties: false
+  VehiclePlaceModel:
+    type: object
+    properties:
+      VehiclePlaceId:
+        format: int32
+        type: integer
+      VehicleId:
+        format: int32
+        type: integer
+      PlaceId:
+        format: int32
+        type: integer
+      Description:
+        type: string
+      TripType:
+        format: int32
+        enum:
+        - 0
+        - 1
+        - 2
+        - 3
+        type: integer
+      TripTypeTrigger:
+        format: int32
+        enum:
+        - 0
+        - 1
+        - 2
+        - 3
+        type: integer
+      Radius:
+        format: int32
+        type: integer
+      DrivesBetweenAnotherPlaceId:
+        format: int32
+        type: integer
+    additionalProperties: false
+  VehiclePlaceCreateModel:
+    required:
+    - PlaceId
+    - Radius
+    - VehicleId
+    type: object
+    properties:
+      VehicleId:
+        format: int32
+        type: integer
+      PlaceId:
+        format: int32
+        type: integer
+      Description:
+        type: string
+      TripType:
+        format: int32
+        enum:
+        - 0
+        - 1
+        - 2
+        - 3
+        type: integer
+      TripTypeTrigger:
+        format: int32
+        enum:
+        - 0
+        - 1
+        - 2
+        - 3
+        type: integer
+      Radius:
+        format: int32
+        type: integer
+      DrivesBetweenAnotherPlaceId:
+        format: int32
+        type: integer
+    additionalProperties: false
+securityDefinitions:
+  oauth2:
+    type: oauth2
+    flow: implicit
+    authorizationUrl: https://api.automile.com/login/
+    scopes:
+      read: Read access to protected resources
+      write: Write access to protected resources
+    description: OAuth2 Implicit Grant

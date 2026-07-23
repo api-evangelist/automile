@@ -1,0 +1,20 @@
+generated: '2026-07-18'
+method: derived
+source: openapi/automile-openapi-original.json + provider site probe
+note: >-
+  Versioning derived from the OpenAPI path prefix. No dedicated deprecation
+  policy, SLA page, or public status page was found (automile.statuspage.io
+  resolves to a default StatusPage.io redirect, not an Automile status page), so
+  those are recorded as not-found rather than fabricated.
+versioning:
+  scheme: uri-path
+  current: v1
+  detail: All operations under /v1/.
+deprecation:
+  policy_url: null
+  sunset_header: false
+  detail: No RFC 8594 Sunset/Deprecation header support or deprecation policy documented.
+sla:
+  url: null
+status_page: null
+deprecated_operations: []

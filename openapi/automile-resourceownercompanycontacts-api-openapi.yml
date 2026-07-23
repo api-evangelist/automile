@@ -1,0 +1,234 @@
+swagger: '2.0'
+info:
+  title: Automile ClientApi ResourceOwnerCompanyContacts API
+  version: v1
+tags:
+- name: ResourceOwnerCompanyContacts
+paths:
+  /v1/resourceowner/companycontact:
+    get:
+      tags:
+      - ResourceOwnerCompanyContacts
+      summary: Get a list of all company contacts that user is associated with
+      description: Only company contacts that the user is associated with will be returned by this operation.
+      operationId: GetResourceOwnerCompanyContacts
+      produces:
+      - text/plain
+      - application/json
+      - text/json
+      responses:
+        '200':
+          description: The company contacts are returned
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/CompanyContactDetailModel'
+        '500':
+          description: Internal server error
+      security:
+      - oauth2: []
+    post:
+      tags:
+      - ResourceOwnerCompanyContacts
+      summary: Creates a new company contact and associates it with user
+      description: The user only has access to contacts that it is associated with through the company
+      operationId: CreateResourceOwnerCompanyContact
+      consumes:
+      - application/json
+      - text/json
+      - application/*+json
+      produces:
+      - text/plain
+      - application/json
+      - text/json
+      parameters:
+      - in: body
+        name: body
+        description: The company contact model
+        schema:
+          $ref: '#/definitions/CompanyContactCreateModel'
+      responses:
+        '200':
+          description: A link in the header is returned to the newly created company contact
+        '403':
+          description: Request is forbidden, this could occur if you try to associate to companies you are not associated with
+          schema:
+            $ref: '#/definitions/ProblemDetails'
+        '500':
+          description: Internal server error
+      security:
+      - oauth2: []
+  /v1/resourceowner/companycontact/{companyContactId}:
+    get:
+      tags:
+      - ResourceOwnerCompanyContacts
+      summary: Get the company contact relationship
+      description: Only company contcats that the user has access to are accessible.
+      operationId: GetResourceOwnerCompanyContact
+      produces:
+      - text/plain
+      - application/json
+      - text/json
+      parameters:
+      - in: path
+        name: companyContactId
+        description: The company contact id
+        required: true
+        type: integer
+        format: int32
+      responses:
+        '200':
+          description: The company contact model is returned
+          schema:
+            $ref: '#/definitions/CompanyContactDetailModel'
+        '403':
+          description: Request is forbidden, meaning you don't have access to this company vehicle relationship
+          schema:
+            $ref: '#/definitions/ProblemDetails'
+        '500':
+          description: Internal server error
+      security:
+      - oauth2: []
+  /v1/resourceowner/companycontact/{companyContactIdToEdit}:
+    put:
+      tags:
+      - ResourceOwnerCompanyContacts
+      summary: Updates the given companycontact id
+      description: This will update the company contact with the new model.
+      operationId: EditResourceOwnerCompanyContact
+      consumes:
+      - application/json
+      - text/json
+      - application/*+json
+      produces:
+      - text/plain
+      - application/json
+      - text/json
+      parameters:
+      - in: path
+        name: companyContactIdToEdit
+        description: The company contact that should be updated
+        required: true
+        type: integer
+        format: int32
+      - in: body
+        name: body
+        description: The new company contact model
+        schema:
+          $ref: '#/definitions/CompanyContactEditModel'
+      responses:
+        '200':
+          description: The company contact was saved
+        '403':
+          description: Request is forbidden, this could occur if you are not associated with the company contact
+          schema:
+            $ref: '#/definitions/ProblemDetails'
+        '500':
+          description: Internal server error
+      security:
+      - oauth2: []
+  /v1/resourceowner/companycontact/{companyContactIdToDelete}:
+    delete:
+      tags:
+      - ResourceOwnerCompanyContacts
+      summary: Removes the given company contact
+      description: This will delete the given company contact.
+      operationId: DeleteResourceOwnerCompanyContact
+      produces:
+      - text/plain
+      - application/json
+      - text/json
+      parameters:
+      - in: path
+        name: companyContactIdToDelete
+        description: The company contact id to remove
+        required: true
+        type: integer
+        format: int32
+      responses:
+        '200':
+          description: The company contact has been deleted
+        '403':
+          description: Request is forbidden, this could occur if you are not associated with the company contact
+          schema:
+            $ref: '#/definitions/ProblemDetails'
+        '404':
+          description: The company contact that you tried to remove doesn't exist
+          schema:
+            $ref: '#/definitions/ProblemDetails'
+        '500':
+          description: Internal server error
+      security:
+      - oauth2: []
+definitions:
+  CompanyContactDetailModel:
+    type: object
+    properties:
+      CompanyContactId:
+        format: int32
+        type: integer
+      CompanyId:
+        format: int32
+        type: integer
+      CompanyName:
+        type: string
+      ContactId:
+        format: int32
+        type: integer
+      ContactName:
+        type: string
+      Scopes:
+        type: array
+        items:
+          type: string
+    additionalProperties: false
+  ProblemDetails:
+    type: object
+    properties:
+      type:
+        type: string
+      title:
+        type: string
+      status:
+        format: int32
+        type: integer
+      detail:
+        type: string
+      instance:
+        type: string
+    additionalProperties: {}
+  CompanyContactCreateModel:
+    required:
+    - CompanyId
+    - ContactId
+    type: object
+    properties:
+      CompanyId:
+        format: int32
+        type: integer
+      ContactId:
+        format: int32
+        type: integer
+    additionalProperties: false
+  CompanyContactEditModel:
+    required:
+    - CompanyId
+    - ContactId
+    type: object
+    properties:
+      CompanyId:
+        format: int32
+        type: integer
+      ContactId:
+        format: int32
+        type: integer
+    additionalProperties: false
+securityDefinitions:
+  oauth2:
+    type: oauth2
+    flow: implicit
+    authorizationUrl: https://api.automile.com/login/
+    scopes:
+      read: Read access to protected resources
+      write: Write access to protected resources
+    description: OAuth2 Implicit Grant

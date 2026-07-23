@@ -1,0 +1,40 @@
+generated: '2026-07-18'
+method: searched
+source: Automile GitHub org (github.com/Automile) + Packagist + NuGet
+note: >-
+  Automile publishes first-party client SDKs for the api.automile.com telematics
+  API. PHP is on Packagist and .NET on NuGet; the Node and Java bindings are
+  first-party but distributed as source on GitHub (not published to npm/Maven
+  Central as of this pass).
+packages:
+- language: php
+  registry: packagist
+  name: automile/automile-php
+  url: https://packagist.org/packages/automile/automile-php
+  repo: https://github.com/Automile/automile-php
+  install: composer require automile/automile-php
+  official: true
+- language: csharp
+  registry: nuget
+  name: Automile.Net
+  url: https://www.nuget.org/packages/Automile.Net
+  repo: https://github.com/Automile/automile-net
+  install: Install-Package Automile.Net -prerelease
+  latest_version: 0.3.0
+  official: true
+- language: javascript
+  registry: github
+  name: automile-node
+  url: https://github.com/Automile/automile-node
+  repo: https://github.com/Automile/automile-node
+  install: git clone https://github.com/Automile/automile-node
+  note: First-party Node SDK and examples; source-only, not published to npm.
+  official: true
+- language: java
+  registry: github
+  name: automile-java
+  url: https://github.com/Automile/automile-java
+  repo: https://github.com/Automile/automile-java
+  install: git clone https://github.com/Automile/automile-java
+  note: First-party Java bindings to https://api.automile.com; source-only, not on Maven Central.
+  official: true

@@ -1,0 +1,432 @@
+swagger: '2.0'
+info:
+  title: Automile ClientApi ResourceOwnerGeofence3 API
+  version: v1
+tags:
+- name: ResourceOwnerGeofence3
+paths:
+  /v1/resourceowner/geofence3:
+    get:
+      tags:
+      - ResourceOwnerGeofence3
+      summary: Get a list of geofencese organization is associated with
+      description: Only geofences that the user has access to are accessible.
+      operationId: GetResourceOwnerGeofences3
+      produces:
+      - text/plain
+      - application/json
+      - text/json
+      responses:
+        '200':
+          description: The geofences are returned
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/GeofenceModel3'
+        '500':
+          description: Internal server error
+      security:
+      - oauth2: []
+    post:
+      tags:
+      - ResourceOwnerGeofence3
+      summary: Creates a new geofence
+      description: This will create a new geofence and associate it with a vehicle.
+      operationId: CreateResourceOwnerGeofence3
+      consumes:
+      - application/json
+      - text/json
+      - application/*+json
+      produces:
+      - text/plain
+      - application/json
+      - text/json
+      parameters:
+      - in: body
+        name: body
+        description: The geofence model
+        schema:
+          $ref: '#/definitions/Geofence3CreateModel'
+      responses:
+        '200':
+          description: A link in the header is returned to the newly created geofence
+        '400':
+          description: Bad request, could occur for a number of cases, see returned message
+          schema:
+            $ref: '#/definitions/ProblemDetails'
+        '403':
+          description: Request is forbidden, could occur for a number of reasons, see returned message
+          schema:
+            $ref: '#/definitions/ProblemDetails'
+        '500':
+          description: Internal server error
+      security:
+      - oauth2: []
+  /v1/resourceowner/geofence3/{geofenceId}:
+    get:
+      tags:
+      - ResourceOwnerGeofence3
+      summary: Get geofence
+      description: Only geofences that the user has access to are accessible.
+      operationId: GetResourceOwnerGeofence3
+      produces:
+      - text/plain
+      - application/json
+      - text/json
+      parameters:
+      - in: path
+        name: geofenceId
+        description: The geofence id
+        required: true
+        type: integer
+        format: int32
+      responses:
+        '200':
+          description: The geofences are returned
+          schema:
+            $ref: '#/definitions/GeofenceModel3'
+        '403':
+          description: Request is forbidden, meaning you don't have access to this geofence
+          schema:
+            $ref: '#/definitions/ProblemDetails'
+        '500':
+          description: Internal server error
+      security:
+      - oauth2: []
+    put:
+      tags:
+      - ResourceOwnerGeofence3
+      summary: Updates the given geofence with new model
+      description: This will update the given geofence id with a new model.
+      operationId: EditResourceOwnerGeofence3
+      consumes:
+      - application/json
+      - text/json
+      - application/*+json
+      produces:
+      - text/plain
+      - application/json
+      - text/json
+      parameters:
+      - in: path
+        name: geofenceId
+        description: The geofence id
+        required: true
+        type: integer
+        format: int32
+      - in: body
+        name: body
+        description: The new geofence model
+        schema:
+          $ref: '#/definitions/Geofence3EditModel'
+      responses:
+        '200':
+          description: The geofence was saved
+        '400':
+          description: Bad request, could occur for a number of cases, see returned message
+          schema:
+            $ref: '#/definitions/ProblemDetails'
+        '403':
+          description: Request is forbidden, could occur for a number of reasons, see returned message
+          schema:
+            $ref: '#/definitions/ProblemDetails'
+        '404':
+          description: Not found, the geofence you tried to update can't be found
+          schema:
+            $ref: '#/definitions/ProblemDetails'
+        '500':
+          description: Internal server error
+      security:
+      - oauth2: []
+    delete:
+      tags:
+      - ResourceOwnerGeofence3
+      summary: Removes the given geofence
+      operationId: DeleteResourceOwnerGeofence3
+      produces:
+      - text/plain
+      - application/json
+      - text/json
+      parameters:
+      - in: path
+        name: geofenceId
+        description: The geofence id
+        required: true
+        type: integer
+        format: int32
+      responses:
+        '200':
+          description: The geofence has been deleted
+        '403':
+          description: Request is forbidden, could occur for a number of reasons, see returned message
+          schema:
+            $ref: '#/definitions/ProblemDetails'
+        '404':
+          description: Not found, the geofence you tried to remove can't be found
+          schema:
+            $ref: '#/definitions/ProblemDetails'
+        '500':
+          description: Internal server error
+      security:
+      - oauth2: []
+definitions:
+  Geofence3EditModel:
+    required:
+    - Name
+    type: object
+    properties:
+      Name:
+        minLength: 1
+        type: string
+      Description:
+        type: string
+      GeofencePolygon:
+        $ref: '#/definitions/GeofencePolygon'
+      GeofenceType:
+        format: int32
+        enum:
+        - 0
+        - 1
+        - 2
+        type: integer
+      OrganizationNodeId:
+        format: int32
+        type: integer
+      Schedules:
+        type: array
+        items:
+          $ref: '#/definitions/GeofenceScheduleEditModel'
+    additionalProperties: false
+  GeographicPosition:
+    type: object
+    properties:
+      Latitude:
+        format: double
+        type: number
+      Longitude:
+        format: double
+        type: number
+    additionalProperties: false
+  GeofenceModel3:
+    type: object
+    properties:
+      GeofenceId:
+        format: int32
+        type: integer
+      Name:
+        type: string
+      Description:
+        type: string
+      GeofencePolygon:
+        $ref: '#/definitions/GeofencePolygon'
+      GeofenceType:
+        format: int32
+        enum:
+        - 0
+        - 1
+        - 2
+        type: integer
+      Schedules:
+        type: array
+        items:
+          $ref: '#/definitions/GeofenceScheduleModel'
+      OrganizationNodeId:
+        format: int32
+        type: integer
+      IsEditable:
+        type: boolean
+    additionalProperties: false
+  TimeSpan:
+    type: object
+    properties:
+      Ticks:
+        format: int64
+        type: integer
+      Days:
+        format: int32
+        type: integer
+        readOnly: true
+      Hours:
+        format: int32
+        type: integer
+        readOnly: true
+      Milliseconds:
+        format: int32
+        type: integer
+        readOnly: true
+      Microseconds:
+        format: int32
+        type: integer
+        readOnly: true
+      Nanoseconds:
+        format: int32
+        type: integer
+        readOnly: true
+      Minutes:
+        format: int32
+        type: integer
+        readOnly: true
+      Seconds:
+        format: int32
+        type: integer
+        readOnly: true
+      TotalDays:
+        format: double
+        type: number
+        readOnly: true
+      TotalHours:
+        format: double
+        type: number
+        readOnly: true
+      TotalMilliseconds:
+        format: double
+        type: number
+        readOnly: true
+      TotalMicroseconds:
+        format: double
+        type: number
+        readOnly: true
+      TotalNanoseconds:
+        format: double
+        type: number
+        readOnly: true
+      TotalMinutes:
+        format: double
+        type: number
+        readOnly: true
+      TotalSeconds:
+        format: double
+        type: number
+        readOnly: true
+    additionalProperties: false
+  Geofence3CreateModel:
+    required:
+    - Name
+    type: object
+    properties:
+      Name:
+        minLength: 1
+        type: string
+      Description:
+        type: string
+      OrganizationNodeId:
+        format: int32
+        type: integer
+      GeofencePolygon:
+        $ref: '#/definitions/GeofencePolygon'
+      GeofenceType:
+        format: int32
+        enum:
+        - 0
+        - 1
+        - 2
+        type: integer
+      Schedules:
+        type: array
+        items:
+          $ref: '#/definitions/GeofenceScheduleAddModel'
+    additionalProperties: false
+  GeofenceScheduleAddModel:
+    type: object
+    properties:
+      Monday:
+        type: boolean
+      Tuesday:
+        type: boolean
+      Wednesday:
+        type: boolean
+      Thursday:
+        type: boolean
+      Friday:
+        type: boolean
+      Saturday:
+        type: boolean
+      Sunday:
+        type: boolean
+      StartTime:
+        $ref: '#/definitions/TimeSpan'
+      EndTime:
+        $ref: '#/definitions/TimeSpan'
+    additionalProperties: false
+  GeofenceScheduleModel:
+    type: object
+    properties:
+      GeofenceScheduleId:
+        format: int32
+        type: integer
+      Monday:
+        type: boolean
+      Tuesday:
+        type: boolean
+      Wednesday:
+        type: boolean
+      Thursday:
+        type: boolean
+      Friday:
+        type: boolean
+      Saturday:
+        type: boolean
+      Sunday:
+        type: boolean
+      StartTime:
+        $ref: '#/definitions/TimeSpan'
+      EndTime:
+        $ref: '#/definitions/TimeSpan'
+    additionalProperties: false
+  ProblemDetails:
+    type: object
+    properties:
+      type:
+        type: string
+      title:
+        type: string
+      status:
+        format: int32
+        type: integer
+      detail:
+        type: string
+      instance:
+        type: string
+    additionalProperties: {}
+  GeofenceScheduleEditModel:
+    type: object
+    properties:
+      GeofenceScheduleId:
+        format: int32
+        type: integer
+      Monday:
+        type: boolean
+      Tuesday:
+        type: boolean
+      Wednesday:
+        type: boolean
+      Thursday:
+        type: boolean
+      Friday:
+        type: boolean
+      Saturday:
+        type: boolean
+      Sunday:
+        type: boolean
+      StartTime:
+        $ref: '#/definitions/TimeSpan'
+      EndTime:
+        $ref: '#/definitions/TimeSpan'
+    additionalProperties: false
+  GeofencePolygon:
+    type: object
+    properties:
+      Coordinates:
+        type: array
+        items:
+          $ref: '#/definitions/GeographicPosition'
+    additionalProperties: false
+securityDefinitions:
+  oauth2:
+    type: oauth2
+    flow: implicit
+    authorizationUrl: https://api.automile.com/login/
+    scopes:
+      read: Read access to protected resources
+      write: Write access to protected resources
+    description: OAuth2 Implicit Grant

@@ -1,0 +1,109 @@
+swagger: '2.0'
+info:
+  title: Automile ClientApi ResourceOwnerContent API
+  version: v1
+tags:
+- name: ResourceOwnerContent
+paths:
+  /v1/resourceowner/content/upload:
+    post:
+      tags:
+      - ResourceOwnerContent
+      summary: Upload binary file
+      description: Upload attachment image and returns url
+      operationId: ResourceOwnerContentController_Upload
+      consumes:
+      - multipart/form-data
+      produces:
+      - text/plain
+      - application/json
+      - text/json
+      parameters:
+      - in: formData
+        name: ContentType
+        type: string
+      - in: formData
+        name: ContentDisposition
+        type: string
+      - in: formData
+        name: Headers
+        type: string
+      - in: formData
+        name: Length
+        type: integer
+        format: int64
+      - in: formData
+        name: Name
+        type: string
+      - in: formData
+        name: FileName
+        type: string
+      responses:
+        '200':
+          description: Success
+          schema:
+            $ref: '#/definitions/ContentUploadResponseModel'
+        '400':
+          description: Missing or invalid data
+          schema:
+            $ref: '#/definitions/ProblemDetails'
+        '406':
+          description: Request is not properly formatted
+          schema:
+            $ref: '#/definitions/ProblemDetails'
+        '500':
+          description: Internal server error
+        '201':
+          description: Successfully uploaded
+      security:
+      - oauth2: []
+  /v1/resourceowner/content/download/{guid}:
+    get:
+      tags:
+      - ResourceOwnerContent
+      summary: Get a binary file content
+      operationId: ResourceOwnerContentController_Get
+      parameters:
+      - in: path
+        name: guid
+        required: true
+        type: string
+      responses:
+        '200':
+          description: The binary file is returned
+      security:
+      - oauth2: []
+definitions:
+  ProblemDetails:
+    type: object
+    properties:
+      type:
+        type: string
+      title:
+        type: string
+      status:
+        format: int32
+        type: integer
+      detail:
+        type: string
+      instance:
+        type: string
+    additionalProperties: {}
+  ContentUploadResponseModel:
+    type: object
+    properties:
+      URL:
+        type: string
+      GUID:
+        format: uuid
+        type: string
+    additionalProperties: false
+securityDefinitions:
+  oauth2:
+    type: oauth2
+    flow: implicit
+    authorizationUrl: https://api.automile.com/login/
+    scopes:
+      read: Read access to protected resources
+      write: Write access to protected resources
+    description: OAuth2 Implicit Grant

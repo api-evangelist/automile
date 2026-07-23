@@ -1,0 +1,83 @@
+swagger: '2.0'
+info:
+  title: Automile ClientApi ResourceOwnerLead API
+  version: v1
+tags:
+- name: ResourceOwnerLead
+paths:
+  /v1/resourceowner/lead:
+    post:
+      tags:
+      - ResourceOwnerLead
+      summary: Creates or updates lead
+      operationId: ResourceOwnerLeadController_CreateLead
+      consumes:
+      - application/json
+      - text/json
+      - application/*+json
+      parameters:
+      - in: body
+        name: body
+        description: Lead information
+        schema:
+          $ref: '#/definitions/CreateLeadModel'
+      responses:
+        '200':
+          description: Ok
+        '500':
+          description: Internal server error
+      security:
+      - oauth2: []
+definitions:
+  CreateLeadModel:
+    required:
+    - DeviceType
+    - Email
+    - FirstName
+    - LastName
+    - NumberOfDevices
+    - PhoneNumber
+    type: object
+    properties:
+      DeviceType:
+        format: int32
+        enum:
+        - 0
+        - 1
+        - 2
+        - 3
+        - 4
+        - 5
+        - 6
+        - 7
+        - 8
+        - 9
+        - 255
+        type: integer
+      NumberOfDevices:
+        format: int32
+        type: integer
+      FirstName:
+        minLength: 1
+        type: string
+      LastName:
+        minLength: 1
+        type: string
+      Email:
+        minLength: 1
+        type: string
+      CompanyName:
+        type: string
+      PhoneNumber:
+        minLength: 1
+        type: string
+    additionalProperties: false
+securityDefinitions:
+  oauth2:
+    type: oauth2
+    flow: implicit
+    authorizationUrl: https://api.automile.com/login/
+    scopes:
+      read: Read access to protected resources
+      write: Write access to protected resources
+    description: OAuth2 Implicit Grant
