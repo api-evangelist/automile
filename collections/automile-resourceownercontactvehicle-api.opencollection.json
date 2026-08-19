@@ -1,0 +1,97 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Automile ClientApi ResourceOwnerContactVehicle API",
+    "version": "v1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "ResourceOwnerContactVehicle",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get all vehicles that the logged in user has access to",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/resourceowner/contactvehicle"
+          },
+          "docs": "Only vehicles that the user is associated with will be returned by this operation."
+        },
+        {
+          "info": {
+            "name": "Creates a new vehicle contact and associates it with user",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/resourceowner/contactvehicle"
+          },
+          "docs": "Creates a new vehicle contact and associates it with user"
+        },
+        {
+          "info": {
+            "name": "Get contacts by vehicle id",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/resourceowner/contactvehicle/:vehicleId",
+            "params": [
+              {
+                "name": "vehicleId",
+                "value": "",
+                "type": "path",
+                "description": "The vehicle id"
+              }
+            ]
+          },
+          "docs": "The user only has access to contacts that it is associated with through the company"
+        },
+        {
+          "info": {
+            "name": "Updates the given contact vehicle id",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/v1/resourceowner/contactvehicle/:contactVehicleIdToEdit",
+            "params": [
+              {
+                "name": "contactVehicleIdToEdit",
+                "value": "",
+                "type": "path",
+                "description": "The contact vehicle that should be updated"
+              }
+            ]
+          },
+          "docs": "Updates the given contact vehicle id"
+        },
+        {
+          "info": {
+            "name": "Removes the given vehicle contact",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/v1/resourceowner/contactvehicle/:contactVehicleIdToDelete",
+            "params": [
+              {
+                "name": "contactVehicleIdToDelete",
+                "value": "",
+                "type": "path",
+                "description": "The vehicle contact id to remove"
+              }
+            ]
+          },
+          "docs": "This will delete the given vehicle contact."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

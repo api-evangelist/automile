@@ -1,0 +1,893 @@
+{
+  "item": [
+    {
+      "id": "053fc49c-cff8-4385-8ca6-ce6e8ddc5c72",
+      "name": "ResourceOwnerVehicleOdometerV2",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "5a34648c-7f92-4e3f-859c-19f5d1a85e36",
+          "name": "Get current odometer value",
+          "request": {
+            "name": "Get current odometer value",
+            "description": {
+              "content": "Only vehicles that the user has relationships with are allowed.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "resourceowner",
+                "vehicles",
+                "odometer",
+                ":vehicleId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "fromDateUtc",
+                  "value": "<dateTime>",
+                  "description": "Period from-date"
+                },
+                {
+                  "disabled": false,
+                  "key": "toDateUtc",
+                  "value": "<dateTime>",
+                  "description": "Period to-date"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "vehicleId",
+                  "description": "(Required) Vehicle id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "read write"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.automile.com/login/"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "0b8c7eca-cd27-41eb-948b-a341814a2d2b",
+              "name": "The vehicle odmeter details are returned",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "vehicles",
+                    "odometer",
+                    ":vehicleId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fromDateUtc",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "toDateUtc",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "vehicleId",
+                      "description": "(Required) Vehicle id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"VehicleId\": 3679,\n  \"DistanceBusiness\": 6434.933117258842,\n  \"DistancePrivate\": 3375.5939332325347,\n  \"DistanceOther\": 976.1270999955796,\n  \"DistanceTotal\": 2439.508188939418,\n  \"StartOdometer\": 4531.179335283683,\n  \"EndOdometer\": 9542.541026973879,\n  \"FromDateUtc\": \"1958-12-10T11:56:07.405Z\",\n  \"ToDateUtc\": \"1965-11-15T23:38:39.948Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "56ad5b53-10a2-4e1a-b964-f592ec74ff47",
+              "name": "Request is forbidden, meaning you don't have access to this vehicle",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "vehicles",
+                    "odometer",
+                    ":vehicleId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fromDateUtc",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "toDateUtc",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "vehicleId",
+                      "description": "(Required) Vehicle id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "2cbf93ec-2eae-4e70-a729-bdc511e61679",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "vehicles",
+                    "odometer",
+                    ":vehicleId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fromDateUtc",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "toDateUtc",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "vehicleId",
+                      "description": "(Required) Vehicle id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "559c0aa6-b15c-4cda-88c4-296d90d66e84",
+          "name": "Calculate trips changes if odometer value changes",
+          "request": {
+            "name": "Calculate trips changes if odometer value changes",
+            "description": {
+              "content": "Only vehicles that the user has relationships with are allowed.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "resourceowner",
+                "vehicles",
+                "odometer",
+                ":vehicleId",
+                "calculate"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "fromDateUtc",
+                  "value": "<dateTime>",
+                  "description": "Optional period from-date defaults to first day och last month"
+                },
+                {
+                  "disabled": false,
+                  "key": "toDateUtc",
+                  "value": "<dateTime>",
+                  "description": "Optional period from-date defaults to last day of last month"
+                },
+                {
+                  "disabled": false,
+                  "key": "newOdometerValue",
+                  "value": "<double>",
+                  "description": "For calculating new trip values"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "vehicleId",
+                  "description": "(Required) Vehicle id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "read write"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.automile.com/login/"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "52291697-fc84-41e5-ba87-d3939b94a2de",
+              "name": "The vehicle odmeter details are returned",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "vehicles",
+                    "odometer",
+                    ":vehicleId",
+                    "calculate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fromDateUtc",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "toDateUtc",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "newOdometerValue",
+                      "value": "<double>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "vehicleId",
+                      "description": "(Required) Vehicle id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"VehicleId\": 3247,\n  \"DistanceBusiness\": 362.9928838207164,\n  \"DistancePrivate\": 1587.1380204013797,\n  \"DistanceOther\": 1476.215465115045,\n  \"DistanceTotal\": 440.74202362791584,\n  \"StartOdometer\": 9909.877973955503,\n  \"EndOdometer\": 8993.924286737336,\n  \"FromDateUtc\": \"1992-11-11T16:39:32.383Z\",\n  \"ToDateUtc\": \"1961-03-30T13:40:50.887Z\",\n  \"NewDistanceBusiness\": 2378.2939092827205,\n  \"NewDistancePrivate\": 4652.356816363573,\n  \"NewDistanceOther\": 6592.506582604454,\n  \"NewDistanceTotal\": 5699.915653092707,\n  \"NewEndOdometer\": 2691.75324930394\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "51dfaefe-a8e6-4090-8998-7752431aaf26",
+              "name": "Request is forbidden, meaning you don't have access to this vehicle",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "vehicles",
+                    "odometer",
+                    ":vehicleId",
+                    "calculate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fromDateUtc",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "toDateUtc",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "newOdometerValue",
+                      "value": "<double>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "vehicleId",
+                      "description": "(Required) Vehicle id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e3792d70-9347-4bee-a3bf-8114273d5792",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "vehicles",
+                    "odometer",
+                    ":vehicleId",
+                    "calculate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fromDateUtc",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "toDateUtc",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "newOdometerValue",
+                      "value": "<double>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "vehicleId",
+                      "description": "(Required) Vehicle id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "42768f60-2fcc-418a-9f43-2f414f1061fb",
+          "name": "Updates the given vehicle with new odometer value",
+          "request": {
+            "name": "Updates the given vehicle with new odometer value",
+            "description": {
+              "content": "This will update the odometer value of a vehicle. Max 5 percentage change of odometer value is permitted. Note: 23:59:59 is added to ToDateUtc.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "resourceowner",
+                "vehicles",
+                "odometer",
+                "updateodometer"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "read write"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.automile.com/login/"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"VehicleId\": \"<integer>\",\n  \"NewEndOdometer\": \"<double>\",\n  \"FromDateUtc\": \"<dateTime>\",\n  \"ToDateUtc\": \"<dateTime>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a88e084b-5681-44c5-bebb-c62d0687314c",
+              "name": "The odometer value was saved",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "vehicles",
+                    "odometer",
+                    "updateodometer"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"VehicleId\": \"<integer>\",\n  \"NewEndOdometer\": \"<double>\",\n  \"FromDateUtc\": \"<dateTime>\",\n  \"ToDateUtc\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e16e8a51-4a85-4a73-bdac-8bbc874cf6c2",
+              "name": "Bad request, could occur for a number of reasons, see return message",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "vehicles",
+                    "odometer",
+                    "updateodometer"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"VehicleId\": \"<integer>\",\n  \"NewEndOdometer\": \"<double>\",\n  \"FromDateUtc\": \"<dateTime>\",\n  \"ToDateUtc\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "328b231c-50ae-40b1-8d0c-37240d504b90",
+              "name": "Request is forbidden, meaning you don't have access to this vehicle",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "vehicles",
+                    "odometer",
+                    "updateodometer"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"VehicleId\": \"<integer>\",\n  \"NewEndOdometer\": \"<double>\",\n  \"FromDateUtc\": \"<dateTime>\",\n  \"ToDateUtc\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "5e397d68-230f-46cb-a1dc-a4d454af191c",
+              "name": "Not found, the vehicle you tried to update can't be found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "vehicles",
+                    "odometer",
+                    "updateodometer"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"VehicleId\": \"<integer>\",\n  \"NewEndOdometer\": \"<double>\",\n  \"FromDateUtc\": \"<dateTime>\",\n  \"ToDateUtc\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "74128182-d669-417d-a1bb-6c507dc9e0cb",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "vehicles",
+                    "odometer",
+                    "updateodometer"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"VehicleId\": \"<integer>\",\n  \"NewEndOdometer\": \"<double>\",\n  \"FromDateUtc\": \"<dateTime>\",\n  \"ToDateUtc\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "c6c636ac-4262-4bf4-9144-5c534daf3ac4",
+    "name": "Automile ClientApi ResourceOwnerVehicleOdometerV2 API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

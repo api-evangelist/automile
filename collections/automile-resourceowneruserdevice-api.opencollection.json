@@ -1,0 +1,119 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Automile ClientApi ResourceOwnerUserDevice API",
+    "version": "v1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "ResourceOwnerUserDevice",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get a list of all user devices that the user is associated with",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/resourceowner/userdevice"
+          },
+          "docs": "This will return the details of the user devices."
+        },
+        {
+          "info": {
+            "name": "Creates a new user device",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/resourceowner/userdevice"
+          },
+          "docs": "Creates a new user device"
+        },
+        {
+          "info": {
+            "name": "Get a list of all user devices that the user is associated with",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/resourceowner/userdevice/:userDeviceId",
+            "params": [
+              {
+                "name": "userDeviceId",
+                "value": "",
+                "type": "path",
+                "description": "The user device id"
+              }
+            ]
+          },
+          "docs": "Only user devices that are associated with the user are allowed."
+        },
+        {
+          "info": {
+            "name": "Updates the given user device with the new model",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/v1/resourceowner/userdevice/:userDeviceId",
+            "params": [
+              {
+                "name": "userDeviceId",
+                "value": "",
+                "type": "path",
+                "description": "The user device id"
+              }
+            ]
+          },
+          "docs": "Updates the given user device with the new model"
+        },
+        {
+          "info": {
+            "name": "Removes the given user device",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/v1/resourceowner/userdevice/:userDeviceId",
+            "params": [
+              {
+                "name": "userDeviceId",
+                "value": "",
+                "type": "path",
+                "description": "The user device id"
+              }
+            ]
+          },
+          "docs": "Removes the given user device"
+        },
+        {
+          "info": {
+            "name": "Add the user deivce if it isn't already exist, also adds default mobile push triggers",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/v1/resourceowner/userdevice/adduserdeviceifnewanddefaulttriggers"
+          },
+          "docs": "Add the user deivce if it isn't already exist, also adds default mobile push triggers"
+        },
+        {
+          "info": {
+            "name": "Add the user deivce if it isn't already exist",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/v1/resourceowner/userdevice/adduserdeviceifnew"
+          },
+          "docs": "Add the user deivce if it isn't already exist"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

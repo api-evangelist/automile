@@ -1,0 +1,1339 @@
+{
+  "item": [
+    {
+      "id": "8a440666-fea2-438c-96e2-f0f9df14a39c",
+      "name": "ResourceOwnerTripApprovalV2",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "aabb403d-1807-4bc6-b716-d9b9d73c9643",
+          "name": "List all trips which you as a user may submit for approval",
+          "request": {
+            "name": "List all trips which you as a user may submit for approval",
+            "description": {
+              "content": "Only returns tracked assets that the user have access to",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "resourceowner",
+                "tripapproval",
+                "unsubmitted",
+                ":vehicleId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "from",
+                  "value": "<dateTime>",
+                  "description": "Show only trips from this date (default = 30 days back)"
+                },
+                {
+                  "disabled": false,
+                  "key": "to",
+                  "value": "<dateTime>",
+                  "description": "Show only trips to this date, including the date (default = today)"
+                },
+                {
+                  "disabled": false,
+                  "key": "tripType",
+                  "value": "<integer>",
+                  "description": "Show only trips with this category. 0 = Business, 2 = Other. (default = any type)"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "vehicleId",
+                  "description": "(Required) Show only trips for this vehicleId"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "read write"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.automile.com/login/"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "4111cda7-02fc-46a1-99d7-530e94700adc",
+              "name": "The list of trips is returned",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "tripapproval",
+                    "unsubmitted",
+                    ":vehicleId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "tripType",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "vehicleId",
+                      "description": "(Required) Show only trips for this vehicleId"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"TripId\": 1961,\n    \"Category\": 1,\n    \"TripStartDateTime\": \"2007-04-30T10:31:17.976Z\",\n    \"TripEndDateTime\": \"1984-10-23T07:20:39.799Z\",\n    \"TripStartAddress\": \"string\",\n    \"TripEndAddress\": \"string\",\n    \"VehicleName\": \"string\",\n    \"DistanceInKilometer\": 9500.791341245133,\n    \"Duration\": {\n      \"Ticks\": 3446,\n      \"Days\": 2099,\n      \"Hours\": 3608,\n      \"Milliseconds\": 560,\n      \"Microseconds\": 8384,\n      \"Nanoseconds\": 1949,\n      \"Minutes\": 6541,\n      \"Seconds\": 2837,\n      \"TotalDays\": 8125.23765438028,\n      \"TotalHours\": 1558.994321851662,\n      \"TotalMilliseconds\": 5537.098039021289,\n      \"TotalMicroseconds\": 2023.092359485955,\n      \"TotalNanoseconds\": 7161.296203193576,\n      \"TotalMinutes\": 6369.424030048401,\n      \"TotalSeconds\": 7146.256024801818\n    },\n    \"Note\": \"string\"\n  },\n  {\n    \"TripId\": 5403,\n    \"Category\": 2,\n    \"TripStartDateTime\": \"2016-08-18T14:03:04.080Z\",\n    \"TripEndDateTime\": \"1961-05-15T04:26:58.757Z\",\n    \"TripStartAddress\": \"string\",\n    \"TripEndAddress\": \"string\",\n    \"VehicleName\": \"string\",\n    \"DistanceInKilometer\": 9291.333584735114,\n    \"Duration\": {\n      \"Ticks\": 7017,\n      \"Days\": 3441,\n      \"Hours\": 6410,\n      \"Milliseconds\": 2108,\n      \"Microseconds\": 5465,\n      \"Nanoseconds\": 6090,\n      \"Minutes\": 9163,\n      \"Seconds\": 3754,\n      \"TotalDays\": 4032.0204099720413,\n      \"TotalHours\": 3021.430669668901,\n      \"TotalMilliseconds\": 3805.67771977068,\n      \"TotalMicroseconds\": 7342.227241313264,\n      \"TotalNanoseconds\": 5782.708547344192,\n      \"TotalMinutes\": 6394.391267435718,\n      \"TotalSeconds\": 2202.698570529691\n    },\n    \"Note\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "76912ee1-706a-46e6-a25d-22bb8d156cc5",
+              "name": "Missing permission to access vehicle",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "tripapproval",
+                    "unsubmitted",
+                    ":vehicleId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "tripType",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "vehicleId",
+                      "description": "(Required) Show only trips for this vehicleId"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "3471a204-ba35-4046-8605-35c3eb5ed284",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "tripapproval",
+                    "unsubmitted",
+                    ":vehicleId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "tripType",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "vehicleId",
+                      "description": "(Required) Show only trips for this vehicleId"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "face29d8-ebe7-4276-8c84-1346f3ee8173",
+          "name": "Submit trips for approval",
+          "request": {
+            "name": "Submit trips for approval",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "resourceowner",
+                "tripapproval",
+                "submit"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "read write"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.automile.com/login/"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"From\": \"<dateTime>\",\n  \"To\": \"<dateTime>\",\n  \"TripIdList\": [\n    \"<integer>\",\n    \"<integer>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "1cc2ad18-eba5-4942-a830-c9e0acf334bc",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "tripapproval",
+                    "submit"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"From\": \"<dateTime>\",\n  \"To\": \"<dateTime>\",\n  \"TripIdList\": [\n    \"<integer>\",\n    \"<integer>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"TripId\": 1961,\n    \"Category\": 1,\n    \"TripStartDateTime\": \"2007-04-30T10:31:17.976Z\",\n    \"TripEndDateTime\": \"1984-10-23T07:20:39.799Z\",\n    \"TripStartAddress\": \"string\",\n    \"TripEndAddress\": \"string\",\n    \"VehicleName\": \"string\",\n    \"DistanceInKilometer\": 9500.791341245133,\n    \"Duration\": {\n      \"Ticks\": 3446,\n      \"Days\": 2099,\n      \"Hours\": 3608,\n      \"Milliseconds\": 560,\n      \"Microseconds\": 8384,\n      \"Nanoseconds\": 1949,\n      \"Minutes\": 6541,\n      \"Seconds\": 2837,\n      \"TotalDays\": 8125.23765438028,\n      \"TotalHours\": 1558.994321851662,\n      \"TotalMilliseconds\": 5537.098039021289,\n      \"TotalMicroseconds\": 2023.092359485955,\n      \"TotalNanoseconds\": 7161.296203193576,\n      \"TotalMinutes\": 6369.424030048401,\n      \"TotalSeconds\": 7146.256024801818\n    },\n    \"Note\": \"string\"\n  },\n  {\n    \"TripId\": 5403,\n    \"Category\": 2,\n    \"TripStartDateTime\": \"2016-08-18T14:03:04.080Z\",\n    \"TripEndDateTime\": \"1961-05-15T04:26:58.757Z\",\n    \"TripStartAddress\": \"string\",\n    \"TripEndAddress\": \"string\",\n    \"VehicleName\": \"string\",\n    \"DistanceInKilometer\": 9291.333584735114,\n    \"Duration\": {\n      \"Ticks\": 7017,\n      \"Days\": 3441,\n      \"Hours\": 6410,\n      \"Milliseconds\": 2108,\n      \"Microseconds\": 5465,\n      \"Nanoseconds\": 6090,\n      \"Minutes\": 9163,\n      \"Seconds\": 3754,\n      \"TotalDays\": 4032.0204099720413,\n      \"TotalHours\": 3021.430669668901,\n      \"TotalMilliseconds\": 3805.67771977068,\n      \"TotalMicroseconds\": 7342.227241313264,\n      \"TotalNanoseconds\": 5782.708547344192,\n      \"TotalMinutes\": 6394.391267435718,\n      \"TotalSeconds\": 2202.698570529691\n    },\n    \"Note\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "55b3fa28-a5f2-4bbf-b1fb-ec244162a45e",
+              "name": "Request successfully created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "tripapproval",
+                    "submit"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"From\": \"<dateTime>\",\n  \"To\": \"<dateTime>\",\n  \"TripIdList\": [\n    \"<integer>\",\n    \"<integer>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "4cf8536b-da5f-40dd-8094-703a90f72077",
+              "name": "Forbidden access to resource",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "tripapproval",
+                    "submit"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"From\": \"<dateTime>\",\n  \"To\": \"<dateTime>\",\n  \"TripIdList\": [\n    \"<integer>\",\n    \"<integer>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "30dd076e-cf33-4691-8675-add677f84566",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "tripapproval",
+                    "submit"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"From\": \"<dateTime>\",\n  \"To\": \"<dateTime>\",\n  \"TripIdList\": [\n    \"<integer>\",\n    \"<integer>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ec0b1056-b7fc-48cd-9c2b-683912c20375",
+          "name": "Get a trip approval request",
+          "request": {
+            "name": "Get a trip approval request",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "resourceowner",
+                "tripapproval",
+                "request",
+                ":tripApprovalRequestId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "tripApprovalRequestId",
+                  "description": "(Required) Trip approval request id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "read write"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.automile.com/login/"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "88dd50fe-b225-4d82-8f24-324acf4debce",
+              "name": "The trip approval request is returned",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "tripapproval",
+                    "request",
+                    ":tripApprovalRequestId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "tripApprovalRequestId",
+                      "description": "(Required) Trip approval request id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"TripApprovalRequestId\": 6381,\n  \"SubmitDateTime\": \"1963-01-14T00:57:08.469Z\",\n  \"SubmitterContactId\": 9863,\n  \"SubmitterProfileImage\": \"string\",\n  \"SubmitterFullName\": \"string\",\n  \"FromUtc\": \"1967-02-28T04:16:26.028Z\",\n  \"ToUtc\": \"2012-03-31T03:50:02.245Z\",\n  \"NrOfTrips\": 3115,\n  \"VehicleId\": 2880,\n  \"VehicleName\": \"string\",\n  \"TotalDistanceInKilometer\": 2413.087851241027,\n  \"TotalDuration\": {\n    \"Ticks\": 1282,\n    \"Days\": 956,\n    \"Hours\": 2832,\n    \"Milliseconds\": 7056,\n    \"Microseconds\": 4200,\n    \"Nanoseconds\": 3045,\n    \"Minutes\": 8256,\n    \"Seconds\": 6488,\n    \"TotalDays\": 518.8661252868765,\n    \"TotalHours\": 6464.060613726723,\n    \"TotalMilliseconds\": 9206.497945471092,\n    \"TotalMicroseconds\": 4064.51178452073,\n    \"TotalNanoseconds\": 485.00091321597273,\n    \"TotalMinutes\": 945.0980442284318,\n    \"TotalSeconds\": 8599.208110460653\n  },\n  \"Status\": 1,\n  \"StatusList\": [\n    {\n      \"Status\": 0,\n      \"ApproverFullName\": \"string\"\n    },\n    {\n      \"Status\": 3,\n      \"ApproverFullName\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c82ec3eb-857d-4030-88d9-123c77e37c5e",
+              "name": "No access to request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "tripapproval",
+                    "request",
+                    ":tripApprovalRequestId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "tripApprovalRequestId",
+                      "description": "(Required) Trip approval request id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "747284bb-4e5a-4bf0-b619-f3ebdacd231e",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "tripapproval",
+                    "request",
+                    ":tripApprovalRequestId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "tripApprovalRequestId",
+                      "description": "(Required) Trip approval request id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2b0b6232-1cb8-4e28-a395-30a009f9b631",
+          "name": "List all requests for trip approval which is submitted",
+          "request": {
+            "name": "List all requests for trip approval which is submitted",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "resourceowner",
+                "tripapproval",
+                "request"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "from",
+                  "value": "<dateTime>",
+                  "description": "Show only requests submited from this date (default = 30 days back)"
+                },
+                {
+                  "disabled": false,
+                  "key": "to",
+                  "value": "<dateTime>",
+                  "description": "Show only requests submited to this date (default = today)"
+                },
+                {
+                  "disabled": false,
+                  "key": "vehicleId",
+                  "value": "<integer>",
+                  "description": "Show only trips for this vehicleId (default = all vehicles submitted for)"
+                },
+                {
+                  "disabled": false,
+                  "key": "statusType",
+                  "value": "<integer>",
+                  "description": "Status on request, SentForApproval = 0, Declined = 1, Approved = 2 (default = any status)"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "read write"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.automile.com/login/"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "e857a194-bc31-4272-a652-92a5178a27c2",
+              "name": "The submitted requests are returned",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "tripapproval",
+                    "request"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "vehicleId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "statusType",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"TripApprovalRequestId\": 3504,\n    \"SubmitDateTime\": \"2024-08-11T03:12:29.640Z\",\n    \"SubmitterContactId\": 3262,\n    \"SubmitterProfileImage\": \"string\",\n    \"SubmitterFullName\": \"string\",\n    \"FromUtc\": \"1950-08-21T12:58:21.238Z\",\n    \"ToUtc\": \"1957-08-09T00:58:31.317Z\",\n    \"NrOfTrips\": 6135,\n    \"VehicleId\": 2435,\n    \"VehicleName\": \"string\",\n    \"TotalDistanceInKilometer\": 8290.599004906471,\n    \"TotalDuration\": {\n      \"Ticks\": 3607,\n      \"Days\": 2912,\n      \"Hours\": 6762,\n      \"Milliseconds\": 9795,\n      \"Microseconds\": 2884,\n      \"Nanoseconds\": 7989,\n      \"Minutes\": 263,\n      \"Seconds\": 1112,\n      \"TotalDays\": 2087.0345485994835,\n      \"TotalHours\": 9654.427077325488,\n      \"TotalMilliseconds\": 8949.680154660744,\n      \"TotalMicroseconds\": 39.157917498754415,\n      \"TotalNanoseconds\": 1595.2829409684866,\n      \"TotalMinutes\": 2471.785136327448,\n      \"TotalSeconds\": 3609.4009168258544\n    },\n    \"Status\": 3,\n    \"StatusList\": [\n      {\n        \"Status\": 2,\n        \"ApproverFullName\": \"string\"\n      },\n      {\n        \"Status\": 2,\n        \"ApproverFullName\": \"string\"\n      }\n    ]\n  },\n  {\n    \"TripApprovalRequestId\": 9602,\n    \"SubmitDateTime\": \"1987-06-17T22:23:57.029Z\",\n    \"SubmitterContactId\": 4917,\n    \"SubmitterProfileImage\": \"string\",\n    \"SubmitterFullName\": \"string\",\n    \"FromUtc\": \"2023-07-04T16:13:35.015Z\",\n    \"ToUtc\": \"2021-04-03T06:07:51.218Z\",\n    \"NrOfTrips\": 6566,\n    \"VehicleId\": 5321,\n    \"VehicleName\": \"string\",\n    \"TotalDistanceInKilometer\": 3270.8209054309823,\n    \"TotalDuration\": {\n      \"Ticks\": 8486,\n      \"Days\": 4403,\n      \"Hours\": 9123,\n      \"Milliseconds\": 6525,\n      \"Microseconds\": 5928,\n      \"Nanoseconds\": 9569,\n      \"Minutes\": 8279,\n      \"Seconds\": 2236,\n      \"TotalDays\": 6767.255135120184,\n      \"TotalHours\": 7025.1036347886975,\n      \"TotalMilliseconds\": 4540.255325136229,\n      \"TotalMicroseconds\": 9825.394657910183,\n      \"TotalNanoseconds\": 7029.782071192863,\n      \"TotalMinutes\": 5171.10360042413,\n      \"TotalSeconds\": 865.3724641106719\n    },\n    \"Status\": 3,\n    \"StatusList\": [\n      {\n        \"Status\": 3,\n        \"ApproverFullName\": \"string\"\n      },\n      {\n        \"Status\": 3,\n        \"ApproverFullName\": \"string\"\n      }\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5016396f-f08f-4d92-8154-cc7d8f14673b",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "tripapproval",
+                    "request"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "vehicleId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "statusType",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b7e781f7-2251-4e4a-a6ce-98f9f7cbdddc",
+          "name": "Approve or decline a trip approval request",
+          "request": {
+            "name": "Approve or decline a trip approval request",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "resourceowner",
+                "tripapproval",
+                ":tripApprovalRequestId",
+                "response"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "tripApprovalRequestId",
+                  "description": "(Required) Trip approval request id to approve"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "read write"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.automile.com/login/"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"Note\": \"<string>\",\n  \"Approved\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "85daede5-cd0b-46a2-9b74-8685adf3fae9",
+              "name": "The response has been successfully stored",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "tripapproval",
+                    ":tripApprovalRequestId",
+                    "response"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "tripApprovalRequestId",
+                      "description": "(Required) Trip approval request id to approve"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Note\": \"<string>\",\n  \"Approved\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "eadd8f2d-a741-4daa-b654-5592f780bb1e",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "tripapproval",
+                    ":tripApprovalRequestId",
+                    "response"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "tripApprovalRequestId",
+                      "description": "(Required) Trip approval request id to approve"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Note\": \"<string>\",\n  \"Approved\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "23323d70-9103-4cf9-88e1-2ae3006e9a1d",
+          "name": "Revoke a trip approval request",
+          "request": {
+            "name": "Revoke a trip approval request",
+            "description": {
+              "content": "Only allowed by the user who requested the approval and if no one has approved/declined the request",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "resourceowner",
+                "tripapproval",
+                ":tripApprovalRequestId",
+                "revoke"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "tripApprovalRequestId",
+                  "description": "(Required) Trip approval request id to decline"
+                }
+              ]
+            },
+            "method": "PUT",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "read write"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.automile.com/login/"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "985c61c6-a866-4329-8b7d-08baa570cf4c",
+              "name": "The request has been successfully revoked",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "tripapproval",
+                    ":tripApprovalRequestId",
+                    "revoke"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "tripApprovalRequestId",
+                      "description": "(Required) Trip approval request id to decline"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "368709ff-538c-4071-9a77-018dc4c12b61",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "tripapproval",
+                    ":tripApprovalRequestId",
+                    "revoke"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "tripApprovalRequestId",
+                      "description": "(Required) Trip approval request id to decline"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "987eb9a4-2f4d-45cc-8c0a-5b06b9501ca8",
+    "name": "Automile ClientApi ResourceOwnerTripApprovalV2 API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

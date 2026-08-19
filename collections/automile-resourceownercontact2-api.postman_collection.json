@@ -1,0 +1,3233 @@
+{
+  "item": [
+    {
+      "id": "b977f392-4f18-40a0-ad81-0df39b06a963",
+      "name": "ResourceOwnerContact2",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "471f4aa3-fa4c-4bd7-8ccf-141984851bf6",
+          "name": "Get a list of all contacts that user is associated with",
+          "request": {
+            "name": "Get a list of all contacts that user is associated with",
+            "description": {
+              "content": "Only companies that the user is associated with will be returned by this operation.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "resourceowner",
+                "contacts2"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "read write"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.automile.com/login/"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "c386c20c-f4e1-4a37-98a1-8228451cb5e8",
+              "name": "The contacts are returned",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "contacts2"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"ContactId\": 6389,\n    \"FirstName\": \"string\",\n    \"LastName\": \"string\",\n    \"EmailAddress\": \"string\",\n    \"MobilePhoneNumber\": \"string\",\n    \"ProfileImageUrl\": \"string\",\n    \"CheckedInDateTimeUtc\": \"1998-05-30T08:56:55.766Z\",\n    \"CheckedIntoVehicleId\": 2584,\n    \"CheckedInVehicleOdometerInKilometers\": 907.3408859110854,\n    \"IsManager\": true,\n    \"LastCheckedInTripType\": 0,\n    \"CheckedInCustomTripTypeName\": \"string\",\n    \"CompanyRoles\": [\n      5,\n      1\n    ],\n    \"CurrencyCode\": \"string\"\n  },\n  {\n    \"ContactId\": 9805,\n    \"FirstName\": \"string\",\n    \"LastName\": \"string\",\n    \"EmailAddress\": \"string\",\n    \"MobilePhoneNumber\": \"string\",\n    \"ProfileImageUrl\": \"string\",\n    \"CheckedInDateTimeUtc\": \"1974-04-30T09:48:41.375Z\",\n    \"CheckedIntoVehicleId\": 7,\n    \"CheckedInVehicleOdometerInKilometers\": 3671.428880275828,\n    \"IsManager\": false,\n    \"LastCheckedInTripType\": 2,\n    \"CheckedInCustomTripTypeName\": \"string\",\n    \"CompanyRoles\": [\n      1,\n      1\n    ],\n    \"CurrencyCode\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "86661458-cc93-4aa6-849d-ce427af60cfb",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "contacts2"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1c8d59af-2a41-4a5d-98a7-edcf90cb48a8",
+          "name": "Creates a new contact",
+          "request": {
+            "name": "Creates a new contact",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "resourceowner",
+                "contacts2"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "read write"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.automile.com/login/"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"CreateRelationshipToCompanyId\": \"<integer>\",\n  \"FirstName\": \"<string>\",\n  \"LastName\": \"<string>\",\n  \"EmailAddress\": \"<string>\",\n  \"Description\": \"<string>\",\n  \"CultureName\": \"<string>\",\n  \"CountryCodeIso1366\": \"<string>\",\n  \"DefaultVehicleId\": \"<integer>\",\n  \"UnitType\": \"<integer>\",\n  \"SubscribeToNewsLetter\": \"<boolean>\",\n  \"MobilePhoneNumber\": \"<string>\",\n  \"MapType\": \"<integer>\",\n  \"CurrencyCode\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f41de830-f87b-4959-9766-13df0cce8302",
+              "name": "A link in the header is returned to the newly created contact",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "contacts2"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"CreateRelationshipToCompanyId\": \"<integer>\",\n  \"FirstName\": \"<string>\",\n  \"LastName\": \"<string>\",\n  \"EmailAddress\": \"<string>\",\n  \"Description\": \"<string>\",\n  \"CultureName\": \"<string>\",\n  \"CountryCodeIso1366\": \"<string>\",\n  \"DefaultVehicleId\": \"<integer>\",\n  \"UnitType\": \"<integer>\",\n  \"SubscribeToNewsLetter\": \"<boolean>\",\n  \"MobilePhoneNumber\": \"<string>\",\n  \"MapType\": \"<integer>\",\n  \"CurrencyCode\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "89ed1e84-33ae-4272-8101-a5c855bc39c9",
+              "name": "Request is forbidden, this could occur if you try to associate the contact you are not associated with",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "contacts2"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"CreateRelationshipToCompanyId\": \"<integer>\",\n  \"FirstName\": \"<string>\",\n  \"LastName\": \"<string>\",\n  \"EmailAddress\": \"<string>\",\n  \"Description\": \"<string>\",\n  \"CultureName\": \"<string>\",\n  \"CountryCodeIso1366\": \"<string>\",\n  \"DefaultVehicleId\": \"<integer>\",\n  \"UnitType\": \"<integer>\",\n  \"SubscribeToNewsLetter\": \"<boolean>\",\n  \"MobilePhoneNumber\": \"<string>\",\n  \"MapType\": \"<integer>\",\n  \"CurrencyCode\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 5195,\n  \"detail\": \"string\",\n  \"instance\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "cb0f3614-c5a9-4029-a99a-4b55a692114b",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "contacts2"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"CreateRelationshipToCompanyId\": \"<integer>\",\n  \"FirstName\": \"<string>\",\n  \"LastName\": \"<string>\",\n  \"EmailAddress\": \"<string>\",\n  \"Description\": \"<string>\",\n  \"CultureName\": \"<string>\",\n  \"CountryCodeIso1366\": \"<string>\",\n  \"DefaultVehicleId\": \"<integer>\",\n  \"UnitType\": \"<integer>\",\n  \"SubscribeToNewsLetter\": \"<boolean>\",\n  \"MobilePhoneNumber\": \"<string>\",\n  \"MapType\": \"<integer>\",\n  \"CurrencyCode\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b046bad5-d99e-4691-bc73-4cdf04014f33",
+          "name": "Get a contact by id",
+          "request": {
+            "name": "Get a contact by id",
+            "description": {
+              "content": "The user only has access to companies that it is associated with",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "resourceowner",
+                "contacts2",
+                ":contactId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "contactId",
+                  "description": "(Required) The contact id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "read write"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.automile.com/login/"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "b5fb6a77-b276-4e8c-aae8-d6b69351e81f",
+              "name": "The contact is returned",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "contacts2",
+                    ":contactId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "contactId",
+                      "description": "(Required) The contact id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"ContactId\": 5648,\n  \"FirstName\": \"string\",\n  \"LastName\": \"string\",\n  \"EmailAddress\": \"string\",\n  \"Description\": \"string\",\n  \"CultureName\": \"string\",\n  \"CountryCodeIso1366\": \"string\",\n  \"DefaultVehicleId\": 7083,\n  \"UnitType\": 1,\n  \"SubscribeToNewsLetter\": false,\n  \"MobilePhoneNumber\": \"string\",\n  \"MapType\": 2,\n  \"CheckedIntoVehicleId\": 4984,\n  \"CheckedInDateTimeUtc\": \"1949-05-19T07:19:13.772Z\",\n  \"CheckOutDateTimeUtc\": \"1965-09-14T02:53:00.898Z\",\n  \"CheckedInTripType\": 3,\n  \"CheckedInCustomTripTypeName\": \"string\",\n  \"CompanyRoles\": [\n    3,\n    3\n  ],\n  \"ProfileImageUrl\": \"string\",\n  \"CurrencyCode\": \"string\",\n  \"CompaniesScopes\": [\n    {\n      \"CompanyId\": 3294,\n      \"VehicleIds\": [\n        1614,\n        2783\n      ],\n      \"Scopes\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"CompanyId\": 4440,\n      \"VehicleIds\": [\n        1162,\n        1055\n      ],\n      \"Scopes\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ],\n  \"IsLocked\": true,\n  \"CustomCategories\": [\n    {\n      \"CustomCategoryId\": 6171,\n      \"Value\": \"string\",\n      \"CustomCategoryType\": 1\n    },\n    {\n      \"CustomCategoryId\": 8616,\n      \"Value\": \"string\",\n      \"CustomCategoryType\": 1\n    }\n  ],\n  \"CheckedInVehicleOdometerInKilometers\": 3658.519215341536,\n  \"Organization\": {\n    \"OrganizationName\": \"string\",\n    \"LegalIdentificationNumber\": \"string\",\n    \"VATNumber\": \"string\",\n    \"BillingAddress\": {\n      \"AddressLine2\": \"string\",\n      \"City\": \"string\",\n      \"ISO3166CountryCode\": \"string\",\n      \"ZipCode\": \"string\",\n      \"AddressId\": 6626,\n      \"CompanyName\": \"string\",\n      \"ContactNameAtAddress\": \"string\",\n      \"AddressLine3\": \"string\",\n      \"AddressLine4\": \"string\",\n      \"StateOrProvince\": \"string\"\n    },\n    \"ShipmentAddress\": {\n      \"AddressLine2\": \"string\",\n      \"City\": \"string\",\n      \"ISO3166CountryCode\": \"string\",\n      \"ZipCode\": \"string\",\n      \"AddressId\": 2612,\n      \"CompanyName\": \"string\",\n      \"ContactNameAtAddress\": \"string\",\n      \"AddressLine3\": \"string\",\n      \"AddressLine4\": \"string\",\n      \"StateOrProvince\": \"string\"\n    },\n    \"Culture\": \"string\",\n    \"UnitType\": 0,\n    \"IsHierarchyEnabled\": true,\n    \"ISO4217CurrencyCode\": \"string\",\n    \"OrganizationId\": 7663\n  },\n  \"HoursOfServiceSettingsModel\": {\n    \"TimeZoneType\": 3,\n    \"WorkDayStartTime\": {\n      \"Ticks\": 4323,\n      \"Days\": 8307,\n      \"Hours\": 7506,\n      \"Milliseconds\": 4207,\n      \"Microseconds\": 3418,\n      \"Nanoseconds\": 6659,\n      \"Minutes\": 6417,\n      \"Seconds\": 4608,\n      \"TotalDays\": 9422.914012272306,\n      \"TotalHours\": 881.2972357337634,\n      \"TotalMilliseconds\": 6222.0882248539565,\n      \"TotalMicroseconds\": 5257.896420327634,\n      \"TotalNanoseconds\": 3360.465246503698,\n      \"TotalMinutes\": 2699.450330829306,\n      \"TotalSeconds\": 8090.600924328261\n    },\n    \"CycleRuleType\": 4,\n    \"CargoTypeType\": 1,\n    \"RestartRuleType\": 0,\n    \"RestBreakRuleType\": 0,\n    \"ShortHaulExceptionType\": 1,\n    \"OdometerUnitType\": 0,\n    \"WellSiteRuleType\": 1,\n    \"CarrierInfo\": {\n      \"AddressLine2\": \"string\",\n      \"City\": \"string\",\n      \"ISO3166CountryCode\": \"string\",\n      \"ZipCode\": \"string\",\n      \"AddressId\": 1284,\n      \"CompanyName\": \"string\",\n      \"ContactNameAtAddress\": \"string\",\n      \"AddressLine3\": \"string\",\n      \"AddressLine4\": \"string\",\n      \"StateOrProvince\": \"string\"\n    },\n    \"IsEnabled\": true\n  },\n  \"FieldServiceEnabled\": false,\n  \"FieldServiceEnabledWithinOrganization\": false,\n  \"ContactMenuLayout\": {\n    \"MenuLayout\": {\n      \"key_0\": 2\n    },\n    \"ExpiresAtUtc\": \"1964-12-30T04:30:05.862Z\",\n    \"RefreshedAtUtc\": \"2015-08-07T07:51:17.294Z\"\n  },\n  \"CreatedAt\": \"2019-05-11T10:48:40.379Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "79209900-8279-4f0b-9cbe-389400a9bf1b",
+              "name": "Request is forbidden, meaning you dont' have access to this contact",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "contacts2",
+                    ":contactId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "contactId",
+                      "description": "(Required) The contact id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 5195,\n  \"detail\": \"string\",\n  \"instance\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c7f644a8-83c1-40ed-bee5-15f43f33ca2d",
+              "name": "Contact does not exist",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "contacts2",
+                    ":contactId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "contactId",
+                      "description": "(Required) The contact id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 5195,\n  \"detail\": \"string\",\n  \"instance\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e98b668a-3bd7-44bf-a9fd-49db0aa5ddb2",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "contacts2",
+                    ":contactId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "contactId",
+                      "description": "(Required) The contact id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9d844a0a-aa89-4935-97bc-bb402a392bc7",
+          "name": "Updates the given contact id",
+          "request": {
+            "name": "Updates the given contact id",
+            "description": {
+              "content": "This will update the contact with the new model.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "resourceowner",
+                "contacts2",
+                ":contactId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "contactId",
+                  "description": "(Required) The contact that should be updated"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "read write"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.automile.com/login/"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"FirstName\": \"<string>\",\n  \"LastName\": \"<string>\",\n  \"EmailAddress\": \"<string>\",\n  \"Description\": \"<string>\",\n  \"CultureName\": \"<string>\",\n  \"CountryCodeIso1366\": \"<string>\",\n  \"DefaultVehicleId\": \"<integer>\",\n  \"UnitType\": \"<integer>\",\n  \"SubscribeToNewsLetter\": \"<boolean>\",\n  \"MobilePhoneNumber\": \"<string>\",\n  \"MapType\": \"<integer>\",\n  \"CheckOutDateTimeUtc\": \"<dateTime>\",\n  \"CheckedInTripType\": \"<integer>\",\n  \"CheckedInCustomTripTypeName\": \"<string>\",\n  \"CurrencyCode\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "dab38492-f638-4aef-832e-2a4141646197",
+              "name": "The contact was saved",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "contacts2",
+                    ":contactId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "contactId",
+                      "description": "(Required) The contact that should be updated"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"FirstName\": \"<string>\",\n  \"LastName\": \"<string>\",\n  \"EmailAddress\": \"<string>\",\n  \"Description\": \"<string>\",\n  \"CultureName\": \"<string>\",\n  \"CountryCodeIso1366\": \"<string>\",\n  \"DefaultVehicleId\": \"<integer>\",\n  \"UnitType\": \"<integer>\",\n  \"SubscribeToNewsLetter\": \"<boolean>\",\n  \"MobilePhoneNumber\": \"<string>\",\n  \"MapType\": \"<integer>\",\n  \"CheckOutDateTimeUtc\": \"<dateTime>\",\n  \"CheckedInTripType\": \"<integer>\",\n  \"CheckedInCustomTripTypeName\": \"<string>\",\n  \"CurrencyCode\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "3ba7106f-97bd-434d-baa0-c351586546cb",
+              "name": "Request is forbidden, this could occur if you are not associated with the contact",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "contacts2",
+                    ":contactId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "contactId",
+                      "description": "(Required) The contact that should be updated"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"FirstName\": \"<string>\",\n  \"LastName\": \"<string>\",\n  \"EmailAddress\": \"<string>\",\n  \"Description\": \"<string>\",\n  \"CultureName\": \"<string>\",\n  \"CountryCodeIso1366\": \"<string>\",\n  \"DefaultVehicleId\": \"<integer>\",\n  \"UnitType\": \"<integer>\",\n  \"SubscribeToNewsLetter\": \"<boolean>\",\n  \"MobilePhoneNumber\": \"<string>\",\n  \"MapType\": \"<integer>\",\n  \"CheckOutDateTimeUtc\": \"<dateTime>\",\n  \"CheckedInTripType\": \"<integer>\",\n  \"CheckedInCustomTripTypeName\": \"<string>\",\n  \"CurrencyCode\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 5195,\n  \"detail\": \"string\",\n  \"instance\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d948691e-f2d0-40a2-b17d-59da7162f20d",
+              "name": "The contact that you tried to update doesn't exist",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "contacts2",
+                    ":contactId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "contactId",
+                      "description": "(Required) The contact that should be updated"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"FirstName\": \"<string>\",\n  \"LastName\": \"<string>\",\n  \"EmailAddress\": \"<string>\",\n  \"Description\": \"<string>\",\n  \"CultureName\": \"<string>\",\n  \"CountryCodeIso1366\": \"<string>\",\n  \"DefaultVehicleId\": \"<integer>\",\n  \"UnitType\": \"<integer>\",\n  \"SubscribeToNewsLetter\": \"<boolean>\",\n  \"MobilePhoneNumber\": \"<string>\",\n  \"MapType\": \"<integer>\",\n  \"CheckOutDateTimeUtc\": \"<dateTime>\",\n  \"CheckedInTripType\": \"<integer>\",\n  \"CheckedInCustomTripTypeName\": \"<string>\",\n  \"CurrencyCode\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 5195,\n  \"detail\": \"string\",\n  \"instance\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ecee8ad7-4f2b-4214-80c5-fed8da2417c2",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "contacts2",
+                    ":contactId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "contactId",
+                      "description": "(Required) The contact that should be updated"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"FirstName\": \"<string>\",\n  \"LastName\": \"<string>\",\n  \"EmailAddress\": \"<string>\",\n  \"Description\": \"<string>\",\n  \"CultureName\": \"<string>\",\n  \"CountryCodeIso1366\": \"<string>\",\n  \"DefaultVehicleId\": \"<integer>\",\n  \"UnitType\": \"<integer>\",\n  \"SubscribeToNewsLetter\": \"<boolean>\",\n  \"MobilePhoneNumber\": \"<string>\",\n  \"MapType\": \"<integer>\",\n  \"CheckOutDateTimeUtc\": \"<dateTime>\",\n  \"CheckedInTripType\": \"<integer>\",\n  \"CheckedInCustomTripTypeName\": \"<string>\",\n  \"CurrencyCode\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "09a4b4d3-8d27-40fe-9ff1-2f28ecb4ac35",
+          "name": "Removes the given contact",
+          "request": {
+            "name": "Removes the given contact",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "resourceowner",
+                "contacts2",
+                ":contactId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "contactId",
+                  "description": "(Required) The company id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "DELETE",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "read write"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.automile.com/login/"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "f22d42a8-06c9-458f-9f49-957e5b96d87a",
+              "name": "The contact has been deleted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "contacts2",
+                    ":contactId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "contactId",
+                      "description": "(Required) The company id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c6ff189b-7232-4285-ba38-c942bd8e5a4e",
+              "name": "Request is bad, You can't delete a contact that is bound to a user",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "contacts2",
+                    ":contactId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "contactId",
+                      "description": "(Required) The company id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "488908f9-23df-4a38-a00e-d2e03c35e151",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "contacts2",
+                    ":contactId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "contactId",
+                      "description": "(Required) The company id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 5195,\n  \"detail\": \"string\",\n  \"instance\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "15765342-641d-47cc-8ded-f9c79f18b26e",
+              "name": "The contact that you tried to remove doesn't exist",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "contacts2",
+                    ":contactId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "contactId",
+                      "description": "(Required) The company id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 5195,\n  \"detail\": \"string\",\n  \"instance\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "daf4772f-3a78-40d2-940f-292d177c8839",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "contacts2",
+                    ":contactId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "contactId",
+                      "description": "(Required) The company id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "abc7b5ff-b830-43ca-bfac-f829e5de2661",
+          "name": "Get the contact representing myself",
+          "request": {
+            "name": "Get the contact representing myself",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "resourceowner",
+                "contacts2",
+                "me"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "read write"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.automile.com/login/"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "958e8443-a25d-43ab-b172-4e4d0536e50a",
+              "name": "The contact is returned",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "contacts2",
+                    "me"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"ContactId\": 9852,\n  \"FirstName\": \"string\",\n  \"LastName\": \"string\",\n  \"EmailAddress\": \"string\",\n  \"Description\": \"string\",\n  \"CultureName\": \"string\",\n  \"CountryCodeIso1366\": \"string\",\n  \"DefaultVehicleId\": 8783,\n  \"UnitType\": 2,\n  \"SubscribeToNewsLetter\": false,\n  \"MobilePhoneNumber\": \"string\",\n  \"MapType\": 2,\n  \"CheckedIntoVehicleId\": 3229,\n  \"CheckedInDateTimeUtc\": \"1990-03-01T16:09:47.066Z\",\n  \"CheckOutDateTimeUtc\": \"1983-10-04T03:10:52.439Z\",\n  \"CheckedInTripType\": 0,\n  \"CheckedInCustomTripTypeName\": \"string\",\n  \"CompanyRoles\": [\n    4,\n    1\n  ],\n  \"ProfileImageUrl\": \"string\",\n  \"CurrencyCode\": \"string\",\n  \"CompaniesScopes\": [\n    {\n      \"CompanyId\": 2609,\n      \"VehicleIds\": [\n        180,\n        6452\n      ],\n      \"Scopes\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"CompanyId\": 1301,\n      \"VehicleIds\": [\n        704,\n        287\n      ],\n      \"Scopes\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ],\n  \"IsLocked\": true,\n  \"CustomCategories\": [\n    {\n      \"CustomCategoryId\": 6613,\n      \"Value\": \"string\",\n      \"CustomCategoryType\": 0\n    },\n    {\n      \"CustomCategoryId\": 1077,\n      \"Value\": \"string\",\n      \"CustomCategoryType\": 1\n    }\n  ],\n  \"CheckedInVehicleOdometerInKilometers\": 329.269409972629,\n  \"Organization\": {\n    \"OrganizationName\": \"string\",\n    \"LegalIdentificationNumber\": \"string\",\n    \"VATNumber\": \"string\",\n    \"BillingAddress\": {\n      \"AddressLine2\": \"string\",\n      \"City\": \"string\",\n      \"ISO3166CountryCode\": \"string\",\n      \"ZipCode\": \"string\",\n      \"AddressId\": 2691,\n      \"CompanyName\": \"string\",\n      \"ContactNameAtAddress\": \"string\",\n      \"AddressLine3\": \"string\",\n      \"AddressLine4\": \"string\",\n      \"StateOrProvince\": \"string\"\n    },\n    \"ShipmentAddress\": {\n      \"AddressLine2\": \"string\",\n      \"City\": \"string\",\n      \"ISO3166CountryCode\": \"string\",\n      \"ZipCode\": \"string\",\n      \"AddressId\": 4573,\n      \"CompanyName\": \"string\",\n      \"ContactNameAtAddress\": \"string\",\n      \"AddressLine3\": \"string\",\n      \"AddressLine4\": \"string\",\n      \"StateOrProvince\": \"string\"\n    },\n    \"Culture\": \"string\",\n    \"UnitType\": 1,\n    \"IsHierarchyEnabled\": true,\n    \"ISO4217CurrencyCode\": \"string\",\n    \"OrganizationId\": 7385\n  },\n  \"HoursOfServiceSettingsModel\": {\n    \"TimeZoneType\": 5,\n    \"WorkDayStartTime\": {\n      \"Ticks\": 1990,\n      \"Days\": 5990,\n      \"Hours\": 4374,\n      \"Milliseconds\": 7396,\n      \"Microseconds\": 2987,\n      \"Nanoseconds\": 583,\n      \"Minutes\": 5353,\n      \"Seconds\": 5138,\n      \"TotalDays\": 6353.367794816935,\n      \"TotalHours\": 1810.3239371694358,\n      \"TotalMilliseconds\": 349.3675097470739,\n      \"TotalMicroseconds\": 759.3171387029851,\n      \"TotalNanoseconds\": 5784.708556421845,\n      \"TotalMinutes\": 8504.663937216366,\n      \"TotalSeconds\": 1215.8428619677875\n    },\n    \"CycleRuleType\": 2,\n    \"CargoTypeType\": 1,\n    \"RestartRuleType\": 1,\n    \"RestBreakRuleType\": 1,\n    \"ShortHaulExceptionType\": 0,\n    \"OdometerUnitType\": 2,\n    \"WellSiteRuleType\": 0,\n    \"CarrierInfo\": {\n      \"AddressLine2\": \"string\",\n      \"City\": \"string\",\n      \"ISO3166CountryCode\": \"string\",\n      \"ZipCode\": \"string\",\n      \"AddressId\": 924,\n      \"CompanyName\": \"string\",\n      \"ContactNameAtAddress\": \"string\",\n      \"AddressLine3\": \"string\",\n      \"AddressLine4\": \"string\",\n      \"StateOrProvince\": \"string\"\n    },\n    \"IsEnabled\": false\n  },\n  \"FieldServiceEnabled\": false,\n  \"FieldServiceEnabledWithinOrganization\": true,\n  \"ContactMenuLayout\": {\n    \"MenuLayout\": {\n      \"key_0\": 0,\n      \"key_1\": 2,\n      \"key_2\": 2\n    },\n    \"ExpiresAtUtc\": \"1982-02-03T14:09:57.583Z\",\n    \"RefreshedAtUtc\": \"2011-06-11T11:24:43.009Z\"\n  },\n  \"CreatedAt\": \"1995-09-14T01:29:37.112Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e2651368-d9b2-43dc-9954-8aefb807817a",
+              "name": "Request is forbidden, meaning you dont' have access to this contact",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "contacts2",
+                    "me"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 5195,\n  \"detail\": \"string\",\n  \"instance\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8310b16e-d296-4891-b7e4-f6680e3d9245",
+              "name": "Contact does not exist",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "contacts2",
+                    "me"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 5195,\n  \"detail\": \"string\",\n  \"instance\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7924abf0-ebfe-4b16-aca6-5499c22085af",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "contacts2",
+                    "me"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "106cfe59-fe9a-431f-9591-934797239d12",
+          "name": "Get contact profile image",
+          "request": {
+            "name": "Get contact profile image",
+            "description": {
+              "content": "This will get the contact profile image, image data is returned in the response content",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "resourceowner",
+                "contacts2",
+                "me",
+                "image"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "imageType",
+                  "value": "<integer>",
+                  "description": "enum ApiImageType"
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "read write"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.automile.com/login/"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "a13937a9-0389-409a-be17-2188fc9b2396",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "contacts2",
+                    "me",
+                    "image"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "imageType",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "024ab30c-b821-4bc3-bdaa-6b6c32a40908",
+          "name": "Upload contact profile image",
+          "request": {
+            "name": "Upload contact profile image",
+            "description": {
+              "content": "This updates the contact profile image",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "resourceowner",
+                "contacts2",
+                "me",
+                "uploadimage"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "multipart/form-data"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "read write"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.automile.com/login/"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            },
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "ContentType",
+                  "value": "<string>",
+                  "type": "text",
+                  "description": ""
+                },
+                {
+                  "key": "ContentDisposition",
+                  "value": "<string>",
+                  "type": "text",
+                  "description": ""
+                },
+                {
+                  "key": "Headers",
+                  "value": "<string>",
+                  "type": "text",
+                  "description": ""
+                },
+                {
+                  "key": "Length",
+                  "value": "<long>",
+                  "type": "text",
+                  "description": ""
+                },
+                {
+                  "key": "Name",
+                  "value": "<string>",
+                  "type": "text",
+                  "description": ""
+                },
+                {
+                  "key": "FileName",
+                  "value": "<string>",
+                  "type": "text",
+                  "description": ""
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "182141e0-47c7-421f-af56-13c5adbed978",
+              "name": "Profile image was saved",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "contacts2",
+                    "me",
+                    "uploadimage"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "ContentType",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "ContentDisposition",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "Headers",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "Length",
+                      "value": "<long>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "Name",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "FileName",
+                      "value": "<string>",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "7c4b9086-5776-4f1d-8d57-4b81ed8f580a",
+              "name": "Request is not properly formatted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "contacts2",
+                    "me",
+                    "uploadimage"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "ContentType",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "ContentDisposition",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "Headers",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "Length",
+                      "value": "<long>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "Name",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "FileName",
+                      "value": "<string>",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Acceptable",
+              "code": 406,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c3d364ff-4910-4971-a85e-5127b9d70925",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "contacts2",
+                    "me",
+                    "uploadimage"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "ContentType",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "ContentDisposition",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "Headers",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "Length",
+                      "value": "<long>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "Name",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "FileName",
+                      "value": "<string>",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "72ed3ed1-b23a-48f0-a9bf-664570a121d8",
+          "name": "Removes the users profile image\"",
+          "request": {
+            "name": "Removes the users profile image\"",
+            "description": {
+              "content": "This removes the contact profile image",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "resourceowner",
+                "contacts2",
+                "me",
+                "removeimage"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "PUT",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "read write"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.automile.com/login/"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "2520b94b-6112-4806-bfd9-01459310d7a2",
+              "name": "The profile image has been deleted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "contacts2",
+                    "me",
+                    "removeimage"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e75d6e8c-7134-4f49-a624-8572f0dcefd1",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "contacts2",
+                    "me",
+                    "removeimage"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "be81c432-37c6-476a-b4bd-6a849f1a0143",
+          "name": "Update Rfid Resource Owner Contact2",
+          "request": {
+            "name": "Update Rfid Resource Owner Contact2",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "resourceowner",
+                "contacts2",
+                "update-rfid"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "read write"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.automile.com/login/"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"Email\": \"<string>\",\n  \"Rfid\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "cc6b1503-6087-4c97-b436-4984a201c88e",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "contacts2",
+                    "update-rfid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Email\": \"<string>\",\n  \"Rfid\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1ea95c86-89c5-4bf2-b7e3-4c536c09843a",
+          "name": "Updates the default vehicle",
+          "request": {
+            "name": "Updates the default vehicle",
+            "description": {
+              "content": "This will update the default vehicle",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "resourceowner",
+                "contacts2",
+                "me",
+                "updatedefaultvehicle",
+                ":vehicleId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "vehicleId",
+                  "description": "(Required) The vehicle id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "read write"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.automile.com/login/"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "ff0afba0-a29b-4ca9-ae25-5c2832dbfdcc",
+              "name": "The default vehicle on contact was saved",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "contacts2",
+                    "me",
+                    "updatedefaultvehicle",
+                    ":vehicleId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "vehicleId",
+                      "description": "(Required) The vehicle id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a7726c03-9421-4349-ba94-9852ea39e830",
+              "name": "Request is forbidden, this could occur if you are not associated with the contact",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "contacts2",
+                    "me",
+                    "updatedefaultvehicle",
+                    ":vehicleId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "vehicleId",
+                      "description": "(Required) The vehicle id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 5195,\n  \"detail\": \"string\",\n  \"instance\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ff61269a-969a-4f9a-b711-9c45cbd58333",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "contacts2",
+                    "me",
+                    "updatedefaultvehicle",
+                    ":vehicleId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "vehicleId",
+                      "description": "(Required) The vehicle id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "063b1c73-0c8c-4f70-8dfa-df837a4bdbcb",
+          "name": "Updates the default vehicle",
+          "request": {
+            "name": "Updates the default vehicle",
+            "description": {
+              "content": "This will update the default vehicle",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "resourceowner",
+                "contacts2",
+                "updatedefaultvehicle",
+                ":vehicleId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "vehicleId",
+                  "description": "(Required) The vehicle id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "read write"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.automile.com/login/"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "5dde5a26-ceb5-4dcf-9cd1-0aa4931d17a6",
+              "name": "The default vehicle on contact was saved",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "contacts2",
+                    "updatedefaultvehicle",
+                    ":vehicleId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "vehicleId",
+                      "description": "(Required) The vehicle id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "252c0161-9971-424d-bb74-aae528a1f8d5",
+              "name": "Request is forbidden, this could occur if you are not associated with the contact",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "contacts2",
+                    "updatedefaultvehicle",
+                    ":vehicleId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "vehicleId",
+                      "description": "(Required) The vehicle id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 5195,\n  \"detail\": \"string\",\n  \"instance\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "da426b9f-790d-4824-9e53-d717c039d9d9",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "contacts2",
+                    "updatedefaultvehicle",
+                    ":vehicleId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "vehicleId",
+                      "description": "(Required) The vehicle id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "745bdf9c-659a-4dba-82a7-a97090964c41",
+          "name": "Add and remove custom categories",
+          "request": {
+            "name": "Add and remove custom categories",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "resourceowner",
+                "contacts2",
+                "customcategory"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "read write"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.automile.com/login/"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"ContactId\": \"<integer>\",\n  \"Added\": [\n    {\n      \"Value\": \"<string>\",\n      \"CustomCategoryType\": \"<integer>\"\n    },\n    {\n      \"Value\": \"<string>\",\n      \"CustomCategoryType\": \"<integer>\"\n    }\n  ],\n  \"Removed\": [\n    \"<integer>\",\n    \"<integer>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "4853a395-91c5-46c0-8343-314c3d52b71d",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "contacts2",
+                    "customcategory"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ContactId\": \"<integer>\",\n  \"Added\": [\n    {\n      \"Value\": \"<string>\",\n      \"CustomCategoryType\": \"<integer>\"\n    },\n    {\n      \"Value\": \"<string>\",\n      \"CustomCategoryType\": \"<integer>\"\n    }\n  ],\n  \"Removed\": [\n    \"<integer>\",\n    \"<integer>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "5f38e328-085b-48bc-a075-c0327e441738",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "contacts2",
+                    "customcategory"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ContactId\": \"<integer>\",\n  \"Added\": [\n    {\n      \"Value\": \"<string>\",\n      \"CustomCategoryType\": \"<integer>\"\n    },\n    {\n      \"Value\": \"<string>\",\n      \"CustomCategoryType\": \"<integer>\"\n    }\n  ],\n  \"Removed\": [\n    \"<integer>\",\n    \"<integer>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "50d4119e-83fc-486a-8699-e590e823d06e",
+          "name": "Get a custom category",
+          "request": {
+            "name": "Get a custom category",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "resourceowner",
+                "contacts2",
+                ":contactId",
+                "customcategories",
+                ":customCategoryId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "contactId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "customCategoryId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "read write"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.automile.com/login/"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "030e9b25-ecee-4c8d-8c1f-12fec5a52f2c",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "contacts2",
+                    ":contactId",
+                    "customcategories",
+                    ":customCategoryId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "contactId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "customCategoryId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"CustomCategoryId\": 517,\n  \"Value\": \"string\",\n  \"CustomCategoryType\": 0\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "51b9658e-1cfd-4d4f-8c96-2351a839e40c",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "contacts2",
+                    ":contactId",
+                    "customcategories",
+                    ":customCategoryId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "contactId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "customCategoryId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0e4b9937-fd59-46d3-b511-9720370bd1cc",
+          "name": "Get a all custom categories",
+          "request": {
+            "name": "Get a all custom categories",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "resourceowner",
+                "contacts2",
+                ":contactId",
+                "customcategories"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "contactId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "read write"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.automile.com/login/"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "a4d8f894-b27e-4ab4-93f3-9a0ae2af8529",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "contacts2",
+                    ":contactId",
+                    "customcategories"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "contactId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"CustomCategoryId\": 517,\n  \"Value\": \"string\",\n  \"CustomCategoryType\": 0\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7d74103c-108d-40f7-84fe-8c50241463a2",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "contacts2",
+                    ":contactId",
+                    "customcategories"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "contactId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "3b6ba934-f15b-44a8-a10a-bf4192137758",
+    "name": "Automile ClientApi ResourceOwnerContact2 API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

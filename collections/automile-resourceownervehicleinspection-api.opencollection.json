@@ -1,0 +1,123 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Automile ClientApi ResourceOwnerVehicleInspection API",
+    "version": "v1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "ResourceOwnerVehicleInspection",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get a vehicle inspection",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/resourceowner/vehicleinspection/:vehicleInspectionId",
+            "params": [
+              {
+                "name": "vehicleInspectionId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Only returns vehicle inspetions that the user have access to"
+        },
+        {
+          "info": {
+            "name": "Updates the given vehicle inspection with new model",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/v1/resourceowner/vehicleinspection/:vehicleInspectionId",
+            "params": [
+              {
+                "name": "vehicleInspectionId",
+                "value": "",
+                "type": "path",
+                "description": "The vehicle inspection id"
+              }
+            ]
+          },
+          "docs": "This will update the given vehicle id with a new model."
+        },
+        {
+          "info": {
+            "name": "Get all vehicle inspections that the user has access to",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/resourceowner/vehicleinspection",
+            "params": [
+              {
+                "name": "vehicleInspectionId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "vehicleId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "fromDate",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "toDate",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "excludeArchived",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Only returns vehicle inspetions that the user have access to"
+        },
+        {
+          "info": {
+            "name": "Creates a new vehicle inspection",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/resourceowner/vehicleinspection"
+          },
+          "docs": "This will create a new vehicle inspection and make the association you set."
+        },
+        {
+          "info": {
+            "name": "Export a vehicle inspection in pdf format via email",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/resourceowner/vehicleinspection/export/:vehicleInspectionId",
+            "params": [
+              {
+                "name": "vehicleInspectionId",
+                "value": "",
+                "type": "path",
+                "description": "The VehicleInspectionId of the Vehicle Inspection to export"
+              }
+            ]
+          },
+          "docs": "Only vehicle inspections that the user has access rights to are accessible."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

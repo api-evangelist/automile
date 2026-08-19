@@ -1,0 +1,146 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Automile ClientApi ResourceOwnerContact API",
+    "version": "v1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "ResourceOwnerContact",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get a list of all contacts that user is associated with",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/resourceowner/contacts"
+          },
+          "docs": "Only contacts that the user is associated with will be returned by this operation."
+        },
+        {
+          "info": {
+            "name": "Creates a new contact",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/resourceowner/contacts"
+          },
+          "docs": "Creates a new contact"
+        },
+        {
+          "info": {
+            "name": "Get a contact by id",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/resourceowner/contacts/:contactId",
+            "params": [
+              {
+                "name": "contactId",
+                "value": "",
+                "type": "path",
+                "description": "The contact id"
+              }
+            ]
+          },
+          "docs": "Get a contact by id"
+        },
+        {
+          "info": {
+            "name": "Updates the given contact id",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/v1/resourceowner/contacts/:contactId",
+            "params": [
+              {
+                "name": "contactId",
+                "value": "",
+                "type": "path",
+                "description": "The contact id"
+              }
+            ]
+          },
+          "docs": "Updates the given contact id"
+        },
+        {
+          "info": {
+            "name": "Removes the given contact",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/v1/resourceowner/contacts/:contactId",
+            "params": [
+              {
+                "name": "contactId",
+                "value": "",
+                "type": "path",
+                "description": "The contact id to remove"
+              }
+            ]
+          },
+          "docs": "Removes the given contact"
+        },
+        {
+          "info": {
+            "name": "Get the contact representing myself",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/resourceowner/contacts/me"
+          },
+          "docs": "Get the contact representing myself"
+        },
+        {
+          "info": {
+            "name": "Updates the default vehicle",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/v1/resourceowner/contacts/me/updatedefaultvehicle/:vehicleId",
+            "params": [
+              {
+                "name": "vehicleId",
+                "value": "",
+                "type": "path",
+                "description": "The vehicle id"
+              }
+            ]
+          },
+          "docs": "This will update the default vehicle"
+        },
+        {
+          "info": {
+            "name": "Updates the default vehicle",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/v1/resourceowner/contacts/updatedefaultvehicle/:vehicleId",
+            "params": [
+              {
+                "name": "vehicleId",
+                "value": "",
+                "type": "path",
+                "description": "The vehicle id"
+              }
+            ]
+          },
+          "docs": "This will update the default vehicle"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

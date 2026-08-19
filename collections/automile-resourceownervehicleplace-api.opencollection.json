@@ -1,0 +1,105 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Automile ClientApi ResourceOwnerVehiclePlace API",
+    "version": "v1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "ResourceOwnerVehiclePlace",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get vehicle place",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/resourceowner/vehicleplace/:vehiclePlaceId",
+            "params": [
+              {
+                "name": "vehiclePlaceId",
+                "value": "",
+                "type": "path",
+                "description": "The vehicle place id"
+              }
+            ]
+          },
+          "docs": "Only vehicle places that the user has access to are accessible."
+        },
+        {
+          "info": {
+            "name": "Edit the relationship between the vehicle and the place",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/v1/resourceowner/vehicleplace/:vehiclePlaceId",
+            "params": [
+              {
+                "name": "vehiclePlaceId",
+                "value": "",
+                "type": "path",
+                "description": "The vehicle place id"
+              }
+            ]
+          },
+          "docs": "Edit the relationship between the vehicle and the place"
+        },
+        {
+          "info": {
+            "name": "Removes association between a vehicle and place",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/v1/resourceowner/vehicleplace/:vehiclePlaceId",
+            "params": [
+              {
+                "name": "vehiclePlaceId",
+                "value": "",
+                "type": "path",
+                "description": "The vehiclePlaceId association to remove"
+              }
+            ]
+          },
+          "docs": "This will remove the association between a place and a vehicle."
+        },
+        {
+          "info": {
+            "name": "Get vehicle place",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/resourceowner/vehicleplace",
+            "params": [
+              {
+                "name": "placeId",
+                "value": "",
+                "type": "query",
+                "description": "The place id"
+              }
+            ]
+          },
+          "docs": "Only vehicle places that the user has access to are accessible."
+        },
+        {
+          "info": {
+            "name": "Associate a vehicle with a place",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/resourceowner/vehicleplace"
+          },
+          "docs": "Associate a vehicle with a place"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

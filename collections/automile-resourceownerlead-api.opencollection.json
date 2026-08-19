@@ -1,0 +1,29 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Automile ClientApi ResourceOwnerLead API",
+    "version": "v1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "ResourceOwnerLead",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Creates or updates lead",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/resourceowner/lead"
+          },
+          "docs": "Creates or updates lead"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

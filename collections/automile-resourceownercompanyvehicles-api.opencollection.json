@@ -1,0 +1,105 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Automile ClientApi ResourceOwnerCompanyVehicles API",
+    "version": "v1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "ResourceOwnerCompanyVehicles",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get a list of all company vehicles that user is associated with",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/resourceowner/companyvehicle",
+            "params": [
+              {
+                "name": "companyId",
+                "value": "",
+                "type": "query",
+                "description": "Filter on company id"
+              }
+            ]
+          },
+          "docs": "Only company vehicles that the user is associated with will be returned by this operation."
+        },
+        {
+          "info": {
+            "name": "Creates a new company vehicle and associates it with user through the company",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/resourceowner/companyvehicle"
+          },
+          "docs": "The user only has access to contacts that it is associated with through the company"
+        },
+        {
+          "info": {
+            "name": "Get the company vehicle relationship",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/resourceowner/companyvehicle/:companyVehicleId",
+            "params": [
+              {
+                "name": "companyVehicleId",
+                "value": "",
+                "type": "path",
+                "description": "The company vehicle id"
+              }
+            ]
+          },
+          "docs": "Only company vehicle that the user has access to are accessible."
+        },
+        {
+          "info": {
+            "name": "Updates the given company vehicle id",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/v1/resourceowner/companyvehicle/:companyVehicleIdToEdit",
+            "params": [
+              {
+                "name": "companyVehicleIdToEdit",
+                "value": "",
+                "type": "path",
+                "description": "The vehicle contact that should be updated"
+              }
+            ]
+          },
+          "docs": "This will update the company vehicle with the new model."
+        },
+        {
+          "info": {
+            "name": "Removes the given company vehicle",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/v1/resourceowner/companyvehicle/:companyVehicleIdToDelete",
+            "params": [
+              {
+                "name": "companyVehicleIdToDelete",
+                "value": "",
+                "type": "path",
+                "description": "The company vehicle id to remove"
+              }
+            ]
+          },
+          "docs": "This will delete the given company contact."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,156 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Automile ClientApi ResourceOwnerExpenseReportV2 API",
+    "version": "v1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "ResourceOwnerExpenseReportV2",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get a list of expense reports",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/resourceowner/expensereport",
+            "params": [
+              {
+                "name": "tripId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "vehicleId",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Only expense reports that the user has access to are accessible."
+        },
+        {
+          "info": {
+            "name": "Create an expense reports",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/resourceowner/expensereport"
+          },
+          "docs": "This will create expense report"
+        },
+        {
+          "info": {
+            "name": "Get an expense reports",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/resourceowner/expensereport/:expenseReportId",
+            "params": [
+              {
+                "name": "expenseReportId",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Only expense reports that the user has access to are accessible."
+        },
+        {
+          "info": {
+            "name": "Updates the given expense report",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/v1/resourceowner/expensereport/:expenseReportId",
+            "params": [
+              {
+                "name": "expenseReportId",
+                "value": "",
+                "type": "path",
+                "description": "The expense report id"
+              }
+            ]
+          },
+          "docs": "This will update the given expense report id with a new model."
+        },
+        {
+          "info": {
+            "name": "Removes the given expense report",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/v1/resourceowner/expensereport/:expenseReportId",
+            "params": [
+              {
+                "name": "expenseReportId",
+                "value": "",
+                "type": "path",
+                "description": "The expense report id"
+              }
+            ]
+          },
+          "docs": "Removes the given expense report"
+        },
+        {
+          "info": {
+            "name": "Export an expense report in pdf format",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/resourceowner/expensereport/export/:expenseReportId",
+            "params": [
+              {
+                "name": "expenseReportId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Only expense reports that the user has access to are accessible."
+        },
+        {
+          "info": {
+            "name": "Export an expense report in pdf format",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/resourceowner/expensereport/export"
+          },
+          "docs": "Only expense reports that the user has access to are accessible."
+        },
+        {
+          "info": {
+            "name": "Removes the given expense report rows",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/v1/resourceowner/expensereport/:expenseReportId/expenseReportItems",
+            "params": [
+              {
+                "name": "expenseReportId",
+                "value": "",
+                "type": "path",
+                "description": "The expense report id"
+              }
+            ]
+          },
+          "docs": "Removes the given expense report rows"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

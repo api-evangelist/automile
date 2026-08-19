@@ -1,0 +1,97 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Automile ClientApi ResourceOwnerCompany API",
+    "version": "v1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "ResourceOwnerCompany",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get a list of all companies that user is associated with",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/resourceowner/companies"
+          },
+          "docs": "Only companies that the user is associated with will be returned by this operation."
+        },
+        {
+          "info": {
+            "name": "Creates a new company and associates it with the user",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/resourceowner/companies"
+          },
+          "docs": "Creates a new company and associates it with the user"
+        },
+        {
+          "info": {
+            "name": "Get a company by id",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/resourceowner/companies/:companyId",
+            "params": [
+              {
+                "name": "companyId",
+                "value": "",
+                "type": "path",
+                "description": "The Id of the company"
+              }
+            ]
+          },
+          "docs": "The user only has access to contacts that it is associated with through the company"
+        },
+        {
+          "info": {
+            "name": "Updates the given company id",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/v1/resourceowner/companies/:companyId",
+            "params": [
+              {
+                "name": "companyId",
+                "value": "",
+                "type": "path",
+                "description": "The company id"
+              }
+            ]
+          },
+          "docs": "This will update the company contact with the new model."
+        },
+        {
+          "info": {
+            "name": "Removes the given company",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/v1/resourceowner/companies/:companyId",
+            "params": [
+              {
+                "name": "companyId",
+                "value": "",
+                "type": "path",
+                "description": "The company id"
+              }
+            ]
+          },
+          "docs": "This will delete the given company contact."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

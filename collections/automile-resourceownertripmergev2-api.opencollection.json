@@ -1,0 +1,67 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Automile ClientApi ResourceOwnerTripMergeV2 API",
+    "version": "v1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "ResourceOwnerTripMergeV2",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Merge trips",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/resourceowner/tripmerge"
+          },
+          "docs": "Url is returned as location in header"
+        },
+        {
+          "info": {
+            "name": "Unmerge trips",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/v1/resourceowner/tripmerge/:tripId/unmerge",
+            "params": [
+              {
+                "name": "tripId",
+                "value": "",
+                "type": "path",
+                "description": "Trip id of merged trip"
+              }
+            ]
+          },
+          "docs": "Unmerge trips"
+        },
+        {
+          "info": {
+            "name": "Get all trips within a merged trip",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/resourceowner/tripmerge/:tripId",
+            "params": [
+              {
+                "name": "tripId",
+                "value": "",
+                "type": "path",
+                "description": "Trip id on merged trip"
+              }
+            ]
+          },
+          "docs": "Get all trips within a merged trip"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

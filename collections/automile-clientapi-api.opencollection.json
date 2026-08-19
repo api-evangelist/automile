@@ -1,0 +1,29 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Automile ClientApi API",
+    "version": "v1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "ClientApi",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get the current API client that access the API",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/client/api"
+          },
+          "docs": "Returns the given API Client that the token is valid for"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

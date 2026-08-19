@@ -1,0 +1,189 @@
+{
+  "item": [
+    {
+      "id": "e114c47f-c9d1-4f4d-b20a-ec0e577c5b89",
+      "name": "ResourceOwnerLead",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "0fe48609-bf4c-486b-9e0b-4f0687c53320",
+          "name": "Creates or updates lead",
+          "request": {
+            "name": "Creates or updates lead",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "resourceowner",
+                "lead"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "read write"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.automile.com/login/"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"DeviceType\": \"<integer>\",\n  \"Email\": \"<string>\",\n  \"FirstName\": \"<string>\",\n  \"LastName\": \"<string>\",\n  \"NumberOfDevices\": \"<integer>\",\n  \"PhoneNumber\": \"<string>\",\n  \"CompanyName\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "88b3eb6e-0def-4c86-b238-53f3f0beb5b1",
+              "name": "Ok",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "lead"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"DeviceType\": \"<integer>\",\n  \"Email\": \"<string>\",\n  \"FirstName\": \"<string>\",\n  \"LastName\": \"<string>\",\n  \"NumberOfDevices\": \"<integer>\",\n  \"PhoneNumber\": \"<string>\",\n  \"CompanyName\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "250d6f4c-ffef-4c06-8685-8bb4c85ff458",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "lead"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"DeviceType\": \"<integer>\",\n  \"Email\": \"<string>\",\n  \"FirstName\": \"<string>\",\n  \"LastName\": \"<string>\",\n  \"NumberOfDevices\": \"<integer>\",\n  \"PhoneNumber\": \"<string>\",\n  \"CompanyName\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "c5914ffe-227f-41ac-8ad2-922ccd794178",
+    "name": "Automile ClientApi ResourceOwnerLead API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

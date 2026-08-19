@@ -1,0 +1,97 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Automile ClientApi ResourceOwnerPlace API",
+    "version": "v1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "ResourceOwnerPlace",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get places",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/resourceowner/place"
+          },
+          "docs": "Only places that the user has access to are accessible."
+        },
+        {
+          "info": {
+            "name": "Creates a new place",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/resourceowner/place"
+          },
+          "docs": "This will create a new place and associate it with a vehicle."
+        },
+        {
+          "info": {
+            "name": "Get place",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/resourceowner/place/:placeId",
+            "params": [
+              {
+                "name": "placeId",
+                "value": "",
+                "type": "path",
+                "description": "The places id"
+              }
+            ]
+          },
+          "docs": "Only places that the user has access to are accessible."
+        },
+        {
+          "info": {
+            "name": "Updates the given place with new model",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/v1/resourceowner/place/:placeId",
+            "params": [
+              {
+                "name": "placeId",
+                "value": "",
+                "type": "path",
+                "description": "The vehicle id"
+              }
+            ]
+          },
+          "docs": "This will update the given place id with a new model."
+        },
+        {
+          "info": {
+            "name": "Removes the given company",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/v1/resourceowner/place/:placeId",
+            "params": [
+              {
+                "name": "placeId",
+                "value": "",
+                "type": "path",
+                "description": "The place id"
+              }
+            ]
+          },
+          "docs": "Removes the given place."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

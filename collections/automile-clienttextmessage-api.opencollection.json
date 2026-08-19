@@ -1,0 +1,40 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Automile ClientApi ClientTextMessage API",
+    "version": "v1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "ClientTextMessage",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create and send pin code to login with",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/client/textmessages/createpin"
+          },
+          "docs": "Create and send pin code to login with"
+        },
+        {
+          "info": {
+            "name": "Validate Pin Code",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/client/textmessages/validatepin"
+          },
+          "docs": "Validate Pin Code"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,189 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Automile ClientApi ResourceOwnerHoursOfService API",
+    "version": "v1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "ResourceOwnerHoursOfService",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "HoursOfServiceDeleteCycles",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/v1/resourceowner/hoursofservice"
+          }
+        },
+        {
+          "info": {
+            "name": "Parse Hours Of Service duty statuses to cycles and work shiftsS \r\nor ended in the date interval",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/resourceowner/hoursofservice/cycles",
+            "params": [
+              {
+                "name": "fromDate",
+                "value": "",
+                "type": "query",
+                "description": "Query on from date"
+              },
+              {
+                "name": "toDate",
+                "value": "",
+                "type": "query",
+                "description": "Query on to date"
+              }
+            ]
+          },
+          "docs": "Parse Hours Of Service duty statuses to cycles and work shiftsS \r\nor ended in the date interval"
+        },
+        {
+          "info": {
+            "name": "Get the Hours of Service statuses that started in the date interval \r\nor ended in the date interval",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/resourceowner/hoursofservice/statuses",
+            "params": [
+              {
+                "name": "fromDate",
+                "value": "",
+                "type": "query",
+                "description": "Query on from date"
+              },
+              {
+                "name": "toDate",
+                "value": "",
+                "type": "query",
+                "description": "Query on to date"
+              },
+              {
+                "name": "hoursOfServiceLogId",
+                "value": "",
+                "type": "query",
+                "description": "Query on id"
+              },
+              {
+                "name": "contactId",
+                "value": "",
+                "type": "query",
+                "description": "Get statuses for a contact"
+              },
+              {
+                "name": "vehicleId",
+                "value": "",
+                "type": "query",
+                "description": "Get statuses for a vehicle"
+              },
+              {
+                "name": "notes",
+                "value": "",
+                "type": "query",
+                "description": "Query on notes"
+              }
+            ]
+          },
+          "docs": "Get the Hours of Service statuses that started in the date interval \r\nor ended in the date interval"
+        },
+        {
+          "info": {
+            "name": "Get the Hours of Service statuses that have beend added, updated or deleted",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/resourceowner/hoursofservice/synch",
+            "params": [
+              {
+                "name": "lastSynchDate",
+                "value": "",
+                "type": "query",
+                "description": "Query on status that have been created, modified or deleted"
+              },
+              {
+                "name": "contactId",
+                "value": "",
+                "type": "query",
+                "description": "Get statuses for a contact"
+              }
+            ]
+          },
+          "docs": "Get the Hours of Service statuses that have beend added, updated or deleted"
+        },
+        {
+          "info": {
+            "name": "Creates Hours Of Service duty status entry",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/resourceowner/hoursofservice/status"
+          },
+          "docs": "Creates Hours Of Service duty status entry"
+        },
+        {
+          "info": {
+            "name": "Get the current user Hours of Service settings",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/resourceowner/hoursofservice/settings",
+            "params": [
+              {
+                "name": "contactHoursOfServiceSettingsId",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get the current user Hours of Service settings"
+        },
+        {
+          "info": {
+            "name": "Creates Hours Of Service Settings",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/resourceowner/hoursofservice/settings"
+          },
+          "docs": "Creates Hours Of Service Settings"
+        },
+        {
+          "info": {
+            "name": "Export Hours Of Service Log",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/resourceowner/hoursofservice/export"
+          },
+          "docs": "Export Hours Of Service Log"
+        },
+        {
+          "info": {
+            "name": "Export Hours Of Service Log as a PDF",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/resourceowner/hoursofservice/exportpdf"
+          },
+          "docs": "Export Hours Of Service Log as a PDF"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

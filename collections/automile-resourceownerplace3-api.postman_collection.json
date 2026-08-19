@@ -1,0 +1,1157 @@
+{
+  "item": [
+    {
+      "id": "a2bf572e-61b7-4404-82df-66c393e5276b",
+      "name": "ResourceOwnerPlace3",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "597a772e-1883-478d-bb2d-a7e548805992",
+          "name": "Gets all places for organization",
+          "request": {
+            "name": "Gets all places for organization",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "resourceowner",
+                "place3"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "read write"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.automile.com/login/"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "7f764944-ee19-44f9-af1f-3f48edab38e7",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "place3"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"PlaceId\": 2714,\n    \"Name\": \"string\",\n    \"Description\": \"string\",\n    \"PositionPoint\": {\n      \"Longitude\": 2650.452550519414,\n      \"Latitude\": 3962.517991416016\n    },\n    \"TripType\": 0,\n    \"TripTypeTrigger\": 3,\n    \"Radius\": 5604,\n    \"IsEditable\": true,\n    \"OrganizationNodeId\": 5790,\n    \"DrivesBetweenAnotherPlaceId\": 4535\n  },\n  {\n    \"PlaceId\": 7859,\n    \"Name\": \"string\",\n    \"Description\": \"string\",\n    \"PositionPoint\": {\n      \"Longitude\": 4444.200405252014,\n      \"Latitude\": 9487.545207723337\n    },\n    \"TripType\": 2,\n    \"TripTypeTrigger\": 0,\n    \"Radius\": 6769,\n    \"IsEditable\": false,\n    \"OrganizationNodeId\": 1046,\n    \"DrivesBetweenAnotherPlaceId\": 7874\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "00c0a691-907a-4e6c-ac66-1fddc66baff1",
+          "name": "Creates a new place for organization",
+          "request": {
+            "name": "Creates a new place for organization",
+            "description": {
+              "content": "This will create a new place and associate it with a number of vehicles.\r\n            Only vehicles authorized for edit will be added to the place.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "resourceowner",
+                "place3"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "read write"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.automile.com/login/"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"Name\": \"<string>\",\n  \"PositionPoint\": {\n    \"Longitude\": \"<double>\",\n    \"Latitude\": \"<double>\"\n  },\n  \"Radius\": \"<integer>\",\n  \"Description\": \"<string>\",\n  \"TripType\": \"<integer>\",\n  \"TripTypeTrigger\": \"<integer>\",\n  \"OrganizationNodeId\": \"<integer>\",\n  \"DrivesBetweenAnotherPlaceId\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b9034b2c-825f-4265-97bb-1f7c583d6021",
+              "name": "A link in the header is returned to the newly created place",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "place3"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Name\": \"<string>\",\n  \"PositionPoint\": {\n    \"Longitude\": \"<double>\",\n    \"Latitude\": \"<double>\"\n  },\n  \"Radius\": \"<integer>\",\n  \"Description\": \"<string>\",\n  \"TripType\": \"<integer>\",\n  \"TripTypeTrigger\": \"<integer>\",\n  \"OrganizationNodeId\": \"<integer>\",\n  \"DrivesBetweenAnotherPlaceId\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "3b8c73f0-597e-443c-93d7-acc0fc73e6fc",
+              "name": "Bad request, could occur for a number of cases, see returned message",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "place3"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Name\": \"<string>\",\n  \"PositionPoint\": {\n    \"Longitude\": \"<double>\",\n    \"Latitude\": \"<double>\"\n  },\n  \"Radius\": \"<integer>\",\n  \"Description\": \"<string>\",\n  \"TripType\": \"<integer>\",\n  \"TripTypeTrigger\": \"<integer>\",\n  \"OrganizationNodeId\": \"<integer>\",\n  \"DrivesBetweenAnotherPlaceId\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "7e460d05-2017-468b-8078-3f8731c1395d",
+              "name": "Request is forbidden, could occur for a number of reasons, see returned message",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "place3"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Name\": \"<string>\",\n  \"PositionPoint\": {\n    \"Longitude\": \"<double>\",\n    \"Latitude\": \"<double>\"\n  },\n  \"Radius\": \"<integer>\",\n  \"Description\": \"<string>\",\n  \"TripType\": \"<integer>\",\n  \"TripTypeTrigger\": \"<integer>\",\n  \"OrganizationNodeId\": \"<integer>\",\n  \"DrivesBetweenAnotherPlaceId\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "bfd87bda-6c2e-480f-b757-c046a676282f",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "place3"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Name\": \"<string>\",\n  \"PositionPoint\": {\n    \"Longitude\": \"<double>\",\n    \"Latitude\": \"<double>\"\n  },\n  \"Radius\": \"<integer>\",\n  \"Description\": \"<string>\",\n  \"TripType\": \"<integer>\",\n  \"TripTypeTrigger\": \"<integer>\",\n  \"OrganizationNodeId\": \"<integer>\",\n  \"DrivesBetweenAnotherPlaceId\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6b45d812-5c88-4086-9120-81a60be612e9",
+          "name": "Gets place by placeid",
+          "request": {
+            "name": "Gets place by placeid",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "resourceowner",
+                "place3",
+                ":placeId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "placeId",
+                  "description": "(Required) The Id of the place"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "read write"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.automile.com/login/"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "3cb9b089-c9ae-4fd6-a0e4-a5f318ff6761",
+              "name": "The place details are returned",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "place3",
+                    ":placeId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "placeId",
+                      "description": "(Required) The Id of the place"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"PlaceId\": 7346,\n  \"Name\": \"string\",\n  \"Description\": \"string\",\n  \"PositionPoint\": {\n    \"Longitude\": \"<double>\",\n    \"Latitude\": \"<double>\"\n  },\n  \"TripType\": 3,\n  \"TripTypeTrigger\": 0,\n  \"Radius\": 9778,\n  \"IsEditable\": false,\n  \"OrganizationNodeId\": 8878,\n  \"DrivesBetweenAnotherPlaceId\": 7236\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bb88f09b-3d8f-4d32-a0c8-0337a34b0eae",
+              "name": "Request is forbidden, meaning you dont' have access to this place",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "place3",
+                    ":placeId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "placeId",
+                      "description": "(Required) The Id of the place"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f3c9eb77-1306-432c-acfb-e95dd4a0cb18",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "place3",
+                    ":placeId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "placeId",
+                      "description": "(Required) The Id of the place"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e984fa10-dd78-4d48-b30a-78eb2efd7bbe",
+          "name": "Updates the given place with new model",
+          "request": {
+            "name": "Updates the given place with new model",
+            "description": {
+              "content": "This will update information on an already existing place, as well as its vehicle connections.\r\n            Vehicle connections to the place will be updated/added from the VehicleIds list if user has edit authorization to the vehicles.\r\n            Already existing vehicle connections be removed if excluded in the VehicleIds list (if authorized to be edited).\r\n            This will update the given place id with a new model.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "resourceowner",
+                "place3",
+                ":placeId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "placeId",
+                  "description": "(Required) The place id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "read write"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.automile.com/login/"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"Name\": \"<string>\",\n  \"PositionPoint\": {\n    \"Longitude\": \"<double>\",\n    \"Latitude\": \"<double>\"\n  },\n  \"Radius\": \"<integer>\",\n  \"Description\": \"<string>\",\n  \"TripType\": \"<integer>\",\n  \"TripTypeTrigger\": \"<integer>\",\n  \"OrganizationNodeId\": \"<integer>\",\n  \"DrivesBetweenAnotherPlaceId\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d2d6d6f6-29e6-477b-9e58-1d5b41fac33e",
+              "name": "The given place was saved",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "place3",
+                    ":placeId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "placeId",
+                      "description": "(Required) The place id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Name\": \"<string>\",\n  \"PositionPoint\": {\n    \"Longitude\": \"<double>\",\n    \"Latitude\": \"<double>\"\n  },\n  \"Radius\": \"<integer>\",\n  \"Description\": \"<string>\",\n  \"TripType\": \"<integer>\",\n  \"TripTypeTrigger\": \"<integer>\",\n  \"OrganizationNodeId\": \"<integer>\",\n  \"DrivesBetweenAnotherPlaceId\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "6c27d95d-8e31-4bb6-bb3c-d61369c8f28b",
+              "name": "Bad request, could occur for a number of cases, see returned message",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "place3",
+                    ":placeId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "placeId",
+                      "description": "(Required) The place id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Name\": \"<string>\",\n  \"PositionPoint\": {\n    \"Longitude\": \"<double>\",\n    \"Latitude\": \"<double>\"\n  },\n  \"Radius\": \"<integer>\",\n  \"Description\": \"<string>\",\n  \"TripType\": \"<integer>\",\n  \"TripTypeTrigger\": \"<integer>\",\n  \"OrganizationNodeId\": \"<integer>\",\n  \"DrivesBetweenAnotherPlaceId\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "23245846-e14f-43bf-b4c5-70338cae8a16",
+              "name": "Request is forbidden, could occur for a number of reasons, see returned message",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "place3",
+                    ":placeId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "placeId",
+                      "description": "(Required) The place id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Name\": \"<string>\",\n  \"PositionPoint\": {\n    \"Longitude\": \"<double>\",\n    \"Latitude\": \"<double>\"\n  },\n  \"Radius\": \"<integer>\",\n  \"Description\": \"<string>\",\n  \"TripType\": \"<integer>\",\n  \"TripTypeTrigger\": \"<integer>\",\n  \"OrganizationNodeId\": \"<integer>\",\n  \"DrivesBetweenAnotherPlaceId\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c5f87155-886f-43dc-b20b-7cccf7e0dbb5",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "place3",
+                    ":placeId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "placeId",
+                      "description": "(Required) The place id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Name\": \"<string>\",\n  \"PositionPoint\": {\n    \"Longitude\": \"<double>\",\n    \"Latitude\": \"<double>\"\n  },\n  \"Radius\": \"<integer>\",\n  \"Description\": \"<string>\",\n  \"TripType\": \"<integer>\",\n  \"TripTypeTrigger\": \"<integer>\",\n  \"OrganizationNodeId\": \"<integer>\",\n  \"DrivesBetweenAnotherPlaceId\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "dd5e4875-b7e8-4349-b9bb-7335df679216",
+          "name": "Removes the given place",
+          "request": {
+            "name": "Removes the given place",
+            "description": {
+              "content": "This will remove the given trigger including all historic message belonging to this trigger.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "resourceowner",
+                "place3",
+                ":placeId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "placeId",
+                  "description": "(Required) The company id"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "read write"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.automile.com/login/"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "1fc57cfb-ae32-4d0b-9ca7-4a6a146e5914",
+              "name": "The place has been deleted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "place3",
+                    ":placeId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "placeId",
+                      "description": "(Required) The company id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "87dd55ef-0011-4c68-b4c1-6b8725955cd6",
+              "name": "Request is forbidden, this could occur if the user is not associated with the place",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "place3",
+                    ":placeId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "placeId",
+                      "description": "(Required) The company id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "aa6ae500-d7da-4393-be3a-b4ce266d2cf1",
+              "name": "The place that you tried to remove doesn't exist",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "place3",
+                    ":placeId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "placeId",
+                      "description": "(Required) The company id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b7eac5b4-ae9f-4c06-8dc9-03c6e9b60e0a",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "place3",
+                    ":placeId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "placeId",
+                      "description": "(Required) The company id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "d3a72bd8-0571-4df5-a186-c5951acdbe1c",
+    "name": "Automile ClientApi ResourceOwnerPlace3 API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

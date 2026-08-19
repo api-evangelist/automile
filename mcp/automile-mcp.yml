@@ -52,3 +52,9 @@ tools:
 - name: GetResourceOwnerPlaces
   description: Get places
   source_operation: openapi/automile-openapi-original.json#GetResourceOwnerPlaces
+deployment:
+  mode: none
+  verified: derived
+  tools: 14
+  checked: '2026-08-12'
+  source: catalog MCP census

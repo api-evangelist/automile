@@ -1,0 +1,48 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Automile ClientApi ClientApiAuthorizations API",
+    "version": "v1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "ClientApiAuthorizations",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get a list of user that has authorized the logged in API client for access",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/client/apiauthorizations"
+          },
+          "docs": "Only users that has given authorization to the given API client will be returned"
+        },
+        {
+          "info": {
+            "name": "Get the details about a specific user authorization",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/client/apiauthorizations/:apiAuthorizationId",
+            "params": [
+              {
+                "name": "apiAuthorizationId",
+                "value": "",
+                "type": "path",
+                "description": "The id of the authorization"
+              }
+            ]
+          },
+          "docs": "Get the details about a specific user authorization"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

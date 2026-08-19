@@ -1,0 +1,1394 @@
+{
+  "item": [
+    {
+      "id": "2fa6cdd9-1e03-44cf-9cd3-a5df154b8547",
+      "name": "ResourceOwnerRoutePlanner",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f22a10ef-1a07-4c94-b758-491de0d91d9f",
+          "name": "Get routes associated with the user",
+          "request": {
+            "name": "Get routes associated with the user",
+            "description": {
+              "content": "Only routes that is either shared with the user or owned by the calling user is returned.\r\n            <br /><br />\r\n            Location Status enum values:<br />\r\n            *NotStarted = 0*<br />\r\n            *Done = 1*<br />\r\n            *Cancelled = 3*<br /><br />\r\n            MissionStatus enum values: <br />\r\n            *Not Started = 0 (All route locations NotStarted)*<br />\r\n            *Ongoing = 1 (Any route location Done OR route mission started)*<br />\r\n            *Done = 2 (All route locations Done)*<br />\r\n            *Cancelled = 3 (Route mission Cancelled)*",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "resourceowner",
+                "routeplanner",
+                "routes"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "read write"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.automile.com/login/"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "3fc02abd-7a06-4c10-bfa4-ae2c908763ce",
+              "name": "The routes associated with the user is returned.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "routeplanner",
+                    "routes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"DistanceInKilometers\": 8777.297188643182,\n    \"DurationInSeconds\": 1561.2913402048678,\n    \"RouteId\": 9822,\n    \"Name\": \"string\",\n    \"ContactId\": 3814,\n    \"IsDeparture\": true,\n    \"OccuredAt\": \"2011-10-08T02:39:50.776Z\",\n    \"MissionStatus\": 3,\n    \"RouteStartedAtUTC\": \"1981-07-08T04:38:57.147Z\",\n    \"RouteStartedByContactId\": 6676,\n    \"RouteEndedAtUTC\": \"2003-05-30T13:52:46.364Z\",\n    \"Notes\": \"string\",\n    \"CreatedUTC\": \"2026-05-04T19:38:18.139Z\",\n    \"Locations\": [\n      {\n        \"DistanceInKilometers\": 2654.3593111205887,\n        \"DurationInSeconds\": 6879.591647951476,\n        \"Address\": \"string\",\n        \"Note\": \"string\",\n        \"RouteStopId\": 7676,\n        \"Status\": 3,\n        \"DriverNotes\": \"string\",\n        \"Latitude\": 2418.4711616630548,\n        \"Longitude\": 1460.3006579271682\n      },\n      {\n        \"DistanceInKilometers\": 6736.397784848626,\n        \"DurationInSeconds\": 32.32802318888339,\n        \"Address\": \"string\",\n        \"Note\": \"string\",\n        \"RouteStopId\": 7680,\n        \"Status\": 0,\n        \"DriverNotes\": \"string\",\n        \"Latitude\": 5663.939255206293,\n        \"Longitude\": 4098.86615864131\n      }\n    ]\n  },\n  {\n    \"DistanceInKilometers\": 2210.8883890569973,\n    \"DurationInSeconds\": 9482.919371602076,\n    \"RouteId\": 8303,\n    \"Name\": \"string\",\n    \"ContactId\": 9528,\n    \"IsDeparture\": true,\n    \"OccuredAt\": \"1996-01-14T02:00:27.554Z\",\n    \"MissionStatus\": 1,\n    \"RouteStartedAtUTC\": \"1993-12-13T19:23:35.332Z\",\n    \"RouteStartedByContactId\": 7473,\n    \"RouteEndedAtUTC\": \"2002-10-12T16:56:25.499Z\",\n    \"Notes\": \"string\",\n    \"CreatedUTC\": \"1962-03-15T06:31:32.383Z\",\n    \"Locations\": [\n      {\n        \"DistanceInKilometers\": 723.2855666598581,\n        \"DurationInSeconds\": 985.0903459565263,\n        \"Address\": \"string\",\n        \"Note\": \"string\",\n        \"RouteStopId\": 8463,\n        \"Status\": 0,\n        \"DriverNotes\": \"string\",\n        \"Latitude\": 1739.4199732588988,\n        \"Longitude\": 934.8422583394822\n      },\n      {\n        \"DistanceInKilometers\": 246.26300370665265,\n        \"DurationInSeconds\": 2012.8178637852056,\n        \"Address\": \"string\",\n        \"Note\": \"string\",\n        \"RouteStopId\": 8070,\n        \"Status\": 3,\n        \"DriverNotes\": \"string\",\n        \"Latitude\": 1435.7006211066491,\n        \"Longitude\": 1945.5662222128333\n      }\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e43d87c4-748c-4574-a775-1bc5197e83fd",
+          "name": "Resource Owner Route Planner Get Mission By Short Url Id",
+          "request": {
+            "name": "Resource Owner Route Planner Get Mission By Short Url Id",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "resourceowner",
+                "routeplanner",
+                "route",
+                "shorturlid",
+                ":shortUrlId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "shortUrlId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "read write"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.automile.com/login/"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "ec05c391-e0fe-4371-b08c-27e7df3a82c6",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "routeplanner",
+                    "route",
+                    "shorturlid",
+                    ":shortUrlId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "shortUrlId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"DistanceInKilometers\": 5237.433973545296,\n  \"DurationInSeconds\": 9248.008002473265,\n  \"RouteId\": 8973,\n  \"Name\": \"string\",\n  \"ContactId\": 9990,\n  \"IsDeparture\": true,\n  \"OccuredAt\": \"1998-11-04T08:58:31.451Z\",\n  \"MissionStatus\": 0,\n  \"RouteStartedAtUTC\": \"1987-09-12T02:48:12.242Z\",\n  \"RouteStartedByContactId\": 6393,\n  \"RouteEndedAtUTC\": \"2015-03-02T14:48:15.382Z\",\n  \"Notes\": \"string\",\n  \"CreatedUTC\": \"1970-05-15T16:06:32.698Z\",\n  \"Locations\": [\n    {\n      \"DistanceInKilometers\": 4656.397040079242,\n      \"DurationInSeconds\": 952.890320166997,\n      \"Address\": \"string\",\n      \"Note\": \"string\",\n      \"RouteStopId\": 8541,\n      \"Status\": 3,\n      \"DriverNotes\": \"string\",\n      \"Latitude\": 3819.2273013815025,\n      \"Longitude\": 1136.9601899453562\n    },\n    {\n      \"DistanceInKilometers\": 7285.1971008198125,\n      \"DurationInSeconds\": 9737.551752168854,\n      \"Address\": \"string\",\n      \"Note\": \"string\",\n      \"RouteStopId\": 7507,\n      \"Status\": 3,\n      \"DriverNotes\": \"string\",\n      \"Latitude\": 8083.424440722812,\n      \"Longitude\": 7389.815276439177\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fb62c8d9-dad2-41a9-b27a-32c01a89a0f5",
+          "name": "Resource Owner Route Planner Get Mission By Route And Driver Id",
+          "request": {
+            "name": "Resource Owner Route Planner Get Mission By Route And Driver Id",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "resourceowner",
+                "routeplanner",
+                "route",
+                ":routeId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "routeId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "read write"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.automile.com/login/"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "a2a382ee-de9d-4e78-bbe2-d0ba3739a993",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "routeplanner",
+                    "route",
+                    ":routeId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "routeId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"DistanceInKilometers\": 5237.433973545296,\n  \"DurationInSeconds\": 9248.008002473265,\n  \"RouteId\": 8973,\n  \"Name\": \"string\",\n  \"ContactId\": 9990,\n  \"IsDeparture\": true,\n  \"OccuredAt\": \"1998-11-04T08:58:31.451Z\",\n  \"MissionStatus\": 0,\n  \"RouteStartedAtUTC\": \"1987-09-12T02:48:12.242Z\",\n  \"RouteStartedByContactId\": 6393,\n  \"RouteEndedAtUTC\": \"2015-03-02T14:48:15.382Z\",\n  \"Notes\": \"string\",\n  \"CreatedUTC\": \"1970-05-15T16:06:32.698Z\",\n  \"Locations\": [\n    {\n      \"DistanceInKilometers\": 4656.397040079242,\n      \"DurationInSeconds\": 952.890320166997,\n      \"Address\": \"string\",\n      \"Note\": \"string\",\n      \"RouteStopId\": 8541,\n      \"Status\": 3,\n      \"DriverNotes\": \"string\",\n      \"Latitude\": 3819.2273013815025,\n      \"Longitude\": 1136.9601899453562\n    },\n    {\n      \"DistanceInKilometers\": 7285.1971008198125,\n      \"DurationInSeconds\": 9737.551752168854,\n      \"Address\": \"string\",\n      \"Note\": \"string\",\n      \"RouteStopId\": 7507,\n      \"Status\": 3,\n      \"DriverNotes\": \"string\",\n      \"Latitude\": 8083.424440722812,\n      \"Longitude\": 7389.815276439177\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "67f668ca-1f0f-41c2-a0c8-5576cd0a06db",
+          "name": "Update a route state",
+          "request": {
+            "name": "Update a route state",
+            "description": {
+              "content": "Only tasks that belongs to the user has access to will be returned.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "resourceowner",
+                "routeplanner",
+                "route",
+                ":routeId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "routeId",
+                  "description": "(Required) The routeId to update"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "read write"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.automile.com/login/"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  {\n    \"RouteStopId\": \"<integer>\",\n    \"Status\": \"<integer>\",\n    \"DriverNotes\": \"<string>\"\n  },\n  {\n    \"RouteStopId\": \"<integer>\",\n    \"Status\": \"<integer>\",\n    \"DriverNotes\": \"<string>\"\n  }\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "213e7739-2a4d-4282-b79e-8e7de5e5611e",
+              "name": "The stop was updated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "routeplanner",
+                    "route",
+                    ":routeId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "routeId",
+                      "description": "(Required) The routeId to update"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"RouteStopId\": \"<integer>\",\n    \"Status\": \"<integer>\",\n    \"DriverNotes\": \"<string>\"\n  },\n  {\n    \"RouteStopId\": \"<integer>\",\n    \"Status\": \"<integer>\",\n    \"DriverNotes\": \"<string>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "32690d5d-ffe6-4a9e-a3db-ff99f8dd74d1",
+              "name": "Not authorized to task",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "routeplanner",
+                    "route",
+                    ":routeId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "routeId",
+                      "description": "(Required) The routeId to update"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"RouteStopId\": \"<integer>\",\n    \"Status\": \"<integer>\",\n    \"DriverNotes\": \"<string>\"\n  },\n  {\n    \"RouteStopId\": \"<integer>\",\n    \"Status\": \"<integer>\",\n    \"DriverNotes\": \"<string>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "48abab03-f6b8-48ca-8242-b2917f36e05f",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "routeplanner",
+                    "route",
+                    ":routeId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "routeId",
+                      "description": "(Required) The routeId to update"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"RouteStopId\": \"<integer>\",\n    \"Status\": \"<integer>\",\n    \"DriverNotes\": \"<string>\"\n  },\n  {\n    \"RouteStopId\": \"<integer>\",\n    \"Status\": \"<integer>\",\n    \"DriverNotes\": \"<string>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d653d966-53c9-4992-990f-6a821ebd34f1",
+          "name": "Resource Owner Route Planner routeandsave",
+          "request": {
+            "name": "Resource Owner Route Planner routeandsave",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "resourceowner",
+                "routeplanner",
+                "routes",
+                "routeandsave"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "read write"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.automile.com/login/"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"RouteName\": \"<string>\",\n  \"TimeConstraint\": \"<integer>\",\n  \"When\": \"<dateTime>\",\n  \"UtcOffset\": \"<long>\",\n  \"UserUnitType\": \"<integer>\",\n  \"FullAddresses\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"Strategy\": \"<integer>\",\n  \"AvoidTollRoads\": \"<boolean>\",\n  \"AvoidHighways\": \"<boolean>\",\n  \"AvoidFerries\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c2eaf15c-3ec8-49f8-95ab-b829847e31d2",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "routeplanner",
+                    "routes",
+                    "routeandsave"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"RouteName\": \"<string>\",\n  \"TimeConstraint\": \"<integer>\",\n  \"When\": \"<dateTime>\",\n  \"UtcOffset\": \"<long>\",\n  \"UserUnitType\": \"<integer>\",\n  \"FullAddresses\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"Strategy\": \"<integer>\",\n  \"AvoidTollRoads\": \"<boolean>\",\n  \"AvoidHighways\": \"<boolean>\",\n  \"AvoidFerries\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ceac0f12-d522-486c-b97b-6454c9302877",
+          "name": "Set Route Status to Cancelled.",
+          "request": {
+            "name": "Set Route Status to Cancelled.",
+            "description": {
+              "content": "If a cancelled trip later gets 'uncancelled' the cancelling notes will be cleared",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "resourceowner",
+                "routeplanner",
+                "route",
+                ":routeId",
+                "cancel"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "notes",
+                  "value": "<string>",
+                  "description": "Reason for cancelling"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "routeId",
+                  "description": "(Required) The routeId to update"
+                }
+              ]
+            },
+            "method": "PUT",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "read write"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.automile.com/login/"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "049bf483-1ea8-4add-9821-36e08afbe600",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "routeplanner",
+                    "route",
+                    ":routeId",
+                    "cancel"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "notes",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "routeId",
+                      "description": "(Required) The routeId to update"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "da8a830f-ab1d-4bc7-93cd-1efbd4fa1aa9",
+              "name": "Not authorized to task",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "routeplanner",
+                    "route",
+                    ":routeId",
+                    "cancel"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "notes",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "routeId",
+                      "description": "(Required) The routeId to update"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "3f06f04c-af08-4f57-9636-bd417a702535",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "routeplanner",
+                    "route",
+                    ":routeId",
+                    "cancel"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "notes",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "routeId",
+                      "description": "(Required) The routeId to update"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e62313c5-7d02-485e-b13c-82dfc76411cf",
+          "name": "Set Route Status to Started.",
+          "request": {
+            "name": "Set Route Status to Started.",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "resourceowner",
+                "routeplanner",
+                "route",
+                ":routeId",
+                "start"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "routeId",
+                  "description": "(Required) The routeId to update"
+                }
+              ]
+            },
+            "method": "PUT",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "read write"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.automile.com/login/"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "167b5943-a461-4edd-a70d-92dc647c642b",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "routeplanner",
+                    "route",
+                    ":routeId",
+                    "start"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "routeId",
+                      "description": "(Required) The routeId to update"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "dd3fe982-b519-47eb-a84c-9e74ebef2f13",
+              "name": "Not authorized to task",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "routeplanner",
+                    "route",
+                    ":routeId",
+                    "start"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "routeId",
+                      "description": "(Required) The routeId to update"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "971587fc-8ffe-45a6-aec3-01f135175882",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "routeplanner",
+                    "route",
+                    ":routeId",
+                    "start"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "routeId",
+                      "description": "(Required) The routeId to update"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0e07a9c6-d6b6-47c2-936d-56b1a882aae1",
+          "name": "Get routes associated with the user",
+          "request": {
+            "name": "Get routes associated with the user",
+            "description": {
+              "content": "*OBSOLETE* Only routes that is either shared with the user or owned by the calling user is returned.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "resourceowner",
+                "routeplanner"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "read write"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.automile.com/login/"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "7baf2b7b-d33e-464d-a821-41853d32fd8f",
+              "name": "The routes associated with the user is returned.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "routeplanner"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"DistanceInKilometers\": 862.726242572498,\n    \"DurationInSeconds\": 1803.3375304161968,\n    \"RouteId\": 5331,\n    \"Name\": \"string\",\n    \"ContactId\": 3788,\n    \"IsDeparture\": false,\n    \"OccuredAt\": \"2018-07-06T15:13:41.539Z\",\n    \"MissionStatus\": 3,\n    \"RouteStartedAtUTC\": \"2001-04-14T15:03:05.363Z\",\n    \"RouteStartedByContactId\": 5778,\n    \"RouteEndedAtUTC\": \"1962-01-22T15:20:08.678Z\",\n    \"Notes\": \"string\",\n    \"CreatedUTC\": \"1972-09-22T22:57:09.045Z\",\n    \"Locations\": [\n      {\n        \"DistanceInKilometers\": 1254.2719730481233,\n        \"DurationInSeconds\": 9421.04193932903,\n        \"Address\": \"string\",\n        \"Note\": \"string\",\n        \"RouteStopId\": 5728,\n        \"Status\": 1,\n        \"DriverNotes\": \"string\",\n        \"Latitude\": 672.8166452978901,\n        \"Longitude\": 6936.677380976357\n      },\n      {\n        \"DistanceInKilometers\": 9027.010418257241,\n        \"DurationInSeconds\": 8408.406957270972,\n        \"Address\": \"string\",\n        \"Note\": \"string\",\n        \"RouteStopId\": 2535,\n        \"Status\": 1,\n        \"DriverNotes\": \"string\",\n        \"Latitude\": 9252.989191329247,\n        \"Longitude\": 9219.308369961047\n      }\n    ]\n  },\n  {\n    \"DistanceInKilometers\": 6616.8683240870205,\n    \"DurationInSeconds\": 5775.511131052379,\n    \"RouteId\": 117,\n    \"Name\": \"string\",\n    \"ContactId\": 6259,\n    \"IsDeparture\": false,\n    \"OccuredAt\": \"1972-01-23T19:59:14.822Z\",\n    \"MissionStatus\": 0,\n    \"RouteStartedAtUTC\": \"1950-10-16T07:34:16.874Z\",\n    \"RouteStartedByContactId\": 1779,\n    \"RouteEndedAtUTC\": \"1954-10-28T22:09:22.687Z\",\n    \"Notes\": \"string\",\n    \"CreatedUTC\": \"1968-01-09T12:58:25.288Z\",\n    \"Locations\": [\n      {\n        \"DistanceInKilometers\": 7488.505537063117,\n        \"DurationInSeconds\": 609.2608687452639,\n        \"Address\": \"string\",\n        \"Note\": \"string\",\n        \"RouteStopId\": 2475,\n        \"Status\": 3,\n        \"DriverNotes\": \"string\",\n        \"Latitude\": 6066.630585281836,\n        \"Longitude\": 3240.4842865969795\n      },\n      {\n        \"DistanceInKilometers\": 4385.8922630552015,\n        \"DurationInSeconds\": 9894.398153054764,\n        \"Address\": \"string\",\n        \"Note\": \"string\",\n        \"RouteStopId\": 9951,\n        \"Status\": 3,\n        \"DriverNotes\": \"string\",\n        \"Latitude\": 1586.5395309059215,\n        \"Longitude\": 9393.676816731137\n      }\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f50a7b16-a4b5-4014-a4df-d637660d3814",
+          "name": "Resource Owner Route Planner Get Route Mission",
+          "request": {
+            "name": "Resource Owner Route Planner Get Route Mission",
+            "description": {
+              "content": "*OBSOLETE*",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "resourceowner",
+                "routeplanner",
+                ":routeId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "routeId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "read write"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.automile.com/login/"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "e88e901f-d3ec-474c-9e32-6dc6dbdac4fd",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "routeplanner",
+                    ":routeId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "routeId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"DistanceInKilometers\": 5237.433973545296,\n  \"DurationInSeconds\": 9248.008002473265,\n  \"RouteId\": 8973,\n  \"Name\": \"string\",\n  \"ContactId\": 9990,\n  \"IsDeparture\": true,\n  \"OccuredAt\": \"1998-11-04T08:58:31.451Z\",\n  \"MissionStatus\": 0,\n  \"RouteStartedAtUTC\": \"1987-09-12T02:48:12.242Z\",\n  \"RouteStartedByContactId\": 6393,\n  \"RouteEndedAtUTC\": \"2015-03-02T14:48:15.382Z\",\n  \"Notes\": \"string\",\n  \"CreatedUTC\": \"1970-05-15T16:06:32.698Z\",\n  \"Locations\": [\n    {\n      \"DistanceInKilometers\": 4656.397040079242,\n      \"DurationInSeconds\": 952.890320166997,\n      \"Address\": \"string\",\n      \"Note\": \"string\",\n      \"RouteStopId\": 8541,\n      \"Status\": 3,\n      \"DriverNotes\": \"string\",\n      \"Latitude\": 3819.2273013815025,\n      \"Longitude\": 1136.9601899453562\n    },\n    {\n      \"DistanceInKilometers\": 7285.1971008198125,\n      \"DurationInSeconds\": 9737.551752168854,\n      \"Address\": \"string\",\n      \"Note\": \"string\",\n      \"RouteStopId\": 7507,\n      \"Status\": 3,\n      \"DriverNotes\": \"string\",\n      \"Latitude\": 8083.424440722812,\n      \"Longitude\": 7389.815276439177\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "72eb4b6f-f86f-4611-9164-6bc5523a61ac",
+    "name": "Automile ClientApi ResourceOwnerRoutePlanner API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

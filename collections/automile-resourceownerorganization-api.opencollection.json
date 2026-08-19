@@ -1,0 +1,51 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Automile ClientApi ResourceOwnerOrganization API",
+    "version": "v1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "ResourceOwnerOrganization",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get a the details of the organizationt he user is assoicates with",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/resourceowner/organization"
+          },
+          "docs": "Get a the details of the organizationt he user is assoicates with"
+        },
+        {
+          "info": {
+            "name": "Updates the organization",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/v1/resourceowner/organization"
+          },
+          "docs": "This will update the organization with the new model."
+        },
+        {
+          "info": {
+            "name": "Get the organization hierarchy",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/resourceowner/organization/hierarchy"
+          },
+          "docs": "Get the organization hierarchy"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

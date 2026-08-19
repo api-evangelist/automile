@@ -1,0 +1,426 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Automile ClientApi ResourceOwnerWorkOrder API",
+    "version": "v1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "ResourceOwnerWorkOrder",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve a list of work orders and their containing attachments, items and notes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/resourceowner/workorders",
+            "params": [
+              {
+                "name": "from",
+                "value": "",
+                "type": "query",
+                "description": "Filter on JobDate to be on or after the specified date and time (default is from now)"
+              },
+              {
+                "name": "to",
+                "value": "",
+                "type": "query",
+                "description": "Filter on JobDate to be before the specified date and time (default is no limitation)"
+              },
+              {
+                "name": "jobStatus",
+                "value": "",
+                "type": "query",
+                "description": "Status on job (New = 0, Started = 1, Paused = 2, Completed = 3, Cancelled = 4, Invoiced = 5, Paid = 6) (default is all)"
+              },
+              {
+                "name": "includeUnassigned",
+                "value": "",
+                "type": "query",
+                "description": "Include unassigned jobs (default is true)"
+              },
+              {
+                "name": "includeDeleted",
+                "value": "",
+                "type": "query",
+                "description": "Include deleted jobs (default is false)"
+              }
+            ]
+          },
+          "docs": "If no time is set on the \"to\" parameter, then it's assumed all entries on the date should be included, and the time part will be set to 11:59:59 PM"
+        },
+        {
+          "info": {
+            "name": "Create a work order and containing attachments, items and notes",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/resourceowner/workorders"
+          },
+          "docs": "Create a work order and containing attachments, items and notes"
+        },
+        {
+          "info": {
+            "name": "Update or create one or many work orders",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/v1/resourceowner/workorders"
+          },
+          "docs": "For work orders, items, attachments and notes with an id is updated. When id is not provided new objects is created. If an \r\n            item, attachment or note is missing on an existing work order that item, attachment or note is removed."
+        },
+        {
+          "info": {
+            "name": "Retrieve a work order",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/resourceowner/workorders/:workOrderId",
+            "params": [
+              {
+                "name": "workOrderId",
+                "value": "",
+                "type": "path",
+                "description": "Work order id"
+              }
+            ]
+          },
+          "docs": "Retrieve a work order"
+        },
+        {
+          "info": {
+            "name": "Update a work order",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/v1/resourceowner/workorders/:workOrderId",
+            "params": [
+              {
+                "name": "workOrderId",
+                "value": "",
+                "type": "path",
+                "description": "Work order id"
+              }
+            ]
+          },
+          "docs": "Update a work order"
+        },
+        {
+          "info": {
+            "name": "Delete work order",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/v1/resourceowner/workorders/:workOrderId",
+            "params": [
+              {
+                "name": "workOrderId",
+                "value": "",
+                "type": "path",
+                "description": "Work order id"
+              }
+            ]
+          },
+          "docs": "Delete work order"
+        },
+        {
+          "info": {
+            "name": "Retrieve a work order by quote id",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/resourceowner/workorders/getwithquoteid/:quoteId",
+            "params": [
+              {
+                "name": "quoteId",
+                "value": "",
+                "type": "path",
+                "description": "Quote id"
+              }
+            ]
+          },
+          "docs": "Retrieve a work order by quote id"
+        },
+        {
+          "info": {
+            "name": "Creates an attachment and adds it to an existing work order",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/resourceowner/workorders/:workOrderId/attachments",
+            "params": [
+              {
+                "name": "workOrderId",
+                "value": "",
+                "type": "path",
+                "description": "The work order which the attachment will be associated with"
+              }
+            ]
+          },
+          "docs": "Creates an attachment and adds it to an existing work order"
+        },
+        {
+          "info": {
+            "name": "Update status of a work order",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/v1/resourceowner/workorders/:workOrderId/status",
+            "params": [
+              {
+                "name": "workOrderId",
+                "value": "",
+                "type": "path",
+                "description": "The work order which the satus should be updated on"
+              }
+            ]
+          },
+          "docs": "Update status of a work order"
+        },
+        {
+          "info": {
+            "name": "Get all articles",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/resourceowner/workorders/articles"
+          },
+          "docs": "Get all articles"
+        },
+        {
+          "info": {
+            "name": "Create a article",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/resourceowner/workorders/articles"
+          },
+          "docs": "Create a article"
+        },
+        {
+          "info": {
+            "name": "Get a specific article",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/resourceowner/workorders/articles/:workOrderArticleId",
+            "params": [
+              {
+                "name": "workOrderArticleId",
+                "value": "",
+                "type": "path",
+                "description": "Work order article id"
+              }
+            ]
+          },
+          "docs": "Get a specific article"
+        },
+        {
+          "info": {
+            "name": "Update a article",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/v1/resourceowner/workorders/articles/:workOrderArticleId",
+            "params": [
+              {
+                "name": "workOrderArticleId",
+                "value": "",
+                "type": "path",
+                "description": "Work order article id"
+              }
+            ]
+          },
+          "docs": "Update a article"
+        },
+        {
+          "info": {
+            "name": "Delete a article",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/v1/resourceowner/workorders/articles/:workOrderArticleId",
+            "params": [
+              {
+                "name": "workOrderArticleId",
+                "value": "",
+                "type": "path",
+                "description": "Work order article id"
+              }
+            ]
+          },
+          "docs": "Delete a article"
+        },
+        {
+          "info": {
+            "name": "Get all categories",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/resourceowner/workorders/categories"
+          },
+          "docs": "Get all categories"
+        },
+        {
+          "info": {
+            "name": "Create a category",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/resourceowner/workorders/categories"
+          },
+          "docs": "Create a category"
+        },
+        {
+          "info": {
+            "name": "Get a specific category",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/resourceowner/workorders/categories/:workOrderCategoryId",
+            "params": [
+              {
+                "name": "workOrderCategoryId",
+                "value": "",
+                "type": "path",
+                "description": "Work order category id"
+              }
+            ]
+          },
+          "docs": "Get a specific category"
+        },
+        {
+          "info": {
+            "name": "Delete a category",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/v1/resourceowner/workorders/categories/:workOrderCategoryId",
+            "params": [
+              {
+                "name": "workOrderCategoryId",
+                "value": "",
+                "type": "path",
+                "description": "Work order category id"
+              }
+            ]
+          },
+          "docs": "Delete a category"
+        },
+        {
+          "info": {
+            "name": "Get all customers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/resourceowner/workorders/customers"
+          },
+          "docs": "Get all customers"
+        },
+        {
+          "info": {
+            "name": "Create a customer",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/resourceowner/workorders/customers"
+          },
+          "docs": "Create a customer"
+        },
+        {
+          "info": {
+            "name": "Get a specific customer",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/resourceowner/workorders/customers/:workOrderCustomerId",
+            "params": [
+              {
+                "name": "workOrderCustomerId",
+                "value": "",
+                "type": "path",
+                "description": "Work order customer id"
+              }
+            ]
+          },
+          "docs": "Get a specific customer"
+        },
+        {
+          "info": {
+            "name": "Update a customer",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/v1/resourceowner/workorders/customers/:workOrderCustomerId",
+            "params": [
+              {
+                "name": "workOrderCustomerId",
+                "value": "",
+                "type": "path",
+                "description": "Work order customer id"
+              }
+            ]
+          },
+          "docs": "Update a customer"
+        },
+        {
+          "info": {
+            "name": "Delete a customer",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/v1/resourceowner/workorders/customers/:workOrderCustomerId",
+            "params": [
+              {
+                "name": "workOrderCustomerId",
+                "value": "",
+                "type": "path",
+                "description": "Work order customer id"
+              }
+            ]
+          },
+          "docs": "Delete a customer"
+        },
+        {
+          "info": {
+            "name": "Get a new reference id for a work order (not unique)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/resourceowner/workorders/referenceId"
+          },
+          "docs": "Get a new reference id for a work order (not unique)"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

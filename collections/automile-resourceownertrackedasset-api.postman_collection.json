@@ -1,0 +1,2679 @@
+{
+  "item": [
+    {
+      "id": "ec7b8412-8c14-4a3f-854b-78e5b48a9463",
+      "name": "ResourceOwnerTrackedAsset",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "c8d47f19-c106-499d-92f8-fb210e15288d",
+          "name": "List all tracked assets that the user has access to",
+          "request": {
+            "name": "List all tracked assets that the user has access to",
+            "description": {
+              "content": "Only returns tracked assets that the user have access to",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "resourceowner",
+                "trackedasset"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "filterAssetType",
+                  "value": "<integer>",
+                  "description": "The asset type to list (All types = null, Vehicle = 0, Trailer = 1, ATV = 2, \r\n            Boat = 3, Excavator = 4, Cargo = 5). Default is all types."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "read write"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.automile.com/login/"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "274117cd-df51-46bf-90df-45613f524716",
+              "name": "The tracked assets are returned",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "trackedasset"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "filterAssetType",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"AssetType\": 5,\n    \"Name\": \"string\",\n    \"ImageUrl\": \"string\",\n    \"DefaultSleepTimeInMinutes\": 1150,\n    \"UpdateIntervalInSeconds\": 6564,\n    \"IsBluetoothDiscoverable\": false,\n    \"IsRegistrationModeOn\": false,\n    \"TrackedAssetId\": 6807,\n    \"IMEIDeviceType\": 7,\n    \"IMEI\": \"string\",\n    \"IMEIConfigId\": 6410,\n    \"Status\": 0,\n    \"LastLocation\": {\n      \"Longitude\": 2248.569906865698,\n      \"Latitude\": 3099.6665849393257\n    },\n    \"LastLocationTimestamp\": \"1995-08-27T01:02:49.192Z\",\n    \"LastContact\": \"2007-07-19T23:55:07.149Z\",\n    \"NumberOfUnreadNotifications\": 5998,\n    \"PropertyList\": [\n      {\n        \"PropertyType\": 6,\n        \"PropertyName\": \"string\",\n        \"ValueType\": \"string\",\n        \"Value\": \"string\",\n        \"Unit\": \"string\"\n      },\n      {\n        \"PropertyType\": 7,\n        \"PropertyName\": \"string\",\n        \"ValueType\": \"string\",\n        \"Value\": \"string\",\n        \"Unit\": \"string\"\n      }\n    ],\n    \"AvailableCommandList\": [\n      {\n        \"Command\": 2,\n        \"Endpoint\": \"string\",\n        \"AvailableUntil\": \"2002-08-10T05:38:48.666Z\",\n        \"TrackingIntervalList\": [\n          1816,\n          9490\n        ]\n      },\n      {\n        \"Command\": 2,\n        \"Endpoint\": \"string\",\n        \"AvailableUntil\": \"2004-11-27T09:42:58.687Z\",\n        \"TrackingIntervalList\": [\n          3120,\n          858\n        ]\n      }\n    ],\n    \"LastKnownFormattedAddress\": \"string\",\n    \"IsEditable\": false,\n    \"ExternalDevices\": [\n      {\n        \"ExternalDeviceId\": 2959,\n        \"Name\": \"string\",\n        \"ExternalDeviceType\": 0,\n        \"SerialNumber\": \"string\",\n        \"TrackedAssetId\": 1523,\n        \"TrackerName\": \"string\",\n        \"UpdateIntervalInSeconds\": 8616,\n        \"UpdatedAtUtc\": \"2010-11-29T13:00:10.648Z\",\n        \"PropertyList\": [\n          {\n            \"PropertyType\": 15,\n            \"PropertyName\": \"string\",\n            \"ValueType\": \"string\",\n            \"Value\": \"string\",\n            \"Unit\": \"string\"\n          },\n          {\n            \"PropertyType\": 12,\n            \"PropertyName\": \"string\",\n            \"ValueType\": \"string\",\n            \"Value\": \"string\",\n            \"Unit\": \"string\"\n          }\n        ],\n        \"IsConnected\": false\n      },\n      {\n        \"ExternalDeviceId\": 9861,\n        \"Name\": \"string\",\n        \"ExternalDeviceType\": 0,\n        \"SerialNumber\": \"string\",\n        \"TrackedAssetId\": 3462,\n        \"TrackerName\": \"string\",\n        \"UpdateIntervalInSeconds\": 3710,\n        \"UpdatedAtUtc\": \"2001-11-23T09:02:40.714Z\",\n        \"PropertyList\": [\n          {\n            \"PropertyType\": 1,\n            \"PropertyName\": \"string\",\n            \"ValueType\": \"string\",\n            \"Value\": \"string\",\n            \"Unit\": \"string\"\n          },\n          {\n            \"PropertyType\": 6,\n            \"PropertyName\": \"string\",\n            \"ValueType\": \"string\",\n            \"Value\": \"string\",\n            \"Unit\": \"string\"\n          }\n        ],\n        \"IsConnected\": false\n      }\n    ],\n    \"MountedInCradle\": false\n  },\n  {\n    \"AssetType\": 2,\n    \"Name\": \"string\",\n    \"ImageUrl\": \"string\",\n    \"DefaultSleepTimeInMinutes\": 5566,\n    \"UpdateIntervalInSeconds\": 7866,\n    \"IsBluetoothDiscoverable\": false,\n    \"IsRegistrationModeOn\": false,\n    \"TrackedAssetId\": 2294,\n    \"IMEIDeviceType\": 4,\n    \"IMEI\": \"string\",\n    \"IMEIConfigId\": 9462,\n    \"Status\": 1,\n    \"LastLocation\": {\n      \"Longitude\": 7950.104306960239,\n      \"Latitude\": 8880.93360601825\n    },\n    \"LastLocationTimestamp\": \"1948-11-11T11:31:04.929Z\",\n    \"LastContact\": \"2013-03-01T21:57:32.506Z\",\n    \"NumberOfUnreadNotifications\": 4508,\n    \"PropertyList\": [\n      {\n        \"PropertyType\": 2,\n        \"PropertyName\": \"string\",\n        \"ValueType\": \"string\",\n        \"Value\": \"string\",\n        \"Unit\": \"string\"\n      },\n      {\n        \"PropertyType\": 11,\n        \"PropertyName\": \"string\",\n        \"ValueType\": \"string\",\n        \"Value\": \"string\",\n        \"Unit\": \"string\"\n      }\n    ],\n    \"AvailableCommandList\": [\n      {\n        \"Command\": 3,\n        \"Endpoint\": \"string\",\n        \"AvailableUntil\": \"1976-07-13T23:37:47.707Z\",\n        \"TrackingIntervalList\": [\n          2898,\n          3347\n        ]\n      },\n      {\n        \"Command\": 3,\n        \"Endpoint\": \"string\",\n        \"AvailableUntil\": \"2012-02-21T23:48:34.064Z\",\n        \"TrackingIntervalList\": [\n          2730,\n          2016\n        ]\n      }\n    ],\n    \"LastKnownFormattedAddress\": \"string\",\n    \"IsEditable\": true,\n    \"ExternalDevices\": [\n      {\n        \"ExternalDeviceId\": 5897,\n        \"Name\": \"string\",\n        \"ExternalDeviceType\": 0,\n        \"SerialNumber\": \"string\",\n        \"TrackedAssetId\": 4074,\n        \"TrackerName\": \"string\",\n        \"UpdateIntervalInSeconds\": 2010,\n        \"UpdatedAtUtc\": \"1990-08-20T12:07:05.729Z\",\n        \"PropertyList\": [\n          {\n            \"PropertyType\": 10,\n            \"PropertyName\": \"string\",\n            \"ValueType\": \"string\",\n            \"Value\": \"string\",\n            \"Unit\": \"string\"\n          },\n          {\n            \"PropertyType\": 5,\n            \"PropertyName\": \"string\",\n            \"ValueType\": \"string\",\n            \"Value\": \"string\",\n            \"Unit\": \"string\"\n          }\n        ],\n        \"IsConnected\": false\n      },\n      {\n        \"ExternalDeviceId\": 6028,\n        \"Name\": \"string\",\n        \"ExternalDeviceType\": 0,\n        \"SerialNumber\": \"string\",\n        \"TrackedAssetId\": 4960,\n        \"TrackerName\": \"string\",\n        \"UpdateIntervalInSeconds\": 5374,\n        \"UpdatedAtUtc\": \"2011-02-12T07:31:58.675Z\",\n        \"PropertyList\": [\n          {\n            \"PropertyType\": 13,\n            \"PropertyName\": \"string\",\n            \"ValueType\": \"string\",\n            \"Value\": \"string\",\n            \"Unit\": \"string\"\n          },\n          {\n            \"PropertyType\": 3,\n            \"PropertyName\": \"string\",\n            \"ValueType\": \"string\",\n            \"Value\": \"string\",\n            \"Unit\": \"string\"\n          }\n        ],\n        \"IsConnected\": false\n      }\n    ],\n    \"MountedInCradle\": false\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "777f8d67-5cd5-4cd4-8c43-10a8fb9af9fc",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "trackedasset"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "filterAssetType",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6c8f3355-acdf-4ae0-8457-3ae64c43b6e9",
+          "name": "Get a tracked asset",
+          "request": {
+            "name": "Get a tracked asset",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "resourceowner",
+                "trackedasset",
+                ":trackedAssetId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "trackedAssetId",
+                  "description": "(Required) The tracked asset id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "read write"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.automile.com/login/"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "18081038-965e-4a8f-aa1b-1c08c15e01f5",
+              "name": "The tracked asset is returned",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "trackedasset",
+                    ":trackedAssetId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "trackedAssetId",
+                      "description": "(Required) The tracked asset id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"AssetType\": 1,\n  \"Name\": \"string\",\n  \"ImageUrl\": \"string\",\n  \"DefaultSleepTimeInMinutes\": 6186,\n  \"UpdateIntervalInSeconds\": 3685,\n  \"IsBluetoothDiscoverable\": false,\n  \"IsRegistrationModeOn\": true,\n  \"TrackedAssetId\": 3627,\n  \"IMEIDeviceType\": 6,\n  \"IMEI\": \"string\",\n  \"IMEIConfigId\": 5719,\n  \"Status\": 1,\n  \"LastLocation\": {\n    \"Longitude\": 2752.4320360632305,\n    \"Latitude\": 9583.498505534977\n  },\n  \"LastLocationTimestamp\": \"1967-01-20T14:10:10.186Z\",\n  \"LastContact\": \"1968-01-29T01:33:50.163Z\",\n  \"NumberOfUnreadNotifications\": 1394,\n  \"PropertyList\": [\n    {\n      \"PropertyType\": 1,\n      \"PropertyName\": \"string\",\n      \"ValueType\": \"string\",\n      \"Value\": \"string\",\n      \"Unit\": \"string\"\n    },\n    {\n      \"PropertyType\": 2,\n      \"PropertyName\": \"string\",\n      \"ValueType\": \"string\",\n      \"Value\": \"string\",\n      \"Unit\": \"string\"\n    }\n  ],\n  \"AvailableCommandList\": [\n    {\n      \"Command\": 3,\n      \"Endpoint\": \"string\",\n      \"AvailableUntil\": \"1993-05-13T10:20:34.548Z\",\n      \"TrackingIntervalList\": [\n        6468,\n        8313\n      ]\n    },\n    {\n      \"Command\": 2,\n      \"Endpoint\": \"string\",\n      \"AvailableUntil\": \"1955-06-28T13:51:57.700Z\",\n      \"TrackingIntervalList\": [\n        439,\n        9085\n      ]\n    }\n  ],\n  \"LastKnownFormattedAddress\": \"string\",\n  \"IsEditable\": true,\n  \"ExternalDevices\": [\n    {\n      \"ExternalDeviceId\": 8516,\n      \"Name\": \"string\",\n      \"ExternalDeviceType\": 1,\n      \"SerialNumber\": \"string\",\n      \"TrackedAssetId\": 194,\n      \"TrackerName\": \"string\",\n      \"UpdateIntervalInSeconds\": 8967,\n      \"UpdatedAtUtc\": \"1959-01-24T03:18:10.418Z\",\n      \"PropertyList\": [\n        {\n          \"PropertyType\": 3,\n          \"PropertyName\": \"string\",\n          \"ValueType\": \"string\",\n          \"Value\": \"string\",\n          \"Unit\": \"string\"\n        },\n        {\n          \"PropertyType\": 0,\n          \"PropertyName\": \"string\",\n          \"ValueType\": \"string\",\n          \"Value\": \"string\",\n          \"Unit\": \"string\"\n        }\n      ],\n      \"IsConnected\": true\n    },\n    {\n      \"ExternalDeviceId\": 9472,\n      \"Name\": \"string\",\n      \"ExternalDeviceType\": 1,\n      \"SerialNumber\": \"string\",\n      \"TrackedAssetId\": 4847,\n      \"TrackerName\": \"string\",\n      \"UpdateIntervalInSeconds\": 6932,\n      \"UpdatedAtUtc\": \"1955-02-07T05:58:44.668Z\",\n      \"PropertyList\": [\n        {\n          \"PropertyType\": 7,\n          \"PropertyName\": \"string\",\n          \"ValueType\": \"string\",\n          \"Value\": \"string\",\n          \"Unit\": \"string\"\n        },\n        {\n          \"PropertyType\": 11,\n          \"PropertyName\": \"string\",\n          \"ValueType\": \"string\",\n          \"Value\": \"string\",\n          \"Unit\": \"string\"\n        }\n      ],\n      \"IsConnected\": true\n    }\n  ],\n  \"MountedInCradle\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b8e8b7fc-5ada-44d8-b32e-6ef96bb9e574",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "trackedasset",
+                    ":trackedAssetId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "trackedAssetId",
+                      "description": "(Required) The tracked asset id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2d30e22d-17b4-4901-ab6b-f9deb160020d",
+          "name": "Update a tracked asset",
+          "request": {
+            "name": "Update a tracked asset",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "resourceowner",
+                "trackedasset",
+                ":trackedAssetId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "trackedAssetId",
+                  "description": "(Required) The tracked asset id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "read write"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.automile.com/login/"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"AssetType\": \"<integer>\",\n  \"Name\": \"<string>\",\n  \"ImageUrl\": \"<string>\",\n  \"DefaultSleepTimeInMinutes\": \"<integer>\",\n  \"UpdateIntervalInSeconds\": \"<integer>\",\n  \"IsBluetoothDiscoverable\": \"<boolean>\",\n  \"IsRegistrationModeOn\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "3e765ec2-a858-4cc1-9b47-76873228d1ea",
+              "name": "Successfully updated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "trackedasset",
+                    ":trackedAssetId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "trackedAssetId",
+                      "description": "(Required) The tracked asset id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"AssetType\": \"<integer>\",\n  \"Name\": \"<string>\",\n  \"ImageUrl\": \"<string>\",\n  \"DefaultSleepTimeInMinutes\": \"<integer>\",\n  \"UpdateIntervalInSeconds\": \"<integer>\",\n  \"IsBluetoothDiscoverable\": \"<boolean>\",\n  \"IsRegistrationModeOn\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "de8ee714-250f-4e90-a9da-a9c6552f8303",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "trackedasset",
+                    ":trackedAssetId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "trackedAssetId",
+                      "description": "(Required) The tracked asset id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"AssetType\": \"<integer>\",\n  \"Name\": \"<string>\",\n  \"ImageUrl\": \"<string>\",\n  \"DefaultSleepTimeInMinutes\": \"<integer>\",\n  \"UpdateIntervalInSeconds\": \"<integer>\",\n  \"IsBluetoothDiscoverable\": \"<boolean>\",\n  \"IsRegistrationModeOn\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f6ba38bd-b9be-4b24-8be6-06507ff79cb6",
+          "name": "Put a tracked asset to  sleep",
+          "request": {
+            "name": "Put a tracked asset to  sleep",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "resourceowner",
+                "trackedasset",
+                ":trackedAssetId",
+                "sleep"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "trackedAssetId",
+                  "description": "(Required) The tracked asset id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "read write"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.automile.com/login/"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"MinutesToSleep\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "0adc7971-6c07-46c9-a2e5-c47da346f402",
+              "name": "Successfully put to sleep",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "trackedasset",
+                    ":trackedAssetId",
+                    "sleep"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "trackedAssetId",
+                      "description": "(Required) The tracked asset id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"MinutesToSleep\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "2493e50e-e59d-4b06-a3b8-82e63d16d183",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "trackedasset",
+                    ":trackedAssetId",
+                    "sleep"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "trackedAssetId",
+                      "description": "(Required) The tracked asset id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"MinutesToSleep\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1680e30a-7c0a-47b7-8996-ae7440f228e5",
+          "name": "Start tracking a asset",
+          "request": {
+            "name": "Start tracking a asset",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "resourceowner",
+                "trackedasset",
+                ":trackedAssetId",
+                "track"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "trackedAssetId",
+                  "description": "(Required) The tracked asset id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "read write"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.automile.com/login/"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"MinutesToTrack\": \"<integer>\",\n  \"OriginalTriggerMessageHistoryId\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "1023eace-8fe2-457b-a598-ff7be8b7f39a",
+              "name": "Successfully started tracking",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "trackedasset",
+                    ":trackedAssetId",
+                    "track"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "trackedAssetId",
+                      "description": "(Required) The tracked asset id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"MinutesToTrack\": \"<integer>\",\n  \"OriginalTriggerMessageHistoryId\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "6288518b-fa5a-4ccc-82a3-e40897e0a5f3",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "trackedasset",
+                    ":trackedAssetId",
+                    "track"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "trackedAssetId",
+                      "description": "(Required) The tracked asset id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"MinutesToTrack\": \"<integer>\",\n  \"OriginalTriggerMessageHistoryId\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "49403be1-a99f-466e-b11f-ef5ff5e30917",
+          "name": "Shutdown a device that is tracking a asset",
+          "request": {
+            "name": "Shutdown a device that is tracking a asset",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "resourceowner",
+                "trackedasset",
+                ":trackedAssetId",
+                "shutdown"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "trackedAssetId",
+                  "description": "(Required) The tracked asset id"
+                }
+              ]
+            },
+            "method": "PUT",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "read write"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.automile.com/login/"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "87bacb6f-00a0-4445-8d75-4b7b1823386b",
+              "name": "Successfully shut down device",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "trackedasset",
+                    ":trackedAssetId",
+                    "shutdown"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "trackedAssetId",
+                      "description": "(Required) The tracked asset id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "1346348c-09c1-44a0-9250-aead107ec1d9",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "trackedasset",
+                    ":trackedAssetId",
+                    "shutdown"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "trackedAssetId",
+                      "description": "(Required) The tracked asset id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "421bef59-fb06-44bf-abde-b1e93a36e428",
+          "name": "List tracked asset history",
+          "request": {
+            "name": "List tracked asset history",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "resourceowner",
+                "trackedasset",
+                ":trackedAssetId",
+                "history"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "lastNumberOfDays",
+                  "value": "10",
+                  "description": "Last number of days to get trips for (default = 60)"
+                },
+                {
+                  "disabled": false,
+                  "key": "historyType",
+                  "value": "<integer>",
+                  "description": "Bitmask to filter and only list specific history types. 1 = Move Alert, 2 = Temperature, \r\n            4 = Battery Alert, 8 = Heartbeat, 16 = Battery Level, 32 = External Power Voltage, 64 = Operating Time, 128 = Shutdown Pending, 256 = Shutdown, 512 = Offline, 1024 = Humidity (default = all types) \r\n            [Example: 7 = Move alert, temperature and battery alerts]"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "trackedAssetId",
+                  "description": "(Required) Id of tracked asset"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "read write"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.automile.com/login/"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "85062696-978f-4786-a555-8ba129e98956",
+              "name": "The history list returned",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "trackedasset",
+                    ":trackedAssetId",
+                    "history"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "lastNumberOfDays",
+                      "value": "10"
+                    },
+                    {
+                      "key": "historyType",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "trackedAssetId",
+                      "description": "(Required) Id of tracked asset"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"TrackedAssetHistoryId\": 758,\n    \"OccuredAt\": \"1953-11-10T04:03:16.120Z\",\n    \"HistoryType\": 1,\n    \"Position\": {\n      \"Longitude\": 7562.796404694563,\n      \"Latitude\": 1500.2478640373217\n    },\n    \"IsNew\": false,\n    \"PropertyList\": [\n      {\n        \"PropertyType\": 7,\n        \"PropertyName\": \"string\",\n        \"ValueType\": \"string\",\n        \"Value\": \"string\",\n        \"Unit\": \"string\"\n      },\n      {\n        \"PropertyType\": 3,\n        \"PropertyName\": \"string\",\n        \"ValueType\": \"string\",\n        \"Value\": \"string\",\n        \"Unit\": \"string\"\n      }\n    ]\n  },\n  {\n    \"TrackedAssetHistoryId\": 285,\n    \"OccuredAt\": \"2018-07-27T23:00:28.533Z\",\n    \"HistoryType\": 3,\n    \"Position\": {\n      \"Longitude\": 6606.231254617393,\n      \"Latitude\": 7353.656712881276\n    },\n    \"IsNew\": false,\n    \"PropertyList\": [\n      {\n        \"PropertyType\": 13,\n        \"PropertyName\": \"string\",\n        \"ValueType\": \"string\",\n        \"Value\": \"string\",\n        \"Unit\": \"string\"\n      },\n      {\n        \"PropertyType\": 9,\n        \"PropertyName\": \"string\",\n        \"ValueType\": \"string\",\n        \"Value\": \"string\",\n        \"Unit\": \"string\"\n      }\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7f445506-f9d6-473f-8bf6-42589d562ce1",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "trackedasset",
+                    ":trackedAssetId",
+                    "history"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "lastNumberOfDays",
+                      "value": "10"
+                    },
+                    {
+                      "key": "historyType",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "trackedAssetId",
+                      "description": "(Required) Id of tracked asset"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1b0d3f14-969e-48af-bb00-f2317ba85eef",
+          "name": "List external devices by asset",
+          "request": {
+            "name": "List external devices by asset",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "resourceowner",
+                "trackedasset",
+                ":trackedAssetId",
+                "externaldevices"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "trackedAssetId",
+                  "description": "(Required) Id of tracked asset"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "read write"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.automile.com/login/"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "a1cc80a5-6143-4aa4-a874-d4b25ed5a516",
+              "name": "The external device list is returned",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "trackedasset",
+                    ":trackedAssetId",
+                    "externaldevices"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "trackedAssetId",
+                      "description": "(Required) Id of tracked asset"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"ExternalDeviceId\": 7464,\n    \"Name\": \"string\",\n    \"ExternalDeviceType\": 0,\n    \"SerialNumber\": \"string\",\n    \"TrackedAssetId\": 6093,\n    \"TrackerName\": \"string\",\n    \"UpdateIntervalInSeconds\": 3027,\n    \"UpdatedAtUtc\": \"2006-03-12T16:16:03.276Z\",\n    \"PropertyList\": [\n      {\n        \"PropertyType\": 12,\n        \"PropertyName\": \"string\",\n        \"ValueType\": \"string\",\n        \"Value\": \"string\",\n        \"Unit\": \"string\"\n      },\n      {\n        \"PropertyType\": 9,\n        \"PropertyName\": \"string\",\n        \"ValueType\": \"string\",\n        \"Value\": \"string\",\n        \"Unit\": \"string\"\n      }\n    ],\n    \"IsConnected\": false\n  },\n  {\n    \"ExternalDeviceId\": 5283,\n    \"Name\": \"string\",\n    \"ExternalDeviceType\": 1,\n    \"SerialNumber\": \"string\",\n    \"TrackedAssetId\": 2948,\n    \"TrackerName\": \"string\",\n    \"UpdateIntervalInSeconds\": 8866,\n    \"UpdatedAtUtc\": \"2006-07-17T08:38:13.685Z\",\n    \"PropertyList\": [\n      {\n        \"PropertyType\": 14,\n        \"PropertyName\": \"string\",\n        \"ValueType\": \"string\",\n        \"Value\": \"string\",\n        \"Unit\": \"string\"\n      },\n      {\n        \"PropertyType\": 12,\n        \"PropertyName\": \"string\",\n        \"ValueType\": \"string\",\n        \"Value\": \"string\",\n        \"Unit\": \"string\"\n      }\n    ],\n    \"IsConnected\": false\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "265b3bb0-6468-48a3-ac0f-ebfc1d9abb12",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "trackedasset",
+                    ":trackedAssetId",
+                    "externaldevices"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "trackedAssetId",
+                      "description": "(Required) Id of tracked asset"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "82d5411e-5603-4641-9cf6-5a42e61e93f9",
+          "name": "List external devices",
+          "request": {
+            "name": "List external devices",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "resourceowner",
+                "trackedasset",
+                "externaldevices"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "read write"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.automile.com/login/"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "191a5897-397a-4f59-a3f5-8f693ef31ece",
+              "name": "The external device list is returned",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "trackedasset",
+                    "externaldevices"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"ExternalDeviceId\": 7464,\n    \"Name\": \"string\",\n    \"ExternalDeviceType\": 0,\n    \"SerialNumber\": \"string\",\n    \"TrackedAssetId\": 6093,\n    \"TrackerName\": \"string\",\n    \"UpdateIntervalInSeconds\": 3027,\n    \"UpdatedAtUtc\": \"2006-03-12T16:16:03.276Z\",\n    \"PropertyList\": [\n      {\n        \"PropertyType\": 12,\n        \"PropertyName\": \"string\",\n        \"ValueType\": \"string\",\n        \"Value\": \"string\",\n        \"Unit\": \"string\"\n      },\n      {\n        \"PropertyType\": 9,\n        \"PropertyName\": \"string\",\n        \"ValueType\": \"string\",\n        \"Value\": \"string\",\n        \"Unit\": \"string\"\n      }\n    ],\n    \"IsConnected\": false\n  },\n  {\n    \"ExternalDeviceId\": 5283,\n    \"Name\": \"string\",\n    \"ExternalDeviceType\": 1,\n    \"SerialNumber\": \"string\",\n    \"TrackedAssetId\": 2948,\n    \"TrackerName\": \"string\",\n    \"UpdateIntervalInSeconds\": 8866,\n    \"UpdatedAtUtc\": \"2006-07-17T08:38:13.685Z\",\n    \"PropertyList\": [\n      {\n        \"PropertyType\": 14,\n        \"PropertyName\": \"string\",\n        \"ValueType\": \"string\",\n        \"Value\": \"string\",\n        \"Unit\": \"string\"\n      },\n      {\n        \"PropertyType\": 12,\n        \"PropertyName\": \"string\",\n        \"ValueType\": \"string\",\n        \"Value\": \"string\",\n        \"Unit\": \"string\"\n      }\n    ],\n    \"IsConnected\": false\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8203e371-7173-4f34-807a-9f5e39909f39",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "trackedasset",
+                    "externaldevices"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0ffa83a7-f970-4b6a-b383-d1fc07b0d9a9",
+          "name": "External device",
+          "request": {
+            "name": "External device",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "resourceowner",
+                "trackedasset",
+                "externaldevice",
+                ":externalDeviceId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "externalDeviceId",
+                  "description": "(Required) Id of external device"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "read write"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.automile.com/login/"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "22a497d8-9cf2-497e-8ec2-7ea0339f7356",
+              "name": "The external device is returned",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "trackedasset",
+                    "externaldevice",
+                    ":externalDeviceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "externalDeviceId",
+                      "description": "(Required) Id of external device"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"ExternalDeviceId\": 7464,\n    \"Name\": \"string\",\n    \"ExternalDeviceType\": 0,\n    \"SerialNumber\": \"string\",\n    \"TrackedAssetId\": 6093,\n    \"TrackerName\": \"string\",\n    \"UpdateIntervalInSeconds\": 3027,\n    \"UpdatedAtUtc\": \"2006-03-12T16:16:03.276Z\",\n    \"PropertyList\": [\n      {\n        \"PropertyType\": 12,\n        \"PropertyName\": \"string\",\n        \"ValueType\": \"string\",\n        \"Value\": \"string\",\n        \"Unit\": \"string\"\n      },\n      {\n        \"PropertyType\": 9,\n        \"PropertyName\": \"string\",\n        \"ValueType\": \"string\",\n        \"Value\": \"string\",\n        \"Unit\": \"string\"\n      }\n    ],\n    \"IsConnected\": false\n  },\n  {\n    \"ExternalDeviceId\": 5283,\n    \"Name\": \"string\",\n    \"ExternalDeviceType\": 1,\n    \"SerialNumber\": \"string\",\n    \"TrackedAssetId\": 2948,\n    \"TrackerName\": \"string\",\n    \"UpdateIntervalInSeconds\": 8866,\n    \"UpdatedAtUtc\": \"2006-07-17T08:38:13.685Z\",\n    \"PropertyList\": [\n      {\n        \"PropertyType\": 14,\n        \"PropertyName\": \"string\",\n        \"ValueType\": \"string\",\n        \"Value\": \"string\",\n        \"Unit\": \"string\"\n      },\n      {\n        \"PropertyType\": 12,\n        \"PropertyName\": \"string\",\n        \"ValueType\": \"string\",\n        \"Value\": \"string\",\n        \"Unit\": \"string\"\n      }\n    ],\n    \"IsConnected\": false\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d5c0afaf-c6ba-45a5-949e-fe6792ff1317",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "trackedasset",
+                    "externaldevice",
+                    ":externalDeviceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "externalDeviceId",
+                      "description": "(Required) Id of external device"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "06933320-43e1-49db-add7-f92427e35301",
+          "name": "Update an external device asset",
+          "request": {
+            "name": "Update an external device asset",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "resourceowner",
+                "trackedasset",
+                "externaldevice",
+                ":externalDeviceId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "externalDeviceId",
+                  "description": "(Required) The external device id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "read write"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.automile.com/login/"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"ExternalDeviceId\": \"<integer>\",\n  \"Name\": \"<string>\",\n  \"UpdateIntervalInSeconds\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "81a2cfd7-2f8e-4b15-8392-aa1ead5dd2b6",
+              "name": "Successfully updated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "trackedasset",
+                    "externaldevice",
+                    ":externalDeviceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "externalDeviceId",
+                      "description": "(Required) The external device id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ExternalDeviceId\": \"<integer>\",\n  \"Name\": \"<string>\",\n  \"UpdateIntervalInSeconds\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "7011b8ea-f905-41bd-a369-2f056ad0bf12",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "trackedasset",
+                    "externaldevice",
+                    ":externalDeviceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "externalDeviceId",
+                      "description": "(Required) The external device id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ExternalDeviceId\": \"<integer>\",\n  \"Name\": \"<string>\",\n  \"UpdateIntervalInSeconds\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9f66959c-0dc8-4aeb-a00a-0ea68d01d0ae",
+          "name": "List external device history",
+          "request": {
+            "name": "List external device history",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "resourceowner",
+                "trackedasset",
+                "externaldevice",
+                ":externalDeviceId",
+                "history"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "lastNumberOfDays",
+                  "value": "10",
+                  "description": "Last number of days to get history for (default = 10)"
+                },
+                {
+                  "disabled": false,
+                  "key": "groupHistory",
+                  "value": "false",
+                  "description": "Group history items on the same day into one item (default = false)"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "externalDeviceId",
+                  "description": "(Required) Id of tracked asset"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "read write"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.automile.com/login/"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "5ae22656-256a-4849-bdcc-22ea5a845d77",
+              "name": "The history list returned",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "trackedasset",
+                    "externaldevice",
+                    ":externalDeviceId",
+                    "history"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "lastNumberOfDays",
+                      "value": "10"
+                    },
+                    {
+                      "key": "groupHistory",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "externalDeviceId",
+                      "description": "(Required) Id of tracked asset"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"ExternalDeviceHistoryId\": 3715,\n    \"ExternalDeviceId\": 4547,\n    \"OccuredAtUtc\": \"2001-03-13T11:07:58.941Z\",\n    \"GroupList\": [\n      {\n        \"OccuredAtUtc\": \"2000-09-02T09:23:55.026Z\",\n        \"Value\": \"string\"\n      },\n      {\n        \"OccuredAtUtc\": \"1960-10-24T13:22:52.943Z\",\n        \"Value\": \"string\"\n      }\n    ],\n    \"HistoryType\": 3,\n    \"Position\": {\n      \"Longitude\": 9134.461214738629,\n      \"Latitude\": 1689.5634164263263\n    },\n    \"PropertyList\": [\n      {\n        \"PropertyType\": 0,\n        \"PropertyName\": \"string\",\n        \"ValueType\": \"string\",\n        \"Value\": \"string\",\n        \"Unit\": \"string\"\n      },\n      {\n        \"PropertyType\": 5,\n        \"PropertyName\": \"string\",\n        \"ValueType\": \"string\",\n        \"Value\": \"string\",\n        \"Unit\": \"string\"\n      }\n    ],\n    \"TrackedAssetId\": 4975,\n    \"TrackerName\": \"string\"\n  },\n  {\n    \"ExternalDeviceHistoryId\": 6923,\n    \"ExternalDeviceId\": 3882,\n    \"OccuredAtUtc\": \"1963-12-09T22:45:31.366Z\",\n    \"GroupList\": [\n      {\n        \"OccuredAtUtc\": \"1955-06-24T15:56:15.400Z\",\n        \"Value\": \"string\"\n      },\n      {\n        \"OccuredAtUtc\": \"2002-10-21T08:06:29.161Z\",\n        \"Value\": \"string\"\n      }\n    ],\n    \"HistoryType\": 8,\n    \"Position\": {\n      \"Longitude\": 8838.127553779264,\n      \"Latitude\": 252.76175322126005\n    },\n    \"PropertyList\": [\n      {\n        \"PropertyType\": 9,\n        \"PropertyName\": \"string\",\n        \"ValueType\": \"string\",\n        \"Value\": \"string\",\n        \"Unit\": \"string\"\n      },\n      {\n        \"PropertyType\": 9,\n        \"PropertyName\": \"string\",\n        \"ValueType\": \"string\",\n        \"Value\": \"string\",\n        \"Unit\": \"string\"\n      }\n    ],\n    \"TrackedAssetId\": 7583,\n    \"TrackerName\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c6a6d872-f0b0-40fc-b9d6-bbc25ca208f4",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "trackedasset",
+                    "externaldevice",
+                    ":externalDeviceId",
+                    "history"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "lastNumberOfDays",
+                      "value": "10"
+                    },
+                    {
+                      "key": "groupHistory",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "externalDeviceId",
+                      "description": "(Required) Id of tracked asset"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f9e2a607-1dbc-4840-8344-4afed1c64e8d",
+          "name": "List available update intervals in seconds",
+          "request": {
+            "name": "List available update intervals in seconds",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "resourceowner",
+                "trackedasset",
+                "externaldevices",
+                "updateintervals"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "read write"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.automile.com/login/"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "ae231c50-f93c-4f9d-a843-a4ddbda0a517",
+              "name": "The update interval list is returned",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "trackedasset",
+                    "externaldevices",
+                    "updateintervals"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"UpdateIntervalInSecondsList\": [\n      9478,\n      3207\n    ]\n  },\n  {\n    \"UpdateIntervalInSecondsList\": [\n      1686,\n      2620\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "546d4fbb-77b4-49ed-a091-09f60e78c964",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "trackedasset",
+                    "externaldevices",
+                    "updateintervals"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d4a396e8-adb9-4889-9e4f-8ee1577ab78a",
+          "name": "Lists available sleep intervals in minutes",
+          "request": {
+            "name": "Lists available sleep intervals in minutes",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "resourceowner",
+                "trackedasset",
+                "sleepinterval"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "read write"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.automile.com/login/"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "e34bd7ee-e21f-44b5-b5ca-d054c070291f",
+              "name": "The sleep intervals in minutes",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "trackedasset",
+                    "sleepinterval"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"SleepIntervalList\": [\n    2671,\n    9862\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "38bff97f-1cf1-4283-84ef-4a11a365c26d",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "trackedasset",
+                    "sleepinterval"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c25e68bd-f928-46bb-ab9e-bcd5007313fb",
+          "name": "Lists available update intervals in seconds",
+          "request": {
+            "name": "Lists available update intervals in seconds",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "resourceowner",
+                "trackedasset",
+                "updateinterval"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "read write"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.automile.com/login/"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "a5da85a8-2b69-45f8-9979-f85d713330d5",
+              "name": "The sleep intervals in minutes",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "trackedasset",
+                    "updateinterval"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"UpdateIntervalInSecondsList\": [\n    6177,\n    5221\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3fee4fb6-0273-4bb9-9208-23a7fe908279",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "trackedasset",
+                    "updateinterval"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "74ed8c04-f2ed-42a7-ae5c-eebc6f67194c",
+          "name": "List all enumerations used on this endpoint",
+          "request": {
+            "name": "List all enumerations used on this endpoint",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "resourceowner",
+                "trackedasset",
+                "enum"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "read write"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.automile.com/login/"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "9e56b930-f673-488a-ba0b-dd7484133889",
+              "name": "The notifications are returned",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "trackedasset",
+                    "enum"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"EnumValueList\": {\n      \"key_0\": 3210,\n      \"key_1\": 1689,\n      \"key_2\": 9440\n    }\n  },\n  {\n    \"EnumValueList\": {\n      \"key_0\": 6465\n    }\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "907f6ad7-96b3-40ea-b66a-264f8c1eef97",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "trackedasset",
+                    "enum"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "c948a699-3a18-4569-9f31-3987625e2b07",
+    "name": "Automile ClientApi ResourceOwnerTrackedAsset API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

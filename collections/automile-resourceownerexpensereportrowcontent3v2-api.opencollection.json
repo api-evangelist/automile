@@ -1,0 +1,103 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Automile ClientApi ResourceOwnerExpenseReportRowContent3V2 API",
+    "version": "v1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "ResourceOwnerExpenseReportRowContent3V2",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get expense report row content",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/resourceowner/expensereportrowcontent3/:expenseReportRowContentId",
+            "params": [
+              {
+                "name": "expenseReportRowContentId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Only expense report row content that the user has access to are accessible."
+        },
+        {
+          "info": {
+            "name": "Updates the given expense report row content",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/v1/resourceowner/expensereportrowcontent3/:expenseReportRowContentId",
+            "params": [
+              {
+                "name": "expenseReportRowContentId",
+                "value": "",
+                "type": "path",
+                "description": "The expense report row id"
+              }
+            ]
+          },
+          "docs": "This will update the given expense report row content id with a new model."
+        },
+        {
+          "info": {
+            "name": "Removes the given expense report row content",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/v1/resourceowner/expensereportrowcontent3/:expenseReportRowContentId",
+            "params": [
+              {
+                "name": "expenseReportRowContentId",
+                "value": "",
+                "type": "path",
+                "description": "The expense report row id"
+              }
+            ]
+          },
+          "docs": "Removes the given expense report row content"
+        },
+        {
+          "info": {
+            "name": "Get all expense report row content belonging to a expense report row",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/resourceowner/expensereportrowcontent3",
+            "params": [
+              {
+                "name": "expenseReportRowId",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Only expense report row content that the user has access to are accessible."
+        },
+        {
+          "info": {
+            "name": "Create an expense report row",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/resourceowner/expensereportrowcontent3"
+          },
+          "docs": "Create an expense report row"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,1002 @@
+{
+  "item": [
+    {
+      "id": "92f47ff0-37a7-43e7-a314-f18ba941e871",
+      "name": "ResourceOwnerExpenseReportRow3V2",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "37c7a028-39d3-4e51-a96f-86414f03ddea",
+          "name": "Get expense report row",
+          "request": {
+            "name": "Get expense report row",
+            "description": {
+              "content": "Only expense report row that the user has access to are accessible.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "resourceowner",
+                "expensereportrow3",
+                ":expenseReportRowId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "expenseReportRowId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "read write"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.automile.com/login/"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "3949bfc1-d0e1-4747-8528-7f60f2821087",
+              "name": "The expense report row is returned",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "expensereportrow3",
+                    ":expenseReportRowId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "expenseReportRowId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"ExpenseReportRowId\": 8933,\n  \"ExpenseReportId\": 2306,\n  \"AmountInCurrency\": 9133.530570517785,\n  \"VATInCurrency\": 4443.617297146127,\n  \"ISO4217CurrencyCode\": \"string\",\n  \"Notes\": \"string\",\n  \"ExpenseReportRowDateUtc\": \"1971-03-04T05:14:17.884Z\",\n  \"ExpenseReportRowContent\": [\n    {\n      \"ExpenseReportRowContentId\": 5217,\n      \"ExpenseReportRowId\": 605,\n      \"ContentType\": 0,\n      \"ContentFileName\": \"string\"\n    },\n    {\n      \"ExpenseReportRowContentId\": 6059,\n      \"ExpenseReportRowId\": 940,\n      \"ContentType\": 0,\n      \"ContentFileName\": \"string\"\n    }\n  ],\n  \"Category\": 4,\n  \"CustomCategory\": \"string\",\n  \"CategoryValue\": 3804.301235727716,\n  \"Merchant\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e4f233ba-1bad-4091-aed9-b5e3239b400a",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "expensereportrow3",
+                    ":expenseReportRowId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "expenseReportRowId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fa1764e2-30fa-402b-b4bf-f14426693b78",
+          "name": "Updates the given expense report row",
+          "request": {
+            "name": "Updates the given expense report row",
+            "description": {
+              "content": "This will update the given expense report row id with a new model.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "resourceowner",
+                "expensereportrow3",
+                ":expenseReportRowId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "expenseReportRowId",
+                  "description": "(Required) The expense report row id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "read write"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.automile.com/login/"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"AmountInCurrency\": \"<double>\",\n  \"VATInCurrency\": \"<double>\",\n  \"ISO4217CurrencyCode\": \"<string>\",\n  \"Notes\": \"<string>\",\n  \"ExpenseReportRowDateUtc\": \"<dateTime>\",\n  \"Category\": \"<integer>\",\n  \"CustomCategory\": \"<string>\",\n  \"ExpenseReportRowContent\": [\n    {\n      \"ExpenseReportRowContentId\": \"<integer>\",\n      \"ExpenseReportRowId\": \"<integer>\",\n      \"Data\": \"<string>\",\n      \"ContentType\": \"<integer>\"\n    },\n    {\n      \"ExpenseReportRowContentId\": \"<integer>\",\n      \"ExpenseReportRowId\": \"<integer>\",\n      \"Data\": \"<string>\",\n      \"ContentType\": \"<integer>\"\n    }\n  ],\n  \"CategoryValue\": \"<double>\",\n  \"Merchant\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e4f6d3cf-3773-49e4-a112-040d503a0274",
+              "name": "The expense report row was saved",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "expensereportrow3",
+                    ":expenseReportRowId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "expenseReportRowId",
+                      "description": "(Required) The expense report row id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"AmountInCurrency\": \"<double>\",\n  \"VATInCurrency\": \"<double>\",\n  \"ISO4217CurrencyCode\": \"<string>\",\n  \"Notes\": \"<string>\",\n  \"ExpenseReportRowDateUtc\": \"<dateTime>\",\n  \"Category\": \"<integer>\",\n  \"CustomCategory\": \"<string>\",\n  \"ExpenseReportRowContent\": [\n    {\n      \"ExpenseReportRowContentId\": \"<integer>\",\n      \"ExpenseReportRowId\": \"<integer>\",\n      \"Data\": \"<string>\",\n      \"ContentType\": \"<integer>\"\n    },\n    {\n      \"ExpenseReportRowContentId\": \"<integer>\",\n      \"ExpenseReportRowId\": \"<integer>\",\n      \"Data\": \"<string>\",\n      \"ContentType\": \"<integer>\"\n    }\n  ],\n  \"CategoryValue\": \"<double>\",\n  \"Merchant\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "3b3fc5e9-7908-428e-9e37-b2dc53d5b2a4",
+              "name": "Bad request, could occur for a number of cases, see returned message",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "expensereportrow3",
+                    ":expenseReportRowId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "expenseReportRowId",
+                      "description": "(Required) The expense report row id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"AmountInCurrency\": \"<double>\",\n  \"VATInCurrency\": \"<double>\",\n  \"ISO4217CurrencyCode\": \"<string>\",\n  \"Notes\": \"<string>\",\n  \"ExpenseReportRowDateUtc\": \"<dateTime>\",\n  \"Category\": \"<integer>\",\n  \"CustomCategory\": \"<string>\",\n  \"ExpenseReportRowContent\": [\n    {\n      \"ExpenseReportRowContentId\": \"<integer>\",\n      \"ExpenseReportRowId\": \"<integer>\",\n      \"Data\": \"<string>\",\n      \"ContentType\": \"<integer>\"\n    },\n    {\n      \"ExpenseReportRowContentId\": \"<integer>\",\n      \"ExpenseReportRowId\": \"<integer>\",\n      \"Data\": \"<string>\",\n      \"ContentType\": \"<integer>\"\n    }\n  ],\n  \"CategoryValue\": \"<double>\",\n  \"Merchant\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 1155,\n  \"detail\": \"string\",\n  \"instance\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "75effb08-82df-49e0-9e85-5d3532d9b56b",
+              "name": "Request is forbidden, could occur for a number of reasons, see returned message",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "expensereportrow3",
+                    ":expenseReportRowId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "expenseReportRowId",
+                      "description": "(Required) The expense report row id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"AmountInCurrency\": \"<double>\",\n  \"VATInCurrency\": \"<double>\",\n  \"ISO4217CurrencyCode\": \"<string>\",\n  \"Notes\": \"<string>\",\n  \"ExpenseReportRowDateUtc\": \"<dateTime>\",\n  \"Category\": \"<integer>\",\n  \"CustomCategory\": \"<string>\",\n  \"ExpenseReportRowContent\": [\n    {\n      \"ExpenseReportRowContentId\": \"<integer>\",\n      \"ExpenseReportRowId\": \"<integer>\",\n      \"Data\": \"<string>\",\n      \"ContentType\": \"<integer>\"\n    },\n    {\n      \"ExpenseReportRowContentId\": \"<integer>\",\n      \"ExpenseReportRowId\": \"<integer>\",\n      \"Data\": \"<string>\",\n      \"ContentType\": \"<integer>\"\n    }\n  ],\n  \"CategoryValue\": \"<double>\",\n  \"Merchant\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 1155,\n  \"detail\": \"string\",\n  \"instance\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "df2f1687-24f8-4f93-ad43-e2ea2ea069e3",
+              "name": "Not found, the expense report row you tried to update can't be found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "expensereportrow3",
+                    ":expenseReportRowId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "expenseReportRowId",
+                      "description": "(Required) The expense report row id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"AmountInCurrency\": \"<double>\",\n  \"VATInCurrency\": \"<double>\",\n  \"ISO4217CurrencyCode\": \"<string>\",\n  \"Notes\": \"<string>\",\n  \"ExpenseReportRowDateUtc\": \"<dateTime>\",\n  \"Category\": \"<integer>\",\n  \"CustomCategory\": \"<string>\",\n  \"ExpenseReportRowContent\": [\n    {\n      \"ExpenseReportRowContentId\": \"<integer>\",\n      \"ExpenseReportRowId\": \"<integer>\",\n      \"Data\": \"<string>\",\n      \"ContentType\": \"<integer>\"\n    },\n    {\n      \"ExpenseReportRowContentId\": \"<integer>\",\n      \"ExpenseReportRowId\": \"<integer>\",\n      \"Data\": \"<string>\",\n      \"ContentType\": \"<integer>\"\n    }\n  ],\n  \"CategoryValue\": \"<double>\",\n  \"Merchant\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 1155,\n  \"detail\": \"string\",\n  \"instance\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6d3e49f4-c5d8-486d-9d5e-301ac010e6c5",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "expensereportrow3",
+                    ":expenseReportRowId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "expenseReportRowId",
+                      "description": "(Required) The expense report row id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"AmountInCurrency\": \"<double>\",\n  \"VATInCurrency\": \"<double>\",\n  \"ISO4217CurrencyCode\": \"<string>\",\n  \"Notes\": \"<string>\",\n  \"ExpenseReportRowDateUtc\": \"<dateTime>\",\n  \"Category\": \"<integer>\",\n  \"CustomCategory\": \"<string>\",\n  \"ExpenseReportRowContent\": [\n    {\n      \"ExpenseReportRowContentId\": \"<integer>\",\n      \"ExpenseReportRowId\": \"<integer>\",\n      \"Data\": \"<string>\",\n      \"ContentType\": \"<integer>\"\n    },\n    {\n      \"ExpenseReportRowContentId\": \"<integer>\",\n      \"ExpenseReportRowId\": \"<integer>\",\n      \"Data\": \"<string>\",\n      \"ContentType\": \"<integer>\"\n    }\n  ],\n  \"CategoryValue\": \"<double>\",\n  \"Merchant\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "63948121-4bd4-4e6c-925a-4eb6af427f65",
+          "name": "Removes the given expense report row",
+          "request": {
+            "name": "Removes the given expense report row",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "resourceowner",
+                "expensereportrow3",
+                ":expenseReportRowId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "expenseReportRowId",
+                  "description": "(Required) The expense report row id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "DELETE",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "read write"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.automile.com/login/"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "83be1484-e3b3-412f-9dcc-190157823198",
+              "name": "The expense report row has been deleted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "expensereportrow3",
+                    ":expenseReportRowId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "expenseReportRowId",
+                      "description": "(Required) The expense report row id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8ffb6afe-3eec-453b-8f9e-a0864658568c",
+              "name": "Request is forbidden, could occur for a number of reasons, see returned message",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "expensereportrow3",
+                    ":expenseReportRowId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "expenseReportRowId",
+                      "description": "(Required) The expense report row id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 1155,\n  \"detail\": \"string\",\n  \"instance\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "de8cf8c2-04f0-40c1-af6e-71539a5d39ad",
+              "name": "Not found, the expense report row you tried to remove can't be found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "expensereportrow3",
+                    ":expenseReportRowId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "expenseReportRowId",
+                      "description": "(Required) The expense report row id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 1155,\n  \"detail\": \"string\",\n  \"instance\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4b46e1c3-3172-4070-9f71-317dce3c2007",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "expensereportrow3",
+                    ":expenseReportRowId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "expenseReportRowId",
+                      "description": "(Required) The expense report row id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ae1b6af0-d5e3-4292-8a40-6cdfbea6635c",
+          "name": "Create an expense report row",
+          "request": {
+            "name": "Create an expense report row",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "resourceowner",
+                "expensereportrow3"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "read write"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.automile.com/login/"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"ExpenseReportId\": \"<integer>\",\n  \"AmountInCurrency\": \"<double>\",\n  \"VATInCurrency\": \"<double>\",\n  \"ISO4217CurrencyCode\": \"<string>\",\n  \"Notes\": \"<string>\",\n  \"Category\": \"<integer>\",\n  \"ExpenseReportRowDateUtc\": \"<dateTime>\",\n  \"ExpenseReportRowContent\": [\n    {\n      \"ExpenseReportRowId\": \"<integer>\",\n      \"Data\": \"<string>\",\n      \"ContentType\": \"<integer>\"\n    },\n    {\n      \"ExpenseReportRowId\": \"<integer>\",\n      \"Data\": \"<string>\",\n      \"ContentType\": \"<integer>\"\n    }\n  ],\n  \"CustomCategory\": \"<string>\",\n  \"CategoryValue\": \"<double>\",\n  \"Merchant\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "4e5ea4fd-a194-444c-a25d-8540bbfd26e8",
+              "name": "A header link containing the URL to the newly created resource",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "expensereportrow3"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ExpenseReportId\": \"<integer>\",\n  \"AmountInCurrency\": \"<double>\",\n  \"VATInCurrency\": \"<double>\",\n  \"ISO4217CurrencyCode\": \"<string>\",\n  \"Notes\": \"<string>\",\n  \"Category\": \"<integer>\",\n  \"ExpenseReportRowDateUtc\": \"<dateTime>\",\n  \"ExpenseReportRowContent\": [\n    {\n      \"ExpenseReportRowId\": \"<integer>\",\n      \"Data\": \"<string>\",\n      \"ContentType\": \"<integer>\"\n    },\n    {\n      \"ExpenseReportRowId\": \"<integer>\",\n      \"Data\": \"<string>\",\n      \"ContentType\": \"<integer>\"\n    }\n  ],\n  \"CustomCategory\": \"<string>\",\n  \"CategoryValue\": \"<double>\",\n  \"Merchant\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "6664f02c-5f30-4d12-a6f3-5d5bbb3b2d15",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "expensereportrow3"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ExpenseReportId\": \"<integer>\",\n  \"AmountInCurrency\": \"<double>\",\n  \"VATInCurrency\": \"<double>\",\n  \"ISO4217CurrencyCode\": \"<string>\",\n  \"Notes\": \"<string>\",\n  \"Category\": \"<integer>\",\n  \"ExpenseReportRowDateUtc\": \"<dateTime>\",\n  \"ExpenseReportRowContent\": [\n    {\n      \"ExpenseReportRowId\": \"<integer>\",\n      \"Data\": \"<string>\",\n      \"ContentType\": \"<integer>\"\n    },\n    {\n      \"ExpenseReportRowId\": \"<integer>\",\n      \"Data\": \"<string>\",\n      \"ContentType\": \"<integer>\"\n    }\n  ],\n  \"CustomCategory\": \"<string>\",\n  \"CategoryValue\": \"<double>\",\n  \"Merchant\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "8c9098bb-3ab2-41df-aa90-9715e62e5b90",
+    "name": "Automile ClientApi ResourceOwnerExpenseReportRow3V2 API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

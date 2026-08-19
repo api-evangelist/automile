@@ -1,0 +1,174 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Automile ClientApi ResourceOwnerVehicle3V2 API",
+    "version": "v1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "ResourceOwnerVehicle3V2",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get all vehicles that the user has access to",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/resourceowner/vehicles3"
+          },
+          "docs": "Only returns vehicles that the user have access to"
+        },
+        {
+          "info": {
+            "name": "Creates a new vehicle",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/resourceowner/vehicles3"
+          },
+          "docs": "This will create a new vehicle and make the association you set."
+        },
+        {
+          "info": {
+            "name": "Get the details about the vehicle",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/resourceowner/vehicles3/:vehicleId",
+            "params": [
+              {
+                "name": "vehicleId",
+                "value": "",
+                "type": "path",
+                "description": "The vehicle id"
+              }
+            ]
+          },
+          "docs": "Only vehicles that the user has relationships with are allowed."
+        },
+        {
+          "info": {
+            "name": "Updates the given vehicle with new model",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/v1/resourceowner/vehicles3/:vehicleId",
+            "params": [
+              {
+                "name": "vehicleId",
+                "value": "",
+                "type": "path",
+                "description": "The vehicle id"
+              }
+            ]
+          },
+          "docs": "This will update the given vehicle id with a new model."
+        },
+        {
+          "info": {
+            "name": "Returns the external information we have on the vehicle",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/resourceowner/vehicles3/VehicleInformation",
+            "params": [
+              {
+                "name": "identifier",
+                "value": "",
+                "type": "query",
+                "description": "Numberplate or Vin"
+              },
+              {
+                "name": "identifierType",
+                "value": "",
+                "type": "query",
+                "description": "NumberPlate = 0, VehicleInformationNumber = 1"
+              }
+            ]
+          },
+          "docs": "Returns the external information we have on the vehicle"
+        },
+        {
+          "info": {
+            "name": "Get position and status of all vehicles that the user has access to",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/resourceowner/vehicles3/status"
+          },
+          "docs": "Only returns vehicles that the user have access to. LastKnownFormattedAddress, LastKnownStreetAddress, LastKnownCity is only returned if vehicle is parked."
+        },
+        {
+          "info": {
+            "name": "Get position and status of specific vehicle",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/resourceowner/vehicles3/status/:vehicleId",
+            "params": [
+              {
+                "name": "vehicleId",
+                "value": "",
+                "type": "path",
+                "description": "The vehicle id"
+              }
+            ]
+          },
+          "docs": "Get position and status of specific vehicle"
+        },
+        {
+          "info": {
+            "name": "Check-in to a vehicle",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/resourceowner/vehicles3/checkin"
+          },
+          "docs": "This will check-in the contact specified and if left empty it will check-in the calling user into a vehicle"
+        },
+        {
+          "info": {
+            "name": "Check-out from a vehicle",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/resourceowner/vehicles3/checkout"
+          },
+          "docs": "This will check-out the calling user from a vehicle"
+        },
+        {
+          "info": {
+            "name": "Returns the last ongoing or ended trip for the vehicle specified",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/resourceowner/vehicles3/:vehicleId/lasttrip",
+            "params": [
+              {
+                "name": "vehicleId",
+                "value": "",
+                "type": "path",
+                "description": "Filter on companyId"
+              }
+            ]
+          },
+          "docs": "Returns the last ongoing or ended trip for the vehicle specified"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

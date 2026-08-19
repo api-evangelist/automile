@@ -1,0 +1,97 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Automile ClientApi ResourceOwnerGeofence API",
+    "version": "v1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "ResourceOwnerGeofence",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get a list of geofencese user is associated with",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/resourceowner/geofence"
+          },
+          "docs": "Only geofences that the user has access to are accessible."
+        },
+        {
+          "info": {
+            "name": "Creates a new geofence",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/resourceowner/geofence"
+          },
+          "docs": "This will create a new geofence and associate it with a vehicle."
+        },
+        {
+          "info": {
+            "name": "Get geofence",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/resourceowner/geofence/:geofenceId",
+            "params": [
+              {
+                "name": "geofenceId",
+                "value": "",
+                "type": "path",
+                "description": "The geofence id"
+              }
+            ]
+          },
+          "docs": "Only geofences that the user has access to are accessible."
+        },
+        {
+          "info": {
+            "name": "Updates the given geofence with new model",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/v1/resourceowner/geofence/:geofenceId",
+            "params": [
+              {
+                "name": "geofenceId",
+                "value": "",
+                "type": "path",
+                "description": "The geofence id"
+              }
+            ]
+          },
+          "docs": "This will update the given geofence id with a new model."
+        },
+        {
+          "info": {
+            "name": "Removes the given geofence",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/v1/resourceowner/geofence/:geofenceId",
+            "params": [
+              {
+                "name": "geofenceId",
+                "value": "",
+                "type": "path",
+                "description": "The geofence id"
+              }
+            ]
+          },
+          "docs": "Removes the given geofence"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

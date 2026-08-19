@@ -1,0 +1,100 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Automile ClientApi ResourceOwnerTripScore API",
+    "version": "v1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "ResourceOwnerTripScore",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get latest driving score for a driver",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/resourceowner/tripscore/drivingscore/:driverContactId",
+            "params": [
+              {
+                "name": "driverContactId",
+                "value": "",
+                "type": "path",
+                "description": "Contact id to get driving score for"
+              }
+            ]
+          },
+          "docs": "This is a BETA feature, under development and may change. <br /> \r\n            Reduction types are \"HarshAcceleration\", \"HarshBrake\", \"HarshTurn\", \"Idling\" or \"Speeding\". <br />\r\n            Returns latest driving score with points lost, weaknesses and strengths"
+        },
+        {
+          "info": {
+            "name": "Get trip score summary for a driver",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/resourceowner/tripscore/summary/:driverContactId",
+            "params": [
+              {
+                "name": "driverContactId",
+                "value": "",
+                "type": "path",
+                "description": "Contact id to get trip score for"
+              }
+            ]
+          },
+          "docs": "This is a BETA feature, under development and may change. <br /> \r\n            Reduction types are \"HarshAcceleration\", \"HarshBrake\", \"HarshTurn\", \"Idling\" or \"Speeding\". <br />\r\n            Returns summary for previous month and current month."
+        },
+        {
+          "info": {
+            "name": "Get trip score chart data for a driver",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/resourceowner/tripscore/chartdata/:driverContactId",
+            "params": [
+              {
+                "name": "driverContactId",
+                "value": "",
+                "type": "path",
+                "description": "Contact id to get chart for"
+              }
+            ]
+          },
+          "docs": "This is a BETA feature, under development and may change."
+        },
+        {
+          "info": {
+            "name": "Get list of trips with trip score for a driver",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/resourceowner/tripscore/triplist/:driverContactId",
+            "params": [
+              {
+                "name": "driverContactId",
+                "value": "",
+                "type": "path",
+                "description": "Contact id to get trip score for"
+              },
+              {
+                "name": "skip",
+                "value": "",
+                "type": "query",
+                "description": "Optional skip number of trips"
+              }
+            ]
+          },
+          "docs": "This is a BETA feature, under development and may change. <br /> \r\n            Max return count is 100 trips."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

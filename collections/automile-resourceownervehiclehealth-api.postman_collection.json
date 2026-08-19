@@ -1,0 +1,554 @@
+{
+  "item": [
+    {
+      "id": "92211afd-46fd-4aee-b1e6-cfdbced22902",
+      "name": "ResourceOwnerVehicleHealth",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "da5fc198-47b4-4347-8952-39af201ef070",
+          "name": "Get health indicators for a vehicle",
+          "request": {
+            "name": "Get health indicators for a vehicle",
+            "description": {
+              "content": "Only vehicle that the user has access to can be queried",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "resourceowner",
+                "vehiclehealth",
+                ":vehicleId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "vehicleId",
+                  "description": "(Required) The vehicle id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "read write"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.automile.com/login/"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "8614fff7-6d58-4539-8dfb-133108b5df51",
+              "name": "The VehicleHealths are returned",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "vehiclehealth",
+                    ":vehicleId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "vehicleId",
+                      "description": "(Required) The vehicle id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"VehicleId\": 799,\n  \"PeriodFrom\": 1822,\n  \"PeriodTo\": 8202,\n  \"LastBatteryStatus\": 1,\n  \"LastBatteryWarning\": {\n    \"Occured\": \"1962-10-03T12:50:32.468Z\",\n    \"Latitude\": 7243.148130882442,\n    \"Longitude\": 8454.761971942693,\n    \"BatteryStatus\": 0\n  },\n  \"BatteryEventsForSelectedPeriod\": [\n    {\n      \"Occured\": \"1998-06-19T07:46:57.194Z\",\n      \"Latitude\": 6424.946291443456,\n      \"Longitude\": 3435.873516387252,\n      \"BatteryStatus\": 0\n    },\n    {\n      \"Occured\": \"2019-06-27T16:04:10.692Z\",\n      \"Latitude\": 4989.604031534347,\n      \"Longitude\": 8436.66615222391,\n      \"BatteryStatus\": 2\n    }\n  ],\n  \"LastMILEvent\": {\n    \"Occured\": \"1957-03-24T11:18:42.054Z\",\n    \"MILStatus\": 1,\n    \"MILDistance\": 5615,\n    \"CLRDistanceUntilToday\": 3488.841631351918,\n    \"NumberOfDTCs\": 3452,\n    \"Latitude\": 9378.994684005313,\n    \"Longitude\": 1428.805057918483\n  },\n  \"MILEventsForSelectedPeriod\": [\n    {\n      \"Occured\": \"1957-09-17T04:29:44.448Z\",\n      \"MILStatus\": 1,\n      \"MILDistance\": 8715,\n      \"CLRDistanceUntilToday\": 5239.840363440502,\n      \"NumberOfDTCs\": 1909,\n      \"Latitude\": 5369.335818350398,\n      \"Longitude\": 7555.348478344107\n    },\n    {\n      \"Occured\": \"1947-01-29T11:59:22.084Z\",\n      \"MILStatus\": 1,\n      \"MILDistance\": 2342,\n      \"CLRDistanceUntilToday\": 1916.5976168775667,\n      \"NumberOfDTCs\": 7046,\n      \"Latitude\": 8456.564934245922,\n      \"Longitude\": 8454.74281083511\n    }\n  ],\n  \"LastDTCEvent\": {\n    \"Occured\": \"2018-08-28T12:13:53.980Z\",\n    \"DTCEventDetails\": [\n      {\n        \"DTC\": \"string\",\n        \"FaultLocation\": \"string\",\n        \"ProbableCause\": \"string\"\n      },\n      {\n        \"DTC\": \"string\",\n        \"FaultLocation\": \"string\",\n        \"ProbableCause\": \"string\"\n      }\n    ],\n    \"Latitude\": 3212.9398516449114,\n    \"Longitude\": 2861.229222347832\n  },\n  \"LastPendingDTCEvent\": {\n    \"Occured\": \"2020-01-01T22:26:23.674Z\",\n    \"DTCEventDetails\": [\n      {\n        \"DTC\": \"string\",\n        \"FaultLocation\": \"string\",\n        \"ProbableCause\": \"string\"\n      },\n      {\n        \"DTC\": \"string\",\n        \"FaultLocation\": \"string\",\n        \"ProbableCause\": \"string\"\n      }\n    ],\n    \"Latitude\": 6759.850993755802,\n    \"Longitude\": 9181.38227643918\n  },\n  \"DTCEventsForSelectedPeriod\": [\n    {\n      \"Occured\": \"1963-10-24T07:17:45.577Z\",\n      \"DTCEventDetails\": [\n        {\n          \"DTC\": \"string\",\n          \"FaultLocation\": \"string\",\n          \"ProbableCause\": \"string\"\n        },\n        {\n          \"DTC\": \"string\",\n          \"FaultLocation\": \"string\",\n          \"ProbableCause\": \"string\"\n        }\n      ],\n      \"Latitude\": 8309.012122675895,\n      \"Longitude\": 5283.719442245012\n    },\n    {\n      \"Occured\": \"1946-10-28T12:55:25.995Z\",\n      \"DTCEventDetails\": [\n        {\n          \"DTC\": \"string\",\n          \"FaultLocation\": \"string\",\n          \"ProbableCause\": \"string\"\n        },\n        {\n          \"DTC\": \"string\",\n          \"FaultLocation\": \"string\",\n          \"ProbableCause\": \"string\"\n        }\n      ],\n      \"Latitude\": 6411.360998271448,\n      \"Longitude\": 3212.1514724501953\n    }\n  ],\n  \"PendingDTCEventsForSelectedPeriod\": [\n    {\n      \"Occured\": \"1973-10-28T12:14:42.891Z\",\n      \"DTCEventDetails\": [\n        {\n          \"DTC\": \"string\",\n          \"FaultLocation\": \"string\",\n          \"ProbableCause\": \"string\"\n        },\n        {\n          \"DTC\": \"string\",\n          \"FaultLocation\": \"string\",\n          \"ProbableCause\": \"string\"\n        }\n      ],\n      \"Latitude\": 1453.8990258898975,\n      \"Longitude\": 6110.092754177729\n    },\n    {\n      \"Occured\": \"1974-12-15T06:33:21.294Z\",\n      \"DTCEventDetails\": [\n        {\n          \"DTC\": \"string\",\n          \"FaultLocation\": \"string\",\n          \"ProbableCause\": \"string\"\n        },\n        {\n          \"DTC\": \"string\",\n          \"FaultLocation\": \"string\",\n          \"ProbableCause\": \"string\"\n        }\n      ],\n      \"Latitude\": 4140.525724978515,\n      \"Longitude\": 498.1417030535806\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "cdacc0fc-02e5-450a-9736-6f2dcc767377",
+              "name": "Request is forbidden, meaning you don't have access to this vehicle",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "vehiclehealth",
+                    ":vehicleId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "vehicleId",
+                      "description": "(Required) The vehicle id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a0f78a92-fc59-40fb-9293-00f5534898e2",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "vehiclehealth",
+                    ":vehicleId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "vehicleId",
+                      "description": "(Required) The vehicle id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3ae40705-d875-4454-af40-11009f82fc3e",
+          "name": "Get health indicators for a vehicle over a period of time",
+          "request": {
+            "name": "Get health indicators for a vehicle over a period of time",
+            "description": {
+              "content": "Only vehicle that the user has access to can be queried",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "resourceowner",
+                "vehiclehealth",
+                ":dateperiod",
+                ":vehicleId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "dateperiod",
+                  "description": "(Required) Date period parameter, in the form of only year (2014), year and month (201401), or interval {201301-201401}"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "vehicleId",
+                  "description": "(Required) The vehicle id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "read write"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.automile.com/login/"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "22312de4-9521-40fa-8607-67f175cc457f",
+              "name": "The VehicleHealths are returned",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "vehiclehealth",
+                    ":dateperiod",
+                    ":vehicleId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dateperiod",
+                      "description": "(Required) Date period parameter, in the form of only year (2014), year and month (201401), or interval {201301-201401}"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "vehicleId",
+                      "description": "(Required) The vehicle id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"VehicleId\": 8816,\n  \"PeriodFrom\": 3651,\n  \"PeriodTo\": 616,\n  \"LastBatteryStatus\": 3,\n  \"LastBatteryWarning\": {\n    \"Occured\": \"1983-01-12T17:59:49.603Z\",\n    \"Latitude\": 902.6807478369403,\n    \"Longitude\": 9322.300424041967,\n    \"BatteryStatus\": 0\n  },\n  \"BatteryEventsForSelectedPeriod\": [\n    {\n      \"Occured\": \"1958-06-19T16:58:49.689Z\",\n      \"Latitude\": 6163.606691998108,\n      \"Longitude\": 5486.660139973981,\n      \"BatteryStatus\": 2\n    },\n    {\n      \"Occured\": \"2025-09-30T22:04:22.491Z\",\n      \"Latitude\": 4456.095626650137,\n      \"Longitude\": 5287.172598153706,\n      \"BatteryStatus\": 1\n    }\n  ],\n  \"LastMILEvent\": {\n    \"Occured\": \"2017-05-19T17:39:56.041Z\",\n    \"MILStatus\": 1,\n    \"MILDistance\": 6183,\n    \"CLRDistanceUntilToday\": 5701.574381004258,\n    \"NumberOfDTCs\": 178,\n    \"Latitude\": 2051.2509019072877,\n    \"Longitude\": 9152.697524652058\n  },\n  \"MILEventsForSelectedPeriod\": [\n    {\n      \"Occured\": \"2002-11-15T04:58:35.613Z\",\n      \"MILStatus\": 0,\n      \"MILDistance\": 8306,\n      \"CLRDistanceUntilToday\": 9744.382768369518,\n      \"NumberOfDTCs\": 6324,\n      \"Latitude\": 4241.058402096366,\n      \"Longitude\": 8612.592148715405\n    },\n    {\n      \"Occured\": \"1969-12-08T21:44:27.844Z\",\n      \"MILStatus\": 1,\n      \"MILDistance\": 842,\n      \"CLRDistanceUntilToday\": 2575.4630927101007,\n      \"NumberOfDTCs\": 278,\n      \"Latitude\": 8078.802312957358,\n      \"Longitude\": 1472.8218294344863\n    }\n  ],\n  \"LastDTCEvent\": {\n    \"Occured\": \"1967-07-07T16:40:17.206Z\",\n    \"DTCEventDetails\": [\n      {\n        \"DTC\": \"string\",\n        \"FaultLocation\": \"string\",\n        \"ProbableCause\": \"string\"\n      },\n      {\n        \"DTC\": \"string\",\n        \"FaultLocation\": \"string\",\n        \"ProbableCause\": \"string\"\n      }\n    ],\n    \"Latitude\": 9592.855270966102,\n    \"Longitude\": 5110.961587827994\n  },\n  \"LastPendingDTCEvent\": {\n    \"Occured\": \"1955-07-21T00:28:21.150Z\",\n    \"DTCEventDetails\": [\n      {\n        \"DTC\": \"string\",\n        \"FaultLocation\": \"string\",\n        \"ProbableCause\": \"string\"\n      },\n      {\n        \"DTC\": \"string\",\n        \"FaultLocation\": \"string\",\n        \"ProbableCause\": \"string\"\n      }\n    ],\n    \"Latitude\": 6767.2707391667955,\n    \"Longitude\": 1146.6950780304608\n  },\n  \"DTCEventsForSelectedPeriod\": [\n    {\n      \"Occured\": \"1982-01-12T13:14:16.793Z\",\n      \"DTCEventDetails\": [\n        {\n          \"DTC\": \"string\",\n          \"FaultLocation\": \"string\",\n          \"ProbableCause\": \"string\"\n        },\n        {\n          \"DTC\": \"string\",\n          \"FaultLocation\": \"string\",\n          \"ProbableCause\": \"string\"\n        }\n      ],\n      \"Latitude\": 2030.681353170607,\n      \"Longitude\": 8752.79208209818\n    },\n    {\n      \"Occured\": \"1956-05-09T23:49:40.018Z\",\n      \"DTCEventDetails\": [\n        {\n          \"DTC\": \"string\",\n          \"FaultLocation\": \"string\",\n          \"ProbableCause\": \"string\"\n        },\n        {\n          \"DTC\": \"string\",\n          \"FaultLocation\": \"string\",\n          \"ProbableCause\": \"string\"\n        }\n      ],\n      \"Latitude\": 953.8108039558014,\n      \"Longitude\": 2911.6950040649767\n    }\n  ],\n  \"PendingDTCEventsForSelectedPeriod\": [\n    {\n      \"Occured\": \"2021-04-14T21:57:49.315Z\",\n      \"DTCEventDetails\": [\n        {\n          \"DTC\": \"string\",\n          \"FaultLocation\": \"string\",\n          \"ProbableCause\": \"string\"\n        },\n        {\n          \"DTC\": \"string\",\n          \"FaultLocation\": \"string\",\n          \"ProbableCause\": \"string\"\n        }\n      ],\n      \"Latitude\": 8457.018373001813,\n      \"Longitude\": 380.37480646787134\n    },\n    {\n      \"Occured\": \"1984-05-05T16:13:32.168Z\",\n      \"DTCEventDetails\": [\n        {\n          \"DTC\": \"string\",\n          \"FaultLocation\": \"string\",\n          \"ProbableCause\": \"string\"\n        },\n        {\n          \"DTC\": \"string\",\n          \"FaultLocation\": \"string\",\n          \"ProbableCause\": \"string\"\n        }\n      ],\n      \"Latitude\": 7600.38151436982,\n      \"Longitude\": 4825.149057089529\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c744eef1-d32e-4424-9f0b-a8efef8029dc",
+              "name": "Bad request, date period is not in a correct format",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "vehiclehealth",
+                    ":dateperiod",
+                    ":vehicleId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dateperiod",
+                      "description": "(Required) Date period parameter, in the form of only year (2014), year and month (201401), or interval {201301-201401}"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "vehicleId",
+                      "description": "(Required) The vehicle id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "4b740d72-0538-469b-8ca9-8fadbd8573d5",
+              "name": "Request is forbidden, meaning you don't have access to this vehicle",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "vehiclehealth",
+                    ":dateperiod",
+                    ":vehicleId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dateperiod",
+                      "description": "(Required) Date period parameter, in the form of only year (2014), year and month (201401), or interval {201301-201401}"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "vehicleId",
+                      "description": "(Required) The vehicle id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "3dcec328-70ac-4923-8bf0-cb63615cc493",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "vehiclehealth",
+                    ":dateperiod",
+                    ":vehicleId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dateperiod",
+                      "description": "(Required) Date period parameter, in the form of only year (2014), year and month (201401), or interval {201301-201401}"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "vehicleId",
+                      "description": "(Required) The vehicle id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "dc5082c3-4b56-427a-a983-37803b2b3f1a",
+    "name": "Automile ClientApi ResourceOwnerVehicleHealth API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

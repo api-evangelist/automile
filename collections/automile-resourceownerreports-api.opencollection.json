@@ -1,0 +1,251 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Automile ClientApi ResourceOwnerReports API",
+    "version": "v1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "ResourceOwnerReports",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Trips report",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/resourceowner/reports/trips-report"
+          },
+          "docs": "Max date interval is 16 days"
+        },
+        {
+          "info": {
+            "name": "Vehicle summary report",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/resourceowner/reports/vehicle-summary",
+            "params": [
+              {
+                "name": "fromDate",
+                "value": "",
+                "type": "query",
+                "description": "Period from date"
+              },
+              {
+                "name": "toDate",
+                "value": "",
+                "type": "query",
+                "description": "Period to date"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "First page = 1, page size 20"
+              },
+              {
+                "name": "vehicleId",
+                "value": "",
+                "type": "query",
+                "description": "Filter on vehicleId"
+              }
+            ]
+          },
+          "docs": "Only vehicles that the user is associated with will be returned by this operation.\r\n            400 bad request is returned if the date period parameter is not in a correct format"
+        },
+        {
+          "info": {
+            "name": "Get a trip summary report",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/resourceowner/reports/tripsummary/:dateperiod",
+            "params": [
+              {
+                "name": "dateperiod",
+                "value": "",
+                "type": "path",
+                "description": "Date period parameter, in the form of only year (2014), year and month (201401), or interval {201301-201401}"
+              }
+            ]
+          },
+          "docs": "Only vehicles that the user is associated with will be returned by this operation. 400 bad request is returend if the date period parameter is not in a correct format"
+        },
+        {
+          "info": {
+            "name": "Get a trip summary report filtered by vehicle",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/resourceowner/reports/tripsummary/:dateperiod/:vehicleId",
+            "params": [
+              {
+                "name": "dateperiod",
+                "value": "",
+                "type": "path",
+                "description": "Date period parameter, in the form of only year (2014), year and month (201401), or interval {201301-201401}"
+              },
+              {
+                "name": "vehicleId",
+                "value": "",
+                "type": "path",
+                "description": "Report will be filtered on vehicle Id"
+              }
+            ]
+          },
+          "docs": "Only vehicles that the user is associated with will be returned by this operation. 400 bad request is returend if the date period parameter is not in a correct format"
+        },
+        {
+          "info": {
+            "name": "Get a vehicle summary report",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/resourceowner/reports/vehiclesummary/:dateperiod/:vehicleId",
+            "params": [
+              {
+                "name": "dateperiod",
+                "value": "",
+                "type": "path",
+                "description": "Date period parameter, in the form of only year (2014), year and month (201401), or interval {201301-201401}"
+              },
+              {
+                "name": "vehicleId",
+                "value": "",
+                "type": "path",
+                "description": "Report will be filtered on vehicle Id"
+              }
+            ]
+          },
+          "docs": "Only vehicles that the user is associated with will be returned by this operation. 400 bad request is returend if the date period parameter is not in a correct format"
+        },
+        {
+          "info": {
+            "name": "Get vehicles summary report",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/resourceowner/reports/vehiclessummary/:dateperiod",
+            "params": [
+              {
+                "name": "dateperiod",
+                "value": "",
+                "type": "path",
+                "description": "Date period parameter, in the form of only year (2014), year and month (201401), or interval {201301-201401}"
+              }
+            ]
+          },
+          "docs": "Only vehicles that the user is associated with will be returned by this operation. 400 bad request is returend if the date period parameter is not in a correct format"
+        },
+        {
+          "info": {
+            "name": "Email a trip journal report to a desired email address",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/resourceowner/reports/emailtripreport"
+          },
+          "docs": "Only vehicles that the user is associated will be allowed"
+        },
+        {
+          "info": {
+            "name": "Get available vehicles and periods for an email trip journal",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/resourceowner/reports/emailtripreport/periods"
+          },
+          "docs": "Get available vehicles and periods for an email trip journal"
+        },
+        {
+          "info": {
+            "name": "GetGeofenceLog",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/resourceowner/reports/geofencelog",
+            "params": [
+              {
+                "name": "vehicleId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "geofenceId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "fromDate",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "toDate",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "Export trips to Excel or PDF",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/resourceowner/reports/exporttrips",
+            "params": [
+              {
+                "name": "fromDate",
+                "value": "",
+                "type": "query",
+                "description": "From date"
+              },
+              {
+                "name": "toDate",
+                "value": "",
+                "type": "query",
+                "description": "To date"
+              },
+              {
+                "name": "reportType",
+                "value": "",
+                "type": "query",
+                "description": "Excel or PDF"
+              },
+              {
+                "name": "apiTripType",
+                "value": "",
+                "type": "query",
+                "description": "Filter on trip type"
+              },
+              {
+                "name": "vehicleId",
+                "value": "",
+                "type": "query",
+                "description": "Filter on vehicle"
+              }
+            ]
+          },
+          "docs": "Only trips that the user is associated with will be returned by this operation."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

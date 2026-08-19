@@ -1,0 +1,516 @@
+{
+  "item": [
+    {
+      "id": "4d60858d-1f86-474e-9258-acb47ac9c245",
+      "name": "ResourceOwnerTripScore",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "7e178956-22b7-47f2-8bc5-c710a7e5f12f",
+          "name": "Get latest driving score for a driver",
+          "request": {
+            "name": "Get latest driving score for a driver",
+            "description": {
+              "content": "This is a BETA feature, under development and may change. <br /> \r\n            Reduction types are \"HarshAcceleration\", \"HarshBrake\", \"HarshTurn\", \"Idling\" or \"Speeding\". <br />\r\n            Returns latest driving score with points lost, weaknesses and strengths",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "resourceowner",
+                "tripscore",
+                "drivingscore",
+                ":driverContactId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "driverContactId",
+                  "description": "(Required) Contact id to get driving score for"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "read write"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.automile.com/login/"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "41aa3fd3-0a47-4b10-9cf6-a12a73d0decb",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "tripscore",
+                    "drivingscore",
+                    ":driverContactId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "driverContactId",
+                      "description": "(Required) Contact id to get driving score for"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Date\": \"1984-12-10T22:16:22.392Z\",\n  \"DrivingScore\": 3446,\n  \"OrganizationScore\": 2966,\n  \"Reductions\": [\n    {\n      \"Type\": 182,\n      \"Value\": 5559.050086809494,\n      \"Text\": \"string\"\n    },\n    {\n      \"Type\": 2416,\n      \"Value\": 5970.887941205142,\n      \"Text\": \"string\"\n    }\n  ],\n  \"Strengths\": [\n    {\n      \"Type\": 9815,\n      \"Value\": 6639.734311839972,\n      \"Text\": \"string\"\n    },\n    {\n      \"Type\": 946,\n      \"Value\": 4540.837376550049,\n      \"Text\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "02e5d2d0-5fb2-4906-b788-2d9c93e1f2b0",
+          "name": "Get trip score summary for a driver",
+          "request": {
+            "name": "Get trip score summary for a driver",
+            "description": {
+              "content": "This is a BETA feature, under development and may change. <br /> \r\n            Reduction types are \"HarshAcceleration\", \"HarshBrake\", \"HarshTurn\", \"Idling\" or \"Speeding\". <br />\r\n            Returns summary for previous month and current month.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "resourceowner",
+                "tripscore",
+                "summary",
+                ":driverContactId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "driverContactId",
+                  "description": "(Required) Contact id to get trip score for"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "read write"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.automile.com/login/"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "7996ccc1-962d-4475-bfd6-07d33d379bda",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "tripscore",
+                    "summary",
+                    ":driverContactId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "driverContactId",
+                      "description": "(Required) Contact id to get trip score for"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"AverageTripScore\": 1394,\n    \"FromDate\": \"string\",\n    \"Reductions\": [\n      {\n        \"Type\": 6453,\n        \"Value\": 8655.685950783465,\n        \"Text\": \"string\"\n      },\n      {\n        \"Type\": 8475,\n        \"Value\": 7306.383853427115,\n        \"Text\": \"string\"\n      }\n    ],\n    \"Strengths\": [\n      {\n        \"Type\": 3703,\n        \"Value\": 966.432062649023,\n        \"Text\": \"string\"\n      },\n      {\n        \"Type\": 4203,\n        \"Value\": 9069.156835866252,\n        \"Text\": \"string\"\n      }\n    ],\n    \"ToDate\": \"string\"\n  },\n  {\n    \"AverageTripScore\": 7548,\n    \"FromDate\": \"string\",\n    \"Reductions\": [\n      {\n        \"Type\": 6528,\n        \"Value\": 8575.254575911189,\n        \"Text\": \"string\"\n      },\n      {\n        \"Type\": 2419,\n        \"Value\": 1071.212728408314,\n        \"Text\": \"string\"\n      }\n    ],\n    \"Strengths\": [\n      {\n        \"Type\": 3627,\n        \"Value\": 138.9578466874941,\n        \"Text\": \"string\"\n      },\n      {\n        \"Type\": 4552,\n        \"Value\": 5648.734734452609,\n        \"Text\": \"string\"\n      }\n    ],\n    \"ToDate\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d75a7bbb-8d5b-4b1a-90df-c3da6c4163a8",
+          "name": "Get trip score chart data for a driver",
+          "request": {
+            "name": "Get trip score chart data for a driver",
+            "description": {
+              "content": "This is a BETA feature, under development and may change.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "resourceowner",
+                "tripscore",
+                "chartdata",
+                ":driverContactId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "driverContactId",
+                  "description": "(Required) Contact id to get chart for"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "read write"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.automile.com/login/"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "c02e5551-fe9f-4fed-bbde-a91653865d82",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "tripscore",
+                    "chartdata",
+                    ":driverContactId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "driverContactId",
+                      "description": "(Required) Contact id to get chart for"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"ContactChartDataList\": [\n    {\n      \"AverageTripScore\": 5240,\n      \"DrivingScore\": 6732,\n      \"Date\": \"string\"\n    },\n    {\n      \"AverageTripScore\": 9430,\n      \"DrivingScore\": 6733,\n      \"Date\": \"string\"\n    }\n  ],\n  \"OrganizationChartDataList\": [\n    {\n      \"AverageTripScore\": 1934,\n      \"DrivingScore\": 4975,\n      \"Date\": \"string\"\n    },\n    {\n      \"AverageTripScore\": 3536,\n      \"DrivingScore\": 5647,\n      \"Date\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1ff39775-2be6-41e4-9603-9743b8ebd553",
+          "name": "Get list of trips with trip score for a driver",
+          "request": {
+            "name": "Get list of trips with trip score for a driver",
+            "description": {
+              "content": "This is a BETA feature, under development and may change. <br /> \r\n            Max return count is 100 trips.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "resourceowner",
+                "tripscore",
+                "triplist",
+                ":driverContactId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "skip",
+                  "value": "<integer>",
+                  "description": "Optional skip number of trips"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "driverContactId",
+                  "description": "(Required) Contact id to get trip score for"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "read write"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.automile.com/login/"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "994667cb-d88e-40ff-b2f5-34e2541d2123",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "tripscore",
+                    "triplist",
+                    ":driverContactId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "skip",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "driverContactId",
+                      "description": "(Required) Contact id to get trip score for"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"AuthorizedToViewTrip\": false,\n    \"TripId\": 2853,\n    \"TripEndAddress\": \"string\",\n    \"TripEndDateTime\": \"1989-02-15T17:55:35.842Z\",\n    \"TripScore\": 5348,\n    \"TripStartAddress\": \"string\",\n    \"TripStartDateTime\": \"1971-11-24T18:20:19.437Z\"\n  },\n  {\n    \"AuthorizedToViewTrip\": false,\n    \"TripId\": 2751,\n    \"TripEndAddress\": \"string\",\n    \"TripEndDateTime\": \"1974-10-03T03:02:52.508Z\",\n    \"TripScore\": 7558,\n    \"TripStartAddress\": \"string\",\n    \"TripStartDateTime\": \"1984-05-29T20:58:48.457Z\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "0167601e-bb85-4e90-965b-822635bc19e0",
+    "name": "Automile ClientApi ResourceOwnerTripScore API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

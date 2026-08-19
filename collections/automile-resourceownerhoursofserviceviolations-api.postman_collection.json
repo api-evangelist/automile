@@ -1,0 +1,297 @@
+{
+  "item": [
+    {
+      "id": "9fb606a8-743b-43fd-814e-1ec974b6bf9c",
+      "name": "ResourceOwnerHoursOfServiceViolations",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "594b123d-0f1c-4b28-8b57-0593a88dbde7",
+          "name": "Get the Hours of Service Violations",
+          "request": {
+            "name": "Get the Hours of Service Violations",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "resourceowner",
+                "hoursofserviceviolations"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "fromDate",
+                  "value": "<dateTime>",
+                  "description": "Query on from date"
+                },
+                {
+                  "disabled": false,
+                  "key": "toDate",
+                  "value": "<dateTime>",
+                  "description": "Query on to date"
+                },
+                {
+                  "disabled": false,
+                  "key": "hourOfServiceViolationId",
+                  "value": "<integer>",
+                  "description": "Query on to id"
+                },
+                {
+                  "disabled": false,
+                  "key": "contactId",
+                  "value": "<integer>",
+                  "description": "Get statuses for a contact"
+                },
+                {
+                  "disabled": false,
+                  "key": "vehicleId",
+                  "value": "<integer>",
+                  "description": "Get statuses for a vehicle"
+                },
+                {
+                  "disabled": false,
+                  "key": "notes",
+                  "value": "<string>",
+                  "description": "Query on notes"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "read write"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.automile.com/login/"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "12d707d5-c51f-45e0-b283-854b91d98736",
+              "name": "The settings is returned, null if no settings exist",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "hoursofserviceviolations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fromDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "toDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "hourOfServiceViolationId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "contactId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "vehicleId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "notes",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"HoursOfServiceLogId\": 4609,\n    \"VehicleId\": 5357,\n    \"DutyStatusType\": 2,\n    \"FromDateTime\": \"1987-07-03T14:45:06.092Z\",\n    \"ToDateTime\": \"1984-12-28T13:14:35.288Z\",\n    \"Notes\": \"string\",\n    \"Location\": \"string\",\n    \"CycleRuleType\": 3,\n    \"WorkDayStartTime\": {\n      \"Ticks\": 5970,\n      \"Days\": 2008,\n      \"Hours\": 6680,\n      \"Milliseconds\": 5163,\n      \"Microseconds\": 950,\n      \"Nanoseconds\": 586,\n      \"Minutes\": 5599,\n      \"Seconds\": 5187,\n      \"TotalDays\": 488.2691015117535,\n      \"TotalHours\": 3205.7692742205577,\n      \"TotalMilliseconds\": 408.9627304010068,\n      \"TotalMicroseconds\": 953.114515267357,\n      \"TotalNanoseconds\": 7732.528456353087,\n      \"TotalMinutes\": 2777.818124484476,\n      \"TotalSeconds\": 9114.384968418814\n    },\n    \"DistanceInKm\": 5915.578311085039,\n    \"CreatedDateTime\": \"1948-05-31T11:52:08.401Z\",\n    \"ModifiedDateTime\": \"2026-08-10T11:13:42.927Z\",\n    \"ExternalId\": \"b332b41b-efaf-1dbd-f989-6f3db25332f4\",\n    \"IsDeleted\": false\n  },\n  {\n    \"HoursOfServiceLogId\": 2355,\n    \"VehicleId\": 3438,\n    \"DutyStatusType\": 3,\n    \"FromDateTime\": \"1978-10-06T08:52:45.149Z\",\n    \"ToDateTime\": \"1987-01-28T08:29:00.909Z\",\n    \"Notes\": \"string\",\n    \"Location\": \"string\",\n    \"CycleRuleType\": 4,\n    \"WorkDayStartTime\": {\n      \"Ticks\": 778,\n      \"Days\": 2998,\n      \"Hours\": 3936,\n      \"Milliseconds\": 3512,\n      \"Microseconds\": 3478,\n      \"Nanoseconds\": 7667,\n      \"Minutes\": 4977,\n      \"Seconds\": 9345,\n      \"TotalDays\": 6004.34003819023,\n      \"TotalHours\": 1027.6503064485032,\n      \"TotalMilliseconds\": 4003.829212969575,\n      \"TotalMicroseconds\": 6396.467469787744,\n      \"TotalNanoseconds\": 9113.168075022018,\n      \"TotalMinutes\": 1450.8450109079085,\n      \"TotalSeconds\": 9927.650517945118\n    },\n    \"DistanceInKm\": 2082.472688975744,\n    \"CreatedDateTime\": \"1971-01-01T21:58:26.865Z\",\n    \"ModifiedDateTime\": \"1982-06-02T22:31:24.314Z\",\n    \"ExternalId\": \"d2e8ebc7-1af3-1fa8-40b1-821637ffe6cb\",\n    \"IsDeleted\": true\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d2b15f1f-57e8-4999-9852-df77b00288d8",
+          "name": "Creates Hours Of Service Violation",
+          "request": {
+            "name": "Creates Hours Of Service Violation",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "resourceowner",
+                "hoursofserviceviolations"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "read write"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.automile.com/login/"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"HoursOfServiceLogId\": \"<integer>\",\n  \"ViolationType\": \"<integer>\",\n  \"RequiredActionType\": \"<integer>\",\n  \"StartDateTime\": \"<dateTime>\",\n  \"EndDateTime\": \"<dateTime>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "96a4b9f0-7458-4bef-899e-e381a402ee9f",
+              "name": "A link in the header is returned to the newly resource",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "hoursofserviceviolations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"HoursOfServiceLogId\": \"<integer>\",\n  \"ViolationType\": \"<integer>\",\n  \"RequiredActionType\": \"<integer>\",\n  \"StartDateTime\": \"<dateTime>\",\n  \"EndDateTime\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "581aa135-ac57-47a5-8969-ad5b36b4e9b2",
+    "name": "Automile ClientApi ResourceOwnerHoursOfServiceViolations API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

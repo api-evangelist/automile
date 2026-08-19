@@ -1,0 +1,4694 @@
+{
+  "item": [
+    {
+      "id": "9bd2219c-3e56-49f3-9a10-1edce747b2df",
+      "name": "ResourceOwnerIntegration",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "420d4eeb-d34c-4947-8afe-1b73bd39054b",
+          "name": "Integration Configuration",
+          "request": {
+            "name": "Integration Configuration",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "resourceowner",
+                "integration"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "read write"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.automile.com/login/"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "9a057641-72d6-4be7-bc8c-3dcb55f82000",
+              "name": "Successful retrieval of integration settings",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "integration"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"AutoPlanActive\": true,\n  \"AlphabetActive\": true,\n  \"BilredaActive\": true,\n  \"BilredaVehicleId\": 6595\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "eef52a42-f6ba-491e-9231-9808f9c76cfa",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "integration"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e3e95dbc-093d-49b6-bc87-9bf8a30e88a7",
+          "name": "Update integration configuration",
+          "request": {
+            "name": "Update integration configuration",
+            "description": {
+              "content": "If you want to update one integration but not the rest you can exclude them from the model.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "resourceowner",
+                "integration"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "read write"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.automile.com/login/"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"AutoPlanActive\": \"<boolean>\",\n  \"AlphabetActive\": \"<boolean>\",\n  \"BilredaActive\": \"<boolean>\",\n  \"BilredaVehicleId\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "7918f04c-7619-4434-b659-4bba8cb07a23",
+              "name": "Integration configuration successfully retrieved",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "integration"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"AutoPlanActive\": \"<boolean>\",\n  \"AlphabetActive\": \"<boolean>\",\n  \"BilredaActive\": \"<boolean>\",\n  \"BilredaVehicleId\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Version\": {\n    \"Major\": 9566,\n    \"Minor\": 3388,\n    \"Build\": 2546,\n    \"Revision\": 4551,\n    \"MajorRevision\": 8807,\n    \"MinorRevision\": 5259\n  },\n  \"Content\": {\n    \"Headers\": [\n      {\n        \"Key\": \"string\",\n        \"Value\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      {\n        \"Key\": \"string\",\n        \"Value\": [\n          \"string\",\n          \"string\"\n        ]\n      }\n    ]\n  },\n  \"StatusCode\": 511,\n  \"ReasonPhrase\": \"string\",\n  \"Headers\": [\n    {\n      \"Key\": \"string\",\n      \"Value\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"Key\": \"string\",\n      \"Value\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ],\n  \"TrailingHeaders\": [\n    {\n      \"Key\": \"string\",\n      \"Value\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"Key\": \"string\",\n      \"Value\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ],\n  \"RequestMessage\": {\n    \"Version\": {\n      \"Major\": 6711,\n      \"Minor\": 7342,\n      \"Build\": 2339,\n      \"Revision\": 1079,\n      \"MajorRevision\": 377,\n      \"MinorRevision\": 5746\n    },\n    \"VersionPolicy\": 2,\n    \"Content\": {\n      \"Headers\": [\n        {\n          \"Key\": \"string\",\n          \"Value\": [\n            \"string\",\n            \"string\"\n          ]\n        },\n        {\n          \"Key\": \"string\",\n          \"Value\": [\n            \"string\",\n            \"string\"\n          ]\n        }\n      ]\n    },\n    \"Method\": {\n      \"Method\": \"string\"\n    },\n    \"RequestUri\": \"http://iwsw.cwqeSsyIvN9YEM3sCCpG4i3L4iJ42bM.UVW6XZVTmoA1tQ+B6XL.Jb\",\n    \"Headers\": [\n      {\n        \"Key\": \"string\",\n        \"Value\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      {\n        \"Key\": \"string\",\n        \"Value\": [\n          \"string\",\n          \"string\"\n        ]\n      }\n    ],\n    \"Properties\": {\n      \"key_0\": {},\n      \"key_1\": {}\n    },\n    \"Options\": {\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {},\n      \"key_3\": {}\n    }\n  },\n  \"IsSuccessStatusCode\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "96a50157-babe-4d64-bc52-bd5dbf9a1841",
+              "name": "User have no organization or is not authorized to this organization",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "integration"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"AutoPlanActive\": \"<boolean>\",\n  \"AlphabetActive\": \"<boolean>\",\n  \"BilredaActive\": \"<boolean>\",\n  \"BilredaVehicleId\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "43ee5b47-f1ef-4cb6-9adc-77cd207dc111",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "integration"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"AutoPlanActive\": \"<boolean>\",\n  \"AlphabetActive\": \"<boolean>\",\n  \"BilredaActive\": \"<boolean>\",\n  \"BilredaVehicleId\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "793d8f9b-afc8-43aa-bb1b-99c31125c8eb",
+          "name": "Information",
+          "request": {
+            "name": "Information",
+            "description": {
+              "content": "Run this once before running Alphabet login. The flag LoginRequired will say if login to Alphabet is required to run (e.g. user has changed password in Alphabet) then this method should be run again after login.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "resourceowner",
+                "integration",
+                "alphabet"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "read write"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.automile.com/login/"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "d0cf0b2e-90d4-4e28-b23e-d6a301bc0d11",
+              "name": "List with active vehicles and available month to send in mileagelog report for is returned",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "integration",
+                    "alphabet"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"LoginIsRequired\": false,\n  \"VehicleList\": [\n    {\n      \"FriendlyName\": \"string\",\n      \"NumberPlate\": \"string\",\n      \"VehicleId\": 5836,\n      \"IsVehicleApproved\": false,\n      \"PeriodList\": [\n        {\n          \"Year\": 4185,\n          \"Month\": 4026,\n          \"IsSelected\": false\n        },\n        {\n          \"Year\": 2162,\n          \"Month\": 339,\n          \"IsSelected\": true\n        }\n      ]\n    },\n    {\n      \"FriendlyName\": \"string\",\n      \"NumberPlate\": \"string\",\n      \"VehicleId\": 5385,\n      \"IsVehicleApproved\": false,\n      \"PeriodList\": [\n        {\n          \"Year\": 1261,\n          \"Month\": 6917,\n          \"IsSelected\": false\n        },\n        {\n          \"Year\": 3476,\n          \"Month\": 2370,\n          \"IsSelected\": true\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c46d7cad-4fe4-405f-89e5-7519268b8373",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "integration",
+                    "alphabet"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "257cb6ff-d244-40c3-bfc4-d6dc21ad0a2f",
+          "name": "Alphabet login",
+          "request": {
+            "name": "Alphabet login",
+            "description": {
+              "content": "This is only needed if Alphabet information returned the required login flag set to true. User credentials are stored for future requests.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "resourceowner",
+                "integration",
+                "alphabet",
+                "login"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "username",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "password",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "read write"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.automile.com/login/"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "ac947572-c757-496d-a3a0-6dd7345aba96",
+              "name": "Login succeeded",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "integration",
+                    "alphabet",
+                    "login"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "username",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "password",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Version\": {\n    \"Major\": 3488,\n    \"Minor\": 1919,\n    \"Build\": 1617,\n    \"Revision\": 6158,\n    \"MajorRevision\": 1419,\n    \"MinorRevision\": 6256\n  },\n  \"Content\": {\n    \"Headers\": [\n      {\n        \"Key\": \"string\",\n        \"Value\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      {\n        \"Key\": \"string\",\n        \"Value\": [\n          \"string\",\n          \"string\"\n        ]\n      }\n    ]\n  },\n  \"StatusCode\": 407,\n  \"ReasonPhrase\": \"string\",\n  \"Headers\": [\n    {\n      \"Key\": \"string\",\n      \"Value\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"Key\": \"string\",\n      \"Value\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ],\n  \"TrailingHeaders\": [\n    {\n      \"Key\": \"string\",\n      \"Value\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"Key\": \"string\",\n      \"Value\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ],\n  \"RequestMessage\": {\n    \"Version\": {\n      \"Major\": 1095,\n      \"Minor\": 5148,\n      \"Build\": 8619,\n      \"Revision\": 8772,\n      \"MajorRevision\": 2000,\n      \"MinorRevision\": 4387\n    },\n    \"VersionPolicy\": 1,\n    \"Content\": {\n      \"Headers\": [\n        {\n          \"Key\": \"string\",\n          \"Value\": [\n            \"string\",\n            \"string\"\n          ]\n        },\n        {\n          \"Key\": \"string\",\n          \"Value\": [\n            \"string\",\n            \"string\"\n          ]\n        }\n      ]\n    },\n    \"Method\": {\n      \"Method\": \"string\"\n    },\n    \"RequestUri\": \"https://Sql.isxiiz8y.+cu9Z+\",\n    \"Headers\": [\n      {\n        \"Key\": \"string\",\n        \"Value\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      {\n        \"Key\": \"string\",\n        \"Value\": [\n          \"string\",\n          \"string\"\n        ]\n      }\n    ],\n    \"Properties\": {\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {},\n      \"key_3\": {}\n    },\n    \"Options\": {\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {}\n    }\n  },\n  \"IsSuccessStatusCode\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "90ef2014-5cb7-4828-b83a-b28e38086458",
+              "name": "Alphabet returned an error, this will usually be caused by entering wrong username or password",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "integration",
+                    "alphabet",
+                    "login"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "username",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "password",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b6cae9b2-1b1b-49b5-8228-db55b34f4523",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "integration",
+                    "alphabet",
+                    "login"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "username",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "password",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e0626921-fd0a-4a0e-9fcf-e3d1fba8ead4",
+          "name": "Get Alphabet mileage log",
+          "request": {
+            "name": "Get Alphabet mileage log",
+            "description": {
+              "content": "Run this with vehicle id and period returned from Alphabet information. Data model contains odometer values and business km from the first day to the last day of sent in month.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "resourceowner",
+                "integration",
+                "alphabet",
+                "mileagelog",
+                ":vehicleId",
+                ":year",
+                ":month"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "vehicleId",
+                  "description": "(Required) The vehicle id"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "year",
+                  "description": "(Required) Year of from date in period"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "month",
+                  "description": "(Required) Month of from date in period"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "read write"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.automile.com/login/"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "fbdeb2ea-94d6-4fbd-8fd3-04d8b39cdef4",
+              "name": "Mileage log data for previewing purpose is returned",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "integration",
+                    "alphabet",
+                    "mileagelog",
+                    ":vehicleId",
+                    ":year",
+                    ":month"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "vehicleId",
+                      "description": "(Required) The vehicle id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "year",
+                      "description": "(Required) Year of from date in period"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "month",
+                      "description": "(Required) Month of from date in period"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"StartOdometerKm\": 1316,\n  \"EndOdometerKm\": 6565,\n  \"BusinessKm\": 9299,\n  \"IsApproved\": false,\n  \"TotalKm\": 7444,\n  \"OtherAndPrivateKm\": 7004\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d1a2a62a-b7d8-409e-82e4-0f6797836535",
+              "name": "Invalid parameter values",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "integration",
+                    "alphabet",
+                    "mileagelog",
+                    ":vehicleId",
+                    ":year",
+                    ":month"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "vehicleId",
+                      "description": "(Required) The vehicle id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "year",
+                      "description": "(Required) Year of from date in period"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "month",
+                      "description": "(Required) Month of from date in period"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "52704dae-2367-457f-a88b-de08dfdb0851",
+              "name": "You are not authorized to this vehicle",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "integration",
+                    "alphabet",
+                    "mileagelog",
+                    ":vehicleId",
+                    ":year",
+                    ":month"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "vehicleId",
+                      "description": "(Required) The vehicle id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "year",
+                      "description": "(Required) Year of from date in period"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "month",
+                      "description": "(Required) Month of from date in period"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "eb3b4efc-6d50-41a5-8185-9c8a1ae2aea5",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "integration",
+                    "alphabet",
+                    "mileagelog",
+                    ":vehicleId",
+                    ":year",
+                    ":month"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "vehicleId",
+                      "description": "(Required) The vehicle id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "year",
+                      "description": "(Required) Year of from date in period"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "month",
+                      "description": "(Required) Month of from date in period"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e3e9d3c9-ed61-41db-9bbd-c0d87fce9a2a",
+          "name": "Send Alphabet mileage log",
+          "request": {
+            "name": "Send Alphabet mileage log",
+            "description": {
+              "content": "GET must be run before POST",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "resourceowner",
+                "integration",
+                "alphabet",
+                "mileagelog",
+                ":vehicleId",
+                ":year",
+                ":month"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "vehicleId",
+                  "description": "(Required) The vehicle id"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "year",
+                  "description": "(Required) Year of from date in period"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "month",
+                  "description": "(Required) Month of from date in period"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "read write"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.automile.com/login/"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"StartOdometerKm\": \"<integer>\",\n  \"EndOdometerKm\": \"<integer>\",\n  \"BusinessKm\": \"<integer>\",\n  \"IsApproved\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "abfcd9a6-ec82-4cda-b7e1-e14d9cd61adb",
+              "name": "Mileage log report was sent",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "integration",
+                    "alphabet",
+                    "mileagelog",
+                    ":vehicleId",
+                    ":year",
+                    ":month"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "vehicleId",
+                      "description": "(Required) The vehicle id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "year",
+                      "description": "(Required) Year of from date in period"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "month",
+                      "description": "(Required) Month of from date in period"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"StartOdometerKm\": \"<integer>\",\n  \"EndOdometerKm\": \"<integer>\",\n  \"BusinessKm\": \"<integer>\",\n  \"IsApproved\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Version\": {\n    \"Major\": 3488,\n    \"Minor\": 1919,\n    \"Build\": 1617,\n    \"Revision\": 6158,\n    \"MajorRevision\": 1419,\n    \"MinorRevision\": 6256\n  },\n  \"Content\": {\n    \"Headers\": [\n      {\n        \"Key\": \"string\",\n        \"Value\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      {\n        \"Key\": \"string\",\n        \"Value\": [\n          \"string\",\n          \"string\"\n        ]\n      }\n    ]\n  },\n  \"StatusCode\": 407,\n  \"ReasonPhrase\": \"string\",\n  \"Headers\": [\n    {\n      \"Key\": \"string\",\n      \"Value\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"Key\": \"string\",\n      \"Value\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ],\n  \"TrailingHeaders\": [\n    {\n      \"Key\": \"string\",\n      \"Value\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"Key\": \"string\",\n      \"Value\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ],\n  \"RequestMessage\": {\n    \"Version\": {\n      \"Major\": 1095,\n      \"Minor\": 5148,\n      \"Build\": 8619,\n      \"Revision\": 8772,\n      \"MajorRevision\": 2000,\n      \"MinorRevision\": 4387\n    },\n    \"VersionPolicy\": 1,\n    \"Content\": {\n      \"Headers\": [\n        {\n          \"Key\": \"string\",\n          \"Value\": [\n            \"string\",\n            \"string\"\n          ]\n        },\n        {\n          \"Key\": \"string\",\n          \"Value\": [\n            \"string\",\n            \"string\"\n          ]\n        }\n      ]\n    },\n    \"Method\": {\n      \"Method\": \"string\"\n    },\n    \"RequestUri\": \"https://Sql.isxiiz8y.+cu9Z+\",\n    \"Headers\": [\n      {\n        \"Key\": \"string\",\n        \"Value\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      {\n        \"Key\": \"string\",\n        \"Value\": [\n          \"string\",\n          \"string\"\n        ]\n      }\n    ],\n    \"Properties\": {\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {},\n      \"key_3\": {}\n    },\n    \"Options\": {\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {}\n    }\n  },\n  \"IsSuccessStatusCode\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7a078cbb-3219-4c04-8d13-a1e4ee419ffc",
+              "name": "Invalid parameter values",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "integration",
+                    "alphabet",
+                    "mileagelog",
+                    ":vehicleId",
+                    ":year",
+                    ":month"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "vehicleId",
+                      "description": "(Required) The vehicle id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "year",
+                      "description": "(Required) Year of from date in period"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "month",
+                      "description": "(Required) Month of from date in period"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"StartOdometerKm\": \"<integer>\",\n  \"EndOdometerKm\": \"<integer>\",\n  \"BusinessKm\": \"<integer>\",\n  \"IsApproved\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e5f81d71-6c9a-43b7-a323-c0f1eef8b265",
+              "name": "You are not authorized to this vehicle",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "integration",
+                    "alphabet",
+                    "mileagelog",
+                    ":vehicleId",
+                    ":year",
+                    ":month"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "vehicleId",
+                      "description": "(Required) The vehicle id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "year",
+                      "description": "(Required) Year of from date in period"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "month",
+                      "description": "(Required) Month of from date in period"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"StartOdometerKm\": \"<integer>\",\n  \"EndOdometerKm\": \"<integer>\",\n  \"BusinessKm\": \"<integer>\",\n  \"IsApproved\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "811cfaaf-c070-46fb-b126-1ea5c981bebd",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "integration",
+                    "alphabet",
+                    "mileagelog",
+                    ":vehicleId",
+                    ":year",
+                    ":month"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "vehicleId",
+                      "description": "(Required) The vehicle id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "year",
+                      "description": "(Required) Year of from date in period"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "month",
+                      "description": "(Required) Month of from date in period"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"StartOdometerKm\": \"<integer>\",\n  \"EndOdometerKm\": \"<integer>\",\n  \"BusinessKm\": \"<integer>\",\n  \"IsApproved\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8612b1cf-67e5-4b99-9132-948750c37540",
+          "name": "AutoPlan Information (Legacy)\r\nThis endpoint uses the old AutoPlan API which requires username/password authentication. Please migrate to the new /autoplan/v2/information endpoint which uses certificate-based authentication.",
+          "request": {
+            "name": "AutoPlan Information (Legacy)\r\nThis endpoint uses the old AutoPlan API which requires username/password authentication. Please migrate to the new /autoplan/v2/information endpoint which uses certificate-based authentication.",
+            "description": {
+              "content": "Run this once before running AutoPlan login. The flag LoginRequired will say if login to AutoPlan is required to run (e.g. user has changed password in AutoPlan) then this method should be run again after login.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "resourceowner",
+                "integration",
+                "autoplan"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "read write"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.automile.com/login/"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "d2151a93-dd9f-4b2a-b6e3-b886df9b0c6b",
+              "name": "List with active vehicles and available month to send in mileagelog report for is returned",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "integration",
+                    "autoplan"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"LoginIsRequired\": false,\n  \"VehicleList\": [\n    {\n      \"FriendlyName\": \"string\",\n      \"NumberPlate\": \"string\",\n      \"VehicleId\": 5924,\n      \"IsVehicleApproved\": false,\n      \"PeriodList\": [\n        {\n          \"Year\": 4184,\n          \"Month\": 4018,\n          \"IsSelected\": false\n        },\n        {\n          \"Year\": 6877,\n          \"Month\": 6362,\n          \"IsSelected\": true\n        }\n      ]\n    },\n    {\n      \"FriendlyName\": \"string\",\n      \"NumberPlate\": \"string\",\n      \"VehicleId\": 2602,\n      \"IsVehicleApproved\": false,\n      \"PeriodList\": [\n        {\n          \"Year\": 3451,\n          \"Month\": 2093,\n          \"IsSelected\": true\n        },\n        {\n          \"Year\": 6947,\n          \"Month\": 2814,\n          \"IsSelected\": true\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "51e33f5e-31f5-4149-95a0-a779d138baa0",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "integration",
+                    "autoplan"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "db9faabb-db2a-488b-8d91-f8f85d58f975",
+          "name": "Get AutoPlan V2 Information",
+          "request": {
+            "name": "Get AutoPlan V2 Information",
+            "description": {
+              "content": "Personal identity number must be provided in the request body.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "resourceowner",
+                "integration",
+                "autoplan",
+                "v2",
+                "information"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "read write"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.automile.com/login/"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"PersonalIdentityNumber\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "7ea8bf6e-0afc-4ea6-80cb-07db448d31ff",
+              "name": "List of vehicles with available periods for driving journal and odometer readings",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "integration",
+                    "autoplan",
+                    "v2",
+                    "information"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"PersonalIdentityNumber\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"VehicleList\": [\n    {\n      \"VehicleId\": 5915,\n      \"FriendlyName\": \"string\",\n      \"NumberPlate\": \"string\",\n      \"IsVehicleApproved\": false,\n      \"PeriodList\": [\n        {\n          \"Year\": 6946,\n          \"Month\": 8664,\n          \"IsSelected\": true\n        },\n        {\n          \"Year\": 9676,\n          \"Month\": 1243,\n          \"IsSelected\": false\n        }\n      ]\n    },\n    {\n      \"VehicleId\": 9616,\n      \"FriendlyName\": \"string\",\n      \"NumberPlate\": \"string\",\n      \"IsVehicleApproved\": true,\n      \"PeriodList\": [\n        {\n          \"Year\": 9234,\n          \"Month\": 1924,\n          \"IsSelected\": false\n        },\n        {\n          \"Year\": 3114,\n          \"Month\": 490,\n          \"IsSelected\": false\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a24e32ca-7347-4c75-942c-769428c7afd4",
+              "name": "Invalid personal identity number",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "integration",
+                    "autoplan",
+                    "v2",
+                    "information"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"PersonalIdentityNumber\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "4a9c0f52-0088-4cc8-a6b8-4a9f97db3fd2",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "integration",
+                    "autoplan",
+                    "v2",
+                    "information"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"PersonalIdentityNumber\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "98bcfe95-5769-436e-bc70-efb965ad0afa",
+          "name": "AutoPlan login (Legacy)\r\nThis endpoint uses the old AutoPlan API which requires username/password authentication.",
+          "request": {
+            "name": "AutoPlan login (Legacy)\r\nThis endpoint uses the old AutoPlan API which requires username/password authentication.",
+            "description": {
+              "content": "This is only needed if AutoPlan wizard returned the required login flag set to true. User credentials are stored for future requests.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "resourceowner",
+                "integration",
+                "autoplan",
+                "login"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "username",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "password",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "read write"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.automile.com/login/"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "edaa14b6-8d13-4598-bfca-b4b2b055df5a",
+              "name": "Login succeeded",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "integration",
+                    "autoplan",
+                    "login"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "username",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "password",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Version\": {\n    \"Major\": 3488,\n    \"Minor\": 1919,\n    \"Build\": 1617,\n    \"Revision\": 6158,\n    \"MajorRevision\": 1419,\n    \"MinorRevision\": 6256\n  },\n  \"Content\": {\n    \"Headers\": [\n      {\n        \"Key\": \"string\",\n        \"Value\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      {\n        \"Key\": \"string\",\n        \"Value\": [\n          \"string\",\n          \"string\"\n        ]\n      }\n    ]\n  },\n  \"StatusCode\": 407,\n  \"ReasonPhrase\": \"string\",\n  \"Headers\": [\n    {\n      \"Key\": \"string\",\n      \"Value\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"Key\": \"string\",\n      \"Value\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ],\n  \"TrailingHeaders\": [\n    {\n      \"Key\": \"string\",\n      \"Value\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"Key\": \"string\",\n      \"Value\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ],\n  \"RequestMessage\": {\n    \"Version\": {\n      \"Major\": 1095,\n      \"Minor\": 5148,\n      \"Build\": 8619,\n      \"Revision\": 8772,\n      \"MajorRevision\": 2000,\n      \"MinorRevision\": 4387\n    },\n    \"VersionPolicy\": 1,\n    \"Content\": {\n      \"Headers\": [\n        {\n          \"Key\": \"string\",\n          \"Value\": [\n            \"string\",\n            \"string\"\n          ]\n        },\n        {\n          \"Key\": \"string\",\n          \"Value\": [\n            \"string\",\n            \"string\"\n          ]\n        }\n      ]\n    },\n    \"Method\": {\n      \"Method\": \"string\"\n    },\n    \"RequestUri\": \"https://Sql.isxiiz8y.+cu9Z+\",\n    \"Headers\": [\n      {\n        \"Key\": \"string\",\n        \"Value\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      {\n        \"Key\": \"string\",\n        \"Value\": [\n          \"string\",\n          \"string\"\n        ]\n      }\n    ],\n    \"Properties\": {\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {},\n      \"key_3\": {}\n    },\n    \"Options\": {\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {}\n    }\n  },\n  \"IsSuccessStatusCode\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8127d19d-0bf6-45ea-9c17-2934d8996ade",
+              "name": "Autoplan returned an error, this will usually be caused by entering wrong username or password",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "integration",
+                    "autoplan",
+                    "login"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "username",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "password",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "80412b75-a4a9-4b74-b903-c777b0400da7",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "integration",
+                    "autoplan",
+                    "login"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "username",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "password",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "654de914-2d05-4cd0-a51a-22f4b1f3f8d9",
+          "name": "Get AutoPlan mileage log (Legacy)",
+          "request": {
+            "name": "Get AutoPlan mileage log (Legacy)",
+            "description": {
+              "content": "Run this with vehicle id and period returned from Autoplan wizard. Data model contains odometer values and business km from the first day to the last day of sent in month.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "resourceowner",
+                "integration",
+                "autoplan",
+                "mileagelog",
+                ":vehicleId",
+                ":year",
+                ":month"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "vehicleId",
+                  "description": "(Required) The vehicle id"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "year",
+                  "description": "(Required) Year of from date in period"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "month",
+                  "description": "(Required) Month of from date in period"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "read write"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.automile.com/login/"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "d1906e68-05ba-49aa-a33a-0e307c5b514e",
+              "name": "Mileage log data for previewing purpose is returned",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "integration",
+                    "autoplan",
+                    "mileagelog",
+                    ":vehicleId",
+                    ":year",
+                    ":month"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "vehicleId",
+                      "description": "(Required) The vehicle id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "year",
+                      "description": "(Required) Year of from date in period"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "month",
+                      "description": "(Required) Month of from date in period"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"StartOdometerKm\": 1316,\n  \"EndOdometerKm\": 6565,\n  \"BusinessKm\": 9299,\n  \"IsApproved\": false,\n  \"TotalKm\": 7444,\n  \"OtherAndPrivateKm\": 7004\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8bb3c154-965a-4079-b8d7-df80050f06b2",
+              "name": "Invalid parameter values",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "integration",
+                    "autoplan",
+                    "mileagelog",
+                    ":vehicleId",
+                    ":year",
+                    ":month"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "vehicleId",
+                      "description": "(Required) The vehicle id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "year",
+                      "description": "(Required) Year of from date in period"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "month",
+                      "description": "(Required) Month of from date in period"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e5065613-55d0-45e0-b9aa-69b2994ec7d7",
+              "name": "You are not authorized to this vehicle",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "integration",
+                    "autoplan",
+                    "mileagelog",
+                    ":vehicleId",
+                    ":year",
+                    ":month"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "vehicleId",
+                      "description": "(Required) The vehicle id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "year",
+                      "description": "(Required) Year of from date in period"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "month",
+                      "description": "(Required) Month of from date in period"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "2950036d-1472-4cfb-9979-1bb098ac26cc",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "integration",
+                    "autoplan",
+                    "mileagelog",
+                    ":vehicleId",
+                    ":year",
+                    ":month"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "vehicleId",
+                      "description": "(Required) The vehicle id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "year",
+                      "description": "(Required) Year of from date in period"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "month",
+                      "description": "(Required) Month of from date in period"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "11c03441-e34c-4152-808d-2ca16be21607",
+          "name": "Send AutoPlan mileage log (Legacy)",
+          "request": {
+            "name": "Send AutoPlan mileage log (Legacy)",
+            "description": {
+              "content": "GET must be run before POST",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "resourceowner",
+                "integration",
+                "autoplan",
+                "mileagelog",
+                ":vehicleId",
+                ":year",
+                ":month"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "vehicleId",
+                  "description": "(Required) The vehicle id"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "year",
+                  "description": "(Required) Year of from date in period"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "month",
+                  "description": "(Required) Month of from date in period"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "read write"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.automile.com/login/"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"StartOdometerKm\": \"<integer>\",\n  \"EndOdometerKm\": \"<integer>\",\n  \"BusinessKm\": \"<integer>\",\n  \"IsApproved\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "0dafb793-e39c-437c-b27e-5695625ac344",
+              "name": "Mileage log report was sent",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "integration",
+                    "autoplan",
+                    "mileagelog",
+                    ":vehicleId",
+                    ":year",
+                    ":month"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "vehicleId",
+                      "description": "(Required) The vehicle id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "year",
+                      "description": "(Required) Year of from date in period"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "month",
+                      "description": "(Required) Month of from date in period"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"StartOdometerKm\": \"<integer>\",\n  \"EndOdometerKm\": \"<integer>\",\n  \"BusinessKm\": \"<integer>\",\n  \"IsApproved\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Version\": {\n    \"Major\": 3488,\n    \"Minor\": 1919,\n    \"Build\": 1617,\n    \"Revision\": 6158,\n    \"MajorRevision\": 1419,\n    \"MinorRevision\": 6256\n  },\n  \"Content\": {\n    \"Headers\": [\n      {\n        \"Key\": \"string\",\n        \"Value\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      {\n        \"Key\": \"string\",\n        \"Value\": [\n          \"string\",\n          \"string\"\n        ]\n      }\n    ]\n  },\n  \"StatusCode\": 407,\n  \"ReasonPhrase\": \"string\",\n  \"Headers\": [\n    {\n      \"Key\": \"string\",\n      \"Value\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"Key\": \"string\",\n      \"Value\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ],\n  \"TrailingHeaders\": [\n    {\n      \"Key\": \"string\",\n      \"Value\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"Key\": \"string\",\n      \"Value\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ],\n  \"RequestMessage\": {\n    \"Version\": {\n      \"Major\": 1095,\n      \"Minor\": 5148,\n      \"Build\": 8619,\n      \"Revision\": 8772,\n      \"MajorRevision\": 2000,\n      \"MinorRevision\": 4387\n    },\n    \"VersionPolicy\": 1,\n    \"Content\": {\n      \"Headers\": [\n        {\n          \"Key\": \"string\",\n          \"Value\": [\n            \"string\",\n            \"string\"\n          ]\n        },\n        {\n          \"Key\": \"string\",\n          \"Value\": [\n            \"string\",\n            \"string\"\n          ]\n        }\n      ]\n    },\n    \"Method\": {\n      \"Method\": \"string\"\n    },\n    \"RequestUri\": \"https://Sql.isxiiz8y.+cu9Z+\",\n    \"Headers\": [\n      {\n        \"Key\": \"string\",\n        \"Value\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      {\n        \"Key\": \"string\",\n        \"Value\": [\n          \"string\",\n          \"string\"\n        ]\n      }\n    ],\n    \"Properties\": {\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {},\n      \"key_3\": {}\n    },\n    \"Options\": {\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {}\n    }\n  },\n  \"IsSuccessStatusCode\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0cb4c179-9e4c-43a1-b658-2e72505c2532",
+              "name": "Invalid parameter values",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "integration",
+                    "autoplan",
+                    "mileagelog",
+                    ":vehicleId",
+                    ":year",
+                    ":month"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "vehicleId",
+                      "description": "(Required) The vehicle id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "year",
+                      "description": "(Required) Year of from date in period"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "month",
+                      "description": "(Required) Month of from date in period"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"StartOdometerKm\": \"<integer>\",\n  \"EndOdometerKm\": \"<integer>\",\n  \"BusinessKm\": \"<integer>\",\n  \"IsApproved\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e9930908-1cfd-43bc-a4a3-3180d3a17658",
+              "name": "You are not authorized to this vehicle",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "integration",
+                    "autoplan",
+                    "mileagelog",
+                    ":vehicleId",
+                    ":year",
+                    ":month"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "vehicleId",
+                      "description": "(Required) The vehicle id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "year",
+                      "description": "(Required) Year of from date in period"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "month",
+                      "description": "(Required) Month of from date in period"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"StartOdometerKm\": \"<integer>\",\n  \"EndOdometerKm\": \"<integer>\",\n  \"BusinessKm\": \"<integer>\",\n  \"IsApproved\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "18b0d74d-7798-465e-8fe7-d6671e5a598c",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "integration",
+                    "autoplan",
+                    "mileagelog",
+                    ":vehicleId",
+                    ":year",
+                    ":month"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "vehicleId",
+                      "description": "(Required) The vehicle id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "year",
+                      "description": "(Required) Year of from date in period"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "month",
+                      "description": "(Required) Month of from date in period"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"StartOdometerKm\": \"<integer>\",\n  \"EndOdometerKm\": \"<integer>\",\n  \"BusinessKm\": \"<integer>\",\n  \"IsApproved\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "84728c1e-4ecc-4eab-b6e3-2d35a0506cad",
+          "name": "Get AutoPlan V2 Driving Journal Preview",
+          "request": {
+            "name": "Get AutoPlan V2 Driving Journal Preview",
+            "description": {
+              "content": "Get driving journal data for preview before sending. Contains odometer values and business km for the specified period. This is the NEW API endpoint that replaces GET /autoplan/mileagelog (legacy).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "resourceowner",
+                "integration",
+                "autoplan",
+                "v2",
+                "drivingjournal",
+                ":vehicleId",
+                ":year",
+                ":month"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "vehicleId",
+                  "description": "(Required) The vehicle id"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "year",
+                  "description": "(Required) Year of the period"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "month",
+                  "description": "(Required) Month of the period"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "read write"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.automile.com/login/"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "40b9a761-221b-4914-adfd-1cf4f8e67ba5",
+              "name": "Driving journal data for preview",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "integration",
+                    "autoplan",
+                    "v2",
+                    "drivingjournal",
+                    ":vehicleId",
+                    ":year",
+                    ":month"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "vehicleId",
+                      "description": "(Required) The vehicle id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "year",
+                      "description": "(Required) Year of the period"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "month",
+                      "description": "(Required) Month of the period"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"StartOdometerKm\": 1543,\n  \"EndOdometerKm\": 5615,\n  \"BusinessKm\": 5241,\n  \"IsApproved\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1e2cacd1-56a1-4f4d-9ebd-7f8cbf8750e1",
+              "name": "Invalid parameters",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "integration",
+                    "autoplan",
+                    "v2",
+                    "drivingjournal",
+                    ":vehicleId",
+                    ":year",
+                    ":month"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "vehicleId",
+                      "description": "(Required) The vehicle id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "year",
+                      "description": "(Required) Year of the period"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "month",
+                      "description": "(Required) Month of the period"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "9a1a7ecb-75a3-4021-bf5e-a03c5e6cf0cb",
+              "name": "You are not authorized to this vehicle",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "integration",
+                    "autoplan",
+                    "v2",
+                    "drivingjournal",
+                    ":vehicleId",
+                    ":year",
+                    ":month"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "vehicleId",
+                      "description": "(Required) The vehicle id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "year",
+                      "description": "(Required) Year of the period"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "month",
+                      "description": "(Required) Month of the period"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "dcf7beae-c8c9-4de4-954f-cd10feb79965",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "integration",
+                    "autoplan",
+                    "v2",
+                    "drivingjournal",
+                    ":vehicleId",
+                    ":year",
+                    ":month"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "vehicleId",
+                      "description": "(Required) The vehicle id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "year",
+                      "description": "(Required) Year of the period"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "month",
+                      "description": "(Required) Month of the period"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "be1e7ac7-0907-460e-b628-5c065877e881",
+          "name": "Send AutoPlan V2 Driving Journal",
+          "request": {
+            "name": "Send AutoPlan V2 Driving Journal",
+            "description": {
+              "content": "Send driving journal to AutoPlan V2 API. GET endpoint must be called first to retrieve the data to send. Note: Incoming odometer is automatically calculated from previous period's outgoing value per API specification. This is the NEW API endpoint that replaces POST /autoplan/mileagelog (legacy).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "resourceowner",
+                "integration",
+                "autoplan",
+                "v2",
+                "drivingjournal",
+                ":vehicleId",
+                ":year",
+                ":month"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "vehicleId",
+                  "description": "(Required) The vehicle id"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "year",
+                  "description": "(Required) Year of the period"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "month",
+                  "description": "(Required) Month of the period"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "read write"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.automile.com/login/"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"PersonalIdentityNumber\": \"<string>\",\n  \"JournalData\": {\n    \"StartOdometerKm\": \"<integer>\",\n    \"EndOdometerKm\": \"<integer>\",\n    \"BusinessKm\": \"<integer>\",\n    \"IsApproved\": \"<boolean>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c54cc3c4-b584-43a9-9970-cebeef98fb64",
+              "name": "Driving journal successfully sent",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "integration",
+                    "autoplan",
+                    "v2",
+                    "drivingjournal",
+                    ":vehicleId",
+                    ":year",
+                    ":month"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "vehicleId",
+                      "description": "(Required) The vehicle id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "year",
+                      "description": "(Required) Year of the period"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "month",
+                      "description": "(Required) Month of the period"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"PersonalIdentityNumber\": \"<string>\",\n  \"JournalData\": {\n    \"StartOdometerKm\": \"<integer>\",\n    \"EndOdometerKm\": \"<integer>\",\n    \"BusinessKm\": \"<integer>\",\n    \"IsApproved\": \"<boolean>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Version\": {\n    \"Major\": 3488,\n    \"Minor\": 1919,\n    \"Build\": 1617,\n    \"Revision\": 6158,\n    \"MajorRevision\": 1419,\n    \"MinorRevision\": 6256\n  },\n  \"Content\": {\n    \"Headers\": [\n      {\n        \"Key\": \"string\",\n        \"Value\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      {\n        \"Key\": \"string\",\n        \"Value\": [\n          \"string\",\n          \"string\"\n        ]\n      }\n    ]\n  },\n  \"StatusCode\": 407,\n  \"ReasonPhrase\": \"string\",\n  \"Headers\": [\n    {\n      \"Key\": \"string\",\n      \"Value\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"Key\": \"string\",\n      \"Value\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ],\n  \"TrailingHeaders\": [\n    {\n      \"Key\": \"string\",\n      \"Value\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"Key\": \"string\",\n      \"Value\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ],\n  \"RequestMessage\": {\n    \"Version\": {\n      \"Major\": 1095,\n      \"Minor\": 5148,\n      \"Build\": 8619,\n      \"Revision\": 8772,\n      \"MajorRevision\": 2000,\n      \"MinorRevision\": 4387\n    },\n    \"VersionPolicy\": 1,\n    \"Content\": {\n      \"Headers\": [\n        {\n          \"Key\": \"string\",\n          \"Value\": [\n            \"string\",\n            \"string\"\n          ]\n        },\n        {\n          \"Key\": \"string\",\n          \"Value\": [\n            \"string\",\n            \"string\"\n          ]\n        }\n      ]\n    },\n    \"Method\": {\n      \"Method\": \"string\"\n    },\n    \"RequestUri\": \"https://Sql.isxiiz8y.+cu9Z+\",\n    \"Headers\": [\n      {\n        \"Key\": \"string\",\n        \"Value\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      {\n        \"Key\": \"string\",\n        \"Value\": [\n          \"string\",\n          \"string\"\n        ]\n      }\n    ],\n    \"Properties\": {\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {},\n      \"key_3\": {}\n    },\n    \"Options\": {\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {}\n    }\n  },\n  \"IsSuccessStatusCode\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "26a23780-9d94-44c5-a554-fd716ef7f72c",
+              "name": "Invalid parameters or data mismatch",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "integration",
+                    "autoplan",
+                    "v2",
+                    "drivingjournal",
+                    ":vehicleId",
+                    ":year",
+                    ":month"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "vehicleId",
+                      "description": "(Required) The vehicle id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "year",
+                      "description": "(Required) Year of the period"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "month",
+                      "description": "(Required) Month of the period"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"PersonalIdentityNumber\": \"<string>\",\n  \"JournalData\": {\n    \"StartOdometerKm\": \"<integer>\",\n    \"EndOdometerKm\": \"<integer>\",\n    \"BusinessKm\": \"<integer>\",\n    \"IsApproved\": \"<boolean>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "69841045-6af5-4e1c-babb-3204a4da6604",
+              "name": "Not all trips in period are approved",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "integration",
+                    "autoplan",
+                    "v2",
+                    "drivingjournal",
+                    ":vehicleId",
+                    ":year",
+                    ":month"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "vehicleId",
+                      "description": "(Required) The vehicle id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "year",
+                      "description": "(Required) Year of the period"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "month",
+                      "description": "(Required) Month of the period"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"PersonalIdentityNumber\": \"<string>\",\n  \"JournalData\": {\n    \"StartOdometerKm\": \"<integer>\",\n    \"EndOdometerKm\": \"<integer>\",\n    \"BusinessKm\": \"<integer>\",\n    \"IsApproved\": \"<boolean>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d407c5fc-4dda-42c7-9637-7987be30e1c6",
+              "name": "You are not authorized to this vehicle",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "integration",
+                    "autoplan",
+                    "v2",
+                    "drivingjournal",
+                    ":vehicleId",
+                    ":year",
+                    ":month"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "vehicleId",
+                      "description": "(Required) The vehicle id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "year",
+                      "description": "(Required) Year of the period"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "month",
+                      "description": "(Required) Month of the period"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"PersonalIdentityNumber\": \"<string>\",\n  \"JournalData\": {\n    \"StartOdometerKm\": \"<integer>\",\n    \"EndOdometerKm\": \"<integer>\",\n    \"BusinessKm\": \"<integer>\",\n    \"IsApproved\": \"<boolean>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "166e263a-e720-4981-bf43-3aa7f8b2f3cf",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "integration",
+                    "autoplan",
+                    "v2",
+                    "drivingjournal",
+                    ":vehicleId",
+                    ":year",
+                    ":month"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "vehicleId",
+                      "description": "(Required) The vehicle id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "year",
+                      "description": "(Required) Year of the period"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "month",
+                      "description": "(Required) Month of the period"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"PersonalIdentityNumber\": \"<string>\",\n  \"JournalData\": {\n    \"StartOdometerKm\": \"<integer>\",\n    \"EndOdometerKm\": \"<integer>\",\n    \"BusinessKm\": \"<integer>\",\n    \"IsApproved\": \"<boolean>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "80f8497b-a996-40f1-8e0b-cf48092b817c",
+          "name": "Bilreda Information",
+          "request": {
+            "name": "Bilreda Information",
+            "description": {
+              "content": "Currently in the period list the month previous to today will always have the selected flag set to true.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "resourceowner",
+                "integration",
+                "bilreda"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "read write"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.automile.com/login/"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "52462550-8a1d-48af-a4a4-7a4116b1fdc0",
+              "name": "Active vehicle with a list of available months to send in mileagelog report for is returned",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "integration",
+                    "bilreda"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"LoginIsRequired\": false,\n  \"VehicleList\": [\n    {\n      \"FriendlyName\": \"string\",\n      \"NumberPlate\": \"string\",\n      \"VehicleId\": 5924,\n      \"IsVehicleApproved\": false,\n      \"PeriodList\": [\n        {\n          \"Year\": 4184,\n          \"Month\": 4018,\n          \"IsSelected\": false\n        },\n        {\n          \"Year\": 6877,\n          \"Month\": 6362,\n          \"IsSelected\": true\n        }\n      ]\n    },\n    {\n      \"FriendlyName\": \"string\",\n      \"NumberPlate\": \"string\",\n      \"VehicleId\": 2602,\n      \"IsVehicleApproved\": false,\n      \"PeriodList\": [\n        {\n          \"Year\": 3451,\n          \"Month\": 2093,\n          \"IsSelected\": true\n        },\n        {\n          \"Year\": 6947,\n          \"Month\": 2814,\n          \"IsSelected\": true\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8cac7429-b290-4321-be72-6e2f2e5b0c2a",
+              "name": "User may not have activated any Bilreda integration",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "integration",
+                    "bilreda"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "946c553b-fac7-4acb-8fe3-668ef36db32b",
+              "name": "You are not authorized to this vehicle",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "integration",
+                    "bilreda"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "829fe00c-3624-43cc-a99f-e4c9a0804151",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "integration",
+                    "bilreda"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "cbbe2c13-06fc-4b41-ac4f-d2818a20f262",
+          "name": "Get Bilreda mileage log",
+          "request": {
+            "name": "Get Bilreda mileage log",
+            "description": {
+              "content": "Run this with vehicle id and period returned from Bilreda wizard. Data model contains odometer values and business km from the first day to the last day of sent in month.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "resourceowner",
+                "integration",
+                "bilreda",
+                "mileagelog",
+                ":vehicleId",
+                ":year",
+                ":month"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "vehicleId",
+                  "description": "(Required) The vehicle id"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "year",
+                  "description": "(Required) Year of from date in period"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "month",
+                  "description": "(Required) Month of from date in period"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "read write"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.automile.com/login/"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "52ab3e97-55df-44ef-8c42-53d2049c0881",
+              "name": "Mileage log data for previewing purpose is returned",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "integration",
+                    "bilreda",
+                    "mileagelog",
+                    ":vehicleId",
+                    ":year",
+                    ":month"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "vehicleId",
+                      "description": "(Required) The vehicle id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "year",
+                      "description": "(Required) Year of from date in period"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "month",
+                      "description": "(Required) Month of from date in period"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"StartOdometerKm\": 7123,\n  \"EndOdometerKm\": 2598,\n  \"BusinessKm\": 3580,\n  \"IsApproved\": true,\n  \"TotalKm\": 7829,\n  \"OtherAndPrivateKm\": 1220,\n  \"TollFeeBusiness\": 5179\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "982f7c8e-4643-4548-9821-dc6bedb8528c",
+              "name": "Invalid parameter values",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "integration",
+                    "bilreda",
+                    "mileagelog",
+                    ":vehicleId",
+                    ":year",
+                    ":month"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "vehicleId",
+                      "description": "(Required) The vehicle id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "year",
+                      "description": "(Required) Year of from date in period"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "month",
+                      "description": "(Required) Month of from date in period"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "6ab8cfa4-5628-4de7-91db-9380b912fd57",
+              "name": "You are not authorized to this vehicle",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "integration",
+                    "bilreda",
+                    "mileagelog",
+                    ":vehicleId",
+                    ":year",
+                    ":month"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "vehicleId",
+                      "description": "(Required) The vehicle id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "year",
+                      "description": "(Required) Year of from date in period"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "month",
+                      "description": "(Required) Month of from date in period"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "7340da7b-0437-4912-9480-ea97710b4c83",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "integration",
+                    "bilreda",
+                    "mileagelog",
+                    ":vehicleId",
+                    ":year",
+                    ":month"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "vehicleId",
+                      "description": "(Required) The vehicle id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "year",
+                      "description": "(Required) Year of from date in period"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "month",
+                      "description": "(Required) Month of from date in period"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a9ca7a16-aced-4ece-94c2-de4a30960312",
+          "name": "Send Bilreda mileage log",
+          "request": {
+            "name": "Send Bilreda mileage log",
+            "description": {
+              "content": "GET must be run before POST",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "resourceowner",
+                "integration",
+                "bilreda",
+                "mileagelog",
+                ":vehicleId",
+                ":year",
+                ":month"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "vehicleId",
+                  "description": "(Required) The vehicle id"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "year",
+                  "description": "(Required) Year of from date in period"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "month",
+                  "description": "(Required) Month of from date in period"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "read write"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.automile.com/login/"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"StartOdometerKm\": \"<integer>\",\n  \"EndOdometerKm\": \"<integer>\",\n  \"BusinessKm\": \"<integer>\",\n  \"IsApproved\": \"<boolean>\",\n  \"TollFeeBusiness\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "07fe7d14-e4cd-4fd4-82e1-c4478424931d",
+              "name": "Mileage log report was sent",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "integration",
+                    "bilreda",
+                    "mileagelog",
+                    ":vehicleId",
+                    ":year",
+                    ":month"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "vehicleId",
+                      "description": "(Required) The vehicle id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "year",
+                      "description": "(Required) Year of from date in period"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "month",
+                      "description": "(Required) Month of from date in period"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"StartOdometerKm\": \"<integer>\",\n  \"EndOdometerKm\": \"<integer>\",\n  \"BusinessKm\": \"<integer>\",\n  \"IsApproved\": \"<boolean>\",\n  \"TollFeeBusiness\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Version\": {\n    \"Major\": 3488,\n    \"Minor\": 1919,\n    \"Build\": 1617,\n    \"Revision\": 6158,\n    \"MajorRevision\": 1419,\n    \"MinorRevision\": 6256\n  },\n  \"Content\": {\n    \"Headers\": [\n      {\n        \"Key\": \"string\",\n        \"Value\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      {\n        \"Key\": \"string\",\n        \"Value\": [\n          \"string\",\n          \"string\"\n        ]\n      }\n    ]\n  },\n  \"StatusCode\": 407,\n  \"ReasonPhrase\": \"string\",\n  \"Headers\": [\n    {\n      \"Key\": \"string\",\n      \"Value\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"Key\": \"string\",\n      \"Value\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ],\n  \"TrailingHeaders\": [\n    {\n      \"Key\": \"string\",\n      \"Value\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"Key\": \"string\",\n      \"Value\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ],\n  \"RequestMessage\": {\n    \"Version\": {\n      \"Major\": 1095,\n      \"Minor\": 5148,\n      \"Build\": 8619,\n      \"Revision\": 8772,\n      \"MajorRevision\": 2000,\n      \"MinorRevision\": 4387\n    },\n    \"VersionPolicy\": 1,\n    \"Content\": {\n      \"Headers\": [\n        {\n          \"Key\": \"string\",\n          \"Value\": [\n            \"string\",\n            \"string\"\n          ]\n        },\n        {\n          \"Key\": \"string\",\n          \"Value\": [\n            \"string\",\n            \"string\"\n          ]\n        }\n      ]\n    },\n    \"Method\": {\n      \"Method\": \"string\"\n    },\n    \"RequestUri\": \"https://Sql.isxiiz8y.+cu9Z+\",\n    \"Headers\": [\n      {\n        \"Key\": \"string\",\n        \"Value\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      {\n        \"Key\": \"string\",\n        \"Value\": [\n          \"string\",\n          \"string\"\n        ]\n      }\n    ],\n    \"Properties\": {\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {},\n      \"key_3\": {}\n    },\n    \"Options\": {\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {}\n    }\n  },\n  \"IsSuccessStatusCode\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "73fea36e-dfc6-4f8b-b2eb-64439a35597e",
+              "name": "Invalid parameter values",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "integration",
+                    "bilreda",
+                    "mileagelog",
+                    ":vehicleId",
+                    ":year",
+                    ":month"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "vehicleId",
+                      "description": "(Required) The vehicle id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "year",
+                      "description": "(Required) Year of from date in period"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "month",
+                      "description": "(Required) Month of from date in period"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"StartOdometerKm\": \"<integer>\",\n  \"EndOdometerKm\": \"<integer>\",\n  \"BusinessKm\": \"<integer>\",\n  \"IsApproved\": \"<boolean>\",\n  \"TollFeeBusiness\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ccce3af1-e11c-4542-b9b9-6e66b56779d9",
+              "name": "You are not authorized to this vehicle",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "integration",
+                    "bilreda",
+                    "mileagelog",
+                    ":vehicleId",
+                    ":year",
+                    ":month"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "vehicleId",
+                      "description": "(Required) The vehicle id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "year",
+                      "description": "(Required) Year of from date in period"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "month",
+                      "description": "(Required) Month of from date in period"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"StartOdometerKm\": \"<integer>\",\n  \"EndOdometerKm\": \"<integer>\",\n  \"BusinessKm\": \"<integer>\",\n  \"IsApproved\": \"<boolean>\",\n  \"TollFeeBusiness\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ab175b5b-ee94-4726-9d7f-7969e0c87020",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "integration",
+                    "bilreda",
+                    "mileagelog",
+                    ":vehicleId",
+                    ":year",
+                    ":month"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "vehicleId",
+                      "description": "(Required) The vehicle id"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "year",
+                      "description": "(Required) Year of from date in period"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "month",
+                      "description": "(Required) Month of from date in period"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"StartOdometerKm\": \"<integer>\",\n  \"EndOdometerKm\": \"<integer>\",\n  \"BusinessKm\": \"<integer>\",\n  \"IsApproved\": \"<boolean>\",\n  \"TollFeeBusiness\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "1fbbaca7-ee63-4d88-bf46-e566867ebe3d",
+    "name": "Automile ClientApi ResourceOwnerIntegration API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

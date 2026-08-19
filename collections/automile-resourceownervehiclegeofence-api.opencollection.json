@@ -1,0 +1,105 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Automile ClientApi ResourceOwnerVehicleGeofence API",
+    "version": "v1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "ResourceOwnerVehicleGeofence",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get vehicle geofence",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/resourceowner/vehiclegeofence/:vehicleGeofenceId",
+            "params": [
+              {
+                "name": "vehicleGeofenceId",
+                "value": "",
+                "type": "path",
+                "description": "The vehicle geofence id"
+              }
+            ]
+          },
+          "docs": "Only vehicle geofences that the user has access to are accessible."
+        },
+        {
+          "info": {
+            "name": "Updates a vehicle geofence",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/v1/resourceowner/vehiclegeofence/:vehicleGeofenceId",
+            "params": [
+              {
+                "name": "vehicleGeofenceId",
+                "value": "",
+                "type": "path",
+                "description": "The vehicleGeofenceId"
+              }
+            ]
+          },
+          "docs": "This will update the given vehicle geofence id with a new model."
+        },
+        {
+          "info": {
+            "name": "Removes association between a vehicle and geofence",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/v1/resourceowner/vehiclegeofence/:vehicleGeofenceId",
+            "params": [
+              {
+                "name": "vehicleGeofenceId",
+                "value": "",
+                "type": "path",
+                "description": "The vehicleGeofenceId association to remove"
+              }
+            ]
+          },
+          "docs": "This will remove the association between a geofence and a vehicle."
+        },
+        {
+          "info": {
+            "name": "Get vehicle geofence",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/resourceowner/vehiclegeofence",
+            "params": [
+              {
+                "name": "geofenceId",
+                "value": "",
+                "type": "query",
+                "description": "The geofence id"
+              }
+            ]
+          },
+          "docs": "Only vehicle geofences that the user has access to are accessible."
+        },
+        {
+          "info": {
+            "name": "Associate a vehicle with a geofence",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/resourceowner/vehiclegeofence"
+          },
+          "docs": "This will create a new association between a geofence and a vehicle."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,296 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Automile ClientApi ResourceOwnerPublishSubscribe API",
+    "version": "v1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "ResourceOwnerPublishSubscribe",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get all publish subscribe records the user has created",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/resourceowner/publishsubscribe"
+          },
+          "docs": "Only publish subscribe records that the user has access to are accessible."
+        },
+        {
+          "info": {
+            "name": "Create an a publish subscribe record",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/resourceowner/publishsubscribe"
+          },
+          "docs": "Create an a publish subscribe record"
+        },
+        {
+          "info": {
+            "name": "Get the publish subscribe by record id",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/resourceowner/publishsubscribe/:publishSubscribeId",
+            "params": [
+              {
+                "name": "publishSubscribeId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Only publis subscribe records that the user has access to are accessible."
+        },
+        {
+          "info": {
+            "name": "Updates the given publish subscribe record",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/v1/resourceowner/publishsubscribe/:publishSubscribeId",
+            "params": [
+              {
+                "name": "publishSubscribeId",
+                "value": "",
+                "type": "path",
+                "description": "The publish subscribe record id"
+              }
+            ]
+          },
+          "docs": "This will update the given publish subscribe record id with a new model."
+        },
+        {
+          "info": {
+            "name": "Removes the given publish subscribe record",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/v1/resourceowner/publishsubscribe/:publishSubscribeId",
+            "params": [
+              {
+                "name": "publishSubscribeId",
+                "value": "",
+                "type": "path",
+                "description": "The publish subscribe record id"
+              }
+            ]
+          },
+          "docs": "Removes the given publish subscribe record"
+        },
+        {
+          "info": {
+            "name": "Publishes a test trip start to the publish subscribe endpoint",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/resourceowner/publishsubscribe/:publishSubscribeId/testtripstart",
+            "params": [
+              {
+                "name": "publishSubscribeId",
+                "value": "",
+                "type": "path",
+                "description": "The publish subscribe record id"
+              },
+              {
+                "name": "vehicleId",
+                "value": "",
+                "type": "query",
+                "description": "The vehicle id that has existing trip, last trip will be fetched"
+              }
+            ]
+          },
+          "docs": "Publishes a test trip start to the publish subscribe endpoint"
+        },
+        {
+          "info": {
+            "name": "Publishes a test trip end to the publish subscribe endpoint",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/resourceowner/publishsubscribe/:publishSubscribeId/testtripend",
+            "params": [
+              {
+                "name": "publishSubscribeId",
+                "value": "",
+                "type": "path",
+                "description": "The publish subscribe record id"
+              },
+              {
+                "name": "vehicleId",
+                "value": "",
+                "type": "query",
+                "description": "The vehicle id that has existing trip, last trip will be fetched"
+              }
+            ]
+          },
+          "docs": "Publishes a test trip end to the publish subscribe endpoint"
+        },
+        {
+          "info": {
+            "name": "Publishes a created vehicled to the publish subscribe endpoint",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/resourceowner/publishsubscribe/:publishSubscribeId/testvehiclecreated",
+            "params": [
+              {
+                "name": "publishSubscribeId",
+                "value": "",
+                "type": "path",
+                "description": "The publish subscribe record id"
+              },
+              {
+                "name": "vehicleId",
+                "value": "",
+                "type": "query",
+                "description": "The vehicle id that has existing trip, last trip will be fetched"
+              }
+            ]
+          },
+          "docs": "Publishes a created vehicled to the publish subscribe endpoint"
+        },
+        {
+          "info": {
+            "name": "Publishes a modified vehicled to the publish subscribe endpoint",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/resourceowner/publishsubscribe/:publishSubscribeId/testvehiclemodified",
+            "params": [
+              {
+                "name": "publishSubscribeId",
+                "value": "",
+                "type": "path",
+                "description": "The publish subscribe record id"
+              },
+              {
+                "name": "vehicleId",
+                "value": "",
+                "type": "query",
+                "description": "The vehicle id that has existing trip, last trip will be fetched"
+              }
+            ]
+          },
+          "docs": "Publishes a modified vehicled to the publish subscribe endpoint"
+        },
+        {
+          "info": {
+            "name": "Publishes a created driver / contact to the publish subscribe endpoint",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/resourceowner/publishsubscribe/:publishSubscribeId/testcontactcreated",
+            "params": [
+              {
+                "name": "publishSubscribeId",
+                "value": "",
+                "type": "path",
+                "description": "The publish subscribe record id"
+              },
+              {
+                "name": "contactId",
+                "value": "",
+                "type": "query",
+                "description": "The vehicle id that has existing trip, last trip will be fetched"
+              }
+            ]
+          },
+          "docs": "Publishes a created driver / contact to the publish subscribe endpoint"
+        },
+        {
+          "info": {
+            "name": "Publishes a modified contact to the publish subscribe endpoint",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/resourceowner/publishsubscribe/:publishSubscribeId/testcontactmodified",
+            "params": [
+              {
+                "name": "publishSubscribeId",
+                "value": "",
+                "type": "path",
+                "description": "The publish subscribe record id"
+              },
+              {
+                "name": "contactId",
+                "value": "",
+                "type": "query",
+                "description": "The vehicle id that has existing trip, last trip will be fetched"
+              }
+            ]
+          },
+          "docs": "Publishes a modified contact to the publish subscribe endpoint"
+        },
+        {
+          "info": {
+            "name": "Publishes vehicle information similar to when a device is connected to the publish subscribe endpoint",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/resourceowner/publishsubscribe/:publishSubscribeId/testdeviceconnected",
+            "params": [
+              {
+                "name": "publishSubscribeId",
+                "value": "",
+                "type": "path",
+                "description": "The publish subscribe record id"
+              },
+              {
+                "name": "vehicleId",
+                "value": "",
+                "type": "query",
+                "description": "The vehicle id"
+              }
+            ]
+          },
+          "docs": "Publishes vehicle information similar to when a device is connected to the publish subscribe endpoint"
+        },
+        {
+          "info": {
+            "name": "Publishes vehicle information similar to when a device is disconnected to the publish subscribe endpoint",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/resourceowner/publishsubscribe/:publishSubscribeId/testdevicedisconnected",
+            "params": [
+              {
+                "name": "publishSubscribeId",
+                "value": "",
+                "type": "path",
+                "description": "The publish subscribe record id"
+              },
+              {
+                "name": "vehicleId",
+                "value": "",
+                "type": "query",
+                "description": "The vehicle id"
+              }
+            ]
+          },
+          "docs": "Publishes vehicle information similar to when a device is disconnected to the publish subscribe endpoint"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

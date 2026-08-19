@@ -1,0 +1,28 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Automile ClientApi OAuth API",
+    "version": "v1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "OAuth",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "POST /OAuth2/Token",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/OAuth2/Token"
+          }
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

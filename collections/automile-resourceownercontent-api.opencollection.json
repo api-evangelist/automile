@@ -1,0 +1,47 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Automile ClientApi ResourceOwnerContent API",
+    "version": "v1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "ResourceOwnerContent",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Upload binary file",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/resourceowner/content/upload"
+          },
+          "docs": "Upload attachment image and returns url"
+        },
+        {
+          "info": {
+            "name": "Get a binary file content",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/resourceowner/content/download/:guid",
+            "params": [
+              {
+                "name": "guid",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get a binary file content"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

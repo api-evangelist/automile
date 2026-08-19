@@ -1,0 +1,48 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Automile ClientApi ResourceOwnerPlace2 API",
+    "version": "v1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "ResourceOwnerPlace2",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Creates a new place",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/resourceowner/place2"
+          },
+          "docs": "This will create a new place and associate it with a number of vehicles.\r\n            Only vehicles authorized for edit will be added to the place."
+        },
+        {
+          "info": {
+            "name": "Updates the given place with new model",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/v1/resourceowner/place2/:placeId",
+            "params": [
+              {
+                "name": "placeId",
+                "value": "",
+                "type": "path",
+                "description": "The place id"
+              }
+            ]
+          },
+          "docs": "This will update information on an already existing place, as well as its vehicle connections.\r\n            Vehicle connections to the place will be updated/added from the VehicleIds list if user has edit authorization to the vehicles.\r\n            Already existing vehicle connections be removed if excluded in the VehicleIds list (if authorized to be edited).\r\n            This will update the given place id with a new model."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

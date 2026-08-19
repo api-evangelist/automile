@@ -1,0 +1,164 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Automile ClientApi ResourceOwnerQuote API",
+    "version": "v1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "ResourceOwnerQuote",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve a list of quotes and their containing attachments, items and notes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/resourceowner/quotes",
+            "params": [
+              {
+                "name": "from",
+                "value": "",
+                "type": "query",
+                "description": "Filter on Created to be on or after from date (default is 30 days prior to todays date)"
+              },
+              {
+                "name": "to",
+                "value": "",
+                "type": "query",
+                "description": "Filter on Created to be on or after to date (default is todays date)"
+              },
+              {
+                "name": "quoteStatus",
+                "value": "",
+                "type": "query",
+                "description": "Status on quote (Incomplete = 0, Created = 1, SentToCustomerForApproval = 2, Approved = 3, ConvertedToWorkOrder = 4, Declined = 5) (default is all)"
+              },
+              {
+                "name": "includeDeleted",
+                "value": "",
+                "type": "query",
+                "description": "Include deleted quote (default is false)"
+              }
+            ]
+          },
+          "docs": "If no time is set on the \"to\" parameter, then it's assumed all entries on the date should be included, and the time part will be set to 11:59:59 PM"
+        },
+        {
+          "info": {
+            "name": "Create a new Quote",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/resourceowner/quotes"
+          },
+          "docs": "Create a new Quote"
+        },
+        {
+          "info": {
+            "name": "Update or create one or many quotes",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/v1/resourceowner/quotes"
+          },
+          "docs": "For quotes, items, attachments and notes with an id is updated. When id is not provided new objects is created. If an \r\n            item, attachment or note is missing on an existing quote that item, attachment or note is removed."
+        },
+        {
+          "info": {
+            "name": "Get a Quote",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/resourceowner/quotes/:quoteId",
+            "params": [
+              {
+                "name": "quoteId",
+                "value": "",
+                "type": "path",
+                "description": "Quote Id"
+              }
+            ]
+          },
+          "docs": "Get a Quote"
+        },
+        {
+          "info": {
+            "name": "Updates a quote",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/v1/resourceowner/quotes/:quoteId",
+            "params": [
+              {
+                "name": "quoteId",
+                "value": "",
+                "type": "path",
+                "description": "Quote Id that needs to be udpated"
+              }
+            ]
+          },
+          "docs": "Updates a quote"
+        },
+        {
+          "info": {
+            "name": "Soft deletes the Quote",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/v1/resourceowner/quotes/:quoteId",
+            "params": [
+              {
+                "name": "quoteId",
+                "value": "",
+                "type": "path",
+                "description": "Quote Id that needs to be deleted"
+              }
+            ]
+          },
+          "docs": "Soft deletes the Quote"
+        },
+        {
+          "info": {
+            "name": "Update status of a quote",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/v1/resourceowner/quotes/:quoteId/status",
+            "params": [
+              {
+                "name": "quoteId",
+                "value": "",
+                "type": "path",
+                "description": "The quote which the satus should be updated on"
+              }
+            ]
+          },
+          "docs": "Update status of a quote"
+        },
+        {
+          "info": {
+            "name": "Get a new reference id for a quote (not unique)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/resourceowner/quotes/referenceId"
+          },
+          "docs": "Get a new reference id for a quote (not unique)"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

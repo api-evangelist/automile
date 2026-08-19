@@ -1,0 +1,48 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Automile ClientApi ResourceOwnerTriggerMessages API",
+    "version": "v1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "ResourceOwnerTriggerMessages",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get all trigger messages that the logged in user has access to",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/resourceowner/triggermessageshistory"
+          },
+          "docs": "Only trigger messages that belongs to vehicles that the user has access to will be returned."
+        },
+        {
+          "info": {
+            "name": "Get trigger messages by trigger id",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/resourceowner/triggermessageshistory/:triggerId",
+            "params": [
+              {
+                "name": "triggerId",
+                "value": "",
+                "type": "path",
+                "description": "The Id of the company"
+              }
+            ]
+          },
+          "docs": "Only trigger messages that belongs to vehicles that the user has access to will be returned."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

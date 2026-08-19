@@ -1,0 +1,78 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Automile ClientApi ResourceOwnerGeofence2 API",
+    "version": "v1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "ResourceOwnerGeofence2",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get a list of geofencese user is associated with",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/resourceowner/geofence2"
+          },
+          "docs": "Only geofences that the user has access to are accessible."
+        },
+        {
+          "info": {
+            "name": "Creates a new geofence",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/resourceowner/geofence2"
+          },
+          "docs": "This will create a new geofence and associate it with  vehicles."
+        },
+        {
+          "info": {
+            "name": "Get geofence",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/resourceowner/geofence2/:geofenceId",
+            "params": [
+              {
+                "name": "geofenceId",
+                "value": "",
+                "type": "path",
+                "description": "The geofence id"
+              }
+            ]
+          },
+          "docs": "Only geofences that the user has access to are accessible."
+        },
+        {
+          "info": {
+            "name": "Updates the given geofence with new model",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/v1/resourceowner/geofence2/:geofenceId",
+            "params": [
+              {
+                "name": "geofenceId",
+                "value": "",
+                "type": "path",
+                "description": "The geofence id"
+              }
+            ]
+          },
+          "docs": "This will update the given geofence id with a new model."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

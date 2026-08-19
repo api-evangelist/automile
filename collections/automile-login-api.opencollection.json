@@ -1,0 +1,102 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Automile ClientApi Login API",
+    "version": "v1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Login",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "GET /login",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/login",
+            "params": [
+              {
+                "name": "client_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "scope",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "redirect_uri",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "state",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "response_type",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "POST /login",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/login",
+            "params": [
+              {
+                "name": "UserName",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "Password",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "ClientId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "Scopes",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "RedirectUri",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "State",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "ResponseType",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

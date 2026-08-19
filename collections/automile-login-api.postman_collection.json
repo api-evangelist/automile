@@ -1,0 +1,256 @@
+{
+  "item": [
+    {
+      "id": "3262eb45-11b9-4b84-8abd-2c0382ac6b3f",
+      "name": "Login",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "c24b9cab-ab2a-4bc6-bd09-7e6dea271234",
+          "name": "/login",
+          "request": {
+            "name": "/login",
+            "description": {},
+            "url": {
+              "path": [
+                "login"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "client_id",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "scope",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "redirect_uri",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "state",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "response_type",
+                  "value": "token"
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2b197f91-8fe2-495c-8750-5b40aa622d93",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "login"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "client_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "scope",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "redirect_uri",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "state",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "response_type",
+                      "value": "token"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7edff52f-318f-470f-8d2b-6680364a1051",
+          "name": "/login",
+          "request": {
+            "name": "/login",
+            "description": {},
+            "url": {
+              "path": [
+                "login"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "UserName",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "Password",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "ClientId",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "Scopes",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "RedirectUri",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "State",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "ResponseType",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c4a84f7e-e8fa-4a04-ac04-f7d09724bc6e",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "login"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "UserName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Password",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ClientId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Scopes",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "RedirectUri",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "State",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ResponseType",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "275f6e0f-acf1-4dc3-81dc-8f2bfe243999",
+    "name": "Automile ClientApi Login API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

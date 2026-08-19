@@ -1,0 +1,29 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Automile ClientApi Echo API",
+    "version": "v1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Echo",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Validates a given token",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/echo/validatetoken"
+          },
+          "docs": "Simple operation to test that a valid OAuth2 Bearer token has been supplied"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

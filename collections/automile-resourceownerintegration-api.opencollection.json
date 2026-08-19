@@ -1,0 +1,378 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Automile ClientApi ResourceOwnerIntegration API",
+    "version": "v1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "ResourceOwnerIntegration",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Integration Configuration",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/resourceowner/integration"
+          },
+          "docs": "Integration Configuration"
+        },
+        {
+          "info": {
+            "name": "Update integration configuration",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/v1/resourceowner/integration"
+          },
+          "docs": "If you want to update one integration but not the rest you can exclude them from the model."
+        },
+        {
+          "info": {
+            "name": "Information",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/resourceowner/integration/alphabet"
+          },
+          "docs": "Run this once before running Alphabet login. The flag LoginRequired will say if login to Alphabet is required to run (e.g. user has changed password in Alphabet) then this method should be run again after login."
+        },
+        {
+          "info": {
+            "name": "Alphabet login",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/resourceowner/integration/alphabet/login",
+            "params": [
+              {
+                "name": "username",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "password",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "This is only needed if Alphabet information returned the required login flag set to true. User credentials are stored for future requests."
+        },
+        {
+          "info": {
+            "name": "Get Alphabet mileage log",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/resourceowner/integration/alphabet/mileagelog/:vehicleId/:year/:month",
+            "params": [
+              {
+                "name": "vehicleId",
+                "value": "",
+                "type": "path",
+                "description": "The vehicle id"
+              },
+              {
+                "name": "year",
+                "value": "",
+                "type": "path",
+                "description": "Year of from date in period"
+              },
+              {
+                "name": "month",
+                "value": "",
+                "type": "path",
+                "description": "Month of from date in period"
+              }
+            ]
+          },
+          "docs": "Run this with vehicle id and period returned from Alphabet information. Data model contains odometer values and business km from the first day to the last day of sent in month."
+        },
+        {
+          "info": {
+            "name": "Send Alphabet mileage log",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/resourceowner/integration/alphabet/mileagelog/:vehicleId/:year/:month",
+            "params": [
+              {
+                "name": "vehicleId",
+                "value": "",
+                "type": "path",
+                "description": "The vehicle id"
+              },
+              {
+                "name": "year",
+                "value": "",
+                "type": "path",
+                "description": "Year of from date in period"
+              },
+              {
+                "name": "month",
+                "value": "",
+                "type": "path",
+                "description": "Month of from date in period"
+              }
+            ]
+          },
+          "docs": "GET must be run before POST"
+        },
+        {
+          "info": {
+            "name": "AutoPlan Information (Legacy)\r\nThis endpoint uses the old AutoPlan API which requires username/password authentication. Please migrate to the new /autoplan/v2/information endpoint which uses certificate-based authentication.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/resourceowner/integration/autoplan"
+          },
+          "docs": "Run this once before running AutoPlan login. The flag LoginRequired will say if login to AutoPlan is required to run (e.g. user has changed password in AutoPlan) then this method should be run again after login."
+        },
+        {
+          "info": {
+            "name": "Get AutoPlan V2 Information",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/resourceowner/integration/autoplan/v2/information"
+          },
+          "docs": "Personal identity number must be provided in the request body."
+        },
+        {
+          "info": {
+            "name": "AutoPlan login (Legacy)\r\nThis endpoint uses the old AutoPlan API which requires username/password authentication.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/resourceowner/integration/autoplan/login",
+            "params": [
+              {
+                "name": "username",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "password",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "This is only needed if AutoPlan wizard returned the required login flag set to true. User credentials are stored for future requests."
+        },
+        {
+          "info": {
+            "name": "Get AutoPlan mileage log (Legacy)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/resourceowner/integration/autoplan/mileagelog/:vehicleId/:year/:month",
+            "params": [
+              {
+                "name": "vehicleId",
+                "value": "",
+                "type": "path",
+                "description": "The vehicle id"
+              },
+              {
+                "name": "year",
+                "value": "",
+                "type": "path",
+                "description": "Year of from date in period"
+              },
+              {
+                "name": "month",
+                "value": "",
+                "type": "path",
+                "description": "Month of from date in period"
+              }
+            ]
+          },
+          "docs": "Run this with vehicle id and period returned from Autoplan wizard. Data model contains odometer values and business km from the first day to the last day of sent in month."
+        },
+        {
+          "info": {
+            "name": "Send AutoPlan mileage log (Legacy)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/resourceowner/integration/autoplan/mileagelog/:vehicleId/:year/:month",
+            "params": [
+              {
+                "name": "vehicleId",
+                "value": "",
+                "type": "path",
+                "description": "The vehicle id"
+              },
+              {
+                "name": "year",
+                "value": "",
+                "type": "path",
+                "description": "Year of from date in period"
+              },
+              {
+                "name": "month",
+                "value": "",
+                "type": "path",
+                "description": "Month of from date in period"
+              }
+            ]
+          },
+          "docs": "GET must be run before POST"
+        },
+        {
+          "info": {
+            "name": "Get AutoPlan V2 Driving Journal Preview",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/resourceowner/integration/autoplan/v2/drivingjournal/:vehicleId/:year/:month",
+            "params": [
+              {
+                "name": "vehicleId",
+                "value": "",
+                "type": "path",
+                "description": "The vehicle id"
+              },
+              {
+                "name": "year",
+                "value": "",
+                "type": "path",
+                "description": "Year of the period"
+              },
+              {
+                "name": "month",
+                "value": "",
+                "type": "path",
+                "description": "Month of the period"
+              }
+            ]
+          },
+          "docs": "Get driving journal data for preview before sending. Contains odometer values and business km for the specified period. This is the NEW API endpoint that replaces GET /autoplan/mileagelog (legacy)."
+        },
+        {
+          "info": {
+            "name": "Send AutoPlan V2 Driving Journal",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/resourceowner/integration/autoplan/v2/drivingjournal/:vehicleId/:year/:month",
+            "params": [
+              {
+                "name": "vehicleId",
+                "value": "",
+                "type": "path",
+                "description": "The vehicle id"
+              },
+              {
+                "name": "year",
+                "value": "",
+                "type": "path",
+                "description": "Year of the period"
+              },
+              {
+                "name": "month",
+                "value": "",
+                "type": "path",
+                "description": "Month of the period"
+              }
+            ]
+          },
+          "docs": "Send driving journal to AutoPlan V2 API. GET endpoint must be called first to retrieve the data to send. Note: Incoming odometer is automatically calculated from previous period's outgoing value per API specification. This is the NEW API endpoint that replaces POST /autoplan/mileagelog (legacy)."
+        },
+        {
+          "info": {
+            "name": "Bilreda Information",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/resourceowner/integration/bilreda"
+          },
+          "docs": "Currently in the period list the month previous to today will always have the selected flag set to true."
+        },
+        {
+          "info": {
+            "name": "Get Bilreda mileage log",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/resourceowner/integration/bilreda/mileagelog/:vehicleId/:year/:month",
+            "params": [
+              {
+                "name": "vehicleId",
+                "value": "",
+                "type": "path",
+                "description": "The vehicle id"
+              },
+              {
+                "name": "year",
+                "value": "",
+                "type": "path",
+                "description": "Year of from date in period"
+              },
+              {
+                "name": "month",
+                "value": "",
+                "type": "path",
+                "description": "Month of from date in period"
+              }
+            ]
+          },
+          "docs": "Run this with vehicle id and period returned from Bilreda wizard. Data model contains odometer values and business km from the first day to the last day of sent in month."
+        },
+        {
+          "info": {
+            "name": "Send Bilreda mileage log",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/resourceowner/integration/bilreda/mileagelog/:vehicleId/:year/:month",
+            "params": [
+              {
+                "name": "vehicleId",
+                "value": "",
+                "type": "path",
+                "description": "The vehicle id"
+              },
+              {
+                "name": "year",
+                "value": "",
+                "type": "path",
+                "description": "Year of from date in period"
+              },
+              {
+                "name": "month",
+                "value": "",
+                "type": "path",
+                "description": "Month of from date in period"
+              }
+            ]
+          },
+          "docs": "GET must be run before POST"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

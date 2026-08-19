@@ -1,0 +1,1404 @@
+{
+  "item": [
+    {
+      "id": "3d6fdc9a-99b0-4d2b-8f84-9e816e9798bb",
+      "name": "ResourceOwnerVehicleV2",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "628fe37d-3334-4e41-a0d5-b7ef6e087be6",
+          "name": "Get all vehicles that the user has access to",
+          "request": {
+            "name": "Get all vehicles that the user has access to",
+            "description": {
+              "content": "Only returns vehicles that the user have access to",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "resourceowner",
+                "vehicles"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "read write"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.automile.com/login/"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "97022f00-cbaf-41f7-a541-42efe096134c",
+              "name": "The vehicles are returned",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "vehicles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"VehicleId\": 6664,\n    \"VehicleIdentificationNumber\": \"string\",\n    \"NumberPlate\": \"string\",\n    \"Make\": \"string\",\n    \"Model\": \"string\",\n    \"OwnerContactId\": 1001,\n    \"OwnerCompanyId\": 8796,\n    \"CurrentOdometerInKilometers\": 7010.70741447422,\n    \"VehicleType\": 6,\n    \"DeleteTripDetailsAfter\": {\n      \"Ticks\": 5273,\n      \"Days\": 9476,\n      \"Hours\": 3696,\n      \"Milliseconds\": 6901,\n      \"Microseconds\": 7740,\n      \"Nanoseconds\": 4248,\n      \"Minutes\": 2920,\n      \"Seconds\": 5034,\n      \"TotalDays\": 633.11931920644,\n      \"TotalHours\": 3691.4884516295842,\n      \"TotalMilliseconds\": 1874.2335140984824,\n      \"TotalMicroseconds\": 3647.8851097972074,\n      \"TotalNanoseconds\": 4664.70532787718,\n      \"TotalMinutes\": 8911.353649724955,\n      \"TotalSeconds\": 8628.887046249607\n    },\n    \"DeleteTripsAfter\": {\n      \"Ticks\": 9444,\n      \"Days\": 4528,\n      \"Hours\": 1867,\n      \"Milliseconds\": 1984,\n      \"Microseconds\": 7455,\n      \"Nanoseconds\": 6594,\n      \"Minutes\": 3266,\n      \"Seconds\": 7916,\n      \"TotalDays\": 8911.904718193746,\n      \"TotalHours\": 8729.69252878999,\n      \"TotalMilliseconds\": 958.4369559288119,\n      \"TotalMicroseconds\": 7805.650907817328,\n      \"TotalNanoseconds\": 1541.787531938742,\n      \"TotalMinutes\": 7649.7416297344935,\n      \"TotalSeconds\": 6819.1409869855515\n    }\n  },\n  {\n    \"VehicleId\": 7984,\n    \"VehicleIdentificationNumber\": \"string\",\n    \"NumberPlate\": \"string\",\n    \"Make\": \"string\",\n    \"Model\": \"string\",\n    \"OwnerContactId\": 8372,\n    \"OwnerCompanyId\": 1461,\n    \"CurrentOdometerInKilometers\": 5053.761394918703,\n    \"VehicleType\": 5,\n    \"DeleteTripDetailsAfter\": {\n      \"Ticks\": 234,\n      \"Days\": 2603,\n      \"Hours\": 8195,\n      \"Milliseconds\": 2106,\n      \"Microseconds\": 5791,\n      \"Nanoseconds\": 2260,\n      \"Minutes\": 2989,\n      \"Seconds\": 354,\n      \"TotalDays\": 2388.2782879204656,\n      \"TotalHours\": 1420.594649395994,\n      \"TotalMilliseconds\": 1078.3215515240197,\n      \"TotalMicroseconds\": 7756.464846713956,\n      \"TotalNanoseconds\": 6249.623378653551,\n      \"TotalMinutes\": 4528.096492980569,\n      \"TotalSeconds\": 6612.936262697984\n    },\n    \"DeleteTripsAfter\": {\n      \"Ticks\": 9456,\n      \"Days\": 5981,\n      \"Hours\": 3346,\n      \"Milliseconds\": 8001,\n      \"Microseconds\": 3476,\n      \"Nanoseconds\": 137,\n      \"Minutes\": 5452,\n      \"Seconds\": 1733,\n      \"TotalDays\": 8344.959885371209,\n      \"TotalHours\": 7283.532842444086,\n      \"TotalMilliseconds\": 4325.196119465635,\n      \"TotalMicroseconds\": 9906.685165154087,\n      \"TotalNanoseconds\": 2960.725336525214,\n      \"TotalMinutes\": 1209.2930061812933,\n      \"TotalSeconds\": 2524.3594600687934\n    }\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "81c25c99-c4f2-489d-aca7-a38cabd9ef20",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "vehicles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d2079523-22a9-45fb-89b4-1d61046464c5",
+          "name": "Creates a new vehicle",
+          "request": {
+            "name": "Creates a new vehicle",
+            "description": {
+              "content": "This will create a new vehicle and make the association you set.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "resourceowner",
+                "vehicles"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "read write"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.automile.com/login/"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"CreateRelationshipToId\": \"<integer>\",\n  \"VehicleRelationshipType\": \"<integer>\",\n  \"NumberPlate\": \"<string>\",\n  \"Make\": \"<string>\",\n  \"Model\": \"<string>\",\n  \"ModelYear\": \"<integer>\",\n  \"BodyStyle\": \"<string>\",\n  \"BodyType\": \"<integer>\",\n  \"OwnerContactId\": \"<integer>\",\n  \"OwnerCompanyId\": \"<integer>\",\n  \"DeleteTripDetailsAfter\": {\n    \"Ticks\": \"<long>\"\n  },\n  \"DeleteTripsAfter\": {\n    \"Ticks\": \"<long>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "03ade476-1c86-413b-b562-6876facf4266",
+              "name": "A link in the header is returned to the newly created vehicle",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "vehicles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"CreateRelationshipToId\": \"<integer>\",\n  \"VehicleRelationshipType\": \"<integer>\",\n  \"NumberPlate\": \"<string>\",\n  \"Make\": \"<string>\",\n  \"Model\": \"<string>\",\n  \"ModelYear\": \"<integer>\",\n  \"BodyStyle\": \"<string>\",\n  \"BodyType\": \"<integer>\",\n  \"OwnerContactId\": \"<integer>\",\n  \"OwnerCompanyId\": \"<integer>\",\n  \"DeleteTripDetailsAfter\": {\n    \"Ticks\": \"<long>\"\n  },\n  \"DeleteTripsAfter\": {\n    \"Ticks\": \"<long>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "86250a36-23d4-4ab9-9c78-887726840bc9",
+              "name": "Bad request, could occur for a number of cases, see returned message",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "vehicles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"CreateRelationshipToId\": \"<integer>\",\n  \"VehicleRelationshipType\": \"<integer>\",\n  \"NumberPlate\": \"<string>\",\n  \"Make\": \"<string>\",\n  \"Model\": \"<string>\",\n  \"ModelYear\": \"<integer>\",\n  \"BodyStyle\": \"<string>\",\n  \"BodyType\": \"<integer>\",\n  \"OwnerContactId\": \"<integer>\",\n  \"OwnerCompanyId\": \"<integer>\",\n  \"DeleteTripDetailsAfter\": {\n    \"Ticks\": \"<long>\"\n  },\n  \"DeleteTripsAfter\": {\n    \"Ticks\": \"<long>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "644b49d6-45fd-4c2d-8974-64ad72690e5e",
+              "name": "Request is forbidden, meaning you don't have access to this vehicle",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "vehicles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"CreateRelationshipToId\": \"<integer>\",\n  \"VehicleRelationshipType\": \"<integer>\",\n  \"NumberPlate\": \"<string>\",\n  \"Make\": \"<string>\",\n  \"Model\": \"<string>\",\n  \"ModelYear\": \"<integer>\",\n  \"BodyStyle\": \"<string>\",\n  \"BodyType\": \"<integer>\",\n  \"OwnerContactId\": \"<integer>\",\n  \"OwnerCompanyId\": \"<integer>\",\n  \"DeleteTripDetailsAfter\": {\n    \"Ticks\": \"<long>\"\n  },\n  \"DeleteTripsAfter\": {\n    \"Ticks\": \"<long>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "90b2861a-9c20-44e0-8029-8cd6b813d5fe",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "vehicles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"CreateRelationshipToId\": \"<integer>\",\n  \"VehicleRelationshipType\": \"<integer>\",\n  \"NumberPlate\": \"<string>\",\n  \"Make\": \"<string>\",\n  \"Model\": \"<string>\",\n  \"ModelYear\": \"<integer>\",\n  \"BodyStyle\": \"<string>\",\n  \"BodyType\": \"<integer>\",\n  \"OwnerContactId\": \"<integer>\",\n  \"OwnerCompanyId\": \"<integer>\",\n  \"DeleteTripDetailsAfter\": {\n    \"Ticks\": \"<long>\"\n  },\n  \"DeleteTripsAfter\": {\n    \"Ticks\": \"<long>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "95a7d606-bed1-4a08-89b5-b9dbba2c48fa",
+          "name": "Get the details about the vehicle",
+          "request": {
+            "name": "Get the details about the vehicle",
+            "description": {
+              "content": "Only vehicles that the user has relationships with are allowed.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "resourceowner",
+                "vehicles",
+                ":vehicleId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "vehicleId",
+                  "description": "(Required) The vehicle id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "read write"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.automile.com/login/"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "1219d1bc-a5a0-4e69-9caf-8622d44fbcb2",
+              "name": "The vehicle details are returned",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "vehicles",
+                    ":vehicleId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "vehicleId",
+                      "description": "(Required) The vehicle id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"VehicleIdentificationNumber\": \"string\",\n  \"NumberPlate\": \"string\",\n  \"Make\": \"string\",\n  \"Model\": \"string\",\n  \"ModelYear\": 9002,\n  \"BodyStyle\": \"string\",\n  \"BodyType\": 0,\n  \"OwnerContactId\": 2157,\n  \"OwnerCompanyId\": 1325,\n  \"OwnedByName\": \"string\",\n  \"NumberOfTrips\": 9784,\n  \"DistanceTravelledThisYear\": 978.263447900749,\n  \"DistanceTravelledLastYear\": 355.2217263835933,\n  \"LastKnownLatitude\": 2574.08156502814,\n  \"LastKnownLongitude\": 483.6779076262099,\n  \"LastKnownGeoTimeStamp\": \"2011-07-29T02:15:28.648Z\",\n  \"LastKnownFormattedAddress\": \"string\",\n  \"LastKnownCustomAddress\": \"string\",\n  \"LastKnownSpeed\": 6532.0120988973185,\n  \"LastKnownTemperature\": 6411.5728244030715,\n  \"LastKnownTemperatureTimeStamp\": \"1989-02-24T03:07:09.215Z\",\n  \"LastTripEndLatitude\": 6805.93556059774,\n  \"LastTripEndLongitude\": 793.9530615080981,\n  \"LastTripEndGeoTimeStamp\": \"1956-07-23T20:42:40.656Z\",\n  \"ParkedForNumberOfSeconds\": 5788,\n  \"OngoingTripId\": 4290,\n  \"MakeImageUrl\": \"string\",\n  \"CurrentOdometerInKilometers\": 2324.318017876156,\n  \"VehicleType\": 6,\n  \"DeleteTripDetailsAfter\": {\n    \"Ticks\": \"<long>\",\n    \"Days\": 2093,\n    \"Hours\": 1718,\n    \"Milliseconds\": 8357,\n    \"Microseconds\": 4393,\n    \"Nanoseconds\": 2028,\n    \"Minutes\": 8591,\n    \"Seconds\": 4643,\n    \"TotalDays\": 3538.396940425542,\n    \"TotalHours\": 8587.710378375745,\n    \"TotalMilliseconds\": 8404.706564203982,\n    \"TotalMicroseconds\": 7538.083757169402,\n    \"TotalNanoseconds\": 8931.63217083202,\n    \"TotalMinutes\": 1201.4295105813533,\n    \"TotalSeconds\": 3905.2585418672716\n  },\n  \"DeleteTripsAfter\": {\n    \"Ticks\": \"<long>\",\n    \"Days\": 1490,\n    \"Hours\": 4318,\n    \"Milliseconds\": 348,\n    \"Microseconds\": 1813,\n    \"Nanoseconds\": 7552,\n    \"Minutes\": 9990,\n    \"Seconds\": 3209,\n    \"TotalDays\": 9633.982355480086,\n    \"TotalHours\": 1690.7593419297018,\n    \"TotalMilliseconds\": 4454.256096395919,\n    \"TotalMicroseconds\": 3231.16784497435,\n    \"TotalNanoseconds\": 8704.716151138675,\n    \"TotalMinutes\": 3101.590689684196,\n    \"TotalSeconds\": 7232.2766731550055\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e5623a16-7f8a-45a2-829b-b969ce7cf51e",
+              "name": "Request is forbidden, meaning you don't have access to this vehicle",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "vehicles",
+                    ":vehicleId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "vehicleId",
+                      "description": "(Required) The vehicle id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "917f7c1b-9fe8-4375-8520-b1c569f1ce44",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "vehicles",
+                    ":vehicleId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "vehicleId",
+                      "description": "(Required) The vehicle id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f8af2834-3d05-46cc-8dbf-8922253057a2",
+          "name": "Updates the given vehicle with new model",
+          "request": {
+            "name": "Updates the given vehicle with new model",
+            "description": {
+              "content": "This will update the given vehicle id with a new model.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "resourceowner",
+                "vehicles",
+                ":vehicleId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "vehicleId",
+                  "description": "(Required) The vehicle id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "read write"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.automile.com/login/"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"NumberPlate\": \"<string>\",\n  \"Make\": \"<string>\",\n  \"Model\": \"<string>\",\n  \"ModelYear\": \"<integer>\",\n  \"BodyStyle\": \"<string>\",\n  \"BodyType\": \"<integer>\",\n  \"OwnerContactId\": \"<integer>\",\n  \"OwnerCompanyId\": \"<integer>\",\n  \"DeleteTripDetailsAfter\": {\n    \"Ticks\": \"<long>\"\n  },\n  \"DeleteTripsAfter\": {\n    \"Ticks\": \"<long>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "4decfa6c-abd0-4684-81b0-ffebac874725",
+              "name": "The vehicle was saved",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "vehicles",
+                    ":vehicleId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "vehicleId",
+                      "description": "(Required) The vehicle id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"NumberPlate\": \"<string>\",\n  \"Make\": \"<string>\",\n  \"Model\": \"<string>\",\n  \"ModelYear\": \"<integer>\",\n  \"BodyStyle\": \"<string>\",\n  \"BodyType\": \"<integer>\",\n  \"OwnerContactId\": \"<integer>\",\n  \"OwnerCompanyId\": \"<integer>\",\n  \"DeleteTripDetailsAfter\": {\n    \"Ticks\": \"<long>\"\n  },\n  \"DeleteTripsAfter\": {\n    \"Ticks\": \"<long>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "baaafb77-a3b3-406c-9091-43e3acf90fff",
+              "name": "Bad request, could occur for a number of cases, see returned message",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "vehicles",
+                    ":vehicleId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "vehicleId",
+                      "description": "(Required) The vehicle id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"NumberPlate\": \"<string>\",\n  \"Make\": \"<string>\",\n  \"Model\": \"<string>\",\n  \"ModelYear\": \"<integer>\",\n  \"BodyStyle\": \"<string>\",\n  \"BodyType\": \"<integer>\",\n  \"OwnerContactId\": \"<integer>\",\n  \"OwnerCompanyId\": \"<integer>\",\n  \"DeleteTripDetailsAfter\": {\n    \"Ticks\": \"<long>\"\n  },\n  \"DeleteTripsAfter\": {\n    \"Ticks\": \"<long>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "9e6d1862-f99f-4380-9be1-5e65200959ef",
+              "name": "Request is forbidden, meaning you don't have access to this vehicle",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "vehicles",
+                    ":vehicleId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "vehicleId",
+                      "description": "(Required) The vehicle id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"NumberPlate\": \"<string>\",\n  \"Make\": \"<string>\",\n  \"Model\": \"<string>\",\n  \"ModelYear\": \"<integer>\",\n  \"BodyStyle\": \"<string>\",\n  \"BodyType\": \"<integer>\",\n  \"OwnerContactId\": \"<integer>\",\n  \"OwnerCompanyId\": \"<integer>\",\n  \"DeleteTripDetailsAfter\": {\n    \"Ticks\": \"<long>\"\n  },\n  \"DeleteTripsAfter\": {\n    \"Ticks\": \"<long>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ab0a9b59-e4b2-46bf-aa63-d08b9cbd0637",
+              "name": "Not found, the vehicle you tried to update can't be found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "vehicles",
+                    ":vehicleId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "vehicleId",
+                      "description": "(Required) The vehicle id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"NumberPlate\": \"<string>\",\n  \"Make\": \"<string>\",\n  \"Model\": \"<string>\",\n  \"ModelYear\": \"<integer>\",\n  \"BodyStyle\": \"<string>\",\n  \"BodyType\": \"<integer>\",\n  \"OwnerContactId\": \"<integer>\",\n  \"OwnerCompanyId\": \"<integer>\",\n  \"DeleteTripDetailsAfter\": {\n    \"Ticks\": \"<long>\"\n  },\n  \"DeleteTripsAfter\": {\n    \"Ticks\": \"<long>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "840609d7-5849-4587-92f5-12b7a9d1351b",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "vehicles",
+                    ":vehicleId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "vehicleId",
+                      "description": "(Required) The vehicle id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"NumberPlate\": \"<string>\",\n  \"Make\": \"<string>\",\n  \"Model\": \"<string>\",\n  \"ModelYear\": \"<integer>\",\n  \"BodyStyle\": \"<string>\",\n  \"BodyType\": \"<integer>\",\n  \"OwnerContactId\": \"<integer>\",\n  \"OwnerCompanyId\": \"<integer>\",\n  \"DeleteTripDetailsAfter\": {\n    \"Ticks\": \"<long>\"\n  },\n  \"DeleteTripsAfter\": {\n    \"Ticks\": \"<long>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9d44530b-1bb7-4ae0-8b70-27c8d6af1216",
+          "name": "Removes the given vehicle",
+          "request": {
+            "name": "Removes the given vehicle",
+            "description": {
+              "content": "Removes the given vehicle. If the vehicle is assoicated with a device, first move the device to another vehicle",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "resourceowner",
+                "vehicles",
+                ":vehicleId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "vehicleId",
+                  "description": "(Required) The vehicle id"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "read write"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.automile.com/login/"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "a8ab0ee7-4e5d-4618-b9b4-18a0f975d975",
+              "name": "The vehicle has been deleted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "vehicles",
+                    ":vehicleId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "vehicleId",
+                      "description": "(Required) The vehicle id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d24f8136-d5d1-4f03-95f4-dc9dbb30bb5d",
+              "name": "Request is forbidden, meaning you don't have access to this vehicle",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "vehicles",
+                    ":vehicleId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "vehicleId",
+                      "description": "(Required) The vehicle id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "107014cd-b9ae-4dd5-93aa-a44d78440987",
+              "name": "Not found, the vehicle you tried to update can't be found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "vehicles",
+                    ":vehicleId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "vehicleId",
+                      "description": "(Required) The vehicle id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ecefbf56-144f-4b7f-94e2-7f9145780eb5",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "vehicles",
+                    ":vehicleId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "vehicleId",
+                      "description": "(Required) The vehicle id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bb455add-7825-4112-a2ea-2fa0804f7fa3",
+          "name": "Get position and status of all vehicles that the user has access to",
+          "request": {
+            "name": "Get position and status of all vehicles that the user has access to",
+            "description": {
+              "content": "Only returns vehicles that the user have access to. LastKnownFormattedAddress, LastKnownStreetAddress, LastKnownCity is only returned if vehicle is parked.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "resourceowner",
+                "vehicles",
+                "status"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "read write"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.automile.com/login/"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "b1d1ea13-e0cd-4216-82a6-26a9671c0155",
+              "name": "The vehicle details are returned",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "vehicles",
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"VehicleId\": 9477,\n    \"LastPositionUtc\": \"1950-02-04T11:21:03.478Z\",\n    \"LastKnownLatitude\": 3015.6183825272633,\n    \"LastKnownLongitude\": 6584.078880940806,\n    \"IsDriving\": false,\n    \"MakeImageUrl\": \"string\",\n    \"ParkedForNumberOfSeconds\": 4509,\n    \"DrivingForNumberOfSeconds\": 9109,\n    \"LastKnownFormattedAddress\": \"string\",\n    \"LastKnownStreetAddress\": \"string\",\n    \"LastKnownCity\": \"string\",\n    \"LastTripId\": 2235,\n    \"LastLocationType\": 1,\n    \"CategoryColor\": 4411,\n    \"Heading\": 2865\n  },\n  {\n    \"VehicleId\": 9767,\n    \"LastPositionUtc\": \"1948-09-15T01:01:21.898Z\",\n    \"LastKnownLatitude\": 8917.161006795857,\n    \"LastKnownLongitude\": 3718.9533783995444,\n    \"IsDriving\": true,\n    \"MakeImageUrl\": \"string\",\n    \"ParkedForNumberOfSeconds\": 2055,\n    \"DrivingForNumberOfSeconds\": 1926,\n    \"LastKnownFormattedAddress\": \"string\",\n    \"LastKnownStreetAddress\": \"string\",\n    \"LastKnownCity\": \"string\",\n    \"LastTripId\": 5436,\n    \"LastLocationType\": 2,\n    \"CategoryColor\": 327,\n    \"Heading\": 8428\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "944c80ac-1857-412a-85de-18a3571d75bd",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "vehicles",
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "b812084f-6ed4-46c5-82ea-843e926898e0",
+    "name": "Automile ClientApi ResourceOwnerVehicleV2 API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

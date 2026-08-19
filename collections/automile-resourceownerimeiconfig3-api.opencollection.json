@@ -1,0 +1,90 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Automile ClientApi ResourceOwnerIMEIConfig3 API",
+    "version": "v1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "ResourceOwnerIMEIConfig3",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get all imeis(devices) that the logged in user has access to",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/resourceowner/imeiconfigs3",
+            "params": [
+              {
+                "name": "includeDeviceType",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Only vehicles that the user is associated with will be returned by this operation."
+        },
+        {
+          "info": {
+            "name": "Creates a new IMEIConfig and associates it with vehicle",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/resourceowner/imeiconfigs3"
+          },
+          "docs": "Creates a new IMEIConfig and associates it with vehicle"
+        },
+        {
+          "info": {
+            "name": "Get IMEIconfig by IMEIconfigId",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/resourceowner/imeiconfigs3/:imeiConfigId",
+            "params": [
+              {
+                "name": "imeiConfigId",
+                "value": "",
+                "type": "path",
+                "description": "The IMEIconfig id"
+              },
+              {
+                "name": "includeDeviceType",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "The user only has access to IMEIconfig that it is associated with through the companies or directly thorugh vehicles"
+        },
+        {
+          "info": {
+            "name": "Updates the given IMEIConfig id",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/v1/resourceowner/imeiconfigs3/:imeiConfigId",
+            "params": [
+              {
+                "name": "imeiConfigId",
+                "value": "",
+                "type": "path",
+                "description": "The IMEIConfig id that should be updated"
+              }
+            ]
+          },
+          "docs": "Updates the given IMEIConfig id"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

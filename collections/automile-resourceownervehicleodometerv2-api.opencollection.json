@@ -1,0 +1,97 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Automile ClientApi ResourceOwnerVehicleOdometerV2 API",
+    "version": "v1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "ResourceOwnerVehicleOdometerV2",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get current odometer value",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/resourceowner/vehicles/odometer/:vehicleId",
+            "params": [
+              {
+                "name": "vehicleId",
+                "value": "",
+                "type": "path",
+                "description": "Vehicle id"
+              },
+              {
+                "name": "fromDateUtc",
+                "value": "",
+                "type": "query",
+                "description": "Period from-date"
+              },
+              {
+                "name": "toDateUtc",
+                "value": "",
+                "type": "query",
+                "description": "Period to-date"
+              }
+            ]
+          },
+          "docs": "Only vehicles that the user has relationships with are allowed."
+        },
+        {
+          "info": {
+            "name": "Calculate trips changes if odometer value changes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/resourceowner/vehicles/odometer/:vehicleId/calculate",
+            "params": [
+              {
+                "name": "vehicleId",
+                "value": "",
+                "type": "path",
+                "description": "Vehicle id"
+              },
+              {
+                "name": "fromDateUtc",
+                "value": "",
+                "type": "query",
+                "description": "Optional period from-date defaults to first day och last month"
+              },
+              {
+                "name": "toDateUtc",
+                "value": "",
+                "type": "query",
+                "description": "Optional period from-date defaults to last day of last month"
+              },
+              {
+                "name": "newOdometerValue",
+                "value": "",
+                "type": "query",
+                "description": "For calculating new trip values"
+              }
+            ]
+          },
+          "docs": "Only vehicles that the user has relationships with are allowed."
+        },
+        {
+          "info": {
+            "name": "Updates the given vehicle with new odometer value",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/v1/resourceowner/vehicles/odometer/updateodometer"
+          },
+          "docs": "This will update the odometer value of a vehicle. Max 5 percentage change of odometer value is permitted. Note: 23:59:59 is added to ToDateUtc."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

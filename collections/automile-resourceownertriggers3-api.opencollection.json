@@ -1,0 +1,146 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Automile ClientApi ResourceOwnerTriggers3 API",
+    "version": "v1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "ResourceOwnerTriggers3",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get all triggers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/resourceowner/triggers3"
+          },
+          "docs": "Only triggers that the user has access to will be returned by this operation."
+        },
+        {
+          "info": {
+            "name": "Creates a new trigger",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/resourceowner/triggers3"
+          },
+          "docs": "Creates a new trigger"
+        },
+        {
+          "info": {
+            "name": "Get a trigger by id",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/resourceowner/triggers3/:triggerId",
+            "params": [
+              {
+                "name": "triggerId",
+                "value": "",
+                "type": "path",
+                "description": "The Id of the trigger"
+              }
+            ]
+          },
+          "docs": "Will only return the trigger if the user has access to it"
+        },
+        {
+          "info": {
+            "name": "Updates the given trigger",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/v1/resourceowner/triggers3/:triggerId",
+            "params": [
+              {
+                "name": "triggerId",
+                "value": "",
+                "type": "path",
+                "description": "The  trigger hat should be updated"
+              }
+            ]
+          },
+          "docs": "This will update the trigger with the new model."
+        },
+        {
+          "info": {
+            "name": "Removes the given trigger",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/v1/resourceowner/triggers3/:triggerId",
+            "params": [
+              {
+                "name": "triggerId",
+                "value": "",
+                "type": "path",
+                "description": "The company id"
+              }
+            ]
+          },
+          "docs": "This will remove the given trigger including all historic message belonging to this trigger."
+        },
+        {
+          "info": {
+            "name": "Updates how long the trigger should be muted",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/v1/resourceowner/triggers3/mute/:triggerId",
+            "params": [
+              {
+                "name": "triggerId",
+                "value": "",
+                "type": "path",
+                "description": "The trigger that should be muted"
+              }
+            ]
+          },
+          "docs": "This will update how long the trigger should be muted"
+        },
+        {
+          "info": {
+            "name": "Unmutes a trigger",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/v1/resourceowner/triggers3/unmute/:triggerId",
+            "params": [
+              {
+                "name": "triggerId",
+                "value": "",
+                "type": "path",
+                "description": "The trigger to unmute"
+              }
+            ]
+          },
+          "docs": "This will unmute a trigger"
+        },
+        {
+          "info": {
+            "name": "Move all users push triggers to userdevice",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/resourceowner/triggers3/movepush"
+          },
+          "docs": "Move all users push triggers to userdevice"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

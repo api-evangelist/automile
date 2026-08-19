@@ -1,0 +1,1332 @@
+{
+  "item": [
+    {
+      "id": "5da9efec-a4d7-4fef-96d3-99fcead7b2e0",
+      "name": "ResourceOwnerVehicleInspection3",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "7c0ef0a4-59fe-490c-9761-1fb4c1bee175",
+          "name": "Get a vehicle inspection",
+          "request": {
+            "name": "Get a vehicle inspection",
+            "description": {
+              "content": "Only returns vehicle inspetions that the user have access to",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "resourceowner",
+                "vehicleinspection3",
+                ":vehicleInspectionId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "vehicleInspectionId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "read write"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.automile.com/login/"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "5fb8e439-48c0-46ff-ba82-21f952f94234",
+              "name": "The vehicle inspection is returned",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "vehicleinspection3",
+                    ":vehicleInspectionId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "vehicleInspectionId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"VehicleInspectionId\": 9594,\n  \"VehicleId\": 3386,\n  \"CreatedByContactId\": 4795,\n  \"InspectionStatusType\": 3,\n  \"InspectionDateUtc\": \"1990-03-06T15:20:49.755Z\",\n  \"VehicleDefects\": [\n    {\n      \"VehicleDefectId\": 7163,\n      \"VehicleInspectionId\": 8608,\n      \"DefectType\": 22,\n      \"CreatedByContactId\": 3908,\n      \"DefectDateUtc\": \"1957-02-22T11:18:52.196Z\",\n      \"Notes\": \"string\",\n      \"DefectStatusType\": 1,\n      \"VehicleDefectStatus\": [\n        {\n          \"VehicleDefectStatusId\": 4308,\n          \"VehicleDefectId\": 4414,\n          \"CreatedByContactId\": 1233,\n          \"DefectStatus\": 0,\n          \"DefectStatusDateUtc\": \"2012-03-15T11:29:16.773Z\"\n        },\n        {\n          \"VehicleDefectStatusId\": 8091,\n          \"VehicleDefectId\": 6459,\n          \"CreatedByContactId\": 8009,\n          \"DefectStatus\": 1,\n          \"DefectStatusDateUtc\": \"1990-11-20T20:27:18.764Z\"\n        }\n      ],\n      \"VehicleDefectAttachments\": [\n        {\n          \"VehicleDefectAttachmentId\": 3580,\n          \"VehicleDefectId\": 8497,\n          \"AttachmentType\": 3,\n          \"AttachmentLocation\": \"string\",\n          \"AttachmentDateUtc\": \"1963-03-11T09:56:35.979Z\"\n        },\n        {\n          \"VehicleDefectAttachmentId\": 8333,\n          \"VehicleDefectId\": 6063,\n          \"AttachmentType\": 1,\n          \"AttachmentLocation\": \"string\",\n          \"AttachmentDateUtc\": \"1984-02-02T00:50:58.432Z\"\n        }\n      ],\n      \"VehicleDefectComments\": [\n        {\n          \"VehicleDefectCommentId\": 8538,\n          \"VehicleDefectId\": 1862,\n          \"CreatedByContactId\": 6327,\n          \"Comment\": \"string\",\n          \"CommentDateUtc\": \"1999-01-17T10:02:18.582Z\"\n        },\n        {\n          \"VehicleDefectCommentId\": 1278,\n          \"VehicleDefectId\": 9588,\n          \"CreatedByContactId\": 4235,\n          \"Comment\": \"string\",\n          \"CommentDateUtc\": \"1953-06-19T02:56:51.022Z\"\n        }\n      ]\n    },\n    {\n      \"VehicleDefectId\": 650,\n      \"VehicleInspectionId\": 9276,\n      \"DefectType\": 4,\n      \"CreatedByContactId\": 6425,\n      \"DefectDateUtc\": \"2005-11-09T09:00:39.576Z\",\n      \"Notes\": \"string\",\n      \"DefectStatusType\": 1,\n      \"VehicleDefectStatus\": [\n        {\n          \"VehicleDefectStatusId\": 6984,\n          \"VehicleDefectId\": 2744,\n          \"CreatedByContactId\": 552,\n          \"DefectStatus\": 0,\n          \"DefectStatusDateUtc\": \"1949-01-04T11:50:04.647Z\"\n        },\n        {\n          \"VehicleDefectStatusId\": 4915,\n          \"VehicleDefectId\": 3198,\n          \"CreatedByContactId\": 1199,\n          \"DefectStatus\": 0,\n          \"DefectStatusDateUtc\": \"1985-02-17T11:04:23.421Z\"\n        }\n      ],\n      \"VehicleDefectAttachments\": [\n        {\n          \"VehicleDefectAttachmentId\": 4207,\n          \"VehicleDefectId\": 3076,\n          \"AttachmentType\": 3,\n          \"AttachmentLocation\": \"string\",\n          \"AttachmentDateUtc\": \"1956-04-20T14:53:45.440Z\"\n        },\n        {\n          \"VehicleDefectAttachmentId\": 5046,\n          \"VehicleDefectId\": 5950,\n          \"AttachmentType\": 0,\n          \"AttachmentLocation\": \"string\",\n          \"AttachmentDateUtc\": \"2004-10-17T09:56:39.605Z\"\n        }\n      ],\n      \"VehicleDefectComments\": [\n        {\n          \"VehicleDefectCommentId\": 9572,\n          \"VehicleDefectId\": 7882,\n          \"CreatedByContactId\": 4240,\n          \"Comment\": \"string\",\n          \"CommentDateUtc\": \"2005-07-21T17:00:08.053Z\"\n        },\n        {\n          \"VehicleDefectCommentId\": 5002,\n          \"VehicleDefectId\": 6042,\n          \"CreatedByContactId\": 9531,\n          \"Comment\": \"string\",\n          \"CommentDateUtc\": \"1986-12-05T15:46:55.888Z\"\n        }\n      ]\n    }\n  ],\n  \"InspectionStatus\": [\n    {\n      \"VehicleInspectionStatusId\": 6715,\n      \"VehicleInspectionId\": 5667,\n      \"CreatedByContactId\": 5455,\n      \"InspectionStatusType\": 2,\n      \"StatusDateUtc\": \"2017-10-20T14:10:34.325Z\"\n    },\n    {\n      \"VehicleInspectionStatusId\": 438,\n      \"VehicleInspectionId\": 6473,\n      \"CreatedByContactId\": 1592,\n      \"InspectionStatusType\": 6,\n      \"StatusDateUtc\": \"2021-01-04T23:12:00.358Z\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "227197ab-0eae-4827-becb-e7c664734aaa",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "vehicleinspection3",
+                    ":vehicleInspectionId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "vehicleInspectionId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6e059bad-684a-4a12-8ed7-7c2b36d4e70b",
+          "name": "Updates the given vehicle inspection with new model",
+          "request": {
+            "name": "Updates the given vehicle inspection with new model",
+            "description": {
+              "content": "This will update the given vehicle id with a new model.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "resourceowner",
+                "vehicleinspection3",
+                ":vehicleInspectionId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "vehicleInspectionId",
+                  "description": "(Required) The vehicle inspection id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "read write"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.automile.com/login/"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"VehicleId\": \"<integer>\",\n  \"InspectionStatusType\": \"<integer>\",\n  \"VehicleDefects\": [\n    {\n      \"VehicleDefectId\": \"<integer>\",\n      \"DefectType\": \"<integer>\",\n      \"Notes\": \"<string>\",\n      \"DefectStatusType\": \"<integer>\",\n      \"VehicleDefectAttachments\": [\n        {\n          \"VehicleDefectAttachmentId\": \"<integer>\",\n          \"AttachmentType\": \"<integer>\",\n          \"Data\": \"<string>\"\n        },\n        {\n          \"VehicleDefectAttachmentId\": \"<integer>\",\n          \"AttachmentType\": \"<integer>\",\n          \"Data\": \"<string>\"\n        }\n      ],\n      \"VehicleDefectComments\": [\n        {\n          \"VehicleDefectCommentId\": \"<integer>\",\n          \"Comment\": \"<string>\"\n        },\n        {\n          \"VehicleDefectCommentId\": \"<integer>\",\n          \"Comment\": \"<string>\"\n        }\n      ]\n    },\n    {\n      \"VehicleDefectId\": \"<integer>\",\n      \"DefectType\": \"<integer>\",\n      \"Notes\": \"<string>\",\n      \"DefectStatusType\": \"<integer>\",\n      \"VehicleDefectAttachments\": [\n        {\n          \"VehicleDefectAttachmentId\": \"<integer>\",\n          \"AttachmentType\": \"<integer>\",\n          \"Data\": \"<string>\"\n        },\n        {\n          \"VehicleDefectAttachmentId\": \"<integer>\",\n          \"AttachmentType\": \"<integer>\",\n          \"Data\": \"<string>\"\n        }\n      ],\n      \"VehicleDefectComments\": [\n        {\n          \"VehicleDefectCommentId\": \"<integer>\",\n          \"Comment\": \"<string>\"\n        },\n        {\n          \"VehicleDefectCommentId\": \"<integer>\",\n          \"Comment\": \"<string>\"\n        }\n      ]\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f38879d9-f69a-4d81-8032-2808a17f18ae",
+              "name": "The vehicle inspection was saved",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "vehicleinspection3",
+                    ":vehicleInspectionId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "vehicleInspectionId",
+                      "description": "(Required) The vehicle inspection id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"VehicleId\": \"<integer>\",\n  \"InspectionStatusType\": \"<integer>\",\n  \"VehicleDefects\": [\n    {\n      \"VehicleDefectId\": \"<integer>\",\n      \"DefectType\": \"<integer>\",\n      \"Notes\": \"<string>\",\n      \"DefectStatusType\": \"<integer>\",\n      \"VehicleDefectAttachments\": [\n        {\n          \"VehicleDefectAttachmentId\": \"<integer>\",\n          \"AttachmentType\": \"<integer>\",\n          \"Data\": \"<string>\"\n        },\n        {\n          \"VehicleDefectAttachmentId\": \"<integer>\",\n          \"AttachmentType\": \"<integer>\",\n          \"Data\": \"<string>\"\n        }\n      ],\n      \"VehicleDefectComments\": [\n        {\n          \"VehicleDefectCommentId\": \"<integer>\",\n          \"Comment\": \"<string>\"\n        },\n        {\n          \"VehicleDefectCommentId\": \"<integer>\",\n          \"Comment\": \"<string>\"\n        }\n      ]\n    },\n    {\n      \"VehicleDefectId\": \"<integer>\",\n      \"DefectType\": \"<integer>\",\n      \"Notes\": \"<string>\",\n      \"DefectStatusType\": \"<integer>\",\n      \"VehicleDefectAttachments\": [\n        {\n          \"VehicleDefectAttachmentId\": \"<integer>\",\n          \"AttachmentType\": \"<integer>\",\n          \"Data\": \"<string>\"\n        },\n        {\n          \"VehicleDefectAttachmentId\": \"<integer>\",\n          \"AttachmentType\": \"<integer>\",\n          \"Data\": \"<string>\"\n        }\n      ],\n      \"VehicleDefectComments\": [\n        {\n          \"VehicleDefectCommentId\": \"<integer>\",\n          \"Comment\": \"<string>\"\n        },\n        {\n          \"VehicleDefectCommentId\": \"<integer>\",\n          \"Comment\": \"<string>\"\n        }\n      ]\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "451255e8-4c33-4af7-bb01-40f6832332eb",
+              "name": "Bad request, could occur for a number of cases, see returned message",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "vehicleinspection3",
+                    ":vehicleInspectionId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "vehicleInspectionId",
+                      "description": "(Required) The vehicle inspection id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"VehicleId\": \"<integer>\",\n  \"InspectionStatusType\": \"<integer>\",\n  \"VehicleDefects\": [\n    {\n      \"VehicleDefectId\": \"<integer>\",\n      \"DefectType\": \"<integer>\",\n      \"Notes\": \"<string>\",\n      \"DefectStatusType\": \"<integer>\",\n      \"VehicleDefectAttachments\": [\n        {\n          \"VehicleDefectAttachmentId\": \"<integer>\",\n          \"AttachmentType\": \"<integer>\",\n          \"Data\": \"<string>\"\n        },\n        {\n          \"VehicleDefectAttachmentId\": \"<integer>\",\n          \"AttachmentType\": \"<integer>\",\n          \"Data\": \"<string>\"\n        }\n      ],\n      \"VehicleDefectComments\": [\n        {\n          \"VehicleDefectCommentId\": \"<integer>\",\n          \"Comment\": \"<string>\"\n        },\n        {\n          \"VehicleDefectCommentId\": \"<integer>\",\n          \"Comment\": \"<string>\"\n        }\n      ]\n    },\n    {\n      \"VehicleDefectId\": \"<integer>\",\n      \"DefectType\": \"<integer>\",\n      \"Notes\": \"<string>\",\n      \"DefectStatusType\": \"<integer>\",\n      \"VehicleDefectAttachments\": [\n        {\n          \"VehicleDefectAttachmentId\": \"<integer>\",\n          \"AttachmentType\": \"<integer>\",\n          \"Data\": \"<string>\"\n        },\n        {\n          \"VehicleDefectAttachmentId\": \"<integer>\",\n          \"AttachmentType\": \"<integer>\",\n          \"Data\": \"<string>\"\n        }\n      ],\n      \"VehicleDefectComments\": [\n        {\n          \"VehicleDefectCommentId\": \"<integer>\",\n          \"Comment\": \"<string>\"\n        },\n        {\n          \"VehicleDefectCommentId\": \"<integer>\",\n          \"Comment\": \"<string>\"\n        }\n      ]\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "abcc0567-0e41-405f-91aa-a4419d4766a5",
+              "name": "Request is forbidden, could occur for a number of reasons, see returned message",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "vehicleinspection3",
+                    ":vehicleInspectionId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "vehicleInspectionId",
+                      "description": "(Required) The vehicle inspection id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"VehicleId\": \"<integer>\",\n  \"InspectionStatusType\": \"<integer>\",\n  \"VehicleDefects\": [\n    {\n      \"VehicleDefectId\": \"<integer>\",\n      \"DefectType\": \"<integer>\",\n      \"Notes\": \"<string>\",\n      \"DefectStatusType\": \"<integer>\",\n      \"VehicleDefectAttachments\": [\n        {\n          \"VehicleDefectAttachmentId\": \"<integer>\",\n          \"AttachmentType\": \"<integer>\",\n          \"Data\": \"<string>\"\n        },\n        {\n          \"VehicleDefectAttachmentId\": \"<integer>\",\n          \"AttachmentType\": \"<integer>\",\n          \"Data\": \"<string>\"\n        }\n      ],\n      \"VehicleDefectComments\": [\n        {\n          \"VehicleDefectCommentId\": \"<integer>\",\n          \"Comment\": \"<string>\"\n        },\n        {\n          \"VehicleDefectCommentId\": \"<integer>\",\n          \"Comment\": \"<string>\"\n        }\n      ]\n    },\n    {\n      \"VehicleDefectId\": \"<integer>\",\n      \"DefectType\": \"<integer>\",\n      \"Notes\": \"<string>\",\n      \"DefectStatusType\": \"<integer>\",\n      \"VehicleDefectAttachments\": [\n        {\n          \"VehicleDefectAttachmentId\": \"<integer>\",\n          \"AttachmentType\": \"<integer>\",\n          \"Data\": \"<string>\"\n        },\n        {\n          \"VehicleDefectAttachmentId\": \"<integer>\",\n          \"AttachmentType\": \"<integer>\",\n          \"Data\": \"<string>\"\n        }\n      ],\n      \"VehicleDefectComments\": [\n        {\n          \"VehicleDefectCommentId\": \"<integer>\",\n          \"Comment\": \"<string>\"\n        },\n        {\n          \"VehicleDefectCommentId\": \"<integer>\",\n          \"Comment\": \"<string>\"\n        }\n      ]\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b557d945-bf55-40a8-bbb2-28cb158c5d28",
+              "name": "Not found, the vehicle inspection you tried to update can't be found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "vehicleinspection3",
+                    ":vehicleInspectionId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "vehicleInspectionId",
+                      "description": "(Required) The vehicle inspection id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"VehicleId\": \"<integer>\",\n  \"InspectionStatusType\": \"<integer>\",\n  \"VehicleDefects\": [\n    {\n      \"VehicleDefectId\": \"<integer>\",\n      \"DefectType\": \"<integer>\",\n      \"Notes\": \"<string>\",\n      \"DefectStatusType\": \"<integer>\",\n      \"VehicleDefectAttachments\": [\n        {\n          \"VehicleDefectAttachmentId\": \"<integer>\",\n          \"AttachmentType\": \"<integer>\",\n          \"Data\": \"<string>\"\n        },\n        {\n          \"VehicleDefectAttachmentId\": \"<integer>\",\n          \"AttachmentType\": \"<integer>\",\n          \"Data\": \"<string>\"\n        }\n      ],\n      \"VehicleDefectComments\": [\n        {\n          \"VehicleDefectCommentId\": \"<integer>\",\n          \"Comment\": \"<string>\"\n        },\n        {\n          \"VehicleDefectCommentId\": \"<integer>\",\n          \"Comment\": \"<string>\"\n        }\n      ]\n    },\n    {\n      \"VehicleDefectId\": \"<integer>\",\n      \"DefectType\": \"<integer>\",\n      \"Notes\": \"<string>\",\n      \"DefectStatusType\": \"<integer>\",\n      \"VehicleDefectAttachments\": [\n        {\n          \"VehicleDefectAttachmentId\": \"<integer>\",\n          \"AttachmentType\": \"<integer>\",\n          \"Data\": \"<string>\"\n        },\n        {\n          \"VehicleDefectAttachmentId\": \"<integer>\",\n          \"AttachmentType\": \"<integer>\",\n          \"Data\": \"<string>\"\n        }\n      ],\n      \"VehicleDefectComments\": [\n        {\n          \"VehicleDefectCommentId\": \"<integer>\",\n          \"Comment\": \"<string>\"\n        },\n        {\n          \"VehicleDefectCommentId\": \"<integer>\",\n          \"Comment\": \"<string>\"\n        }\n      ]\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "1d8068b3-0413-4e4b-9053-bbac2bed3a54",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "vehicleinspection3",
+                    ":vehicleInspectionId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "vehicleInspectionId",
+                      "description": "(Required) The vehicle inspection id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"VehicleId\": \"<integer>\",\n  \"InspectionStatusType\": \"<integer>\",\n  \"VehicleDefects\": [\n    {\n      \"VehicleDefectId\": \"<integer>\",\n      \"DefectType\": \"<integer>\",\n      \"Notes\": \"<string>\",\n      \"DefectStatusType\": \"<integer>\",\n      \"VehicleDefectAttachments\": [\n        {\n          \"VehicleDefectAttachmentId\": \"<integer>\",\n          \"AttachmentType\": \"<integer>\",\n          \"Data\": \"<string>\"\n        },\n        {\n          \"VehicleDefectAttachmentId\": \"<integer>\",\n          \"AttachmentType\": \"<integer>\",\n          \"Data\": \"<string>\"\n        }\n      ],\n      \"VehicleDefectComments\": [\n        {\n          \"VehicleDefectCommentId\": \"<integer>\",\n          \"Comment\": \"<string>\"\n        },\n        {\n          \"VehicleDefectCommentId\": \"<integer>\",\n          \"Comment\": \"<string>\"\n        }\n      ]\n    },\n    {\n      \"VehicleDefectId\": \"<integer>\",\n      \"DefectType\": \"<integer>\",\n      \"Notes\": \"<string>\",\n      \"DefectStatusType\": \"<integer>\",\n      \"VehicleDefectAttachments\": [\n        {\n          \"VehicleDefectAttachmentId\": \"<integer>\",\n          \"AttachmentType\": \"<integer>\",\n          \"Data\": \"<string>\"\n        },\n        {\n          \"VehicleDefectAttachmentId\": \"<integer>\",\n          \"AttachmentType\": \"<integer>\",\n          \"Data\": \"<string>\"\n        }\n      ],\n      \"VehicleDefectComments\": [\n        {\n          \"VehicleDefectCommentId\": \"<integer>\",\n          \"Comment\": \"<string>\"\n        },\n        {\n          \"VehicleDefectCommentId\": \"<integer>\",\n          \"Comment\": \"<string>\"\n        }\n      ]\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5cb1dc01-c923-470f-81e3-ee5f7eab0c9d",
+          "name": "Get all vehicle inspections that the user has access to",
+          "request": {
+            "name": "Get all vehicle inspections that the user has access to",
+            "description": {
+              "content": "Only returns vehicle inspetions that the user have access to",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "resourceowner",
+                "vehicleinspection3"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "vehicleInspectionId",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "vehicleId",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "fromDate",
+                  "value": "<dateTime>"
+                },
+                {
+                  "disabled": false,
+                  "key": "toDate",
+                  "value": "<dateTime>"
+                },
+                {
+                  "disabled": false,
+                  "key": "excludeArchived",
+                  "value": "true"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "read write"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.automile.com/login/"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "68137eaf-a740-4547-a454-5ce36a2c2b6e",
+              "name": "The vehicle inspections are returned",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "vehicleinspection3"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "vehicleInspectionId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "vehicleId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "fromDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "toDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "excludeArchived",
+                      "value": "true"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"VehicleInspectionId\": 8395,\n    \"VehicleId\": 5839,\n    \"CreatedByContactId\": 867,\n    \"InspectionStatusType\": 4,\n    \"InspectionDateUtc\": \"1996-05-04T09:24:22.714Z\",\n    \"VehicleDefects\": [\n      {\n        \"VehicleDefectId\": 8982,\n        \"VehicleInspectionId\": 8770,\n        \"DefectType\": 25,\n        \"CreatedByContactId\": 795,\n        \"DefectDateUtc\": \"2022-03-30T20:43:01.563Z\",\n        \"Notes\": \"string\",\n        \"DefectStatusType\": 0,\n        \"VehicleDefectStatus\": [\n          {\n            \"VehicleDefectStatusId\": 9730,\n            \"VehicleDefectId\": 9976,\n            \"CreatedByContactId\": 1524,\n            \"DefectStatus\": 0,\n            \"DefectStatusDateUtc\": \"2012-09-06T23:33:21.931Z\"\n          },\n          {\n            \"VehicleDefectStatusId\": 9199,\n            \"VehicleDefectId\": 1231,\n            \"CreatedByContactId\": 9099,\n            \"DefectStatus\": 1,\n            \"DefectStatusDateUtc\": \"1947-04-07T08:45:48.638Z\"\n          }\n        ],\n        \"VehicleDefectAttachments\": [\n          {\n            \"VehicleDefectAttachmentId\": 4952,\n            \"VehicleDefectId\": 4905,\n            \"AttachmentType\": 0,\n            \"AttachmentLocation\": \"string\",\n            \"AttachmentDateUtc\": \"1949-06-29T03:41:49.732Z\"\n          },\n          {\n            \"VehicleDefectAttachmentId\": 7533,\n            \"VehicleDefectId\": 331,\n            \"AttachmentType\": 1,\n            \"AttachmentLocation\": \"string\",\n            \"AttachmentDateUtc\": \"1967-08-12T10:12:54.585Z\"\n          }\n        ],\n        \"VehicleDefectComments\": [\n          {\n            \"VehicleDefectCommentId\": 9305,\n            \"VehicleDefectId\": 818,\n            \"CreatedByContactId\": 5637,\n            \"Comment\": \"string\",\n            \"CommentDateUtc\": \"2011-12-26T16:32:30.633Z\"\n          },\n          {\n            \"VehicleDefectCommentId\": 5010,\n            \"VehicleDefectId\": 1022,\n            \"CreatedByContactId\": 4695,\n            \"Comment\": \"string\",\n            \"CommentDateUtc\": \"2007-04-09T22:52:09.042Z\"\n          }\n        ]\n      },\n      {\n        \"VehicleDefectId\": 6525,\n        \"VehicleInspectionId\": 6153,\n        \"DefectType\": 22,\n        \"CreatedByContactId\": 7087,\n        \"DefectDateUtc\": \"1949-03-26T01:34:23.644Z\",\n        \"Notes\": \"string\",\n        \"DefectStatusType\": 0,\n        \"VehicleDefectStatus\": [\n          {\n            \"VehicleDefectStatusId\": 6994,\n            \"VehicleDefectId\": 7490,\n            \"CreatedByContactId\": 5787,\n            \"DefectStatus\": 1,\n            \"DefectStatusDateUtc\": \"2018-02-09T23:31:00.179Z\"\n          },\n          {\n            \"VehicleDefectStatusId\": 3161,\n            \"VehicleDefectId\": 335,\n            \"CreatedByContactId\": 5109,\n            \"DefectStatus\": 0,\n            \"DefectStatusDateUtc\": \"2023-11-28T18:29:43.933Z\"\n          }\n        ],\n        \"VehicleDefectAttachments\": [\n          {\n            \"VehicleDefectAttachmentId\": 2247,\n            \"VehicleDefectId\": 7622,\n            \"AttachmentType\": 0,\n            \"AttachmentLocation\": \"string\",\n            \"AttachmentDateUtc\": \"1992-07-26T11:37:33.584Z\"\n          },\n          {\n            \"VehicleDefectAttachmentId\": 1444,\n            \"VehicleDefectId\": 4817,\n            \"AttachmentType\": 3,\n            \"AttachmentLocation\": \"string\",\n            \"AttachmentDateUtc\": \"2025-07-29T00:38:12.724Z\"\n          }\n        ],\n        \"VehicleDefectComments\": [\n          {\n            \"VehicleDefectCommentId\": 8119,\n            \"VehicleDefectId\": 2282,\n            \"CreatedByContactId\": 217,\n            \"Comment\": \"string\",\n            \"CommentDateUtc\": \"2011-06-24T23:07:22.085Z\"\n          },\n          {\n            \"VehicleDefectCommentId\": 3869,\n            \"VehicleDefectId\": 300,\n            \"CreatedByContactId\": 4846,\n            \"Comment\": \"string\",\n            \"CommentDateUtc\": \"1966-02-03T17:20:25.752Z\"\n          }\n        ]\n      }\n    ],\n    \"InspectionStatus\": [\n      {\n        \"VehicleInspectionStatusId\": 7081,\n        \"VehicleInspectionId\": 3946,\n        \"CreatedByContactId\": 3610,\n        \"InspectionStatusType\": 1,\n        \"StatusDateUtc\": \"1997-04-20T00:05:38.415Z\"\n      },\n      {\n        \"VehicleInspectionStatusId\": 5310,\n        \"VehicleInspectionId\": 3702,\n        \"CreatedByContactId\": 1656,\n        \"InspectionStatusType\": 2,\n        \"StatusDateUtc\": \"1998-09-11T00:01:11.399Z\"\n      }\n    ]\n  },\n  {\n    \"VehicleInspectionId\": 8143,\n    \"VehicleId\": 3014,\n    \"CreatedByContactId\": 9338,\n    \"InspectionStatusType\": 0,\n    \"InspectionDateUtc\": \"1987-06-15T05:50:12.245Z\",\n    \"VehicleDefects\": [\n      {\n        \"VehicleDefectId\": 6885,\n        \"VehicleInspectionId\": 5670,\n        \"DefectType\": 12,\n        \"CreatedByContactId\": 160,\n        \"DefectDateUtc\": \"1949-10-03T11:03:50.713Z\",\n        \"Notes\": \"string\",\n        \"DefectStatusType\": 0,\n        \"VehicleDefectStatus\": [\n          {\n            \"VehicleDefectStatusId\": 4118,\n            \"VehicleDefectId\": 860,\n            \"CreatedByContactId\": 4849,\n            \"DefectStatus\": 1,\n            \"DefectStatusDateUtc\": \"2020-06-16T05:37:37.862Z\"\n          },\n          {\n            \"VehicleDefectStatusId\": 2927,\n            \"VehicleDefectId\": 2004,\n            \"CreatedByContactId\": 4936,\n            \"DefectStatus\": 0,\n            \"DefectStatusDateUtc\": \"1984-06-02T05:52:47.268Z\"\n          }\n        ],\n        \"VehicleDefectAttachments\": [\n          {\n            \"VehicleDefectAttachmentId\": 3691,\n            \"VehicleDefectId\": 7077,\n            \"AttachmentType\": 3,\n            \"AttachmentLocation\": \"string\",\n            \"AttachmentDateUtc\": \"2012-02-18T07:01:27.063Z\"\n          },\n          {\n            \"VehicleDefectAttachmentId\": 1943,\n            \"VehicleDefectId\": 3362,\n            \"AttachmentType\": 1,\n            \"AttachmentLocation\": \"string\",\n            \"AttachmentDateUtc\": \"2002-02-24T16:11:47.573Z\"\n          }\n        ],\n        \"VehicleDefectComments\": [\n          {\n            \"VehicleDefectCommentId\": 7234,\n            \"VehicleDefectId\": 970,\n            \"CreatedByContactId\": 4426,\n            \"Comment\": \"string\",\n            \"CommentDateUtc\": \"1995-03-08T10:14:23.805Z\"\n          },\n          {\n            \"VehicleDefectCommentId\": 7459,\n            \"VehicleDefectId\": 8993,\n            \"CreatedByContactId\": 3425,\n            \"Comment\": \"string\",\n            \"CommentDateUtc\": \"1988-08-12T13:34:18.773Z\"\n          }\n        ]\n      },\n      {\n        \"VehicleDefectId\": 5918,\n        \"VehicleInspectionId\": 6767,\n        \"DefectType\": 30,\n        \"CreatedByContactId\": 5200,\n        \"DefectDateUtc\": \"1971-03-02T11:42:54.814Z\",\n        \"Notes\": \"string\",\n        \"DefectStatusType\": 0,\n        \"VehicleDefectStatus\": [\n          {\n            \"VehicleDefectStatusId\": 5940,\n            \"VehicleDefectId\": 2758,\n            \"CreatedByContactId\": 7401,\n            \"DefectStatus\": 0,\n            \"DefectStatusDateUtc\": \"2018-06-09T01:43:25.352Z\"\n          },\n          {\n            \"VehicleDefectStatusId\": 366,\n            \"VehicleDefectId\": 4884,\n            \"CreatedByContactId\": 400,\n            \"DefectStatus\": 1,\n            \"DefectStatusDateUtc\": \"2011-10-30T13:24:19.075Z\"\n          }\n        ],\n        \"VehicleDefectAttachments\": [\n          {\n            \"VehicleDefectAttachmentId\": 9725,\n            \"VehicleDefectId\": 1328,\n            \"AttachmentType\": 3,\n            \"AttachmentLocation\": \"string\",\n            \"AttachmentDateUtc\": \"1963-09-04T16:02:28.313Z\"\n          },\n          {\n            \"VehicleDefectAttachmentId\": 6442,\n            \"VehicleDefectId\": 4243,\n            \"AttachmentType\": 2,\n            \"AttachmentLocation\": \"string\",\n            \"AttachmentDateUtc\": \"2018-09-14T20:35:14.496Z\"\n          }\n        ],\n        \"VehicleDefectComments\": [\n          {\n            \"VehicleDefectCommentId\": 3459,\n            \"VehicleDefectId\": 9111,\n            \"CreatedByContactId\": 8862,\n            \"Comment\": \"string\",\n            \"CommentDateUtc\": \"2026-01-01T16:47:37.094Z\"\n          },\n          {\n            \"VehicleDefectCommentId\": 2209,\n            \"VehicleDefectId\": 2745,\n            \"CreatedByContactId\": 6401,\n            \"Comment\": \"string\",\n            \"CommentDateUtc\": \"2024-12-28T00:19:17.533Z\"\n          }\n        ]\n      }\n    ],\n    \"InspectionStatus\": [\n      {\n        \"VehicleInspectionStatusId\": 7989,\n        \"VehicleInspectionId\": 4043,\n        \"CreatedByContactId\": 4360,\n        \"InspectionStatusType\": 6,\n        \"StatusDateUtc\": \"1959-07-07T20:01:32.036Z\"\n      },\n      {\n        \"VehicleInspectionStatusId\": 6803,\n        \"VehicleInspectionId\": 3129,\n        \"CreatedByContactId\": 2128,\n        \"InspectionStatusType\": 1,\n        \"StatusDateUtc\": \"2004-06-18T01:32:03.822Z\"\n      }\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "85609dda-85e5-4c8d-ad7a-bc7e8f437aed",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "vehicleinspection3"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "vehicleInspectionId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "vehicleId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "fromDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "toDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "excludeArchived",
+                      "value": "true"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6266ae1d-6465-4fa0-9572-f2d0b1851593",
+          "name": "Creates a new vehicle inspection",
+          "request": {
+            "name": "Creates a new vehicle inspection",
+            "description": {
+              "content": "This will create a new vehicle inspection and make the association you set.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "resourceowner",
+                "vehicleinspection3"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "read write"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.automile.com/login/"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"VehicleId\": \"<integer>\",\n  \"InspectionDateUtc\": \"<dateTime>\",\n  \"VehicleDefects\": [\n    {\n      \"DefectType\": \"<integer>\",\n      \"Notes\": \"<string>\",\n      \"VehicleDefectStatus\": [\n        {\n          \"DefectStatus\": \"<integer>\"\n        },\n        {\n          \"DefectStatus\": \"<integer>\"\n        }\n      ],\n      \"VehicleDefectAttachments\": [\n        {\n          \"AttachmentType\": \"<integer>\",\n          \"Data\": \"<string>\"\n        },\n        {\n          \"AttachmentType\": \"<integer>\",\n          \"Data\": \"<string>\"\n        }\n      ],\n      \"VehicleDefectComments\": [\n        {\n          \"VehicleDefectId\": \"<integer>\",\n          \"Comment\": \"<string>\"\n        },\n        {\n          \"VehicleDefectId\": \"<integer>\",\n          \"Comment\": \"<string>\"\n        }\n      ]\n    },\n    {\n      \"DefectType\": \"<integer>\",\n      \"Notes\": \"<string>\",\n      \"VehicleDefectStatus\": [\n        {\n          \"DefectStatus\": \"<integer>\"\n        },\n        {\n          \"DefectStatus\": \"<integer>\"\n        }\n      ],\n      \"VehicleDefectAttachments\": [\n        {\n          \"AttachmentType\": \"<integer>\",\n          \"Data\": \"<string>\"\n        },\n        {\n          \"AttachmentType\": \"<integer>\",\n          \"Data\": \"<string>\"\n        }\n      ],\n      \"VehicleDefectComments\": [\n        {\n          \"VehicleDefectId\": \"<integer>\",\n          \"Comment\": \"<string>\"\n        },\n        {\n          \"VehicleDefectId\": \"<integer>\",\n          \"Comment\": \"<string>\"\n        }\n      ]\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "85ab41de-e617-4e30-9240-e8469fda7c02",
+              "name": "A link in the header is returned to the newly created vehicle inspection",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "vehicleinspection3"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"VehicleId\": \"<integer>\",\n  \"InspectionDateUtc\": \"<dateTime>\",\n  \"VehicleDefects\": [\n    {\n      \"DefectType\": \"<integer>\",\n      \"Notes\": \"<string>\",\n      \"VehicleDefectStatus\": [\n        {\n          \"DefectStatus\": \"<integer>\"\n        },\n        {\n          \"DefectStatus\": \"<integer>\"\n        }\n      ],\n      \"VehicleDefectAttachments\": [\n        {\n          \"AttachmentType\": \"<integer>\",\n          \"Data\": \"<string>\"\n        },\n        {\n          \"AttachmentType\": \"<integer>\",\n          \"Data\": \"<string>\"\n        }\n      ],\n      \"VehicleDefectComments\": [\n        {\n          \"VehicleDefectId\": \"<integer>\",\n          \"Comment\": \"<string>\"\n        },\n        {\n          \"VehicleDefectId\": \"<integer>\",\n          \"Comment\": \"<string>\"\n        }\n      ]\n    },\n    {\n      \"DefectType\": \"<integer>\",\n      \"Notes\": \"<string>\",\n      \"VehicleDefectStatus\": [\n        {\n          \"DefectStatus\": \"<integer>\"\n        },\n        {\n          \"DefectStatus\": \"<integer>\"\n        }\n      ],\n      \"VehicleDefectAttachments\": [\n        {\n          \"AttachmentType\": \"<integer>\",\n          \"Data\": \"<string>\"\n        },\n        {\n          \"AttachmentType\": \"<integer>\",\n          \"Data\": \"<string>\"\n        }\n      ],\n      \"VehicleDefectComments\": [\n        {\n          \"VehicleDefectId\": \"<integer>\",\n          \"Comment\": \"<string>\"\n        },\n        {\n          \"VehicleDefectId\": \"<integer>\",\n          \"Comment\": \"<string>\"\n        }\n      ]\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c98577f3-eafa-47c6-a73f-7192a3936147",
+              "name": "Bad request, could occur for a number of cases, see returned message",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "vehicleinspection3"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"VehicleId\": \"<integer>\",\n  \"InspectionDateUtc\": \"<dateTime>\",\n  \"VehicleDefects\": [\n    {\n      \"DefectType\": \"<integer>\",\n      \"Notes\": \"<string>\",\n      \"VehicleDefectStatus\": [\n        {\n          \"DefectStatus\": \"<integer>\"\n        },\n        {\n          \"DefectStatus\": \"<integer>\"\n        }\n      ],\n      \"VehicleDefectAttachments\": [\n        {\n          \"AttachmentType\": \"<integer>\",\n          \"Data\": \"<string>\"\n        },\n        {\n          \"AttachmentType\": \"<integer>\",\n          \"Data\": \"<string>\"\n        }\n      ],\n      \"VehicleDefectComments\": [\n        {\n          \"VehicleDefectId\": \"<integer>\",\n          \"Comment\": \"<string>\"\n        },\n        {\n          \"VehicleDefectId\": \"<integer>\",\n          \"Comment\": \"<string>\"\n        }\n      ]\n    },\n    {\n      \"DefectType\": \"<integer>\",\n      \"Notes\": \"<string>\",\n      \"VehicleDefectStatus\": [\n        {\n          \"DefectStatus\": \"<integer>\"\n        },\n        {\n          \"DefectStatus\": \"<integer>\"\n        }\n      ],\n      \"VehicleDefectAttachments\": [\n        {\n          \"AttachmentType\": \"<integer>\",\n          \"Data\": \"<string>\"\n        },\n        {\n          \"AttachmentType\": \"<integer>\",\n          \"Data\": \"<string>\"\n        }\n      ],\n      \"VehicleDefectComments\": [\n        {\n          \"VehicleDefectId\": \"<integer>\",\n          \"Comment\": \"<string>\"\n        },\n        {\n          \"VehicleDefectId\": \"<integer>\",\n          \"Comment\": \"<string>\"\n        }\n      ]\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "65e48c90-7611-4d15-a18e-17db0853f365",
+              "name": "Request is forbidden, could occur for a number of reasons, see returned message",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "vehicleinspection3"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"VehicleId\": \"<integer>\",\n  \"InspectionDateUtc\": \"<dateTime>\",\n  \"VehicleDefects\": [\n    {\n      \"DefectType\": \"<integer>\",\n      \"Notes\": \"<string>\",\n      \"VehicleDefectStatus\": [\n        {\n          \"DefectStatus\": \"<integer>\"\n        },\n        {\n          \"DefectStatus\": \"<integer>\"\n        }\n      ],\n      \"VehicleDefectAttachments\": [\n        {\n          \"AttachmentType\": \"<integer>\",\n          \"Data\": \"<string>\"\n        },\n        {\n          \"AttachmentType\": \"<integer>\",\n          \"Data\": \"<string>\"\n        }\n      ],\n      \"VehicleDefectComments\": [\n        {\n          \"VehicleDefectId\": \"<integer>\",\n          \"Comment\": \"<string>\"\n        },\n        {\n          \"VehicleDefectId\": \"<integer>\",\n          \"Comment\": \"<string>\"\n        }\n      ]\n    },\n    {\n      \"DefectType\": \"<integer>\",\n      \"Notes\": \"<string>\",\n      \"VehicleDefectStatus\": [\n        {\n          \"DefectStatus\": \"<integer>\"\n        },\n        {\n          \"DefectStatus\": \"<integer>\"\n        }\n      ],\n      \"VehicleDefectAttachments\": [\n        {\n          \"AttachmentType\": \"<integer>\",\n          \"Data\": \"<string>\"\n        },\n        {\n          \"AttachmentType\": \"<integer>\",\n          \"Data\": \"<string>\"\n        }\n      ],\n      \"VehicleDefectComments\": [\n        {\n          \"VehicleDefectId\": \"<integer>\",\n          \"Comment\": \"<string>\"\n        },\n        {\n          \"VehicleDefectId\": \"<integer>\",\n          \"Comment\": \"<string>\"\n        }\n      ]\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8448fc29-4732-4a71-a05e-586741f426d7",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "vehicleinspection3"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"VehicleId\": \"<integer>\",\n  \"InspectionDateUtc\": \"<dateTime>\",\n  \"VehicleDefects\": [\n    {\n      \"DefectType\": \"<integer>\",\n      \"Notes\": \"<string>\",\n      \"VehicleDefectStatus\": [\n        {\n          \"DefectStatus\": \"<integer>\"\n        },\n        {\n          \"DefectStatus\": \"<integer>\"\n        }\n      ],\n      \"VehicleDefectAttachments\": [\n        {\n          \"AttachmentType\": \"<integer>\",\n          \"Data\": \"<string>\"\n        },\n        {\n          \"AttachmentType\": \"<integer>\",\n          \"Data\": \"<string>\"\n        }\n      ],\n      \"VehicleDefectComments\": [\n        {\n          \"VehicleDefectId\": \"<integer>\",\n          \"Comment\": \"<string>\"\n        },\n        {\n          \"VehicleDefectId\": \"<integer>\",\n          \"Comment\": \"<string>\"\n        }\n      ]\n    },\n    {\n      \"DefectType\": \"<integer>\",\n      \"Notes\": \"<string>\",\n      \"VehicleDefectStatus\": [\n        {\n          \"DefectStatus\": \"<integer>\"\n        },\n        {\n          \"DefectStatus\": \"<integer>\"\n        }\n      ],\n      \"VehicleDefectAttachments\": [\n        {\n          \"AttachmentType\": \"<integer>\",\n          \"Data\": \"<string>\"\n        },\n        {\n          \"AttachmentType\": \"<integer>\",\n          \"Data\": \"<string>\"\n        }\n      ],\n      \"VehicleDefectComments\": [\n        {\n          \"VehicleDefectId\": \"<integer>\",\n          \"Comment\": \"<string>\"\n        },\n        {\n          \"VehicleDefectId\": \"<integer>\",\n          \"Comment\": \"<string>\"\n        }\n      ]\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3e127b22-8780-4bff-8469-85c0f29f8487",
+          "name": "Export a vehicle inspection in pdf format via email",
+          "request": {
+            "name": "Export a vehicle inspection in pdf format via email",
+            "description": {
+              "content": "Only vehicle inspections that the user has access rights to are accessible.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "resourceowner",
+                "vehicleinspection3",
+                "export",
+                ":vehicleInspectionId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "vehicleInspectionId",
+                  "description": "(Required) The VehicleInspectionId of the Vehicle Inspection to export"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "read write"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.automile.com/login/"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"ToEmail\": \"<string>\",\n  \"ISO639LanguageCode\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "1873aa2b-1959-4ef1-9506-97bdf44d62a9",
+              "name": "Success status if the operation was successfull and an email has been sent",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "vehicleinspection3",
+                    "export",
+                    ":vehicleInspectionId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "vehicleInspectionId",
+                      "description": "(Required) The VehicleInspectionId of the Vehicle Inspection to export"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ToEmail\": \"<string>\",\n  \"ISO639LanguageCode\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b45f01ef-29c2-440b-945d-18aa80e380f8",
+              "name": "Bad request, could occur for a number of cases, see returned message",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "vehicleinspection3",
+                    "export",
+                    ":vehicleInspectionId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "vehicleInspectionId",
+                      "description": "(Required) The VehicleInspectionId of the Vehicle Inspection to export"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ToEmail\": \"<string>\",\n  \"ISO639LanguageCode\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "6ecdd867-b039-4f92-b7d3-5641a6d5ef10",
+              "name": "Request is forbidden, could occur for a number of reasons, see returned message",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "vehicleinspection3",
+                    "export",
+                    ":vehicleInspectionId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "vehicleInspectionId",
+                      "description": "(Required) The VehicleInspectionId of the Vehicle Inspection to export"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ToEmail\": \"<string>\",\n  \"ISO639LanguageCode\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "799902f4-8ee0-4d5c-b96a-122b77f01470",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "vehicleinspection3",
+                    "export",
+                    ":vehicleInspectionId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "vehicleInspectionId",
+                      "description": "(Required) The VehicleInspectionId of the Vehicle Inspection to export"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ToEmail\": \"<string>\",\n  \"ISO639LanguageCode\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "0d9342b3-ba66-4d47-8699-a997617517f7",
+    "name": "Automile ClientApi ResourceOwnerVehicleInspection3 API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

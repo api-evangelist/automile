@@ -1,0 +1,250 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Automile ClientApi ResourceOwnerContact3 API",
+    "version": "v1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "ResourceOwnerContact3",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get a list of all contacts that user is associated with",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/resourceowner/contacts3"
+          },
+          "docs": "Only companies that the user is associated with will be returned by this operation."
+        },
+        {
+          "info": {
+            "name": "Creates a new contact",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/resourceowner/contacts3"
+          },
+          "docs": "Creates a new contact"
+        },
+        {
+          "info": {
+            "name": "Get a contact by id",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/resourceowner/contacts3/:contactId",
+            "params": [
+              {
+                "name": "contactId",
+                "value": "",
+                "type": "path",
+                "description": "The contact id"
+              }
+            ]
+          },
+          "docs": "The user only has access to companies that it is associated with"
+        },
+        {
+          "info": {
+            "name": "Updates the given contact id",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/v1/resourceowner/contacts3/:contactId",
+            "params": [
+              {
+                "name": "contactId",
+                "value": "",
+                "type": "path",
+                "description": "The contact that should be updated"
+              }
+            ]
+          },
+          "docs": "This will update the contact with the new model."
+        },
+        {
+          "info": {
+            "name": "Removes the given contact",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/v1/resourceowner/contacts3/:contactId",
+            "params": [
+              {
+                "name": "contactId",
+                "value": "",
+                "type": "path",
+                "description": "The company id"
+              }
+            ]
+          },
+          "docs": "Removes the given contact"
+        },
+        {
+          "info": {
+            "name": "Get the contact representing myself",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/resourceowner/contacts3/me"
+          },
+          "docs": "Get the contact representing myself"
+        },
+        {
+          "info": {
+            "name": "Get contact profile image",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/resourceowner/contacts3/me/image",
+            "params": [
+              {
+                "name": "imageType",
+                "value": "",
+                "type": "query",
+                "description": "enum ApiImageType"
+              }
+            ]
+          },
+          "docs": "This will get the contact profile image, image data is returned in the response content"
+        },
+        {
+          "info": {
+            "name": "Upload contact profile image",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/resourceowner/contacts3/me/uploadimage"
+          },
+          "docs": "This updates the contact profile image"
+        },
+        {
+          "info": {
+            "name": "Removes the users profile image",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/v1/resourceowner/contacts3/me/removeimage"
+          },
+          "docs": "This removes the contact profile image"
+        },
+        {
+          "info": {
+            "name": "Updates the default vehicle",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/v1/resourceowner/contacts3/me/updatedefaultvehicle/:vehicleId",
+            "params": [
+              {
+                "name": "vehicleId",
+                "value": "",
+                "type": "path",
+                "description": "The vehicle id"
+              }
+            ]
+          },
+          "docs": "This will update the default vehicle"
+        },
+        {
+          "info": {
+            "name": "Updates the default vehicle",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/v1/resourceowner/contacts3/updatedefaultvehicle/:vehicleId",
+            "params": [
+              {
+                "name": "vehicleId",
+                "value": "",
+                "type": "path",
+                "description": "The vehicle id"
+              }
+            ]
+          },
+          "docs": "This will update the default vehicle"
+        },
+        {
+          "info": {
+            "name": "Add and remove custom categories",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/resourceowner/contacts3/customcategory"
+          },
+          "docs": "Add and remove custom categories"
+        },
+        {
+          "info": {
+            "name": "Get a custom category",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/resourceowner/contacts3/:contactId/customcategories/:customCategoryId",
+            "params": [
+              {
+                "name": "contactId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "customCategoryId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get a custom category"
+        },
+        {
+          "info": {
+            "name": "Get a all custom categories",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/resourceowner/contacts3/:contactId/customcategories",
+            "params": [
+              {
+                "name": "contactId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get a all custom categories"
+        },
+        {
+          "info": {
+            "name": "Get an encrypted token to be used for header authentication to Web Socket API. The response\r\nwill also contain for how long the token is valid.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/resourceowner/contacts3/getwebsocketauthenticationtoken"
+          },
+          "docs": "Get an encrypted token to be used for header authentication to Web Socket API. The response\r\nwill also contain for how long the token is valid."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

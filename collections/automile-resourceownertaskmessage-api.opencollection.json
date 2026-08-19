@@ -1,0 +1,67 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Automile ClientApi ResourceOwnerTaskMessage API",
+    "version": "v1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "ResourceOwnerTaskMessage",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get a task message",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/resourceowner/taskmessage/:taskMessageId",
+            "params": [
+              {
+                "name": "taskMessageId",
+                "value": "",
+                "type": "path",
+                "description": "The Id of the task message"
+              }
+            ]
+          },
+          "docs": "Get a task message"
+        },
+        {
+          "info": {
+            "name": "Update a task message",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/v1/resourceowner/taskmessage/:taskMessageId",
+            "params": [
+              {
+                "name": "taskMessageId",
+                "value": "",
+                "type": "path",
+                "description": "The task id"
+              }
+            ]
+          },
+          "docs": "Only tasks that belongs to the user has access can be updated."
+        },
+        {
+          "info": {
+            "name": "Create a task message",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/resourceowner/taskmessage"
+          },
+          "docs": "Create a task message"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

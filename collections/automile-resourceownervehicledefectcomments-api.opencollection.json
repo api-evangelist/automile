@@ -1,0 +1,84 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Automile ClientApi ResourceOwnerVehicleDefectComments API",
+    "version": "v1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "ResourceOwnerVehicleDefectComments",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get all a vehicle defect comment",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/resourceowner/vehicledefectcomments/:vehicleDefectCommentId",
+            "params": [
+              {
+                "name": "vehicleDefectCommentId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get all a vehicle defect comment"
+        },
+        {
+          "info": {
+            "name": "Update a vehicle defect comment",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/v1/resourceowner/vehicledefectcomments/:vehicleDefectCommentId",
+            "params": [
+              {
+                "name": "vehicleDefectCommentId",
+                "value": "",
+                "type": "path",
+                "description": "The vehicle defect comment id"
+              }
+            ]
+          },
+          "docs": "This will update the given vehicle id with a new model."
+        },
+        {
+          "info": {
+            "name": "Get all vehicle defect comments that the user has access to",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/resourceowner/vehicledefectcomments",
+            "params": [
+              {
+                "name": "vehicleDefectId",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get all vehicle defect comments that the user has access to"
+        },
+        {
+          "info": {
+            "name": "Creates a new vehicle defect comment",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/resourceowner/vehicledefectcomments"
+          },
+          "docs": "This will create a new vehicle defect comment and make the association you set."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

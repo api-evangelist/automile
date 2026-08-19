@@ -1,0 +1,771 @@
+{
+  "item": [
+    {
+      "id": "8128c6bd-88da-4e79-87c2-4ad19f22dc79",
+      "name": "ResourceOwnerTripMergeV2",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "6dd55299-8c04-4e19-9331-c221bb7bfd7f",
+          "name": "Merge trips",
+          "request": {
+            "name": "Merge trips",
+            "description": {
+              "content": "Url is returned as location in header",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "resourceowner",
+                "tripmerge"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "read write"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.automile.com/login/"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"TripIdList\": [\n    \"<integer>\",\n    \"<integer>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "2cf8355b-5a5a-4c6c-8a2b-3e4c716b8e19",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "tripmerge"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"TripIdList\": [\n    \"<integer>\",\n    \"<integer>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8859e3b9-a601-47f7-b3f7-7c3861fd5dc9",
+              "name": "Trips successfully merged",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "tripmerge"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"TripIdList\": [\n    \"<integer>\",\n    \"<integer>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ebbb8de7-f1a7-4bb9-aec9-bc019dea01ba",
+              "name": "Forbidden access to resource",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "tripmerge"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"TripIdList\": [\n    \"<integer>\",\n    \"<integer>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "042885fd-0eaf-4601-9b80-a9507273ee1b",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "tripmerge"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"TripIdList\": [\n    \"<integer>\",\n    \"<integer>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "588ab144-0430-44c3-81a0-9985d71834b0",
+          "name": "Unmerge trips",
+          "request": {
+            "name": "Unmerge trips",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "resourceowner",
+                "tripmerge",
+                ":tripId",
+                "unmerge"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "tripId",
+                  "description": "(Required) Trip id of merged trip"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "read write"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.automile.com/login/"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "6e1e9efd-eb06-43b1-9908-106e44e608d3",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "tripmerge",
+                    ":tripId",
+                    "unmerge"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "tripId",
+                      "description": "(Required) Trip id of merged trip"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"TripId\": 7180,\n    \"TripStartDateTime\": \"1950-06-11T09:13:15.288Z\",\n    \"TripEndDateTime\": \"1985-01-27T03:29:15.403Z\",\n    \"DistanceKilometers\": 7276.025816547052,\n    \"FuelConsumptionInLiters\": 22.040408479069296,\n    \"TripStartFormattedAddress\": \"string\",\n    \"TripEndFormattedAddress\": \"string\",\n    \"TripStartCustomAddress\": \"string\",\n    \"TripEndCustomAddress\": \"string\",\n    \"VehicleId\": 4332,\n    \"TripType\": 1,\n    \"DriverContactId\": 3808,\n    \"HasSpeedingViolation\": true,\n    \"HasIdlingEvent\": false,\n    \"HasAccelerationEvent\": true,\n    \"HasAccident\": true,\n    \"HasTurningEvent\": false,\n    \"HasBrakingEvent\": false,\n    \"ParkedForMinutesUntilNextTrip\": 1630,\n    \"HasDrivingEvents\": false,\n    \"CustomCategory\": \"string\",\n    \"TripTags\": \"string\",\n    \"HideStartRoute\": false,\n    \"HideEndRoute\": false,\n    \"VehicleType\": 255,\n    \"TripApprovalStatus\": 1,\n    \"IsMerged\": true,\n    \"HasGermanTaxRules\": true,\n    \"IsLocked\": true,\n    \"LockReason\": 1,\n    \"TripStartCountry\": \"string\",\n    \"TripStartPostalCode\": \"string\",\n    \"TripEndCountry\": \"string\",\n    \"TripEndPostalCode\": \"string\"\n  },\n  {\n    \"TripId\": 2683,\n    \"TripStartDateTime\": \"2025-05-08T15:43:33.111Z\",\n    \"TripEndDateTime\": \"2013-08-28T20:29:44.899Z\",\n    \"DistanceKilometers\": 2611.1283768801195,\n    \"FuelConsumptionInLiters\": 731.4315924300707,\n    \"TripStartFormattedAddress\": \"string\",\n    \"TripEndFormattedAddress\": \"string\",\n    \"TripStartCustomAddress\": \"string\",\n    \"TripEndCustomAddress\": \"string\",\n    \"VehicleId\": 2700,\n    \"TripType\": 0,\n    \"DriverContactId\": 8925,\n    \"HasSpeedingViolation\": true,\n    \"HasIdlingEvent\": true,\n    \"HasAccelerationEvent\": false,\n    \"HasAccident\": true,\n    \"HasTurningEvent\": true,\n    \"HasBrakingEvent\": false,\n    \"ParkedForMinutesUntilNextTrip\": 9838,\n    \"HasDrivingEvents\": true,\n    \"CustomCategory\": \"string\",\n    \"TripTags\": \"string\",\n    \"HideStartRoute\": false,\n    \"HideEndRoute\": true,\n    \"VehicleType\": 5,\n    \"TripApprovalStatus\": 2,\n    \"IsMerged\": false,\n    \"HasGermanTaxRules\": false,\n    \"IsLocked\": true,\n    \"LockReason\": 4,\n    \"TripStartCountry\": \"string\",\n    \"TripStartPostalCode\": \"string\",\n    \"TripEndCountry\": \"string\",\n    \"TripEndPostalCode\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "87364194-4379-456b-9ddd-f7dd791d1659",
+              "name": "Trips successfully unmerged",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "tripmerge",
+                    ":tripId",
+                    "unmerge"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "tripId",
+                      "description": "(Required) Trip id of merged trip"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c8d02ad9-e483-4a0f-819f-c188e936a412",
+              "name": "Forbidden access to resource",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "tripmerge",
+                    ":tripId",
+                    "unmerge"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "tripId",
+                      "description": "(Required) Trip id of merged trip"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8ebecdf6-d23e-467d-80d7-d4cf0fcc30f2",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "tripmerge",
+                    ":tripId",
+                    "unmerge"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "tripId",
+                      "description": "(Required) Trip id of merged trip"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "808a79bb-a622-4292-aa6b-f0a9c683a0f0",
+          "name": "Get all trips within a merged trip",
+          "request": {
+            "name": "Get all trips within a merged trip",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "resourceowner",
+                "tripmerge",
+                ":tripId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "tripId",
+                  "description": "(Required) Trip id on merged trip"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "read write"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.automile.com/login/"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "1994dc42-50b1-486c-95b0-3e94fbddd5ed",
+              "name": "List containing all trips within the merged trip",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "tripmerge",
+                    ":tripId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "tripId",
+                      "description": "(Required) Trip id on merged trip"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"TripId\": 7180,\n    \"TripStartDateTime\": \"1950-06-11T09:13:15.288Z\",\n    \"TripEndDateTime\": \"1985-01-27T03:29:15.403Z\",\n    \"DistanceKilometers\": 7276.025816547052,\n    \"FuelConsumptionInLiters\": 22.040408479069296,\n    \"TripStartFormattedAddress\": \"string\",\n    \"TripEndFormattedAddress\": \"string\",\n    \"TripStartCustomAddress\": \"string\",\n    \"TripEndCustomAddress\": \"string\",\n    \"VehicleId\": 4332,\n    \"TripType\": 1,\n    \"DriverContactId\": 3808,\n    \"HasSpeedingViolation\": true,\n    \"HasIdlingEvent\": false,\n    \"HasAccelerationEvent\": true,\n    \"HasAccident\": true,\n    \"HasTurningEvent\": false,\n    \"HasBrakingEvent\": false,\n    \"ParkedForMinutesUntilNextTrip\": 1630,\n    \"HasDrivingEvents\": false,\n    \"CustomCategory\": \"string\",\n    \"TripTags\": \"string\",\n    \"HideStartRoute\": false,\n    \"HideEndRoute\": false,\n    \"VehicleType\": 255,\n    \"TripApprovalStatus\": 1,\n    \"IsMerged\": true,\n    \"HasGermanTaxRules\": true,\n    \"IsLocked\": true,\n    \"LockReason\": 1,\n    \"TripStartCountry\": \"string\",\n    \"TripStartPostalCode\": \"string\",\n    \"TripEndCountry\": \"string\",\n    \"TripEndPostalCode\": \"string\"\n  },\n  {\n    \"TripId\": 2683,\n    \"TripStartDateTime\": \"2025-05-08T15:43:33.111Z\",\n    \"TripEndDateTime\": \"2013-08-28T20:29:44.899Z\",\n    \"DistanceKilometers\": 2611.1283768801195,\n    \"FuelConsumptionInLiters\": 731.4315924300707,\n    \"TripStartFormattedAddress\": \"string\",\n    \"TripEndFormattedAddress\": \"string\",\n    \"TripStartCustomAddress\": \"string\",\n    \"TripEndCustomAddress\": \"string\",\n    \"VehicleId\": 2700,\n    \"TripType\": 0,\n    \"DriverContactId\": 8925,\n    \"HasSpeedingViolation\": true,\n    \"HasIdlingEvent\": true,\n    \"HasAccelerationEvent\": false,\n    \"HasAccident\": true,\n    \"HasTurningEvent\": true,\n    \"HasBrakingEvent\": false,\n    \"ParkedForMinutesUntilNextTrip\": 9838,\n    \"HasDrivingEvents\": true,\n    \"CustomCategory\": \"string\",\n    \"TripTags\": \"string\",\n    \"HideStartRoute\": false,\n    \"HideEndRoute\": true,\n    \"VehicleType\": 5,\n    \"TripApprovalStatus\": 2,\n    \"IsMerged\": false,\n    \"HasGermanTaxRules\": false,\n    \"IsLocked\": true,\n    \"LockReason\": 4,\n    \"TripStartCountry\": \"string\",\n    \"TripStartPostalCode\": \"string\",\n    \"TripEndCountry\": \"string\",\n    \"TripEndPostalCode\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "df5142af-ec1a-4c69-aa9f-f7c74e59c2aa",
+              "name": "Forbidden access to resource",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "tripmerge",
+                    ":tripId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "tripId",
+                      "description": "(Required) Trip id on merged trip"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e28b8fe4-ed63-4009-ae80-523356d046f6",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "tripmerge",
+                    ":tripId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "tripId",
+                      "description": "(Required) Trip id on merged trip"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "74379c17-bdcd-49e7-a8fa-85621b33b529",
+    "name": "Automile ClientApi ResourceOwnerTripMergeV2 API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

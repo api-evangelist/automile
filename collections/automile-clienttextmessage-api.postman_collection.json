@@ -1,0 +1,480 @@
+{
+  "item": [
+    {
+      "id": "e6a8ce00-e5ff-46fa-b615-832ae9403cf5",
+      "name": "ClientTextMessage",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "83c2a695-4641-4a74-b3e3-b9c5dd16af8f",
+          "name": "Create and send pin code to login with",
+          "request": {
+            "name": "Create and send pin code to login with",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "client",
+                "textmessages",
+                "createpin"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "read write"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.automile.com/login/"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"UserName\": \"<string>\",\n  \"MobilePhoneNumber\": \"<string>\",\n  \"UserGuid\": \"<uuid>\",\n  \"Culture\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "0ed3399e-493e-43de-8eaa-db40db0ec51d",
+              "name": "The Pin code have been sent",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "client",
+                    "textmessages",
+                    "createpin"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"UserName\": \"<string>\",\n  \"MobilePhoneNumber\": \"<string>\",\n  \"UserGuid\": \"<uuid>\",\n  \"Culture\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "5cf17ce9-b170-4436-9b32-baee07249504",
+              "name": "Format error on phonenumber, To many SMS or no match on phonenumber",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "client",
+                    "textmessages",
+                    "createpin"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"UserName\": \"<string>\",\n  \"MobilePhoneNumber\": \"<string>\",\n  \"UserGuid\": \"<uuid>\",\n  \"Culture\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 2664,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"key_0\": {},\n  \"key_1\": {},\n  \"key_2\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "03f44647-758a-48ae-b9dd-5a15a351fe94",
+          "name": "Validate Pin Code",
+          "request": {
+            "name": "Validate Pin Code",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "client",
+                "textmessages",
+                "validatepin"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "read write"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.automile.com/login/"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"UserName\": \"<string>\",\n  \"Pin\": \"<string>\",\n  \"UserGuid\": \"<uuid>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "89f9216d-3748-4c21-b215-a7fbb134bdca",
+              "name": "User logged in/User created and a user token returned in response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "client",
+                    "textmessages",
+                    "validatepin"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"UserName\": \"<string>\",\n  \"Pin\": \"<string>\",\n  \"UserGuid\": \"<uuid>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"UserName\": \"string\",\n  \"AccessToken\": \"string\",\n  \"ExpiresInSeconds\": 8110.280209083745,\n  \"IssuedUtc\": \"1971-03-09T14:35:30.232Z\",\n  \"ExpiresUtc\": \"1983-06-09T19:20:53.599Z\",\n  \"RefreshToken\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "54f6ac12-7c57-4983-933f-1b969cebb5ce",
+              "name": "Can't assoicate given username to a user",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "client",
+                    "textmessages",
+                    "validatepin"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"UserName\": \"<string>\",\n  \"Pin\": \"<string>\",\n  \"UserGuid\": \"<uuid>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 2664,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"key_0\": {},\n  \"key_1\": {},\n  \"key_2\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c2f6e5ac-b8d2-4d21-83ab-1479851057fc",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "client",
+                    "textmessages",
+                    "validatepin"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"UserName\": \"<string>\",\n  \"Pin\": \"<string>\",\n  \"UserGuid\": \"<uuid>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 2664,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"key_0\": {},\n  \"key_1\": {},\n  \"key_2\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0ca2d274-f2e4-4370-b286-805ce200c4fb",
+              "name": "Too many password attempts",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "client",
+                    "textmessages",
+                    "validatepin"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"UserName\": \"<string>\",\n  \"Pin\": \"<string>\",\n  \"UserGuid\": \"<uuid>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 2664,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"key_0\": {},\n  \"key_1\": {},\n  \"key_2\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "4f87360a-1dcf-4127-9f20-25337e397269",
+    "name": "Automile ClientApi ClientTextMessage API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,608 @@
+{
+  "item": [
+    {
+      "id": "50874d38-0952-40c4-8588-1faa9623d26d",
+      "name": "ResourceOwnerOrganization",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "977803c4-d3e4-4363-ac03-9024cef439f1",
+          "name": "Get a the details of the organizationt he user is assoicates with",
+          "request": {
+            "name": "Get a the details of the organizationt he user is assoicates with",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "resourceowner",
+                "organization"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "read write"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.automile.com/login/"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "783cb8ca-759b-40df-826d-34bc6bd07be8",
+              "name": "The organization model is returned",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "organization"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"OrganizationName\": \"string\",\n  \"LegalIdentificationNumber\": \"string\",\n  \"VATNumber\": \"string\",\n  \"BillingAddress\": {\n    \"AddressLine2\": \"string\",\n    \"City\": \"string\",\n    \"ISO3166CountryCode\": \"string\",\n    \"ZipCode\": \"string\",\n    \"AddressId\": 2698,\n    \"CompanyName\": \"string\",\n    \"ContactNameAtAddress\": \"string\",\n    \"AddressLine3\": \"string\",\n    \"AddressLine4\": \"string\",\n    \"StateOrProvince\": \"string\"\n  },\n  \"ShipmentAddress\": {\n    \"AddressLine2\": \"string\",\n    \"City\": \"string\",\n    \"ISO3166CountryCode\": \"string\",\n    \"ZipCode\": \"string\",\n    \"AddressId\": 5982,\n    \"CompanyName\": \"string\",\n    \"ContactNameAtAddress\": \"string\",\n    \"AddressLine3\": \"string\",\n    \"AddressLine4\": \"string\",\n    \"StateOrProvince\": \"string\"\n  },\n  \"Culture\": \"string\",\n  \"UnitType\": 2,\n  \"IsHierarchyEnabled\": true,\n  \"ISO4217CurrencyCode\": \"string\",\n  \"OrganizationId\": 3638\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ce77e3c9-8cb2-4140-adba-fc1b83fae946",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "organization"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8ff7560f-9c9d-46e0-b635-acfbf8bf11a8",
+          "name": "Updates the organization",
+          "request": {
+            "name": "Updates the organization",
+            "description": {
+              "content": "This will update the organization with the new model.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "resourceowner",
+                "organization"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "read write"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.automile.com/login/"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"OrganizationName\": \"<string>\",\n  \"LegalIdentificationNumber\": \"<string>\",\n  \"VATNumber\": \"<string>\",\n  \"BillingAddress\": {\n    \"AddressLine2\": \"<string>\",\n    \"City\": \"<string>\",\n    \"ISO3166CountryCode\": \"<string>\",\n    \"ZipCode\": \"<string>\",\n    \"AddressId\": \"<integer>\",\n    \"CompanyName\": \"<string>\",\n    \"ContactNameAtAddress\": \"<string>\",\n    \"AddressLine3\": \"<string>\",\n    \"AddressLine4\": \"<string>\",\n    \"StateOrProvince\": \"<string>\"\n  },\n  \"ShipmentAddress\": {\n    \"AddressLine2\": \"<string>\",\n    \"City\": \"<string>\",\n    \"ISO3166CountryCode\": \"<string>\",\n    \"ZipCode\": \"<string>\",\n    \"AddressId\": \"<integer>\",\n    \"CompanyName\": \"<string>\",\n    \"ContactNameAtAddress\": \"<string>\",\n    \"AddressLine3\": \"<string>\",\n    \"AddressLine4\": \"<string>\",\n    \"StateOrProvince\": \"<string>\"\n  },\n  \"Culture\": \"<string>\",\n  \"UnitType\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "53504b6e-9ed1-41ad-9d7f-12492b74aa2c",
+              "name": "The organization was saved",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "organization"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"OrganizationName\": \"<string>\",\n  \"LegalIdentificationNumber\": \"<string>\",\n  \"VATNumber\": \"<string>\",\n  \"BillingAddress\": {\n    \"AddressLine2\": \"<string>\",\n    \"City\": \"<string>\",\n    \"ISO3166CountryCode\": \"<string>\",\n    \"ZipCode\": \"<string>\",\n    \"AddressId\": \"<integer>\",\n    \"CompanyName\": \"<string>\",\n    \"ContactNameAtAddress\": \"<string>\",\n    \"AddressLine3\": \"<string>\",\n    \"AddressLine4\": \"<string>\",\n    \"StateOrProvince\": \"<string>\"\n  },\n  \"ShipmentAddress\": {\n    \"AddressLine2\": \"<string>\",\n    \"City\": \"<string>\",\n    \"ISO3166CountryCode\": \"<string>\",\n    \"ZipCode\": \"<string>\",\n    \"AddressId\": \"<integer>\",\n    \"CompanyName\": \"<string>\",\n    \"ContactNameAtAddress\": \"<string>\",\n    \"AddressLine3\": \"<string>\",\n    \"AddressLine4\": \"<string>\",\n    \"StateOrProvince\": \"<string>\"\n  },\n  \"Culture\": \"<string>\",\n  \"UnitType\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Version\": {\n    \"Major\": 7833,\n    \"Minor\": 8907,\n    \"Build\": 7783,\n    \"Revision\": 8786,\n    \"MajorRevision\": 1170,\n    \"MinorRevision\": 2579\n  },\n  \"Content\": {\n    \"Headers\": [\n      {\n        \"Key\": \"string\",\n        \"Value\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      {\n        \"Key\": \"string\",\n        \"Value\": [\n          \"string\",\n          \"string\"\n        ]\n      }\n    ]\n  },\n  \"StatusCode\": 400,\n  \"ReasonPhrase\": \"string\",\n  \"Headers\": [\n    {\n      \"Key\": \"string\",\n      \"Value\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"Key\": \"string\",\n      \"Value\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ],\n  \"TrailingHeaders\": [\n    {\n      \"Key\": \"string\",\n      \"Value\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"Key\": \"string\",\n      \"Value\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ],\n  \"RequestMessage\": {\n    \"Version\": {\n      \"Major\": 9150,\n      \"Minor\": 2758,\n      \"Build\": 4903,\n      \"Revision\": 3632,\n      \"MajorRevision\": 9772,\n      \"MinorRevision\": 4539\n    },\n    \"VersionPolicy\": 2,\n    \"Content\": {\n      \"Headers\": [\n        {\n          \"Key\": \"string\",\n          \"Value\": [\n            \"string\",\n            \"string\"\n          ]\n        },\n        {\n          \"Key\": \"string\",\n          \"Value\": [\n            \"string\",\n            \"string\"\n          ]\n        }\n      ]\n    },\n    \"Method\": {\n      \"Method\": \"string\"\n    },\n    \"RequestUri\": \"https://INPKlfEnEmlkXQ.fquvDSgvtPOLzCIEntC2hJArXWFbob2XTHshxjS2XVvXXLLDayBLNZLaAxpdx\",\n    \"Headers\": [\n      {\n        \"Key\": \"string\",\n        \"Value\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      {\n        \"Key\": \"string\",\n        \"Value\": [\n          \"string\",\n          \"string\"\n        ]\n      }\n    ],\n    \"Properties\": {\n      \"key_0\": {},\n      \"key_1\": {}\n    },\n    \"Options\": {\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {}\n    }\n  },\n  \"IsSuccessStatusCode\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "68bf9157-5935-4184-b5dd-aafd5bdc572c",
+              "name": "You are not authorized to edit the organization",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "organization"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"OrganizationName\": \"<string>\",\n  \"LegalIdentificationNumber\": \"<string>\",\n  \"VATNumber\": \"<string>\",\n  \"BillingAddress\": {\n    \"AddressLine2\": \"<string>\",\n    \"City\": \"<string>\",\n    \"ISO3166CountryCode\": \"<string>\",\n    \"ZipCode\": \"<string>\",\n    \"AddressId\": \"<integer>\",\n    \"CompanyName\": \"<string>\",\n    \"ContactNameAtAddress\": \"<string>\",\n    \"AddressLine3\": \"<string>\",\n    \"AddressLine4\": \"<string>\",\n    \"StateOrProvince\": \"<string>\"\n  },\n  \"ShipmentAddress\": {\n    \"AddressLine2\": \"<string>\",\n    \"City\": \"<string>\",\n    \"ISO3166CountryCode\": \"<string>\",\n    \"ZipCode\": \"<string>\",\n    \"AddressId\": \"<integer>\",\n    \"CompanyName\": \"<string>\",\n    \"ContactNameAtAddress\": \"<string>\",\n    \"AddressLine3\": \"<string>\",\n    \"AddressLine4\": \"<string>\",\n    \"StateOrProvince\": \"<string>\"\n  },\n  \"Culture\": \"<string>\",\n  \"UnitType\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "3627c220-e125-4dd6-9952-0fe206ef066a",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "organization"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"OrganizationName\": \"<string>\",\n  \"LegalIdentificationNumber\": \"<string>\",\n  \"VATNumber\": \"<string>\",\n  \"BillingAddress\": {\n    \"AddressLine2\": \"<string>\",\n    \"City\": \"<string>\",\n    \"ISO3166CountryCode\": \"<string>\",\n    \"ZipCode\": \"<string>\",\n    \"AddressId\": \"<integer>\",\n    \"CompanyName\": \"<string>\",\n    \"ContactNameAtAddress\": \"<string>\",\n    \"AddressLine3\": \"<string>\",\n    \"AddressLine4\": \"<string>\",\n    \"StateOrProvince\": \"<string>\"\n  },\n  \"ShipmentAddress\": {\n    \"AddressLine2\": \"<string>\",\n    \"City\": \"<string>\",\n    \"ISO3166CountryCode\": \"<string>\",\n    \"ZipCode\": \"<string>\",\n    \"AddressId\": \"<integer>\",\n    \"CompanyName\": \"<string>\",\n    \"ContactNameAtAddress\": \"<string>\",\n    \"AddressLine3\": \"<string>\",\n    \"AddressLine4\": \"<string>\",\n    \"StateOrProvince\": \"<string>\"\n  },\n  \"Culture\": \"<string>\",\n  \"UnitType\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "58e05147-68ea-4713-af6a-a92be193dcde",
+          "name": "Get the organization hierarchy",
+          "request": {
+            "name": "Get the organization hierarchy",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "resourceowner",
+                "organization",
+                "hierarchy"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "read write"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.automile.com/login/"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "523832b1-7118-479a-a47f-5011e80eb3d2",
+              "name": "The organization hierarchy is returned",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "organization",
+                    "hierarchy"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"OrganizationNodeId\": 4817,\n    \"Name\": \"string\",\n    \"ParentOrganizationNodeId\": 6715,\n    \"Children\": [\n      {\n        \"value\": \"<Circular reference to #/components/schemas/OrganizationNodeModel detected>\"\n      },\n      {\n        \"value\": \"<Circular reference to #/components/schemas/OrganizationNodeModel detected>\"\n      }\n    ],\n    \"HasChildren\": true\n  },\n  {\n    \"OrganizationNodeId\": 6562,\n    \"Name\": \"string\",\n    \"ParentOrganizationNodeId\": 2495,\n    \"Children\": [\n      {\n        \"value\": \"<Circular reference to #/components/schemas/OrganizationNodeModel detected>\"\n      },\n      {\n        \"value\": \"<Circular reference to #/components/schemas/OrganizationNodeModel detected>\"\n      }\n    ],\n    \"HasChildren\": false\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f5c34ec1-41fb-466a-8bcd-dcbfca158ee6",
+              "name": "Request is forbidden, meaning you dont' have access to this contact",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "organization",
+                    "hierarchy"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d82910db-3557-44ad-aaab-86b6d0a9af71",
+              "name": "Contact does not exist",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "organization",
+                    "hierarchy"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "eb5a570c-2d7b-4f61-b690-bc41d521cdf2",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "organization",
+                    "hierarchy"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "9d96d52e-8788-401e-aa78-cec7ee965acf",
+    "name": "Automile ClientApi ResourceOwnerOrganization API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

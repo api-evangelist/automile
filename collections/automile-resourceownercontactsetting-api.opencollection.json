@@ -1,0 +1,67 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Automile ClientApi ResourceOwnerContactSetting API",
+    "version": "v1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "ResourceOwnerContactSetting",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get a list of all settings available for a contact",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/resourceowner/contactsetting/:contactId",
+            "params": [
+              {
+                "name": "contactId",
+                "value": "",
+                "type": "path",
+                "description": "The contact id"
+              }
+            ]
+          },
+          "docs": "Get a list of all settings available for a contact"
+        },
+        {
+          "info": {
+            "name": "Edit a setting for the user",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/v1/resourceowner/contactsetting/:contactId",
+            "params": [
+              {
+                "name": "contactId",
+                "value": "",
+                "type": "path",
+                "description": "The contact id"
+              }
+            ]
+          },
+          "docs": "Edit a setting for the user"
+        },
+        {
+          "info": {
+            "name": "Get a list of all settings available to set on a contact",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/resourceowner/contactsetting/settingkeylist"
+          },
+          "docs": "Get a list of all settings available to set on a contact"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

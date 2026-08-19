@@ -1,0 +1,72 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Automile ClientApi ClientContracts API",
+    "version": "v1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "ClientContracts",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "GET /v1/client/contracts",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/client/contracts"
+          }
+        },
+        {
+          "info": {
+            "name": "GET /v1/client/contracts/journeys",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/client/contracts/journeys",
+            "params": [
+              {
+                "name": "contractId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "fromDate",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "toDate",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "POST /v1/client/contracts/confirmjourneys",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/client/contracts/confirmjourneys",
+            "params": [
+              {
+                "name": "ids",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

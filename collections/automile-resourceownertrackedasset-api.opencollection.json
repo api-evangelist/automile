@@ -1,0 +1,306 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Automile ClientApi ResourceOwnerTrackedAsset API",
+    "version": "v1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "ResourceOwnerTrackedAsset",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List all tracked assets that the user has access to",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/resourceowner/trackedasset",
+            "params": [
+              {
+                "name": "filterAssetType",
+                "value": "",
+                "type": "query",
+                "description": "The asset type to list (All types = null, Vehicle = 0, Trailer = 1, ATV = 2, \r\n            Boat = 3, Excavator = 4, Cargo = 5). Default is all types."
+              }
+            ]
+          },
+          "docs": "Only returns tracked assets that the user have access to"
+        },
+        {
+          "info": {
+            "name": "Get a tracked asset",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/resourceowner/trackedasset/:trackedAssetId",
+            "params": [
+              {
+                "name": "trackedAssetId",
+                "value": "",
+                "type": "path",
+                "description": "The tracked asset id"
+              }
+            ]
+          },
+          "docs": "Get a tracked asset"
+        },
+        {
+          "info": {
+            "name": "Update a tracked asset",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/v1/resourceowner/trackedasset/:trackedAssetId",
+            "params": [
+              {
+                "name": "trackedAssetId",
+                "value": "",
+                "type": "path",
+                "description": "The tracked asset id"
+              }
+            ]
+          },
+          "docs": "Update a tracked asset"
+        },
+        {
+          "info": {
+            "name": "Put a tracked asset to  sleep",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/v1/resourceowner/trackedasset/:trackedAssetId/sleep",
+            "params": [
+              {
+                "name": "trackedAssetId",
+                "value": "",
+                "type": "path",
+                "description": "The tracked asset id"
+              }
+            ]
+          },
+          "docs": "Put a tracked asset to  sleep"
+        },
+        {
+          "info": {
+            "name": "Start tracking a asset",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/v1/resourceowner/trackedasset/:trackedAssetId/track",
+            "params": [
+              {
+                "name": "trackedAssetId",
+                "value": "",
+                "type": "path",
+                "description": "The tracked asset id"
+              }
+            ]
+          },
+          "docs": "Start tracking a asset"
+        },
+        {
+          "info": {
+            "name": "Shutdown a device that is tracking a asset",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/v1/resourceowner/trackedasset/:trackedAssetId/shutdown",
+            "params": [
+              {
+                "name": "trackedAssetId",
+                "value": "",
+                "type": "path",
+                "description": "The tracked asset id"
+              }
+            ]
+          },
+          "docs": "Shutdown a device that is tracking a asset"
+        },
+        {
+          "info": {
+            "name": "List tracked asset history",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/resourceowner/trackedasset/:trackedAssetId/history",
+            "params": [
+              {
+                "name": "trackedAssetId",
+                "value": "",
+                "type": "path",
+                "description": "Id of tracked asset"
+              },
+              {
+                "name": "lastNumberOfDays",
+                "value": "",
+                "type": "query",
+                "description": "Last number of days to get trips for (default = 60)"
+              },
+              {
+                "name": "historyType",
+                "value": "",
+                "type": "query",
+                "description": "Bitmask to filter and only list specific history types. 1 = Move Alert, 2 = Temperature, \r\n            4 = Battery Alert, 8 = Heartbeat, 16 = Battery Level, 32 = External Power Voltage, 64 = Operating Time, 128 = Shutdown Pending, 256 = Shutdown, 512 = Offline, 1024 = Humidity (default = all types) \r\n            [Example: 7 = Move alert, temperature and battery alerts]"
+              }
+            ]
+          },
+          "docs": "List tracked asset history"
+        },
+        {
+          "info": {
+            "name": "List external devices by asset",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/resourceowner/trackedasset/:trackedAssetId/externaldevices",
+            "params": [
+              {
+                "name": "trackedAssetId",
+                "value": "",
+                "type": "path",
+                "description": "Id of tracked asset"
+              }
+            ]
+          },
+          "docs": "List external devices by asset"
+        },
+        {
+          "info": {
+            "name": "List external devices",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/resourceowner/trackedasset/externaldevices"
+          },
+          "docs": "List external devices"
+        },
+        {
+          "info": {
+            "name": "External device",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/resourceowner/trackedasset/externaldevice/:externalDeviceId",
+            "params": [
+              {
+                "name": "externalDeviceId",
+                "value": "",
+                "type": "path",
+                "description": "Id of external device"
+              }
+            ]
+          },
+          "docs": "External device"
+        },
+        {
+          "info": {
+            "name": "Update an external device asset",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/v1/resourceowner/trackedasset/externaldevice/:externalDeviceId",
+            "params": [
+              {
+                "name": "externalDeviceId",
+                "value": "",
+                "type": "path",
+                "description": "The external device id"
+              }
+            ]
+          },
+          "docs": "Update an external device asset"
+        },
+        {
+          "info": {
+            "name": "List external device history",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/resourceowner/trackedasset/externaldevice/:externalDeviceId/history",
+            "params": [
+              {
+                "name": "externalDeviceId",
+                "value": "",
+                "type": "path",
+                "description": "Id of tracked asset"
+              },
+              {
+                "name": "lastNumberOfDays",
+                "value": "",
+                "type": "query",
+                "description": "Last number of days to get history for (default = 10)"
+              },
+              {
+                "name": "groupHistory",
+                "value": "",
+                "type": "query",
+                "description": "Group history items on the same day into one item (default = false)"
+              }
+            ]
+          },
+          "docs": "List external device history"
+        },
+        {
+          "info": {
+            "name": "List available update intervals in seconds",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/resourceowner/trackedasset/externaldevices/updateintervals"
+          },
+          "docs": "List available update intervals in seconds"
+        },
+        {
+          "info": {
+            "name": "Lists available sleep intervals in minutes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/resourceowner/trackedasset/sleepinterval"
+          },
+          "docs": "Lists available sleep intervals in minutes"
+        },
+        {
+          "info": {
+            "name": "Lists available update intervals in seconds",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/resourceowner/trackedasset/updateinterval"
+          },
+          "docs": "Lists available update intervals in seconds"
+        },
+        {
+          "info": {
+            "name": "List all enumerations used on this endpoint",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/resourceowner/trackedasset/enum"
+          },
+          "docs": "List all enumerations used on this endpoint"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

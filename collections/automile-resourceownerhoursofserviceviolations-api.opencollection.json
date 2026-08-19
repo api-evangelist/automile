@@ -1,0 +1,78 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Automile ClientApi ResourceOwnerHoursOfServiceViolations API",
+    "version": "v1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "ResourceOwnerHoursOfServiceViolations",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get the Hours of Service Violations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/resourceowner/hoursofserviceviolations",
+            "params": [
+              {
+                "name": "fromDate",
+                "value": "",
+                "type": "query",
+                "description": "Query on from date"
+              },
+              {
+                "name": "toDate",
+                "value": "",
+                "type": "query",
+                "description": "Query on to date"
+              },
+              {
+                "name": "hourOfServiceViolationId",
+                "value": "",
+                "type": "query",
+                "description": "Query on to id"
+              },
+              {
+                "name": "contactId",
+                "value": "",
+                "type": "query",
+                "description": "Get statuses for a contact"
+              },
+              {
+                "name": "vehicleId",
+                "value": "",
+                "type": "query",
+                "description": "Get statuses for a vehicle"
+              },
+              {
+                "name": "notes",
+                "value": "",
+                "type": "query",
+                "description": "Query on notes"
+              }
+            ]
+          },
+          "docs": "Get the Hours of Service Violations"
+        },
+        {
+          "info": {
+            "name": "Creates Hours Of Service Violation",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/resourceowner/hoursofserviceviolations"
+          },
+          "docs": "Creates Hours Of Service Violation"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

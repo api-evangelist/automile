@@ -1,0 +1,504 @@
+{
+  "item": [
+    {
+      "id": "862fb463-8bfa-46c2-96b5-936c94adfdbe",
+      "name": "ClientContracts",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "eefa17b5-f40a-45a9-81d1-34c31f563737",
+          "name": "/v1/client/contracts",
+          "request": {
+            "name": "/v1/client/contracts",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "client",
+                "contracts"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "read write"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.automile.com/login/"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "169c42ef-823c-496b-90d8-03748c5e0e83",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "client",
+                    "contracts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Version\": {\n    \"Major\": 2822,\n    \"Minor\": 7982,\n    \"Build\": 5025,\n    \"Revision\": 4845,\n    \"MajorRevision\": 8950,\n    \"MinorRevision\": 4265\n  },\n  \"Content\": {\n    \"Headers\": [\n      {\n        \"Key\": \"string\",\n        \"Value\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      {\n        \"Key\": \"string\",\n        \"Value\": [\n          \"string\",\n          \"string\"\n        ]\n      }\n    ]\n  },\n  \"StatusCode\": 501,\n  \"ReasonPhrase\": \"string\",\n  \"Headers\": [\n    {\n      \"Key\": \"string\",\n      \"Value\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"Key\": \"string\",\n      \"Value\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ],\n  \"TrailingHeaders\": [\n    {\n      \"Key\": \"string\",\n      \"Value\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"Key\": \"string\",\n      \"Value\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ],\n  \"RequestMessage\": {\n    \"Version\": {\n      \"Major\": 7781,\n      \"Minor\": 1967,\n      \"Build\": 9359,\n      \"Revision\": 3485,\n      \"MajorRevision\": 5370,\n      \"MinorRevision\": 2270\n    },\n    \"VersionPolicy\": 1,\n    \"Content\": {\n      \"Headers\": [\n        {\n          \"Key\": \"string\",\n          \"Value\": [\n            \"string\",\n            \"string\"\n          ]\n        },\n        {\n          \"Key\": \"string\",\n          \"Value\": [\n            \"string\",\n            \"string\"\n          ]\n        }\n      ]\n    },\n    \"Method\": {\n      \"Method\": \"string\"\n    },\n    \"RequestUri\": \"http://KIuXJyvrpoFXcPg.ugquapDp\",\n    \"Headers\": [\n      {\n        \"Key\": \"string\",\n        \"Value\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      {\n        \"Key\": \"string\",\n        \"Value\": [\n          \"string\",\n          \"string\"\n        ]\n      }\n    ],\n    \"Properties\": {\n      \"key_0\": {},\n      \"key_1\": {}\n    },\n    \"Options\": {\n      \"key_0\": {},\n      \"key_1\": {}\n    }\n  },\n  \"IsSuccessStatusCode\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "83e7db17-76eb-48d7-81ff-228418fd2092",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "client",
+                    "contracts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "07c9aca5-78ed-4fd0-91d0-fb841b933cff",
+          "name": "/v1/client/contracts/journeys",
+          "request": {
+            "name": "/v1/client/contracts/journeys",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "client",
+                "contracts",
+                "journeys"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "contractId",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "fromDate",
+                  "value": "<dateTime>"
+                },
+                {
+                  "disabled": false,
+                  "key": "toDate",
+                  "value": "<dateTime>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "read write"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.automile.com/login/"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "50d4b80d-9341-46f4-b01a-30ba98919fff",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "client",
+                    "contracts",
+                    "journeys"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "contractId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "fromDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "toDate",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Version\": {\n    \"Major\": 6318,\n    \"Minor\": 7720,\n    \"Build\": 8494,\n    \"Revision\": 5813,\n    \"MajorRevision\": 4132,\n    \"MinorRevision\": 9661\n  },\n  \"Content\": {\n    \"Headers\": [\n      {\n        \"Key\": \"string\",\n        \"Value\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      {\n        \"Key\": \"string\",\n        \"Value\": [\n          \"string\",\n          \"string\"\n        ]\n      }\n    ]\n  },\n  \"StatusCode\": 308,\n  \"ReasonPhrase\": \"string\",\n  \"Headers\": [\n    {\n      \"Key\": \"string\",\n      \"Value\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"Key\": \"string\",\n      \"Value\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ],\n  \"TrailingHeaders\": [\n    {\n      \"Key\": \"string\",\n      \"Value\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"Key\": \"string\",\n      \"Value\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ],\n  \"RequestMessage\": {\n    \"Version\": {\n      \"Major\": 7305,\n      \"Minor\": 2530,\n      \"Build\": 209,\n      \"Revision\": 2867,\n      \"MajorRevision\": 9159,\n      \"MinorRevision\": 1405\n    },\n    \"VersionPolicy\": 0,\n    \"Content\": {\n      \"Headers\": [\n        {\n          \"Key\": \"string\",\n          \"Value\": [\n            \"string\",\n            \"string\"\n          ]\n        },\n        {\n          \"Key\": \"string\",\n          \"Value\": [\n            \"string\",\n            \"string\"\n          ]\n        }\n      ]\n    },\n    \"Method\": {\n      \"Method\": \"string\"\n    },\n    \"RequestUri\": \"https://XtVPvUIoln.ohdVKSOEc6z,8S4JaNyRKj6d.X31GUjBReT.2Fjfz7Mlw5NScMwsz\",\n    \"Headers\": [\n      {\n        \"Key\": \"string\",\n        \"Value\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      {\n        \"Key\": \"string\",\n        \"Value\": [\n          \"string\",\n          \"string\"\n        ]\n      }\n    ],\n    \"Properties\": {\n      \"key_0\": {},\n      \"key_1\": {}\n    },\n    \"Options\": {\n      \"key_0\": {}\n    }\n  },\n  \"IsSuccessStatusCode\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fd44059c-aebd-428f-b6fb-dbe4c5fbaad1",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "client",
+                    "contracts",
+                    "journeys"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "contractId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "fromDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "toDate",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fa4c8844-0e5a-4700-992f-5076f4d9a79a",
+          "name": "/v1/client/contracts/confirmjourneys",
+          "request": {
+            "name": "/v1/client/contracts/confirmjourneys",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "client",
+                "contracts",
+                "confirmjourneys"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "ids",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "ids",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": []
+            },
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "read write"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.automile.com/login/"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "a90f496e-0e5d-4ded-b160-cd3cf02f6433",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "client",
+                    "contracts",
+                    "confirmjourneys"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ids",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "ids",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "9443f975-298d-48ed-8b60-260c758b6b7d",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "client",
+                    "contracts",
+                    "confirmjourneys"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ids",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "ids",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "ee1479de-89d5-44df-8522-cee2511d7462",
+    "name": "Automile ClientApi ClientContracts API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

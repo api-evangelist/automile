@@ -1,0 +1,210 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Automile ClientApi ClientCustom API",
+    "version": "v1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "ClientCustom",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Creates Client Custom User",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/client/custom/createuser"
+          },
+          "docs": "Creates Client Custom User"
+        },
+        {
+          "info": {
+            "name": "Reset User password",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/client/custom/resetpassword"
+          },
+          "docs": "Reset User password"
+        },
+        {
+          "info": {
+            "name": "Create User without password",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/client/custom/createuserwithoutpassword"
+          },
+          "docs": "Create User without password"
+        },
+        {
+          "info": {
+            "name": "Get UserName takenmodel",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/client/custom/usernametaken",
+            "params": [
+              {
+                "name": "username",
+                "value": "",
+                "type": "query",
+                "description": "The username"
+              }
+            ]
+          },
+          "docs": "Get UserName takenmodel"
+        },
+        {
+          "info": {
+            "name": "Get User assoicated to phonenumber or username",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/client/custom/userphonenumber",
+            "params": [
+              {
+                "name": "identifier",
+                "value": "",
+                "type": "query",
+                "description": "username or phonenumber"
+              },
+              {
+                "name": "region",
+                "value": "",
+                "type": "query",
+                "description": "Region for phonenumber"
+              }
+            ]
+          },
+          "docs": "Get User assoicated to phonenumber or username"
+        },
+        {
+          "info": {
+            "name": "Get user guids from phonenumber",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/client/custom/usersphonenumber",
+            "params": [
+              {
+                "name": "mobilePhoneNumber",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "region",
+                "value": "",
+                "type": "query",
+                "description": "Region for phonenumber"
+              }
+            ]
+          },
+          "docs": "Get user guids from phonenumber"
+        },
+        {
+          "info": {
+            "name": "Get user guids from identifier",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/client/custom/existingusers",
+            "params": [
+              {
+                "name": "identifier",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "region",
+                "value": "",
+                "type": "query",
+                "description": "Region for phonenumber"
+              }
+            ]
+          },
+          "docs": "Get user guids from identifier"
+        },
+        {
+          "info": {
+            "name": "Check if user has the phonenumber",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/client/custom/validatephonenumber",
+            "params": [
+              {
+                "name": "username",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "mobilePhoneNumber",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Check if user has the phonenumber"
+        },
+        {
+          "info": {
+            "name": "Get DeviceRegistered",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/client/custom/deviceregistered",
+            "params": [
+              {
+                "name": "imei",
+                "value": "",
+                "type": "query",
+                "description": "The Imei"
+              }
+            ]
+          },
+          "docs": "Get DeviceRegistered"
+        },
+        {
+          "info": {
+            "name": "Get DeviceRegistered",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/client/custom/reversegeocoding",
+            "params": [
+              {
+                "name": "latitude",
+                "value": "",
+                "type": "query",
+                "description": "The latitude"
+              },
+              {
+                "name": "longitude",
+                "value": "",
+                "type": "query",
+                "description": "The longitude"
+              }
+            ]
+          },
+          "docs": "Get DeviceRegistered"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

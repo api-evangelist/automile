@@ -1,0 +1,395 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Automile ClientApi ResourceOwnerTripV2 API",
+    "version": "v1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "ResourceOwnerTripV2",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get all trips that the user has access to",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/resourceowner/trips",
+            "params": [
+              {
+                "name": "lastNumberOfDays",
+                "value": "",
+                "type": "query",
+                "description": "Optional enter last number of days to get trips for. Only supports up to 60 days back. If not speficied or more then 60 days are entered it searches 30 days back."
+              },
+              {
+                "name": "vehicleId",
+                "value": "",
+                "type": "query",
+                "description": "Optional vehicle id to get trips for"
+              },
+              {
+                "name": "synchronized",
+                "value": "",
+                "type": "query",
+                "description": "Optional include synchronized trips (defaults to true)"
+              },
+              {
+                "name": "fromUtc",
+                "value": "",
+                "type": "query",
+                "description": "Retrieve trips from this date. (Can't be used if lastNumberOfDays is specified)"
+              },
+              {
+                "name": "toUtc",
+                "value": "",
+                "type": "query",
+                "description": "Retrieve trips to this date. (Can't be used if lastNumberOfDays is specified)"
+              }
+            ]
+          },
+          "docs": "Only returns trips that the user have access to. If more then 60 days are requested it defaults to 30 days."
+        },
+        {
+          "info": {
+            "name": "Get the details about the trip",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/resourceowner/trips/:tripId",
+            "params": [
+              {
+                "name": "tripId",
+                "value": "",
+                "type": "path",
+                "description": "The trip id"
+              }
+            ]
+          },
+          "docs": "Only trips that are associated with the vehicles that user has relationships with are allowed."
+        },
+        {
+          "info": {
+            "name": "Updates the given trip with a trip type (category) and trip tags",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/v1/resourceowner/trips/:tripId",
+            "params": [
+              {
+                "name": "tripId",
+                "value": "",
+                "type": "path",
+                "description": "The trip id to update"
+              }
+            ]
+          },
+          "docs": "This operation would only update the trip type and trip tags if authorized for this trip."
+        },
+        {
+          "info": {
+            "name": "Get the trip start and stop geo locations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/resourceowner/trips/:tripId/geostartend",
+            "params": [
+              {
+                "name": "tripId",
+                "value": "",
+                "type": "path",
+                "description": "The trip id"
+              }
+            ]
+          },
+          "docs": "Only trips that are associated with the vehicles that user has relationships with are allowed."
+        },
+        {
+          "info": {
+            "name": "Get the vehicle speed if it's reported by the vehicle",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/resourceowner/trips/:tripId/speed",
+            "params": [
+              {
+                "name": "tripId",
+                "value": "",
+                "type": "path",
+                "description": "The trip id"
+              }
+            ]
+          },
+          "docs": "This is a quick method, instead of retrieving raw data with the pid operation. Is reported in km/h."
+        },
+        {
+          "info": {
+            "name": "Get the vehicle engine rpm if it's reported by the vehicle",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/resourceowner/trips/:tripId/rpm",
+            "params": [
+              {
+                "name": "tripId",
+                "value": "",
+                "type": "path",
+                "description": "The trip id"
+              }
+            ]
+          },
+          "docs": "This is a quick method, instead of retrieving raw data with the pid operation."
+        },
+        {
+          "info": {
+            "name": "Get the vehicle ambient (outside) temperature if it's reported by the vehiclee",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/resourceowner/trips/:tripId/ambienttemperature",
+            "params": [
+              {
+                "name": "tripId",
+                "value": "",
+                "type": "path",
+                "description": "The trip id"
+              }
+            ]
+          },
+          "docs": "This is a quick method, instead of retrieving raw data with the pid operation. The result is in celsius."
+        },
+        {
+          "info": {
+            "name": "Get the vehicle current fuel level if it's reported by the vehicle",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/resourceowner/trips/:tripId/fuellevelinput",
+            "params": [
+              {
+                "name": "tripId",
+                "value": "",
+                "type": "path",
+                "description": "The trip id"
+              }
+            ]
+          },
+          "docs": "This is a quick method, instead of retrieving raw data with the pid operation. The result is in percentage of total 100"
+        },
+        {
+          "info": {
+            "name": "Get the engine coolant temperature if it's reported by the vehicle",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/resourceowner/trips/:tripId/enginecoolanttemperature",
+            "params": [
+              {
+                "name": "tripId",
+                "value": "",
+                "type": "path",
+                "description": "The trip id"
+              }
+            ]
+          },
+          "docs": "This is a quick method, instead of retrieving raw data with the pid operation"
+        },
+        {
+          "info": {
+            "name": "This will get the raw PID data if the vehicle has reported that it is being recorded",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/resourceowner/trips/:tripId/pid/:pidId",
+            "params": [
+              {
+                "name": "tripId",
+                "value": "",
+                "type": "path",
+                "description": "The trip id"
+              },
+              {
+                "name": "pidId",
+                "value": "",
+                "type": "path",
+                "description": "The PID id"
+              }
+            ]
+          },
+          "docs": "The data array will contain a sub-array of integers representing the raw data"
+        },
+        {
+          "info": {
+            "name": "Get the gps locations for the vehicle, includes position and heading",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/resourceowner/trips/:tripId/geo",
+            "params": [
+              {
+                "name": "tripId",
+                "value": "",
+                "type": "path",
+                "description": "The trip id"
+              },
+              {
+                "name": "everyNthRecord",
+                "value": "",
+                "type": "query",
+                "description": "Optional if you wish to limit to n:th number of records"
+              },
+              {
+                "name": "snapToRoad",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "This operation would require compression enabled by the client."
+        },
+        {
+          "info": {
+            "name": "Gets Google static map URL with the trip route as a polyline",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/resourceowner/trips/:tripId/googleurltostaticmapencodedpolyline",
+            "params": [
+              {
+                "name": "tripId",
+                "value": "",
+                "type": "path",
+                "description": "The trip id"
+              },
+              {
+                "name": "height",
+                "value": "",
+                "type": "query",
+                "description": "Height of the map"
+              },
+              {
+                "name": "width",
+                "value": "",
+                "type": "query",
+                "description": "Width of the map"
+              }
+            ]
+          },
+          "docs": "Gets Google static map URL with the trip route as a polyline"
+        },
+        {
+          "info": {
+            "name": "Updates the last trip with trip notes",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/v1/resourceowner/trips/addnotestolasttrip"
+          },
+          "docs": "This operation would only update the trip tags if authorized for this trip."
+        },
+        {
+          "info": {
+            "name": "Updates a list of trip id's with the provided trip type",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/v1/resourceowner/trips/batch/triptype"
+          },
+          "docs": "This operation only updates the trip types if authorized to all trips in list."
+        },
+        {
+          "info": {
+            "name": "Updates the given trip with given contactid",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/v1/resourceowner/trips/setdriverontrip",
+            "params": [
+              {
+                "name": "tripId",
+                "value": "",
+                "type": "query",
+                "description": "The trip to update"
+              },
+              {
+                "name": "contactId",
+                "value": "",
+                "type": "query",
+                "description": "The contact id for the driver"
+              }
+            ]
+          },
+          "docs": "This operation would only update the driver if authorized for this trip."
+        },
+        {
+          "info": {
+            "name": "Mark trips as synchronized, synchronized trips will not be returned when fetching trips",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/resourceowner/trips/synchronized"
+          },
+          "docs": "This operation only updates the synchronized state if authorized to all trips in list."
+        },
+        {
+          "info": {
+            "name": "Get the details about the trip including driving events, speeding and idling",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/resourceowner/trips/:tripId/details",
+            "params": [
+              {
+                "name": "tripId",
+                "value": "",
+                "type": "path",
+                "description": "The trip id"
+              }
+            ]
+          },
+          "docs": "Only trips that are associated with the vehicles that user has relationships with are allowed."
+        },
+        {
+          "info": {
+            "name": "Get the advanced details about the trip including driving events, speeding, idling, speed and rpm data series",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/resourceowner/trips/:tripId/advanced",
+            "params": [
+              {
+                "name": "tripId",
+                "value": "",
+                "type": "path",
+                "description": "The trip id"
+              }
+            ]
+          },
+          "docs": "Only trips that are associated with the vehicles that user has relationships with are allowed."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

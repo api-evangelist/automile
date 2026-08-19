@@ -1,0 +1,145 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Automile ClientApi ResourceOwnerRegisteredTollV2 API",
+    "version": "v1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "ResourceOwnerRegisteredTollV2",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get list of registered tolls",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/resourceowner/registeredtoll",
+            "params": [
+              {
+                "name": "from",
+                "value": "",
+                "type": "query",
+                "description": "Registered tolls from this timestamp (default: 60 days back)"
+              },
+              {
+                "name": "to",
+                "value": "",
+                "type": "query",
+                "description": "Registered tolls until this timestamp (default: current timestamp)"
+              },
+              {
+                "name": "vehicleId",
+                "value": "",
+                "type": "query",
+                "description": "If set, only list tolls registered for this specific vehicle (default: all accessible vehicles)"
+              },
+              {
+                "name": "driverContactId",
+                "value": "",
+                "type": "query",
+                "description": "If set, only list tolls registered for this specific driver (default: all drivers)"
+              }
+            ]
+          },
+          "docs": "Get list of registered tolls"
+        },
+        {
+          "info": {
+            "name": "Register a toll passage",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/resourceowner/registeredtoll"
+          },
+          "docs": "Register a toll passage"
+        },
+        {
+          "info": {
+            "name": "Update multiple toll passage registrations",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/v1/resourceowner/registeredtoll/multi-update"
+          },
+          "docs": "Update multiple toll passage registrations"
+        },
+        {
+          "info": {
+            "name": "Get registered toll",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/resourceowner/registeredtoll/:registeredTollId",
+            "params": [
+              {
+                "name": "registeredTollId",
+                "value": "",
+                "type": "path",
+                "description": "Id of registered toll"
+              }
+            ]
+          },
+          "docs": "Get registered toll"
+        },
+        {
+          "info": {
+            "name": "Update a toll passage",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/v1/resourceowner/registeredtoll/:registeredTollId",
+            "params": [
+              {
+                "name": "registeredTollId",
+                "value": "",
+                "type": "path",
+                "description": "Which toll fee to edit"
+              }
+            ]
+          },
+          "docs": "Update a toll passage"
+        },
+        {
+          "info": {
+            "name": "Delete registered toll fee",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/v1/resourceowner/registeredtoll/:registeredTollId",
+            "params": [
+              {
+                "name": "registeredTollId",
+                "value": "",
+                "type": "path",
+                "description": "The id for the registered toll to delete"
+              }
+            ]
+          },
+          "docs": "Delete registered toll fee"
+        },
+        {
+          "info": {
+            "name": "Get the list of toll zones",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/resourceowner/registeredtoll/tollzone"
+          },
+          "docs": "Get the list of toll zones"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,189 @@
+{
+  "item": [
+    {
+      "id": "985ea8e8-c47c-43c8-9bbd-ad9402d6129b",
+      "name": "Order",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "1fb0cc9d-45ce-4745-b9c7-c9bb3b3ab553",
+          "name": "Creates a new order",
+          "request": {
+            "name": "Creates a new order",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "integration",
+                "order"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "read write"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.automile.com/login/"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"BillingAddress\": \"<string>\",\n  \"BillingAddressCountry\": \"<string>\",\n  \"BillingAddressState\": \"<string>\",\n  \"BillingAddressZipCode\": \"<string>\",\n  \"Company\": \"<string>\",\n  \"Email\": \"<string>\",\n  \"FirstName\": \"<string>\",\n  \"LastName\": \"<string>\",\n  \"MobilePhoneNumber\": \"<string>\",\n  \"NumberOfDevices\": \"<integer>\",\n  \"OfficePhoneNumber\": \"<string>\",\n  \"ShippingAddress\": \"<string>\",\n  \"ShippingAddressCountry\": \"<string>\",\n  \"ShippingAddressState\": \"<string>\",\n  \"ShippingAddressZipCode\": \"<string>\",\n  \"SubscriptionCurrency\": \"<string>\",\n  \"UseShippingAddressAsBillingAddress\": \"<boolean>\",\n  \"LeadId\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "8347b8ea-a7bc-4316-908c-fa449c9bbc69",
+              "name": "Creates new order",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "integration",
+                    "order"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"BillingAddress\": \"<string>\",\n  \"BillingAddressCountry\": \"<string>\",\n  \"BillingAddressState\": \"<string>\",\n  \"BillingAddressZipCode\": \"<string>\",\n  \"Company\": \"<string>\",\n  \"Email\": \"<string>\",\n  \"FirstName\": \"<string>\",\n  \"LastName\": \"<string>\",\n  \"MobilePhoneNumber\": \"<string>\",\n  \"NumberOfDevices\": \"<integer>\",\n  \"OfficePhoneNumber\": \"<string>\",\n  \"ShippingAddress\": \"<string>\",\n  \"ShippingAddressCountry\": \"<string>\",\n  \"ShippingAddressState\": \"<string>\",\n  \"ShippingAddressZipCode\": \"<string>\",\n  \"SubscriptionCurrency\": \"<string>\",\n  \"UseShippingAddressAsBillingAddress\": \"<boolean>\",\n  \"LeadId\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "593aa6d5-9747-4850-a7e3-9b3a1c14c535",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "integration",
+                    "order"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"BillingAddress\": \"<string>\",\n  \"BillingAddressCountry\": \"<string>\",\n  \"BillingAddressState\": \"<string>\",\n  \"BillingAddressZipCode\": \"<string>\",\n  \"Company\": \"<string>\",\n  \"Email\": \"<string>\",\n  \"FirstName\": \"<string>\",\n  \"LastName\": \"<string>\",\n  \"MobilePhoneNumber\": \"<string>\",\n  \"NumberOfDevices\": \"<integer>\",\n  \"OfficePhoneNumber\": \"<string>\",\n  \"ShippingAddress\": \"<string>\",\n  \"ShippingAddressCountry\": \"<string>\",\n  \"ShippingAddressState\": \"<string>\",\n  \"ShippingAddressZipCode\": \"<string>\",\n  \"SubscriptionCurrency\": \"<string>\",\n  \"UseShippingAddressAsBillingAddress\": \"<boolean>\",\n  \"LeadId\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "a7254075-27b4-4d27-9aa0-2817f3423546",
+    "name": "Automile ClientApi Order API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

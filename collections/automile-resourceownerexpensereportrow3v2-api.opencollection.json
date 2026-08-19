@@ -1,0 +1,85 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Automile ClientApi ResourceOwnerExpenseReportRow3V2 API",
+    "version": "v1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "ResourceOwnerExpenseReportRow3V2",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get expense report row",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/resourceowner/expensereportrow3/:expenseReportRowId",
+            "params": [
+              {
+                "name": "expenseReportRowId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Only expense report row that the user has access to are accessible."
+        },
+        {
+          "info": {
+            "name": "Updates the given expense report row",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/v1/resourceowner/expensereportrow3/:expenseReportRowId",
+            "params": [
+              {
+                "name": "expenseReportRowId",
+                "value": "",
+                "type": "path",
+                "description": "The expense report row id"
+              }
+            ]
+          },
+          "docs": "This will update the given expense report row id with a new model."
+        },
+        {
+          "info": {
+            "name": "Removes the given expense report row",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/v1/resourceowner/expensereportrow3/:expenseReportRowId",
+            "params": [
+              {
+                "name": "expenseReportRowId",
+                "value": "",
+                "type": "path",
+                "description": "The expense report row id"
+              }
+            ]
+          },
+          "docs": "Removes the given expense report row"
+        },
+        {
+          "info": {
+            "name": "Create an expense report row",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/resourceowner/expensereportrow3"
+          },
+          "docs": "Create an expense report row"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

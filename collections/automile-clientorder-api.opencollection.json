@@ -1,0 +1,52 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Automile ClientApi ClientOrder API",
+    "version": "v1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "ClientOrder",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Creates a pro order",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/client/order/pro"
+          },
+          "docs": "Creates a pro order"
+        },
+        {
+          "info": {
+            "name": "Get Pro PriceModel",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/client/order/propricing",
+            "params": [
+              {
+                "name": "countryCode",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "numberOfUnits",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get Pro PriceModel"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

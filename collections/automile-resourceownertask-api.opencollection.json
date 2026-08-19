@@ -1,0 +1,108 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Automile ClientApi ResourceOwnerTask API",
+    "version": "v1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "ResourceOwnerTask",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get all contacts to message with",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/resourceowner/task/contacts"
+          },
+          "docs": "Get all contacts to message with"
+        },
+        {
+          "info": {
+            "name": "Get all tasks open and closed",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/resourceowner/task"
+          },
+          "docs": "Only tasks that belongs to the user has access to will be returned."
+        },
+        {
+          "info": {
+            "name": "Create a task",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/resourceowner/task"
+          },
+          "docs": "Creates a task"
+        },
+        {
+          "info": {
+            "name": "Update a task",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/v1/resourceowner/task",
+            "params": [
+              {
+                "name": "taskId",
+                "value": "",
+                "type": "query",
+                "description": "The task id"
+              }
+            ]
+          },
+          "docs": "Only tasks that belongs to the user has access to will be returned."
+        },
+        {
+          "info": {
+            "name": "Get task details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/resourceowner/task/:taskId",
+            "params": [
+              {
+                "name": "taskId",
+                "value": "",
+                "type": "path",
+                "description": "The Id of the company"
+              }
+            ]
+          },
+          "docs": "Get task details"
+        },
+        {
+          "info": {
+            "name": "Update a task",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/v1/resourceowner/task/:taskId",
+            "params": [
+              {
+                "name": "taskId",
+                "value": "",
+                "type": "path",
+                "description": "The task id"
+              }
+            ]
+          },
+          "docs": "Only tasks that belongs to the user has access to will be returned."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

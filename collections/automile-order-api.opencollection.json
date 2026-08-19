@@ -1,0 +1,29 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Automile ClientApi Order API",
+    "version": "v1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Order",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Creates a new order",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/integration/order"
+          },
+          "docs": "Creates a new order"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,360 @@
+{
+  "item": [
+    {
+      "id": "f154f61e-67fe-4f25-905b-70c94f241703",
+      "name": "ClientOrder",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "be8e0068-591c-4449-8e9d-fd9e7c0e3700",
+          "name": "Creates a pro order",
+          "request": {
+            "name": "Creates a pro order",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "client",
+                "order",
+                "pro"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "read write"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.automile.com/login/"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"CompanyName\": \"<string>\",\n  \"Email\": \"<string>\",\n  \"FirstName\": \"<string>\",\n  \"LastName\": \"<string>\",\n  \"MobilePhoneNumber\": \"<string>\",\n  \"ISO4217CurrencyCode\": \"<string>\",\n  \"NumberOfUnits\": \"<integer>\",\n  \"NonOBDUnits\": \"<boolean>\",\n  \"ExtensionCables\": \"<boolean>\",\n  \"NumberOfExtensionCords\": \"<integer>\",\n  \"ShippingAddress\": {\n    \"AddressLine2\": \"<string>\",\n    \"City\": \"<string>\",\n    \"ISO3166CountryCode\": \"<string>\",\n    \"ZipCode\": \"<string>\",\n    \"AddressId\": \"<integer>\",\n    \"CompanyName\": \"<string>\",\n    \"ContactNameAtAddress\": \"<string>\",\n    \"AddressLine3\": \"<string>\",\n    \"AddressLine4\": \"<string>\",\n    \"StateOrProvince\": \"<string>\"\n  },\n  \"UseShippingAddressForBillingAddress\": \"<boolean>\",\n  \"BillingAddress\": {\n    \"AddressLine2\": \"<string>\",\n    \"City\": \"<string>\",\n    \"ISO3166CountryCode\": \"<string>\",\n    \"ZipCode\": \"<string>\",\n    \"AddressId\": \"<integer>\",\n    \"CompanyName\": \"<string>\",\n    \"ContactNameAtAddress\": \"<string>\",\n    \"AddressLine3\": \"<string>\",\n    \"AddressLine4\": \"<string>\",\n    \"StateOrProvince\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "196e4ca7-6729-48e0-a5cb-9814505027c1",
+              "name": "A pro order is created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "client",
+                    "order",
+                    "pro"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"CompanyName\": \"<string>\",\n  \"Email\": \"<string>\",\n  \"FirstName\": \"<string>\",\n  \"LastName\": \"<string>\",\n  \"MobilePhoneNumber\": \"<string>\",\n  \"ISO4217CurrencyCode\": \"<string>\",\n  \"NumberOfUnits\": \"<integer>\",\n  \"NonOBDUnits\": \"<boolean>\",\n  \"ExtensionCables\": \"<boolean>\",\n  \"NumberOfExtensionCords\": \"<integer>\",\n  \"ShippingAddress\": {\n    \"AddressLine2\": \"<string>\",\n    \"City\": \"<string>\",\n    \"ISO3166CountryCode\": \"<string>\",\n    \"ZipCode\": \"<string>\",\n    \"AddressId\": \"<integer>\",\n    \"CompanyName\": \"<string>\",\n    \"ContactNameAtAddress\": \"<string>\",\n    \"AddressLine3\": \"<string>\",\n    \"AddressLine4\": \"<string>\",\n    \"StateOrProvince\": \"<string>\"\n  },\n  \"UseShippingAddressForBillingAddress\": \"<boolean>\",\n  \"BillingAddress\": {\n    \"AddressLine2\": \"<string>\",\n    \"City\": \"<string>\",\n    \"ISO3166CountryCode\": \"<string>\",\n    \"ZipCode\": \"<string>\",\n    \"AddressId\": \"<integer>\",\n    \"CompanyName\": \"<string>\",\n    \"ContactNameAtAddress\": \"<string>\",\n    \"AddressLine3\": \"<string>\",\n    \"AddressLine4\": \"<string>\",\n    \"StateOrProvince\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "23171e67-712d-4124-a3c2-90368fcbad45",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "client",
+                    "order",
+                    "pro"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"CompanyName\": \"<string>\",\n  \"Email\": \"<string>\",\n  \"FirstName\": \"<string>\",\n  \"LastName\": \"<string>\",\n  \"MobilePhoneNumber\": \"<string>\",\n  \"ISO4217CurrencyCode\": \"<string>\",\n  \"NumberOfUnits\": \"<integer>\",\n  \"NonOBDUnits\": \"<boolean>\",\n  \"ExtensionCables\": \"<boolean>\",\n  \"NumberOfExtensionCords\": \"<integer>\",\n  \"ShippingAddress\": {\n    \"AddressLine2\": \"<string>\",\n    \"City\": \"<string>\",\n    \"ISO3166CountryCode\": \"<string>\",\n    \"ZipCode\": \"<string>\",\n    \"AddressId\": \"<integer>\",\n    \"CompanyName\": \"<string>\",\n    \"ContactNameAtAddress\": \"<string>\",\n    \"AddressLine3\": \"<string>\",\n    \"AddressLine4\": \"<string>\",\n    \"StateOrProvince\": \"<string>\"\n  },\n  \"UseShippingAddressForBillingAddress\": \"<boolean>\",\n  \"BillingAddress\": {\n    \"AddressLine2\": \"<string>\",\n    \"City\": \"<string>\",\n    \"ISO3166CountryCode\": \"<string>\",\n    \"ZipCode\": \"<string>\",\n    \"AddressId\": \"<integer>\",\n    \"CompanyName\": \"<string>\",\n    \"ContactNameAtAddress\": \"<string>\",\n    \"AddressLine3\": \"<string>\",\n    \"AddressLine4\": \"<string>\",\n    \"StateOrProvince\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e43363a3-06c8-4ddd-839f-fa9fc42c0c2e",
+          "name": "Get Pro PriceModel",
+          "request": {
+            "name": "Get Pro PriceModel",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "client",
+                "order",
+                "propricing"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "countryCode",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "numberOfUnits",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "read write"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.automile.com/login/"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "5d146c8b-f67c-4f00-9cff-a84935057752",
+              "name": "The pro price details returned",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "client",
+                    "order",
+                    "propricing"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "countryCode",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "numberOfUnits",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"ISO4217CurrencyCode\": \"string\",\n  \"IsYearlySubscription\": false,\n  \"SubscriptionFeePerDeviceAndMonth\": 9434.44607056602,\n  \"SubscriptionFeePerDeviceAndYear\": 7974.016048990909,\n  \"NumberOfUnits\": 3881.7053017771896,\n  \"UnitFee\": 2526.96172583887,\n  \"UnitTotalFee\": 5345.92168630846,\n  \"SubscriptionFee\": 8409.64946219066,\n  \"SubscriptionTotalFee\": 3072.3805006471994,\n  \"ShipmentFee\": 9308.613764782738,\n  \"TotalFee\": 2215.7537478804866,\n  \"SubscriptionTotalFeeDescription\": \"string\",\n  \"UnitTotalFeeDescription\": \"string\",\n  \"ShipmentFeeDescription\": \"string\",\n  \"SubscriptionFeePerDeviceAndMonthDescription\": \"string\",\n  \"SubscriptionFeePerDeviceAndYearDescription\": \"string\",\n  \"FreightForwarderUrl\": \"string\",\n  \"FreightForwarderDescription\": \"string\",\n  \"ArticlePriceIdMonthlyPlan\": 8562,\n  \"ArticlePriceIdYearlyPlan\": 3685\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "11fef976-b3e6-4390-a8a5-c9c63b2d0d9c",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "client",
+                    "order",
+                    "propricing"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "countryCode",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "numberOfUnits",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "ce98e7e2-61d3-471a-933f-01b606b619a1",
+    "name": "Automile ClientApi ClientOrder API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

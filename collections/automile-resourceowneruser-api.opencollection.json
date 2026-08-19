@@ -1,0 +1,84 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Automile ClientApi ResourceOwnerUser API",
+    "version": "v1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "ResourceOwnerUser",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "This get's the details of the current user that you are logged in as",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/resourceowner/user"
+          },
+          "docs": "This will return the details of the current user."
+        },
+        {
+          "info": {
+            "name": "Change the password of the current user that you are logged in as",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/v1/resourceowner/user/changepassword"
+          },
+          "docs": "This will change the password."
+        },
+        {
+          "info": {
+            "name": "Check if the user has a password set",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/resourceowner/user/userexistingpassword"
+          },
+          "docs": "This will get info if user has existing password."
+        },
+        {
+          "info": {
+            "name": "Change the username of the current user that you are logged in as",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/v1/resourceowner/user/changeusername"
+          },
+          "docs": "This will change the username."
+        },
+        {
+          "info": {
+            "name": "Reset the password by SMS for the current user logged in",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/resourceowner/user/resetpassword"
+          },
+          "docs": "Reset the password by SMS for the current user logged in"
+        },
+        {
+          "info": {
+            "name": "Logs out the user",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/resourceowner/user/logout"
+          },
+          "docs": "Logs out the user and the users client device id will be removed from the users available client devices. A new user client device id will be created on login."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

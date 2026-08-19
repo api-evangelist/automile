@@ -1,0 +1,2140 @@
+{
+  "item": [
+    {
+      "id": "4c8142bb-460f-412c-aa35-8be890b6a196",
+      "name": "ResourceOwnerReports",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b874b3dd-900b-4a77-a78c-ee5f4c41a682",
+          "name": "Trips report",
+          "request": {
+            "name": "Trips report",
+            "description": {
+              "content": "Max date interval is 16 days",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "resourceowner",
+                "reports",
+                "trips-report"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "read write"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.automile.com/login/"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"VehicleIds\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"FromDate\": \"<dateTime>\",\n  \"ToDate\": \"<dateTime>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f829a120-fb3c-47bd-ac8e-a203c2495c5d",
+              "name": "The vehicle summary report is returned",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "reports",
+                    "trips-report"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"VehicleIds\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"FromDate\": \"<dateTime>\",\n  \"ToDate\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Request\": {\n    \"VehicleIds\": [\n      \"<integer>\",\n      \"<integer>\"\n    ],\n    \"FromDate\": \"<dateTime>\",\n    \"ToDate\": \"<dateTime>\"\n  },\n  \"TripsReport\": [\n    {\n      \"VehicleId\": 9912,\n      \"StartDateTime\": \"2011-02-12T07:11:11.087Z\",\n      \"StartTimezone\": 1993,\n      \"EndDateTime\": \"1969-08-12T02:24:27.076Z\",\n      \"EndTimezone\": 4989,\n      \"StartOdometer\": 7702,\n      \"EndOdometer\": 4255,\n      \"StartAddressName\": \"string\",\n      \"EndAddressName\": \"string\",\n      \"Distance\": 7069.8946023059025,\n      \"ParkedForMinUntilNextTrip\": 2602,\n      \"FuelConsumption\": 4382.400524583002,\n      \"Co2Emissions\": 6236.974769703784,\n      \"IdleTime\": 4099,\n      \"Notes\": \"string\",\n      \"TripType\": 9972,\n      \"TripId\": 6597,\n      \"Settings\": 8721,\n      \"DriverContactId\": 8177,\n      \"LicensePlate\": \"string\",\n      \"VehicleName\": \"string\"\n    },\n    {\n      \"VehicleId\": 7447,\n      \"StartDateTime\": \"1968-07-28T22:39:45.481Z\",\n      \"StartTimezone\": 7538,\n      \"EndDateTime\": \"1996-04-01T16:29:00.384Z\",\n      \"EndTimezone\": 1081,\n      \"StartOdometer\": 2864,\n      \"EndOdometer\": 7947,\n      \"StartAddressName\": \"string\",\n      \"EndAddressName\": \"string\",\n      \"Distance\": 7049.598458357348,\n      \"ParkedForMinUntilNextTrip\": 7591,\n      \"FuelConsumption\": 9709.26969222245,\n      \"Co2Emissions\": 9104.2076071387,\n      \"IdleTime\": 9705,\n      \"Notes\": \"string\",\n      \"TripType\": 6889,\n      \"TripId\": 4728,\n      \"Settings\": 4390,\n      \"DriverContactId\": 3597,\n      \"LicensePlate\": \"string\",\n      \"VehicleName\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7b45376c-fb16-4b70-93e5-b8d9e186bdcd",
+              "name": "Exceeded date range allowed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "reports",
+                    "trips-report"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"VehicleIds\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"FromDate\": \"<dateTime>\",\n  \"ToDate\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "5f4deaa6-5a43-4b84-b8cc-debe1f1e240d",
+              "name": "Not authorized to all supplied vehicles",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "reports",
+                    "trips-report"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"VehicleIds\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"FromDate\": \"<dateTime>\",\n  \"ToDate\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d3377b95-d8a2-420e-be62-1ddb80c861e7",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "reports",
+                    "trips-report"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"VehicleIds\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"FromDate\": \"<dateTime>\",\n  \"ToDate\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4296bc58-084a-4dca-8110-7f44b5671d21",
+          "name": "Vehicle summary report",
+          "request": {
+            "name": "Vehicle summary report",
+            "description": {
+              "content": "Only vehicles that the user is associated with will be returned by this operation.\r\n            400 bad request is returned if the date period parameter is not in a correct format",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "resourceowner",
+                "reports",
+                "vehicle-summary"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "fromDate",
+                  "value": "<dateTime>",
+                  "description": "Period from date"
+                },
+                {
+                  "disabled": false,
+                  "key": "toDate",
+                  "value": "<dateTime>",
+                  "description": "Period to date"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "First page = 1, page size 20"
+                },
+                {
+                  "disabled": false,
+                  "key": "vehicleId",
+                  "value": "<integer>",
+                  "description": "Filter on vehicleId"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "read write"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.automile.com/login/"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "63729f1f-0417-4551-8025-d3da2ecef5eb",
+              "name": "The vehicle summary report is returned",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "reports",
+                    "vehicle-summary"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fromDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "toDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "vehicleId",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"VehiclesSummary\": [\n    {\n      \"VehicleId\": 6166,\n      \"VehicleIdentificationNumber\": \"string\",\n      \"NumberPlate\": \"string\",\n      \"Make\": \"string\",\n      \"Model\": \"string\",\n      \"ModelYear\": 9322,\n      \"Business\": 4755.754216753062,\n      \"Private\": 9581.862917248489,\n      \"Other\": 2820.829929197597,\n      \"Total\": 6553.999349260695,\n      \"PeriodStartOdometer\": 7563.020324484688,\n      \"PeriodEndOdometer\": 7162.046384247488,\n      \"FuelConsumptionBusiness\": 2811.698153535063,\n      \"FuelConsumptionPrivate\": 5882.452574960784,\n      \"FuelConsumptionTotal\": 9690.178287611274,\n      \"BusinessTolls\": 7019.788051682585,\n      \"PrivateTolls\": 7267.91079697786,\n      \"OtherTolls\": 4218.074500332837,\n      \"NumberOfBusinessTolls\": 324,\n      \"NumberOfPrivateTolls\": 9531,\n      \"NumberOfOtherTolls\": 3148,\n      \"NumberOfTolls\": 798\n    },\n    {\n      \"VehicleId\": 4136,\n      \"VehicleIdentificationNumber\": \"string\",\n      \"NumberPlate\": \"string\",\n      \"Make\": \"string\",\n      \"Model\": \"string\",\n      \"ModelYear\": 2485,\n      \"Business\": 2290.519217242214,\n      \"Private\": 4250.826969467237,\n      \"Other\": 2252.6295564535317,\n      \"Total\": 8878.699532818282,\n      \"PeriodStartOdometer\": 4617.4041979858,\n      \"PeriodEndOdometer\": 9309.204292372357,\n      \"FuelConsumptionBusiness\": 2615.560332221124,\n      \"FuelConsumptionPrivate\": 2605.9726154652476,\n      \"FuelConsumptionTotal\": 1464.8604069998428,\n      \"BusinessTolls\": 3570.8691030435834,\n      \"PrivateTolls\": 9720.784959678782,\n      \"OtherTolls\": 6313.881426557449,\n      \"NumberOfBusinessTolls\": 3856,\n      \"NumberOfPrivateTolls\": 7594,\n      \"NumberOfOtherTolls\": 4019,\n      \"NumberOfTolls\": 3122\n    }\n  ],\n  \"Page\": 1831,\n  \"Records\": 6489,\n  \"TotalRecords\": 6132,\n  \"PageSize\": 778\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7e1514de-c8a1-4b03-86b6-b5e896114cbd",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "reports",
+                    "vehicle-summary"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fromDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "toDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "vehicleId",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "eda92c36-a1c3-4e6f-9677-8a9e13a9d081",
+          "name": "Get a trip summary report",
+          "request": {
+            "name": "Get a trip summary report",
+            "description": {
+              "content": "Only vehicles that the user is associated with will be returned by this operation. 400 bad request is returend if the date period parameter is not in a correct format",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "resourceowner",
+                "reports",
+                "tripsummary",
+                ":dateperiod"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "dateperiod",
+                  "description": "(Required) Date period parameter, in the form of only year (2014), year and month (201401), or interval {201301-201401}"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "read write"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.automile.com/login/"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "79e3f00d-3ef4-412b-97aa-d2c54f7fa3c9",
+              "name": "The trip summary report are returned",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "reports",
+                    "tripsummary",
+                    ":dateperiod"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dateperiod",
+                      "description": "(Required) Date period parameter, in the form of only year (2014), year and month (201401), or interval {201301-201401}"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"ReportStartPeriod\": 7517,\n    \"ReportEndPeriod\": 1544,\n    \"VehicleId\": 2151,\n    \"TripType\": 1,\n    \"DistanceInKilometers\": 9583.844503168273,\n    \"TravelTimeInMinutes\": 9292,\n    \"FuelInLiters\": 4734.204201833526,\n    \"NumberOfTrips\": 2308\n  },\n  {\n    \"ReportStartPeriod\": 8579,\n    \"ReportEndPeriod\": 2788,\n    \"VehicleId\": 8450,\n    \"TripType\": 2,\n    \"DistanceInKilometers\": 7350.739946042507,\n    \"TravelTimeInMinutes\": 7483,\n    \"FuelInLiters\": 2429.516032750231,\n    \"NumberOfTrips\": 4775\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ed94337c-584d-44ee-a05c-814c1f801be5",
+              "name": "Bad request, date period is not in a correct format",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "reports",
+                    "tripsummary",
+                    ":dateperiod"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dateperiod",
+                      "description": "(Required) Date period parameter, in the form of only year (2014), year and month (201401), or interval {201301-201401}"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ef3ecd1c-eb4c-4e92-974d-bd8c6d6190b8",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "reports",
+                    "tripsummary",
+                    ":dateperiod"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dateperiod",
+                      "description": "(Required) Date period parameter, in the form of only year (2014), year and month (201401), or interval {201301-201401}"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "86f217c2-da9d-4762-b6dc-4662e789713e",
+          "name": "Get a trip summary report filtered by vehicle",
+          "request": {
+            "name": "Get a trip summary report filtered by vehicle",
+            "description": {
+              "content": "Only vehicles that the user is associated with will be returned by this operation. 400 bad request is returend if the date period parameter is not in a correct format",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "resourceowner",
+                "reports",
+                "tripsummary",
+                ":dateperiod",
+                ":vehicleId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "dateperiod",
+                  "description": "(Required) Date period parameter, in the form of only year (2014), year and month (201401), or interval {201301-201401}"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "vehicleId",
+                  "description": "(Required) Report will be filtered on vehicle Id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "read write"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.automile.com/login/"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "c4f67069-ad5d-45f3-9fcc-1244230d9659",
+              "name": "The trip summary report are returned",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "reports",
+                    "tripsummary",
+                    ":dateperiod",
+                    ":vehicleId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dateperiod",
+                      "description": "(Required) Date period parameter, in the form of only year (2014), year and month (201401), or interval {201301-201401}"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "vehicleId",
+                      "description": "(Required) Report will be filtered on vehicle Id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"ReportStartPeriod\": 7517,\n    \"ReportEndPeriod\": 1544,\n    \"VehicleId\": 2151,\n    \"TripType\": 1,\n    \"DistanceInKilometers\": 9583.844503168273,\n    \"TravelTimeInMinutes\": 9292,\n    \"FuelInLiters\": 4734.204201833526,\n    \"NumberOfTrips\": 2308\n  },\n  {\n    \"ReportStartPeriod\": 8579,\n    \"ReportEndPeriod\": 2788,\n    \"VehicleId\": 8450,\n    \"TripType\": 2,\n    \"DistanceInKilometers\": 7350.739946042507,\n    \"TravelTimeInMinutes\": 7483,\n    \"FuelInLiters\": 2429.516032750231,\n    \"NumberOfTrips\": 4775\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a5e84f3a-ceb8-4aad-8567-f94c9797b98f",
+              "name": "Bad request, date period is not in a correct format",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "reports",
+                    "tripsummary",
+                    ":dateperiod",
+                    ":vehicleId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dateperiod",
+                      "description": "(Required) Date period parameter, in the form of only year (2014), year and month (201401), or interval {201301-201401}"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "vehicleId",
+                      "description": "(Required) Report will be filtered on vehicle Id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a244d9af-08ce-4260-b283-6907d17ecb1d",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "reports",
+                    "tripsummary",
+                    ":dateperiod",
+                    ":vehicleId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dateperiod",
+                      "description": "(Required) Date period parameter, in the form of only year (2014), year and month (201401), or interval {201301-201401}"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "vehicleId",
+                      "description": "(Required) Report will be filtered on vehicle Id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "552ceaf4-d234-4acc-9b29-9e7ef58dd64f",
+          "name": "Get a vehicle summary report",
+          "request": {
+            "name": "Get a vehicle summary report",
+            "description": {
+              "content": "Only vehicles that the user is associated with will be returned by this operation. 400 bad request is returend if the date period parameter is not in a correct format",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "resourceowner",
+                "reports",
+                "vehiclesummary",
+                ":dateperiod",
+                ":vehicleId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "dateperiod",
+                  "description": "(Required) Date period parameter, in the form of only year (2014), year and month (201401), or interval {201301-201401}"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "vehicleId",
+                  "description": "(Required) Report will be filtered on vehicle Id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "read write"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.automile.com/login/"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "176cde12-2ad4-4cdd-b202-5c0498ce9ab0",
+              "name": "The vehicle summary report returned",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "reports",
+                    "vehiclesummary",
+                    ":dateperiod",
+                    ":vehicleId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dateperiod",
+                      "description": "(Required) Date period parameter, in the form of only year (2014), year and month (201401), or interval {201301-201401}"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "vehicleId",
+                      "description": "(Required) Report will be filtered on vehicle Id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"DistanceReports\": [\n    {\n      \"Period\": 7227,\n      \"BusinessDistanceInKilometers\": 8081.875357105045,\n      \"PersonalDistanceInKilometers\": 1361.5038799962065,\n      \"OtherDistanceInKilometers\": 9193.409949065137\n    },\n    {\n      \"Period\": 5669,\n      \"BusinessDistanceInKilometers\": 9547.172320022166,\n      \"PersonalDistanceInKilometers\": 7970.335006917518,\n      \"OtherDistanceInKilometers\": 3706.1397176532173\n    }\n  ],\n  \"FuelReports\": [\n    {\n      \"Period\": 4064,\n      \"BusinessFuelInLiters\": 4880.691494889168,\n      \"PersonalFuelInLiters\": 3469.8235778074227,\n      \"OtherFuelInLiters\": 8697.831234405117\n    },\n    {\n      \"Period\": 6844,\n      \"BusinessFuelInLiters\": 6964.676916966579,\n      \"PersonalFuelInLiters\": 737.4180413765441,\n      \"OtherFuelInLiters\": 3043.598172065489\n    }\n  ],\n  \"TravelTimeReports\": [\n    {\n      \"Period\": 7378,\n      \"BusinessTravelTimeInMinutes\": 9954,\n      \"PersonalTravelTimeInMinutes\": 4819,\n      \"OtherTravelTimeInMinutes\": 2259\n    },\n    {\n      \"Period\": 1620,\n      \"BusinessTravelTimeInMinutes\": 5483,\n      \"PersonalTravelTimeInMinutes\": 2956,\n      \"OtherTravelTimeInMinutes\": 9228\n    }\n  ],\n  \"CO2Reports\": [\n    {\n      \"Period\": 5675,\n      \"BusinessCO2InGrams\": 5179.391620566103,\n      \"PersonalCO2InGrams\": 8741.521169343543,\n      \"OtherCO2InGrams\": 5128.300025418211\n    },\n    {\n      \"Period\": 3682,\n      \"BusinessCO2InGrams\": 2657.4446401318587,\n      \"PersonalCO2InGrams\": 9831.055678078515,\n      \"OtherCO2InGrams\": 2173.8595318358866\n    }\n  ],\n  \"IdleTimeReports\": [\n    {\n      \"Period\": 3587,\n      \"BusinessIdleTimeInMinutes\": 1891,\n      \"PersonalIdleTimeInMinutes\": 9617,\n      \"OtherIdleTimeInMinutes\": 4851\n    },\n    {\n      \"Period\": 8093,\n      \"BusinessIdleTimeInMinutes\": 703,\n      \"PersonalIdleTimeInMinutes\": 7165,\n      \"OtherIdleTimeInMinutes\": 8628\n    }\n  ],\n  \"VehicleId\": 9388\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1480e09f-bc6c-4d03-91d8-d5ead1084ebc",
+              "name": "Bad request, date period is not in a correct format",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "reports",
+                    "vehiclesummary",
+                    ":dateperiod",
+                    ":vehicleId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dateperiod",
+                      "description": "(Required) Date period parameter, in the form of only year (2014), year and month (201401), or interval {201301-201401}"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "vehicleId",
+                      "description": "(Required) Report will be filtered on vehicle Id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ce7b972d-c102-4e00-837d-6d3de8ceb22f",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "reports",
+                    "vehiclesummary",
+                    ":dateperiod",
+                    ":vehicleId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dateperiod",
+                      "description": "(Required) Date period parameter, in the form of only year (2014), year and month (201401), or interval {201301-201401}"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "vehicleId",
+                      "description": "(Required) Report will be filtered on vehicle Id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d42d4830-4229-4ca5-af83-95c564062bf0",
+          "name": "Get vehicles summary report",
+          "request": {
+            "name": "Get vehicles summary report",
+            "description": {
+              "content": "Only vehicles that the user is associated with will be returned by this operation. 400 bad request is returend if the date period parameter is not in a correct format",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "resourceowner",
+                "reports",
+                "vehiclessummary",
+                ":dateperiod"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "dateperiod",
+                  "description": "(Required) Date period parameter, in the form of only year (2014), year and month (201401), or interval {201301-201401}"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "read write"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.automile.com/login/"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "982d1ca4-cbc9-498a-8d3e-29171d74f115",
+              "name": "The vehicles summary report is returned",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "reports",
+                    "vehiclessummary",
+                    ":dateperiod"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dateperiod",
+                      "description": "(Required) Date period parameter, in the form of only year (2014), year and month (201401), or interval {201301-201401}"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"DistanceReports\": [\n    {\n      \"Period\": 4857,\n      \"BusinessDistanceInKilometers\": 9343.09824926365,\n      \"PersonalDistanceInKilometers\": 6139.824525963612,\n      \"OtherDistanceInKilometers\": 5794.8221783105955\n    },\n    {\n      \"Period\": 1702,\n      \"BusinessDistanceInKilometers\": 44.624458945934364,\n      \"PersonalDistanceInKilometers\": 7493.219443083334,\n      \"OtherDistanceInKilometers\": 2674.0942678682986\n    }\n  ],\n  \"FuelReports\": [\n    {\n      \"Period\": 4100,\n      \"BusinessFuelInLiters\": 3989.396211654291,\n      \"PersonalFuelInLiters\": 5549.81374028592,\n      \"OtherFuelInLiters\": 6632.773550579236\n    },\n    {\n      \"Period\": 3929,\n      \"BusinessFuelInLiters\": 9611.317384056287,\n      \"PersonalFuelInLiters\": 6421.150806907403,\n      \"OtherFuelInLiters\": 8474.081269312614\n    }\n  ],\n  \"TravelTimeReports\": [\n    {\n      \"Period\": 9560,\n      \"BusinessTravelTimeInMinutes\": 1667,\n      \"PersonalTravelTimeInMinutes\": 7243,\n      \"OtherTravelTimeInMinutes\": 328\n    },\n    {\n      \"Period\": 3547,\n      \"BusinessTravelTimeInMinutes\": 2154,\n      \"PersonalTravelTimeInMinutes\": 4945,\n      \"OtherTravelTimeInMinutes\": 375\n    }\n  ],\n  \"CO2Reports\": [\n    {\n      \"Period\": 1656,\n      \"BusinessCO2InGrams\": 3675.751016472015,\n      \"PersonalCO2InGrams\": 1773.633326942583,\n      \"OtherCO2InGrams\": 939.6790624594975\n    },\n    {\n      \"Period\": 7237,\n      \"BusinessCO2InGrams\": 6669.379185475835,\n      \"PersonalCO2InGrams\": 6786.636426799428,\n      \"OtherCO2InGrams\": 2114.612736832612\n    }\n  ],\n  \"IdleTimeReports\": [\n    {\n      \"Period\": 6386,\n      \"BusinessIdleTimeInMinutes\": 7446,\n      \"PersonalIdleTimeInMinutes\": 5431,\n      \"OtherIdleTimeInMinutes\": 5473\n    },\n    {\n      \"Period\": 3487,\n      \"BusinessIdleTimeInMinutes\": 4221,\n      \"PersonalIdleTimeInMinutes\": 5648,\n      \"OtherIdleTimeInMinutes\": 1994\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "81a16231-7783-4664-9ecf-d7ce2abd4060",
+              "name": "Bad request, date period is not in a correct format",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "reports",
+                    "vehiclessummary",
+                    ":dateperiod"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dateperiod",
+                      "description": "(Required) Date period parameter, in the form of only year (2014), year and month (201401), or interval {201301-201401}"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a3c5e642-1230-49ee-929f-4f16e2657e3d",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "reports",
+                    "vehiclessummary",
+                    ":dateperiod"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dateperiod",
+                      "description": "(Required) Date period parameter, in the form of only year (2014), year and month (201401), or interval {201301-201401}"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a33fbe7b-841d-42fc-9901-f832b8f07d2e",
+          "name": "Email a trip journal report to a desired email address",
+          "request": {
+            "name": "Email a trip journal report to a desired email address",
+            "description": {
+              "content": "Only vehicles that the user is associated will be allowed",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "resourceowner",
+                "reports",
+                "emailtripreport"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "read write"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.automile.com/login/"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"VehicleId\": \"<integer>\",\n  \"Period\": \"<integer>\",\n  \"ToEmail\": \"<string>\",\n  \"ISO639LanguageCode\": \"<string>\",\n  \"ExcludeDetailsForPersonalTrips\": \"<boolean>\",\n  \"ExcludeEnvironmentalAndFuelData\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a0ddd7d6-2735-48c6-b1e5-565def97aa66",
+              "name": "Email with trip journal has been sent",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "reports",
+                    "emailtripreport"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"VehicleId\": \"<integer>\",\n  \"Period\": \"<integer>\",\n  \"ToEmail\": \"<string>\",\n  \"ISO639LanguageCode\": \"<string>\",\n  \"ExcludeDetailsForPersonalTrips\": \"<boolean>\",\n  \"ExcludeEnvironmentalAndFuelData\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "0614507b-5d17-4aa7-9b3d-356f72c2df7d",
+              "name": "Not allowed to vehicle",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "reports",
+                    "emailtripreport"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"VehicleId\": \"<integer>\",\n  \"Period\": \"<integer>\",\n  \"ToEmail\": \"<string>\",\n  \"ISO639LanguageCode\": \"<string>\",\n  \"ExcludeDetailsForPersonalTrips\": \"<boolean>\",\n  \"ExcludeEnvironmentalAndFuelData\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "77db1548-ff87-4089-b96c-e0e43931efe5",
+              "name": "ISO 639 language code does not exist",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "reports",
+                    "emailtripreport"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"VehicleId\": \"<integer>\",\n  \"Period\": \"<integer>\",\n  \"ToEmail\": \"<string>\",\n  \"ISO639LanguageCode\": \"<string>\",\n  \"ExcludeDetailsForPersonalTrips\": \"<boolean>\",\n  \"ExcludeEnvironmentalAndFuelData\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "2a0e964b-9040-44a3-b380-660e7fac7f01",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "reports",
+                    "emailtripreport"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"VehicleId\": \"<integer>\",\n  \"Period\": \"<integer>\",\n  \"ToEmail\": \"<string>\",\n  \"ISO639LanguageCode\": \"<string>\",\n  \"ExcludeDetailsForPersonalTrips\": \"<boolean>\",\n  \"ExcludeEnvironmentalAndFuelData\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c7dfe0cf-5672-433e-8c07-045ac512e97f",
+          "name": "Get available vehicles and periods for an email trip journal",
+          "request": {
+            "name": "Get available vehicles and periods for an email trip journal",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "resourceowner",
+                "reports",
+                "emailtripreport",
+                "periods"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "read write"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.automile.com/login/"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "8ef06bfb-a243-4ec1-94d0-571d9fbc0187",
+              "name": "List with active vehicles and available month to send in email trip journal for is returned",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "reports",
+                    "emailtripreport",
+                    "periods"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"PeriodList\": [\n    {\n      \"VehicleId\": 1044,\n      \"FromDateMonth\": 29,\n      \"FromDateYear\": 1840\n    },\n    {\n      \"VehicleId\": 6137,\n      \"FromDateMonth\": 2006,\n      \"FromDateYear\": 8829\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "927d06a9-375f-4f70-906f-3d3ec4ae53cd",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "reports",
+                    "emailtripreport",
+                    "periods"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e62e9982-5ac4-49d1-a719-a0df979fb462",
+          "name": "Get Geofence Log",
+          "request": {
+            "name": "Get Geofence Log",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "resourceowner",
+                "reports",
+                "geofencelog"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "vehicleId",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "geofenceId",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "fromDate",
+                  "value": "<dateTime>"
+                },
+                {
+                  "disabled": false,
+                  "key": "toDate",
+                  "value": "<dateTime>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "read write"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.automile.com/login/"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "24ac3517-3940-4a00-bc19-dd1dd5003b86",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "reports",
+                    "geofencelog"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "vehicleId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "geofenceId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "fromDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "toDate",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"FromDate\": \"1981-08-27T02:09:04.980Z\",\n  \"ToDate\": \"2004-02-04T07:54:16.019Z\",\n  \"VehicleId\": 5488,\n  \"GeofenceId\": 8810,\n  \"Result\": [\n    {\n      \"TripId\": 8022,\n      \"GeofenceId\": 4071,\n      \"GeofenceName\": \"string\",\n      \"GeofenceType\": 2,\n      \"IsInside\": true,\n      \"EventDateTime\": \"2005-06-20T21:37:09.321Z\",\n      \"VehicleTinyModel\": {\n        \"VehicleId\": 1095,\n        \"NumberPlate\": \"string\",\n        \"Make\": \"string\",\n        \"Model\": \"string\",\n        \"FriendlyName\": \"string\",\n        \"FuelType\": 5,\n        \"ModelYear\": 4577,\n        \"ImageUrlMake\": \"string\",\n        \"UserFriendlyName\": \"string\"\n      }\n    },\n    {\n      \"TripId\": 7537,\n      \"GeofenceId\": 3274,\n      \"GeofenceName\": \"string\",\n      \"GeofenceType\": 2,\n      \"IsInside\": false,\n      \"EventDateTime\": \"1948-01-30T11:37:37.575Z\",\n      \"VehicleTinyModel\": {\n        \"VehicleId\": 7584,\n        \"NumberPlate\": \"string\",\n        \"Make\": \"string\",\n        \"Model\": \"string\",\n        \"FriendlyName\": \"string\",\n        \"FuelType\": 4,\n        \"ModelYear\": 7520,\n        \"ImageUrlMake\": \"string\",\n        \"UserFriendlyName\": \"string\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c3c5be9a-4e25-43fa-8553-fdaaf01d0f2e",
+          "name": "Export trips to Excel or PDF",
+          "request": {
+            "name": "Export trips to Excel or PDF",
+            "description": {
+              "content": "Only trips that the user is associated with will be returned by this operation.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "resourceowner",
+                "reports",
+                "exporttrips"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "fromDate",
+                  "value": "<dateTime>",
+                  "description": "From date"
+                },
+                {
+                  "disabled": false,
+                  "key": "toDate",
+                  "value": "<dateTime>",
+                  "description": "To date"
+                },
+                {
+                  "disabled": false,
+                  "key": "reportType",
+                  "value": "<integer>",
+                  "description": "Excel or PDF"
+                },
+                {
+                  "disabled": false,
+                  "key": "apiTripType",
+                  "value": "<integer>",
+                  "description": "Filter on trip type"
+                },
+                {
+                  "disabled": false,
+                  "key": "vehicleId",
+                  "value": "<integer>",
+                  "description": "Filter on vehicle"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "read write"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.automile.com/login/"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "b2540159-40cd-47c5-a09d-acc30d4afc55",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "reports",
+                    "exporttrips"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fromDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "toDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "reportType",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "apiTripType",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "vehicleId",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Version\": {\n    \"Major\": 20,\n    \"Minor\": 7918,\n    \"Build\": 7259,\n    \"Revision\": 1069,\n    \"MajorRevision\": 5878,\n    \"MinorRevision\": 9236\n  },\n  \"Content\": {\n    \"Headers\": [\n      {\n        \"Key\": \"string\",\n        \"Value\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      {\n        \"Key\": \"string\",\n        \"Value\": [\n          \"string\",\n          \"string\"\n        ]\n      }\n    ]\n  },\n  \"StatusCode\": 413,\n  \"ReasonPhrase\": \"string\",\n  \"Headers\": [\n    {\n      \"Key\": \"string\",\n      \"Value\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"Key\": \"string\",\n      \"Value\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ],\n  \"TrailingHeaders\": [\n    {\n      \"Key\": \"string\",\n      \"Value\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"Key\": \"string\",\n      \"Value\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ],\n  \"RequestMessage\": {\n    \"Version\": {\n      \"Major\": 676,\n      \"Minor\": 4404,\n      \"Build\": 3789,\n      \"Revision\": 4949,\n      \"MajorRevision\": 6156,\n      \"MinorRevision\": 1455\n    },\n    \"VersionPolicy\": 2,\n    \"Content\": {\n      \"Headers\": [\n        {\n          \"Key\": \"string\",\n          \"Value\": [\n            \"string\",\n            \"string\"\n          ]\n        },\n        {\n          \"Key\": \"string\",\n          \"Value\": [\n            \"string\",\n            \"string\"\n          ]\n        }\n      ]\n    },\n    \"Method\": {\n      \"Method\": \"string\"\n    },\n    \"RequestUri\": \"http://odaTiZEh.mqsrBOITo,TYRG95\",\n    \"Headers\": [\n      {\n        \"Key\": \"string\",\n        \"Value\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      {\n        \"Key\": \"string\",\n        \"Value\": [\n          \"string\",\n          \"string\"\n        ]\n      }\n    ],\n    \"Properties\": {\n      \"key_0\": {},\n      \"key_1\": {}\n    },\n    \"Options\": {\n      \"key_0\": {},\n      \"key_1\": {}\n    }\n  },\n  \"IsSuccessStatusCode\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "8651fd9e-12fa-4299-a6f7-02a6ba321141",
+    "name": "Automile ClientApi ResourceOwnerReports API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,1589 @@
+{
+  "item": [
+    {
+      "id": "c671f411-7d59-4f74-a95a-9ec566fd16be",
+      "name": "ResourceOwnerRegisteredTollV2",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "1382c2da-57bc-4bbd-84ac-393e50b6ecb2",
+          "name": "Get list of registered tolls",
+          "request": {
+            "name": "Get list of registered tolls",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "resourceowner",
+                "registeredtoll"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "from",
+                  "value": "<dateTime>",
+                  "description": "Registered tolls from this timestamp (default: 60 days back)"
+                },
+                {
+                  "disabled": false,
+                  "key": "to",
+                  "value": "<dateTime>",
+                  "description": "Registered tolls until this timestamp (default: current timestamp)"
+                },
+                {
+                  "disabled": false,
+                  "key": "vehicleId",
+                  "value": "<integer>",
+                  "description": "If set, only list tolls registered for this specific vehicle (default: all accessible vehicles)"
+                },
+                {
+                  "disabled": false,
+                  "key": "driverContactId",
+                  "value": "<integer>",
+                  "description": "If set, only list tolls registered for this specific driver (default: all drivers)"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "read write"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.automile.com/login/"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "a9bf1a04-ecfe-451e-84bd-3e800c6650b0",
+              "name": "Registered toll list successfully fetched",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "registeredtoll"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "vehicleId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "driverContactId",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"TimestampUtc\": \"2017-03-29T21:04:06.744Z\",\n    \"Fee\": 9248.54339378324,\n    \"TripId\": 32,\n    \"GeofenceId\": 4901,\n    \"TollZoneId\": 7475,\n    \"PriceAfterDiscount\": 5532.814079303018,\n    \"TollZoneName\": \"string\",\n    \"RegisteredTollId\": 7220,\n    \"VehicleId\": 7008,\n    \"VehicleUserFriendlyName\": \"string\",\n    \"VehicleMake\": \"string\",\n    \"VehicleModel\": \"string\",\n    \"VehicleNumberPlate\": \"string\",\n    \"DriverContactId\": 5727,\n    \"DriverImageUrl\": \"string\",\n    \"DriverName\": \"string\",\n    \"CurrencyISO4271\": \"string\",\n    \"ReadOnly\": false,\n    \"TripType\": 1\n  },\n  {\n    \"TimestampUtc\": \"2007-08-02T05:16:06.361Z\",\n    \"Fee\": 3889.509948531825,\n    \"TripId\": 3016,\n    \"GeofenceId\": 9753,\n    \"TollZoneId\": 9284,\n    \"PriceAfterDiscount\": 4002.5485467700328,\n    \"TollZoneName\": \"string\",\n    \"RegisteredTollId\": 7271,\n    \"VehicleId\": 1964,\n    \"VehicleUserFriendlyName\": \"string\",\n    \"VehicleMake\": \"string\",\n    \"VehicleModel\": \"string\",\n    \"VehicleNumberPlate\": \"string\",\n    \"DriverContactId\": 3593,\n    \"DriverImageUrl\": \"string\",\n    \"DriverName\": \"string\",\n    \"CurrencyISO4271\": \"string\",\n    \"ReadOnly\": false,\n    \"TripType\": 3\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e2c66443-d294-49e8-bc3d-a33131dd3fe9",
+              "name": "Forbidden access to resource",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "registeredtoll"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "vehicleId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "driverContactId",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "bfab96b3-1df0-4313-94c0-b7f013cd3f81",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "registeredtoll"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "vehicleId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "driverContactId",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4961d7c0-43b5-4299-8725-e64b2dd0580c",
+          "name": "Register a toll passage",
+          "request": {
+            "name": "Register a toll passage",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "resourceowner",
+                "registeredtoll"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "read write"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.automile.com/login/"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"TimestampUtc\": \"<dateTime>\",\n  \"Fee\": \"<double>\",\n  \"TripId\": \"<integer>\",\n  \"GeofenceId\": \"<integer>\",\n  \"TollZoneId\": \"<integer>\",\n  \"PriceAfterDiscount\": \"<double>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "5943b42b-ea0a-4200-b4b2-4459246fc34b",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "registeredtoll"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"TimestampUtc\": \"<dateTime>\",\n  \"Fee\": \"<double>\",\n  \"TripId\": \"<integer>\",\n  \"GeofenceId\": \"<integer>\",\n  \"TollZoneId\": \"<integer>\",\n  \"PriceAfterDiscount\": \"<double>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8095fb0c-4c0a-4be1-9fa9-9b3e6da71d5b",
+              "name": "Successfully created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "registeredtoll"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"TimestampUtc\": \"<dateTime>\",\n  \"Fee\": \"<double>\",\n  \"TripId\": \"<integer>\",\n  \"GeofenceId\": \"<integer>\",\n  \"TollZoneId\": \"<integer>\",\n  \"PriceAfterDiscount\": \"<double>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d051fb30-8499-4af7-8cbb-f57f3524aeec",
+              "name": "Forbidden access to resource",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "registeredtoll"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"TimestampUtc\": \"<dateTime>\",\n  \"Fee\": \"<double>\",\n  \"TripId\": \"<integer>\",\n  \"GeofenceId\": \"<integer>\",\n  \"TollZoneId\": \"<integer>\",\n  \"PriceAfterDiscount\": \"<double>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ead3b88a-9ca1-48fe-bd9c-21419bef0131",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "registeredtoll"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"TimestampUtc\": \"<dateTime>\",\n  \"Fee\": \"<double>\",\n  \"TripId\": \"<integer>\",\n  \"GeofenceId\": \"<integer>\",\n  \"TollZoneId\": \"<integer>\",\n  \"PriceAfterDiscount\": \"<double>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1ce84feb-5d41-42d2-a0cf-f9d712d41ab6",
+          "name": "Update multiple toll passage registrations",
+          "request": {
+            "name": "Update multiple toll passage registrations",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "resourceowner",
+                "registeredtoll",
+                "multi-update"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "read write"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.automile.com/login/"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"RegisteredTollList\": [\n    {\n      \"TimestampUtc\": \"<dateTime>\",\n      \"Fee\": \"<double>\",\n      \"TripId\": \"<integer>\",\n      \"GeofenceId\": \"<integer>\",\n      \"TollZoneId\": \"<integer>\",\n      \"PriceAfterDiscount\": \"<double>\",\n      \"RegisteredTollId\": \"<integer>\"\n    },\n    {\n      \"TimestampUtc\": \"<dateTime>\",\n      \"Fee\": \"<double>\",\n      \"TripId\": \"<integer>\",\n      \"GeofenceId\": \"<integer>\",\n      \"TollZoneId\": \"<integer>\",\n      \"PriceAfterDiscount\": \"<double>\",\n      \"RegisteredTollId\": \"<integer>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c21ceabd-4ef7-467b-bf76-20cb1c966ebb",
+              "name": "Successfully updated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "registeredtoll",
+                    "multi-update"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"RegisteredTollList\": [\n    {\n      \"TimestampUtc\": \"<dateTime>\",\n      \"Fee\": \"<double>\",\n      \"TripId\": \"<integer>\",\n      \"GeofenceId\": \"<integer>\",\n      \"TollZoneId\": \"<integer>\",\n      \"PriceAfterDiscount\": \"<double>\",\n      \"RegisteredTollId\": \"<integer>\"\n    },\n    {\n      \"TimestampUtc\": \"<dateTime>\",\n      \"Fee\": \"<double>\",\n      \"TripId\": \"<integer>\",\n      \"GeofenceId\": \"<integer>\",\n      \"TollZoneId\": \"<integer>\",\n      \"PriceAfterDiscount\": \"<double>\",\n      \"RegisteredTollId\": \"<integer>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "6f879433-7c59-4c3f-a9fc-9830f4479df5",
+              "name": "Forbidden access to resource",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "registeredtoll",
+                    "multi-update"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"RegisteredTollList\": [\n    {\n      \"TimestampUtc\": \"<dateTime>\",\n      \"Fee\": \"<double>\",\n      \"TripId\": \"<integer>\",\n      \"GeofenceId\": \"<integer>\",\n      \"TollZoneId\": \"<integer>\",\n      \"PriceAfterDiscount\": \"<double>\",\n      \"RegisteredTollId\": \"<integer>\"\n    },\n    {\n      \"TimestampUtc\": \"<dateTime>\",\n      \"Fee\": \"<double>\",\n      \"TripId\": \"<integer>\",\n      \"GeofenceId\": \"<integer>\",\n      \"TollZoneId\": \"<integer>\",\n      \"PriceAfterDiscount\": \"<double>\",\n      \"RegisteredTollId\": \"<integer>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f39c7687-3e70-4b86-8f78-0b0b725d3276",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "registeredtoll",
+                    "multi-update"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"RegisteredTollList\": [\n    {\n      \"TimestampUtc\": \"<dateTime>\",\n      \"Fee\": \"<double>\",\n      \"TripId\": \"<integer>\",\n      \"GeofenceId\": \"<integer>\",\n      \"TollZoneId\": \"<integer>\",\n      \"PriceAfterDiscount\": \"<double>\",\n      \"RegisteredTollId\": \"<integer>\"\n    },\n    {\n      \"TimestampUtc\": \"<dateTime>\",\n      \"Fee\": \"<double>\",\n      \"TripId\": \"<integer>\",\n      \"GeofenceId\": \"<integer>\",\n      \"TollZoneId\": \"<integer>\",\n      \"PriceAfterDiscount\": \"<double>\",\n      \"RegisteredTollId\": \"<integer>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d0d43d81-e8e7-47b9-8d54-d69a428b93e2",
+          "name": "Update a toll passage",
+          "request": {
+            "name": "Update a toll passage",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "resourceowner",
+                "registeredtoll",
+                ":registeredTollId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "registeredTollId",
+                  "description": "(Required) Which toll fee to edit"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "read write"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.automile.com/login/"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"TimestampUtc\": \"<dateTime>\",\n  \"Fee\": \"<double>\",\n  \"TripId\": \"<integer>\",\n  \"GeofenceId\": \"<integer>\",\n  \"TollZoneId\": \"<integer>\",\n  \"PriceAfterDiscount\": \"<double>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c6edd7fa-844e-4c09-a6c1-9f39438ab02d",
+              "name": "Successfully updated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "registeredtoll",
+                    ":registeredTollId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "registeredTollId",
+                      "description": "(Required) Which toll fee to edit"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"TimestampUtc\": \"<dateTime>\",\n  \"Fee\": \"<double>\",\n  \"TripId\": \"<integer>\",\n  \"GeofenceId\": \"<integer>\",\n  \"TollZoneId\": \"<integer>\",\n  \"PriceAfterDiscount\": \"<double>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c9fff7e3-be85-4654-b68b-a7d3b0c94de5",
+              "name": "Forbidden access to resource",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "registeredtoll",
+                    ":registeredTollId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "registeredTollId",
+                      "description": "(Required) Which toll fee to edit"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"TimestampUtc\": \"<dateTime>\",\n  \"Fee\": \"<double>\",\n  \"TripId\": \"<integer>\",\n  \"GeofenceId\": \"<integer>\",\n  \"TollZoneId\": \"<integer>\",\n  \"PriceAfterDiscount\": \"<double>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "cf576011-3be5-48a0-bd11-ae2cc88a722b",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "registeredtoll",
+                    ":registeredTollId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "registeredTollId",
+                      "description": "(Required) Which toll fee to edit"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"TimestampUtc\": \"<dateTime>\",\n  \"Fee\": \"<double>\",\n  \"TripId\": \"<integer>\",\n  \"GeofenceId\": \"<integer>\",\n  \"TollZoneId\": \"<integer>\",\n  \"PriceAfterDiscount\": \"<double>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3afda1bc-dacf-4e6e-b80d-0728f9d7ebdf",
+          "name": "Get registered toll",
+          "request": {
+            "name": "Get registered toll",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "resourceowner",
+                "registeredtoll",
+                ":registeredTollId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "registeredTollId",
+                  "description": "(Required) Id of registered toll"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "read write"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.automile.com/login/"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "83a9f7b7-64ed-4752-b25f-78a276eb0a2a",
+              "name": "Registered toll list successfully fetched",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "registeredtoll",
+                    ":registeredTollId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "registeredTollId",
+                      "description": "(Required) Id of registered toll"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"TimestampUtc\": \"2009-02-04T19:11:34.958Z\",\n  \"Fee\": 4612.279340168092,\n  \"TripId\": 4365,\n  \"GeofenceId\": 4708,\n  \"TollZoneId\": 1615,\n  \"PriceAfterDiscount\": 8210.700390999462,\n  \"TollZoneName\": \"string\",\n  \"RegisteredTollId\": 8042,\n  \"VehicleId\": 8553,\n  \"VehicleUserFriendlyName\": \"string\",\n  \"VehicleMake\": \"string\",\n  \"VehicleModel\": \"string\",\n  \"VehicleNumberPlate\": \"string\",\n  \"DriverContactId\": 2224,\n  \"DriverImageUrl\": \"string\",\n  \"DriverName\": \"string\",\n  \"CurrencyISO4271\": \"string\",\n  \"ReadOnly\": true,\n  \"TripType\": 1\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5500258c-219e-4cce-9750-f3ee799b6d63",
+              "name": "Forbidden access to resource",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "registeredtoll",
+                    ":registeredTollId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "registeredTollId",
+                      "description": "(Required) Id of registered toll"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c80187d0-30c2-4ed6-ac1c-89aba3209832",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "registeredtoll",
+                    ":registeredTollId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "registeredTollId",
+                      "description": "(Required) Id of registered toll"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "29636743-eaf6-48d1-90cd-0c4dd8fb8939",
+          "name": "Delete registered toll fee",
+          "request": {
+            "name": "Delete registered toll fee",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "resourceowner",
+                "registeredtoll",
+                ":registeredTollId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "registeredTollId",
+                  "description": "(Required) The id for the registered toll to delete"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "read write"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.automile.com/login/"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "5558e75a-646d-4fa3-ab41-611aff7d7002",
+              "name": "Registered toll list successfully deleted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "registeredtoll",
+                    ":registeredTollId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "registeredTollId",
+                      "description": "(Required) The id for the registered toll to delete"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c04cfaaa-40d1-4601-a1fa-dbf3693bc564",
+              "name": "Forbidden access to resource",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "registeredtoll",
+                    ":registeredTollId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "registeredTollId",
+                      "description": "(Required) The id for the registered toll to delete"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ec884c30-2e32-45e5-9e7a-0976d3d9cf34",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "registeredtoll",
+                    ":registeredTollId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "registeredTollId",
+                      "description": "(Required) The id for the registered toll to delete"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5e6c5d8b-4dd8-4678-89dd-a71b31049173",
+          "name": "Get the list of toll zones",
+          "request": {
+            "name": "Get the list of toll zones",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "resourceowner",
+                "registeredtoll",
+                "tollzone"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "read write"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.automile.com/login/"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "c3560716-8ee1-41ae-8982-c51fede79b59",
+              "name": "Toll zone list successfully fetched",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "registeredtoll",
+                    "tollzone"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"TollZoneId\": 8477,\n    \"Name\": \"string\",\n    \"TollGeofenceList\": [\n      {\n        \"GeofenceId\": 2656,\n        \"Name\": \"string\"\n      },\n      {\n        \"GeofenceId\": 1178,\n        \"Name\": \"string\"\n      }\n    ]\n  },\n  {\n    \"TollZoneId\": 2974,\n    \"Name\": \"string\",\n    \"TollGeofenceList\": [\n      {\n        \"GeofenceId\": 2989,\n        \"Name\": \"string\"\n      },\n      {\n        \"GeofenceId\": 9663,\n        \"Name\": \"string\"\n      }\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "85bf623c-5da3-4a9c-97a1-6354ce84da9e",
+              "name": "Forbidden access to resource",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "registeredtoll",
+                    "tollzone"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "3937c744-456c-4fd1-9e3f-d208ed8ab100",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "registeredtoll",
+                    "tollzone"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "9672cea5-a3a2-4872-a39f-5cbc9e0dee21",
+    "name": "Automile ClientApi ResourceOwnerRegisteredTollV2 API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

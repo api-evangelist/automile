@@ -1,0 +1,1046 @@
+{
+  "item": [
+    {
+      "id": "7a01958d-0cf9-48e4-8fdf-3ad3713e9a28",
+      "name": "ResourceOwnerHoursOfService",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "080c26f8-2329-4c90-aa38-b104e74a94e0",
+          "name": "Hours Of Service Delete Cycles",
+          "request": {
+            "name": "Hours Of Service Delete Cycles",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "resourceowner",
+                "hoursofservice"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "DELETE",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "read write"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.automile.com/login/"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "bdf8af31-34cf-4ca0-8996-eb7d95fd4317",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "hoursofservice"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ac9f9d36-9246-4454-bf14-61906b3d1f47",
+          "name": "Parse Hours Of Service duty statuses to cycles and work shiftsS \r\nor ended in the date interval",
+          "request": {
+            "name": "Parse Hours Of Service duty statuses to cycles and work shiftsS \r\nor ended in the date interval",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "resourceowner",
+                "hoursofservice",
+                "cycles"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "fromDate",
+                  "value": "<dateTime>",
+                  "description": "Query on from date"
+                },
+                {
+                  "disabled": false,
+                  "key": "toDate",
+                  "value": "<dateTime>",
+                  "description": "Query on to date"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "read write"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.automile.com/login/"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "cfc9460b-6580-46a9-b1e6-2aae2d54cb8f",
+              "name": "The settings is returned, null if no settings exist",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "hoursofservice",
+                    "cycles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fromDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "toDate",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Cycles\": [\n    {\n      \"WorkShifts\": [\n        {\n          \"TotalTime\": {\n            \"Ticks\": 2130,\n            \"Days\": 7131,\n            \"Hours\": 9034,\n            \"Milliseconds\": 8590,\n            \"Microseconds\": 8526,\n            \"Nanoseconds\": 3287,\n            \"Minutes\": 1518,\n            \"Seconds\": 9072,\n            \"TotalDays\": 4661.317600483315,\n            \"TotalHours\": 8094.526832592775,\n            \"TotalMilliseconds\": 4762.176282293751,\n            \"TotalMicroseconds\": 6356.9522268672545,\n            \"TotalNanoseconds\": 8593.307270645704,\n            \"TotalMinutes\": 1259.115167231296,\n            \"TotalSeconds\": 6567.684437925035\n          },\n          \"OffDutyTime\": {\n            \"Ticks\": 3249,\n            \"Days\": 9993,\n            \"Hours\": 6571,\n            \"Milliseconds\": 416,\n            \"Microseconds\": 3700,\n            \"Nanoseconds\": 9829,\n            \"Minutes\": 3667,\n            \"Seconds\": 6628,\n            \"TotalDays\": 3404.1458727526974,\n            \"TotalHours\": 4730.9120219924225,\n            \"TotalMilliseconds\": 6893.337194601399,\n            \"TotalMicroseconds\": 2612.472159785458,\n            \"TotalNanoseconds\": 3331.084702173227,\n            \"TotalMinutes\": 1690.0308700082455,\n            \"TotalSeconds\": 3583.2266096326516\n          },\n          \"OnDutyTime\": {\n            \"Ticks\": 4740,\n            \"Days\": 7401,\n            \"Hours\": 4924,\n            \"Milliseconds\": 6495,\n            \"Microseconds\": 990,\n            \"Nanoseconds\": 7166,\n            \"Minutes\": 6679,\n            \"Seconds\": 7649,\n            \"TotalDays\": 7887.944520215485,\n            \"TotalHours\": 9700.113218970897,\n            \"TotalMilliseconds\": 119.79660395621816,\n            \"TotalMicroseconds\": 6273.799779990347,\n            \"TotalNanoseconds\": 9107.75461180172,\n            \"TotalMinutes\": 5007.1738917399525,\n            \"TotalSeconds\": 1292.5940756204634\n          },\n          \"DrivingTime\": {\n            \"Ticks\": 4352,\n            \"Days\": 855,\n            \"Hours\": 2716,\n            \"Milliseconds\": 7016,\n            \"Microseconds\": 4579,\n            \"Nanoseconds\": 9940,\n            \"Minutes\": 7026,\n            \"Seconds\": 8520,\n            \"TotalDays\": 7146.108460919265,\n            \"TotalHours\": 8200.82808882522,\n            \"TotalMilliseconds\": 1238.4471990616207,\n            \"TotalMicroseconds\": 4030.619120538033,\n            \"TotalNanoseconds\": 3387.856416071453,\n            \"TotalMinutes\": 294.36013747717203,\n            \"TotalSeconds\": 6266.379409832457\n          },\n          \"SleeperBerthTime\": {\n            \"Ticks\": 2291,\n            \"Days\": 5117,\n            \"Hours\": 2676,\n            \"Milliseconds\": 8011,\n            \"Microseconds\": 1125,\n            \"Nanoseconds\": 6362,\n            \"Minutes\": 6671,\n            \"Seconds\": 4336,\n            \"TotalDays\": 4531.701897622984,\n            \"TotalHours\": 2644.903853218754,\n            \"TotalMilliseconds\": 7224.903270634171,\n            \"TotalMicroseconds\": 8806.190551015254,\n            \"TotalNanoseconds\": 8218.17430517235,\n            \"TotalMinutes\": 8127.876608471261,\n            \"TotalSeconds\": 3218.9062831406536\n          },\n          \"DutyStatuses\": [\n            {\n              \"ContactId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"VehicleId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"DutyStatusType\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"FromUtc\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"ToUtc\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"Notes\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"Locations\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"CycleRuleType\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"WorkDayStartTime\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"DistanceInKm\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"ContactId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"VehicleId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"DutyStatusType\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"FromUtc\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"ToUtc\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"Notes\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"Locations\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"CycleRuleType\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"WorkDayStartTime\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"DistanceInKm\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"WorkShiftTime\": {\n            \"Ticks\": 5274,\n            \"Days\": 9261,\n            \"Hours\": 7190,\n            \"Milliseconds\": 3284,\n            \"Microseconds\": 8861,\n            \"Nanoseconds\": 3772,\n            \"Minutes\": 2718,\n            \"Seconds\": 6265,\n            \"TotalDays\": 2673.196405841559,\n            \"TotalHours\": 4620.522637046949,\n            \"TotalMilliseconds\": 7866.663266208966,\n            \"TotalMicroseconds\": 2469.009645179714,\n            \"TotalNanoseconds\": 6617.525076403909,\n            \"TotalMinutes\": 4533.405790284763,\n            \"TotalSeconds\": 4041.1213591070227\n          }\n        },\n        {\n          \"TotalTime\": {\n            \"Ticks\": 9446,\n            \"Days\": 3629,\n            \"Hours\": 9250,\n            \"Milliseconds\": 1426,\n            \"Microseconds\": 1153,\n            \"Nanoseconds\": 7825,\n            \"Minutes\": 8740,\n            \"Seconds\": 3574,\n            \"TotalDays\": 3045.7066632605465,\n            \"TotalHours\": 6652.227496944701,\n            \"TotalMilliseconds\": 4890.978816785469,\n            \"TotalMicroseconds\": 3262.2491621761483,\n            \"TotalNanoseconds\": 8324.877163266225,\n            \"TotalMinutes\": 3853.110417085198,\n            \"TotalSeconds\": 5144.127144864255\n          },\n          \"OffDutyTime\": {\n            \"Ticks\": 7036,\n            \"Days\": 2681,\n            \"Hours\": 7555,\n            \"Milliseconds\": 3175,\n            \"Microseconds\": 180,\n            \"Nanoseconds\": 1883,\n            \"Minutes\": 1970,\n            \"Seconds\": 6261,\n            \"TotalDays\": 3402.2996881904,\n            \"TotalHours\": 9713.220193208868,\n            \"TotalMilliseconds\": 2366.866827291929,\n            \"TotalMicroseconds\": 8265.639638321427,\n            \"TotalNanoseconds\": 5665.86874359967,\n            \"TotalMinutes\": 5079.98327166638,\n            \"TotalSeconds\": 2834.351430951567\n          },\n          \"OnDutyTime\": {\n            \"Ticks\": 4608,\n            \"Days\": 2984,\n            \"Hours\": 6495,\n            \"Milliseconds\": 2011,\n            \"Microseconds\": 5365,\n            \"Nanoseconds\": 3071,\n            \"Minutes\": 6736,\n            \"Seconds\": 6960,\n            \"TotalDays\": 2084.155095092196,\n            \"TotalHours\": 9790.619955899243,\n            \"TotalMilliseconds\": 3258.0717725017926,\n            \"TotalMicroseconds\": 3134.619947557543,\n            \"TotalNanoseconds\": 8779.14297281403,\n            \"TotalMinutes\": 8337.64539650089,\n            \"TotalSeconds\": 1539.2692099670592\n          },\n          \"DrivingTime\": {\n            \"Ticks\": 9132,\n            \"Days\": 2262,\n            \"Hours\": 9089,\n            \"Milliseconds\": 9975,\n            \"Microseconds\": 7355,\n            \"Nanoseconds\": 1118,\n            \"Minutes\": 8153,\n            \"Seconds\": 9973,\n            \"TotalDays\": 3010.302335721515,\n            \"TotalHours\": 8945.109078004472,\n            \"TotalMilliseconds\": 776.0365909286526,\n            \"TotalMicroseconds\": 9633.380968245603,\n            \"TotalNanoseconds\": 6149.894036096103,\n            \"TotalMinutes\": 8168.433218978177,\n            \"TotalSeconds\": 6140.678538038345\n          },\n          \"SleeperBerthTime\": {\n            \"Ticks\": 3925,\n            \"Days\": 6282,\n            \"Hours\": 7798,\n            \"Milliseconds\": 2887,\n            \"Microseconds\": 4920,\n            \"Nanoseconds\": 2943,\n            \"Minutes\": 7659,\n            \"Seconds\": 7988,\n            \"TotalDays\": 4855.690057469177,\n            \"TotalHours\": 7151.260891220302,\n            \"TotalMilliseconds\": 4871.919288026678,\n            \"TotalMicroseconds\": 7794.416050859303,\n            \"TotalNanoseconds\": 6504.25714660374,\n            \"TotalMinutes\": 7133.890645281984,\n            \"TotalSeconds\": 952.898420030035\n          },\n          \"DutyStatuses\": [\n            {\n              \"ContactId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"VehicleId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"DutyStatusType\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"FromUtc\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"ToUtc\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"Notes\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"Locations\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"CycleRuleType\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"WorkDayStartTime\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"DistanceInKm\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"ContactId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"VehicleId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"DutyStatusType\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"FromUtc\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"ToUtc\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"Notes\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"Locations\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"CycleRuleType\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"WorkDayStartTime\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"DistanceInKm\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"WorkShiftTime\": {\n            \"Ticks\": 3798,\n            \"Days\": 3902,\n            \"Hours\": 2009,\n            \"Milliseconds\": 3227,\n            \"Microseconds\": 1597,\n            \"Nanoseconds\": 2613,\n            \"Minutes\": 2481,\n            \"Seconds\": 5866,\n            \"TotalDays\": 8879.257844063517,\n            \"TotalHours\": 1932.344191795714,\n            \"TotalMilliseconds\": 5944.937236721023,\n            \"TotalMicroseconds\": 8566.387924985405,\n            \"TotalNanoseconds\": 8385.583300018076,\n            \"TotalMinutes\": 3954.5948471520487,\n            \"TotalSeconds\": 440.2952259891324\n          }\n        }\n      ],\n      \"TotalTime\": {\n        \"Ticks\": 5808,\n        \"Days\": 6784,\n        \"Hours\": 407,\n        \"Milliseconds\": 5693,\n        \"Microseconds\": 8336,\n        \"Nanoseconds\": 6472,\n        \"Minutes\": 8343,\n        \"Seconds\": 3566,\n        \"TotalDays\": 9057.813862296694,\n        \"TotalHours\": 2086.746302023507,\n        \"TotalMilliseconds\": 8061.34788976761,\n        \"TotalMicroseconds\": 4035.653068925742,\n        \"TotalNanoseconds\": 9509.487746145238,\n        \"TotalMinutes\": 1748.8032408743281,\n        \"TotalSeconds\": 3063.2617604066327\n      },\n      \"OffDutyTime\": {\n        \"Ticks\": 9482,\n        \"Days\": 8848,\n        \"Hours\": 2620,\n        \"Milliseconds\": 2238,\n        \"Microseconds\": 2277,\n        \"Nanoseconds\": 2526,\n        \"Minutes\": 41,\n        \"Seconds\": 3780,\n        \"TotalDays\": 9871.1375238801,\n        \"TotalHours\": 5268.026705397453,\n        \"TotalMilliseconds\": 7210.804004579465,\n        \"TotalMicroseconds\": 1669.6370758133648,\n        \"TotalNanoseconds\": 6216.1830602387645,\n        \"TotalMinutes\": 9373.352753607314,\n        \"TotalSeconds\": 3711.038868308637\n      },\n      \"OnDutyTime\": {\n        \"Ticks\": 5077,\n        \"Days\": 6103,\n        \"Hours\": 7274,\n        \"Milliseconds\": 3458,\n        \"Microseconds\": 6370,\n        \"Nanoseconds\": 4372,\n        \"Minutes\": 4453,\n        \"Seconds\": 9815,\n        \"TotalDays\": 6946.845204120858,\n        \"TotalHours\": 2116.650800060338,\n        \"TotalMilliseconds\": 3653.256673194478,\n        \"TotalMicroseconds\": 8174.686132242075,\n        \"TotalNanoseconds\": 9716.073464034514,\n        \"TotalMinutes\": 1532.9330625448213,\n        \"TotalSeconds\": 6191.246322762135\n      },\n      \"DrivingTime\": {\n        \"Ticks\": 1888,\n        \"Days\": 8491,\n        \"Hours\": 2171,\n        \"Milliseconds\": 5037,\n        \"Microseconds\": 1929,\n        \"Nanoseconds\": 3741,\n        \"Minutes\": 8923,\n        \"Seconds\": 9340,\n        \"TotalDays\": 8626.701069265135,\n        \"TotalHours\": 5078.075857595996,\n        \"TotalMilliseconds\": 8547.561569556437,\n        \"TotalMicroseconds\": 7275.81578882455,\n        \"TotalNanoseconds\": 1555.7403317331798,\n        \"TotalMinutes\": 9022.420628444914,\n        \"TotalSeconds\": 5978.360740258682\n      },\n      \"SleeperBerthTime\": {\n        \"Ticks\": 7158,\n        \"Days\": 2900,\n        \"Hours\": 1354,\n        \"Milliseconds\": 4026,\n        \"Microseconds\": 2370,\n        \"Nanoseconds\": 9486,\n        \"Minutes\": 6122,\n        \"Seconds\": 3383,\n        \"TotalDays\": 2498.0035815694755,\n        \"TotalHours\": 7443.113365493794,\n        \"TotalMilliseconds\": 5983.960770017062,\n        \"TotalMicroseconds\": 3576.356726822252,\n        \"TotalNanoseconds\": 6304.996752172453,\n        \"TotalMinutes\": 1184.754796585954,\n        \"TotalSeconds\": 6200.93371607743\n      },\n      \"NumberOfDays\": 6160.602410135298,\n      \"OnDutyAndDriving\": 1000.9571225390567\n    },\n    {\n      \"WorkShifts\": [\n        {\n          \"TotalTime\": {\n            \"Ticks\": 7845,\n            \"Days\": 1271,\n            \"Hours\": 8880,\n            \"Milliseconds\": 6716,\n            \"Microseconds\": 2794,\n            \"Nanoseconds\": 4862,\n            \"Minutes\": 8705,\n            \"Seconds\": 8707,\n            \"TotalDays\": 4421.284877636439,\n            \"TotalHours\": 7677.0680715020335,\n            \"TotalMilliseconds\": 8187.856006158707,\n            \"TotalMicroseconds\": 4233.082126948963,\n            \"TotalNanoseconds\": 4400.4208212021485,\n            \"TotalMinutes\": 8620.384202851441,\n            \"TotalSeconds\": 2515.6595030181707\n          },\n          \"OffDutyTime\": {\n            \"Ticks\": 1599,\n            \"Days\": 4225,\n            \"Hours\": 6232,\n            \"Milliseconds\": 5532,\n            \"Microseconds\": 362,\n            \"Nanoseconds\": 6342,\n            \"Minutes\": 4827,\n            \"Seconds\": 4500,\n            \"TotalDays\": 9993.464355617227,\n            \"TotalHours\": 1071.114792822353,\n            \"TotalMilliseconds\": 8999.76428076502,\n            \"TotalMicroseconds\": 173.02133197359848,\n            \"TotalNanoseconds\": 2594.135230597707,\n            \"TotalMinutes\": 514.5980388111382,\n            \"TotalSeconds\": 7172.046250356508\n          },\n          \"OnDutyTime\": {\n            \"Ticks\": 9958,\n            \"Days\": 3334,\n            \"Hours\": 1389,\n            \"Milliseconds\": 2278,\n            \"Microseconds\": 633,\n            \"Nanoseconds\": 7388,\n            \"Minutes\": 2433,\n            \"Seconds\": 7492,\n            \"TotalDays\": 8934.445761928235,\n            \"TotalHours\": 441.587803397161,\n            \"TotalMilliseconds\": 585.0982062502663,\n            \"TotalMicroseconds\": 6491.68093316993,\n            \"TotalNanoseconds\": 5365.210156146465,\n            \"TotalMinutes\": 2896.8653923280995,\n            \"TotalSeconds\": 184.38987078882474\n          },\n          \"DrivingTime\": {\n            \"Ticks\": 4255,\n            \"Days\": 2705,\n            \"Hours\": 6668,\n            \"Milliseconds\": 8380,\n            \"Microseconds\": 2255,\n            \"Nanoseconds\": 3063,\n            \"Minutes\": 8153,\n            \"Seconds\": 5110,\n            \"TotalDays\": 7716.503943391631,\n            \"TotalHours\": 5773.146018392336,\n            \"TotalMilliseconds\": 683.8539010673994,\n            \"TotalMicroseconds\": 1249.5690670289173,\n            \"TotalNanoseconds\": 8394.079595289655,\n            \"TotalMinutes\": 298.6392264525195,\n            \"TotalSeconds\": 3542.2327141203746\n          },\n          \"SleeperBerthTime\": {\n            \"Ticks\": 9595,\n            \"Days\": 9807,\n            \"Hours\": 1884,\n            \"Milliseconds\": 655,\n            \"Microseconds\": 4400,\n            \"Nanoseconds\": 5490,\n            \"Minutes\": 6816,\n            \"Seconds\": 4272,\n            \"TotalDays\": 7862.230182467805,\n            \"TotalHours\": 7621.157872829437,\n            \"TotalMilliseconds\": 6493.047221450102,\n            \"TotalMicroseconds\": 1302.056222410528,\n            \"TotalNanoseconds\": 2608.9851913280336,\n            \"TotalMinutes\": 5302.798039833942,\n            \"TotalSeconds\": 1383.2416506651034\n          },\n          \"DutyStatuses\": [\n            {\n              \"ContactId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"VehicleId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"DutyStatusType\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"FromUtc\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"ToUtc\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"Notes\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"Locations\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"CycleRuleType\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"WorkDayStartTime\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"DistanceInKm\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"ContactId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"VehicleId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"DutyStatusType\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"FromUtc\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"ToUtc\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"Notes\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"Locations\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"CycleRuleType\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"WorkDayStartTime\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"DistanceInKm\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"WorkShiftTime\": {\n            \"Ticks\": 4571,\n            \"Days\": 4079,\n            \"Hours\": 8298,\n            \"Milliseconds\": 4465,\n            \"Microseconds\": 25,\n            \"Nanoseconds\": 2462,\n            \"Minutes\": 5606,\n            \"Seconds\": 7876,\n            \"TotalDays\": 448.04486125141983,\n            \"TotalHours\": 2244.552395535995,\n            \"TotalMilliseconds\": 9506.448449839265,\n            \"TotalMicroseconds\": 8308.153650559905,\n            \"TotalNanoseconds\": 6871.780532737881,\n            \"TotalMinutes\": 489.73882332696394,\n            \"TotalSeconds\": 2499.3048216179545\n          }\n        },\n        {\n          \"TotalTime\": {\n            \"Ticks\": 1535,\n            \"Days\": 7247,\n            \"Hours\": 8762,\n            \"Milliseconds\": 1914,\n            \"Microseconds\": 4302,\n            \"Nanoseconds\": 4926,\n            \"Minutes\": 7883,\n            \"Seconds\": 4062,\n            \"TotalDays\": 8948.012564863273,\n            \"TotalHours\": 2815.3520484298087,\n            \"TotalMilliseconds\": 5623.028693077083,\n            \"TotalMicroseconds\": 7321.677870437089,\n            \"TotalNanoseconds\": 1534.9067102304082,\n            \"TotalMinutes\": 93.21751490505848,\n            \"TotalSeconds\": 7208.325744637004\n          },\n          \"OffDutyTime\": {\n            \"Ticks\": 2635,\n            \"Days\": 7706,\n            \"Hours\": 1810,\n            \"Milliseconds\": 4413,\n            \"Microseconds\": 824,\n            \"Nanoseconds\": 3771,\n            \"Minutes\": 5641,\n            \"Seconds\": 2135,\n            \"TotalDays\": 7644.690314195097,\n            \"TotalHours\": 2938.3581404965953,\n            \"TotalMilliseconds\": 4405.263078534384,\n            \"TotalMicroseconds\": 5858.606728216016,\n            \"TotalNanoseconds\": 311.4976584494711,\n            \"TotalMinutes\": 4628.674937493559,\n            \"TotalSeconds\": 5179.588442429519\n          },\n          \"OnDutyTime\": {\n            \"Ticks\": 5303,\n            \"Days\": 184,\n            \"Hours\": 4245,\n            \"Milliseconds\": 1315,\n            \"Microseconds\": 9812,\n            \"Nanoseconds\": 4571,\n            \"Minutes\": 9728,\n            \"Seconds\": 3637,\n            \"TotalDays\": 4091.8067425687623,\n            \"TotalHours\": 1067.6742719681376,\n            \"TotalMilliseconds\": 393.83166407114146,\n            \"TotalMicroseconds\": 4778.015022165912,\n            \"TotalNanoseconds\": 4394.107257800642,\n            \"TotalMinutes\": 7444.996664486606,\n            \"TotalSeconds\": 1368.2993034646995\n          },\n          \"DrivingTime\": {\n            \"Ticks\": 1791,\n            \"Days\": 8901,\n            \"Hours\": 5918,\n            \"Milliseconds\": 8590,\n            \"Microseconds\": 6138,\n            \"Nanoseconds\": 76,\n            \"Minutes\": 3161,\n            \"Seconds\": 6172,\n            \"TotalDays\": 6626.6768297032695,\n            \"TotalHours\": 286.0509783985909,\n            \"TotalMilliseconds\": 8114.953177296622,\n            \"TotalMicroseconds\": 5138.936837167458,\n            \"TotalNanoseconds\": 6535.19656368528,\n            \"TotalMinutes\": 7316.222022673837,\n            \"TotalSeconds\": 4005.6907376593886\n          },\n          \"SleeperBerthTime\": {\n            \"Ticks\": 7235,\n            \"Days\": 8005,\n            \"Hours\": 9290,\n            \"Milliseconds\": 2210,\n            \"Microseconds\": 6784,\n            \"Nanoseconds\": 9612,\n            \"Minutes\": 8720,\n            \"Seconds\": 4113,\n            \"TotalDays\": 5150.586520802649,\n            \"TotalHours\": 8415.865222185108,\n            \"TotalMilliseconds\": 7475.089039600503,\n            \"TotalMicroseconds\": 3039.058714147712,\n            \"TotalNanoseconds\": 3300.2168483439577,\n            \"TotalMinutes\": 4464.676088885784,\n            \"TotalSeconds\": 7346.452676268073\n          },\n          \"DutyStatuses\": [\n            {\n              \"ContactId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"VehicleId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"DutyStatusType\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"FromUtc\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"ToUtc\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"Notes\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"Locations\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"CycleRuleType\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"WorkDayStartTime\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"DistanceInKm\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"ContactId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"VehicleId\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"DutyStatusType\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"FromUtc\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"ToUtc\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"Notes\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"Locations\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"CycleRuleType\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"WorkDayStartTime\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"DistanceInKm\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"WorkShiftTime\": {\n            \"Ticks\": 928,\n            \"Days\": 2438,\n            \"Hours\": 2245,\n            \"Milliseconds\": 5369,\n            \"Microseconds\": 2784,\n            \"Nanoseconds\": 4427,\n            \"Minutes\": 3222,\n            \"Seconds\": 500,\n            \"TotalDays\": 2370.7091178053174,\n            \"TotalHours\": 5221.957839712287,\n            \"TotalMilliseconds\": 7478.384535802337,\n            \"TotalMicroseconds\": 752.937272499562,\n            \"TotalNanoseconds\": 2493.7374251314113,\n            \"TotalMinutes\": 6946.077067962605,\n            \"TotalSeconds\": 2384.208154129708\n          }\n        }\n      ],\n      \"TotalTime\": {\n        \"Ticks\": 5841,\n        \"Days\": 3580,\n        \"Hours\": 5249,\n        \"Milliseconds\": 6691,\n        \"Microseconds\": 4189,\n        \"Nanoseconds\": 4900,\n        \"Minutes\": 7269,\n        \"Seconds\": 7344,\n        \"TotalDays\": 6440.6385103337325,\n        \"TotalHours\": 9201.854933234452,\n        \"TotalMilliseconds\": 3355.4815126309136,\n        \"TotalMicroseconds\": 9219.177726016313,\n        \"TotalNanoseconds\": 9414.764348164686,\n        \"TotalMinutes\": 3634.8813358502052,\n        \"TotalSeconds\": 9067.44614086459\n      },\n      \"OffDutyTime\": {\n        \"Ticks\": 5457,\n        \"Days\": 1571,\n        \"Hours\": 6146,\n        \"Milliseconds\": 702,\n        \"Microseconds\": 3794,\n        \"Nanoseconds\": 5920,\n        \"Minutes\": 8595,\n        \"Seconds\": 2634,\n        \"TotalDays\": 4831.364909185877,\n        \"TotalHours\": 5188.960676055181,\n        \"TotalMilliseconds\": 6753.665419380347,\n        \"TotalMicroseconds\": 5978.530203738567,\n        \"TotalNanoseconds\": 7591.4787766929385,\n        \"TotalMinutes\": 3368.806606401057,\n        \"TotalSeconds\": 5741.101081107853\n      },\n      \"OnDutyTime\": {\n        \"Ticks\": 8815,\n        \"Days\": 9279,\n        \"Hours\": 7666,\n        \"Milliseconds\": 362,\n        \"Microseconds\": 2126,\n        \"Nanoseconds\": 9092,\n        \"Minutes\": 3260,\n        \"Seconds\": 2793,\n        \"TotalDays\": 6941.953565278271,\n        \"TotalHours\": 7245.938173109662,\n        \"TotalMilliseconds\": 4502.925945573673,\n        \"TotalMicroseconds\": 8708.803103394848,\n        \"TotalNanoseconds\": 479.0671977954608,\n        \"TotalMinutes\": 6231.791687564091,\n        \"TotalSeconds\": 295.58693967126516\n      },\n      \"DrivingTime\": {\n        \"Ticks\": 2333,\n        \"Days\": 1542,\n        \"Hours\": 2758,\n        \"Milliseconds\": 7527,\n        \"Microseconds\": 2231,\n        \"Nanoseconds\": 8774,\n        \"Minutes\": 3036,\n        \"Seconds\": 5157,\n        \"TotalDays\": 5754.360986908657,\n        \"TotalHours\": 4537.443555544999,\n        \"TotalMilliseconds\": 4095.026229443591,\n        \"TotalMicroseconds\": 1194.8956418453206,\n        \"TotalNanoseconds\": 1335.4242497342227,\n        \"TotalMinutes\": 9601.592300071621,\n        \"TotalSeconds\": 3385.750196415057\n      },\n      \"SleeperBerthTime\": {\n        \"Ticks\": 5246,\n        \"Days\": 7318,\n        \"Hours\": 7966,\n        \"Milliseconds\": 6316,\n        \"Microseconds\": 3988,\n        \"Nanoseconds\": 1007,\n        \"Minutes\": 1516,\n        \"Seconds\": 8682,\n        \"TotalDays\": 1953.3536821656182,\n        \"TotalHours\": 4971.460974158634,\n        \"TotalMilliseconds\": 5461.799711163316,\n        \"TotalMicroseconds\": 2301.5810482132447,\n        \"TotalNanoseconds\": 1156.7750764124796,\n        \"TotalMinutes\": 7310.415768785577,\n        \"TotalSeconds\": 4242.406960211801\n      },\n      \"NumberOfDays\": 9139.864214043006,\n      \"OnDutyAndDriving\": 4485.956112773224\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "eefd684f-9859-4232-947b-365328350259",
+          "name": "Get the Hours of Service statuses that started in the date interval \r\nor ended in the date interval",
+          "request": {
+            "name": "Get the Hours of Service statuses that started in the date interval \r\nor ended in the date interval",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "resourceowner",
+                "hoursofservice",
+                "statuses"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "fromDate",
+                  "value": "<dateTime>",
+                  "description": "Query on from date"
+                },
+                {
+                  "disabled": false,
+                  "key": "toDate",
+                  "value": "<dateTime>",
+                  "description": "Query on to date"
+                },
+                {
+                  "disabled": false,
+                  "key": "hoursOfServiceLogId",
+                  "value": "<integer>",
+                  "description": "Query on id"
+                },
+                {
+                  "disabled": false,
+                  "key": "contactId",
+                  "value": "<integer>",
+                  "description": "Get statuses for a contact"
+                },
+                {
+                  "disabled": false,
+                  "key": "vehicleId",
+                  "value": "<integer>",
+                  "description": "Get statuses for a vehicle"
+                },
+                {
+                  "disabled": false,
+                  "key": "notes",
+                  "value": "<string>",
+                  "description": "Query on notes"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "read write"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.automile.com/login/"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "5b806ba4-7b54-4c65-8472-5b4c6e18bc94",
+              "name": "The settings is returned, null if no settings exist",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "hoursofservice",
+                    "statuses"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fromDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "toDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "hoursOfServiceLogId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "contactId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "vehicleId",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "notes",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"LastSynchDate\": \"1992-08-13T03:00:35.753Z\",\n  \"DutyStatuses\": [\n    {\n      \"HoursOfServiceLogId\": 917,\n      \"VehicleId\": 4302,\n      \"DutyStatusType\": 0,\n      \"FromDateTime\": \"1981-08-01T20:53:21.175Z\",\n      \"ToDateTime\": \"1973-12-07T05:17:56.401Z\",\n      \"Notes\": \"string\",\n      \"Location\": \"string\",\n      \"CycleRuleType\": 3,\n      \"WorkDayStartTime\": {\n        \"Ticks\": 7367,\n        \"Days\": 3128,\n        \"Hours\": 1001,\n        \"Milliseconds\": 5836,\n        \"Microseconds\": 1636,\n        \"Nanoseconds\": 5584,\n        \"Minutes\": 4298,\n        \"Seconds\": 5479,\n        \"TotalDays\": 3015.311512917217,\n        \"TotalHours\": 5710.115242578989,\n        \"TotalMilliseconds\": 2505.896502175707,\n        \"TotalMicroseconds\": 2283.2657946330737,\n        \"TotalNanoseconds\": 970.3784118959036,\n        \"TotalMinutes\": 5983.512433055198,\n        \"TotalSeconds\": 3166.376938841178\n      },\n      \"DistanceInKm\": 2828.740156214611,\n      \"CreatedDateTime\": \"1948-09-26T11:01:16.261Z\",\n      \"ModifiedDateTime\": \"2006-07-06T06:20:50.097Z\",\n      \"ExternalId\": \"0bb11db3-b80b-a44a-5e69-b42f77896142\",\n      \"IsDeleted\": true\n    },\n    {\n      \"HoursOfServiceLogId\": 2052,\n      \"VehicleId\": 4309,\n      \"DutyStatusType\": 0,\n      \"FromDateTime\": \"2009-01-28T05:46:56.053Z\",\n      \"ToDateTime\": \"2018-09-29T22:48:55.331Z\",\n      \"Notes\": \"string\",\n      \"Location\": \"string\",\n      \"CycleRuleType\": 2,\n      \"WorkDayStartTime\": {\n        \"Ticks\": 9545,\n        \"Days\": 7878,\n        \"Hours\": 8022,\n        \"Milliseconds\": 4638,\n        \"Microseconds\": 4711,\n        \"Nanoseconds\": 1026,\n        \"Minutes\": 6978,\n        \"Seconds\": 9491,\n        \"TotalDays\": 9342.558582649017,\n        \"TotalHours\": 7827.12772271242,\n        \"TotalMilliseconds\": 9449.175703221197,\n        \"TotalMicroseconds\": 7932.196632220347,\n        \"TotalNanoseconds\": 2556.7594962414096,\n        \"TotalMinutes\": 9408.185923951309,\n        \"TotalSeconds\": 2804.64191865767\n      },\n      \"DistanceInKm\": 6516.315311817755,\n      \"CreatedDateTime\": \"2021-04-29T11:04:45.739Z\",\n      \"ModifiedDateTime\": \"2018-03-03T09:09:18.160Z\",\n      \"ExternalId\": \"82bc38d3-a6c7-d1e2-f53e-72326f89e817\",\n      \"IsDeleted\": false\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7f515be1-2aea-404c-aa27-1c239000c04a",
+          "name": "Get the Hours of Service statuses that have beend added, updated or deleted",
+          "request": {
+            "name": "Get the Hours of Service statuses that have beend added, updated or deleted",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "resourceowner",
+                "hoursofservice",
+                "synch"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "lastSynchDate",
+                  "value": "<dateTime>",
+                  "description": "Query on status that have been created, modified or deleted"
+                },
+                {
+                  "disabled": false,
+                  "key": "contactId",
+                  "value": "<integer>",
+                  "description": "Get statuses for a contact"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "read write"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.automile.com/login/"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "6929dee3-e3cd-45f4-93f8-d83ae167fad0",
+              "name": "The settings is returned, null if no settings exist",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "hoursofservice",
+                    "synch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "lastSynchDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "contactId",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"LastSynchDate\": \"2000-11-22T05:33:51.593Z\",\n  \"Added\": [\n    {\n      \"HoursOfServiceLogId\": 5234,\n      \"VehicleId\": 1126,\n      \"DutyStatusType\": 1,\n      \"FromDateTime\": \"1958-06-30T01:58:09.718Z\",\n      \"ToDateTime\": \"1999-12-01T11:46:34.327Z\",\n      \"Notes\": \"string\",\n      \"Location\": \"string\",\n      \"CycleRuleType\": 7,\n      \"WorkDayStartTime\": {\n        \"Ticks\": 2122,\n        \"Days\": 1703,\n        \"Hours\": 1910,\n        \"Milliseconds\": 6177,\n        \"Microseconds\": 8093,\n        \"Nanoseconds\": 7324,\n        \"Minutes\": 9976,\n        \"Seconds\": 5313,\n        \"TotalDays\": 4176.518910077537,\n        \"TotalHours\": 7003.391233522834,\n        \"TotalMilliseconds\": 9986.616095817844,\n        \"TotalMicroseconds\": 2572.7975756890187,\n        \"TotalNanoseconds\": 5487.662381441476,\n        \"TotalMinutes\": 1333.1418627489766,\n        \"TotalSeconds\": 4643.178600176371\n      },\n      \"DistanceInKm\": 759.3099566950157,\n      \"CreatedDateTime\": \"1987-02-06T09:45:07.134Z\",\n      \"ModifiedDateTime\": \"1973-01-07T18:11:04.506Z\",\n      \"ExternalId\": \"65fdac35-e945-e80f-99c6-00047e3de508\",\n      \"IsDeleted\": true\n    },\n    {\n      \"HoursOfServiceLogId\": 1600,\n      \"VehicleId\": 5873,\n      \"DutyStatusType\": 3,\n      \"FromDateTime\": \"1980-08-30T06:35:51.664Z\",\n      \"ToDateTime\": \"1981-08-15T23:05:08.327Z\",\n      \"Notes\": \"string\",\n      \"Location\": \"string\",\n      \"CycleRuleType\": 2,\n      \"WorkDayStartTime\": {\n        \"Ticks\": 6176,\n        \"Days\": 9904,\n        \"Hours\": 4433,\n        \"Milliseconds\": 6689,\n        \"Microseconds\": 8138,\n        \"Nanoseconds\": 6813,\n        \"Minutes\": 3281,\n        \"Seconds\": 5595,\n        \"TotalDays\": 2541.231925738422,\n        \"TotalHours\": 425.152881894062,\n        \"TotalMilliseconds\": 8726.368063701564,\n        \"TotalMicroseconds\": 425.30613277240394,\n        \"TotalNanoseconds\": 8301.297469727222,\n        \"TotalMinutes\": 7131.3254659887625,\n        \"TotalSeconds\": 3793.586757404821\n      },\n      \"DistanceInKm\": 6969.015031671742,\n      \"CreatedDateTime\": \"2002-01-18T03:13:17.897Z\",\n      \"ModifiedDateTime\": \"1993-04-28T21:52:19.344Z\",\n      \"ExternalId\": \"6428f622-9464-6304-facc-a5fdafc69888\",\n      \"IsDeleted\": true\n    }\n  ],\n  \"Updated\": [\n    {\n      \"HoursOfServiceLogId\": 7570,\n      \"VehicleId\": 1319,\n      \"DutyStatusType\": 2,\n      \"FromDateTime\": \"1981-07-01T17:05:26.683Z\",\n      \"ToDateTime\": \"2007-12-24T01:39:11.514Z\",\n      \"Notes\": \"string\",\n      \"Location\": \"string\",\n      \"CycleRuleType\": 6,\n      \"WorkDayStartTime\": {\n        \"Ticks\": 6237,\n        \"Days\": 7182,\n        \"Hours\": 1368,\n        \"Milliseconds\": 4561,\n        \"Microseconds\": 5706,\n        \"Nanoseconds\": 455,\n        \"Minutes\": 584,\n        \"Seconds\": 9207,\n        \"TotalDays\": 3930.090689354977,\n        \"TotalHours\": 6782.179929408037,\n        \"TotalMilliseconds\": 8981.907952923539,\n        \"TotalMicroseconds\": 1675.1613722589686,\n        \"TotalNanoseconds\": 9398.405718297043,\n        \"TotalMinutes\": 3515.9158174569684,\n        \"TotalSeconds\": 7995.211946956248\n      },\n      \"DistanceInKm\": 6629.166960769537,\n      \"CreatedDateTime\": \"2022-03-03T01:48:07.484Z\",\n      \"ModifiedDateTime\": \"1961-09-24T10:06:40.116Z\",\n      \"ExternalId\": \"0f60b74e-747e-4fc0-159e-156ded0ac30b\",\n      \"IsDeleted\": false\n    },\n    {\n      \"HoursOfServiceLogId\": 7017,\n      \"VehicleId\": 8911,\n      \"DutyStatusType\": 3,\n      \"FromDateTime\": \"2012-12-29T18:43:12.661Z\",\n      \"ToDateTime\": \"1978-09-07T20:28:03.665Z\",\n      \"Notes\": \"string\",\n      \"Location\": \"string\",\n      \"CycleRuleType\": 7,\n      \"WorkDayStartTime\": {\n        \"Ticks\": 6978,\n        \"Days\": 3630,\n        \"Hours\": 8747,\n        \"Milliseconds\": 3544,\n        \"Microseconds\": 8856,\n        \"Nanoseconds\": 1727,\n        \"Minutes\": 766,\n        \"Seconds\": 9881,\n        \"TotalDays\": 4511.186791653471,\n        \"TotalHours\": 1302.8760236242965,\n        \"TotalMilliseconds\": 9252.25789021336,\n        \"TotalMicroseconds\": 1070.999305993815,\n        \"TotalNanoseconds\": 9747.78457049613,\n        \"TotalMinutes\": 1192.5691829476891,\n        \"TotalSeconds\": 8202.55412668305\n      },\n      \"DistanceInKm\": 3431.2211290258865,\n      \"CreatedDateTime\": \"2026-02-28T21:38:02.033Z\",\n      \"ModifiedDateTime\": \"1969-12-23T02:30:18.413Z\",\n      \"ExternalId\": \"2ee8e384-8257-bc5c-d26f-3099b2f11aaa\",\n      \"IsDeleted\": true\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0b8d0e4c-9180-46dd-930c-490d9d1d7589",
+          "name": "Creates Hours Of Service duty status entry",
+          "request": {
+            "name": "Creates Hours Of Service duty status entry",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "resourceowner",
+                "hoursofservice",
+                "status"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "read write"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.automile.com/login/"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"Added\": [\n    {\n      \"VehicleId\": \"<integer>\",\n      \"DutyStatusType\": \"<integer>\",\n      \"FromDateTime\": \"<dateTime>\",\n      \"ToDateTime\": \"<dateTime>\",\n      \"Notes\": \"<string>\",\n      \"Location\": \"<string>\",\n      \"ExternalId\": \"<uuid>\"\n    },\n    {\n      \"VehicleId\": \"<integer>\",\n      \"DutyStatusType\": \"<integer>\",\n      \"FromDateTime\": \"<dateTime>\",\n      \"ToDateTime\": \"<dateTime>\",\n      \"Notes\": \"<string>\",\n      \"Location\": \"<string>\",\n      \"ExternalId\": \"<uuid>\"\n    }\n  ],\n  \"Updated\": [\n    {\n      \"HoursOfServiceLogId\": \"<integer>\",\n      \"VehicleId\": \"<integer>\",\n      \"DutyStatusType\": \"<integer>\",\n      \"FromDateTime\": \"<dateTime>\",\n      \"ToDateTime\": \"<dateTime>\",\n      \"Notes\": \"<string>\",\n      \"Location\": \"<string>\",\n      \"CycleRuleType\": \"<integer>\",\n      \"WorkDayStartTime\": {\n        \"Ticks\": \"<long>\"\n      },\n      \"DistanceInKm\": \"<double>\",\n      \"CreatedDateTime\": \"<dateTime>\",\n      \"ModifiedDateTime\": \"<dateTime>\",\n      \"ExternalId\": \"<uuid>\",\n      \"IsDeleted\": \"<boolean>\"\n    },\n    {\n      \"HoursOfServiceLogId\": \"<integer>\",\n      \"VehicleId\": \"<integer>\",\n      \"DutyStatusType\": \"<integer>\",\n      \"FromDateTime\": \"<dateTime>\",\n      \"ToDateTime\": \"<dateTime>\",\n      \"Notes\": \"<string>\",\n      \"Location\": \"<string>\",\n      \"CycleRuleType\": \"<integer>\",\n      \"WorkDayStartTime\": {\n        \"Ticks\": \"<long>\"\n      },\n      \"DistanceInKm\": \"<double>\",\n      \"CreatedDateTime\": \"<dateTime>\",\n      \"ModifiedDateTime\": \"<dateTime>\",\n      \"ExternalId\": \"<uuid>\",\n      \"IsDeleted\": \"<boolean>\"\n    }\n  ],\n  \"LastSynchDate\": \"<dateTime>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "9209dc70-b3b7-471d-96d0-1a85a3afc211",
+              "name": "A link in the header is returned to the newly resource",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "hoursofservice",
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Added\": [\n    {\n      \"VehicleId\": \"<integer>\",\n      \"DutyStatusType\": \"<integer>\",\n      \"FromDateTime\": \"<dateTime>\",\n      \"ToDateTime\": \"<dateTime>\",\n      \"Notes\": \"<string>\",\n      \"Location\": \"<string>\",\n      \"ExternalId\": \"<uuid>\"\n    },\n    {\n      \"VehicleId\": \"<integer>\",\n      \"DutyStatusType\": \"<integer>\",\n      \"FromDateTime\": \"<dateTime>\",\n      \"ToDateTime\": \"<dateTime>\",\n      \"Notes\": \"<string>\",\n      \"Location\": \"<string>\",\n      \"ExternalId\": \"<uuid>\"\n    }\n  ],\n  \"Updated\": [\n    {\n      \"HoursOfServiceLogId\": \"<integer>\",\n      \"VehicleId\": \"<integer>\",\n      \"DutyStatusType\": \"<integer>\",\n      \"FromDateTime\": \"<dateTime>\",\n      \"ToDateTime\": \"<dateTime>\",\n      \"Notes\": \"<string>\",\n      \"Location\": \"<string>\",\n      \"CycleRuleType\": \"<integer>\",\n      \"WorkDayStartTime\": {\n        \"Ticks\": \"<long>\"\n      },\n      \"DistanceInKm\": \"<double>\",\n      \"CreatedDateTime\": \"<dateTime>\",\n      \"ModifiedDateTime\": \"<dateTime>\",\n      \"ExternalId\": \"<uuid>\",\n      \"IsDeleted\": \"<boolean>\"\n    },\n    {\n      \"HoursOfServiceLogId\": \"<integer>\",\n      \"VehicleId\": \"<integer>\",\n      \"DutyStatusType\": \"<integer>\",\n      \"FromDateTime\": \"<dateTime>\",\n      \"ToDateTime\": \"<dateTime>\",\n      \"Notes\": \"<string>\",\n      \"Location\": \"<string>\",\n      \"CycleRuleType\": \"<integer>\",\n      \"WorkDayStartTime\": {\n        \"Ticks\": \"<long>\"\n      },\n      \"DistanceInKm\": \"<double>\",\n      \"CreatedDateTime\": \"<dateTime>\",\n      \"ModifiedDateTime\": \"<dateTime>\",\n      \"ExternalId\": \"<uuid>\",\n      \"IsDeleted\": \"<boolean>\"\n    }\n  ],\n  \"LastSynchDate\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "88c5e471-742b-448e-958c-7e1eafae64df",
+          "name": "Get the current user Hours of Service settings",
+          "request": {
+            "name": "Get the current user Hours of Service settings",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "resourceowner",
+                "hoursofservice",
+                "settings"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "contactHoursOfServiceSettingsId",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "read write"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.automile.com/login/"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "c6014971-c8e6-4c81-a9ab-f991b5226cf8",
+              "name": "The settings is returned, null if no settings exist",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "hoursofservice",
+                    "settings"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "contactHoursOfServiceSettingsId",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"TimeZoneType\": 7,\n  \"WorkDayStartTime\": {\n    \"Ticks\": \"<long>\",\n    \"Days\": 180,\n    \"Hours\": 4390,\n    \"Milliseconds\": 7836,\n    \"Microseconds\": 8669,\n    \"Nanoseconds\": 3619,\n    \"Minutes\": 2549,\n    \"Seconds\": 2862,\n    \"TotalDays\": 4553.574231189442,\n    \"TotalHours\": 7587.876341826571,\n    \"TotalMilliseconds\": 2905.0063051359252,\n    \"TotalMicroseconds\": 4264.8916594249695,\n    \"TotalNanoseconds\": 2146.019139914428,\n    \"TotalMinutes\": 7080.67746880185,\n    \"TotalSeconds\": 9014.57311878658\n  },\n  \"CycleRuleType\": 3,\n  \"CargoTypeType\": 2,\n  \"RestartRuleType\": 0,\n  \"RestBreakRuleType\": 1,\n  \"ShortHaulExceptionType\": 0,\n  \"OdometerUnitType\": 0,\n  \"WellSiteRuleType\": 1,\n  \"CarrierInfo\": {\n    \"AddressLine2\": \"string\",\n    \"City\": \"string\",\n    \"ISO3166CountryCode\": \"string\",\n    \"ZipCode\": \"string\",\n    \"AddressId\": 7403,\n    \"CompanyName\": \"string\",\n    \"ContactNameAtAddress\": \"string\",\n    \"AddressLine3\": \"string\",\n    \"AddressLine4\": \"string\",\n    \"StateOrProvince\": \"string\"\n  },\n  \"IsEnabled\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "334ad169-f14a-4505-94f7-036b57d78455",
+          "name": "Creates Hours Of Service Settings",
+          "request": {
+            "name": "Creates Hours Of Service Settings",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "resourceowner",
+                "hoursofservice",
+                "settings"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "read write"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.automile.com/login/"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"TimeZoneType\": \"<integer>\",\n  \"WorkDayStartTime\": {\n    \"Ticks\": \"<long>\"\n  },\n  \"CycleRuleType\": \"<integer>\",\n  \"CargoTypeType\": \"<integer>\",\n  \"RestartRuleType\": \"<integer>\",\n  \"RestBreakRuleType\": \"<integer>\",\n  \"ShortHaulExceptionType\": \"<integer>\",\n  \"OdometerUnitType\": \"<integer>\",\n  \"WellSiteRuleType\": \"<integer>\",\n  \"CarrierInfo\": {\n    \"AddressLine2\": \"<string>\",\n    \"City\": \"<string>\",\n    \"ISO3166CountryCode\": \"<string>\",\n    \"ZipCode\": \"<string>\",\n    \"AddressId\": \"<integer>\",\n    \"CompanyName\": \"<string>\",\n    \"ContactNameAtAddress\": \"<string>\",\n    \"AddressLine3\": \"<string>\",\n    \"AddressLine4\": \"<string>\",\n    \"StateOrProvince\": \"<string>\"\n  },\n  \"IsEnabled\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a0a38230-8da1-4e18-bd5d-d00043c3649c",
+              "name": "A link in the header is returned to the newly resource",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "hoursofservice",
+                    "settings"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"TimeZoneType\": \"<integer>\",\n  \"WorkDayStartTime\": {\n    \"Ticks\": \"<long>\"\n  },\n  \"CycleRuleType\": \"<integer>\",\n  \"CargoTypeType\": \"<integer>\",\n  \"RestartRuleType\": \"<integer>\",\n  \"RestBreakRuleType\": \"<integer>\",\n  \"ShortHaulExceptionType\": \"<integer>\",\n  \"OdometerUnitType\": \"<integer>\",\n  \"WellSiteRuleType\": \"<integer>\",\n  \"CarrierInfo\": {\n    \"AddressLine2\": \"<string>\",\n    \"City\": \"<string>\",\n    \"ISO3166CountryCode\": \"<string>\",\n    \"ZipCode\": \"<string>\",\n    \"AddressId\": \"<integer>\",\n    \"CompanyName\": \"<string>\",\n    \"ContactNameAtAddress\": \"<string>\",\n    \"AddressLine3\": \"<string>\",\n    \"AddressLine4\": \"<string>\",\n    \"StateOrProvince\": \"<string>\"\n  },\n  \"IsEnabled\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e2440004-4bec-443e-9c3d-861b9d0910c4",
+          "name": "Export Hours Of Service Log",
+          "request": {
+            "name": "Export Hours Of Service Log",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "resourceowner",
+                "hoursofservice",
+                "export"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "read write"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.automile.com/login/"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"FromDate\": \"<dateTime>\",\n  \"ToDate\": \"<dateTime>\",\n  \"EmailAddress\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c9132aa3-c020-4621-a077-33e498d16807",
+              "name": "A mail is sent to the email address",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "hoursofservice",
+                    "export"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "327ba412-4872-44f4-9a57-8d4e323ee4a0",
+          "name": "Export Hours Of Service Log as a PDF",
+          "request": {
+            "name": "Export Hours Of Service Log as a PDF",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "resourceowner",
+                "hoursofservice",
+                "exportpdf"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "read write"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.automile.com/login/"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"FromDate\": \"<dateTime>\",\n  \"ToDate\": \"<dateTime>\",\n  \"EmailAddress\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "73dcca63-ba36-4a5e-97ac-8365effa32c5",
+              "name": "A mail is sent to the email address",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "hoursofservice",
+                    "exportpdf"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "b93e1ede-6071-49f2-a783-bebf99406eba",
+    "name": "Automile ClientApi ResourceOwnerHoursOfService API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

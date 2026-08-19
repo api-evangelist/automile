@@ -1,0 +1,59 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Automile ClientApi ClientUsers API",
+    "version": "v1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "ClientUsers",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get the users that belongs to contacts that the current user is associated with",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/client/users"
+          },
+          "docs": "Get the users that the current user is associated through companies"
+        },
+        {
+          "info": {
+            "name": "Creates a new user including a contact with basic information",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/client/users"
+          },
+          "docs": "Creates a new user including a contact with basic information"
+        },
+        {
+          "info": {
+            "name": "Get the specific user",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/client/users/:userId",
+            "params": [
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path",
+                "description": "The user id"
+              }
+            ]
+          },
+          "docs": "Get the specific user"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

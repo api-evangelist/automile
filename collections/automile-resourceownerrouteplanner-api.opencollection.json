@@ -1,0 +1,165 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Automile ClientApi ResourceOwnerRoutePlanner API",
+    "version": "v1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "ResourceOwnerRoutePlanner",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get routes associated with the user",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/resourceowner/routeplanner/routes"
+          },
+          "docs": "Only routes that is either shared with the user or owned by the calling user is returned.\r\n            <br /><br />\r\n            Location Status enum values:<br />\r\n            *NotStarted = 0*<br />\r\n            *Done = 1*<br />\r\n            *Cancelled = 3*<br /><br />\r\n            MissionStatus enum values: <br />\r\n            *Not Started = 0 (All route locations NotStarted)*<br />\r\n            *Ongoing = 1 (Any route location Done OR route mission started)*<br />\r\n            *Done = 2 (All "
+        },
+        {
+          "info": {
+            "name": "ResourceOwnerRoutePlanner_GetMissionByShortUrlId",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/resourceowner/routeplanner/route/shorturlid/:shortUrlId",
+            "params": [
+              {
+                "name": "shortUrlId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "ResourceOwnerRoutePlanner_GetMissionByRouteAndDriverId",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/resourceowner/routeplanner/route/:routeId",
+            "params": [
+              {
+                "name": "routeId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "Update a route state",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/v1/resourceowner/routeplanner/route/:routeId",
+            "params": [
+              {
+                "name": "routeId",
+                "value": "",
+                "type": "path",
+                "description": "The routeId to update"
+              }
+            ]
+          },
+          "docs": "Only tasks that belongs to the user has access to will be returned."
+        },
+        {
+          "info": {
+            "name": "ResourceOwnerRoutePlanner_routeandsave",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/resourceowner/routeplanner/routes/routeandsave"
+          }
+        },
+        {
+          "info": {
+            "name": "Set Route Status to Cancelled.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/v1/resourceowner/routeplanner/route/:routeId/cancel",
+            "params": [
+              {
+                "name": "routeId",
+                "value": "",
+                "type": "path",
+                "description": "The routeId to update"
+              },
+              {
+                "name": "notes",
+                "value": "",
+                "type": "query",
+                "description": "Reason for cancelling"
+              }
+            ]
+          },
+          "docs": "If a cancelled trip later gets 'uncancelled' the cancelling notes will be cleared"
+        },
+        {
+          "info": {
+            "name": "Set Route Status to Started.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/v1/resourceowner/routeplanner/route/:routeId/start",
+            "params": [
+              {
+                "name": "routeId",
+                "value": "",
+                "type": "path",
+                "description": "The routeId to update"
+              }
+            ]
+          },
+          "docs": "Set Route Status to Started."
+        },
+        {
+          "info": {
+            "name": "Get routes associated with the user",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/resourceowner/routeplanner"
+          },
+          "docs": "*OBSOLETE* Only routes that is either shared with the user or owned by the calling user is returned."
+        },
+        {
+          "info": {
+            "name": "ResourceOwnerRoutePlanner_GetRouteMission",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/resourceowner/routeplanner/:routeId",
+            "params": [
+              {
+                "name": "routeId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "*OBSOLETE*"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

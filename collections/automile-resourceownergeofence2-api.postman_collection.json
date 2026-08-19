@@ -1,0 +1,1018 @@
+{
+  "item": [
+    {
+      "id": "e50f13dd-2c2d-4465-9fde-335161696abf",
+      "name": "ResourceOwnerGeofence2",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "a2695000-a592-4631-8afa-0977af47b5e7",
+          "name": "Get a list of geofencese user is associated with",
+          "request": {
+            "name": "Get a list of geofencese user is associated with",
+            "description": {
+              "content": "Only geofences that the user has access to are accessible.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "resourceowner",
+                "geofence2"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "read write"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.automile.com/login/"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "f556dd38-ee89-4aca-824b-3d02d7ac2f13",
+              "name": "The geofences are returned",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "geofence2"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"GeofenceId\": 9589,\n    \"Name\": \"string\",\n    \"Description\": \"string\",\n    \"GeofencePolygon\": {\n      \"Coordinates\": [\n        {\n          \"Latitude\": 7116.813989398975,\n          \"Longitude\": 1123.7380454155577\n        },\n        {\n          \"Latitude\": 2693.9731182373007,\n          \"Longitude\": 2680.485699876887\n        }\n      ]\n    },\n    \"IsEditable\": true,\n    \"GeofenceType\": 0,\n    \"Schedules\": [\n      {\n        \"GeofenceScheduleId\": 335,\n        \"Monday\": true,\n        \"Tuesday\": false,\n        \"Wednesday\": false,\n        \"Thursday\": false,\n        \"Friday\": false,\n        \"Saturday\": false,\n        \"Sunday\": true,\n        \"StartTime\": {\n          \"Ticks\": 797,\n          \"Days\": 9300,\n          \"Hours\": 5031,\n          \"Milliseconds\": 1332,\n          \"Microseconds\": 5704,\n          \"Nanoseconds\": 9024,\n          \"Minutes\": 1545,\n          \"Seconds\": 9878,\n          \"TotalDays\": 807.7053232816888,\n          \"TotalHours\": 7395.42776197121,\n          \"TotalMilliseconds\": 4708.37767976679,\n          \"TotalMicroseconds\": 6933.062245287155,\n          \"TotalNanoseconds\": 7133.609674420553,\n          \"TotalMinutes\": 3218.013418642901,\n          \"TotalSeconds\": 2557.8309593807126\n        },\n        \"EndTime\": {\n          \"Ticks\": 7698,\n          \"Days\": 9048,\n          \"Hours\": 3160,\n          \"Milliseconds\": 3945,\n          \"Microseconds\": 3339,\n          \"Nanoseconds\": 8224,\n          \"Minutes\": 5273,\n          \"Seconds\": 1330,\n          \"TotalDays\": 4936.539394956148,\n          \"TotalHours\": 9785.077770517535,\n          \"TotalMilliseconds\": 7088.891647419764,\n          \"TotalMicroseconds\": 1740.2536867840213,\n          \"TotalNanoseconds\": 8044.547138319561,\n          \"TotalMinutes\": 9238.840370417825,\n          \"TotalSeconds\": 9246.755707206095\n        }\n      },\n      {\n        \"GeofenceScheduleId\": 7632,\n        \"Monday\": false,\n        \"Tuesday\": false,\n        \"Wednesday\": true,\n        \"Thursday\": false,\n        \"Friday\": true,\n        \"Saturday\": true,\n        \"Sunday\": false,\n        \"StartTime\": {\n          \"Ticks\": 810,\n          \"Days\": 7814,\n          \"Hours\": 2909,\n          \"Milliseconds\": 8198,\n          \"Microseconds\": 9370,\n          \"Nanoseconds\": 5621,\n          \"Minutes\": 309,\n          \"Seconds\": 3217,\n          \"TotalDays\": 600.6483207192559,\n          \"TotalHours\": 6642.699811486348,\n          \"TotalMilliseconds\": 4817.89059455547,\n          \"TotalMicroseconds\": 7814.4365003611065,\n          \"TotalNanoseconds\": 7999.472082218155,\n          \"TotalMinutes\": 7282.6677044669095,\n          \"TotalSeconds\": 4977.193230387248\n        },\n        \"EndTime\": {\n          \"Ticks\": 8547,\n          \"Days\": 4359,\n          \"Hours\": 4626,\n          \"Milliseconds\": 6869,\n          \"Microseconds\": 7349,\n          \"Nanoseconds\": 9564,\n          \"Minutes\": 2652,\n          \"Seconds\": 3205,\n          \"TotalDays\": 3425.155028114798,\n          \"TotalHours\": 1150.5898551250693,\n          \"TotalMilliseconds\": 1423.4999265474512,\n          \"TotalMicroseconds\": 9074.546144357875,\n          \"TotalNanoseconds\": 7157.865543214764,\n          \"TotalMinutes\": 9286.194240079738,\n          \"TotalSeconds\": 4829.506920569833\n        }\n      }\n    ],\n    \"VehicleIds\": [\n      9711,\n      7424\n    ]\n  },\n  {\n    \"GeofenceId\": 536,\n    \"Name\": \"string\",\n    \"Description\": \"string\",\n    \"GeofencePolygon\": {\n      \"Coordinates\": [\n        {\n          \"Latitude\": 4654.7383195198745,\n          \"Longitude\": 9247.685821715884\n        },\n        {\n          \"Latitude\": 9733.833917631884,\n          \"Longitude\": 3003.929835535628\n        }\n      ]\n    },\n    \"IsEditable\": false,\n    \"GeofenceType\": 0,\n    \"Schedules\": [\n      {\n        \"GeofenceScheduleId\": 7458,\n        \"Monday\": false,\n        \"Tuesday\": true,\n        \"Wednesday\": false,\n        \"Thursday\": true,\n        \"Friday\": true,\n        \"Saturday\": true,\n        \"Sunday\": false,\n        \"StartTime\": {\n          \"Ticks\": 1344,\n          \"Days\": 1948,\n          \"Hours\": 974,\n          \"Milliseconds\": 9163,\n          \"Microseconds\": 851,\n          \"Nanoseconds\": 4233,\n          \"Minutes\": 5452,\n          \"Seconds\": 8245,\n          \"TotalDays\": 6678.861028883531,\n          \"TotalHours\": 9912.736044905016,\n          \"TotalMilliseconds\": 3560.4734790110583,\n          \"TotalMicroseconds\": 248.1116405260031,\n          \"TotalNanoseconds\": 2040.1823933446417,\n          \"TotalMinutes\": 2463.3372584076697,\n          \"TotalSeconds\": 861.3117923583779\n        },\n        \"EndTime\": {\n          \"Ticks\": 8413,\n          \"Days\": 792,\n          \"Hours\": 4510,\n          \"Milliseconds\": 8701,\n          \"Microseconds\": 2874,\n          \"Nanoseconds\": 8906,\n          \"Minutes\": 1403,\n          \"Seconds\": 8584,\n          \"TotalDays\": 5633.9206410536035,\n          \"TotalHours\": 3273.1201975426625,\n          \"TotalMilliseconds\": 1360.6831277001274,\n          \"TotalMicroseconds\": 7519.3712497154265,\n          \"TotalNanoseconds\": 9250.188024183812,\n          \"TotalMinutes\": 2808.9630011040313,\n          \"TotalSeconds\": 1011.2125448742115\n        }\n      },\n      {\n        \"GeofenceScheduleId\": 6601,\n        \"Monday\": true,\n        \"Tuesday\": false,\n        \"Wednesday\": true,\n        \"Thursday\": false,\n        \"Friday\": false,\n        \"Saturday\": true,\n        \"Sunday\": true,\n        \"StartTime\": {\n          \"Ticks\": 5553,\n          \"Days\": 7576,\n          \"Hours\": 2771,\n          \"Milliseconds\": 8335,\n          \"Microseconds\": 4749,\n          \"Nanoseconds\": 6029,\n          \"Minutes\": 9928,\n          \"Seconds\": 8060,\n          \"TotalDays\": 3178.9059176504697,\n          \"TotalHours\": 8060.856683542307,\n          \"TotalMilliseconds\": 8269.876092991484,\n          \"TotalMicroseconds\": 8735.237344421852,\n          \"TotalNanoseconds\": 1875.4877026999072,\n          \"TotalMinutes\": 1720.7660953338511,\n          \"TotalSeconds\": 5948.967590757661\n        },\n        \"EndTime\": {\n          \"Ticks\": 1440,\n          \"Days\": 9317,\n          \"Hours\": 4607,\n          \"Milliseconds\": 2588,\n          \"Microseconds\": 1765,\n          \"Nanoseconds\": 5241,\n          \"Minutes\": 7462,\n          \"Seconds\": 8316,\n          \"TotalDays\": 3878.2151382962184,\n          \"TotalHours\": 2363.834727999462,\n          \"TotalMilliseconds\": 5129.549834961701,\n          \"TotalMicroseconds\": 4016.9658602535264,\n          \"TotalNanoseconds\": 6350.116055873534,\n          \"TotalMinutes\": 2517.66602893159,\n          \"TotalSeconds\": 6557.052019379407\n        }\n      }\n    ],\n    \"VehicleIds\": [\n      9082,\n      2411\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "63affd80-654f-4011-9c9f-d8632fbb9359",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "geofence2"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "355a32b5-3b03-4d95-819c-a6b2128ca3db",
+          "name": "Creates a new geofence",
+          "request": {
+            "name": "Creates a new geofence",
+            "description": {
+              "content": "This will create a new geofence and associate it with  vehicles.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "resourceowner",
+                "geofence2"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "read write"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.automile.com/login/"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"Name\": \"<string>\",\n  \"VehicleIds\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"Description\": \"<string>\",\n  \"GeofencePolygon\": {\n    \"Coordinates\": [\n      {\n        \"Latitude\": \"<double>\",\n        \"Longitude\": \"<double>\"\n      },\n      {\n        \"Latitude\": \"<double>\",\n        \"Longitude\": \"<double>\"\n      }\n    ]\n  },\n  \"GeofenceType\": \"<integer>\",\n  \"Schedules\": [\n    {\n      \"Monday\": \"<boolean>\",\n      \"Tuesday\": \"<boolean>\",\n      \"Wednesday\": \"<boolean>\",\n      \"Thursday\": \"<boolean>\",\n      \"Friday\": \"<boolean>\",\n      \"Saturday\": \"<boolean>\",\n      \"Sunday\": \"<boolean>\",\n      \"StartTime\": {\n        \"Ticks\": \"<long>\"\n      },\n      \"EndTime\": {\n        \"Ticks\": \"<long>\"\n      }\n    },\n    {\n      \"Monday\": \"<boolean>\",\n      \"Tuesday\": \"<boolean>\",\n      \"Wednesday\": \"<boolean>\",\n      \"Thursday\": \"<boolean>\",\n      \"Friday\": \"<boolean>\",\n      \"Saturday\": \"<boolean>\",\n      \"Sunday\": \"<boolean>\",\n      \"StartTime\": {\n        \"Ticks\": \"<long>\"\n      },\n      \"EndTime\": {\n        \"Ticks\": \"<long>\"\n      }\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "12eeb024-8096-4467-a165-481b1ad0588b",
+              "name": "A link in the header is returned to the newly created geofence",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "geofence2"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Name\": \"<string>\",\n  \"VehicleIds\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"Description\": \"<string>\",\n  \"GeofencePolygon\": {\n    \"Coordinates\": [\n      {\n        \"Latitude\": \"<double>\",\n        \"Longitude\": \"<double>\"\n      },\n      {\n        \"Latitude\": \"<double>\",\n        \"Longitude\": \"<double>\"\n      }\n    ]\n  },\n  \"GeofenceType\": \"<integer>\",\n  \"Schedules\": [\n    {\n      \"Monday\": \"<boolean>\",\n      \"Tuesday\": \"<boolean>\",\n      \"Wednesday\": \"<boolean>\",\n      \"Thursday\": \"<boolean>\",\n      \"Friday\": \"<boolean>\",\n      \"Saturday\": \"<boolean>\",\n      \"Sunday\": \"<boolean>\",\n      \"StartTime\": {\n        \"Ticks\": \"<long>\"\n      },\n      \"EndTime\": {\n        \"Ticks\": \"<long>\"\n      }\n    },\n    {\n      \"Monday\": \"<boolean>\",\n      \"Tuesday\": \"<boolean>\",\n      \"Wednesday\": \"<boolean>\",\n      \"Thursday\": \"<boolean>\",\n      \"Friday\": \"<boolean>\",\n      \"Saturday\": \"<boolean>\",\n      \"Sunday\": \"<boolean>\",\n      \"StartTime\": {\n        \"Ticks\": \"<long>\"\n      },\n      \"EndTime\": {\n        \"Ticks\": \"<long>\"\n      }\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "cf3255f7-c256-4185-b196-3bdb6673e372",
+              "name": "Bad request, could occur for a number of cases, see returned message",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "geofence2"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Name\": \"<string>\",\n  \"VehicleIds\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"Description\": \"<string>\",\n  \"GeofencePolygon\": {\n    \"Coordinates\": [\n      {\n        \"Latitude\": \"<double>\",\n        \"Longitude\": \"<double>\"\n      },\n      {\n        \"Latitude\": \"<double>\",\n        \"Longitude\": \"<double>\"\n      }\n    ]\n  },\n  \"GeofenceType\": \"<integer>\",\n  \"Schedules\": [\n    {\n      \"Monday\": \"<boolean>\",\n      \"Tuesday\": \"<boolean>\",\n      \"Wednesday\": \"<boolean>\",\n      \"Thursday\": \"<boolean>\",\n      \"Friday\": \"<boolean>\",\n      \"Saturday\": \"<boolean>\",\n      \"Sunday\": \"<boolean>\",\n      \"StartTime\": {\n        \"Ticks\": \"<long>\"\n      },\n      \"EndTime\": {\n        \"Ticks\": \"<long>\"\n      }\n    },\n    {\n      \"Monday\": \"<boolean>\",\n      \"Tuesday\": \"<boolean>\",\n      \"Wednesday\": \"<boolean>\",\n      \"Thursday\": \"<boolean>\",\n      \"Friday\": \"<boolean>\",\n      \"Saturday\": \"<boolean>\",\n      \"Sunday\": \"<boolean>\",\n      \"StartTime\": {\n        \"Ticks\": \"<long>\"\n      },\n      \"EndTime\": {\n        \"Ticks\": \"<long>\"\n      }\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 8258,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"key_0\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b94c21ff-6329-4f68-a0a3-733a4a9fc415",
+              "name": "Request is forbidden, could occur for a number of reasons, see returned message",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "geofence2"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Name\": \"<string>\",\n  \"VehicleIds\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"Description\": \"<string>\",\n  \"GeofencePolygon\": {\n    \"Coordinates\": [\n      {\n        \"Latitude\": \"<double>\",\n        \"Longitude\": \"<double>\"\n      },\n      {\n        \"Latitude\": \"<double>\",\n        \"Longitude\": \"<double>\"\n      }\n    ]\n  },\n  \"GeofenceType\": \"<integer>\",\n  \"Schedules\": [\n    {\n      \"Monday\": \"<boolean>\",\n      \"Tuesday\": \"<boolean>\",\n      \"Wednesday\": \"<boolean>\",\n      \"Thursday\": \"<boolean>\",\n      \"Friday\": \"<boolean>\",\n      \"Saturday\": \"<boolean>\",\n      \"Sunday\": \"<boolean>\",\n      \"StartTime\": {\n        \"Ticks\": \"<long>\"\n      },\n      \"EndTime\": {\n        \"Ticks\": \"<long>\"\n      }\n    },\n    {\n      \"Monday\": \"<boolean>\",\n      \"Tuesday\": \"<boolean>\",\n      \"Wednesday\": \"<boolean>\",\n      \"Thursday\": \"<boolean>\",\n      \"Friday\": \"<boolean>\",\n      \"Saturday\": \"<boolean>\",\n      \"Sunday\": \"<boolean>\",\n      \"StartTime\": {\n        \"Ticks\": \"<long>\"\n      },\n      \"EndTime\": {\n        \"Ticks\": \"<long>\"\n      }\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"string\",\n  \"title\": \"string\",\n  \"status\": 8258,\n  \"detail\": \"string\",\n  \"instance\": \"string\",\n  \"key_0\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d6c74213-3139-4f5f-9d3d-c6b5e7600bdd",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "geofence2"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Name\": \"<string>\",\n  \"VehicleIds\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"Description\": \"<string>\",\n  \"GeofencePolygon\": {\n    \"Coordinates\": [\n      {\n        \"Latitude\": \"<double>\",\n        \"Longitude\": \"<double>\"\n      },\n      {\n        \"Latitude\": \"<double>\",\n        \"Longitude\": \"<double>\"\n      }\n    ]\n  },\n  \"GeofenceType\": \"<integer>\",\n  \"Schedules\": [\n    {\n      \"Monday\": \"<boolean>\",\n      \"Tuesday\": \"<boolean>\",\n      \"Wednesday\": \"<boolean>\",\n      \"Thursday\": \"<boolean>\",\n      \"Friday\": \"<boolean>\",\n      \"Saturday\": \"<boolean>\",\n      \"Sunday\": \"<boolean>\",\n      \"StartTime\": {\n        \"Ticks\": \"<long>\"\n      },\n      \"EndTime\": {\n        \"Ticks\": \"<long>\"\n      }\n    },\n    {\n      \"Monday\": \"<boolean>\",\n      \"Tuesday\": \"<boolean>\",\n      \"Wednesday\": \"<boolean>\",\n      \"Thursday\": \"<boolean>\",\n      \"Friday\": \"<boolean>\",\n      \"Saturday\": \"<boolean>\",\n      \"Sunday\": \"<boolean>\",\n      \"StartTime\": {\n        \"Ticks\": \"<long>\"\n      },\n      \"EndTime\": {\n        \"Ticks\": \"<long>\"\n      }\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a497d969-d913-43cb-b7db-391b9c42be97",
+          "name": "Get geofence",
+          "request": {
+            "name": "Get geofence",
+            "description": {
+              "content": "Only geofences that the user has access to are accessible.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "resourceowner",
+                "geofence2",
+                ":geofenceId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "geofenceId",
+                  "description": "(Required) The geofence id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "read write"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.automile.com/login/"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "6c049d6f-8110-41e6-a493-cd8160bf446f",
+              "name": "The geofences are returned",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "geofence2",
+                    ":geofenceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "geofenceId",
+                      "description": "(Required) The geofence id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"GeofenceId\": 7006,\n  \"Name\": \"string\",\n  \"Description\": \"string\",\n  \"GeofencePolygon\": {\n    \"Coordinates\": [\n      {\n        \"Latitude\": \"<double>\",\n        \"Longitude\": \"<double>\"\n      },\n      {\n        \"Latitude\": \"<double>\",\n        \"Longitude\": \"<double>\"\n      }\n    ]\n  },\n  \"IsEditable\": false,\n  \"GeofenceType\": 1,\n  \"Schedules\": [\n    {\n      \"GeofenceScheduleId\": 8251,\n      \"Monday\": true,\n      \"Tuesday\": true,\n      \"Wednesday\": false,\n      \"Thursday\": true,\n      \"Friday\": true,\n      \"Saturday\": true,\n      \"Sunday\": false,\n      \"StartTime\": {\n        \"Ticks\": \"<long>\",\n        \"Days\": 6630,\n        \"Hours\": 8430,\n        \"Milliseconds\": 3919,\n        \"Microseconds\": 7231,\n        \"Nanoseconds\": 1689,\n        \"Minutes\": 1001,\n        \"Seconds\": 5736,\n        \"TotalDays\": 2735.7436082314457,\n        \"TotalHours\": 580.8046458931826,\n        \"TotalMilliseconds\": 3466.862651763939,\n        \"TotalMicroseconds\": 7233.189099200595,\n        \"TotalNanoseconds\": 9309.135364287868,\n        \"TotalMinutes\": 6667.711264131944,\n        \"TotalSeconds\": 6426.971329738526\n      },\n      \"EndTime\": {\n        \"Ticks\": \"<long>\",\n        \"Days\": 4704,\n        \"Hours\": 8849,\n        \"Milliseconds\": 311,\n        \"Microseconds\": 5389,\n        \"Nanoseconds\": 1964,\n        \"Minutes\": 5645,\n        \"Seconds\": 4211,\n        \"TotalDays\": 3690.5742753767677,\n        \"TotalHours\": 8903.151837193607,\n        \"TotalMilliseconds\": 3365.1960528475033,\n        \"TotalMicroseconds\": 6921.403450441669,\n        \"TotalNanoseconds\": 1624.5206824167224,\n        \"TotalMinutes\": 8055.138024994344,\n        \"TotalSeconds\": 6802.9047211817315\n      }\n    },\n    {\n      \"GeofenceScheduleId\": 8390,\n      \"Monday\": false,\n      \"Tuesday\": false,\n      \"Wednesday\": false,\n      \"Thursday\": true,\n      \"Friday\": true,\n      \"Saturday\": false,\n      \"Sunday\": true,\n      \"StartTime\": {\n        \"Ticks\": \"<long>\",\n        \"Days\": 1575,\n        \"Hours\": 7951,\n        \"Milliseconds\": 4165,\n        \"Microseconds\": 6327,\n        \"Nanoseconds\": 2732,\n        \"Minutes\": 1894,\n        \"Seconds\": 4274,\n        \"TotalDays\": 430.62383128435687,\n        \"TotalHours\": 124.6307438510541,\n        \"TotalMilliseconds\": 8474.36233343608,\n        \"TotalMicroseconds\": 5154.363126035061,\n        \"TotalNanoseconds\": 2039.9075373423902,\n        \"TotalMinutes\": 7492.579148020296,\n        \"TotalSeconds\": 3836.1308901972625\n      },\n      \"EndTime\": {\n        \"Ticks\": \"<long>\",\n        \"Days\": 1141,\n        \"Hours\": 8822,\n        \"Milliseconds\": 471,\n        \"Microseconds\": 3312,\n        \"Nanoseconds\": 2523,\n        \"Minutes\": 5877,\n        \"Seconds\": 8352,\n        \"TotalDays\": 8244.526505734231,\n        \"TotalHours\": 6807.999384192267,\n        \"TotalMilliseconds\": 7935.299140125645,\n        \"TotalMicroseconds\": 3949.745988897363,\n        \"TotalNanoseconds\": 5010.66691115146,\n        \"TotalMinutes\": 7976.5612762796745,\n        \"TotalSeconds\": 5245.904969037437\n      }\n    }\n  ],\n  \"VehicleIds\": [\n    6147,\n    3268\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8929263e-70bd-4301-9671-32a917b9467b",
+              "name": "Request is forbidden, meaning you don't have access to this geofence",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "geofence2",
+                    ":geofenceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "geofenceId",
+                      "description": "(Required) The geofence id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "7608767e-227b-416f-8480-d4cc92d28d42",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "geofence2",
+                    ":geofenceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "geofenceId",
+                      "description": "(Required) The geofence id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3d87e91f-1e69-4a47-b41b-349db0d4c976",
+          "name": "Updates the given geofence with new model",
+          "request": {
+            "name": "Updates the given geofence with new model",
+            "description": {
+              "content": "This will update the given geofence id with a new model.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "resourceowner",
+                "geofence2",
+                ":geofenceId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "geofenceId",
+                  "description": "(Required) The geofence id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "read write"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.automile.com/login/"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"Name\": \"<string>\",\n  \"VehicleIds\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"Description\": \"<string>\",\n  \"GeofencePolygon\": {\n    \"Coordinates\": [\n      {\n        \"Latitude\": \"<double>\",\n        \"Longitude\": \"<double>\"\n      },\n      {\n        \"Latitude\": \"<double>\",\n        \"Longitude\": \"<double>\"\n      }\n    ]\n  },\n  \"GeofenceType\": \"<integer>\",\n  \"Schedules\": [\n    {\n      \"GeofenceScheduleId\": \"<integer>\",\n      \"Monday\": \"<boolean>\",\n      \"Tuesday\": \"<boolean>\",\n      \"Wednesday\": \"<boolean>\",\n      \"Thursday\": \"<boolean>\",\n      \"Friday\": \"<boolean>\",\n      \"Saturday\": \"<boolean>\",\n      \"Sunday\": \"<boolean>\",\n      \"StartTime\": {\n        \"Ticks\": \"<long>\"\n      },\n      \"EndTime\": {\n        \"Ticks\": \"<long>\"\n      }\n    },\n    {\n      \"GeofenceScheduleId\": \"<integer>\",\n      \"Monday\": \"<boolean>\",\n      \"Tuesday\": \"<boolean>\",\n      \"Wednesday\": \"<boolean>\",\n      \"Thursday\": \"<boolean>\",\n      \"Friday\": \"<boolean>\",\n      \"Saturday\": \"<boolean>\",\n      \"Sunday\": \"<boolean>\",\n      \"StartTime\": {\n        \"Ticks\": \"<long>\"\n      },\n      \"EndTime\": {\n        \"Ticks\": \"<long>\"\n      }\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "65209427-6ef2-4850-8902-4ae1c2a7b311",
+              "name": "The geofence was saved",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "geofence2",
+                    ":geofenceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "geofenceId",
+                      "description": "(Required) The geofence id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Name\": \"<string>\",\n  \"VehicleIds\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"Description\": \"<string>\",\n  \"GeofencePolygon\": {\n    \"Coordinates\": [\n      {\n        \"Latitude\": \"<double>\",\n        \"Longitude\": \"<double>\"\n      },\n      {\n        \"Latitude\": \"<double>\",\n        \"Longitude\": \"<double>\"\n      }\n    ]\n  },\n  \"GeofenceType\": \"<integer>\",\n  \"Schedules\": [\n    {\n      \"GeofenceScheduleId\": \"<integer>\",\n      \"Monday\": \"<boolean>\",\n      \"Tuesday\": \"<boolean>\",\n      \"Wednesday\": \"<boolean>\",\n      \"Thursday\": \"<boolean>\",\n      \"Friday\": \"<boolean>\",\n      \"Saturday\": \"<boolean>\",\n      \"Sunday\": \"<boolean>\",\n      \"StartTime\": {\n        \"Ticks\": \"<long>\"\n      },\n      \"EndTime\": {\n        \"Ticks\": \"<long>\"\n      }\n    },\n    {\n      \"GeofenceScheduleId\": \"<integer>\",\n      \"Monday\": \"<boolean>\",\n      \"Tuesday\": \"<boolean>\",\n      \"Wednesday\": \"<boolean>\",\n      \"Thursday\": \"<boolean>\",\n      \"Friday\": \"<boolean>\",\n      \"Saturday\": \"<boolean>\",\n      \"Sunday\": \"<boolean>\",\n      \"StartTime\": {\n        \"Ticks\": \"<long>\"\n      },\n      \"EndTime\": {\n        \"Ticks\": \"<long>\"\n      }\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "3fe161a3-a8a8-4f13-8dce-4feb573d59cd",
+              "name": "Bad request, could occur for a number of cases, see returned message",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "geofence2",
+                    ":geofenceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "geofenceId",
+                      "description": "(Required) The geofence id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Name\": \"<string>\",\n  \"VehicleIds\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"Description\": \"<string>\",\n  \"GeofencePolygon\": {\n    \"Coordinates\": [\n      {\n        \"Latitude\": \"<double>\",\n        \"Longitude\": \"<double>\"\n      },\n      {\n        \"Latitude\": \"<double>\",\n        \"Longitude\": \"<double>\"\n      }\n    ]\n  },\n  \"GeofenceType\": \"<integer>\",\n  \"Schedules\": [\n    {\n      \"GeofenceScheduleId\": \"<integer>\",\n      \"Monday\": \"<boolean>\",\n      \"Tuesday\": \"<boolean>\",\n      \"Wednesday\": \"<boolean>\",\n      \"Thursday\": \"<boolean>\",\n      \"Friday\": \"<boolean>\",\n      \"Saturday\": \"<boolean>\",\n      \"Sunday\": \"<boolean>\",\n      \"StartTime\": {\n        \"Ticks\": \"<long>\"\n      },\n      \"EndTime\": {\n        \"Ticks\": \"<long>\"\n      }\n    },\n    {\n      \"GeofenceScheduleId\": \"<integer>\",\n      \"Monday\": \"<boolean>\",\n      \"Tuesday\": \"<boolean>\",\n      \"Wednesday\": \"<boolean>\",\n      \"Thursday\": \"<boolean>\",\n      \"Friday\": \"<boolean>\",\n      \"Saturday\": \"<boolean>\",\n      \"Sunday\": \"<boolean>\",\n      \"StartTime\": {\n        \"Ticks\": \"<long>\"\n      },\n      \"EndTime\": {\n        \"Ticks\": \"<long>\"\n      }\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ed3fedc7-f944-4148-b3d9-5b4b53eb4c13",
+              "name": "Request is forbidden, could occur for a number of reasons, see returned message",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "geofence2",
+                    ":geofenceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "geofenceId",
+                      "description": "(Required) The geofence id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Name\": \"<string>\",\n  \"VehicleIds\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"Description\": \"<string>\",\n  \"GeofencePolygon\": {\n    \"Coordinates\": [\n      {\n        \"Latitude\": \"<double>\",\n        \"Longitude\": \"<double>\"\n      },\n      {\n        \"Latitude\": \"<double>\",\n        \"Longitude\": \"<double>\"\n      }\n    ]\n  },\n  \"GeofenceType\": \"<integer>\",\n  \"Schedules\": [\n    {\n      \"GeofenceScheduleId\": \"<integer>\",\n      \"Monday\": \"<boolean>\",\n      \"Tuesday\": \"<boolean>\",\n      \"Wednesday\": \"<boolean>\",\n      \"Thursday\": \"<boolean>\",\n      \"Friday\": \"<boolean>\",\n      \"Saturday\": \"<boolean>\",\n      \"Sunday\": \"<boolean>\",\n      \"StartTime\": {\n        \"Ticks\": \"<long>\"\n      },\n      \"EndTime\": {\n        \"Ticks\": \"<long>\"\n      }\n    },\n    {\n      \"GeofenceScheduleId\": \"<integer>\",\n      \"Monday\": \"<boolean>\",\n      \"Tuesday\": \"<boolean>\",\n      \"Wednesday\": \"<boolean>\",\n      \"Thursday\": \"<boolean>\",\n      \"Friday\": \"<boolean>\",\n      \"Saturday\": \"<boolean>\",\n      \"Sunday\": \"<boolean>\",\n      \"StartTime\": {\n        \"Ticks\": \"<long>\"\n      },\n      \"EndTime\": {\n        \"Ticks\": \"<long>\"\n      }\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "1fcde595-d007-4468-9a51-bcc8cfbcc492",
+              "name": "Not found, the geofence you tried to update can't be found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "geofence2",
+                    ":geofenceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "geofenceId",
+                      "description": "(Required) The geofence id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Name\": \"<string>\",\n  \"VehicleIds\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"Description\": \"<string>\",\n  \"GeofencePolygon\": {\n    \"Coordinates\": [\n      {\n        \"Latitude\": \"<double>\",\n        \"Longitude\": \"<double>\"\n      },\n      {\n        \"Latitude\": \"<double>\",\n        \"Longitude\": \"<double>\"\n      }\n    ]\n  },\n  \"GeofenceType\": \"<integer>\",\n  \"Schedules\": [\n    {\n      \"GeofenceScheduleId\": \"<integer>\",\n      \"Monday\": \"<boolean>\",\n      \"Tuesday\": \"<boolean>\",\n      \"Wednesday\": \"<boolean>\",\n      \"Thursday\": \"<boolean>\",\n      \"Friday\": \"<boolean>\",\n      \"Saturday\": \"<boolean>\",\n      \"Sunday\": \"<boolean>\",\n      \"StartTime\": {\n        \"Ticks\": \"<long>\"\n      },\n      \"EndTime\": {\n        \"Ticks\": \"<long>\"\n      }\n    },\n    {\n      \"GeofenceScheduleId\": \"<integer>\",\n      \"Monday\": \"<boolean>\",\n      \"Tuesday\": \"<boolean>\",\n      \"Wednesday\": \"<boolean>\",\n      \"Thursday\": \"<boolean>\",\n      \"Friday\": \"<boolean>\",\n      \"Saturday\": \"<boolean>\",\n      \"Sunday\": \"<boolean>\",\n      \"StartTime\": {\n        \"Ticks\": \"<long>\"\n      },\n      \"EndTime\": {\n        \"Ticks\": \"<long>\"\n      }\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "4a67663a-33b4-4c2b-a751-5c697ccd4831",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "geofence2",
+                    ":geofenceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "geofenceId",
+                      "description": "(Required) The geofence id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Name\": \"<string>\",\n  \"VehicleIds\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"Description\": \"<string>\",\n  \"GeofencePolygon\": {\n    \"Coordinates\": [\n      {\n        \"Latitude\": \"<double>\",\n        \"Longitude\": \"<double>\"\n      },\n      {\n        \"Latitude\": \"<double>\",\n        \"Longitude\": \"<double>\"\n      }\n    ]\n  },\n  \"GeofenceType\": \"<integer>\",\n  \"Schedules\": [\n    {\n      \"GeofenceScheduleId\": \"<integer>\",\n      \"Monday\": \"<boolean>\",\n      \"Tuesday\": \"<boolean>\",\n      \"Wednesday\": \"<boolean>\",\n      \"Thursday\": \"<boolean>\",\n      \"Friday\": \"<boolean>\",\n      \"Saturday\": \"<boolean>\",\n      \"Sunday\": \"<boolean>\",\n      \"StartTime\": {\n        \"Ticks\": \"<long>\"\n      },\n      \"EndTime\": {\n        \"Ticks\": \"<long>\"\n      }\n    },\n    {\n      \"GeofenceScheduleId\": \"<integer>\",\n      \"Monday\": \"<boolean>\",\n      \"Tuesday\": \"<boolean>\",\n      \"Wednesday\": \"<boolean>\",\n      \"Thursday\": \"<boolean>\",\n      \"Friday\": \"<boolean>\",\n      \"Saturday\": \"<boolean>\",\n      \"Sunday\": \"<boolean>\",\n      \"StartTime\": {\n        \"Ticks\": \"<long>\"\n      },\n      \"EndTime\": {\n        \"Ticks\": \"<long>\"\n      }\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "78623e7f-ffe2-445a-b038-9877fb8594f6",
+    "name": "Automile ClientApi ResourceOwnerGeofence2 API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

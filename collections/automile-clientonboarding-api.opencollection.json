@@ -1,0 +1,54 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Automile ClientApi ClientOnboarding API",
+    "version": "v1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "ClientOnboarding",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get vehicle makes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/client/onboarding/vehiclemakes",
+            "params": [
+              {
+                "name": "region",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get vehicle makes"
+        },
+        {
+          "info": {
+            "name": "Get vehicle models",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/client/onboarding/vehiclemodels",
+            "params": [
+              {
+                "name": "make",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get vehicle models"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

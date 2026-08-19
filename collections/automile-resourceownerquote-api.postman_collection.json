@@ -1,0 +1,1388 @@
+{
+  "item": [
+    {
+      "id": "79bb5f4d-ce0e-42ad-a74e-e72d7f67705b",
+      "name": "ResourceOwnerQuote",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "aefaf97f-084b-4d73-bbfd-82313a05b804",
+          "name": "Retrieve a list of quotes and their containing attachments, items and notes",
+          "request": {
+            "name": "Retrieve a list of quotes and their containing attachments, items and notes",
+            "description": {
+              "content": "If no time is set on the \"to\" parameter, then it's assumed all entries on the date should be included, and the time part will be set to 11:59:59 PM",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "resourceowner",
+                "quotes"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "from",
+                  "value": "<dateTime>",
+                  "description": "Filter on Created to be on or after from date (default is 30 days prior to todays date)"
+                },
+                {
+                  "disabled": false,
+                  "key": "to",
+                  "value": "<dateTime>",
+                  "description": "Filter on Created to be on or after to date (default is todays date)"
+                },
+                {
+                  "disabled": false,
+                  "key": "quoteStatus",
+                  "value": "<integer>",
+                  "description": "Status on quote (Incomplete = 0, Created = 1, SentToCustomerForApproval = 2, Approved = 3, ConvertedToWorkOrder = 4, Declined = 5) (default is all)"
+                },
+                {
+                  "disabled": false,
+                  "key": "includeDeleted",
+                  "value": "false",
+                  "description": "Include deleted quote (default is false)"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "read write"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.automile.com/login/"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "367ab24d-10c5-4728-be94-57629783e1c3",
+              "name": "Successful request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "quotes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "quoteStatus",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "includeDeleted",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"WorkOrderCustomerId\": 19,\n    \"JobDate\": \"1995-12-13T21:32:59.673Z\",\n    \"JobTime\": {\n      \"Ticks\": 8465,\n      \"Days\": 1354,\n      \"Hours\": 6332,\n      \"Milliseconds\": 357,\n      \"Microseconds\": 9172,\n      \"Nanoseconds\": 541,\n      \"Minutes\": 8966,\n      \"Seconds\": 6886,\n      \"TotalDays\": 3135.8789915832817,\n      \"TotalHours\": 1208.0515094298983,\n      \"TotalMilliseconds\": 967.0883778947614,\n      \"TotalMicroseconds\": 7036.020862100413,\n      \"TotalNanoseconds\": 2166.4041880584496,\n      \"TotalMinutes\": 5478.05078661685,\n      \"TotalSeconds\": 4349.837693548136\n    },\n    \"EstimatedTimeInMinutes\": 2283,\n    \"JobDescription\": \"string\",\n    \"ExternalId\": \"string\",\n    \"CustomerContactName\": \"string\",\n    \"CustomerEmail\": \"string\",\n    \"CustomerName\": \"string\",\n    \"CustomerCommunicationLanguageISO639_2\": \"string\",\n    \"CustomerPhoneNumber\": \"string\",\n    \"CustomerJobAddress\": {\n      \"Street\": \"string\",\n      \"Apartment\": \"string\",\n      \"CareOf\": \"string\",\n      \"ZipCode\": \"string\",\n      \"City\": \"string\",\n      \"StateOrProvince\": \"string\",\n      \"ISO3166CountryCode\": \"string\",\n      \"Position\": {\n        \"Longitude\": 1512.403124306454,\n        \"Latitude\": 8330.325096637249\n      }\n    },\n    \"CustomerBillingAddress\": {\n      \"Street\": \"string\",\n      \"Apartment\": \"string\",\n      \"CareOf\": \"string\",\n      \"ZipCode\": \"string\",\n      \"City\": \"string\",\n      \"StateOrProvince\": \"string\",\n      \"ISO3166CountryCode\": \"string\",\n      \"Position\": {\n        \"Longitude\": 1180.807087476624,\n        \"Latitude\": 4682.141733434642\n      }\n    },\n    \"NotificationType\": 2,\n    \"WorkOrderCategoryId\": 4274,\n    \"CategoryName\": \"string\",\n    \"AssignedToContactId\": 4506,\n    \"EstimatedTotal\": 518.2469353652419,\n    \"Status\": 2,\n    \"QuoteId\": 8595,\n    \"IsDeleted\": false,\n    \"Created\": \"1994-04-02T19:08:05.216Z\",\n    \"RequestedByContactId\": 8453,\n    \"StatusHistory\": [\n      {\n        \"OccuredAt\": \"1987-04-14T20:33:34.236Z\",\n        \"ContactId\": 6517,\n        \"Status\": 5\n      },\n      {\n        \"OccuredAt\": \"1972-06-14T13:08:33.789Z\",\n        \"ContactId\": 7075,\n        \"Status\": 5\n      }\n    ],\n    \"Notes\": [\n      {\n        \"Note\": \"str\",\n        \"QuoteNoteId\": 6757,\n        \"CreatedByContactId\": 4617,\n        \"Created\": \"1980-03-04T09:30:36.361Z\"\n      },\n      {\n        \"Note\": \"string\",\n        \"QuoteNoteId\": 3863,\n        \"CreatedByContactId\": 8421,\n        \"Created\": \"2013-11-15T05:03:53.340Z\"\n      }\n    ],\n    \"Items\": [\n      {\n        \"Quantity\": 8224.540423033452,\n        \"WorkOrderArticleId\": 3976,\n        \"PricePerQuantityExclVAT\": 4581.9641811298025,\n        \"DiscountInPercentage\": 1818.3454250582777,\n        \"DiscountAmount\": 2193.710792227416,\n        \"TaxRate\": 8267.266788784742,\n        \"ArticleName\": \"string\",\n        \"UnitType\": 34,\n        \"QuoteItemId\": 5351,\n        \"ISO4217CurrencyCode\": \"string\",\n        \"Created\": \"2010-10-14T03:03:23.461Z\"\n      },\n      {\n        \"Quantity\": 2729.6876453655027,\n        \"WorkOrderArticleId\": 7781,\n        \"PricePerQuantityExclVAT\": 9678.277463189923,\n        \"DiscountInPercentage\": 6093.171247250129,\n        \"DiscountAmount\": 2551.9144976428597,\n        \"TaxRate\": 2652.308072782155,\n        \"ArticleName\": \"string\",\n        \"UnitType\": 31,\n        \"QuoteItemId\": 3049,\n        \"ISO4217CurrencyCode\": \"string\",\n        \"Created\": \"2011-09-04T16:18:15.588Z\"\n      }\n    ],\n    \"Attachments\": [\n      {\n        \"AttachmentType\": 0,\n        \"URL\": \"string\",\n        \"Description\": \"string\",\n        \"QuoteAttachmentId\": 4007,\n        \"CreatedByContactId\": 3094,\n        \"Created\": \"2002-03-03T02:24:43.092Z\"\n      },\n      {\n        \"AttachmentType\": 0,\n        \"URL\": \"string\",\n        \"Description\": \"string\",\n        \"QuoteAttachmentId\": 6178,\n        \"CreatedByContactId\": 252,\n        \"Created\": \"1952-06-12T09:58:33.799Z\"\n      }\n    ]\n  },\n  {\n    \"WorkOrderCustomerId\": 505,\n    \"JobDate\": \"2008-09-01T09:09:17.527Z\",\n    \"JobTime\": {\n      \"Ticks\": 3311,\n      \"Days\": 8880,\n      \"Hours\": 2474,\n      \"Milliseconds\": 3388,\n      \"Microseconds\": 9515,\n      \"Nanoseconds\": 1111,\n      \"Minutes\": 4650,\n      \"Seconds\": 2050,\n      \"TotalDays\": 635.9786309342863,\n      \"TotalHours\": 1258.9269884048927,\n      \"TotalMilliseconds\": 7195.069052103516,\n      \"TotalMicroseconds\": 7485.075084251267,\n      \"TotalNanoseconds\": 5278.923150744244,\n      \"TotalMinutes\": 7278.610248919393,\n      \"TotalSeconds\": 3879.0782528008694\n    },\n    \"EstimatedTimeInMinutes\": 9713,\n    \"JobDescription\": \"string\",\n    \"ExternalId\": \"string\",\n    \"CustomerContactName\": \"string\",\n    \"CustomerEmail\": \"string\",\n    \"CustomerName\": \"string\",\n    \"CustomerCommunicationLanguageISO639_2\": \"string\",\n    \"CustomerPhoneNumber\": \"string\",\n    \"CustomerJobAddress\": {\n      \"Street\": \"string\",\n      \"Apartment\": \"string\",\n      \"CareOf\": \"string\",\n      \"ZipCode\": \"string\",\n      \"City\": \"string\",\n      \"StateOrProvince\": \"string\",\n      \"ISO3166CountryCode\": \"string\",\n      \"Position\": {\n        \"Longitude\": 8099.041591128903,\n        \"Latitude\": 4844.08525921885\n      }\n    },\n    \"CustomerBillingAddress\": {\n      \"Street\": \"string\",\n      \"Apartment\": \"string\",\n      \"CareOf\": \"string\",\n      \"ZipCode\": \"string\",\n      \"City\": \"string\",\n      \"StateOrProvince\": \"string\",\n      \"ISO3166CountryCode\": \"string\",\n      \"Position\": {\n        \"Longitude\": 3260.849293170547,\n        \"Latitude\": 532.0770205594339\n      }\n    },\n    \"NotificationType\": 1,\n    \"WorkOrderCategoryId\": 1469,\n    \"CategoryName\": \"string\",\n    \"AssignedToContactId\": 1882,\n    \"EstimatedTotal\": 5917.99009483337,\n    \"Status\": 4,\n    \"QuoteId\": 1768,\n    \"IsDeleted\": false,\n    \"Created\": \"1952-08-13T08:57:59.787Z\",\n    \"RequestedByContactId\": 3436,\n    \"StatusHistory\": [\n      {\n        \"OccuredAt\": \"1974-05-22T15:41:11.067Z\",\n        \"ContactId\": 7774,\n        \"Status\": 4\n      },\n      {\n        \"OccuredAt\": \"1973-10-18T15:32:43.178Z\",\n        \"ContactId\": 7130,\n        \"Status\": 5\n      }\n    ],\n    \"Notes\": [\n      {\n        \"Note\": \"string\",\n        \"QuoteNoteId\": 8796,\n        \"CreatedByContactId\": 6274,\n        \"Created\": \"1970-11-27T19:10:59.257Z\"\n      },\n      {\n        \"Note\": \"string\",\n        \"QuoteNoteId\": 5521,\n        \"CreatedByContactId\": 8102,\n        \"Created\": \"1964-09-07T03:31:11.151Z\"\n      }\n    ],\n    \"Items\": [\n      {\n        \"Quantity\": 1496.3763852081768,\n        \"WorkOrderArticleId\": 2397,\n        \"PricePerQuantityExclVAT\": 3583.2908141478147,\n        \"DiscountInPercentage\": 1489.2574152430082,\n        \"DiscountAmount\": 4503.73704518322,\n        \"TaxRate\": 4490.335210573932,\n        \"ArticleName\": \"string\",\n        \"UnitType\": 26,\n        \"QuoteItemId\": 9583,\n        \"ISO4217CurrencyCode\": \"string\",\n        \"Created\": \"2017-06-24T19:14:06.957Z\"\n      },\n      {\n        \"Quantity\": 5437.169688733944,\n        \"WorkOrderArticleId\": 4588,\n        \"PricePerQuantityExclVAT\": 657.8092803415858,\n        \"DiscountInPercentage\": 8606.61569427806,\n        \"DiscountAmount\": 6336.104086313275,\n        \"TaxRate\": 6408.903902699098,\n        \"ArticleName\": \"string\",\n        \"UnitType\": 12,\n        \"QuoteItemId\": 752,\n        \"ISO4217CurrencyCode\": \"string\",\n        \"Created\": \"1986-08-28T18:39:27.035Z\"\n      }\n    ],\n    \"Attachments\": [\n      {\n        \"AttachmentType\": 2,\n        \"URL\": \"string\",\n        \"Description\": \"string\",\n        \"QuoteAttachmentId\": 6378,\n        \"CreatedByContactId\": 8542,\n        \"Created\": \"1993-10-23T21:15:42.478Z\"\n      },\n      {\n        \"AttachmentType\": 0,\n        \"URL\": \"string\",\n        \"Description\": \"string\",\n        \"QuoteAttachmentId\": 8345,\n        \"CreatedByContactId\": 3868,\n        \"Created\": \"1979-04-21T17:52:58.234Z\"\n      }\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "37bd869b-a033-4b6d-af72-65e1a72e3a40",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "quotes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "quoteStatus",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "includeDeleted",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1f5d35a2-bdc9-497c-9b3c-4fecb786fd0e",
+          "name": "Create a new Quote",
+          "request": {
+            "name": "Create a new Quote",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "resourceowner",
+                "quotes"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "read write"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.automile.com/login/"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"WorkOrderCustomerId\": \"<integer>\",\n  \"JobDate\": \"<dateTime>\",\n  \"JobTime\": {\n    \"Ticks\": \"<long>\"\n  },\n  \"EstimatedTimeInMinutes\": \"<integer>\",\n  \"JobDescription\": \"<string>\",\n  \"ExternalId\": \"<string>\",\n  \"CustomerContactName\": \"<string>\",\n  \"CustomerEmail\": \"<string>\",\n  \"CustomerName\": \"<string>\",\n  \"CustomerCommunicationLanguageISO639_2\": \"<string>\",\n  \"CustomerPhoneNumber\": \"<string>\",\n  \"CustomerJobAddress\": {\n    \"Street\": \"<string>\",\n    \"Apartment\": \"<string>\",\n    \"CareOf\": \"<string>\",\n    \"ZipCode\": \"<string>\",\n    \"City\": \"<string>\",\n    \"StateOrProvince\": \"<string>\",\n    \"ISO3166CountryCode\": \"<string>\",\n    \"Position\": {\n      \"Longitude\": \"<double>\",\n      \"Latitude\": \"<double>\"\n    }\n  },\n  \"CustomerBillingAddress\": {\n    \"Street\": \"<string>\",\n    \"Apartment\": \"<string>\",\n    \"CareOf\": \"<string>\",\n    \"ZipCode\": \"<string>\",\n    \"City\": \"<string>\",\n    \"StateOrProvince\": \"<string>\",\n    \"ISO3166CountryCode\": \"<string>\",\n    \"Position\": {\n      \"Longitude\": \"<double>\",\n      \"Latitude\": \"<double>\"\n    }\n  },\n  \"NotificationType\": \"<integer>\",\n  \"WorkOrderCategoryId\": \"<integer>\",\n  \"CategoryName\": \"<string>\",\n  \"AssignedToContactId\": \"<integer>\",\n  \"EstimatedTotal\": \"<double>\",\n  \"Status\": \"<integer>\",\n  \"Attachments\": [\n    {\n      \"AttachmentType\": \"<integer>\",\n      \"URL\": \"<string>\",\n      \"Description\": \"<string>\"\n    },\n    {\n      \"AttachmentType\": \"<integer>\",\n      \"URL\": \"<string>\",\n      \"Description\": \"<string>\"\n    }\n  ],\n  \"Notes\": [\n    {\n      \"Note\": \"<string>\"\n    },\n    {\n      \"Note\": \"<string>\"\n    }\n  ],\n  \"Items\": [\n    {\n      \"Quantity\": \"<double>\",\n      \"WorkOrderArticleId\": \"<integer>\",\n      \"PricePerQuantityExclVAT\": \"<double>\",\n      \"DiscountInPercentage\": \"<double>\",\n      \"DiscountAmount\": \"<double>\",\n      \"TaxRate\": \"<double>\",\n      \"ArticleName\": \"<string>\",\n      \"UnitType\": \"<integer>\"\n    },\n    {\n      \"Quantity\": \"<double>\",\n      \"WorkOrderArticleId\": \"<integer>\",\n      \"PricePerQuantityExclVAT\": \"<double>\",\n      \"DiscountInPercentage\": \"<double>\",\n      \"DiscountAmount\": \"<double>\",\n      \"TaxRate\": \"<double>\",\n      \"ArticleName\": \"<string>\",\n      \"UnitType\": \"<integer>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "7c060df3-a3aa-43fe-b02d-90dbfe0bfd25",
+              "name": "A link in the header is returned to the newly created quote.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "quotes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"WorkOrderCustomerId\": \"<integer>\",\n  \"JobDate\": \"<dateTime>\",\n  \"JobTime\": {\n    \"Ticks\": \"<long>\"\n  },\n  \"EstimatedTimeInMinutes\": \"<integer>\",\n  \"JobDescription\": \"<string>\",\n  \"ExternalId\": \"<string>\",\n  \"CustomerContactName\": \"<string>\",\n  \"CustomerEmail\": \"<string>\",\n  \"CustomerName\": \"<string>\",\n  \"CustomerCommunicationLanguageISO639_2\": \"<string>\",\n  \"CustomerPhoneNumber\": \"<string>\",\n  \"CustomerJobAddress\": {\n    \"Street\": \"<string>\",\n    \"Apartment\": \"<string>\",\n    \"CareOf\": \"<string>\",\n    \"ZipCode\": \"<string>\",\n    \"City\": \"<string>\",\n    \"StateOrProvince\": \"<string>\",\n    \"ISO3166CountryCode\": \"<string>\",\n    \"Position\": {\n      \"Longitude\": \"<double>\",\n      \"Latitude\": \"<double>\"\n    }\n  },\n  \"CustomerBillingAddress\": {\n    \"Street\": \"<string>\",\n    \"Apartment\": \"<string>\",\n    \"CareOf\": \"<string>\",\n    \"ZipCode\": \"<string>\",\n    \"City\": \"<string>\",\n    \"StateOrProvince\": \"<string>\",\n    \"ISO3166CountryCode\": \"<string>\",\n    \"Position\": {\n      \"Longitude\": \"<double>\",\n      \"Latitude\": \"<double>\"\n    }\n  },\n  \"NotificationType\": \"<integer>\",\n  \"WorkOrderCategoryId\": \"<integer>\",\n  \"CategoryName\": \"<string>\",\n  \"AssignedToContactId\": \"<integer>\",\n  \"EstimatedTotal\": \"<double>\",\n  \"Status\": \"<integer>\",\n  \"Attachments\": [\n    {\n      \"AttachmentType\": \"<integer>\",\n      \"URL\": \"<string>\",\n      \"Description\": \"<string>\"\n    },\n    {\n      \"AttachmentType\": \"<integer>\",\n      \"URL\": \"<string>\",\n      \"Description\": \"<string>\"\n    }\n  ],\n  \"Notes\": [\n    {\n      \"Note\": \"<string>\"\n    },\n    {\n      \"Note\": \"<string>\"\n    }\n  ],\n  \"Items\": [\n    {\n      \"Quantity\": \"<double>\",\n      \"WorkOrderArticleId\": \"<integer>\",\n      \"PricePerQuantityExclVAT\": \"<double>\",\n      \"DiscountInPercentage\": \"<double>\",\n      \"DiscountAmount\": \"<double>\",\n      \"TaxRate\": \"<double>\",\n      \"ArticleName\": \"<string>\",\n      \"UnitType\": \"<integer>\"\n    },\n    {\n      \"Quantity\": \"<double>\",\n      \"WorkOrderArticleId\": \"<integer>\",\n      \"PricePerQuantityExclVAT\": \"<double>\",\n      \"DiscountInPercentage\": \"<double>\",\n      \"DiscountAmount\": \"<double>\",\n      \"TaxRate\": \"<double>\",\n      \"ArticleName\": \"<string>\",\n      \"UnitType\": \"<integer>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "637951f0-4a32-4ec5-b910-efc1cc1f3ef4",
+              "name": "Bad request, could occur for various cases, see returned message.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "quotes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"WorkOrderCustomerId\": \"<integer>\",\n  \"JobDate\": \"<dateTime>\",\n  \"JobTime\": {\n    \"Ticks\": \"<long>\"\n  },\n  \"EstimatedTimeInMinutes\": \"<integer>\",\n  \"JobDescription\": \"<string>\",\n  \"ExternalId\": \"<string>\",\n  \"CustomerContactName\": \"<string>\",\n  \"CustomerEmail\": \"<string>\",\n  \"CustomerName\": \"<string>\",\n  \"CustomerCommunicationLanguageISO639_2\": \"<string>\",\n  \"CustomerPhoneNumber\": \"<string>\",\n  \"CustomerJobAddress\": {\n    \"Street\": \"<string>\",\n    \"Apartment\": \"<string>\",\n    \"CareOf\": \"<string>\",\n    \"ZipCode\": \"<string>\",\n    \"City\": \"<string>\",\n    \"StateOrProvince\": \"<string>\",\n    \"ISO3166CountryCode\": \"<string>\",\n    \"Position\": {\n      \"Longitude\": \"<double>\",\n      \"Latitude\": \"<double>\"\n    }\n  },\n  \"CustomerBillingAddress\": {\n    \"Street\": \"<string>\",\n    \"Apartment\": \"<string>\",\n    \"CareOf\": \"<string>\",\n    \"ZipCode\": \"<string>\",\n    \"City\": \"<string>\",\n    \"StateOrProvince\": \"<string>\",\n    \"ISO3166CountryCode\": \"<string>\",\n    \"Position\": {\n      \"Longitude\": \"<double>\",\n      \"Latitude\": \"<double>\"\n    }\n  },\n  \"NotificationType\": \"<integer>\",\n  \"WorkOrderCategoryId\": \"<integer>\",\n  \"CategoryName\": \"<string>\",\n  \"AssignedToContactId\": \"<integer>\",\n  \"EstimatedTotal\": \"<double>\",\n  \"Status\": \"<integer>\",\n  \"Attachments\": [\n    {\n      \"AttachmentType\": \"<integer>\",\n      \"URL\": \"<string>\",\n      \"Description\": \"<string>\"\n    },\n    {\n      \"AttachmentType\": \"<integer>\",\n      \"URL\": \"<string>\",\n      \"Description\": \"<string>\"\n    }\n  ],\n  \"Notes\": [\n    {\n      \"Note\": \"<string>\"\n    },\n    {\n      \"Note\": \"<string>\"\n    }\n  ],\n  \"Items\": [\n    {\n      \"Quantity\": \"<double>\",\n      \"WorkOrderArticleId\": \"<integer>\",\n      \"PricePerQuantityExclVAT\": \"<double>\",\n      \"DiscountInPercentage\": \"<double>\",\n      \"DiscountAmount\": \"<double>\",\n      \"TaxRate\": \"<double>\",\n      \"ArticleName\": \"<string>\",\n      \"UnitType\": \"<integer>\"\n    },\n    {\n      \"Quantity\": \"<double>\",\n      \"WorkOrderArticleId\": \"<integer>\",\n      \"PricePerQuantityExclVAT\": \"<double>\",\n      \"DiscountInPercentage\": \"<double>\",\n      \"DiscountAmount\": \"<double>\",\n      \"TaxRate\": \"<double>\",\n      \"ArticleName\": \"<string>\",\n      \"UnitType\": \"<integer>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "5c87cac0-c67f-4c7a-9e9c-c50d2e64ff3b",
+              "name": "Request is forbidden, could occur for various reasons, see returned message.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "quotes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"WorkOrderCustomerId\": \"<integer>\",\n  \"JobDate\": \"<dateTime>\",\n  \"JobTime\": {\n    \"Ticks\": \"<long>\"\n  },\n  \"EstimatedTimeInMinutes\": \"<integer>\",\n  \"JobDescription\": \"<string>\",\n  \"ExternalId\": \"<string>\",\n  \"CustomerContactName\": \"<string>\",\n  \"CustomerEmail\": \"<string>\",\n  \"CustomerName\": \"<string>\",\n  \"CustomerCommunicationLanguageISO639_2\": \"<string>\",\n  \"CustomerPhoneNumber\": \"<string>\",\n  \"CustomerJobAddress\": {\n    \"Street\": \"<string>\",\n    \"Apartment\": \"<string>\",\n    \"CareOf\": \"<string>\",\n    \"ZipCode\": \"<string>\",\n    \"City\": \"<string>\",\n    \"StateOrProvince\": \"<string>\",\n    \"ISO3166CountryCode\": \"<string>\",\n    \"Position\": {\n      \"Longitude\": \"<double>\",\n      \"Latitude\": \"<double>\"\n    }\n  },\n  \"CustomerBillingAddress\": {\n    \"Street\": \"<string>\",\n    \"Apartment\": \"<string>\",\n    \"CareOf\": \"<string>\",\n    \"ZipCode\": \"<string>\",\n    \"City\": \"<string>\",\n    \"StateOrProvince\": \"<string>\",\n    \"ISO3166CountryCode\": \"<string>\",\n    \"Position\": {\n      \"Longitude\": \"<double>\",\n      \"Latitude\": \"<double>\"\n    }\n  },\n  \"NotificationType\": \"<integer>\",\n  \"WorkOrderCategoryId\": \"<integer>\",\n  \"CategoryName\": \"<string>\",\n  \"AssignedToContactId\": \"<integer>\",\n  \"EstimatedTotal\": \"<double>\",\n  \"Status\": \"<integer>\",\n  \"Attachments\": [\n    {\n      \"AttachmentType\": \"<integer>\",\n      \"URL\": \"<string>\",\n      \"Description\": \"<string>\"\n    },\n    {\n      \"AttachmentType\": \"<integer>\",\n      \"URL\": \"<string>\",\n      \"Description\": \"<string>\"\n    }\n  ],\n  \"Notes\": [\n    {\n      \"Note\": \"<string>\"\n    },\n    {\n      \"Note\": \"<string>\"\n    }\n  ],\n  \"Items\": [\n    {\n      \"Quantity\": \"<double>\",\n      \"WorkOrderArticleId\": \"<integer>\",\n      \"PricePerQuantityExclVAT\": \"<double>\",\n      \"DiscountInPercentage\": \"<double>\",\n      \"DiscountAmount\": \"<double>\",\n      \"TaxRate\": \"<double>\",\n      \"ArticleName\": \"<string>\",\n      \"UnitType\": \"<integer>\"\n    },\n    {\n      \"Quantity\": \"<double>\",\n      \"WorkOrderArticleId\": \"<integer>\",\n      \"PricePerQuantityExclVAT\": \"<double>\",\n      \"DiscountInPercentage\": \"<double>\",\n      \"DiscountAmount\": \"<double>\",\n      \"TaxRate\": \"<double>\",\n      \"ArticleName\": \"<string>\",\n      \"UnitType\": \"<integer>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "0166b8ac-713e-4340-9b95-684666fb8ffa",
+              "name": "Internal server error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "quotes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"WorkOrderCustomerId\": \"<integer>\",\n  \"JobDate\": \"<dateTime>\",\n  \"JobTime\": {\n    \"Ticks\": \"<long>\"\n  },\n  \"EstimatedTimeInMinutes\": \"<integer>\",\n  \"JobDescription\": \"<string>\",\n  \"ExternalId\": \"<string>\",\n  \"CustomerContactName\": \"<string>\",\n  \"CustomerEmail\": \"<string>\",\n  \"CustomerName\": \"<string>\",\n  \"CustomerCommunicationLanguageISO639_2\": \"<string>\",\n  \"CustomerPhoneNumber\": \"<string>\",\n  \"CustomerJobAddress\": {\n    \"Street\": \"<string>\",\n    \"Apartment\": \"<string>\",\n    \"CareOf\": \"<string>\",\n    \"ZipCode\": \"<string>\",\n    \"City\": \"<string>\",\n    \"StateOrProvince\": \"<string>\",\n    \"ISO3166CountryCode\": \"<string>\",\n    \"Position\": {\n      \"Longitude\": \"<double>\",\n      \"Latitude\": \"<double>\"\n    }\n  },\n  \"CustomerBillingAddress\": {\n    \"Street\": \"<string>\",\n    \"Apartment\": \"<string>\",\n    \"CareOf\": \"<string>\",\n    \"ZipCode\": \"<string>\",\n    \"City\": \"<string>\",\n    \"StateOrProvince\": \"<string>\",\n    \"ISO3166CountryCode\": \"<string>\",\n    \"Position\": {\n      \"Longitude\": \"<double>\",\n      \"Latitude\": \"<double>\"\n    }\n  },\n  \"NotificationType\": \"<integer>\",\n  \"WorkOrderCategoryId\": \"<integer>\",\n  \"CategoryName\": \"<string>\",\n  \"AssignedToContactId\": \"<integer>\",\n  \"EstimatedTotal\": \"<double>\",\n  \"Status\": \"<integer>\",\n  \"Attachments\": [\n    {\n      \"AttachmentType\": \"<integer>\",\n      \"URL\": \"<string>\",\n      \"Description\": \"<string>\"\n    },\n    {\n      \"AttachmentType\": \"<integer>\",\n      \"URL\": \"<string>\",\n      \"Description\": \"<string>\"\n    }\n  ],\n  \"Notes\": [\n    {\n      \"Note\": \"<string>\"\n    },\n    {\n      \"Note\": \"<string>\"\n    }\n  ],\n  \"Items\": [\n    {\n      \"Quantity\": \"<double>\",\n      \"WorkOrderArticleId\": \"<integer>\",\n      \"PricePerQuantityExclVAT\": \"<double>\",\n      \"DiscountInPercentage\": \"<double>\",\n      \"DiscountAmount\": \"<double>\",\n      \"TaxRate\": \"<double>\",\n      \"ArticleName\": \"<string>\",\n      \"UnitType\": \"<integer>\"\n    },\n    {\n      \"Quantity\": \"<double>\",\n      \"WorkOrderArticleId\": \"<integer>\",\n      \"PricePerQuantityExclVAT\": \"<double>\",\n      \"DiscountInPercentage\": \"<double>\",\n      \"DiscountAmount\": \"<double>\",\n      \"TaxRate\": \"<double>\",\n      \"ArticleName\": \"<string>\",\n      \"UnitType\": \"<integer>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f2ce2bd4-c938-42d3-80de-ed860a5de8cd",
+          "name": "Update or create one or many quotes",
+          "request": {
+            "name": "Update or create one or many quotes",
+            "description": {
+              "content": "For quotes, items, attachments and notes with an id is updated. When id is not provided new objects is created. If an \r\n            item, attachment or note is missing on an existing quote that item, attachment or note is removed.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "resourceowner",
+                "quotes"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "read write"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.automile.com/login/"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  {\n    \"WorkOrderCustomerId\": \"<integer>\",\n    \"JobDate\": \"<dateTime>\",\n    \"JobTime\": {\n      \"Ticks\": \"<long>\"\n    },\n    \"EstimatedTimeInMinutes\": \"<integer>\",\n    \"JobDescription\": \"<string>\",\n    \"ExternalId\": \"<string>\",\n    \"CustomerContactName\": \"<string>\",\n    \"CustomerEmail\": \"<string>\",\n    \"CustomerName\": \"<string>\",\n    \"CustomerCommunicationLanguageISO639_2\": \"<string>\",\n    \"CustomerPhoneNumber\": \"<string>\",\n    \"CustomerJobAddress\": {\n      \"Street\": \"<string>\",\n      \"Apartment\": \"<string>\",\n      \"CareOf\": \"<string>\",\n      \"ZipCode\": \"<string>\",\n      \"City\": \"<string>\",\n      \"StateOrProvince\": \"<string>\",\n      \"ISO3166CountryCode\": \"<string>\",\n      \"Position\": {\n        \"Longitude\": \"<double>\",\n        \"Latitude\": \"<double>\"\n      }\n    },\n    \"CustomerBillingAddress\": {\n      \"Street\": \"<string>\",\n      \"Apartment\": \"<string>\",\n      \"CareOf\": \"<string>\",\n      \"ZipCode\": \"<string>\",\n      \"City\": \"<string>\",\n      \"StateOrProvince\": \"<string>\",\n      \"ISO3166CountryCode\": \"<string>\",\n      \"Position\": {\n        \"Longitude\": \"<double>\",\n        \"Latitude\": \"<double>\"\n      }\n    },\n    \"NotificationType\": \"<integer>\",\n    \"WorkOrderCategoryId\": \"<integer>\",\n    \"CategoryName\": \"<string>\",\n    \"AssignedToContactId\": \"<integer>\",\n    \"EstimatedTotal\": \"<double>\",\n    \"Status\": \"<integer>\",\n    \"Attachments\": [\n      {\n        \"AttachmentType\": \"<integer>\",\n        \"URL\": \"<string>\",\n        \"Description\": \"<string>\",\n        \"QuoteAttachmentId\": \"<integer>\"\n      },\n      {\n        \"AttachmentType\": \"<integer>\",\n        \"URL\": \"<string>\",\n        \"Description\": \"<string>\",\n        \"QuoteAttachmentId\": \"<integer>\"\n      }\n    ],\n    \"Notes\": [\n      {\n        \"Note\": \"<string>\",\n        \"QuoteNoteId\": \"<integer>\"\n      },\n      {\n        \"Note\": \"<string>\",\n        \"QuoteNoteId\": \"<integer>\"\n      }\n    ],\n    \"Items\": [\n      {\n        \"Quantity\": \"<double>\",\n        \"WorkOrderArticleId\": \"<integer>\",\n        \"PricePerQuantityExclVAT\": \"<double>\",\n        \"DiscountInPercentage\": \"<double>\",\n        \"DiscountAmount\": \"<double>\",\n        \"TaxRate\": \"<double>\",\n        \"ArticleName\": \"<string>\",\n        \"UnitType\": \"<integer>\",\n        \"QuoteItemId\": \"<integer>\"\n      },\n      {\n        \"Quantity\": \"<double>\",\n        \"WorkOrderArticleId\": \"<integer>\",\n        \"PricePerQuantityExclVAT\": \"<double>\",\n        \"DiscountInPercentage\": \"<double>\",\n        \"DiscountAmount\": \"<double>\",\n        \"TaxRate\": \"<double>\",\n        \"ArticleName\": \"<string>\",\n        \"UnitType\": \"<integer>\",\n        \"QuoteItemId\": \"<integer>\"\n      }\n    ],\n    \"QuoteId\": \"<integer>\"\n  },\n  {\n    \"WorkOrderCustomerId\": \"<integer>\",\n    \"JobDate\": \"<dateTime>\",\n    \"JobTime\": {\n      \"Ticks\": \"<long>\"\n    },\n    \"EstimatedTimeInMinutes\": \"<integer>\",\n    \"JobDescription\": \"<string>\",\n    \"ExternalId\": \"<string>\",\n    \"CustomerContactName\": \"<string>\",\n    \"CustomerEmail\": \"<string>\",\n    \"CustomerName\": \"<string>\",\n    \"CustomerCommunicationLanguageISO639_2\": \"<string>\",\n    \"CustomerPhoneNumber\": \"<string>\",\n    \"CustomerJobAddress\": {\n      \"Street\": \"<string>\",\n      \"Apartment\": \"<string>\",\n      \"CareOf\": \"<string>\",\n      \"ZipCode\": \"<string>\",\n      \"City\": \"<string>\",\n      \"StateOrProvince\": \"<string>\",\n      \"ISO3166CountryCode\": \"<string>\",\n      \"Position\": {\n        \"Longitude\": \"<double>\",\n        \"Latitude\": \"<double>\"\n      }\n    },\n    \"CustomerBillingAddress\": {\n      \"Street\": \"<string>\",\n      \"Apartment\": \"<string>\",\n      \"CareOf\": \"<string>\",\n      \"ZipCode\": \"<string>\",\n      \"City\": \"<string>\",\n      \"StateOrProvince\": \"<string>\",\n      \"ISO3166CountryCode\": \"<string>\",\n      \"Position\": {\n        \"Longitude\": \"<double>\",\n        \"Latitude\": \"<double>\"\n      }\n    },\n    \"NotificationType\": \"<integer>\",\n    \"WorkOrderCategoryId\": \"<integer>\",\n    \"CategoryName\": \"<string>\",\n    \"AssignedToContactId\": \"<integer>\",\n    \"EstimatedTotal\": \"<double>\",\n    \"Status\": \"<integer>\",\n    \"Attachments\": [\n      {\n        \"AttachmentType\": \"<integer>\",\n        \"URL\": \"<string>\",\n        \"Description\": \"<string>\",\n        \"QuoteAttachmentId\": \"<integer>\"\n      },\n      {\n        \"AttachmentType\": \"<integer>\",\n        \"URL\": \"<string>\",\n        \"Description\": \"<string>\",\n        \"QuoteAttachmentId\": \"<integer>\"\n      }\n    ],\n    \"Notes\": [\n      {\n        \"Note\": \"<string>\",\n        \"QuoteNoteId\": \"<integer>\"\n      },\n      {\n        \"Note\": \"<string>\",\n        \"QuoteNoteId\": \"<integer>\"\n      }\n    ],\n    \"Items\": [\n      {\n        \"Quantity\": \"<double>\",\n        \"WorkOrderArticleId\": \"<integer>\",\n        \"PricePerQuantityExclVAT\": \"<double>\",\n        \"DiscountInPercentage\": \"<double>\",\n        \"DiscountAmount\": \"<double>\",\n        \"TaxRate\": \"<double>\",\n        \"ArticleName\": \"<string>\",\n        \"UnitType\": \"<integer>\",\n        \"QuoteItemId\": \"<integer>\"\n      },\n      {\n        \"Quantity\": \"<double>\",\n        \"WorkOrderArticleId\": \"<integer>\",\n        \"PricePerQuantityExclVAT\": \"<double>\",\n        \"DiscountInPercentage\": \"<double>\",\n        \"DiscountAmount\": \"<double>\",\n        \"TaxRate\": \"<double>\",\n        \"ArticleName\": \"<string>\",\n        \"UnitType\": \"<integer>\",\n        \"QuoteItemId\": \"<integer>\"\n      }\n    ],\n    \"QuoteId\": \"<integer>\"\n  }\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "cad5bb29-dce3-4ac1-8571-2590cc234737",
+              "name": "Successful update",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "quotes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"WorkOrderCustomerId\": \"<integer>\",\n    \"JobDate\": \"<dateTime>\",\n    \"JobTime\": {\n      \"Ticks\": \"<long>\"\n    },\n    \"EstimatedTimeInMinutes\": \"<integer>\",\n    \"JobDescription\": \"<string>\",\n    \"ExternalId\": \"<string>\",\n    \"CustomerContactName\": \"<string>\",\n    \"CustomerEmail\": \"<string>\",\n    \"CustomerName\": \"<string>\",\n    \"CustomerCommunicationLanguageISO639_2\": \"<string>\",\n    \"CustomerPhoneNumber\": \"<string>\",\n    \"CustomerJobAddress\": {\n      \"Street\": \"<string>\",\n      \"Apartment\": \"<string>\",\n      \"CareOf\": \"<string>\",\n      \"ZipCode\": \"<string>\",\n      \"City\": \"<string>\",\n      \"StateOrProvince\": \"<string>\",\n      \"ISO3166CountryCode\": \"<string>\",\n      \"Position\": {\n        \"Longitude\": \"<double>\",\n        \"Latitude\": \"<double>\"\n      }\n    },\n    \"CustomerBillingAddress\": {\n      \"Street\": \"<string>\",\n      \"Apartment\": \"<string>\",\n      \"CareOf\": \"<string>\",\n      \"ZipCode\": \"<string>\",\n      \"City\": \"<string>\",\n      \"StateOrProvince\": \"<string>\",\n      \"ISO3166CountryCode\": \"<string>\",\n      \"Position\": {\n        \"Longitude\": \"<double>\",\n        \"Latitude\": \"<double>\"\n      }\n    },\n    \"NotificationType\": \"<integer>\",\n    \"WorkOrderCategoryId\": \"<integer>\",\n    \"CategoryName\": \"<string>\",\n    \"AssignedToContactId\": \"<integer>\",\n    \"EstimatedTotal\": \"<double>\",\n    \"Status\": \"<integer>\",\n    \"Attachments\": [\n      {\n        \"AttachmentType\": \"<integer>\",\n        \"URL\": \"<string>\",\n        \"Description\": \"<string>\",\n        \"QuoteAttachmentId\": \"<integer>\"\n      },\n      {\n        \"AttachmentType\": \"<integer>\",\n        \"URL\": \"<string>\",\n        \"Description\": \"<string>\",\n        \"QuoteAttachmentId\": \"<integer>\"\n      }\n    ],\n    \"Notes\": [\n      {\n        \"Note\": \"<string>\",\n        \"QuoteNoteId\": \"<integer>\"\n      },\n      {\n        \"Note\": \"<string>\",\n        \"QuoteNoteId\": \"<integer>\"\n      }\n    ],\n    \"Items\": [\n      {\n        \"Quantity\": \"<double>\",\n        \"WorkOrderArticleId\": \"<integer>\",\n        \"PricePerQuantityExclVAT\": \"<double>\",\n        \"DiscountInPercentage\": \"<double>\",\n        \"DiscountAmount\": \"<double>\",\n        \"TaxRate\": \"<double>\",\n        \"ArticleName\": \"<string>\",\n        \"UnitType\": \"<integer>\",\n        \"QuoteItemId\": \"<integer>\"\n      },\n      {\n        \"Quantity\": \"<double>\",\n        \"WorkOrderArticleId\": \"<integer>\",\n        \"PricePerQuantityExclVAT\": \"<double>\",\n        \"DiscountInPercentage\": \"<double>\",\n        \"DiscountAmount\": \"<double>\",\n        \"TaxRate\": \"<double>\",\n        \"ArticleName\": \"<string>\",\n        \"UnitType\": \"<integer>\",\n        \"QuoteItemId\": \"<integer>\"\n      }\n    ],\n    \"QuoteId\": \"<integer>\"\n  },\n  {\n    \"WorkOrderCustomerId\": \"<integer>\",\n    \"JobDate\": \"<dateTime>\",\n    \"JobTime\": {\n      \"Ticks\": \"<long>\"\n    },\n    \"EstimatedTimeInMinutes\": \"<integer>\",\n    \"JobDescription\": \"<string>\",\n    \"ExternalId\": \"<string>\",\n    \"CustomerContactName\": \"<string>\",\n    \"CustomerEmail\": \"<string>\",\n    \"CustomerName\": \"<string>\",\n    \"CustomerCommunicationLanguageISO639_2\": \"<string>\",\n    \"CustomerPhoneNumber\": \"<string>\",\n    \"CustomerJobAddress\": {\n      \"Street\": \"<string>\",\n      \"Apartment\": \"<string>\",\n      \"CareOf\": \"<string>\",\n      \"ZipCode\": \"<string>\",\n      \"City\": \"<string>\",\n      \"StateOrProvince\": \"<string>\",\n      \"ISO3166CountryCode\": \"<string>\",\n      \"Position\": {\n        \"Longitude\": \"<double>\",\n        \"Latitude\": \"<double>\"\n      }\n    },\n    \"CustomerBillingAddress\": {\n      \"Street\": \"<string>\",\n      \"Apartment\": \"<string>\",\n      \"CareOf\": \"<string>\",\n      \"ZipCode\": \"<string>\",\n      \"City\": \"<string>\",\n      \"StateOrProvince\": \"<string>\",\n      \"ISO3166CountryCode\": \"<string>\",\n      \"Position\": {\n        \"Longitude\": \"<double>\",\n        \"Latitude\": \"<double>\"\n      }\n    },\n    \"NotificationType\": \"<integer>\",\n    \"WorkOrderCategoryId\": \"<integer>\",\n    \"CategoryName\": \"<string>\",\n    \"AssignedToContactId\": \"<integer>\",\n    \"EstimatedTotal\": \"<double>\",\n    \"Status\": \"<integer>\",\n    \"Attachments\": [\n      {\n        \"AttachmentType\": \"<integer>\",\n        \"URL\": \"<string>\",\n        \"Description\": \"<string>\",\n        \"QuoteAttachmentId\": \"<integer>\"\n      },\n      {\n        \"AttachmentType\": \"<integer>\",\n        \"URL\": \"<string>\",\n        \"Description\": \"<string>\",\n        \"QuoteAttachmentId\": \"<integer>\"\n      }\n    ],\n    \"Notes\": [\n      {\n        \"Note\": \"<string>\",\n        \"QuoteNoteId\": \"<integer>\"\n      },\n      {\n        \"Note\": \"<string>\",\n        \"QuoteNoteId\": \"<integer>\"\n      }\n    ],\n    \"Items\": [\n      {\n        \"Quantity\": \"<double>\",\n        \"WorkOrderArticleId\": \"<integer>\",\n        \"PricePerQuantityExclVAT\": \"<double>\",\n        \"DiscountInPercentage\": \"<double>\",\n        \"DiscountAmount\": \"<double>\",\n        \"TaxRate\": \"<double>\",\n        \"ArticleName\": \"<string>\",\n        \"UnitType\": \"<integer>\",\n        \"QuoteItemId\": \"<integer>\"\n      },\n      {\n        \"Quantity\": \"<double>\",\n        \"WorkOrderArticleId\": \"<integer>\",\n        \"PricePerQuantityExclVAT\": \"<double>\",\n        \"DiscountInPercentage\": \"<double>\",\n        \"DiscountAmount\": \"<double>\",\n        \"TaxRate\": \"<double>\",\n        \"ArticleName\": \"<string>\",\n        \"UnitType\": \"<integer>\",\n        \"QuoteItemId\": \"<integer>\"\n      }\n    ],\n    \"QuoteId\": \"<integer>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"WorkOrderCustomerId\": 251,\n    \"JobDate\": \"2019-08-18T07:12:10.952Z\",\n    \"JobTime\": {\n      \"Ticks\": \"<long>\",\n      \"Days\": 7485,\n      \"Hours\": 3207,\n      \"Milliseconds\": 9739,\n      \"Microseconds\": 5137,\n      \"Nanoseconds\": 4982,\n      \"Minutes\": 6884,\n      \"Seconds\": 4027,\n      \"TotalDays\": 5464.781170499111,\n      \"TotalHours\": 5939.405889361749,\n      \"TotalMilliseconds\": 5824.748944794606,\n      \"TotalMicroseconds\": 902.9724316567223,\n      \"TotalNanoseconds\": 5984.337528865484,\n      \"TotalMinutes\": 4089.324462773287,\n      \"TotalSeconds\": 107.575245378988\n    },\n    \"EstimatedTimeInMinutes\": 3051,\n    \"JobDescription\": \"string\",\n    \"ExternalId\": \"string\",\n    \"CustomerContactName\": \"string\",\n    \"CustomerEmail\": \"string\",\n    \"CustomerName\": \"string\",\n    \"CustomerCommunicationLanguageISO639_2\": \"string\",\n    \"CustomerPhoneNumber\": \"string\",\n    \"CustomerJobAddress\": {\n      \"Street\": \"<string>\",\n      \"Apartment\": \"<string>\",\n      \"CareOf\": \"<string>\",\n      \"ZipCode\": \"<string>\",\n      \"City\": \"<string>\",\n      \"StateOrProvince\": \"<string>\",\n      \"ISO3166CountryCode\": \"<string>\",\n      \"Position\": {\n        \"Longitude\": \"<double>\",\n        \"Latitude\": \"<double>\"\n      }\n    },\n    \"CustomerBillingAddress\": {\n      \"Street\": \"<string>\",\n      \"Apartment\": \"<string>\",\n      \"CareOf\": \"<string>\",\n      \"ZipCode\": \"<string>\",\n      \"City\": \"<string>\",\n      \"StateOrProvince\": \"<string>\",\n      \"ISO3166CountryCode\": \"<string>\",\n      \"Position\": {\n        \"Longitude\": \"<double>\",\n        \"Latitude\": \"<double>\"\n      }\n    },\n    \"NotificationType\": 0,\n    \"WorkOrderCategoryId\": 6335,\n    \"CategoryName\": \"string\",\n    \"AssignedToContactId\": 1415,\n    \"EstimatedTotal\": 1109.4583873179,\n    \"Status\": 5,\n    \"QuoteId\": 2657,\n    \"IsDeleted\": true,\n    \"Created\": \"1994-01-30T20:17:17.643Z\",\n    \"RequestedByContactId\": 9210,\n    \"StatusHistory\": [\n      {\n        \"OccuredAt\": \"1993-05-01T05:11:00.869Z\",\n        \"ContactId\": 3184,\n        \"Status\": 1\n      },\n      {\n        \"OccuredAt\": \"1985-08-07T06:40:32.974Z\",\n        \"ContactId\": 6777,\n        \"Status\": 5\n      }\n    ],\n    \"Notes\": [\n      {\n        \"Note\": \"string\",\n        \"QuoteNoteId\": 6340,\n        \"CreatedByContactId\": 4370,\n        \"Created\": \"2015-07-19T02:05:46.459Z\"\n      },\n      {\n        \"Note\": \"string\",\n        \"QuoteNoteId\": 3368,\n        \"CreatedByContactId\": 7963,\n        \"Created\": \"2025-11-12T02:38:27.955Z\"\n      }\n    ],\n    \"Items\": [\n      {\n        \"Quantity\": 563.4395170433659,\n        \"WorkOrderArticleId\": 6683,\n        \"PricePerQuantityExclVAT\": 612.961737699601,\n        \"DiscountInPercentage\": 3867.959777466903,\n        \"DiscountAmount\": 8261.19869985354,\n        \"TaxRate\": 3819.8946044851823,\n        \"ArticleName\": \"string\",\n        \"UnitType\": 28,\n        \"QuoteItemId\": 368,\n        \"ISO4217CurrencyCode\": \"string\",\n        \"Created\": \"2022-12-22T07:51:50.554Z\"\n      },\n      {\n        \"Quantity\": 2950.3971143111794,\n        \"WorkOrderArticleId\": 7209,\n        \"PricePerQuantityExclVAT\": 6307.7580765003995,\n        \"DiscountInPercentage\": 2236.3589939871854,\n        \"DiscountAmount\": 1747.2716598305005,\n        \"TaxRate\": 9956.311810251244,\n        \"ArticleName\": \"string\",\n        \"UnitType\": 28,\n        \"QuoteItemId\": 1729,\n        \"ISO4217CurrencyCode\": \"string\",\n        \"Created\": \"2012-05-10T15:11:13.611Z\"\n      }\n    ],\n    \"Attachments\": [\n      {\n        \"AttachmentType\": 2,\n        \"URL\": \"string\",\n        \"Description\": \"string\",\n        \"QuoteAttachmentId\": 5385,\n        \"CreatedByContactId\": 454,\n        \"Created\": \"2006-09-07T06:28:27.980Z\"\n      },\n      {\n        \"AttachmentType\": 0,\n        \"URL\": \"string\",\n        \"Description\": \"string\",\n        \"QuoteAttachmentId\": 6081,\n        \"CreatedByContactId\": 2921,\n        \"Created\": \"2020-12-10T12:34:04.139Z\"\n      }\n    ]\n  },\n  {\n    \"WorkOrderCustomerId\": 1815,\n    \"JobDate\": \"2011-07-31T22:37:41.001Z\",\n    \"JobTime\": {\n      \"Ticks\": \"<long>\",\n      \"Days\": 6367,\n      \"Hours\": 3858,\n      \"Milliseconds\": 6098,\n      \"Microseconds\": 6655,\n      \"Nanoseconds\": 9036,\n      \"Minutes\": 1815,\n      \"Seconds\": 7360,\n      \"TotalDays\": 9750.760631965435,\n      \"TotalHours\": 6848.086279975635,\n      \"TotalMilliseconds\": 3430.0347611858137,\n      \"TotalMicroseconds\": 7882.215791854228,\n      \"TotalNanoseconds\": 1362.352255582352,\n      \"TotalMinutes\": 2009.5910877387269,\n      \"TotalSeconds\": 5935.897112159692\n    },\n    \"EstimatedTimeInMinutes\": 4452,\n    \"JobDescription\": \"string\",\n    \"ExternalId\": \"string\",\n    \"CustomerContactName\": \"string\",\n    \"CustomerEmail\": \"string\",\n    \"CustomerName\": \"string\",\n    \"CustomerCommunicationLanguageISO639_2\": \"string\",\n    \"CustomerPhoneNumber\": \"string\",\n    \"CustomerJobAddress\": {\n      \"Street\": \"<string>\",\n      \"Apartment\": \"<string>\",\n      \"CareOf\": \"<string>\",\n      \"ZipCode\": \"<string>\",\n      \"City\": \"<string>\",\n      \"StateOrProvince\": \"<string>\",\n      \"ISO3166CountryCode\": \"<string>\",\n      \"Position\": {\n        \"Longitude\": \"<double>\",\n        \"Latitude\": \"<double>\"\n      }\n    },\n    \"CustomerBillingAddress\": {\n      \"Street\": \"<string>\",\n      \"Apartment\": \"<string>\",\n      \"CareOf\": \"<string>\",\n      \"ZipCode\": \"<string>\",\n      \"City\": \"<string>\",\n      \"StateOrProvince\": \"<string>\",\n      \"ISO3166CountryCode\": \"<string>\",\n      \"Position\": {\n        \"Longitude\": \"<double>\",\n        \"Latitude\": \"<double>\"\n      }\n    },\n    \"NotificationType\": 1,\n    \"WorkOrderCategoryId\": 9939,\n    \"CategoryName\": \"string\",\n    \"AssignedToContactId\": 4675,\n    \"EstimatedTotal\": 4782.17115509517,\n    \"Status\": 3,\n    \"QuoteId\": 6873,\n    \"IsDeleted\": false,\n    \"Created\": \"2009-09-18T12:53:41.948Z\",\n    \"RequestedByContactId\": 7068,\n    \"StatusHistory\": [\n      {\n        \"OccuredAt\": \"2014-12-30T05:12:08.731Z\",\n        \"ContactId\": 8515,\n        \"Status\": 2\n      },\n      {\n        \"OccuredAt\": \"1978-01-17T11:06:14.337Z\",\n        \"ContactId\": 8169,\n        \"Status\": 4\n      }\n    ],\n    \"Notes\": [\n      {\n        \"Note\": \"string\",\n        \"QuoteNoteId\": 1029,\n        \"CreatedByContactId\": 9046,\n        \"Created\": \"2017-06-18T15:32:18.610Z\"\n      },\n      {\n        \"Note\": \"string\",\n        \"QuoteNoteId\": 2298,\n        \"CreatedByContactId\": 64,\n        \"Created\": \"2016-02-11T10:14:43.565Z\"\n      }\n    ],\n    \"Items\": [\n      {\n        \"Quantity\": 7478.242232642052,\n        \"WorkOrderArticleId\": 9824,\n        \"PricePerQuantityExclVAT\": 2245.435689719748,\n        \"DiscountInPercentage\": 1062.1874938570054,\n        \"DiscountAmount\": 4811.269109588906,\n        \"TaxRate\": 6124.382275486378,\n        \"ArticleName\": \"string\",\n        \"UnitType\": 1,\n        \"QuoteItemId\": 4943,\n        \"ISO4217CurrencyCode\": \"string\",\n        \"Created\": \"1957-04-03T19:50:45.754Z\"\n      },\n      {\n        \"Quantity\": 51.17177209537749,\n        \"WorkOrderArticleId\": 8724,\n        \"PricePerQuantityExclVAT\": 3261.046797933824,\n        \"DiscountInPercentage\": 6192.720483416845,\n        \"DiscountAmount\": 4199.620279095836,\n        \"TaxRate\": 8534.382659046918,\n        \"ArticleName\": \"string\",\n        \"UnitType\": 6,\n        \"QuoteItemId\": 1707,\n        \"ISO4217CurrencyCode\": \"string\",\n        \"Created\": \"2013-11-29T00:56:49.753Z\"\n      }\n    ],\n    \"Attachments\": [\n      {\n        \"AttachmentType\": 2,\n        \"URL\": \"string\",\n        \"Description\": \"string\",\n        \"QuoteAttachmentId\": 6084,\n        \"CreatedByContactId\": 6406,\n        \"Created\": \"2024-04-20T07:23:03.769Z\"\n      },\n      {\n        \"AttachmentType\": 2,\n        \"URL\": \"string\",\n        \"Description\": \"string\",\n        \"QuoteAttachmentId\": 7769,\n        \"CreatedByContactId\": 4941,\n        \"Created\": \"2007-04-12T12:32:59.696Z\"\n      }\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "495eab4a-95aa-46a4-8779-bb424ed2a113",
+              "name": "Internal server error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "quotes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"WorkOrderCustomerId\": \"<integer>\",\n    \"JobDate\": \"<dateTime>\",\n    \"JobTime\": {\n      \"Ticks\": \"<long>\"\n    },\n    \"EstimatedTimeInMinutes\": \"<integer>\",\n    \"JobDescription\": \"<string>\",\n    \"ExternalId\": \"<string>\",\n    \"CustomerContactName\": \"<string>\",\n    \"CustomerEmail\": \"<string>\",\n    \"CustomerName\": \"<string>\",\n    \"CustomerCommunicationLanguageISO639_2\": \"<string>\",\n    \"CustomerPhoneNumber\": \"<string>\",\n    \"CustomerJobAddress\": {\n      \"Street\": \"<string>\",\n      \"Apartment\": \"<string>\",\n      \"CareOf\": \"<string>\",\n      \"ZipCode\": \"<string>\",\n      \"City\": \"<string>\",\n      \"StateOrProvince\": \"<string>\",\n      \"ISO3166CountryCode\": \"<string>\",\n      \"Position\": {\n        \"Longitude\": \"<double>\",\n        \"Latitude\": \"<double>\"\n      }\n    },\n    \"CustomerBillingAddress\": {\n      \"Street\": \"<string>\",\n      \"Apartment\": \"<string>\",\n      \"CareOf\": \"<string>\",\n      \"ZipCode\": \"<string>\",\n      \"City\": \"<string>\",\n      \"StateOrProvince\": \"<string>\",\n      \"ISO3166CountryCode\": \"<string>\",\n      \"Position\": {\n        \"Longitude\": \"<double>\",\n        \"Latitude\": \"<double>\"\n      }\n    },\n    \"NotificationType\": \"<integer>\",\n    \"WorkOrderCategoryId\": \"<integer>\",\n    \"CategoryName\": \"<string>\",\n    \"AssignedToContactId\": \"<integer>\",\n    \"EstimatedTotal\": \"<double>\",\n    \"Status\": \"<integer>\",\n    \"Attachments\": [\n      {\n        \"AttachmentType\": \"<integer>\",\n        \"URL\": \"<string>\",\n        \"Description\": \"<string>\",\n        \"QuoteAttachmentId\": \"<integer>\"\n      },\n      {\n        \"AttachmentType\": \"<integer>\",\n        \"URL\": \"<string>\",\n        \"Description\": \"<string>\",\n        \"QuoteAttachmentId\": \"<integer>\"\n      }\n    ],\n    \"Notes\": [\n      {\n        \"Note\": \"<string>\",\n        \"QuoteNoteId\": \"<integer>\"\n      },\n      {\n        \"Note\": \"<string>\",\n        \"QuoteNoteId\": \"<integer>\"\n      }\n    ],\n    \"Items\": [\n      {\n        \"Quantity\": \"<double>\",\n        \"WorkOrderArticleId\": \"<integer>\",\n        \"PricePerQuantityExclVAT\": \"<double>\",\n        \"DiscountInPercentage\": \"<double>\",\n        \"DiscountAmount\": \"<double>\",\n        \"TaxRate\": \"<double>\",\n        \"ArticleName\": \"<string>\",\n        \"UnitType\": \"<integer>\",\n        \"QuoteItemId\": \"<integer>\"\n      },\n      {\n        \"Quantity\": \"<double>\",\n        \"WorkOrderArticleId\": \"<integer>\",\n        \"PricePerQuantityExclVAT\": \"<double>\",\n        \"DiscountInPercentage\": \"<double>\",\n        \"DiscountAmount\": \"<double>\",\n        \"TaxRate\": \"<double>\",\n        \"ArticleName\": \"<string>\",\n        \"UnitType\": \"<integer>\",\n        \"QuoteItemId\": \"<integer>\"\n      }\n    ],\n    \"QuoteId\": \"<integer>\"\n  },\n  {\n    \"WorkOrderCustomerId\": \"<integer>\",\n    \"JobDate\": \"<dateTime>\",\n    \"JobTime\": {\n      \"Ticks\": \"<long>\"\n    },\n    \"EstimatedTimeInMinutes\": \"<integer>\",\n    \"JobDescription\": \"<string>\",\n    \"ExternalId\": \"<string>\",\n    \"CustomerContactName\": \"<string>\",\n    \"CustomerEmail\": \"<string>\",\n    \"CustomerName\": \"<string>\",\n    \"CustomerCommunicationLanguageISO639_2\": \"<string>\",\n    \"CustomerPhoneNumber\": \"<string>\",\n    \"CustomerJobAddress\": {\n      \"Street\": \"<string>\",\n      \"Apartment\": \"<string>\",\n      \"CareOf\": \"<string>\",\n      \"ZipCode\": \"<string>\",\n      \"City\": \"<string>\",\n      \"StateOrProvince\": \"<string>\",\n      \"ISO3166CountryCode\": \"<string>\",\n      \"Position\": {\n        \"Longitude\": \"<double>\",\n        \"Latitude\": \"<double>\"\n      }\n    },\n    \"CustomerBillingAddress\": {\n      \"Street\": \"<string>\",\n      \"Apartment\": \"<string>\",\n      \"CareOf\": \"<string>\",\n      \"ZipCode\": \"<string>\",\n      \"City\": \"<string>\",\n      \"StateOrProvince\": \"<string>\",\n      \"ISO3166CountryCode\": \"<string>\",\n      \"Position\": {\n        \"Longitude\": \"<double>\",\n        \"Latitude\": \"<double>\"\n      }\n    },\n    \"NotificationType\": \"<integer>\",\n    \"WorkOrderCategoryId\": \"<integer>\",\n    \"CategoryName\": \"<string>\",\n    \"AssignedToContactId\": \"<integer>\",\n    \"EstimatedTotal\": \"<double>\",\n    \"Status\": \"<integer>\",\n    \"Attachments\": [\n      {\n        \"AttachmentType\": \"<integer>\",\n        \"URL\": \"<string>\",\n        \"Description\": \"<string>\",\n        \"QuoteAttachmentId\": \"<integer>\"\n      },\n      {\n        \"AttachmentType\": \"<integer>\",\n        \"URL\": \"<string>\",\n        \"Description\": \"<string>\",\n        \"QuoteAttachmentId\": \"<integer>\"\n      }\n    ],\n    \"Notes\": [\n      {\n        \"Note\": \"<string>\",\n        \"QuoteNoteId\": \"<integer>\"\n      },\n      {\n        \"Note\": \"<string>\",\n        \"QuoteNoteId\": \"<integer>\"\n      }\n    ],\n    \"Items\": [\n      {\n        \"Quantity\": \"<double>\",\n        \"WorkOrderArticleId\": \"<integer>\",\n        \"PricePerQuantityExclVAT\": \"<double>\",\n        \"DiscountInPercentage\": \"<double>\",\n        \"DiscountAmount\": \"<double>\",\n        \"TaxRate\": \"<double>\",\n        \"ArticleName\": \"<string>\",\n        \"UnitType\": \"<integer>\",\n        \"QuoteItemId\": \"<integer>\"\n      },\n      {\n        \"Quantity\": \"<double>\",\n        \"WorkOrderArticleId\": \"<integer>\",\n        \"PricePerQuantityExclVAT\": \"<double>\",\n        \"DiscountInPercentage\": \"<double>\",\n        \"DiscountAmount\": \"<double>\",\n        \"TaxRate\": \"<double>\",\n        \"ArticleName\": \"<string>\",\n        \"UnitType\": \"<integer>\",\n        \"QuoteItemId\": \"<integer>\"\n      }\n    ],\n    \"QuoteId\": \"<integer>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "51e10b1a-f8ba-49da-b765-02dba855e46b",
+          "name": "Get a Quote",
+          "request": {
+            "name": "Get a Quote",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "resourceowner",
+                "quotes",
+                ":quoteId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "quoteId",
+                  "description": "(Required) Quote Id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "read write"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.automile.com/login/"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "d93e59f7-ac20-4638-95b7-81a029f26b97",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "quotes",
+                    ":quoteId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "quoteId",
+                      "description": "(Required) Quote Id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"WorkOrderCustomerId\": 4349,\n  \"JobDate\": \"2019-11-07T08:16:08.850Z\",\n  \"JobTime\": {\n    \"Ticks\": \"<long>\",\n    \"Days\": 8921,\n    \"Hours\": 4696,\n    \"Milliseconds\": 9704,\n    \"Microseconds\": 9079,\n    \"Nanoseconds\": 7570,\n    \"Minutes\": 3535,\n    \"Seconds\": 3773,\n    \"TotalDays\": 2986.924867556223,\n    \"TotalHours\": 9718.113979207541,\n    \"TotalMilliseconds\": 8398.312632878902,\n    \"TotalMicroseconds\": 5537.485370409756,\n    \"TotalNanoseconds\": 5987.83922398183,\n    \"TotalMinutes\": 3721.623903466507,\n    \"TotalSeconds\": 9991.938425138567\n  },\n  \"EstimatedTimeInMinutes\": 3336,\n  \"JobDescription\": \"string\",\n  \"ExternalId\": \"string\",\n  \"CustomerContactName\": \"string\",\n  \"CustomerEmail\": \"string\",\n  \"CustomerName\": \"string\",\n  \"CustomerCommunicationLanguageISO639_2\": \"string\",\n  \"CustomerPhoneNumber\": \"string\",\n  \"CustomerJobAddress\": {\n    \"Street\": \"<string>\",\n    \"Apartment\": \"<string>\",\n    \"CareOf\": \"<string>\",\n    \"ZipCode\": \"<string>\",\n    \"City\": \"<string>\",\n    \"StateOrProvince\": \"<string>\",\n    \"ISO3166CountryCode\": \"<string>\",\n    \"Position\": {\n      \"Longitude\": \"<double>\",\n      \"Latitude\": \"<double>\"\n    }\n  },\n  \"CustomerBillingAddress\": {\n    \"Street\": \"<string>\",\n    \"Apartment\": \"<string>\",\n    \"CareOf\": \"<string>\",\n    \"ZipCode\": \"<string>\",\n    \"City\": \"<string>\",\n    \"StateOrProvince\": \"<string>\",\n    \"ISO3166CountryCode\": \"<string>\",\n    \"Position\": {\n      \"Longitude\": \"<double>\",\n      \"Latitude\": \"<double>\"\n    }\n  },\n  \"NotificationType\": 0,\n  \"WorkOrderCategoryId\": 1571,\n  \"CategoryName\": \"string\",\n  \"AssignedToContactId\": 3182,\n  \"EstimatedTotal\": 4570.1961054389285,\n  \"Status\": 2,\n  \"QuoteId\": 6306,\n  \"IsDeleted\": false,\n  \"Created\": \"1967-03-14T01:27:58.033Z\",\n  \"RequestedByContactId\": 8873,\n  \"StatusHistory\": [\n    {\n      \"OccuredAt\": \"1971-01-29T23:46:12.044Z\",\n      \"ContactId\": 4583,\n      \"Status\": 0\n    },\n    {\n      \"OccuredAt\": \"1957-01-09T16:30:30.542Z\",\n      \"ContactId\": 3112,\n      \"Status\": 3\n    }\n  ],\n  \"Notes\": [\n    {\n      \"Note\": \"s\",\n      \"QuoteNoteId\": 9432,\n      \"CreatedByContactId\": 2130,\n      \"Created\": \"2000-08-08T07:31:54.680Z\"\n    },\n    {\n      \"Note\": \"string\",\n      \"QuoteNoteId\": 8083,\n      \"CreatedByContactId\": 5633,\n      \"Created\": \"2020-12-26T03:55:17.653Z\"\n    }\n  ],\n  \"Items\": [\n    {\n      \"Quantity\": 7547.113153224672,\n      \"WorkOrderArticleId\": 6993,\n      \"PricePerQuantityExclVAT\": 1580.1944792864188,\n      \"DiscountInPercentage\": 1365.3992384548142,\n      \"DiscountAmount\": 4172.9498140357,\n      \"TaxRate\": 6774.326367696975,\n      \"ArticleName\": \"string\",\n      \"UnitType\": 11,\n      \"QuoteItemId\": 9819,\n      \"ISO4217CurrencyCode\": \"string\",\n      \"Created\": \"2001-11-01T10:53:30.441Z\"\n    },\n    {\n      \"Quantity\": 6958.241745896905,\n      \"WorkOrderArticleId\": 2159,\n      \"PricePerQuantityExclVAT\": 262.10377712720054,\n      \"DiscountInPercentage\": 4855.545158337248,\n      \"DiscountAmount\": 4630.316979918002,\n      \"TaxRate\": 8962.636803804544,\n      \"ArticleName\": \"string\",\n      \"UnitType\": 30,\n      \"QuoteItemId\": 949,\n      \"ISO4217CurrencyCode\": \"string\",\n      \"Created\": \"1964-08-19T18:04:02.218Z\"\n    }\n  ],\n  \"Attachments\": [\n    {\n      \"AttachmentType\": 1,\n      \"URL\": \"string\",\n      \"Description\": \"string\",\n      \"QuoteAttachmentId\": 4801,\n      \"CreatedByContactId\": 6529,\n      \"Created\": \"1995-05-06T04:21:54.263Z\"\n    },\n    {\n      \"AttachmentType\": 0,\n      \"URL\": \"string\",\n      \"Description\": \"string\",\n      \"QuoteAttachmentId\": 5544,\n      \"CreatedByContactId\": 9921,\n      \"Created\": \"2011-03-28T15:50:13.172Z\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d7ba29f0-7808-4952-8a6d-ebe09ef60a28",
+          "name": "Updates a quote",
+          "request": {
+            "name": "Updates a quote",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "resourceowner",
+                "quotes",
+                ":quoteId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "quoteId",
+                  "description": "(Required) Quote Id that needs to be udpated"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "read write"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.automile.com/login/"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"WorkOrderCustomerId\": \"<integer>\",\n  \"JobDate\": \"<dateTime>\",\n  \"JobTime\": {\n    \"Ticks\": \"<long>\"\n  },\n  \"EstimatedTimeInMinutes\": \"<integer>\",\n  \"JobDescription\": \"<string>\",\n  \"ExternalId\": \"<string>\",\n  \"CustomerContactName\": \"<string>\",\n  \"CustomerEmail\": \"<string>\",\n  \"CustomerName\": \"<string>\",\n  \"CustomerCommunicationLanguageISO639_2\": \"<string>\",\n  \"CustomerPhoneNumber\": \"<string>\",\n  \"CustomerJobAddress\": {\n    \"Street\": \"<string>\",\n    \"Apartment\": \"<string>\",\n    \"CareOf\": \"<string>\",\n    \"ZipCode\": \"<string>\",\n    \"City\": \"<string>\",\n    \"StateOrProvince\": \"<string>\",\n    \"ISO3166CountryCode\": \"<string>\",\n    \"Position\": {\n      \"Longitude\": \"<double>\",\n      \"Latitude\": \"<double>\"\n    }\n  },\n  \"CustomerBillingAddress\": {\n    \"Street\": \"<string>\",\n    \"Apartment\": \"<string>\",\n    \"CareOf\": \"<string>\",\n    \"ZipCode\": \"<string>\",\n    \"City\": \"<string>\",\n    \"StateOrProvince\": \"<string>\",\n    \"ISO3166CountryCode\": \"<string>\",\n    \"Position\": {\n      \"Longitude\": \"<double>\",\n      \"Latitude\": \"<double>\"\n    }\n  },\n  \"NotificationType\": \"<integer>\",\n  \"WorkOrderCategoryId\": \"<integer>\",\n  \"CategoryName\": \"<string>\",\n  \"AssignedToContactId\": \"<integer>\",\n  \"EstimatedTotal\": \"<double>\",\n  \"Status\": \"<integer>\",\n  \"Attachments\": [\n    {\n      \"AttachmentType\": \"<integer>\",\n      \"URL\": \"<string>\",\n      \"Description\": \"<string>\",\n      \"QuoteAttachmentId\": \"<integer>\"\n    },\n    {\n      \"AttachmentType\": \"<integer>\",\n      \"URL\": \"<string>\",\n      \"Description\": \"<string>\",\n      \"QuoteAttachmentId\": \"<integer>\"\n    }\n  ],\n  \"Notes\": [\n    {\n      \"Note\": \"<string>\",\n      \"QuoteNoteId\": \"<integer>\"\n    },\n    {\n      \"Note\": \"<string>\",\n      \"QuoteNoteId\": \"<integer>\"\n    }\n  ],\n  \"Items\": [\n    {\n      \"Quantity\": \"<double>\",\n      \"WorkOrderArticleId\": \"<integer>\",\n      \"PricePerQuantityExclVAT\": \"<double>\",\n      \"DiscountInPercentage\": \"<double>\",\n      \"DiscountAmount\": \"<double>\",\n      \"TaxRate\": \"<double>\",\n      \"ArticleName\": \"<string>\",\n      \"UnitType\": \"<integer>\",\n      \"QuoteItemId\": \"<integer>\"\n    },\n    {\n      \"Quantity\": \"<double>\",\n      \"WorkOrderArticleId\": \"<integer>\",\n      \"PricePerQuantityExclVAT\": \"<double>\",\n      \"DiscountInPercentage\": \"<double>\",\n      \"DiscountAmount\": \"<double>\",\n      \"TaxRate\": \"<double>\",\n      \"ArticleName\": \"<string>\",\n      \"UnitType\": \"<integer>\",\n      \"QuoteItemId\": \"<integer>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "4a5dcccb-f375-413b-9aee-8090f6b40c11",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "quotes",
+                    ":quoteId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "quoteId",
+                      "description": "(Required) Quote Id that needs to be udpated"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"WorkOrderCustomerId\": \"<integer>\",\n  \"JobDate\": \"<dateTime>\",\n  \"JobTime\": {\n    \"Ticks\": \"<long>\"\n  },\n  \"EstimatedTimeInMinutes\": \"<integer>\",\n  \"JobDescription\": \"<string>\",\n  \"ExternalId\": \"<string>\",\n  \"CustomerContactName\": \"<string>\",\n  \"CustomerEmail\": \"<string>\",\n  \"CustomerName\": \"<string>\",\n  \"CustomerCommunicationLanguageISO639_2\": \"<string>\",\n  \"CustomerPhoneNumber\": \"<string>\",\n  \"CustomerJobAddress\": {\n    \"Street\": \"<string>\",\n    \"Apartment\": \"<string>\",\n    \"CareOf\": \"<string>\",\n    \"ZipCode\": \"<string>\",\n    \"City\": \"<string>\",\n    \"StateOrProvince\": \"<string>\",\n    \"ISO3166CountryCode\": \"<string>\",\n    \"Position\": {\n      \"Longitude\": \"<double>\",\n      \"Latitude\": \"<double>\"\n    }\n  },\n  \"CustomerBillingAddress\": {\n    \"Street\": \"<string>\",\n    \"Apartment\": \"<string>\",\n    \"CareOf\": \"<string>\",\n    \"ZipCode\": \"<string>\",\n    \"City\": \"<string>\",\n    \"StateOrProvince\": \"<string>\",\n    \"ISO3166CountryCode\": \"<string>\",\n    \"Position\": {\n      \"Longitude\": \"<double>\",\n      \"Latitude\": \"<double>\"\n    }\n  },\n  \"NotificationType\": \"<integer>\",\n  \"WorkOrderCategoryId\": \"<integer>\",\n  \"CategoryName\": \"<string>\",\n  \"AssignedToContactId\": \"<integer>\",\n  \"EstimatedTotal\": \"<double>\",\n  \"Status\": \"<integer>\",\n  \"Attachments\": [\n    {\n      \"AttachmentType\": \"<integer>\",\n      \"URL\": \"<string>\",\n      \"Description\": \"<string>\",\n      \"QuoteAttachmentId\": \"<integer>\"\n    },\n    {\n      \"AttachmentType\": \"<integer>\",\n      \"URL\": \"<string>\",\n      \"Description\": \"<string>\",\n      \"QuoteAttachmentId\": \"<integer>\"\n    }\n  ],\n  \"Notes\": [\n    {\n      \"Note\": \"<string>\",\n      \"QuoteNoteId\": \"<integer>\"\n    },\n    {\n      \"Note\": \"<string>\",\n      \"QuoteNoteId\": \"<integer>\"\n    }\n  ],\n  \"Items\": [\n    {\n      \"Quantity\": \"<double>\",\n      \"WorkOrderArticleId\": \"<integer>\",\n      \"PricePerQuantityExclVAT\": \"<double>\",\n      \"DiscountInPercentage\": \"<double>\",\n      \"DiscountAmount\": \"<double>\",\n      \"TaxRate\": \"<double>\",\n      \"ArticleName\": \"<string>\",\n      \"UnitType\": \"<integer>\",\n      \"QuoteItemId\": \"<integer>\"\n    },\n    {\n      \"Quantity\": \"<double>\",\n      \"WorkOrderArticleId\": \"<integer>\",\n      \"PricePerQuantityExclVAT\": \"<double>\",\n      \"DiscountInPercentage\": \"<double>\",\n      \"DiscountAmount\": \"<double>\",\n      \"TaxRate\": \"<double>\",\n      \"ArticleName\": \"<string>\",\n      \"UnitType\": \"<integer>\",\n      \"QuoteItemId\": \"<integer>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Version\": {\n    \"Major\": 9629,\n    \"Minor\": 7349,\n    \"Build\": 7920,\n    \"Revision\": 8883,\n    \"MajorRevision\": 2228,\n    \"MinorRevision\": 4111\n  },\n  \"Content\": {\n    \"Headers\": [\n      {\n        \"Key\": \"string\",\n        \"Value\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      {\n        \"Key\": \"string\",\n        \"Value\": [\n          \"string\",\n          \"string\"\n        ]\n      }\n    ]\n  },\n  \"StatusCode\": 431,\n  \"ReasonPhrase\": \"string\",\n  \"Headers\": [\n    {\n      \"Key\": \"string\",\n      \"Value\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"Key\": \"string\",\n      \"Value\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ],\n  \"TrailingHeaders\": [\n    {\n      \"Key\": \"string\",\n      \"Value\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"Key\": \"string\",\n      \"Value\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ],\n  \"RequestMessage\": {\n    \"Version\": {\n      \"Major\": 9161,\n      \"Minor\": 3296,\n      \"Build\": 4322,\n      \"Revision\": 9421,\n      \"MajorRevision\": 9340,\n      \"MinorRevision\": 6304\n    },\n    \"VersionPolicy\": 2,\n    \"Content\": {\n      \"Headers\": [\n        {\n          \"Key\": \"string\",\n          \"Value\": [\n            \"string\",\n            \"string\"\n          ]\n        },\n        {\n          \"Key\": \"string\",\n          \"Value\": [\n            \"string\",\n            \"string\"\n          ]\n        }\n      ]\n    },\n    \"Method\": {\n      \"Method\": \"string\"\n    },\n    \"RequestUri\": \"https://rzIVQwEclWXcIePbQULcalrkQv.jfjodO-tOE6+1l,o8KZ9Pf8Z7F39tj1KDEUZQMRcCH6DpPZCCS0XbXAozEyZcImgJ6OGzUoysX\",\n    \"Headers\": [\n      {\n        \"Key\": \"string\",\n        \"Value\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      {\n        \"Key\": \"string\",\n        \"Value\": [\n          \"string\",\n          \"string\"\n        ]\n      }\n    ],\n    \"Properties\": {\n      \"key_0\": {},\n      \"key_1\": {}\n    },\n    \"Options\": {\n      \"key_0\": {},\n      \"key_1\": {}\n    }\n  },\n  \"IsSuccessStatusCode\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3bb157a4-fc3d-4d78-a097-4bc77ff4e1d1",
+          "name": "Soft deletes the Quote",
+          "request": {
+            "name": "Soft deletes the Quote",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "resourceowner",
+                "quotes",
+                ":quoteId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "quoteId",
+                  "description": "(Required) Quote Id that needs to be deleted"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "read write"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.automile.com/login/"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "43a3e489-00a5-4402-8a48-0adab41cb1ee",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "quotes",
+                    ":quoteId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "quoteId",
+                      "description": "(Required) Quote Id that needs to be deleted"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "aa782449-80ae-464c-b7ab-cca3703e4c2f",
+          "name": "Update status of a quote",
+          "request": {
+            "name": "Update status of a quote",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "resourceowner",
+                "quotes",
+                ":quoteId",
+                "status"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "quoteId",
+                  "description": "(Required) The quote which the satus should be updated on"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "read write"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.automile.com/login/"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"Status\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "da6ea34b-4a47-4f33-876b-5b70aeca3cfb",
+              "name": "Successful update",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "quotes",
+                    ":quoteId",
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "quoteId",
+                      "description": "(Required) The quote which the satus should be updated on"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Status\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "3a9723de-eeab-4e3e-a3d0-d34283a8b974",
+              "name": "Forbidden access to resource",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "quotes",
+                    ":quoteId",
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "quoteId",
+                      "description": "(Required) The quote which the satus should be updated on"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Status\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "1fe97476-9c05-497b-b1af-c584a99b4624",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "quotes",
+                    ":quoteId",
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "quoteId",
+                      "description": "(Required) The quote which the satus should be updated on"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Status\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e13ef50a-e547-4177-94d8-44fe33fb2bb2",
+          "name": "Get a new reference id for a quote (not unique)",
+          "request": {
+            "name": "Get a new reference id for a quote (not unique)",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "resourceowner",
+                "quotes",
+                "referenceId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "read write"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.automile.com/login/"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "implicit"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "24c533f8-9ff5-488a-b447-8f91757c9388",
+              "name": "Successful request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "quotes",
+                    "referenceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"string\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4669abff-63bd-49d5-8c82-8bf441d27446",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "resourceowner",
+                    "quotes",
+                    "referenceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "70b55d7d-966d-4483-804c-4e822a28c856",
+    "name": "Automile ClientApi ResourceOwnerQuote API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,160 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Automile ClientApi ResourceOwnerTripApprovalV2 API",
+    "version": "v1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "ResourceOwnerTripApprovalV2",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List all trips which you as a user may submit for approval",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/resourceowner/tripapproval/unsubmitted/:vehicleId",
+            "params": [
+              {
+                "name": "vehicleId",
+                "value": "",
+                "type": "path",
+                "description": "Show only trips for this vehicleId"
+              },
+              {
+                "name": "from",
+                "value": "",
+                "type": "query",
+                "description": "Show only trips from this date (default = 30 days back)"
+              },
+              {
+                "name": "to",
+                "value": "",
+                "type": "query",
+                "description": "Show only trips to this date, including the date (default = today)"
+              },
+              {
+                "name": "tripType",
+                "value": "",
+                "type": "query",
+                "description": "Show only trips with this category. 0 = Business, 2 = Other. (default = any type)"
+              }
+            ]
+          },
+          "docs": "Only returns tracked assets that the user have access to"
+        },
+        {
+          "info": {
+            "name": "Submit trips for approval",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/resourceowner/tripapproval/submit"
+          },
+          "docs": "Submit trips for approval"
+        },
+        {
+          "info": {
+            "name": "Get a trip approval request",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/resourceowner/tripapproval/request/:tripApprovalRequestId",
+            "params": [
+              {
+                "name": "tripApprovalRequestId",
+                "value": "",
+                "type": "path",
+                "description": "Trip approval request id"
+              }
+            ]
+          },
+          "docs": "Get a trip approval request"
+        },
+        {
+          "info": {
+            "name": "List all requests for trip approval which is submitted",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/resourceowner/tripapproval/request",
+            "params": [
+              {
+                "name": "from",
+                "value": "",
+                "type": "query",
+                "description": "Show only requests submited from this date (default = 30 days back)"
+              },
+              {
+                "name": "to",
+                "value": "",
+                "type": "query",
+                "description": "Show only requests submited to this date (default = today)"
+              },
+              {
+                "name": "vehicleId",
+                "value": "",
+                "type": "query",
+                "description": "Show only trips for this vehicleId (default = all vehicles submitted for)"
+              },
+              {
+                "name": "statusType",
+                "value": "",
+                "type": "query",
+                "description": "Status on request, SentForApproval = 0, Declined = 1, Approved = 2 (default = any status)"
+              }
+            ]
+          },
+          "docs": "List all requests for trip approval which is submitted"
+        },
+        {
+          "info": {
+            "name": "Approve or decline a trip approval request",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/v1/resourceowner/tripapproval/:tripApprovalRequestId/response",
+            "params": [
+              {
+                "name": "tripApprovalRequestId",
+                "value": "",
+                "type": "path",
+                "description": "Trip approval request id to approve"
+              }
+            ]
+          },
+          "docs": "Approve or decline a trip approval request"
+        },
+        {
+          "info": {
+            "name": "Revoke a trip approval request",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/v1/resourceowner/tripapproval/:tripApprovalRequestId/revoke",
+            "params": [
+              {
+                "name": "tripApprovalRequestId",
+                "value": "",
+                "type": "path",
+                "description": "Trip approval request id to decline"
+              }
+            ]
+          },
+          "docs": "Only allowed by the user who requested the approval and if no one has approved/declined the request"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

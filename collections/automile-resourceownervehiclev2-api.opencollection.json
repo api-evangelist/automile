@@ -1,0 +1,108 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Automile ClientApi ResourceOwnerVehicleV2 API",
+    "version": "v1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "ResourceOwnerVehicleV2",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get all vehicles that the user has access to",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/resourceowner/vehicles"
+          },
+          "docs": "Only returns vehicles that the user have access to"
+        },
+        {
+          "info": {
+            "name": "Creates a new vehicle",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/v1/resourceowner/vehicles"
+          },
+          "docs": "This will create a new vehicle and make the association you set."
+        },
+        {
+          "info": {
+            "name": "Get the details about the vehicle",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/resourceowner/vehicles/:vehicleId",
+            "params": [
+              {
+                "name": "vehicleId",
+                "value": "",
+                "type": "path",
+                "description": "The vehicle id"
+              }
+            ]
+          },
+          "docs": "Only vehicles that the user has relationships with are allowed."
+        },
+        {
+          "info": {
+            "name": "Updates the given vehicle with new model",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/v1/resourceowner/vehicles/:vehicleId",
+            "params": [
+              {
+                "name": "vehicleId",
+                "value": "",
+                "type": "path",
+                "description": "The vehicle id"
+              }
+            ]
+          },
+          "docs": "This will update the given vehicle id with a new model."
+        },
+        {
+          "info": {
+            "name": "Removes the given vehicle",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/v1/resourceowner/vehicles/:vehicleId",
+            "params": [
+              {
+                "name": "vehicleId",
+                "value": "",
+                "type": "path",
+                "description": "The vehicle id"
+              }
+            ]
+          },
+          "docs": "Removes the given vehicle. If the vehicle is assoicated with a device, first move the device to another vehicle"
+        },
+        {
+          "info": {
+            "name": "Get position and status of all vehicles that the user has access to",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/v1/resourceowner/vehicles/status"
+          },
+          "docs": "Only returns vehicles that the user have access to. LastKnownFormattedAddress, LastKnownStreetAddress, LastKnownCity is only returned if vehicle is parked."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
