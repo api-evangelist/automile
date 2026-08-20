@@ -57,6 +57,8 @@ apis:
   humanURL: https://www.automile.com/en/integrations-api
   baseURL: https://api.automile.com
   tags:
+  - Client API
+  tags_raw:
   - ClientApi
   properties:
   - type: OpenAPI
@@ -114,6 +116,8 @@ apis:
   humanURL: https://www.automile.com/en/integrations-api
   baseURL: https://api.automile.com
   tags:
+  - Client Onboarding
+  tags_raw:
   - ClientOnboarding
   properties:
   - type: OpenAPI
@@ -156,6 +160,8 @@ apis:
   humanURL: https://www.automile.com/en/integrations-api
   baseURL: https://api.automile.com
   tags:
+  - Client Users
+  tags_raw:
   - ClientUsers
   properties:
   - type: OpenAPI
@@ -184,6 +190,8 @@ apis:
   humanURL: https://www.automile.com/en/integrations-api
   baseURL: https://api.automile.com
   tags:
+  - Homes
+  tags_raw:
   - Home
   properties:
   - type: OpenAPI
@@ -212,6 +220,8 @@ apis:
   humanURL: https://www.automile.com/en/integrations-api
   baseURL: https://api.automile.com
   tags:
+  - Authentication
+  tags_raw:
   - OAuth
   properties:
   - type: OpenAPI
