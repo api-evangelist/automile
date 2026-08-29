@@ -3,7 +3,7 @@ provider: Automile
 generated_by: planning/capability-mapping/scripts/classify_capabilities.py
 model: claude-opus-5
 frame:
-- Software & Technology
+- Transportation & Logistics
 min_confidence: 0.7
 capability_model:
   source: https://github.com/vincentmakes/turbo-ea-capabilities
@@ -11,37 +11,262 @@ capability_model:
   attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
     CC BY 4.0
   notice: NOTICE
-edge_count: 3
+edge_count: 26
 edges:
+- tag: ResourceOwnerHoursOfService
+  spec_file: automile-resourceownerhoursofservice-api-openapi.yml
+  capability_id: BC-2440.30
+  capability_id_l1: BC-2440
+  capability_name: Hours-of-Service and Fatigue Management
+  confidence: 0.95
+  evidence: '"Parse Hours Of Service duty statuses to cycles and work shifts", "Creates Hours Of Service
+    duty status entry", "Export Hours Of Service Log as a PDF"'
+  reason: Explicit driver hours-of-service duty status, cycles, work shifts and log export — regulatory
+    HOS compliance for drivers; no other reading fits.
+- tag: ResourceOwnerHoursOfServiceViolations
+  spec_file: automile-resourceownerhoursofserviceviolations-api-openapi.yml
+  capability_id: BC-2440.30
+  capability_id_l1: BC-2440
+  capability_name: Hours-of-Service and Fatigue Management
+  confidence: 0.88
+  evidence: GET /v1/resourceowner/hoursofserviceviolations 'Get the Hours of Service Violations'; schema
+    HoursOfServiceDutyStatusModel
+  reason: Operations create and retrieve hours-of-service violations with duty-status models, which is
+    exactly HOS compliance for drivers in a fleet-telematics platform.
+- tag: ResourceOwnerTrip3V2
+  spec_file: automile-resourceownertrip3v2-api-openapi.yml
+  capability_id: BC-2430.40
+  capability_id_l1: BC-2430
+  capability_name: Fleet Telematics and Monitoring
+  confidence: 0.85
+  evidence: '"Get the vehicle speed if it''s reported by the vehicle"; "Get the gps locations for the
+    vehicle, includes position and heading"; "Get the engine coolant temperature"'
+  reason: Operations expose per-trip GPS position, speed, RPM, fuel level and coolant telemetry streamed
+    from the vehicle — continuous monitoring of asset position and condition, i.e. fleet telematics and
+    monitoring, not a shipment or freight capability.
+- tag: ResourceOwnerTripScore
+  spec_file: automile-resourceownertripscore-api-openapi.yml
+  capability_id: BC-2440.40
+  capability_id_l1: BC-2440
+  capability_name: Driver and Crew Performance Management
+  confidence: 0.85
+  evidence: '"Get latest driving score for a driver"; "Get trip score summary for a driver"'
+  reason: Operations compute and report driving scores per driver contact — driver performance scoring,
+    which is Driver and Crew Performance Management.
+- tag: ResourceOwnerTripV2
+  spec_file: automile-resourceownertripv2-api-openapi.yml
+  capability_id: BC-2430.40
+  capability_id_l1: BC-2430
+  capability_name: Fleet Telematics and Monitoring
+  confidence: 0.85
+  evidence: '"Get the vehicle current fuel level if it''s reported by the vehicle"; "Get the gps locations
+    for the vehicle, includes position and heading"'
+  reason: 'Same surface as the v3 trips endpoints: vehicle position, speed, RPM, fuel and engine telemetry
+    per trip — fleet telematics and monitoring.'
+- tag: ResourceOwnerVehicleV2
+  spec_file: automile-resourceownervehiclev2-api-openapi.yml
+  capability_id: BC-2430
+  capability_id_l1: BC-2430
+  capability_name: Fleet & Mobile Asset Management
+  confidence: 0.82
+  evidence: '"Get all vehicles that the user has access to", "Creates a new vehicle", "Get position and
+    status of all vehicles that the user has access to"'
+  reason: Core vehicle register plus live position/status for a fleet-telematics platform — squarely Fleet
+    & Mobile Asset Management; spans registry and monitoring so no single L2 is asserted.
+- tag: ResourceOwnerIMEIEvent
+  spec_file: automile-resourceownerimeievent-api-openapi.yml
+  capability_id: BC-2430.40
+  capability_id_l1: BC-2430
+  capability_name: Fleet Telematics and Monitoring
+  confidence: 0.8
+  evidence: '''Gets MILIMEIevent for given imeiEventId''; ''Gets DTCIMEIevent''; schemas IMEIEventDTCModel,
+    IMEIEventStatusModel, DTC'
+  reason: Retrieval of malfunction-indicator-lamp and diagnostic-trouble-code events streamed from the
+    vehicle device — asset condition monitoring, i.e. fleet telematics and monitoring.
+- tag: ResourceOwnerTrackedAsset
+  spec_file: automile-resourceownertrackedasset-api-openapi.yml
+  capability_id: BC-2430.40
+  capability_id_l1: BC-2430
+  capability_name: Fleet Telematics and Monitoring
+  confidence: 0.8
+  evidence: '"Start tracking a asset", "List tracked asset history", schemas PositionPointModel, TrackedAssetTrackConfigurationModelPUT,
+    ExternalDeviceModelGET'
+  reason: Operations configure tracking devices and retrieve position history for mobile assets — continuous
+    monitoring of asset position and condition, i.e. fleet telematics and monitoring.
+- tag: ResourceOwnerVehicle2V2
+  spec_file: automile-resourceownervehicle2v2-api-openapi.yml
+  capability_id: BC-2430
+  capability_id_l1: BC-2430
+  capability_name: Fleet & Mobile Asset Management
+  confidence: 0.8
+  evidence: '"Creates a new vehicle"; "Get position and status of all vehicles that the user has access
+    to"; "Check-in to a vehicle"'
+  reason: Vehicle master records plus live position/status and driver check-in/out for a fleet — Fleet
+    & Mobile Asset Management; spans registry and telematics monitoring so no single L2 is asserted.
+- tag: ResourceOwnerVehicle3V2
+  spec_file: automile-resourceownervehicle3v2-api-openapi.yml
+  capability_id: BC-2430
+  capability_id_l1: BC-2430
+  capability_name: Fleet & Mobile Asset Management
+  confidence: 0.8
+  evidence: '"Creates a new vehicle"; "Get position and status of specific vehicle"; "Check-out from a
+    vehicle"'
+  reason: 'v3 of the vehicle surface: fleet vehicle records, live status/position and check-in/out — Fleet
+    & Mobile Asset Management, spanning registry and monitoring so L1 only.'
+- tag: ResourceOwnerVehicleHealth
+  spec_file: automile-resourceownervehiclehealth-api-openapi.yml
+  capability_id: BC-2430.40
+  capability_id_l1: BC-2430
+  capability_name: Fleet Telematics and Monitoring
+  confidence: 0.8
+  evidence: '"Get health indicators for a vehicle"; schemas DTCEvent, BatteryEvent, MILEvent, VehicleHealth'
+  reason: OBD diagnostic trouble codes, battery and MIL events read from the telematics box are continuous
+    monitoring of asset condition to inform maintenance and operation — fleet telematics and monitoring.
+- tag: ResourceOwnerVehicleHealth3
+  spec_file: automile-resourceownervehiclehealth3-api-openapi.yml
+  capability_id: BC-2430.40
+  capability_id_l1: BC-2430
+  capability_name: Fleet Telematics and Monitoring
+  confidence: 0.8
+  evidence: '"Get health indicators for a vehicle over a period of time"; schemas DTCEvent, MILEvent,
+    VehicleHealth'
+  reason: 'Versioned duplicate of the vehicle-health surface: OBD condition monitoring of fleet assets,
+    mapping to fleet telematics and monitoring.'
 - tag: ResourceOwnerPublishSubscribe
   spec_file: automile-resourceownerpublishsubscribe-api-openapi.yml
   capability_id: BC-4270.80
   capability_id_l1: BC-4270
   capability_name: Webhook & Event Subscription Management
-  confidence: 0.85
+  confidence: 0.78
   evidence: '''Create an a publish subscribe record''; ''Publishes a test trip start to the publish subscribe
     endpoint'''
-  reason: Lifecycle CRUD over outbound publish/subscribe (webhook) records plus test-event publication
-    for trip and vehicle events — precisely webhook and event subscription management on the developer
-    platform.
-- tag: ResourceOwnerQuote
-  spec_file: automile-resourceownerquote-api-openapi.yml
-  capability_id: BC-410.40
-  capability_id_l1: BC-410
-  capability_name: Quote & Configuration Management
+  reason: Lifecycle of outbound event subscriptions to customer endpoints with test-event publication
+    — outbound webhook/event subscription management.
+- tag: ResourceOwnerVehicleInspection
+  spec_file: automile-resourceownervehicleinspection-api-openapi.yml
+  capability_id: BC-2430.20
+  capability_id_l1: BC-2430
+  capability_name: Fleet Maintenance Management
   confidence: 0.75
-  evidence: '''Create a new Quote''; ''Update status of a quote''; schemas QuoteItemModelGET, CustomerBillingAddressModel'
-  reason: Full quote lifecycle with line items, status history and customer billing address is quote management.
-    Some ambiguity remains as these quotes appear tied to service work orders, so it could also be read
-    as service-order pricing rather than sales CPQ.
+  evidence: '"Creates a new vehicle inspection"; schemas VehicleDefectModel, VehicleDefectStatusModel,
+    VehicleInspectionStatusModel'
+  reason: Vehicle inspections with defect capture, status and attachments are the inspection/defect-rectification
+    side of fleet maintenance for road vehicles. Could arguably sit at the L1 level only, hence 0.75.
+- tag: ResourceOwnerVehicleInspection3
+  spec_file: automile-resourceownervehicleinspection3-api-openapi.yml
+  capability_id: BC-2430.20
+  capability_id_l1: BC-2430
+  capability_name: Fleet Maintenance Management
+  confidence: 0.75
+  evidence: '"Get a vehicle inspection" / "Creates a new vehicle inspection"; VehicleDefectCreateModel,
+    VehicleDefectStatusModel'
+  reason: 'Versioned duplicate of the vehicle-inspection surface: inspection and defect records driving
+    corrective maintenance of fleet vehicles.'
+- tag: ResourceOwnerGeofence
+  spec_file: automile-resourceownergeofence-api-openapi.yml
+  capability_id: BC-2430.40
+  capability_id_l1: BC-2430
+  capability_name: Fleet Telematics and Monitoring
+  confidence: 0.7
+  evidence: '"Creates a new geofence", schemas GeofencePolygon, GeographicPosition, GeofenceScheduleModel'
+  reason: Geofence definition on a fleet-telematics platform that streams GPS position; supports continuous
+    monitoring of vehicle position, i.e. Fleet Telematics and Monitoring. Some ambiguity as geofences
+    could also serve visibility alerting, hence 0.7.
+- tag: ResourceOwnerGeofence2
+  spec_file: automile-resourceownergeofence2-api-openapi.yml
+  capability_id: BC-2430.40
+  capability_id_l1: BC-2430
+  capability_name: Fleet Telematics and Monitoring
+  confidence: 0.7
+  evidence: '"Get a list of geofencese user is associated with", schema Geofence2CreateModel with GeofencePolygon'
+  reason: Second version of the same geofence configuration surface for vehicle position monitoring; Fleet
+    Telematics and Monitoring.
+- tag: ResourceOwnerGeofence3
+  spec_file: automile-resourceownergeofence3-api-openapi.yml
+  capability_id: BC-2430.40
+  capability_id_l1: BC-2430
+  capability_name: Fleet Telematics and Monitoring
+  confidence: 0.7
+  evidence: '"Get a list of geofencese organization is associated with", schema Geofence3CreateModel,
+    GeofencePolygon'
+  reason: Third version of the geofence configuration surface used to monitor fleet vehicle positions;
+    Fleet Telematics and Monitoring.
+- tag: ResourceOwnerLead
+  spec_file: automile-resourceownerlead-api-openapi.yml
+  capability_id: BC-410.30
+  capability_id_l1: BC-410
+  capability_name: Opportunity & Pipeline Management
+  confidence: 0.7
+  evidence: POST /v1/resourceowner/lead 'Creates or updates lead'; schema CreateLeadModel
+  reason: Single operation creating/updating a sales lead record, which is lead/opportunity capture. Thin
+    context, so moderate confidence.
+- tag: ResourceOwnerReports
+  spec_file: automile-resourceownerreports-api-openapi.yml
+  capability_id: BC-2430.60
+  capability_id_l1: BC-2430
+  capability_name: Fleet Utilisation and Performance Management
+  confidence: 0.7
+  evidence: '"Vehicle summary report", "Get a trip summary report filtered by vehicle"; schemas FuelReportModel,
+    IdleTimeReportModel, CO2ReportModel'
+  reason: Reporting on per-vehicle trips, fuel, idle time and CO2 is measurement of mobile-asset utilisation
+    and performance, i.e. fleet utilisation/performance management rather than shipment-level reporting.
+- tag: ResourceOwnerReports3
+  spec_file: automile-resourceownerreports3-api-openapi.yml
+  capability_id: BC-2430.60
+  capability_id_l1: BC-2430
+  capability_name: Fleet Utilisation and Performance Management
+  confidence: 0.7
+  evidence: '"Get vehicles summary report", schemas DistanceReportModel, IdleTimeReportModel, FuelReportModel'
+  reason: 'Versioned duplicate of the reports surface: per-vehicle trip, distance, fuel and idle metrics
+    — fleet utilisation and performance measurement.'
 - tag: ResourceOwnerRoutePlanner
   spec_file: automile-resourceownerrouteplanner-api-openapi.yml
-  capability_id: BC-520.50
-  capability_id_l1: BC-520
-  capability_name: Logistics Operations Management
+  capability_id: BC-2420
+  capability_id_l1: BC-2420
+  capability_name: Transport Operations Management
   confidence: 0.7
   evidence: '"Get routes associated with the user", "Set Route Status to Started.", schemas RoutePlannerMissionModel,
     RoutePlannerMissionLocationModel, UpdateStopModel'
-  reason: Planning, dispatching and status control of driver routes with stops — transport route execution,
-    which sits under Logistics Operations Management. Confidence held below 0.8 because the frame is software-oriented
-    and the capability is a cross-industry approximation.
+  reason: Routes/missions with stops assigned to a driver and lifecycle states (start, cancel, update)
+    are execution of transport moves. Evidence supports the L1 transport operations capability but does
+    not clearly distinguish dispatch assignment from last-mile routing, so no L2.
+- tag: ResourceOwnerVehicleDefectComments
+  spec_file: automile-resourceownervehicledefectcomments-api-openapi.yml
+  capability_id: BC-2430.20
+  capability_id_l1: BC-2430
+  capability_name: Fleet Maintenance Management
+  confidence: 0.7
+  evidence: '"Creates a new vehicle defect comment"; "Get all vehicle defect comments that the user has
+    access to"'
+  reason: Defect records and comments arising from vehicle inspections feed corrective maintenance of
+    fleet vehicles, consistent with the vendor's "vehicle inspections, work orders" scope.
+- tag: ResourceOwnerVehicleDefectComments3
+  spec_file: automile-resourceownervehicledefectcomments3-api-openapi.yml
+  capability_id: BC-2430.20
+  capability_id_l1: BC-2430
+  capability_name: Fleet Maintenance Management
+  confidence: 0.7
+  evidence: '"Update a vehicle defect comment"; schema "VehicleDefectCommentsCreateModel"'
+  reason: 'Same defect-comment surface (v3): capture and update of vehicle defects supporting corrective
+    maintenance of fleet assets.'
+- tag: ResourceOwnerVehicleGeofence
+  spec_file: automile-resourceownervehiclegeofence-api-openapi.yml
+  capability_id: BC-2430.40
+  capability_id_l1: BC-2430
+  capability_name: Fleet Telematics and Monitoring
+  confidence: 0.7
+  evidence: '"Associate a vehicle with a geofence" (CreateResourceOwnerVehicleGeofence), schemas VehicleGeofenceCreateModel'
+  reason: Geofence-to-vehicle association on a fleet-telematics platform configures location monitoring
+    of mobile assets, i.e. fleet telematics and monitoring. Sub-capability is a reasonable but not certain
+    fit, so confidence is moderate.
+- tag: ResourceOwnerVehicleOdometerV2
+  spec_file: automile-resourceownervehicleodometerv2-api-openapi.yml
+  capability_id: BC-2430
+  capability_id_l1: BC-2430
+  capability_name: Fleet & Mobile Asset Management
+  confidence: 0.7
+  evidence: '"Get current odometer value", "Updates the given vehicle with new odometer value", "Calculate
+    trips changes if odometer value changes"'
+  reason: Odometer readings are mobile-asset usage data for fleet vehicles, clearly within Fleet & Mobile
+    Asset Management, but the evidence does not decide between telematics monitoring and utilisation measurement,
+    so no L2 is asserted.
