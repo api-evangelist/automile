@@ -1212,6 +1212,9 @@ apis:
   - type: Webhooks
     url: asyncapi/automile-webhooks.yml
 common:
+- type: CapabilityMap
+  url: capabilities/automile-capability-edges.yml
+  name: Automile Business Capability Map
 - type: Website
   url: https://www.automile.com/
 - type: DeveloperPortal

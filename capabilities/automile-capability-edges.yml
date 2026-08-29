@@ -1,0 +1,47 @@
+slug: automile
+provider: Automile
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Software & Technology
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 3
+edges:
+- tag: ResourceOwnerPublishSubscribe
+  spec_file: automile-resourceownerpublishsubscribe-api-openapi.yml
+  capability_id: BC-4270.80
+  capability_id_l1: BC-4270
+  capability_name: Webhook & Event Subscription Management
+  confidence: 0.85
+  evidence: '''Create an a publish subscribe record''; ''Publishes a test trip start to the publish subscribe
+    endpoint'''
+  reason: Lifecycle CRUD over outbound publish/subscribe (webhook) records plus test-event publication
+    for trip and vehicle events — precisely webhook and event subscription management on the developer
+    platform.
+- tag: ResourceOwnerQuote
+  spec_file: automile-resourceownerquote-api-openapi.yml
+  capability_id: BC-410.40
+  capability_id_l1: BC-410
+  capability_name: Quote & Configuration Management
+  confidence: 0.75
+  evidence: '''Create a new Quote''; ''Update status of a quote''; schemas QuoteItemModelGET, CustomerBillingAddressModel'
+  reason: Full quote lifecycle with line items, status history and customer billing address is quote management.
+    Some ambiguity remains as these quotes appear tied to service work orders, so it could also be read
+    as service-order pricing rather than sales CPQ.
+- tag: ResourceOwnerRoutePlanner
+  spec_file: automile-resourceownerrouteplanner-api-openapi.yml
+  capability_id: BC-520.50
+  capability_id_l1: BC-520
+  capability_name: Logistics Operations Management
+  confidence: 0.7
+  evidence: '"Get routes associated with the user", "Set Route Status to Started.", schemas RoutePlannerMissionModel,
+    RoutePlannerMissionLocationModel, UpdateStopModel'
+  reason: Planning, dispatching and status control of driver routes with stops — transport route execution,
+    which sits under Logistics Operations Management. Confidence held below 0.8 because the frame is software-oriented
+    and the capability is a cross-industry approximation.
