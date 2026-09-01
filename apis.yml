@@ -69,7 +69,7 @@ apis:
   humanURL: https://www.automile.com/en/integrations-api
   baseURL: https://api.automile.com
   tags:
-  - ClientApi
+  - Client API
   tags_raw:
   - ClientApi
   properties:
@@ -128,7 +128,7 @@ apis:
   humanURL: https://www.automile.com/en/integrations-api
   baseURL: https://api.automile.com
   tags:
-  - ClientOnboarding
+  - Client Onboarding
   tags_raw:
   - ClientOnboarding
   properties:
@@ -172,7 +172,7 @@ apis:
   humanURL: https://www.automile.com/en/integrations-api
   baseURL: https://api.automile.com
   tags:
-  - ClientUsers
+  - Client Users
   tags_raw:
   - ClientUsers
   properties:
