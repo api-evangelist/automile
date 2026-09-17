@@ -166,22 +166,6 @@ apis:
     url: https://api.automile.com/swagger/v1/swagger.json
   - type: Webhooks
     url: asyncapi/automile-webhooks.yml
-- aid: automile:automile-clientusers-api
-  name: Automile ClientUsers API
-  description: The ClientUsers API from Automile — 2 operation(s) for clientusers.
-  humanURL: https://www.automile.com/en/integrations-api
-  baseURL: https://api.automile.com
-  tags:
-  - Client Users
-  tags_raw:
-  - ClientUsers
-  properties:
-  - type: OpenAPI
-    url: openapi/automile-clientusers-api-openapi.yml
-  - type: APIReference
-    url: https://api.automile.com/swagger/v1/swagger.json
-  - type: Webhooks
-    url: asyncapi/automile-webhooks.yml
 - aid: automile:automile-echo-api
   name: Automile Echo API
   description: The Echo API from Automile — 1 operation(s) for echo.
@@ -222,22 +206,6 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/automile-login-api-openapi.yml
-  - type: APIReference
-    url: https://api.automile.com/swagger/v1/swagger.json
-  - type: Webhooks
-    url: asyncapi/automile-webhooks.yml
-- aid: automile:automile-oauth-api
-  name: Automile OAuth API
-  description: The OAuth API from Automile — 1 operation(s) for oauth.
-  humanURL: https://www.automile.com/en/integrations-api
-  baseURL: https://api.automile.com
-  tags:
-  - Authentication
-  tags_raw:
-  - OAuth
-  properties:
-  - type: OpenAPI
-    url: openapi/automile-oauth-api-openapi.yml
   - type: APIReference
     url: https://api.automile.com/swagger/v1/swagger.json
   - type: Webhooks
@@ -1207,6 +1175,34 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/automile-resourceownerworkorder-api-openapi.yml
+  - type: APIReference
+    url: https://api.automile.com/swagger/v1/swagger.json
+  - type: Webhooks
+    url: asyncapi/automile-webhooks.yml
+- aid: automile:automile-oauth-api
+  name: Automile O Auth API
+  description: The OAuth API from Automile — 1 operation(s) for oauth.
+  humanURL: https://www.automile.com/en/integrations-api
+  baseURL: https://api.automile.com
+  tags:
+  - OAuth
+  properties:
+  - type: OpenAPI
+    url: openapi/automile-oauth-api-openapi.yml
+  - type: APIReference
+    url: https://api.automile.com/swagger/v1/swagger.json
+  - type: Webhooks
+    url: asyncapi/automile-webhooks.yml
+- aid: automile:automile-client-users-api
+  name: Automile Client Users API
+  description: The Client Users API from Automile — 2 operation(s) for client users.
+  humanURL: https://www.automile.com/en/integrations-api
+  baseURL: https://api.automile.com
+  tags:
+  - Client Users
+  properties:
+  - type: OpenAPI
+    url: openapi/automile-client-users-api-openapi.yml
   - type: APIReference
     url: https://api.automile.com/swagger/v1/swagger.json
   - type: Webhooks
