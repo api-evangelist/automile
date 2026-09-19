@@ -1185,6 +1185,8 @@ apis:
   humanURL: https://www.automile.com/en/integrations-api
   baseURL: https://api.automile.com
   tags:
+  - Authentication
+  tags_raw:
   - OAuth
   properties:
   - type: OpenAPI
