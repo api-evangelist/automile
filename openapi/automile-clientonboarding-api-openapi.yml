@@ -1,6 +1,6 @@
-swagger: '2.0'
+openapi: 3.2.0
 info:
-  title: Automile ClientApi ClientOnboarding API
+  title: Automile Client Onboarding API
   version: v1
 tags:
 - name: ClientOnboarding
@@ -11,23 +11,28 @@ paths:
       - ClientOnboarding
       summary: Get vehicle makes
       operationId: VehicleMakes
-      produces:
-      - text/plain
-      - application/json
-      - text/json
       parameters:
       - in: query
         name: region
-        type: integer
-        format: int32
-        enum:
-        - 0
-        - 1
+        schema:
+          type: integer
+          format: int32
+          enum:
+          - 0
+          - 1
       responses:
         '200':
           description: List of makes returned
-          schema:
-            $ref: '#/definitions/VehickeMakesModel'
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/VehickeMakesModel'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VehickeMakesModel'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/VehickeMakesModel'
       security:
       - oauth2: []
   /v1/client/onboarding/vehiclemodels:
@@ -36,60 +41,67 @@ paths:
       - ClientOnboarding
       summary: Get vehicle models
       operationId: VehicleModels
-      produces:
-      - text/plain
-      - application/json
-      - text/json
       parameters:
       - in: query
         name: make
-        type: string
+        schema:
+          type: string
       responses:
         '200':
           description: List of models returned
-          schema:
-            $ref: '#/definitions/VehicleModelsModel'
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/VehicleModelsModel'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VehicleModelsModel'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/VehicleModelsModel'
       security:
       - oauth2: []
-definitions:
-  VehicleMakeModel:
-    type: object
-    properties:
-      Make:
-        type: string
-      MakeUrl:
-        type: string
-    additionalProperties: false
-  VehicleModelModel:
-    type: object
-    properties:
-      Make:
-        type: string
-      Model:
-        type: string
-    additionalProperties: false
-  VehicleModelsModel:
-    type: object
-    properties:
-      VehicleModels:
-        type: array
-        items:
-          $ref: '#/definitions/VehicleModelModel'
-    additionalProperties: false
-  VehickeMakesModel:
-    type: object
-    properties:
-      VehicleMakes:
-        type: array
-        items:
-          $ref: '#/definitions/VehicleMakeModel'
-    additionalProperties: false
-securityDefinitions:
-  oauth2:
-    type: oauth2
-    flow: implicit
-    authorizationUrl: https://api.automile.com/login/
-    scopes:
-      read: Read access to protected resources
-      write: Write access to protected resources
-    description: OAuth2 Implicit Grant
+components:
+  schemas:
+    VehicleMakeModel:
+      type: object
+      properties:
+        Make:
+          type: string
+        MakeUrl:
+          type: string
+      additionalProperties: false
+    VehicleModelsModel:
+      type: object
+      properties:
+        VehicleModels:
+          type: array
+          items:
+            $ref: '#/components/schemas/VehicleModelModel'
+      additionalProperties: false
+    VehicleModelModel:
+      type: object
+      properties:
+        Make:
+          type: string
+        Model:
+          type: string
+      additionalProperties: false
+    VehickeMakesModel:
+      type: object
+      properties:
+        VehicleMakes:
+          type: array
+          items:
+            $ref: '#/components/schemas/VehicleMakeModel'
+      additionalProperties: false
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      flows:
+        implicit:
+          scopes:
+            read: Read access to protected resources
+            write: Write access to protected resources
+          authorizationUrl: https://api.automile.com/login/
+      description: OAuth2 Implicit Grant

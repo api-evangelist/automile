@@ -1,6 +1,6 @@
-swagger: '2.0'
+openapi: 3.2.0
 info:
-  title: Automile ClientApi ResourceOwnerVehicleHealth3 API
+  title: Automile Resource Owner Vehicle Health3 API
   version: v1
 tags:
 - name: ResourceOwnerVehicleHealth3
@@ -12,22 +12,27 @@ paths:
       summary: Get health indicators for a vehicle
       description: Only vehicle that the user has access to can be queried
       operationId: GetResourceOwnerVehicleHealth3
-      produces:
-      - text/plain
-      - application/json
-      - text/json
       parameters:
       - in: path
         name: vehicleId
         description: The vehicle id
         required: true
-        type: integer
-        format: int32
+        schema:
+          type: integer
+          format: int32
       responses:
         '200':
           description: The VehicleHealths are returned
-          schema:
-            $ref: '#/definitions/VehicleHealth'
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/VehicleHealth'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VehicleHealth'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/VehicleHealth'
         '403':
           description: Request is forbidden, meaning you don't have access to this vehicle
         '500':
@@ -41,27 +46,33 @@ paths:
       summary: Get health indicators for a vehicle over a period of time
       description: Only vehicle that the user has access to can be queried
       operationId: GetResourceOwnerVehicleHealthPeriod3
-      produces:
-      - text/plain
-      - application/json
-      - text/json
       parameters:
       - in: path
         name: dateperiod
         description: Date period parameter, in the form of only year (2014), year and month (201401), or interval {201301-201401}
         required: true
-        type: string
+        schema:
+          type: string
       - in: path
         name: vehicleId
         description: The vehicle id
         required: true
-        type: integer
-        format: int32
+        schema:
+          type: integer
+          format: int32
       responses:
         '200':
           description: The VehicleHealths are returned
-          schema:
-            $ref: '#/definitions/VehicleHealth'
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/VehicleHealth'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VehicleHealth'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/VehicleHealth'
         '403':
           description: Request is forbidden, meaning you don't have access to this vehicle
         '400':
@@ -70,134 +81,136 @@ paths:
           description: Internal server error
       security:
       - oauth2: []
-definitions:
-  BatteryEvent:
-    type: object
-    properties:
-      Occured:
-        format: date-time
-        type: string
-      Latitude:
-        format: double
-        type: number
-      Longitude:
-        format: double
-        type: number
-      BatteryStatus:
-        format: int32
-        enum:
-        - 0
-        - 1
-        - 2
-        - 3
-        type: integer
-    additionalProperties: false
-  DTCEventDetail:
-    type: object
-    properties:
-      DTC:
-        type: string
-      FaultLocation:
-        type: string
-      ProbableCause:
-        type: string
-    additionalProperties: false
-  VehicleHealth:
-    type: object
-    properties:
-      VehicleId:
-        format: int32
-        type: integer
-      PeriodFrom:
-        format: int32
-        type: integer
-      PeriodTo:
-        format: int32
-        type: integer
-      LastBatteryStatus:
-        format: int32
-        enum:
-        - 0
-        - 1
-        - 2
-        - 3
-        type: integer
-      LastBatteryWarning:
-        $ref: '#/definitions/BatteryEvent'
-      BatteryEventsForSelectedPeriod:
-        type: array
-        items:
-          $ref: '#/definitions/BatteryEvent'
-      LastMILEvent:
-        $ref: '#/definitions/MILEvent'
-      MILEventsForSelectedPeriod:
-        type: array
-        items:
-          $ref: '#/definitions/MILEvent'
-      LastDTCEvent:
-        $ref: '#/definitions/DTCEvent'
-      LastPendingDTCEvent:
-        $ref: '#/definitions/DTCEvent'
-      DTCEventsForSelectedPeriod:
-        type: array
-        items:
-          $ref: '#/definitions/DTCEvent'
-      PendingDTCEventsForSelectedPeriod:
-        type: array
-        items:
-          $ref: '#/definitions/DTCEvent'
-    additionalProperties: false
-  DTCEvent:
-    type: object
-    properties:
-      Occured:
-        format: date-time
-        type: string
-      DTCEventDetails:
-        type: array
-        items:
-          $ref: '#/definitions/DTCEventDetail'
-      Latitude:
-        format: double
-        type: number
-      Longitude:
-        format: double
-        type: number
-    additionalProperties: false
-  MILEvent:
-    type: object
-    properties:
-      Occured:
-        format: date-time
-        type: string
-      MILStatus:
-        format: int32
-        enum:
-        - 0
-        - 1
-        type: integer
-      MILDistance:
-        format: int32
-        type: integer
-      CLRDistanceUntilToday:
-        format: double
-        type: number
-      NumberOfDTCs:
-        format: int32
-        type: integer
-      Latitude:
-        format: double
-        type: number
-      Longitude:
-        format: double
-        type: number
-    additionalProperties: false
-securityDefinitions:
-  oauth2:
-    type: oauth2
-    flow: implicit
-    authorizationUrl: https://api.automile.com/login/
-    scopes:
-      read: Read access to protected resources
-      write: Write access to protected resources
-    description: OAuth2 Implicit Grant
+components:
+  schemas:
+    MILEvent:
+      type: object
+      properties:
+        Occured:
+          format: date-time
+          type: string
+        MILStatus:
+          format: int32
+          enum:
+          - 0
+          - 1
+          type: integer
+        MILDistance:
+          format: int32
+          type: integer
+        CLRDistanceUntilToday:
+          format: double
+          type: number
+        NumberOfDTCs:
+          format: int32
+          type: integer
+        Latitude:
+          format: double
+          type: number
+        Longitude:
+          format: double
+          type: number
+      additionalProperties: false
+    DTCEventDetail:
+      type: object
+      properties:
+        DTC:
+          type: string
+        FaultLocation:
+          type: string
+        ProbableCause:
+          type: string
+      additionalProperties: false
+    VehicleHealth:
+      type: object
+      properties:
+        VehicleId:
+          format: int32
+          type: integer
+        PeriodFrom:
+          format: int32
+          type: integer
+        PeriodTo:
+          format: int32
+          type: integer
+        LastBatteryStatus:
+          format: int32
+          enum:
+          - 0
+          - 1
+          - 2
+          - 3
+          type: integer
+        LastBatteryWarning:
+          $ref: '#/components/schemas/BatteryEvent'
+        BatteryEventsForSelectedPeriod:
+          type: array
+          items:
+            $ref: '#/components/schemas/BatteryEvent'
+        LastMILEvent:
+          $ref: '#/components/schemas/MILEvent'
+        MILEventsForSelectedPeriod:
+          type: array
+          items:
+            $ref: '#/components/schemas/MILEvent'
+        LastDTCEvent:
+          $ref: '#/components/schemas/DTCEvent'
+        LastPendingDTCEvent:
+          $ref: '#/components/schemas/DTCEvent'
+        DTCEventsForSelectedPeriod:
+          type: array
+          items:
+            $ref: '#/components/schemas/DTCEvent'
+        PendingDTCEventsForSelectedPeriod:
+          type: array
+          items:
+            $ref: '#/components/schemas/DTCEvent'
+      additionalProperties: false
+    DTCEvent:
+      type: object
+      properties:
+        Occured:
+          format: date-time
+          type: string
+        DTCEventDetails:
+          type: array
+          items:
+            $ref: '#/components/schemas/DTCEventDetail'
+        Latitude:
+          format: double
+          type: number
+        Longitude:
+          format: double
+          type: number
+      additionalProperties: false
+    BatteryEvent:
+      type: object
+      properties:
+        Occured:
+          format: date-time
+          type: string
+        Latitude:
+          format: double
+          type: number
+        Longitude:
+          format: double
+          type: number
+        BatteryStatus:
+          format: int32
+          enum:
+          - 0
+          - 1
+          - 2
+          - 3
+          type: integer
+      additionalProperties: false
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      flows:
+        implicit:
+          scopes:
+            read: Read access to protected resources
+            write: Write access to protected resources
+          authorizationUrl: https://api.automile.com/login/
+      description: OAuth2 Implicit Grant

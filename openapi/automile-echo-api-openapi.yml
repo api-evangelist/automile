@@ -1,6 +1,6 @@
-swagger: '2.0'
+openapi: 3.2.0
 info:
-  title: Automile ClientApi Echo API
+  title: Automile Echo API
   version: v1
 tags:
 - name: Echo
@@ -16,12 +16,16 @@ paths:
           description: Success
       security:
       - oauth2: []
-securityDefinitions:
-  oauth2:
-    type: oauth2
-    flow: implicit
-    authorizationUrl: https://api.automile.com/login/
-    scopes:
-      read: Read access to protected resources
-      write: Write access to protected resources
-    description: OAuth2 Implicit Grant
+      operationId: getV1EchoValidatetoken
+      x-operation-id-source: derived
+components:
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      flows:
+        implicit:
+          scopes:
+            read: Read access to protected resources
+            write: Write access to protected resources
+          authorizationUrl: https://api.automile.com/login/
+      description: OAuth2 Implicit Grant

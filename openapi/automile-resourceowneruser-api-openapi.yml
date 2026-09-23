@@ -1,6 +1,6 @@
-swagger: '2.0'
+openapi: 3.2.0
 info:
-  title: Automile ClientApi ResourceOwnerUser API
+  title: Automile Resource Owner User API
   version: v1
 tags:
 - name: ResourceOwnerUser
@@ -12,15 +12,19 @@ paths:
       summary: This get's the details of the current user that you are logged in as
       description: This will return the details of the current user.
       operationId: GetResourceOwnerUser
-      produces:
-      - text/plain
-      - application/json
-      - text/json
       responses:
         '200':
           description: The User is returned
-          schema:
-            $ref: '#/definitions/UserModel'
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/UserModel'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserModel'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/UserModel'
         '500':
           description: Internal server error
       security:
@@ -32,16 +36,6 @@ paths:
       summary: Change the password of the current user that you are logged in as
       description: This will change the password.
       operationId: ChangePasswordResourceOwnerUser
-      consumes:
-      - application/json
-      - text/json
-      - application/*+json
-      parameters:
-      - in: body
-        name: body
-        description: The change password model
-        schema:
-          $ref: '#/definitions/ChangePasswordModel'
       responses:
         '200':
           description: The password was saved
@@ -53,6 +47,18 @@ paths:
           description: Internal server error
       security:
       - oauth2: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ChangePasswordModel'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/ChangePasswordModel'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/ChangePasswordModel'
+        description: The change password model
   /v1/resourceowner/user/userexistingpassword:
     get:
       tags:
@@ -60,15 +66,19 @@ paths:
       summary: Check if the user has a password set
       description: This will get info if user has existing password.
       operationId: UserExistingPassword
-      produces:
-      - text/plain
-      - application/json
-      - text/json
       responses:
         '200':
           description: The info is returned
-          schema:
-            $ref: '#/definitions/UserExistingPasswordModel'
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/UserExistingPasswordModel'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserExistingPasswordModel'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/UserExistingPasswordModel'
         '500':
           description: Internal server error
       security:
@@ -80,16 +90,6 @@ paths:
       summary: Change the username of the current user that you are logged in as
       description: This will change the username.
       operationId: ChangeUserNameResourceOwnerUser
-      consumes:
-      - application/json
-      - text/json
-      - application/*+json
-      parameters:
-      - in: body
-        name: body
-        description: The change  username model
-        schema:
-          $ref: '#/definitions/ChangeUserNameModel'
       responses:
         '200':
           description: The username was saved
@@ -99,22 +99,24 @@ paths:
           description: Internal server error
       security:
       - oauth2: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ChangeUserNameModel'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/ChangeUserNameModel'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/ChangeUserNameModel'
+        description: The change  username model
   /v1/resourceowner/user/resetpassword:
     post:
       tags:
       - ResourceOwnerUser
       summary: Reset the password by SMS for the current user logged in
       operationId: ResetPasswordResourceOwnerUser
-      consumes:
-      - application/json
-      - text/json
-      - application/*+json
-      parameters:
-      - in: body
-        name: body
-        description: The reset password model
-        schema:
-          $ref: '#/definitions/ResetPasswordUserModel'
       responses:
         '200':
           description: A reset password sms was sent
@@ -126,6 +128,18 @@ paths:
           description: Internal server error
       security:
       - oauth2: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ResetPasswordUserModel'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/ResetPasswordUserModel'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/ResetPasswordUserModel'
+        description: The reset password model
   /v1/resourceowner/user/logout:
     post:
       tags:
@@ -133,16 +147,6 @@ paths:
       summary: Logs out the user
       description: Logs out the user and the users client device id will be removed from the users available client devices. A new user client device id will be created on login.
       operationId: ResourceOwnerUserController_Logout
-      consumes:
-      - application/json
-      - text/json
-      - application/*+json
-      parameters:
-      - in: body
-        name: body
-        description: Model containing the users client device id
-        schema:
-          $ref: '#/definitions/LogoutModel'
       responses:
         '200':
           description: Successful log out
@@ -152,69 +156,83 @@ paths:
           description: Internal server error
       security:
       - oauth2: []
-definitions:
-  ChangePasswordModel:
-    type: object
-    properties:
-      CurrentPassword:
-        type: string
-      NewPassword:
-        type: string
-    additionalProperties: false
-  ChangeUserNameModel:
-    type: object
-    properties:
-      NewUserName:
-        type: string
-    additionalProperties: false
-  LogoutModel:
-    required:
-    - UserDeviceId
-    type: object
-    properties:
-      UserDeviceId:
-        format: int32
-        type: integer
-    additionalProperties: false
-  UserModel:
-    type: object
-    properties:
-      UserId:
-        format: int32
-        type: integer
-      UserGuid:
-        format: uuid
-        type: string
-      UserName:
-        type: string
-      ContactId:
-        format: int32
-        type: integer
-    additionalProperties: false
-  ResetPasswordUserModel:
-    type: object
-    properties:
-      Email:
-        type: string
-      ResetPasswordType:
-        format: int32
-        enum:
-        - 0
-        - 1
-        type: integer
-    additionalProperties: false
-  UserExistingPasswordModel:
-    type: object
-    properties:
-      HasPassword:
-        type: boolean
-    additionalProperties: false
-securityDefinitions:
-  oauth2:
-    type: oauth2
-    flow: implicit
-    authorizationUrl: https://api.automile.com/login/
-    scopes:
-      read: Read access to protected resources
-      write: Write access to protected resources
-    description: OAuth2 Implicit Grant
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LogoutModel'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/LogoutModel'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/LogoutModel'
+        description: Model containing the users client device id
+components:
+  schemas:
+    UserModel:
+      type: object
+      properties:
+        UserId:
+          format: int32
+          type: integer
+        UserGuid:
+          format: uuid
+          type: string
+        UserName:
+          type: string
+        ContactId:
+          format: int32
+          type: integer
+      additionalProperties: false
+    UserExistingPasswordModel:
+      type: object
+      properties:
+        HasPassword:
+          type: boolean
+      additionalProperties: false
+    ChangeUserNameModel:
+      type: object
+      properties:
+        NewUserName:
+          type: string
+      additionalProperties: false
+    LogoutModel:
+      required:
+      - UserDeviceId
+      type: object
+      properties:
+        UserDeviceId:
+          format: int32
+          type: integer
+      additionalProperties: false
+    ChangePasswordModel:
+      type: object
+      properties:
+        CurrentPassword:
+          type: string
+        NewPassword:
+          type: string
+      additionalProperties: false
+    ResetPasswordUserModel:
+      type: object
+      properties:
+        Email:
+          type: string
+        ResetPasswordType:
+          format: int32
+          enum:
+          - 0
+          - 1
+          type: integer
+      additionalProperties: false
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      flows:
+        implicit:
+          scopes:
+            read: Read access to protected resources
+            write: Write access to protected resources
+          authorizationUrl: https://api.automile.com/login/
+      description: OAuth2 Implicit Grant

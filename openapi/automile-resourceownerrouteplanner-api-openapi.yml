@@ -1,6 +1,6 @@
-swagger: '2.0'
+openapi: 3.2.0
 info:
-  title: Automile ClientApi ResourceOwnerRoutePlanner API
+  title: Automile Resource Owner Route Planner API
   version: v1
 tags:
 - name: ResourceOwnerRoutePlanner
@@ -10,19 +10,54 @@ paths:
       tags:
       - ResourceOwnerRoutePlanner
       summary: Get routes associated with the user
-      description: "Only routes that is either shared with the user or owned by the calling user is returned.\r\n            <br /><br />\r\n            Location Status enum values:<br />\r\n            *NotStarted = 0*<br />\r\n            *Done = 1*<br />\r\n            *Cancelled = 3*<br /><br />\r\n            MissionStatus enum values: <br />\r\n            *Not Started = 0 (All route locations NotStarted)*<br />\r\n            *Ongoing = 1 (Any route location Done OR route mission started)*<br />\r\n            *Done = 2 (All route locations Done)*<br />\r\n            *Cancelled = 3 (Route mission Cancelled)*"
+      description: 'Only routes that is either shared with the user or owned by the calling user is returned.
+
+
+        Location Status enum values:
+
+
+        *NotStarted = 0*
+
+
+        *Done = 1*
+
+
+        *Cancelled = 3*
+
+
+        MissionStatus enum values:
+
+
+        *Not Started = 0 (All route locations NotStarted)*
+
+
+        *Ongoing = 1 (Any route location Done OR route mission started)*
+
+
+        *Done = 2 (All route locations Done)*
+
+
+        *Cancelled = 3 (Route mission Cancelled)*'
       operationId: ResourceOwnerRoutePlanner_GetRouteMissionsByDriverId
-      produces:
-      - text/plain
-      - application/json
-      - text/json
       responses:
         '200':
           description: The routes associated with the user is returned.
-          schema:
-            type: array
-            items:
-              $ref: '#/definitions/RoutePlannerMissionModel'
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/RoutePlannerMissionModel'
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/RoutePlannerMissionModel'
+            text/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/RoutePlannerMissionModel'
       security:
       - oauth2: []
   /v1/resourceowner/routeplanner/route/shorturlid/{shortUrlId}:
@@ -30,68 +65,72 @@ paths:
       tags:
       - ResourceOwnerRoutePlanner
       operationId: ResourceOwnerRoutePlanner_GetMissionByShortUrlId
-      produces:
-      - text/plain
-      - application/json
-      - text/json
       parameters:
       - in: path
         name: shortUrlId
         required: true
-        type: string
+        schema:
+          type: string
       responses:
         '200':
           description: Success
-          schema:
-            $ref: '#/definitions/RoutePlannerMissionModel'
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RoutePlannerMissionModel'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RoutePlannerMissionModel'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RoutePlannerMissionModel'
       security:
       - oauth2: []
+      summary: Resource owner route planner get mission by short url id
+      x-summary-source: derived
   /v1/resourceowner/routeplanner/route/{routeId}:
     get:
       tags:
       - ResourceOwnerRoutePlanner
       operationId: ResourceOwnerRoutePlanner_GetMissionByRouteAndDriverId
-      produces:
-      - text/plain
-      - application/json
-      - text/json
       parameters:
       - in: path
         name: routeId
         required: true
-        type: integer
-        format: int32
+        schema:
+          type: integer
+          format: int32
       responses:
         '200':
           description: Success
-          schema:
-            $ref: '#/definitions/RoutePlannerMissionModel'
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RoutePlannerMissionModel'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RoutePlannerMissionModel'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RoutePlannerMissionModel'
       security:
       - oauth2: []
+      summary: Resource owner route planner get mission by route and driver id
+      x-summary-source: derived
     put:
       tags:
       - ResourceOwnerRoutePlanner
       summary: Update a route state
       description: Only tasks that belongs to the user has access to will be returned.
       operationId: ResourceOwnerRoutePlanner_UpdateMission
-      consumes:
-      - application/json
-      - text/json
-      - application/*+json
       parameters:
       - in: path
         name: routeId
         description: The routeId to update
         required: true
-        type: integer
-        format: int32
-      - in: body
-        name: body
-        description: The stop location update model
         schema:
-          type: array
-          items:
-            $ref: '#/definitions/UpdateStopModel'
+          type: integer
+          format: int32
       responses:
         '200':
           description: The stop was updated
@@ -101,35 +140,59 @@ paths:
           description: Not authorized to task
       security:
       - oauth2: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/UpdateStopModel'
+          text/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/UpdateStopModel'
+          application/*+json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/UpdateStopModel'
+        description: The stop location update model
   /v1/resourceowner/routeplanner/routes/routeandsave:
     post:
       tags:
       - ResourceOwnerRoutePlanner
       operationId: ResourceOwnerRoutePlanner_routeandsave
-      consumes:
-      - application/json
-      - text/json
-      - application/*+json
-      produces:
-      - text/plain
-      - application/json
-      - text/json
-      parameters:
-      - in: body
-        name: body
-        schema:
-          $ref: '#/definitions/RouteRequest'
       responses:
         '200':
           description: Success
-          schema: {}
+          content:
+            text/plain:
+              schema: {}
+            application/json:
+              schema: {}
+            text/json:
+              schema: {}
       security:
       - oauth2: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RouteRequest'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/RouteRequest'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/RouteRequest'
+      summary: Resource owner route planner routeandsave
+      x-summary-source: derived
   /v1/resourceowner/routeplanner/route/{routeId}/cancel:
     put:
       tags:
       - ResourceOwnerRoutePlanner
-      summary: Set Route Status to Cancelled.
+      summary: Set Route Status to Cancelled
       description: If a cancelled trip later gets 'uncancelled' the cancelling notes will be cleared
       operationId: ResourceOwnerRoutePlanner_CancelMission
       parameters:
@@ -137,12 +200,14 @@ paths:
         name: routeId
         description: The routeId to update
         required: true
-        type: integer
-        format: int32
+        schema:
+          type: integer
+          format: int32
       - in: query
         name: notes
         description: Reason for cancelling
-        type: string
+        schema:
+          type: string
       responses:
         '200':
           description: Success
@@ -156,15 +221,16 @@ paths:
     put:
       tags:
       - ResourceOwnerRoutePlanner
-      summary: Set Route Status to Started.
+      summary: Set Route Status to Started
       operationId: ResourceOwnerRoutePlanner_StartMission
       parameters:
       - in: path
         name: routeId
         description: The routeId to update
         required: true
-        type: integer
-        format: int32
+        schema:
+          type: integer
+          format: int32
       responses:
         '200':
           description: Success
@@ -181,189 +247,205 @@ paths:
       summary: Get routes associated with the user
       description: '*OBSOLETE* Only routes that is either shared with the user or owned by the calling user is returned.'
       operationId: ResourceOwnerRoutePlanner_GetRouteMissions
-      produces:
-      - text/plain
-      - application/json
-      - text/json
       responses:
         '200':
           description: The routes associated with the user is returned.
-          schema:
-            type: array
-            items:
-              $ref: '#/definitions/RoutePlannerMissionModel'
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/RoutePlannerMissionModel'
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/RoutePlannerMissionModel'
+            text/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/RoutePlannerMissionModel'
       security:
       - oauth2: []
   /v1/resourceowner/routeplanner/{routeId}:
     get:
       tags:
       - ResourceOwnerRoutePlanner
-      summary: ''
+      summary: Resource owner route planner get route mission
       description: '*OBSOLETE*'
       operationId: ResourceOwnerRoutePlanner_GetRouteMission
-      produces:
-      - text/plain
-      - application/json
-      - text/json
       parameters:
       - in: path
         name: routeId
         description: ''
         required: true
-        type: integer
-        format: int32
+        schema:
+          type: integer
+          format: int32
       responses:
         '200':
           description: Success
-          schema:
-            $ref: '#/definitions/RoutePlannerMissionModel'
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RoutePlannerMissionModel'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RoutePlannerMissionModel'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RoutePlannerMissionModel'
       security:
       - oauth2: []
-definitions:
-  RouteRequest:
-    type: object
-    properties:
-      RouteName:
-        type: string
-      TimeConstraint:
-        format: int32
-        enum:
-        - 0
-        - 1
-        type: integer
-      When:
-        format: date-time
-        type: string
-      UtcOffset:
-        format: int64
-        type: integer
-      UserUnitType:
-        format: int32
-        enum:
-        - 0
-        - 1
-        - 2
-        type: integer
-      FullAddresses:
-        type: array
-        items:
+      x-summary-source: derived
+components:
+  schemas:
+    RouteRequest:
+      type: object
+      properties:
+        RouteName:
           type: string
-      Strategy:
-        format: int32
-        enum:
-        - 0
-        - 1
-        type: integer
-      AvoidTollRoads:
-        type: boolean
-      AvoidHighways:
-        type: boolean
-      AvoidFerries:
-        type: boolean
-    additionalProperties: false
-  RoutePlannerMissionLocationModel:
-    type: object
-    properties:
-      DistanceInKilometers:
-        format: double
-        type: number
-      DurationInSeconds:
-        format: double
-        type: number
-      Address:
-        type: string
-      Note:
-        type: string
-      RouteStopId:
-        format: int32
-        type: integer
-      Status:
-        format: int32
-        enum:
-        - 0
-        - 1
-        - 3
-        type: integer
-      DriverNotes:
-        type: string
-      Latitude:
-        format: double
-        type: number
-      Longitude:
-        format: double
-        type: number
-    additionalProperties: false
-  RoutePlannerMissionModel:
-    type: object
-    properties:
-      DistanceInKilometers:
-        format: double
-        type: number
-      DurationInSeconds:
-        format: double
-        type: number
-      RouteId:
-        format: int32
-        type: integer
-      Name:
-        type: string
-      ContactId:
-        format: int32
-        type: integer
-      IsDeparture:
-        type: boolean
-      OccuredAt:
-        format: date-time
-        type: string
-      MissionStatus:
-        format: int32
-        enum:
-        - 0
-        - 1
-        - 2
-        - 3
-        type: integer
-      RouteStartedAtUTC:
-        format: date-time
-        type: string
-      RouteStartedByContactId:
-        format: int32
-        type: integer
-      RouteEndedAtUTC:
-        format: date-time
-        type: string
-      Notes:
-        type: string
-      CreatedUTC:
-        format: date-time
-        type: string
-      Locations:
-        type: array
-        items:
-          $ref: '#/definitions/RoutePlannerMissionLocationModel'
-    additionalProperties: false
-  UpdateStopModel:
-    type: object
-    properties:
-      RouteStopId:
-        format: int32
-        type: integer
-      Status:
-        format: int32
-        enum:
-        - 0
-        - 1
-        - 3
-        type: integer
-      DriverNotes:
-        type: string
-    additionalProperties: false
-securityDefinitions:
-  oauth2:
-    type: oauth2
-    flow: implicit
-    authorizationUrl: https://api.automile.com/login/
-    scopes:
-      read: Read access to protected resources
-      write: Write access to protected resources
-    description: OAuth2 Implicit Grant
+        TimeConstraint:
+          format: int32
+          enum:
+          - 0
+          - 1
+          type: integer
+        When:
+          format: date-time
+          type: string
+        UtcOffset:
+          format: int64
+          type: integer
+        UserUnitType:
+          format: int32
+          enum:
+          - 0
+          - 1
+          - 2
+          type: integer
+        FullAddresses:
+          type: array
+          items:
+            type: string
+        Strategy:
+          format: int32
+          enum:
+          - 0
+          - 1
+          type: integer
+        AvoidTollRoads:
+          type: boolean
+        AvoidHighways:
+          type: boolean
+        AvoidFerries:
+          type: boolean
+      additionalProperties: false
+    RoutePlannerMissionLocationModel:
+      type: object
+      properties:
+        DistanceInKilometers:
+          format: double
+          type: number
+        DurationInSeconds:
+          format: double
+          type: number
+        Address:
+          type: string
+        Note:
+          type: string
+        RouteStopId:
+          format: int32
+          type: integer
+        Status:
+          format: int32
+          enum:
+          - 0
+          - 1
+          - 3
+          type: integer
+        DriverNotes:
+          type: string
+        Latitude:
+          format: double
+          type: number
+        Longitude:
+          format: double
+          type: number
+      additionalProperties: false
+    UpdateStopModel:
+      type: object
+      properties:
+        RouteStopId:
+          format: int32
+          type: integer
+        Status:
+          format: int32
+          enum:
+          - 0
+          - 1
+          - 3
+          type: integer
+        DriverNotes:
+          type: string
+      additionalProperties: false
+    RoutePlannerMissionModel:
+      type: object
+      properties:
+        DistanceInKilometers:
+          format: double
+          type: number
+        DurationInSeconds:
+          format: double
+          type: number
+        RouteId:
+          format: int32
+          type: integer
+        Name:
+          type: string
+        ContactId:
+          format: int32
+          type: integer
+        IsDeparture:
+          type: boolean
+        OccuredAt:
+          format: date-time
+          type: string
+        MissionStatus:
+          format: int32
+          enum:
+          - 0
+          - 1
+          - 2
+          - 3
+          type: integer
+        RouteStartedAtUTC:
+          format: date-time
+          type: string
+        RouteStartedByContactId:
+          format: int32
+          type: integer
+        RouteEndedAtUTC:
+          format: date-time
+          type: string
+        Notes:
+          type: string
+        CreatedUTC:
+          format: date-time
+          type: string
+        Locations:
+          type: array
+          items:
+            $ref: '#/components/schemas/RoutePlannerMissionLocationModel'
+      additionalProperties: false
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      flows:
+        implicit:
+          scopes:
+            read: Read access to protected resources
+            write: Write access to protected resources
+          authorizationUrl: https://api.automile.com/login/
+      description: OAuth2 Implicit Grant

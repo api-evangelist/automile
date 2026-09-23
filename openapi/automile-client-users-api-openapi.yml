@@ -1,0 +1,185 @@
+openapi: 3.2.0
+info:
+  title: Automile Client Users API
+  version: v1
+tags:
+- name: Client Users
+paths:
+  /v1/client/users:
+    get:
+      tags:
+      - Client Users
+      summary: Get the users that belongs to contacts that the current user is associated with
+      description: Get the users that the current user is associated through companies
+      operationId: GetClientUsers
+      responses:
+        '200':
+          description: The Users are returned
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/UserModel'
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/UserModel'
+            text/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/UserModel'
+        '500':
+          description: Internal server error
+      security:
+      - oauth2: []
+    post:
+      tags:
+      - Client Users
+      summary: Creates a new user including a contact with basic information
+      operationId: CreateClientUser
+      responses:
+        '200':
+          description: A link in the header is returned to the newly created users
+        '400':
+          description: Bad request, can happen when you supply values that are unacceptable
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+        '500':
+          description: Internal server error
+      security:
+      - oauth2: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserCreateModel'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/UserCreateModel'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/UserCreateModel'
+        description: The create user model
+  /v1/client/users/{userId}:
+    get:
+      tags:
+      - Client Users
+      summary: Get the specific user
+      operationId: GetClientUserByUserId
+      parameters:
+      - in: path
+        name: userId
+        description: The user id
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: The Users are returned
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/UserModel'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserModel'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/UserModel'
+        '403':
+          description: Request is forbidden, meaning you don't have access to this user
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+        '500':
+          description: Internal server error
+      security:
+      - oauth2: []
+components:
+  schemas:
+    ProblemDetails:
+      type: object
+      properties:
+        type:
+          type: string
+        title:
+          type: string
+        status:
+          format: int32
+          type: integer
+        detail:
+          type: string
+        instance:
+          type: string
+      additionalProperties: {}
+    UserCreateModel:
+      required:
+      - EmailAddress
+      - FirstName
+      - LastName
+      - UserName
+      type: object
+      properties:
+        UserName:
+          minLength: 1
+          type: string
+        FirstName:
+          minLength: 1
+          type: string
+        LastName:
+          minLength: 1
+          type: string
+        EmailAddress:
+          minLength: 1
+          type: string
+        MobilePhoneNumber:
+          type: string
+        Description:
+          type: string
+        Password:
+          type: string
+      additionalProperties: false
+    UserModel:
+      type: object
+      properties:
+        UserId:
+          format: int32
+          type: integer
+        UserGuid:
+          format: uuid
+          type: string
+        UserName:
+          type: string
+        ContactId:
+          format: int32
+          type: integer
+      additionalProperties: false
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      flows:
+        implicit:
+          scopes:
+            read: Read access to protected resources
+            write: Write access to protected resources
+          authorizationUrl: https://api.automile.com/login/
+      description: OAuth2 Implicit Grant

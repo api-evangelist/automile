@@ -1,6 +1,6 @@
-swagger: '2.0'
+openapi: 3.2.0
 info:
-  title: Automile ClientApi ResourceOwnerVehicleDefectComments3 API
+  title: Automile Resource Owner Vehicle Defect Comments3 API
   version: v1
 tags:
 - name: ResourceOwnerVehicleDefectComments3
@@ -12,21 +12,26 @@ paths:
       summary: Get all a vehicle defect comment
       description: ''
       operationId: GetResourceOwnerVehicleDefectComment3
-      produces:
-      - text/plain
-      - application/json
-      - text/json
       parameters:
       - in: path
         name: vehicleDefectCommentId
         required: true
-        type: integer
-        format: int32
+        schema:
+          type: integer
+          format: int32
       responses:
         '200':
           description: The vehicle defect comment is returned
-          schema:
-            $ref: '#/definitions/VehicleDefectCommentsModel'
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/VehicleDefectCommentsModel'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VehicleDefectCommentsModel'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/VehicleDefectCommentsModel'
         '500':
           description: Internal server error
       security:
@@ -37,22 +42,14 @@ paths:
       summary: Update a vehicle defect comment
       description: This will update the given vehicle id with a new model.
       operationId: EditResourceOwnerVehicleDefectComment3
-      consumes:
-      - application/json
-      - text/json
-      - application/*+json
       parameters:
       - in: path
         name: vehicleDefectCommentId
         description: The vehicle defect comment id
         required: true
-        type: integer
-        format: int32
-      - in: body
-        name: body
-        description: The new vehicle inspection model
         schema:
-          $ref: '#/definitions/VehicleDefectCommentsEditModel'
+          type: integer
+          format: int32
       responses:
         '200':
           description: The vehicle defect comment was saved
@@ -66,6 +63,18 @@ paths:
           description: Internal server error
       security:
       - oauth2: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/VehicleDefectCommentsEditModel'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/VehicleDefectCommentsEditModel'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/VehicleDefectCommentsEditModel'
+        description: The new vehicle inspection model
   /v1/resourceowner/vehicledefectcomments3:
     get:
       tags:
@@ -73,22 +82,31 @@ paths:
       summary: Get all vehicle defect comments that the user has access to
       description: ''
       operationId: GetResourceOwnerVehicleDefectComments3
-      produces:
-      - text/plain
-      - application/json
-      - text/json
       parameters:
       - in: query
         name: vehicleDefectId
-        type: integer
-        format: int32
+        schema:
+          type: integer
+          format: int32
       responses:
         '200':
           description: The vehicle defect comments are returned
-          schema:
-            type: array
-            items:
-              $ref: '#/definitions/VehicleDefectCommentsModel'
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/VehicleDefectCommentsModel'
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/VehicleDefectCommentsModel'
+            text/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/VehicleDefectCommentsModel'
         '500':
           description: Internal server error
       security:
@@ -99,16 +117,6 @@ paths:
       summary: Creates a new vehicle defect comment
       description: This will create a new vehicle defect comment and make the association you set.
       operationId: CreateResourceOwnerVehicleDefectComment3
-      consumes:
-      - application/json
-      - text/json
-      - application/*+json
-      parameters:
-      - in: body
-        name: body
-        description: The vehicle defect comment
-        schema:
-          $ref: '#/definitions/VehicleDefectCommentsCreateModel'
       responses:
         '200':
           description: A link in the header is returned to the newly created vehicle defect comment
@@ -120,46 +128,60 @@ paths:
           description: Internal server error
       security:
       - oauth2: []
-definitions:
-  VehicleDefectCommentsModel:
-    type: object
-    properties:
-      VehicleDefectCommentId:
-        format: int32
-        type: integer
-      VehicleDefectId:
-        format: int32
-        type: integer
-      CreatedByContactId:
-        format: int32
-        type: integer
-      Comment:
-        type: string
-      CommentDateUtc:
-        format: date-time
-        type: string
-    additionalProperties: false
-  VehicleDefectCommentsCreateModel:
-    type: object
-    properties:
-      VehicleDefectId:
-        format: int32
-        type: integer
-      Comment:
-        type: string
-    additionalProperties: false
-  VehicleDefectCommentsEditModel:
-    type: object
-    properties:
-      Comment:
-        type: string
-    additionalProperties: false
-securityDefinitions:
-  oauth2:
-    type: oauth2
-    flow: implicit
-    authorizationUrl: https://api.automile.com/login/
-    scopes:
-      read: Read access to protected resources
-      write: Write access to protected resources
-    description: OAuth2 Implicit Grant
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/VehicleDefectCommentsCreateModel'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/VehicleDefectCommentsCreateModel'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/VehicleDefectCommentsCreateModel'
+        description: The vehicle defect comment
+components:
+  schemas:
+    VehicleDefectCommentsCreateModel:
+      type: object
+      properties:
+        VehicleDefectId:
+          format: int32
+          type: integer
+        Comment:
+          type: string
+      additionalProperties: false
+    VehicleDefectCommentsEditModel:
+      type: object
+      properties:
+        Comment:
+          type: string
+      additionalProperties: false
+    VehicleDefectCommentsModel:
+      type: object
+      properties:
+        VehicleDefectCommentId:
+          format: int32
+          type: integer
+        VehicleDefectId:
+          format: int32
+          type: integer
+        CreatedByContactId:
+          format: int32
+          type: integer
+        Comment:
+          type: string
+        CommentDateUtc:
+          format: date-time
+          type: string
+      additionalProperties: false
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      flows:
+        implicit:
+          scopes:
+            read: Read access to protected resources
+            write: Write access to protected resources
+          authorizationUrl: https://api.automile.com/login/
+      description: OAuth2 Implicit Grant

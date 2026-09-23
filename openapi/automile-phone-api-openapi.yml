@@ -1,6 +1,6 @@
-swagger: '2.0'
+openapi: 3.2.0
 info:
-  title: Automile ClientApi Phone API
+  title: Automile Phone API
   version: v1
 tags:
 - name: Phone
@@ -12,13 +12,19 @@ paths:
       parameters:
       - in: query
         name: from
-        type: string
+        schema:
+          type: string
       - in: query
         name: to
-        type: string
+        schema:
+          type: string
       responses:
         '200':
           description: Success
+      summary: Get maskedphonenumber inboundvoice
+      x-summary-source: derived
+      operationId: getMaskedphonenumberInboundvoice
+      x-operation-id-source: derived
   /maskedphonenumber/inboundtext:
     get:
       tags:
@@ -26,22 +32,31 @@ paths:
       parameters:
       - in: query
         name: from
-        type: string
+        schema:
+          type: string
       - in: query
         name: to
-        type: string
+        schema:
+          type: string
       - in: query
         name: body
-        type: string
+        schema:
+          type: string
       responses:
         '200':
           description: Success
-securityDefinitions:
-  oauth2:
-    type: oauth2
-    flow: implicit
-    authorizationUrl: https://api.automile.com/login/
-    scopes:
-      read: Read access to protected resources
-      write: Write access to protected resources
-    description: OAuth2 Implicit Grant
+      summary: Get maskedphonenumber inboundtext
+      x-summary-source: derived
+      operationId: getMaskedphonenumberInboundtext
+      x-operation-id-source: derived
+components:
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      flows:
+        implicit:
+          scopes:
+            read: Read access to protected resources
+            write: Write access to protected resources
+          authorizationUrl: https://api.automile.com/login/
+      description: OAuth2 Implicit Grant

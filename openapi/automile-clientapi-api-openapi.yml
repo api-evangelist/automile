@@ -1,6 +1,6 @@
-swagger: '2.0'
+openapi: 3.2.0
 info:
-  title: Automile ClientApi API
+  title: Automile Client API
   version: v1
 tags:
 - name: ClientApi
@@ -11,41 +11,49 @@ paths:
       - ClientApi
       summary: Get the current API client that access the API
       description: Returns the given API Client that the token is valid for
-      produces:
-      - text/plain
-      - application/json
-      - text/json
       responses:
         '200':
           description: The APIClient is returned
-          schema:
-            $ref: '#/definitions/APIClientModel'
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/APIClientModel'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIClientModel'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/APIClientModel'
         '500':
           description: Internal server error
       security:
       - oauth2: []
-definitions:
-  APIClientModel:
-    type: object
-    properties:
-      APIClientId:
-        format: int32
-        type: integer
-      APIClientIdentifier:
-        type: string
-      Name:
-        type: string
-      ScopesDelimitedBySpaces:
-        type: string
-      ClientType:
-        type: string
-    additionalProperties: false
-securityDefinitions:
-  oauth2:
-    type: oauth2
-    flow: implicit
-    authorizationUrl: https://api.automile.com/login/
-    scopes:
-      read: Read access to protected resources
-      write: Write access to protected resources
-    description: OAuth2 Implicit Grant
+      operationId: getV1ClientApi
+      x-operation-id-source: derived
+components:
+  schemas:
+    APIClientModel:
+      type: object
+      properties:
+        APIClientId:
+          format: int32
+          type: integer
+        APIClientIdentifier:
+          type: string
+        Name:
+          type: string
+        ScopesDelimitedBySpaces:
+          type: string
+        ClientType:
+          type: string
+      additionalProperties: false
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      flows:
+        implicit:
+          scopes:
+            read: Read access to protected resources
+            write: Write access to protected resources
+          authorizationUrl: https://api.automile.com/login/
+      description: OAuth2 Implicit Grant

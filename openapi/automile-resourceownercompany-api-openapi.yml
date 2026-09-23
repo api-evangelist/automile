@@ -1,6 +1,6 @@
-swagger: '2.0'
+openapi: 3.2.0
 info:
-  title: Automile ClientApi ResourceOwnerCompany API
+  title: Automile Resource Owner Company API
   version: v1
 tags:
 - name: ResourceOwnerCompany
@@ -12,17 +12,25 @@ paths:
       summary: Get a list of all companies that user is associated with
       description: Only companies that the user is associated with will be returned by this operation.
       operationId: GetResourceOwnerCompanies
-      produces:
-      - text/plain
-      - application/json
-      - text/json
       responses:
         '200':
           description: The companies are returned
-          schema:
-            type: array
-            items:
-              $ref: '#/definitions/CompanyModel'
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CompanyModel'
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CompanyModel'
+            text/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CompanyModel'
         '500':
           description: Internal server error
       security:
@@ -32,16 +40,6 @@ paths:
       - ResourceOwnerCompany
       summary: Creates a new company and associates it with the user
       operationId: CreateResourceOwnerCompany
-      consumes:
-      - application/json
-      - text/json
-      - application/*+json
-      parameters:
-      - in: body
-        name: body
-        description: The company model
-        schema:
-          $ref: '#/definitions/CompanyCreateModel'
       responses:
         '200':
           description: A link in the header is returned to the newly created company
@@ -49,6 +47,18 @@ paths:
           description: Internal server error
       security:
       - oauth2: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CompanyCreateModel'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/CompanyCreateModel'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/CompanyCreateModel'
+        description: The company model
   /v1/resourceowner/companies/{companyId}:
     get:
       tags:
@@ -56,22 +66,27 @@ paths:
       summary: Get a company by id
       description: The user only has access to contacts that it is associated with through the company
       operationId: GetByCompanyId
-      produces:
-      - text/plain
-      - application/json
-      - text/json
       parameters:
       - in: path
         name: companyId
         description: The Id of the company
         required: true
-        type: integer
-        format: int32
+        schema:
+          type: integer
+          format: int32
       responses:
         '200':
           description: The company details are returned
-          schema:
-            $ref: '#/definitions/CompanyDetailModel'
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/CompanyDetailModel'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CompanyDetailModel'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/CompanyDetailModel'
         '500':
           description: Internal server error
       security:
@@ -82,22 +97,14 @@ paths:
       summary: Updates the given company id
       description: This will update the company contact with the new model.
       operationId: EditResourceOwnerCompany
-      consumes:
-      - application/json
-      - text/json
-      - application/*+json
       parameters:
       - in: path
         name: companyId
         description: The company id
         required: true
-        type: integer
-        format: int32
-      - in: body
-        name: body
-        description: The company model
         schema:
-          $ref: '#/definitions/CompanyEditModel'
+          type: integer
+          format: int32
       responses:
         '200':
           description: The company was saved
@@ -105,6 +112,18 @@ paths:
           description: Internal server error
       security:
       - oauth2: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CompanyEditModel'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/CompanyEditModel'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/CompanyEditModel'
+        description: The company model
     delete:
       tags:
       - ResourceOwnerCompany
@@ -116,8 +135,9 @@ paths:
         name: companyId
         description: The company id
         required: true
-        type: integer
-        format: int32
+        schema:
+          type: integer
+          format: int32
       responses:
         '200':
           description: The company has been deleted
@@ -125,75 +145,77 @@ paths:
           description: Internal server error
       security:
       - oauth2: []
-definitions:
-  CompanyModel:
-    type: object
-    properties:
-      CompanyId:
-        format: int32
-        type: integer
-      RegisteredCompanyName:
-        type: string
-      RegistrationNumber:
-        type: string
-    additionalProperties: false
-  CompanyDetailModel:
-    type: object
-    properties:
-      CompanyId:
-        format: int32
-        type: integer
-      RegisteredCompanyName:
-        type: string
-      RegistrationNumber:
-        type: string
-      Description:
-        type: string
-      LastModified:
-        format: date-time
-        type: string
-      Created:
-        format: date-time
-        type: string
-    additionalProperties: false
-  CompanyEditModel:
-    required:
-    - RegisteredCompanyName
-    type: object
-    properties:
-      RegisteredCompanyName:
-        maxLength: 255
-        minLength: 0
-        type: string
-      RegistrationNumber:
-        type: string
-      Description:
-        type: string
-    additionalProperties: false
-  CompanyCreateModel:
-    required:
-    - CreateRelationshipToContactId
-    - RegisteredCompanyName
-    type: object
-    properties:
-      RegisteredCompanyName:
-        maxLength: 255
-        minLength: 0
-        type: string
-      RegistrationNumber:
-        type: string
-      Description:
-        type: string
-      CreateRelationshipToContactId:
-        format: int32
-        type: integer
-    additionalProperties: false
-securityDefinitions:
-  oauth2:
-    type: oauth2
-    flow: implicit
-    authorizationUrl: https://api.automile.com/login/
-    scopes:
-      read: Read access to protected resources
-      write: Write access to protected resources
-    description: OAuth2 Implicit Grant
+components:
+  schemas:
+    CompanyEditModel:
+      required:
+      - RegisteredCompanyName
+      type: object
+      properties:
+        RegisteredCompanyName:
+          maxLength: 255
+          minLength: 0
+          type: string
+        RegistrationNumber:
+          type: string
+        Description:
+          type: string
+      additionalProperties: false
+    CompanyDetailModel:
+      type: object
+      properties:
+        CompanyId:
+          format: int32
+          type: integer
+        RegisteredCompanyName:
+          type: string
+        RegistrationNumber:
+          type: string
+        Description:
+          type: string
+        LastModified:
+          format: date-time
+          type: string
+        Created:
+          format: date-time
+          type: string
+      additionalProperties: false
+    CompanyModel:
+      type: object
+      properties:
+        CompanyId:
+          format: int32
+          type: integer
+        RegisteredCompanyName:
+          type: string
+        RegistrationNumber:
+          type: string
+      additionalProperties: false
+    CompanyCreateModel:
+      required:
+      - CreateRelationshipToContactId
+      - RegisteredCompanyName
+      type: object
+      properties:
+        RegisteredCompanyName:
+          maxLength: 255
+          minLength: 0
+          type: string
+        RegistrationNumber:
+          type: string
+        Description:
+          type: string
+        CreateRelationshipToContactId:
+          format: int32
+          type: integer
+      additionalProperties: false
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      flows:
+        implicit:
+          scopes:
+            read: Read access to protected resources
+            write: Write access to protected resources
+          authorizationUrl: https://api.automile.com/login/
+      description: OAuth2 Implicit Grant

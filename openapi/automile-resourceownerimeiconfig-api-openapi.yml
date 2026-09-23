@@ -1,6 +1,6 @@
-swagger: '2.0'
+openapi: 3.2.0
 info:
-  title: Automile ClientApi ResourceOwnerIMEIConfig API
+  title: Automile Resource Owner IMEI Config API
   version: v1
 tags:
 - name: ResourceOwnerIMEIConfig
@@ -12,22 +12,31 @@ paths:
       summary: Get all imeis(devices) that the logged in user has access to
       description: Only vehicles that the user is associated with will be returned by this operation.
       operationId: GetResourceOwnerImeiConfigs
-      produces:
-      - text/plain
-      - application/json
-      - text/json
       parameters:
       - in: query
         name: includeDeviceType
-        type: boolean
-        default: false
+        schema:
+          type: boolean
+          default: false
       responses:
         '200':
           description: The Imeis are returned
-          schema:
-            type: array
-            items:
-              $ref: '#/definitions/IMEIConfigModel'
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/IMEIConfigModel'
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/IMEIConfigModel'
+            text/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/IMEIConfigModel'
         '500':
           description: Internal server error
       security:
@@ -37,16 +46,6 @@ paths:
       - ResourceOwnerIMEIConfig
       summary: Creates a new IMEIConfig and associates it with vehicle
       operationId: CreateResourceOwnerIMEIConfig
-      consumes:
-      - application/json
-      - text/json
-      - application/*+json
-      parameters:
-      - in: body
-        name: body
-        description: The IMEI Config model
-        schema:
-          $ref: '#/definitions/IMEIConfigCreateModel'
       responses:
         '200':
           description: A link in the header is returned to the newly created ImeiConfig
@@ -56,6 +55,18 @@ paths:
           description: Internal server error
       security:
       - oauth2: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IMEIConfigCreateModel'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/IMEIConfigCreateModel'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/IMEIConfigCreateModel'
+        description: The IMEI Config model
   /v1/resourceowner/imeiconfigs/{imeiConfigId}:
     get:
       tags:
@@ -63,27 +74,33 @@ paths:
       summary: Get IMEIconfig by IMEIconfigId
       description: The user only has access to IMEIconfig that it is associated with through the companies or directly thorugh vehicles
       operationId: GetResourceOwnerIMEIConfigsBasedOnVehicleId
-      produces:
-      - text/plain
-      - application/json
-      - text/json
       parameters:
       - in: path
         name: imeiConfigId
         description: The IMEIconfig id
         required: true
-        type: integer
-        format: int32
+        schema:
+          type: integer
+          format: int32
       - in: query
         name: includeDeviceType
         description: ''
-        type: boolean
-        default: false
+        schema:
+          type: boolean
+          default: false
       responses:
         '200':
           description: The Imeis are returned
-          schema:
-            $ref: '#/definitions/IMEIConfigDetailModel'
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/IMEIConfigDetailModel'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IMEIConfigDetailModel'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/IMEIConfigDetailModel'
         '500':
           description: Internal server error
         '403':
@@ -97,22 +114,14 @@ paths:
       - ResourceOwnerIMEIConfig
       summary: Updates the given IMEIConfig id
       operationId: EditResourceOwnerIMEIConfig
-      consumes:
-      - application/json
-      - text/json
-      - application/*+json
       parameters:
       - in: path
         name: imeiConfigId
         description: The IMEIConfig id that should be updated
         required: true
-        type: integer
-        format: int32
-      - in: body
-        name: body
-        description: The IMEIConfig model
         schema:
-          $ref: '#/definitions/IMEIConfigEditModel'
+          type: integer
+          format: int32
       responses:
         '200':
           description: The IMEIConfig was saved
@@ -124,6 +133,18 @@ paths:
           description: Request is forbidden, this could occur if you try to add an IMEI that already exists or if it is not available in our systems. In addition, if the serialnumber to the IMEI device is incorrect
       security:
       - oauth2: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IMEIConfigEditModel'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/IMEIConfigEditModel'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/IMEIConfigEditModel'
+        description: The IMEIConfig model
     delete:
       tags:
       - ResourceOwnerIMEIConfig
@@ -135,8 +156,9 @@ paths:
         name: imeiConfigId
         description: The imeiConfigId id to remove
         required: true
-        type: integer
-        format: int32
+        schema:
+          type: integer
+          format: int32
       responses:
         '200':
           description: The IMEI config has been deleted
@@ -148,121 +170,123 @@ paths:
           description: Request is forbidden, this could occur if you are not associated with the IMEIConfig
       security:
       - oauth2: []
-definitions:
-  IMEIConfigEditModel:
-    required:
-    - VehicleId
-    type: object
-    properties:
-      VehicleId:
-        format: int32
-        type: integer
-      IMEIDeviceType:
-        format: int32
-        enum:
-        - 0
-        - 1
-        - 2
-        - 3
-        - 4
-        - 5
-        - 6
-        - 7
-        - 8
-        - 9
-        - 255
-        type: integer
-    additionalProperties: false
-  IMEIConfigModel:
-    type: object
-    properties:
-      IMEIConfigId:
-        format: int32
-        type: integer
-      IMEI:
-        type: string
-      VehicleId:
-        format: int32
-        type: integer
-      DeviceType:
-        format: int32
-        enum:
-        - 0
-        - 1
-        - 2
-        - 3
-        - 4
-        - 5
-        - 6
-        - 7
-        - 8
-        - 9
-        - 255
-        type: integer
-    additionalProperties: false
-  IMEIConfigCreateModel:
-    type: object
-    properties:
-      IMEI:
-        type: string
-      VehicleId:
-        format: int32
-        type: integer
-      SerialNumber:
-        type: string
-      IMEIDeviceType:
-        format: int32
-        enum:
-        - 0
-        - 1
-        - 2
-        - 3
-        - 4
-        - 5
-        - 6
-        - 7
-        - 8
-        - 9
-        - 10
-        - 11
-        - 12
-        - 13
-        - 255
-        type: integer
-    additionalProperties: false
-  IMEIConfigDetailModel:
-    type: object
-    properties:
-      IMEIConfigId:
-        format: int32
-        type: integer
-      IMEI:
-        type: string
-      VehicleId:
-        format: int32
-        type: integer
-      DeviceType:
-        format: int32
-        enum:
-        - 0
-        - 1
-        - 2
-        - 3
-        - 4
-        - 5
-        - 6
-        - 7
-        - 8
-        - 9
-        - 255
-        type: integer
-    additionalProperties: false
-securityDefinitions:
-  oauth2:
-    type: oauth2
-    flow: implicit
-    authorizationUrl: https://api.automile.com/login/
-    scopes:
-      read: Read access to protected resources
-      write: Write access to protected resources
-    description: OAuth2 Implicit Grant
+components:
+  schemas:
+    IMEIConfigCreateModel:
+      type: object
+      properties:
+        IMEI:
+          type: string
+        VehicleId:
+          format: int32
+          type: integer
+        SerialNumber:
+          type: string
+        IMEIDeviceType:
+          format: int32
+          enum:
+          - 0
+          - 1
+          - 2
+          - 3
+          - 4
+          - 5
+          - 6
+          - 7
+          - 8
+          - 9
+          - 10
+          - 11
+          - 12
+          - 13
+          - 255
+          type: integer
+      additionalProperties: false
+    IMEIConfigModel:
+      type: object
+      properties:
+        IMEIConfigId:
+          format: int32
+          type: integer
+        IMEI:
+          type: string
+        VehicleId:
+          format: int32
+          type: integer
+        DeviceType:
+          format: int32
+          enum:
+          - 0
+          - 1
+          - 2
+          - 3
+          - 4
+          - 5
+          - 6
+          - 7
+          - 8
+          - 9
+          - 255
+          type: integer
+      additionalProperties: false
+    IMEIConfigEditModel:
+      required:
+      - VehicleId
+      type: object
+      properties:
+        VehicleId:
+          format: int32
+          type: integer
+        IMEIDeviceType:
+          format: int32
+          enum:
+          - 0
+          - 1
+          - 2
+          - 3
+          - 4
+          - 5
+          - 6
+          - 7
+          - 8
+          - 9
+          - 255
+          type: integer
+      additionalProperties: false
+    IMEIConfigDetailModel:
+      type: object
+      properties:
+        IMEIConfigId:
+          format: int32
+          type: integer
+        IMEI:
+          type: string
+        VehicleId:
+          format: int32
+          type: integer
+        DeviceType:
+          format: int32
+          enum:
+          - 0
+          - 1
+          - 2
+          - 3
+          - 4
+          - 5
+          - 6
+          - 7
+          - 8
+          - 9
+          - 255
+          type: integer
+      additionalProperties: false
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      flows:
+        implicit:
+          scopes:
+            read: Read access to protected resources
+            write: Write access to protected resources
+          authorizationUrl: https://api.automile.com/login/
+      description: OAuth2 Implicit Grant
