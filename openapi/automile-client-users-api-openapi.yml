@@ -116,21 +116,6 @@ paths:
       - oauth2: []
 components:
   schemas:
-    ProblemDetails:
-      type: object
-      properties:
-        type:
-          type: string
-        title:
-          type: string
-        status:
-          format: int32
-          type: integer
-        detail:
-          type: string
-        instance:
-          type: string
-      additionalProperties: {}
     UserCreateModel:
       required:
       - EmailAddress
@@ -158,6 +143,21 @@ components:
         Password:
           type: string
       additionalProperties: false
+    ProblemDetails:
+      type: object
+      properties:
+        type:
+          type: string
+        title:
+          type: string
+        status:
+          format: int32
+          type: integer
+        detail:
+          type: string
+        instance:
+          type: string
+      additionalProperties: {}
     UserModel:
       type: object
       properties:

@@ -418,105 +418,87 @@ paths:
       - oauth2: []
 components:
   schemas:
-    TripsReportModel:
+    TravelTimeReportModel:
+      type: object
+      properties:
+        Period:
+          format: int32
+          type: integer
+        BusinessTravelTimeInMinutes:
+          format: int32
+          type: integer
+        PersonalTravelTimeInMinutes:
+          format: int32
+          type: integer
+        OtherTravelTimeInMinutes:
+          format: int32
+          type: integer
+      additionalProperties: false
+    VehicleSummaryReportModel:
       type: object
       properties:
         VehicleId:
           format: int32
           type: integer
-        StartDateTime:
-          format: date-time
-          description: UTC
+        VehicleIdentificationNumber:
           type: string
-        StartTimezone:
+        NumberPlate:
+          type: string
+        Make:
+          type: string
+        Model:
+          type: string
+        ModelYear:
           format: int32
           type: integer
-        EndDateTime:
-          format: date-time
-          description: UTC
-          type: string
-        EndTimezone:
-          format: int32
-          type: integer
-        StartOdometer:
-          format: int32
-          description: Kilometers
-          type: integer
-        EndOdometer:
-          format: int32
-          description: Kilometers
-          type: integer
-        StartAddressName:
-          type: string
-        EndAddressName:
-          type: string
-        Distance:
+        Business:
           format: double
-          description: Kilometers
           type: number
-        ParkedForMinUntilNextTrip:
-          format: int32
-          type: integer
-        FuelConsumption:
+        Private:
           format: double
-          description: Liters
           type: number
-        Co2Emissions:
+        Other:
           format: double
-          description: Grams
           type: number
-        IdleTime:
+        Total:
+          format: double
+          type: number
+        PeriodStartOdometer:
+          format: double
+          type: number
+        PeriodEndOdometer:
+          format: double
+          type: number
+        FuelConsumptionBusiness:
+          format: double
+          type: number
+        FuelConsumptionPrivate:
+          format: double
+          type: number
+        FuelConsumptionTotal:
+          format: double
+          type: number
+        BusinessTolls:
+          format: double
+          type: number
+        PrivateTolls:
+          format: double
+          type: number
+        OtherTolls:
+          format: double
+          type: number
+        NumberOfBusinessTolls:
           format: int32
-          description: Seconds
           type: integer
-        Notes:
-          type: string
-        TripType:
+        NumberOfPrivateTolls:
           format: int32
           type: integer
-        TripId:
-          format: int64
-          type: integer
-        Settings:
-          format: int64
-          type: integer
-        DriverContactId:
+        NumberOfOtherTolls:
           format: int32
           type: integer
-        LicensePlate:
-          type: string
-        VehicleName:
-          type: string
-      additionalProperties: false
-    HttpMethod:
-      type: object
-      properties:
-        Method:
-          type: string
-      additionalProperties: false
-    VehiclesSummaryModel:
-      type: object
-      properties:
-        DistanceReports:
-          type: array
-          items:
-            $ref: '#/components/schemas/DistanceReportModel'
-        FuelReports:
-          type: array
-          items:
-            $ref: '#/components/schemas/FuelReportModel'
-        TravelTimeReports:
-          type: array
-          items:
-            $ref: '#/components/schemas/TravelTimeReportModel'
-        CO2Reports:
-          type: array
-          items:
-            $ref: '#/components/schemas/CO2ReportModel'
-        IdleTimeReports:
-          type: array
-          items:
-            $ref: '#/components/schemas/IdleTimeReportModel'
+        NumberOfTolls:
+          format: int32
+          type: integer
       additionalProperties: false
     Version:
       type: object
@@ -546,34 +528,115 @@ components:
           type: integer
           readOnly: true
       additionalProperties: false
-    EmailTripReportPeriodModel:
-      type: object
-      properties:
-        VehicleId:
-          format: int32
-          type: integer
-        FromDateMonth:
-          format: int32
-          type: integer
-        FromDateYear:
-          format: int32
-          type: integer
-      additionalProperties: false
-    FuelReportModel:
+    IdleTimeReportModel:
       type: object
       properties:
         Period:
           format: int32
           type: integer
-        BusinessFuelInLiters:
-          format: double
-          type: number
-        PersonalFuelInLiters:
-          format: double
-          type: number
-        OtherFuelInLiters:
-          format: double
-          type: number
+        BusinessIdleTimeInMinutes:
+          format: int32
+          type: integer
+        PersonalIdleTimeInMinutes:
+          format: int32
+          type: integer
+        OtherIdleTimeInMinutes:
+          format: int32
+          type: integer
+      additionalProperties: false
+    VehiclesSummaryReportModel:
+      type: object
+      properties:
+        VehiclesSummary:
+          type: array
+          items:
+            $ref: '#/components/schemas/VehicleSummaryReportModel'
+        Page:
+          format: int32
+          type: integer
+        Records:
+          format: int32
+          type: integer
+        TotalRecords:
+          format: int32
+          type: integer
+        PageSize:
+          format: int32
+          type: integer
+      additionalProperties: false
+    HttpMethod:
+      type: object
+      properties:
+        Method:
+          type: string
+      additionalProperties: false
+    GeofenceRecordReportModel:
+      type: object
+      properties:
+        TripId:
+          format: int32
+          type: integer
+        GeofenceId:
+          format: int32
+          type: integer
+        GeofenceName:
+          type: string
+        GeofenceType:
+          format: int32
+          enum:
+          - 0
+          - 1
+          - 2
+          type: integer
+        IsInside:
+          type: boolean
+        EventDateTime:
+          format: date-time
+          type: string
+        VehicleTinyModel:
+          $ref: '#/components/schemas/VehicleTinyModel'
+      additionalProperties: false
+    VehiclesSummaryModel:
+      type: object
+      properties:
+        DistanceReports:
+          type: array
+          items:
+            $ref: '#/components/schemas/DistanceReportModel'
+        FuelReports:
+          type: array
+          items:
+            $ref: '#/components/schemas/FuelReportModel'
+        TravelTimeReports:
+          type: array
+          items:
+            $ref: '#/components/schemas/TravelTimeReportModel'
+        CO2Reports:
+          type: array
+          items:
+            $ref: '#/components/schemas/CO2ReportModel'
+        IdleTimeReports:
+          type: array
+          items:
+            $ref: '#/components/schemas/IdleTimeReportModel'
+      additionalProperties: false
+    TripsReportRequestModel:
+      type: object
+      properties:
+        VehicleIds:
+          description: Optional
+          type: array
+          items:
+            format: int32
+            type: integer
+        FromDate:
+          format: date-time
+          description: UTC
+          type: string
+        ToDate:
+          format: date-time
+          description: UTC
+          type: string
       additionalProperties: false
     HttpResponseMessage:
       type: object
@@ -665,15 +728,6 @@ components:
           type: boolean
           readOnly: true
       additionalProperties: false
-    HttpContent:
-      type: object
-      properties:
-        Headers:
-          type: array
-          items:
-            $ref: '#/components/schemas/StringStringIEnumerableKeyValuePair'
-          readOnly: true
-      additionalProperties: false
     VehicleTinyModel:
       type: object
       properties:
@@ -711,22 +765,6 @@ components:
         UserFriendlyName:
           type: string
       additionalProperties: false
-    CO2ReportModel:
-      type: object
-      properties:
-        Period:
-          format: int32
-          type: integer
-        BusinessCO2InGrams:
-          format: double
-          type: number
-        PersonalCO2InGrams:
-          format: double
-          type: number
-        OtherCO2InGrams:
-          format: double
-          type: number
-      additionalProperties: false
     TripSummaryReportModel:
       type: object
       properties:
@@ -759,21 +797,54 @@ components:
           format: int32
           type: integer
       additionalProperties: false
-    IdleTimeReportModel:
+    CO2ReportModel:
       type: object
       properties:
         Period:
           format: int32
           type: integer
-        BusinessIdleTimeInMinutes:
+        BusinessCO2InGrams:
+          format: double
+          type: number
+        PersonalCO2InGrams:
+          format: double
+          type: number
+        OtherCO2InGrams:
+          format: double
+          type: number
+      additionalProperties: false
+    HttpContent:
+      type: object
+      properties:
+        Headers:
+          type: array
+          items:
+            $ref: '#/components/schemas/StringStringIEnumerableKeyValuePair'
+          readOnly: true
+      additionalProperties: false
+    EmailTripReportPeriodListModel:
+      type: object
+      properties:
+        PeriodList:
+          type: array
+          items:
+            $ref: '#/components/schemas/EmailTripReportPeriodModel'
+      additionalProperties: false
+    FuelReportModel:
+      type: object
+      properties:
+        Period:
           format: int32
           type: integer
-        PersonalIdleTimeInMinutes:
-          format: int32
-          type: integer
-        OtherIdleTimeInMinutes:
-          format: int32
-          type: integer
+        BusinessFuelInLiters:
+          format: double
+          type: number
+        PersonalFuelInLiters:
+          format: double
+          type: number
+        OtherFuelInLiters:
+          format: double
+          type: number
       additionalProperties: false
     HttpRequestMessage:
       type: object
@@ -808,120 +879,95 @@ components:
           additionalProperties: {}
           readOnly: true
       additionalProperties: false
-    VehiclesSummaryReportModel:
+    GeofenceReportModel:
       type: object
       properties:
-        VehiclesSummary:
-          type: array
-          items:
-            $ref: '#/components/schemas/VehicleSummaryReportModel'
-        Page:
-          format: int32
-          type: integer
-        Records:
-          format: int32
-          type: integer
-        TotalRecords:
-          format: int32
-          type: integer
-        PageSize:
-          format: int32
-          type: integer
-      additionalProperties: false
-    EmailTripReportPeriodListModel:
-      type: object
-      properties:
-        PeriodList:
-          type: array
-          items:
-            $ref: '#/components/schemas/EmailTripReportPeriodModel'
-      additionalProperties: false
-    TripsReportRequestModel:
-      type: object
-      properties:
-        VehicleIds:
-          description: Optional
-          type: array
-          items:
-            format: int32
-            type: integer
         FromDate:
           format: date-time
-          description: UTC
           type: string
         ToDate:
           format: date-time
-          description: UTC
           type: string
-      additionalProperties: false
-    GeofenceRecordReportModel:
-      type: object
-      properties:
-        TripId:
+        VehicleId:
           format: int32
           type: integer
         GeofenceId:
           format: int32
           type: integer
-        GeofenceName:
-          type: string
-        GeofenceType:
-          format: int32
-          enum:
-          - 0
-          - 1
-          - 2
-          type: integer
-        IsInside:
-          type: boolean
-        EventDateTime:
-          format: date-time
-          type: string
-        VehicleTinyModel:
-          $ref: '#/components/schemas/VehicleTinyModel'
+        Result:
+          type: array
+          items:
+            $ref: '#/components/schemas/GeofenceRecordReportModel'
       additionalProperties: false
-    VehicleSummaryModel:
+    TripsReportModel:
       type: object
       properties:
-        DistanceReports:
-          type: array
-          items:
-            $ref: '#/components/schemas/DistanceReportModel'
-        FuelReports:
-          type: array
-          items:
-            $ref: '#/components/schemas/FuelReportModel'
-        TravelTimeReports:
-          type: array
-          items:
-            $ref: '#/components/schemas/TravelTimeReportModel'
-        CO2Reports:
-          type: array
-          items:
-            $ref: '#/components/schemas/CO2ReportModel'
-        IdleTimeReports:
-          type: array
-          items:
-            $ref: '#/components/schemas/IdleTimeReportModel'
         VehicleId:
           format: int32
           type: integer
-      additionalProperties: false
-    TravelTimeReportModel:
-      type: object
-      properties:
-        Period:
+        StartDateTime:
+          format: date-time
+          description: UTC
+          type: string
+        StartTimezone:
           format: int32
           type: integer
-        BusinessTravelTimeInMinutes:
+        EndDateTime:
+          format: date-time
+          description: UTC
+          type: string
+        EndTimezone:
           format: int32
           type: integer
-        PersonalTravelTimeInMinutes:
+        StartOdometer:
+          format: int32
+          description: Kilometers
+          type: integer
+        EndOdometer:
+          format: int32
+          description: Kilometers
+          type: integer
+        StartAddressName:
+          type: string
+        EndAddressName:
+          type: string
+        Distance:
+          format: double
+          description: Kilometers
+          type: number
+        ParkedForMinUntilNextTrip:
           format: int32
           type: integer
-        OtherTravelTimeInMinutes:
+        FuelConsumption:
+          format: double
+          description: Liters
+          type: number
+        Co2Emissions:
+          format: double
+          description: Grams
+          type: number
+        IdleTime:
+          format: int32
+          description: Seconds
+          type: integer
+        Notes:
+          type: string
+        TripType:
           format: int32
           type: integer
+        TripId:
+          format: int64
+          type: integer
+        Settings:
+          format: int64
+          type: integer
+        DriverContactId:
+          format: int32
+          type: integer
+        LicensePlate:
+          type: string
+        VehicleName:
+          type: string
       additionalProperties: false
     DistanceReportModel:
       type: object
@@ -949,91 +995,18 @@ components:
           items:
             type: string
       additionalProperties: false
-    VehicleSummaryReportModel:
+    EmailTripReportPeriodModel:
       type: object
       properties:
         VehicleId:
           format: int32
           type: integer
-        VehicleIdentificationNumber:
-          type: string
-        NumberPlate:
-          type: string
-        Make:
-          type: string
-        Model:
-          type: string
-        ModelYear:
+        FromDateMonth:
           format: int32
           type: integer
-        Business:
-          format: double
-          type: number
-        Private:
-          format: double
-          type: number
-        Other:
-          format: double
-          type: number
-        Total:
-          format: double
-          type: number
-        PeriodStartOdometer:
-          format: double
-          type: number
-        PeriodEndOdometer:
-          format: double
-          type: number
-        FuelConsumptionBusiness:
-          format: double
-          type: number
-        FuelConsumptionPrivate:
-          format: double
-          type: number
-        FuelConsumptionTotal:
-          format: double
-          type: number
-        BusinessTolls:
-          format: double
-          type: number
-        PrivateTolls:
-          format: double
-          type: number
-        OtherTolls:
-          format: double
-          type: number
-        NumberOfBusinessTolls:
+        FromDateYear:
           format: int32
           type: integer
-        NumberOfPrivateTolls:
-          format: int32
-          type: integer
-        NumberOfOtherTolls:
-          format: int32
-          type: integer
-        NumberOfTolls:
-          format: int32
-          type: integer
-      additionalProperties: false
-    GeofenceReportModel:
-      type: object
-      properties:
-        FromDate:
-          format: date-time
-          type: string
-        ToDate:
-          format: date-time
-          type: string
-        VehicleId:
-          format: int32
-          type: integer
-        GeofenceId:
-          format: int32
-          type: integer
-        Result:
-          type: array
-          items:
-            $ref: '#/components/schemas/GeofenceRecordReportModel'
       additionalProperties: false
     EmailTripReportModel:
       type: object
@@ -1062,6 +1035,33 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/TripsReportModel'
+      additionalProperties: false
+    VehicleSummaryModel:
+      type: object
+      properties:
+        DistanceReports:
+          type: array
+          items:
+            $ref: '#/components/schemas/DistanceReportModel'
+        FuelReports:
+          type: array
+          items:
+            $ref: '#/components/schemas/FuelReportModel'
+        TravelTimeReports:
+          type: array
+          items:
+            $ref: '#/components/schemas/TravelTimeReportModel'
+        CO2Reports:
+          type: array
+          items:
+            $ref: '#/components/schemas/CO2ReportModel'
+        IdleTimeReports:
+          type: array
+          items:
+            $ref: '#/components/schemas/IdleTimeReportModel'
+        VehicleId:
+          format: int32
+          type: integer
       additionalProperties: false
   securitySchemes:
     oauth2:

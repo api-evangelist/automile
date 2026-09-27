@@ -234,118 +234,10 @@ components:
         DeleteTripsAfter:
           $ref: '#/components/schemas/TimeSpan'
       additionalProperties: false
-    VehicleStatusModel:
-      type: object
-      properties:
-        VehicleId:
-          format: int32
-          type: integer
-        LastPositionUtc:
-          format: date-time
-          type: string
-        LastKnownLatitude:
-          format: double
-          type: number
-        LastKnownLongitude:
-          format: double
-          type: number
-        IsDriving:
-          type: boolean
-        MakeImageUrl:
-          type: string
-        ParkedForNumberOfSeconds:
-          format: int32
-          type: integer
-        DrivingForNumberOfSeconds:
-          format: int32
-          type: integer
-        LastKnownFormattedAddress:
-          type: string
-        LastKnownStreetAddress:
-          type: string
-        LastKnownCity:
-          type: string
-        LastTripId:
-          format: int32
-          type: integer
-        LastLocationType:
-          format: int32
-          enum:
-          - 0
-          - 1
-          - 2
-          type: integer
-        CategoryColor:
-          format: int32
-          type: integer
-        Heading:
-          format: int32
-          type: integer
-      additionalProperties: false
-    TimeSpan:
-      type: object
-      properties:
-        Ticks:
-          format: int64
-          type: integer
-        Days:
-          format: int32
-          type: integer
-          readOnly: true
-        Hours:
-          format: int32
-          type: integer
-          readOnly: true
-        Milliseconds:
-          format: int32
-          type: integer
-          readOnly: true
-        Microseconds:
-          format: int32
-          type: integer
-          readOnly: true
-        Nanoseconds:
-          format: int32
-          type: integer
-          readOnly: true
-        Minutes:
-          format: int32
-          type: integer
-          readOnly: true
-        Seconds:
-          format: int32
-          type: integer
-          readOnly: true
-        TotalDays:
-          format: double
-          type: number
-          readOnly: true
-        TotalHours:
-          format: double
-          type: number
-          readOnly: true
-        TotalMilliseconds:
-          format: double
-          type: number
-          readOnly: true
-        TotalMicroseconds:
-          format: double
-          type: number
-          readOnly: true
-        TotalNanoseconds:
-          format: double
-          type: number
-          readOnly: true
-        TotalMinutes:
-          format: double
-          type: number
-          readOnly: true
-        TotalSeconds:
-          format: double
-          type: number
-          readOnly: true
-      additionalProperties: false
-    VehicleEditModel:
+    VehicleCreateModel:
+      required:
+      - CreateRelationshipToId
+      - VehicleRelationshipType
       type: object
       properties:
         NumberPlate:
@@ -377,6 +269,15 @@ components:
           type: integer
         OwnerCompanyId:
           format: int32
+          type: integer
+        CreateRelationshipToId:
+          format: int32
+          type: integer
+        VehicleRelationshipType:
+          format: int32
+          enum:
+          - 0
+          - 1
           type: integer
         DeleteTripDetailsAfter:
           $ref: '#/components/schemas/TimeSpan'
@@ -488,10 +389,70 @@ components:
         DeleteTripsAfter:
           $ref: '#/components/schemas/TimeSpan'
       additionalProperties: false
-    VehicleCreateModel:
-      required:
-      - CreateRelationshipToId
-      - VehicleRelationshipType
+    TimeSpan:
+      type: object
+      properties:
+        Ticks:
+          format: int64
+          type: integer
+        Days:
+          format: int32
+          type: integer
+          readOnly: true
+        Hours:
+          format: int32
+          type: integer
+          readOnly: true
+        Milliseconds:
+          format: int32
+          type: integer
+          readOnly: true
+        Microseconds:
+          format: int32
+          type: integer
+          readOnly: true
+        Nanoseconds:
+          format: int32
+          type: integer
+          readOnly: true
+        Minutes:
+          format: int32
+          type: integer
+          readOnly: true
+        Seconds:
+          format: int32
+          type: integer
+          readOnly: true
+        TotalDays:
+          format: double
+          type: number
+          readOnly: true
+        TotalHours:
+          format: double
+          type: number
+          readOnly: true
+        TotalMilliseconds:
+          format: double
+          type: number
+          readOnly: true
+        TotalMicroseconds:
+          format: double
+          type: number
+          readOnly: true
+        TotalNanoseconds:
+          format: double
+          type: number
+          readOnly: true
+        TotalMinutes:
+          format: double
+          type: number
+          readOnly: true
+        TotalSeconds:
+          format: double
+          type: number
+          readOnly: true
+      additionalProperties: false
+    VehicleEditModel:
       type: object
       properties:
         NumberPlate:
@@ -524,19 +485,58 @@ components:
         OwnerCompanyId:
           format: int32
           type: integer
-        CreateRelationshipToId:
-          format: int32
-          type: integer
-        VehicleRelationshipType:
-          format: int32
-          enum:
-          - 0
-          - 1
-          type: integer
         DeleteTripDetailsAfter:
           $ref: '#/components/schemas/TimeSpan'
         DeleteTripsAfter:
           $ref: '#/components/schemas/TimeSpan'
+      additionalProperties: false
+    VehicleStatusModel:
+      type: object
+      properties:
+        VehicleId:
+          format: int32
+          type: integer
+        LastPositionUtc:
+          format: date-time
+          type: string
+        LastKnownLatitude:
+          format: double
+          type: number
+        LastKnownLongitude:
+          format: double
+          type: number
+        IsDriving:
+          type: boolean
+        MakeImageUrl:
+          type: string
+        ParkedForNumberOfSeconds:
+          format: int32
+          type: integer
+        DrivingForNumberOfSeconds:
+          format: int32
+          type: integer
+        LastKnownFormattedAddress:
+          type: string
+        LastKnownStreetAddress:
+          type: string
+        LastKnownCity:
+          type: string
+        LastTripId:
+          format: int32
+          type: integer
+        LastLocationType:
+          format: int32
+          enum:
+          - 0
+          - 1
+          - 2
+          type: integer
+        CategoryColor:
+          format: int32
+          type: integer
+        Heading:
+          format: int32
+          type: integer
       additionalProperties: false
   securitySchemes:
     oauth2:

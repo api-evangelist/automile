@@ -378,6 +378,79 @@ paths:
       - oauth2: []
 components:
   schemas:
+    DeviceRegisteredModel:
+      type: object
+      properties:
+        QueriedDeviceIMEI:
+          type: string
+        IsRegistered:
+          type: boolean
+      additionalProperties: false
+    CustomUserCreateWithoutPasswordModel:
+      required:
+      - EmailAddress
+      - UserName
+      type: object
+      properties:
+        UserName:
+          minLength: 1
+          type: string
+        FirstName:
+          type: string
+        LastName:
+          type: string
+        EmailAddress:
+          format: email
+          minLength: 1
+          type: string
+        MobilePhoneNumber:
+          type: string
+        Description:
+          type: string
+        Culture:
+          type: string
+        IMEI:
+          type: string
+        SerialNumber:
+          type: string
+        UnitType:
+          format: int32
+          enum:
+          - 0
+          - 1
+          - 2
+          type: integer
+      additionalProperties: false
+    ResetPasswordUserModel:
+      type: object
+      properties:
+        Email:
+          type: string
+        ResetPasswordType:
+          format: int32
+          enum:
+          - 0
+          - 1
+          type: integer
+      additionalProperties: false
+    ReverseGeocodingResult:
+      type: object
+      properties:
+        FormattedAddress:
+          type: string
+      additionalProperties: false
+    SSOConfigurationModel:
+      type: object
+      properties:
+        ClientId:
+          type: string
+        TenantId:
+          type: string
+        Scopes:
+          type: array
+          items:
+            type: string
+      additionalProperties: false
     CreatedAtRoute:
       type: object
       properties:
@@ -392,6 +465,12 @@ components:
           format: int32
           type: integer
           readOnly: true
+      additionalProperties: false
+    UserCreatedPasswordModel:
+      type: object
+      properties:
+        Password:
+          type: string
       additionalProperties: false
     CustomUserCreateModel:
       required:
@@ -449,12 +528,26 @@ components:
         SSOConfig:
           $ref: '#/components/schemas/SSOConfigurationModel'
       additionalProperties: false
-    DeviceRegisteredModel:
+    UserPhoneNumberModel:
       type: object
       properties:
-        QueriedDeviceIMEI:
+        UserName:
           type: string
-        IsRegistered:
+        PhoneNumber:
+          type: string
+        UserGuid:
+          format: uuid
+          type: string
+        OrganizationId:
+          format: int32
+          type: integer
+      additionalProperties: false
+    UsernameTakenModel:
+      type: object
+      properties:
+        Username:
+          type: string
+        Taken:
           type: boolean
       additionalProperties: false
     ProblemDetails:
@@ -472,99 +565,6 @@ components:
         instance:
           type: string
       additionalProperties: {}
-    UserPhoneNumberModel:
-      type: object
-      properties:
-        UserName:
-          type: string
-        PhoneNumber:
-          type: string
-        UserGuid:
-          format: uuid
-          type: string
-        OrganizationId:
-          format: int32
-          type: integer
-      additionalProperties: false
-    CustomUserCreateWithoutPasswordModel:
-      required:
-      - EmailAddress
-      - UserName
-      type: object
-      properties:
-        UserName:
-          minLength: 1
-          type: string
-        FirstName:
-          type: string
-        LastName:
-          type: string
-        EmailAddress:
-          format: email
-          minLength: 1
-          type: string
-        MobilePhoneNumber:
-          type: string
-        Description:
-          type: string
-        Culture:
-          type: string
-        IMEI:
-          type: string
-        SerialNumber:
-          type: string
-        UnitType:
-          format: int32
-          enum:
-          - 0
-          - 1
-          - 2
-          type: integer
-      additionalProperties: false
-    SSOConfigurationModel:
-      type: object
-      properties:
-        ClientId:
-          type: string
-        TenantId:
-          type: string
-        Scopes:
-          type: array
-          items:
-            type: string
-      additionalProperties: false
-    UsernameTakenModel:
-      type: object
-      properties:
-        Username:
-          type: string
-        Taken:
-          type: boolean
-      additionalProperties: false
-    UserCreatedPasswordModel:
-      type: object
-      properties:
-        Password:
-          type: string
-      additionalProperties: false
-    ResetPasswordUserModel:
-      type: object
-      properties:
-        Email:
-          type: string
-        ResetPasswordType:
-          format: int32
-          enum:
-          - 0
-          - 1
-          type: integer
-      additionalProperties: false
-    ReverseGeocodingResult:
-      type: object
-      properties:
-        FormattedAddress:
-          type: string
-      additionalProperties: false
   securitySchemes:
     oauth2:
       type: oauth2

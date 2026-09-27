@@ -93,7 +93,7 @@ components:
           format: double
           type: number
       additionalProperties: false
-    Place2CreateModel:
+    Place2EditModel:
       required:
       - Name
       - PositionPoint
@@ -136,7 +136,7 @@ components:
           format: int32
           type: integer
       additionalProperties: false
-    Place2EditModel:
+    Place2CreateModel:
       required:
       - Name
       - PositionPoint

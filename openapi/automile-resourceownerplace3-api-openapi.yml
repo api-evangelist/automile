@@ -176,46 +176,6 @@ components:
           format: double
           type: number
       additionalProperties: false
-    Place3CreateModel:
-      required:
-      - Name
-      - PositionPoint
-      - Radius
-      type: object
-      properties:
-        Name:
-          minLength: 1
-          type: string
-        Radius:
-          format: int32
-          type: integer
-        PositionPoint:
-          $ref: '#/components/schemas/PositionPointModel'
-        Description:
-          type: string
-        TripType:
-          format: int32
-          enum:
-          - 0
-          - 1
-          - 2
-          - 3
-          type: integer
-        TripTypeTrigger:
-          format: int32
-          enum:
-          - 0
-          - 1
-          - 2
-          - 3
-          type: integer
-        OrganizationNodeId:
-          format: int32
-          type: integer
-        DrivesBetweenAnotherPlaceId:
-          format: int32
-          type: integer
-      additionalProperties: false
     PlaceModel3:
       type: object
       properties:
@@ -257,6 +217,46 @@ components:
           type: integer
       additionalProperties: false
     Place3EditModel:
+      required:
+      - Name
+      - PositionPoint
+      - Radius
+      type: object
+      properties:
+        Name:
+          minLength: 1
+          type: string
+        Radius:
+          format: int32
+          type: integer
+        PositionPoint:
+          $ref: '#/components/schemas/PositionPointModel'
+        Description:
+          type: string
+        TripType:
+          format: int32
+          enum:
+          - 0
+          - 1
+          - 2
+          - 3
+          type: integer
+        TripTypeTrigger:
+          format: int32
+          enum:
+          - 0
+          - 1
+          - 2
+          - 3
+          type: integer
+        OrganizationNodeId:
+          format: int32
+          type: integer
+        DrivesBetweenAnotherPlaceId:
+          format: int32
+          type: integer
+      additionalProperties: false
+    Place3CreateModel:
       required:
       - Name
       - PositionPoint

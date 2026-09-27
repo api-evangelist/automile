@@ -84,7 +84,7 @@
     "automile-resourceownerworkorder-api-openapi.yml"
   ],
   "archived": [
-    "deleted 2 superseded output(s) from the previous generation"
+    "deleted 1 superseded output(s) from the previous generation"
   ],
   "errors": [],
   "warnings": [],
@@ -169,8 +169,8 @@
     "automile-openapi-original.json: declared missing tag: ResourceOwnerVehiclePlace",
     "automile-openapi-original.json: declared missing tag: ResourceOwnerVehicleV2",
     "automile-openapi-original.json: declared missing tag: ResourceOwnerWorkOrder",
-    "superseded outputs removed: automile-client-users-api-openapi.yml, automile-o-auth-api-openapi.yml",
-    "apis.yml register: written (+2 apis, 78 total)"
+    "superseded outputs removed: automile-client-users-api-openapi.yml",
+    "apis.yml register: written (+1 apis, 78 total)"
   ],
   "skipped": [
     "automile-client-users-api-openapi.yml: previously refined output, superseded by openapi/_original/",
@@ -184,7 +184,7 @@
     "automile-echo-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "automile-home-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "automile-login-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "automile-o-auth-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "automile-oauth-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "automile-order-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "automile-phone-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "automile-resourceownercompany-api-openapi.yml: previously refined output, superseded by openapi/_original/",

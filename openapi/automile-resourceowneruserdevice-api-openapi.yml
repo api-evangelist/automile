@@ -219,13 +219,28 @@ paths:
         description: The user device model
 components:
   schemas:
-    UserDeviceModel:
-      description: User Device Model
+    UserDeviceCreateModel:
       type: object
       properties:
-        UserDeviceId:
+        DeviceIdentifier:
+          type: string
+        DeviceToken:
+          type: string
+        DeviceType:
           format: int32
+          enum:
+          - 0
+          - 1
+          - 2
           type: integer
+        Description:
+          type: string
+        DeviceName:
+          type: string
+      additionalProperties: false
+    UserDeviceEditModel:
+      type: object
+      properties:
         DeviceIdentifier:
           type: string
         DeviceToken:
@@ -269,28 +284,13 @@ components:
         DeviceName:
           type: string
       additionalProperties: false
-    UserDeviceEditModel:
+    UserDeviceModel:
+      description: User Device Model
       type: object
       properties:
-        DeviceIdentifier:
-          type: string
-        DeviceToken:
-          type: string
-        DeviceType:
+        UserDeviceId:
           format: int32
-          enum:
-          - 0
-          - 1
-          - 2
           type: integer
-        Description:
-          type: string
-        DeviceName:
-          type: string
-      additionalProperties: false
-    UserDeviceCreateModel:
-      type: object
-      properties:
         DeviceIdentifier:
           type: string
         DeviceToken:

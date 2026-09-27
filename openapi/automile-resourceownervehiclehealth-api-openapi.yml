@@ -83,6 +83,16 @@ paths:
       - oauth2: []
 components:
   schemas:
+    DTCEventDetail:
+      type: object
+      properties:
+        DTC:
+          type: string
+        FaultLocation:
+          type: string
+        ProbableCause:
+          type: string
+      additionalProperties: false
     MILEvent:
       type: object
       properties:
@@ -110,16 +120,6 @@ components:
         Longitude:
           format: double
           type: number
-      additionalProperties: false
-    DTCEventDetail:
-      type: object
-      properties:
-        DTC:
-          type: string
-        FaultLocation:
-          type: string
-        ProbableCause:
-          type: string
       additionalProperties: false
     VehicleHealth:
       type: object

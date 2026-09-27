@@ -301,47 +301,6 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    RouteRequest:
-      type: object
-      properties:
-        RouteName:
-          type: string
-        TimeConstraint:
-          format: int32
-          enum:
-          - 0
-          - 1
-          type: integer
-        When:
-          format: date-time
-          type: string
-        UtcOffset:
-          format: int64
-          type: integer
-        UserUnitType:
-          format: int32
-          enum:
-          - 0
-          - 1
-          - 2
-          type: integer
-        FullAddresses:
-          type: array
-          items:
-            type: string
-        Strategy:
-          format: int32
-          enum:
-          - 0
-          - 1
-          type: integer
-        AvoidTollRoads:
-          type: boolean
-        AvoidHighways:
-          type: boolean
-        AvoidFerries:
-          type: boolean
-      additionalProperties: false
     RoutePlannerMissionLocationModel:
       type: object
       properties:
@@ -373,22 +332,6 @@ components:
         Longitude:
           format: double
           type: number
-      additionalProperties: false
-    UpdateStopModel:
-      type: object
-      properties:
-        RouteStopId:
-          format: int32
-          type: integer
-        Status:
-          format: int32
-          enum:
-          - 0
-          - 1
-          - 3
-          type: integer
-        DriverNotes:
-          type: string
       additionalProperties: false
     RoutePlannerMissionModel:
       type: object
@@ -438,6 +381,63 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/RoutePlannerMissionLocationModel'
+      additionalProperties: false
+    RouteRequest:
+      type: object
+      properties:
+        RouteName:
+          type: string
+        TimeConstraint:
+          format: int32
+          enum:
+          - 0
+          - 1
+          type: integer
+        When:
+          format: date-time
+          type: string
+        UtcOffset:
+          format: int64
+          type: integer
+        UserUnitType:
+          format: int32
+          enum:
+          - 0
+          - 1
+          - 2
+          type: integer
+        FullAddresses:
+          type: array
+          items:
+            type: string
+        Strategy:
+          format: int32
+          enum:
+          - 0
+          - 1
+          type: integer
+        AvoidTollRoads:
+          type: boolean
+        AvoidHighways:
+          type: boolean
+        AvoidFerries:
+          type: boolean
+      additionalProperties: false
+    UpdateStopModel:
+      type: object
+      properties:
+        RouteStopId:
+          format: int32
+          type: integer
+        Status:
+          format: int32
+          enum:
+          - 0
+          - 1
+          - 3
+          type: integer
+        DriverNotes:
+          type: string
       additionalProperties: false
   securitySchemes:
     oauth2:

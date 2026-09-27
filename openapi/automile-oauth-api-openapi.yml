@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: Automile O Auth API
+  title: Automile OAuth API
   version: v1
 tags:
 - name: OAuth

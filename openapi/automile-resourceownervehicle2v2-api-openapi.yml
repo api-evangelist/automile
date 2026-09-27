@@ -400,104 +400,66 @@ paths:
               $ref: '#/components/schemas/MoveDeviceRequest'
 components:
   schemas:
-    TripConcatenationData:
+    RegisteredTollModelGET:
       type: object
       properties:
-        RecordTimeStamp:
+        TimestampUtc:
           format: date-time
           type: string
-        RecordTimeStampEpochMs:
-          format: int64
-          type: integer
-          readOnly: true
-        Value:
+        Fee:
           format: double
           type: number
-      additionalProperties: false
-    VehicleStatusModel:
-      type: object
-      properties:
+        TripId:
+          format: int32
+          type: integer
+        GeofenceId:
+          format: int32
+          type: integer
+        TollZoneId:
+          format: int32
+          type: integer
+        PriceAfterDiscount:
+          format: double
+          type: number
+        TollZoneName:
+          type: string
+        RegisteredTollId:
+          format: int32
+          type: integer
         VehicleId:
           format: int32
           type: integer
-        LastPositionUtc:
-          format: date-time
+        VehicleUserFriendlyName:
           type: string
-        LastKnownLatitude:
-          format: double
-          type: number
-        LastKnownLongitude:
-          format: double
-          type: number
-        IsDriving:
+        VehicleMake:
+          type: string
+        VehicleModel:
+          type: string
+        VehicleNumberPlate:
+          type: string
+        DriverContactId:
+          format: int32
+          type: integer
+        DriverImageUrl:
+          type: string
+        DriverName:
+          type: string
+        CurrencyISO4271:
+          type: string
+        ReadOnly:
           type: boolean
-        MakeImageUrl:
-          type: string
-        ParkedForNumberOfSeconds:
-          format: int32
-          type: integer
-        DrivingForNumberOfSeconds:
-          format: int32
-          type: integer
-        LastKnownFormattedAddress:
-          type: string
-        LastKnownStreetAddress:
-          type: string
-        LastKnownCity:
-          type: string
-        LastTripId:
-          format: int32
-          type: integer
-        LastLocationType:
+        TripType:
           format: int32
           enum:
           - 0
           - 1
           - 2
-          type: integer
-        CategoryColor:
-          format: int32
-          type: integer
-        Heading:
-          format: int32
+          - 3
           type: integer
       additionalProperties: false
-    MoveDeviceRequest:
+    TripConcatenationIdling:
       type: object
       properties:
-        FromVehicleId:
-          format: int32
-          type: integer
-        LicensePlate:
-          type: string
-        Nickname:
-          type: string
-        Odometer:
-          format: int32
-          type: integer
-        OdometerDate:
-          format: date-time
-          type: string
-        DeviceMoveDateUtc:
-          format: date-time
-          type: string
-      additionalProperties: false
-    VehicleCheckOutModel:
-      type: object
-      properties:
-        VehicleId:
-          format: int32
-          type: integer
-      additionalProperties: false
-    TripConcatenationSpeedPoint:
-      type: object
-      properties:
-        Speed:
-          format: double
-          type: number
-        SpeedLimit:
-          format: double
-          type: number
         Latitude:
           format: double
           type: number
@@ -511,6 +473,9 @@ components:
           format: int64
           type: integer
           readOnly: true
+        IdleInSeconds:
+          format: int32
+          type: integer
       additionalProperties: false
     TransportstyrelsenInfoModel:
       type: object
@@ -553,227 +518,14 @@ components:
         TrailerHitch:
           type: boolean
       additionalProperties: false
-    TripConcatenationModel:
+    VehicleCheckInModel:
       type: object
       properties:
-        TripId:
+        ContactId:
           format: int32
           type: integer
         VehicleId:
           format: int32
-          type: integer
-        VehicleName:
-          type: string
-        MergedFromTripIds:
-          type: array
-          items:
-            format: int32
-            type: integer
-        SpeedGroups:
-          type: array
-          items:
-            $ref: '#/components/schemas/TripConcatenationSpeedGroup'
-        SpeedPoints:
-          type: array
-          items:
-            $ref: '#/components/schemas/TripConcatenationSpeedPoint'
-        RawPoints:
-          type: array
-          items:
-            $ref: '#/components/schemas/TripConcatenationPoint'
-        SnappedToRoadPoints:
-          type: array
-          items:
-            $ref: '#/components/schemas/TripConcatenationSimplePoint'
-        IdlingEvents:
-          type: array
-          items:
-            $ref: '#/components/schemas/TripConcatenationIdling'
-        DrivingEvents:
-          type: array
-          items:
-            $ref: '#/components/schemas/TripConcatenationEvent'
-        SpeedData:
-          type: array
-          items:
-            $ref: '#/components/schemas/TripConcatenationData'
-        SpeedLimitData:
-          type: array
-          items:
-            $ref: '#/components/schemas/TripConcatenationData'
-        RPMData:
-          type: array
-          items:
-            $ref: '#/components/schemas/TripConcatenationData'
-        FuelRateData:
-          type: array
-          items:
-            $ref: '#/components/schemas/TripConcatenationData'
-        StartDateTime:
-          format: date-time
-          type: string
-        EndDateTime:
-          format: date-time
-          type: string
-        TripTimeZone:
-          format: int32
-          type: integer
-        StartFormattedAddress:
-          type: string
-        EndFormattedAddress:
-          type: string
-        StartCustomAddress:
-          type: string
-        EndCustomAddress:
-          type: string
-        Distance:
-          format: double
-          type: number
-        FuelConsumption:
-          format: double
-          type: number
-        LengthInMinutes:
-          format: int32
-          type: integer
-        DriverContactId:
-          format: int32
-          type: integer
-        DriverName:
-          type: string
-        IdleRPMAverage:
-          format: int32
-          type: integer
-        IdleTimeInSecondsForAllTrip:
-          format: int32
-          type: integer
-        IdleTimeInSecondsFromStart:
-          format: int32
-          type: integer
-        CO2Emission:
-          format: double
-          type: number
-        MaxSpeed:
-          format: double
-          type: number
-        MaxRPM:
-          format: int32
-          type: integer
-        ParkedForMinutesUntilNextTrip:
-          format: int32
-          type: integer
-        StartPoint:
-          $ref: '#/components/schemas/TripConcatenationStartEndPoint'
-        EndPoint:
-          $ref: '#/components/schemas/TripConcatenationStartEndPoint'
-        Notes:
-          type: string
-        TripType:
-          format: int32
-          enum:
-          - 0
-          - 1
-          - 2
-          type: integer
-        AverageSpeedInKilometersPerHour:
-          format: double
-          type: number
-        CustomCategory:
-          type: string
-        HideStartRoute:
-          type: boolean
-        HideEndRoute:
-          type: boolean
-        IsImperial:
-          type: boolean
-        UnitType:
-          format: int32
-          enum:
-          - 0
-          - 1
-          - 2
-          type: integer
-        TripApprovalStatus:
-          format: int32
-          enum:
-          - 0
-          - 1
-          - 2
-          - 3
-          type: integer
-        RegisteredTollList:
-          type: array
-          items:
-            $ref: '#/components/schemas/RegisteredTollModelGET'
-        HasGermanTaxRules:
-          type: boolean
-          readOnly: true
-        BusinessContact:
-          type: string
-          readOnly: true
-        BusinessContactCompany:
-          type: string
-          readOnly: true
-        TripReason:
-          type: string
-          readOnly: true
-        IsLocked:
-          type: boolean
-          readOnly: true
-        LockReason:
-          format: int32
-          enum:
-          - 0
-          - 1
-          - 2
-          - 4
-          type: integer
-          readOnly: true
-      additionalProperties: false
-    Vehicle2EditModel:
-      type: object
-      properties:
-        NumberPlate:
-          type: string
-        Make:
-          type: string
-        Model:
-          type: string
-        ModelYear:
-          format: int32
-          type: integer
-        BodyStyle:
-          type: string
-        BodyType:
-          format: int32
-          enum:
-          - 0
-          - 1
-          - 2
-          - 3
-          - 4
-          - 5
-          - 6
-          - 7
-          - 8
-          type: integer
-        OwnerContactId:
-          format: int32
-          type: integer
-        OwnerCompanyId:
-          format: int32
-          type: integer
-        UserVehicleIdentificationNumber:
-          type: string
-        FuelType:
-          format: int32
-          enum:
-          - 0
-          - 1
-          - 2
-          - 3
-          - 4
-          - 5
-          - 6
           type: integer
         DefaultTripType:
           format: int32
@@ -783,74 +535,18 @@ components:
           - 2
           - 3
           type: integer
-        AllowAutomaticUpdates:
-          type: boolean
-        FrontTyre:
-          type: string
-        RearTyre:
-          type: string
-        FrontWheelRim:
-          type: string
-        RearWheelRim:
-          type: string
-        TrailerHitch:
-          type: boolean
-        OdometerInKilometers:
-          format: double
-          type: number
-        DefaultPrivacyPolicyType:
-          format: int32
-          enum:
-          - 1
-          type: integer
-        UpdateFromTransportstyrelsen:
-          type: boolean
-        AllowSpeedRecording:
-          type: boolean
-        Nickname:
-          type: string
-        Tags:
-          type: string
-        CategoryColor:
-          format: int32
-          description: "Supported colors (hex value), \n3652794 (#37BCBA),\n2591227 (#2789FB),\n11430900 (#AE6BF4),\n16478657 (#FB71C1),\n16735053 (#FF5B4D),\n16752644 (#FFA004),\n16772393 (#FFED29),\n13228106 (#C9D84A),\n6597394 (#64AB12),\n12096370 (#B89372)"
-          type: integer
-        DeleteTripDetailsAfter:
-          $ref: '#/components/schemas/TimeSpan'
-        DeleteTripsAfter:
-          $ref: '#/components/schemas/TimeSpan'
-      additionalProperties: false
-    TripConcatenationPoint:
-      type: object
-      properties:
-        Latitude:
-          format: double
-          type: number
-        Longitude:
-          format: double
-          type: number
-        RecordTimeStamp:
+        CheckOutAtUtc:
           format: date-time
           type: string
-        RecordTimeStampEpochMs:
-          format: int64
-          type: integer
-          readOnly: true
-        Speed:
-          format: double
-          type: number
-        RPM:
-          format: double
-          type: number
-        HeadingDegress:
+        UserDeviceType:
           format: int32
+          enum:
+          - 0
+          - 1
+          - 2
           type: integer
-        Hdop:
-          format: int32
-          type: integer
-        NumberOfSatellites:
-          format: int32
-          type: integer
+        UserDeviceToken:
+          type: string
       additionalProperties: false
     Vehicle2DetailModel:
       type: object
@@ -1154,6 +850,478 @@ components:
         DeleteTripsAfter:
           $ref: '#/components/schemas/TimeSpan'
       additionalProperties: false
+    VehicleStatusModel:
+      type: object
+      properties:
+        VehicleId:
+          format: int32
+          type: integer
+        LastPositionUtc:
+          format: date-time
+          type: string
+        LastKnownLatitude:
+          format: double
+          type: number
+        LastKnownLongitude:
+          format: double
+          type: number
+        IsDriving:
+          type: boolean
+        MakeImageUrl:
+          type: string
+        ParkedForNumberOfSeconds:
+          format: int32
+          type: integer
+        DrivingForNumberOfSeconds:
+          format: int32
+          type: integer
+        LastKnownFormattedAddress:
+          type: string
+        LastKnownStreetAddress:
+          type: string
+        LastKnownCity:
+          type: string
+        LastTripId:
+          format: int32
+          type: integer
+        LastLocationType:
+          format: int32
+          enum:
+          - 0
+          - 1
+          - 2
+          type: integer
+        CategoryColor:
+          format: int32
+          type: integer
+        Heading:
+          format: int32
+          type: integer
+      additionalProperties: false
+    TripConcatenationModel:
+      type: object
+      properties:
+        TripId:
+          format: int32
+          type: integer
+        VehicleId:
+          format: int32
+          type: integer
+        VehicleName:
+          type: string
+        MergedFromTripIds:
+          type: array
+          items:
+            format: int32
+            type: integer
+        SpeedGroups:
+          type: array
+          items:
+            $ref: '#/components/schemas/TripConcatenationSpeedGroup'
+        SpeedPoints:
+          type: array
+          items:
+            $ref: '#/components/schemas/TripConcatenationSpeedPoint'
+        RawPoints:
+          type: array
+          items:
+            $ref: '#/components/schemas/TripConcatenationPoint'
+        SnappedToRoadPoints:
+          type: array
+          items:
+            $ref: '#/components/schemas/TripConcatenationSimplePoint'
+        IdlingEvents:
+          type: array
+          items:
+            $ref: '#/components/schemas/TripConcatenationIdling'
+        DrivingEvents:
+          type: array
+          items:
+            $ref: '#/components/schemas/TripConcatenationEvent'
+        SpeedData:
+          type: array
+          items:
+            $ref: '#/components/schemas/TripConcatenationData'
+        SpeedLimitData:
+          type: array
+          items:
+            $ref: '#/components/schemas/TripConcatenationData'
+        RPMData:
+          type: array
+          items:
+            $ref: '#/components/schemas/TripConcatenationData'
+        FuelRateData:
+          type: array
+          items:
+            $ref: '#/components/schemas/TripConcatenationData'
+        StartDateTime:
+          format: date-time
+          type: string
+        EndDateTime:
+          format: date-time
+          type: string
+        TripTimeZone:
+          format: int32
+          type: integer
+        StartFormattedAddress:
+          type: string
+        EndFormattedAddress:
+          type: string
+        StartCustomAddress:
+          type: string
+        EndCustomAddress:
+          type: string
+        Distance:
+          format: double
+          type: number
+        FuelConsumption:
+          format: double
+          type: number
+        LengthInMinutes:
+          format: int32
+          type: integer
+        DriverContactId:
+          format: int32
+          type: integer
+        DriverName:
+          type: string
+        IdleRPMAverage:
+          format: int32
+          type: integer
+        IdleTimeInSecondsForAllTrip:
+          format: int32
+          type: integer
+        IdleTimeInSecondsFromStart:
+          format: int32
+          type: integer
+        CO2Emission:
+          format: double
+          type: number
+        MaxSpeed:
+          format: double
+          type: number
+        MaxRPM:
+          format: int32
+          type: integer
+        ParkedForMinutesUntilNextTrip:
+          format: int32
+          type: integer
+        StartPoint:
+          $ref: '#/components/schemas/TripConcatenationStartEndPoint'
+        EndPoint:
+          $ref: '#/components/schemas/TripConcatenationStartEndPoint'
+        Notes:
+          type: string
+        TripType:
+          format: int32
+          enum:
+          - 0
+          - 1
+          - 2
+          type: integer
+        AverageSpeedInKilometersPerHour:
+          format: double
+          type: number
+        CustomCategory:
+          type: string
+        HideStartRoute:
+          type: boolean
+        HideEndRoute:
+          type: boolean
+        IsImperial:
+          type: boolean
+        UnitType:
+          format: int32
+          enum:
+          - 0
+          - 1
+          - 2
+          type: integer
+        TripApprovalStatus:
+          format: int32
+          enum:
+          - 0
+          - 1
+          - 2
+          - 3
+          type: integer
+        RegisteredTollList:
+          type: array
+          items:
+            $ref: '#/components/schemas/RegisteredTollModelGET'
+        HasGermanTaxRules:
+          type: boolean
+          readOnly: true
+        BusinessContact:
+          type: string
+          readOnly: true
+        BusinessContactCompany:
+          type: string
+          readOnly: true
+        TripReason:
+          type: string
+          readOnly: true
+        IsLocked:
+          type: boolean
+          readOnly: true
+        LockReason:
+          format: int32
+          enum:
+          - 0
+          - 1
+          - 2
+          - 4
+          type: integer
+          readOnly: true
+      additionalProperties: false
+    Vehicle2EditModel:
+      type: object
+      properties:
+        NumberPlate:
+          type: string
+        Make:
+          type: string
+        Model:
+          type: string
+        ModelYear:
+          format: int32
+          type: integer
+        BodyStyle:
+          type: string
+        BodyType:
+          format: int32
+          enum:
+          - 0
+          - 1
+          - 2
+          - 3
+          - 4
+          - 5
+          - 6
+          - 7
+          - 8
+          type: integer
+        OwnerContactId:
+          format: int32
+          type: integer
+        OwnerCompanyId:
+          format: int32
+          type: integer
+        UserVehicleIdentificationNumber:
+          type: string
+        FuelType:
+          format: int32
+          enum:
+          - 0
+          - 1
+          - 2
+          - 3
+          - 4
+          - 5
+          - 6
+          type: integer
+        DefaultTripType:
+          format: int32
+          enum:
+          - 0
+          - 1
+          - 2
+          - 3
+          type: integer
+        AllowAutomaticUpdates:
+          type: boolean
+        FrontTyre:
+          type: string
+        RearTyre:
+          type: string
+        FrontWheelRim:
+          type: string
+        RearWheelRim:
+          type: string
+        TrailerHitch:
+          type: boolean
+        OdometerInKilometers:
+          format: double
+          type: number
+        DefaultPrivacyPolicyType:
+          format: int32
+          enum:
+          - 1
+          type: integer
+        UpdateFromTransportstyrelsen:
+          type: boolean
+        AllowSpeedRecording:
+          type: boolean
+        Nickname:
+          type: string
+        Tags:
+          type: string
+        CategoryColor:
+          format: int32
+          description: "Supported colors (hex value), \n3652794 (#37BCBA),\n2591227 (#2789FB),\n11430900 (#AE6BF4),\n16478657 (#FB71C1),\n16735053 (#FF5B4D),\n16752644 (#FFA004),\n16772393 (#FFED29),\n13228106 (#C9D84A),\n6597394 (#64AB12),\n12096370 (#B89372)"
+          type: integer
+        DeleteTripDetailsAfter:
+          $ref: '#/components/schemas/TimeSpan'
+        DeleteTripsAfter:
+          $ref: '#/components/schemas/TimeSpan'
+      additionalProperties: false
+    TripConcatenationStartEndPoint:
+      type: object
+      properties:
+        Latitude:
+          format: double
+          type: number
+        Longitude:
+          format: double
+          type: number
+      additionalProperties: false
+    VehicleCheckOutModel:
+      type: object
+      properties:
+        VehicleId:
+          format: int32
+          type: integer
+      additionalProperties: false
+    TripConcatenationSpeedPoint:
+      type: object
+      properties:
+        Speed:
+          format: double
+          type: number
+        SpeedLimit:
+          format: double
+          type: number
+        Latitude:
+          format: double
+          type: number
+        Longitude:
+          format: double
+          type: number
+        RecordTimeStamp:
+          format: date-time
+          type: string
+        RecordTimeStampEpochMs:
+          format: int64
+          type: integer
+          readOnly: true
+      additionalProperties: false
+    Vehicle2CreateModel:
+      required:
+      - CreateRelationshipToId
+      - VehicleRelationshipType
+      type: object
+      properties:
+        NumberPlate:
+          type: string
+        Make:
+          type: string
+        Model:
+          type: string
+        ModelYear:
+          format: int32
+          type: integer
+        BodyStyle:
+          type: string
+        BodyType:
+          format: int32
+          enum:
+          - 0
+          - 1
+          - 2
+          - 3
+          - 4
+          - 5
+          - 6
+          - 7
+          - 8
+          type: integer
+        OwnerContactId:
+          format: int32
+          type: integer
+        OwnerCompanyId:
+          format: int32
+          type: integer
+        CreateRelationshipToId:
+          format: int32
+          type: integer
+        VehicleRelationshipType:
+          format: int32
+          enum:
+          - 0
+          - 1
+          type: integer
+        UserVehicleIdentificationNumber:
+          type: string
+        FuelType:
+          format: int32
+          enum:
+          - 0
+          - 1
+          - 2
+          - 3
+          - 4
+          - 5
+          - 6
+          type: integer
+        DefaultTripType:
+          format: int32
+          enum:
+          - 0
+          - 1
+          - 2
+          - 3
+          type: integer
+        AllowAutomaticUpdates:
+          type: boolean
+        DefaultPrivacyPolicyType:
+          format: int32
+          enum:
+          - 1
+          type: integer
+        Nickname:
+          type: string
+        Tags:
+          type: string
+        CategoryColor:
+          format: int32
+          type: integer
+        DeleteTripDetailsAfter:
+          $ref: '#/components/schemas/TimeSpan'
+        DeleteTripsAfter:
+          $ref: '#/components/schemas/TimeSpan'
+      additionalProperties: false
+    TripConcatenationPoint:
+      type: object
+      properties:
+        Latitude:
+          format: double
+          type: number
+        Longitude:
+          format: double
+          type: number
+        RecordTimeStamp:
+          format: date-time
+          type: string
+        RecordTimeStampEpochMs:
+          format: int64
+          type: integer
+          readOnly: true
+        Speed:
+          format: double
+          type: number
+        RPM:
+          format: double
+          type: number
+        HeadingDegress:
+          format: int32
+          type: integer
+        Hdop:
+          format: int32
+          type: integer
+        NumberOfSatellites:
+          format: int32
+          type: integer
+      additionalProperties: false
     TimeSpan:
       type: object
       properties:
@@ -1217,62 +1385,71 @@ components:
           type: number
           readOnly: true
       additionalProperties: false
-    RegisteredTollModelGET:
+    TripConcatenationData:
       type: object
       properties:
-        TimestampUtc:
+        RecordTimeStamp:
           format: date-time
           type: string
-        Fee:
+        RecordTimeStampEpochMs:
+          format: int64
+          type: integer
+          readOnly: true
+        Value:
           format: double
           type: number
-        TripId:
-          format: int32
-          type: integer
-        GeofenceId:
-          format: int32
-          type: integer
-        TollZoneId:
-          format: int32
-          type: integer
-        PriceAfterDiscount:
-          format: double
-          type: number
-        TollZoneName:
-          type: string
-        RegisteredTollId:
-          format: int32
-          type: integer
-        VehicleId:
-          format: int32
-          type: integer
-        VehicleUserFriendlyName:
-          type: string
-        VehicleMake:
-          type: string
-        VehicleModel:
-          type: string
-        VehicleNumberPlate:
-          type: string
-        DriverContactId:
-          format: int32
-          type: integer
-        DriverImageUrl:
-          type: string
-        DriverName:
-          type: string
-        CurrencyISO4271:
-          type: string
-        ReadOnly:
-          type: boolean
-        TripType:
+      additionalProperties: false
+    TripConcatenationEvent:
+      type: object
+      properties:
+        TripDrivingEventType:
           format: int32
           enum:
           - 0
           - 1
           - 2
           - 3
+          - 4
+          - 5
+          - 6
+          - 7
+          - 8
+          - 9
+          - 10
+          - 11
+          - 12
+          - 13
           type: integer
+        Latitude:
+          format: double
+          type: number
+        Longitude:
+          format: double
+          type: number
+        RecordTimeStamp:
+          format: date-time
+          type: string
+        RecordTimeStampEpochMs:
+          format: int64
+          type: integer
+          readOnly: true
+      additionalProperties: false
+    TripConcatenationSimplePoint:
+      type: object
+      properties:
+        Latitude:
+          format: double
+          type: number
+        Longitude:
+          format: double
+          type: number
+        RecordTimeStamp:
+          format: date-time
+          type: string
+        RecordTimeStampEpochMs:
+          format: int64
+          type: integer
+          readOnly: true
       additionalProperties: false
     TripConcatenationSpeedGroup:
       type: object
@@ -1295,56 +1472,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/TripConcatenationSpeedPoint'
-      additionalProperties: false
-    VehicleCheckInModel:
-      type: object
-      properties:
-        ContactId:
-          format: int32
-          type: integer
-        VehicleId:
-          format: int32
-          type: integer
-        DefaultTripType:
-          format: int32
-          enum:
-          - 0
-          - 1
-          - 2
-          - 3
-          type: integer
-        CheckOutAtUtc:
-          format: date-time
-          type: string
-        UserDeviceType:
-          format: int32
-          enum:
-          - 0
-          - 1
-          - 2
-          type: integer
-        UserDeviceToken:
-          type: string
-      additionalProperties: false
-    TripConcatenationIdling:
-      type: object
-      properties:
-        Latitude:
-          format: double
-          type: number
-        Longitude:
-          format: double
-          type: number
-        RecordTimeStamp:
-          format: date-time
-          type: string
-        RecordTimeStampEpochMs:
-          format: int64
-          type: integer
-          readOnly: true
-        IdleInSeconds:
-          format: int32
-          type: integer
       additionalProperties: false
     Vehicle2Model:
       type: object
@@ -1475,152 +1602,25 @@ components:
           format: date-time
           type: string
       additionalProperties: false
-    Vehicle2CreateModel:
-      required:
-      - CreateRelationshipToId
-      - VehicleRelationshipType
+    MoveDeviceRequest:
       type: object
       properties:
-        NumberPlate:
+        FromVehicleId:
+          format: int32
+          type: integer
+        LicensePlate:
           type: string
-        Make:
-          type: string
-        Model:
-          type: string
-        ModelYear:
-          format: int32
-          type: integer
-        BodyStyle:
-          type: string
-        BodyType:
-          format: int32
-          enum:
-          - 0
-          - 1
-          - 2
-          - 3
-          - 4
-          - 5
-          - 6
-          - 7
-          - 8
-          type: integer
-        OwnerContactId:
-          format: int32
-          type: integer
-        OwnerCompanyId:
-          format: int32
-          type: integer
-        CreateRelationshipToId:
-          format: int32
-          type: integer
-        VehicleRelationshipType:
-          format: int32
-          enum:
-          - 0
-          - 1
-          type: integer
-        UserVehicleIdentificationNumber:
-          type: string
-        FuelType:
-          format: int32
-          enum:
-          - 0
-          - 1
-          - 2
-          - 3
-          - 4
-          - 5
-          - 6
-          type: integer
-        DefaultTripType:
-          format: int32
-          enum:
-          - 0
-          - 1
-          - 2
-          - 3
-          type: integer
-        AllowAutomaticUpdates:
-          type: boolean
-        DefaultPrivacyPolicyType:
-          format: int32
-          enum:
-          - 1
-          type: integer
         Nickname:
           type: string
-        Tags:
-          type: string
-        CategoryColor:
+        Odometer:
           format: int32
           type: integer
-        DeleteTripDetailsAfter:
-          $ref: '#/components/schemas/TimeSpan'
-        DeleteTripsAfter:
-          $ref: '#/components/schemas/TimeSpan'
-      additionalProperties: false
-    TripConcatenationStartEndPoint:
-      type: object
-      properties:
-        Latitude:
-          format: double
-          type: number
-        Longitude:
-          format: double
-          type: number
-      additionalProperties: false
-    TripConcatenationSimplePoint:
-      type: object
-      properties:
-        Latitude:
-          format: double
-          type: number
-        Longitude:
-          format: double
-          type: number
-        RecordTimeStamp:
+        OdometerDate:
           format: date-time
           type: string
-        RecordTimeStampEpochMs:
-          format: int64
-          type: integer
-          readOnly: true
-      additionalProperties: false
-    TripConcatenationEvent:
-      type: object
-      properties:
-        TripDrivingEventType:
-          format: int32
-          enum:
-          - 0
-          - 1
-          - 2
-          - 3
-          - 4
-          - 5
-          - 6
-          - 7
-          - 8
-          - 9
-          - 10
-          - 11
-          - 12
-          - 13
-          type: integer
-        Latitude:
-          format: double
-          type: number
-        Longitude:
-          format: double
-          type: number
-        RecordTimeStamp:
+        DeviceMoveDateUtc:
           format: date-time
           type: string
-        RecordTimeStampEpochMs:
-          format: int64
-          type: integer
-          readOnly: true
       additionalProperties: false
   securitySchemes:
     oauth2:

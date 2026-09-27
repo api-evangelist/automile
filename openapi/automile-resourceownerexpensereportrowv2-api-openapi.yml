@@ -176,21 +176,55 @@ paths:
               $ref: '#/components/schemas/ExpenseReportRowCreateModel'
 components:
   schemas:
-    ProblemDetails:
+    ExpenseReportRowModel:
       type: object
       properties:
-        type:
-          type: string
-        title:
-          type: string
-        status:
+        ExpenseReportRowId:
           format: int32
           type: integer
-        detail:
+        ExpenseReportId:
+          format: int32
+          type: integer
+        AmountInCurrency:
+          format: double
+          type: number
+        VATInCurrency:
+          format: double
+          type: number
+        ISO4217CurrencyCode:
           type: string
-        instance:
+        Notes:
           type: string
-      additionalProperties: {}
+        ExpenseReportRowDateUtc:
+          format: date-time
+          type: string
+        ExpenseReportRowContent:
+          type: array
+          items:
+            $ref: '#/components/schemas/ExpenseReportRowContentModel'
+        Category:
+          format: int32
+          enum:
+          - 0
+          - 1
+          - 2
+          - 3
+          - 4
+          - 5
+          - 6
+          - 7
+          - 8
+          - 9
+          - 10
+          type: integer
+        CustomCategory:
+          type: string
+        CategoryValue:
+          format: double
+          type: number
+        Merchant:
+          type: string
+      additionalProperties: false
     ExpenseReportRowContentUpdateEditModel:
       type: object
       properties:
@@ -340,55 +374,21 @@ components:
         Merchant:
           type: string
       additionalProperties: false
-    ExpenseReportRowModel:
+    ProblemDetails:
       type: object
       properties:
-        ExpenseReportRowId:
+        type:
+          type: string
+        title:
+          type: string
+        status:
           format: int32
           type: integer
-        ExpenseReportId:
-          format: int32
-          type: integer
-        AmountInCurrency:
-          format: double
-          type: number
-        VATInCurrency:
-          format: double
-          type: number
-        ISO4217CurrencyCode:
+        detail:
           type: string
-        Notes:
+        instance:
           type: string
-        ExpenseReportRowDateUtc:
-          format: date-time
-          type: string
-        ExpenseReportRowContent:
-          type: array
-          items:
-            $ref: '#/components/schemas/ExpenseReportRowContentModel'
-        Category:
-          format: int32
-          enum:
-          - 0
-          - 1
-          - 2
-          - 3
-          - 4
-          - 5
-          - 6
-          - 7
-          - 8
-          - 9
-          - 10
-          type: integer
-        CustomCategory:
-          type: string
-        CategoryValue:
-          format: double
-          type: number
-        Merchant:
-          type: string
-      additionalProperties: false
+      additionalProperties: {}
   securitySchemes:
     oauth2:
       type: oauth2

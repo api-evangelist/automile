@@ -786,7 +786,274 @@ paths:
       - oauth2: []
 components:
   schemas:
-    WorkOrderAttachmentModelPOST:
+    WorkOrderNoteModelPOST:
+      required:
+      - Note
+      type: object
+      properties:
+        Note:
+          minLength: 1
+          type: string
+      additionalProperties: false
+    WorkOrderNoteModelGET:
+      required:
+      - Note
+      type: object
+      properties:
+        Note:
+          minLength: 1
+          type: string
+        WorkOrderNoteId:
+          format: int32
+          type: integer
+        CreatedByContactId:
+          format: int32
+          type: integer
+        Created:
+          format: date-time
+          type: string
+      additionalProperties: false
+    WorkOrderItemModelGET:
+      required:
+      - Quantity
+      - WorkOrderArticleId
+      type: object
+      properties:
+        Quantity:
+          format: double
+          type: number
+        PricePerQuantityExclVAT:
+          format: double
+          type: number
+        DiscountInPercentage:
+          format: double
+          type: number
+        DiscountAmount:
+          format: double
+          type: number
+        TaxRate:
+          format: double
+          type: number
+        WorkOrderArticleId:
+          format: int32
+          type: integer
+        ArticleName:
+          type: string
+        UnitType:
+          format: int32
+          enum:
+          - 1
+          - 2
+          - 3
+          - 4
+          - 5
+          - 6
+          - 7
+          - 8
+          - 9
+          - 10
+          - 11
+          - 12
+          - 13
+          - 14
+          - 15
+          - 16
+          - 17
+          - 18
+          - 19
+          - 20
+          - 21
+          - 22
+          - 23
+          - 24
+          - 25
+          - 26
+          - 27
+          - 28
+          - 29
+          - 30
+          - 31
+          - 32
+          - 33
+          - 34
+          type: integer
+        ISO4217CurrencyCode:
+          type: string
+        WorkOrderItemId:
+          format: int32
+          type: integer
+        Created:
+          format: date-time
+          type: string
+      additionalProperties: false
+    WorkOrderStatusHistoryModelGET:
+      type: object
+      properties:
+        OccuredAt:
+          format: date-time
+          type: string
+        ContactId:
+          format: int32
+          type: integer
+        Status:
+          format: int32
+          enum:
+          - 0
+          - 1
+          - 2
+          - 3
+          - 4
+          - 5
+          - 6
+          type: integer
+      additionalProperties: false
+    WorkOrderStatusModelPUT:
+      required:
+      - Status
+      type: object
+      properties:
+        Status:
+          format: int32
+          enum:
+          - 0
+          - 1
+          - 2
+          - 3
+          - 4
+          - 5
+          - 6
+          type: integer
+      additionalProperties: false
+    WorkOrderCustomerModelPUT:
+      type: object
+      properties:
+        Name:
+          type: string
+        ContactName:
+          type: string
+        CommunicationLanguageISO639_2:
+          type: string
+        Email:
+          type: string
+        PhoneNumber:
+          type: string
+        BillingAddress:
+          $ref: '#/components/schemas/CustomerBillingAddressModel'
+        JobAddress:
+          $ref: '#/components/schemas/CustomerJobAddressModel'
+      additionalProperties: false
+    WorkOrderCategoryModelPOST:
+      required:
+      - CategoryName
+      type: object
+      properties:
+        CategoryName:
+          minLength: 1
+          type: string
+      additionalProperties: false
+    WorkOrderModelSyncPUT:
+      type: object
+      properties:
+        JobDate:
+          format: date-time
+          type: string
+        JobTime:
+          $ref: '#/components/schemas/TimeSpan'
+        EstimatedTimeInMinutes:
+          format: int32
+          type: integer
+        JobDescription:
+          type: string
+        ExternalId:
+          type: string
+        CustomerContactName:
+          type: string
+        CustomerEmail:
+          type: string
+        CustomerName:
+          type: string
+        CustomerCommunicationLanguageISO639_2:
+          type: string
+        CustomerPhoneNumber:
+          type: string
+        CustomerJobAddress:
+          $ref: '#/components/schemas/CustomerJobAddressModel'
+        CustomerBillingAddress:
+          $ref: '#/components/schemas/CustomerBillingAddressModel'
+        NotificationType:
+          format: int32
+          enum:
+          - 0
+          - 1
+          - 2
+          - 3
+          type: integer
+        WorkOrderCategoryId:
+          format: int32
+          type: integer
+        CategoryName:
+          type: string
+        AssignedToContactId:
+          format: int32
+          type: integer
+        QuoteId:
+          format: int32
+          type: integer
+        WorkOrderCustomerId:
+          format: int32
+          type: integer
+        Status:
+          format: int32
+          enum:
+          - 0
+          - 1
+          - 2
+          - 3
+          - 4
+          - 5
+          - 6
+          type: integer
+        Notes:
+          type: array
+          items:
+            $ref: '#/components/schemas/WorkOrderNoteModelPUT'
+        Items:
+          type: array
+          items:
+            $ref: '#/components/schemas/WorkOrderItemModelPUT'
+        Attachments:
+          type: array
+          items:
+            $ref: '#/components/schemas/WorkOrderAttachmentModelPUT'
+        WorkOrderId:
+          format: int32
+          type: integer
+      additionalProperties: false
+    WorkOrderCustomerModelGET:
+      type: object
+      properties:
+        Name:
+          type: string
+        ContactName:
+          type: string
+        CommunicationLanguageISO639_2:
+          type: string
+        Email:
+          type: string
+        PhoneNumber:
+          type: string
+        BillingAddress:
+          $ref: '#/components/schemas/CustomerBillingAddressModel'
+        JobAddress:
+          $ref: '#/components/schemas/CustomerJobAddressModel'
+        WorkOrderCustomerId:
+          format: int32
+          type: integer
+        CreatedDate:
+          format: date-time
+          type: string
+      additionalProperties: false
+    WorkOrderAttachmentModelGET:
       required:
       - AttachmentType
       - URL
@@ -804,6 +1071,90 @@ components:
           - 1
           - 2
           type: integer
+        WorkOrderAttachmentId:
+          format: int32
+          type: integer
+        CreatedByContactId:
+          format: int32
+          type: integer
+        Created:
+          format: date-time
+          type: string
+      additionalProperties: false
+    WorkOrderModelPUT:
+      type: object
+      properties:
+        JobDate:
+          format: date-time
+          type: string
+        JobTime:
+          $ref: '#/components/schemas/TimeSpan'
+        EstimatedTimeInMinutes:
+          format: int32
+          type: integer
+        JobDescription:
+          type: string
+        ExternalId:
+          type: string
+        CustomerContactName:
+          type: string
+        CustomerEmail:
+          type: string
+        CustomerName:
+          type: string
+        CustomerCommunicationLanguageISO639_2:
+          type: string
+        CustomerPhoneNumber:
+          type: string
+        CustomerJobAddress:
+          $ref: '#/components/schemas/CustomerJobAddressModel'
+        CustomerBillingAddress:
+          $ref: '#/components/schemas/CustomerBillingAddressModel'
+        NotificationType:
+          format: int32
+          enum:
+          - 0
+          - 1
+          - 2
+          - 3
+          type: integer
+        WorkOrderCategoryId:
+          format: int32
+          type: integer
+        CategoryName:
+          type: string
+        AssignedToContactId:
+          format: int32
+          type: integer
+        QuoteId:
+          format: int32
+          type: integer
+        WorkOrderCustomerId:
+          format: int32
+          type: integer
+        Status:
+          format: int32
+          enum:
+          - 0
+          - 1
+          - 2
+          - 3
+          - 4
+          - 5
+          - 6
+          type: integer
+        Notes:
+          type: array
+          items:
+            $ref: '#/components/schemas/WorkOrderNoteModelPUT'
+        Items:
+          type: array
+          items:
+            $ref: '#/components/schemas/WorkOrderItemModelPUT'
+        Attachments:
+          type: array
+          items:
+            $ref: '#/components/schemas/WorkOrderAttachmentModelPUT'
       additionalProperties: false
     WorkOrderModelPOST:
       type: object
@@ -880,60 +1231,33 @@ components:
           items:
             $ref: '#/components/schemas/WorkOrderAttachmentModelPOST'
       additionalProperties: false
-    WorkOrderAttachmentModelGET:
-      required:
-      - AttachmentType
-      - URL
+    CustomerJobAddressModel:
       type: object
       properties:
-        URL:
-          minLength: 1
+        Street:
           type: string
-        Description:
+        Apartment:
           type: string
-        AttachmentType:
-          format: int32
-          enum:
-          - 0
-          - 1
-          - 2
-          type: integer
-        WorkOrderAttachmentId:
-          format: int32
-          type: integer
-        CreatedByContactId:
-          format: int32
-          type: integer
-        Created:
-          format: date-time
+        CareOf:
           type: string
+        ZipCode:
+          type: string
+        City:
+          type: string
+        StateOrProvince:
+          type: string
+        ISO3166CountryCode:
+          type: string
+        Position:
+          $ref: '#/components/schemas/PositionPointModel'
       additionalProperties: false
-    WorkOrderItemModelPOST:
+    WorkOrderArticleModelPUT:
       required:
-      - Quantity
-      - WorkOrderArticleId
+      - ArticleName
+      - PricePerQuantityExclVAT
+      - TaxRate
       type: object
       properties:
-        Quantity:
-          format: double
-          type: number
-        PricePerQuantityExclVAT:
-          format: double
-          type: number
-        DiscountInPercentage:
-          format: double
-          type: number
-        DiscountAmount:
-          format: double
-          type: number
-        TaxRate:
-          format: double
-          type: number
-        WorkOrderArticleId:
-          format: int32
-          type: integer
-        ArticleName:
-          type: string
         UnitType:
           format: int32
           enum:
@@ -972,24 +1296,15 @@ components:
           - 33
           - 34
           type: integer
-      additionalProperties: false
-    WorkOrderCustomerModelPOST:
-      type: object
-      properties:
-        Name:
+        ArticleName:
+          minLength: 1
           type: string
-        ContactName:
-          type: string
-        CommunicationLanguageISO639_2:
-          type: string
-        Email:
-          type: string
-        PhoneNumber:
-          type: string
-        BillingAddress:
-          $ref: '#/components/schemas/CustomerBillingAddressModel'
-        JobAddress:
-          $ref: '#/components/schemas/CustomerJobAddressModel'
+        PricePerQuantityExclVAT:
+          format: double
+          type: number
+        TaxRate:
+          format: double
+          type: number
       additionalProperties: false
     WorkOrderAttachmentModelPUT:
       required:
@@ -1013,41 +1328,88 @@ components:
           format: int32
           type: integer
       additionalProperties: false
-    WorkOrderStatusHistoryModelGET:
+    CustomerBillingAddressModel:
       type: object
       properties:
-        OccuredAt:
-          format: date-time
+        Street:
           type: string
-        ContactId:
-          format: int32
-          type: integer
-        Status:
-          format: int32
-          enum:
-          - 0
-          - 1
-          - 2
-          - 3
-          - 4
-          - 5
-          - 6
-          type: integer
+        Apartment:
+          type: string
+        CareOf:
+          type: string
+        ZipCode:
+          type: string
+        City:
+          type: string
+        StateOrProvince:
+          type: string
+        ISO3166CountryCode:
+          type: string
+        Position:
+          $ref: '#/components/schemas/PositionPointModel'
       additionalProperties: false
-    WorkOrderCategoryModelGET:
-      required:
-      - CategoryName
+    TimeSpan:
       type: object
       properties:
-        CategoryName:
-          minLength: 1
-          type: string
-        Created:
-          format: date-time
-          type: string
-        WorkOrderCategoryId:
+        Ticks:
+          format: int64
+          type: integer
+        Days:
           format: int32
           type: integer
+          readOnly: true
+        Hours:
+          format: int32
+          type: integer
+          readOnly: true
+        Milliseconds:
+          format: int32
+          type: integer
+          readOnly: true
+        Microseconds:
+          format: int32
+          type: integer
+          readOnly: true
+        Nanoseconds:
+          format: int32
+          type: integer
+          readOnly: true
+        Minutes:
+          format: int32
+          type: integer
+          readOnly: true
+        Seconds:
+          format: int32
+          type: integer
+          readOnly: true
+        TotalDays:
+          format: double
+          type: number
+          readOnly: true
+        TotalHours:
+          format: double
+          type: number
+          readOnly: true
+        TotalMilliseconds:
+          format: double
+          type: number
+          readOnly: true
+        TotalMicroseconds:
+          format: double
+          type: number
+          readOnly: true
+        TotalNanoseconds:
+          format: double
+          type: number
+          readOnly: true
+        TotalMinutes:
+          format: double
+          type: number
+          readOnly: true
+        TotalSeconds:
+          format: double
+          type: number
+          readOnly: true
       additionalProperties: false
     WorkOrderItemModelPUT:
       required:
@@ -1117,30 +1479,47 @@ components:
           format: int32
           type: integer
       additionalProperties: false
-    WorkOrderStatusModelPUT:
+    WorkOrderCategoryModelGET:
       required:
-      - Status
+      - CategoryName
       type: object
       properties:
-        Status:
+        CategoryName:
+          minLength: 1
+          type: string
+        Created:
+          format: date-time
+          type: string
+        WorkOrderCategoryId:
           format: int32
-          enum:
-          - 0
-          - 1
-          - 2
-          - 3
-          - 4
-          - 5
-          - 6
           type: integer
       additionalProperties: false
-    WorkOrderArticleModelPOST:
+    WorkOrderItemModelPOST:
       required:
-      - ArticleName
-      - PricePerQuantityExclVAT
-      - TaxRate
+      - Quantity
+      - WorkOrderArticleId
       type: object
       properties:
+        Quantity:
+          format: double
+          type: number
+        PricePerQuantityExclVAT:
+          format: double
+          type: number
+        DiscountInPercentage:
+          format: double
+          type: number
+        DiscountAmount:
+          format: double
+          type: number
+        TaxRate:
+          format: double
+          type: number
+        WorkOrderArticleId:
+          format: int32
+          type: integer
+        ArticleName:
+          type: string
         UnitType:
           format: int32
           enum:
@@ -1179,53 +1558,25 @@ components:
           - 33
           - 34
           type: integer
-        ArticleName:
+      additionalProperties: false
+    WorkOrderAttachmentModelPOST:
+      required:
+      - AttachmentType
+      - URL
+      type: object
+      properties:
+        URL:
           minLength: 1
           type: string
-        PricePerQuantityExclVAT:
-          format: double
-          type: number
-        TaxRate:
-          format: double
-          type: number
-      additionalProperties: false
-    CustomerJobAddressModel:
-      type: object
-      properties:
-        Street:
+        Description:
           type: string
-        Apartment:
-          type: string
-        CareOf:
-          type: string
-        ZipCode:
-          type: string
-        City:
-          type: string
-        StateOrProvince:
-          type: string
-        ISO3166CountryCode:
-          type: string
-        Position:
-          $ref: '#/components/schemas/PositionPointModel'
-      additionalProperties: false
-    WorkOrderCustomerModelPUT:
-      type: object
-      properties:
-        Name:
-          type: string
-        ContactName:
-          type: string
-        CommunicationLanguageISO639_2:
-          type: string
-        Email:
-          type: string
-        PhoneNumber:
-          type: string
-        BillingAddress:
-          $ref: '#/components/schemas/CustomerBillingAddressModel'
-        JobAddress:
-          $ref: '#/components/schemas/CustomerJobAddressModel'
+        AttachmentType:
+          format: int32
+          enum:
+          - 0
+          - 1
+          - 2
+          type: integer
       additionalProperties: false
     WorkOrderModelGET:
       type: object
@@ -1320,102 +1671,17 @@ components:
           items:
             $ref: '#/components/schemas/WorkOrderAttachmentModelGET'
       additionalProperties: false
-    TimeSpan:
+    PositionPointModel:
       type: object
       properties:
-        Ticks:
-          format: int64
-          type: integer
-        Days:
-          format: int32
-          type: integer
-          readOnly: true
-        Hours:
-          format: int32
-          type: integer
-          readOnly: true
-        Milliseconds:
-          format: int32
-          type: integer
-          readOnly: true
-        Microseconds:
-          format: int32
-          type: integer
-          readOnly: true
-        Nanoseconds:
-          format: int32
-          type: integer
-          readOnly: true
-        Minutes:
-          format: int32
-          type: integer
-          readOnly: true
-        Seconds:
-          format: int32
-          type: integer
-          readOnly: true
-        TotalDays:
+        Longitude:
           format: double
           type: number
-          readOnly: true
-        TotalHours:
+        Latitude:
           format: double
           type: number
-          readOnly: true
-        TotalMilliseconds:
-          format: double
-          type: number
-          readOnly: true
-        TotalMicroseconds:
-          format: double
-          type: number
-          readOnly: true
-        TotalNanoseconds:
-          format: double
-          type: number
-          readOnly: true
-        TotalMinutes:
-          format: double
-          type: number
-          readOnly: true
-        TotalSeconds:
-          format: double
-          type: number
-          readOnly: true
       additionalProperties: false
-    CustomerBillingAddressModel:
-      type: object
-      properties:
-        Street:
-          type: string
-        Apartment:
-          type: string
-        CareOf:
-          type: string
-        ZipCode:
-          type: string
-        City:
-          type: string
-        StateOrProvince:
-          type: string
-        ISO3166CountryCode:
-          type: string
-        Position:
-          $ref: '#/components/schemas/PositionPointModel'
-      additionalProperties: false
-    WorkOrderNoteModelPUT:
-      required:
-      - Note
-      type: object
-      properties:
-        Note:
-          minLength: 1
-          type: string
-        WorkOrderNoteId:
-          format: int32
-          type: integer
-      additionalProperties: false
-    WorkOrderCustomerModelGET:
+    WorkOrderCustomerModelPOST:
       type: object
       properties:
         Name:
@@ -1432,23 +1698,8 @@ components:
           $ref: '#/components/schemas/CustomerBillingAddressModel'
         JobAddress:
           $ref: '#/components/schemas/CustomerJobAddressModel'
-        WorkOrderCustomerId:
-          format: int32
-          type: integer
-        CreatedDate:
-          format: date-time
-          type: string
       additionalProperties: false
-    WorkOrderNoteModelPOST:
-      required:
-      - Note
-      type: object
-      properties:
-        Note:
-          minLength: 1
-          type: string
-      additionalProperties: false
-    WorkOrderNoteModelGET:
+    WorkOrderNoteModelPUT:
       required:
       - Note
       type: object
@@ -1459,12 +1710,61 @@ components:
         WorkOrderNoteId:
           format: int32
           type: integer
-        CreatedByContactId:
+      additionalProperties: false
+    WorkOrderArticleModelPOST:
+      required:
+      - ArticleName
+      - PricePerQuantityExclVAT
+      - TaxRate
+      type: object
+      properties:
+        UnitType:
           format: int32
+          enum:
+          - 1
+          - 2
+          - 3
+          - 4
+          - 5
+          - 6
+          - 7
+          - 8
+          - 9
+          - 10
+          - 11
+          - 12
+          - 13
+          - 14
+          - 15
+          - 16
+          - 17
+          - 18
+          - 19
+          - 20
+          - 21
+          - 22
+          - 23
+          - 24
+          - 25
+          - 26
+          - 27
+          - 28
+          - 29
+          - 30
+          - 31
+          - 32
+          - 33
+          - 34
           type: integer
-        Created:
-          format: date-time
+        ArticleName:
+          minLength: 1
           type: string
+        PricePerQuantityExclVAT:
+          format: double
+          type: number
+        TaxRate:
+          format: double
+          type: number
       additionalProperties: false
     WorkOrderArticleModelGET:
       required:
@@ -1528,306 +1828,6 @@ components:
         Created:
           format: date-time
           type: string
-      additionalProperties: false
-    WorkOrderModelSyncPUT:
-      type: object
-      properties:
-        JobDate:
-          format: date-time
-          type: string
-        JobTime:
-          $ref: '#/components/schemas/TimeSpan'
-        EstimatedTimeInMinutes:
-          format: int32
-          type: integer
-        JobDescription:
-          type: string
-        ExternalId:
-          type: string
-        CustomerContactName:
-          type: string
-        CustomerEmail:
-          type: string
-        CustomerName:
-          type: string
-        CustomerCommunicationLanguageISO639_2:
-          type: string
-        CustomerPhoneNumber:
-          type: string
-        CustomerJobAddress:
-          $ref: '#/components/schemas/CustomerJobAddressModel'
-        CustomerBillingAddress:
-          $ref: '#/components/schemas/CustomerBillingAddressModel'
-        NotificationType:
-          format: int32
-          enum:
-          - 0
-          - 1
-          - 2
-          - 3
-          type: integer
-        WorkOrderCategoryId:
-          format: int32
-          type: integer
-        CategoryName:
-          type: string
-        AssignedToContactId:
-          format: int32
-          type: integer
-        QuoteId:
-          format: int32
-          type: integer
-        WorkOrderCustomerId:
-          format: int32
-          type: integer
-        Status:
-          format: int32
-          enum:
-          - 0
-          - 1
-          - 2
-          - 3
-          - 4
-          - 5
-          - 6
-          type: integer
-        Notes:
-          type: array
-          items:
-            $ref: '#/components/schemas/WorkOrderNoteModelPUT'
-        Items:
-          type: array
-          items:
-            $ref: '#/components/schemas/WorkOrderItemModelPUT'
-        Attachments:
-          type: array
-          items:
-            $ref: '#/components/schemas/WorkOrderAttachmentModelPUT'
-        WorkOrderId:
-          format: int32
-          type: integer
-      additionalProperties: false
-    WorkOrderArticleModelPUT:
-      required:
-      - ArticleName
-      - PricePerQuantityExclVAT
-      - TaxRate
-      type: object
-      properties:
-        UnitType:
-          format: int32
-          enum:
-          - 1
-          - 2
-          - 3
-          - 4
-          - 5
-          - 6
-          - 7
-          - 8
-          - 9
-          - 10
-          - 11
-          - 12
-          - 13
-          - 14
-          - 15
-          - 16
-          - 17
-          - 18
-          - 19
-          - 20
-          - 21
-          - 22
-          - 23
-          - 24
-          - 25
-          - 26
-          - 27
-          - 28
-          - 29
-          - 30
-          - 31
-          - 32
-          - 33
-          - 34
-          type: integer
-        ArticleName:
-          minLength: 1
-          type: string
-        PricePerQuantityExclVAT:
-          format: double
-          type: number
-        TaxRate:
-          format: double
-          type: number
-      additionalProperties: false
-    WorkOrderCategoryModelPOST:
-      required:
-      - CategoryName
-      type: object
-      properties:
-        CategoryName:
-          minLength: 1
-          type: string
-      additionalProperties: false
-    PositionPointModel:
-      type: object
-      properties:
-        Longitude:
-          format: double
-          type: number
-        Latitude:
-          format: double
-          type: number
-      additionalProperties: false
-    WorkOrderItemModelGET:
-      required:
-      - Quantity
-      - WorkOrderArticleId
-      type: object
-      properties:
-        Quantity:
-          format: double
-          type: number
-        PricePerQuantityExclVAT:
-          format: double
-          type: number
-        DiscountInPercentage:
-          format: double
-          type: number
-        DiscountAmount:
-          format: double
-          type: number
-        TaxRate:
-          format: double
-          type: number
-        WorkOrderArticleId:
-          format: int32
-          type: integer
-        ArticleName:
-          type: string
-        UnitType:
-          format: int32
-          enum:
-          - 1
-          - 2
-          - 3
-          - 4
-          - 5
-          - 6
-          - 7
-          - 8
-          - 9
-          - 10
-          - 11
-          - 12
-          - 13
-          - 14
-          - 15
-          - 16
-          - 17
-          - 18
-          - 19
-          - 20
-          - 21
-          - 22
-          - 23
-          - 24
-          - 25
-          - 26
-          - 27
-          - 28
-          - 29
-          - 30
-          - 31
-          - 32
-          - 33
-          - 34
-          type: integer
-        ISO4217CurrencyCode:
-          type: string
-        WorkOrderItemId:
-          format: int32
-          type: integer
-        Created:
-          format: date-time
-          type: string
-      additionalProperties: false
-    WorkOrderModelPUT:
-      type: object
-      properties:
-        JobDate:
-          format: date-time
-          type: string
-        JobTime:
-          $ref: '#/components/schemas/TimeSpan'
-        EstimatedTimeInMinutes:
-          format: int32
-          type: integer
-        JobDescription:
-          type: string
-        ExternalId:
-          type: string
-        CustomerContactName:
-          type: string
-        CustomerEmail:
-          type: string
-        CustomerName:
-          type: string
-        CustomerCommunicationLanguageISO639_2:
-          type: string
-        CustomerPhoneNumber:
-          type: string
-        CustomerJobAddress:
-          $ref: '#/components/schemas/CustomerJobAddressModel'
-        CustomerBillingAddress:
-          $ref: '#/components/schemas/CustomerBillingAddressModel'
-        NotificationType:
-          format: int32
-          enum:
-          - 0
-          - 1
-          - 2
-          - 3
-          type: integer
-        WorkOrderCategoryId:
-          format: int32
-          type: integer
-        CategoryName:
-          type: string
-        AssignedToContactId:
-          format: int32
-          type: integer
-        QuoteId:
-          format: int32
-          type: integer
-        WorkOrderCustomerId:
-          format: int32
-          type: integer
-        Status:
-          format: int32
-          enum:
-          - 0
-          - 1
-          - 2
-          - 3
-          - 4
-          - 5
-          - 6
-          type: integer
-        Notes:
-          type: array
-          items:
-            $ref: '#/components/schemas/WorkOrderNoteModelPUT'
-        Items:
-          type: array
-          items:
-            $ref: '#/components/schemas/WorkOrderItemModelPUT'
-        Attachments:
-          type: array
-          items:
-            $ref: '#/components/schemas/WorkOrderAttachmentModelPUT'
       additionalProperties: false
   securitySchemes:
     oauth2:

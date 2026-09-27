@@ -137,6 +137,54 @@ paths:
         description: The new vehicle model
 components:
   schemas:
+    CalculatedOdometerModelGET:
+      type: object
+      properties:
+        VehicleId:
+          format: int32
+          type: integer
+        DistanceBusiness:
+          format: double
+          type: number
+        DistancePrivate:
+          format: double
+          type: number
+        DistanceOther:
+          format: double
+          type: number
+        DistanceTotal:
+          format: double
+          type: number
+          readOnly: true
+        StartOdometer:
+          format: double
+          type: number
+        EndOdometer:
+          format: double
+          type: number
+        FromDateUtc:
+          format: date-time
+          type: string
+        ToDateUtc:
+          format: date-time
+          type: string
+        NewDistanceBusiness:
+          format: double
+          type: number
+        NewDistancePrivate:
+          format: double
+          type: number
+        NewDistanceOther:
+          format: double
+          type: number
+        NewDistanceTotal:
+          format: double
+          type: number
+          readOnly: true
+        NewEndOdometer:
+          format: double
+          type: number
+      additionalProperties: false
     VehicleOdometerModelPUT:
       required:
       - VehicleId
@@ -188,54 +236,6 @@ components:
         ToDateUtc:
           format: date-time
           type: string
-      additionalProperties: false
-    CalculatedOdometerModelGET:
-      type: object
-      properties:
-        VehicleId:
-          format: int32
-          type: integer
-        DistanceBusiness:
-          format: double
-          type: number
-        DistancePrivate:
-          format: double
-          type: number
-        DistanceOther:
-          format: double
-          type: number
-        DistanceTotal:
-          format: double
-          type: number
-          readOnly: true
-        StartOdometer:
-          format: double
-          type: number
-        EndOdometer:
-          format: double
-          type: number
-        FromDateUtc:
-          format: date-time
-          type: string
-        ToDateUtc:
-          format: date-time
-          type: string
-        NewDistanceBusiness:
-          format: double
-          type: number
-        NewDistancePrivate:
-          format: double
-          type: number
-        NewDistanceOther:
-          format: double
-          type: number
-        NewDistanceTotal:
-          format: double
-          type: number
-          readOnly: true
-        NewEndOdometer:
-          format: double
-          type: number
       additionalProperties: false
   securitySchemes:
     oauth2:

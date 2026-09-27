@@ -263,6 +263,32 @@ paths:
         description: The export model
 components:
   schemas:
+    Cycle:
+      type: object
+      properties:
+        WorkShifts:
+          type: array
+          items:
+            $ref: '#/components/schemas/WorkShift'
+        TotalTime:
+          $ref: '#/components/schemas/TimeSpan'
+        OffDutyTime:
+          $ref: '#/components/schemas/TimeSpan'
+        OnDutyTime:
+          $ref: '#/components/schemas/TimeSpan'
+        DrivingTime:
+          $ref: '#/components/schemas/TimeSpan'
+        SleeperBerthTime:
+          $ref: '#/components/schemas/TimeSpan'
+        NumberOfDays:
+          format: double
+          type: number
+          readOnly: true
+        OnDutyAndDriving:
+          format: double
+          type: number
+          readOnly: true
+      additionalProperties: false
     HoursOfServiceExportModel:
       type: object
       properties:
@@ -275,6 +301,72 @@ components:
         EmailAddress:
           description: Recipient of the report
           type: string
+      additionalProperties: false
+    HoursOfServiceDutyStatusCreateModel:
+      type: object
+      properties:
+        VehicleId:
+          format: int32
+          type: integer
+        DutyStatusType:
+          format: int32
+          enum:
+          - 0
+          - 1
+          - 2
+          - 3
+          type: integer
+        FromDateTime:
+          format: date-time
+          description: From date UTC
+          type: string
+        ToDateTime:
+          format: date-time
+          description: To date UTC
+          type: string
+        Notes:
+          type: string
+        Location:
+          type: string
+        ExternalId:
+          format: uuid
+          type: string
+      additionalProperties: false
+    DutyStatus:
+      type: object
+      properties:
+        ContactId:
+          format: int32
+          type: integer
+        VehicleId:
+          format: int32
+          type: integer
+        DutyStatusType:
+          format: int32
+          enum:
+          - 0
+          - 1
+          - 2
+          - 3
+          type: integer
+        FromUtc:
+          format: date-time
+          type: string
+        ToUtc:
+          format: date-time
+          type: string
+        Notes:
+          type: string
+        Locations:
+          type: string
+        CycleRuleType:
+          format: int32
+          type: integer
+        WorkDayStartTime:
+          $ref: '#/components/schemas/TimeSpan'
+        DistanceInKm:
+          format: double
+          type: number
       additionalProperties: false
     HoursOfServiceDutyStatusModel:
       type: object
@@ -336,95 +428,28 @@ components:
         IsDeleted:
           type: boolean
       additionalProperties: false
-    Cycle:
+    HoursOfServiceStatusPostModel:
       type: object
       properties:
-        WorkShifts:
+        Added:
           type: array
           items:
-            $ref: '#/components/schemas/WorkShift'
-        TotalTime:
-          $ref: '#/components/schemas/TimeSpan'
-        OffDutyTime:
-          $ref: '#/components/schemas/TimeSpan'
-        OnDutyTime:
-          $ref: '#/components/schemas/TimeSpan'
-        DrivingTime:
-          $ref: '#/components/schemas/TimeSpan'
-        SleeperBerthTime:
-          $ref: '#/components/schemas/TimeSpan'
-        NumberOfDays:
-          format: double
-          type: number
-          readOnly: true
-        OnDutyAndDriving:
-          format: double
-          type: number
-          readOnly: true
-      additionalProperties: false
-    AddressModel:
-      required:
-      - AddressLine2
-      - City
-      - ISO3166CountryCode
-      - ZipCode
-      type: object
-      properties:
-        AddressId:
-          format: int32
-          type: integer
-        CompanyName:
-          type: string
-        ContactNameAtAddress:
-          type: string
-        AddressLine2:
-          minLength: 1
-          type: string
-        AddressLine3:
-          type: string
-        AddressLine4:
-          type: string
-        ZipCode:
-          minLength: 1
-          type: string
-        City:
-          minLength: 1
-          type: string
-        StateOrProvince:
-          type: string
-        ISO3166CountryCode:
-          minLength: 1
+            $ref: '#/components/schemas/HoursOfServiceDutyStatusCreateModel'
+        Updated:
+          type: array
+          items:
+            $ref: '#/components/schemas/HoursOfServiceDutyStatusModel'
+        LastSynchDate:
+          format: date-time
           type: string
       additionalProperties: false
-    HoursOfServiceDutyStatusCreateModel:
+    HoursOfServiceCycles:
       type: object
       properties:
-        VehicleId:
-          format: int32
-          type: integer
-        DutyStatusType:
-          format: int32
-          enum:
-          - 0
-          - 1
-          - 2
-          - 3
-          type: integer
-        FromDateTime:
-          format: date-time
-          description: From date UTC
-          type: string
-        ToDateTime:
-          format: date-time
-          description: To date UTC
-          type: string
-        Notes:
-          type: string
-        Location:
-          type: string
-        ExternalId:
-          format: uuid
-          type: string
+        Cycles:
+          type: array
+          items:
+            $ref: '#/components/schemas/Cycle'
       additionalProperties: false
     TimeSpan:
       type: object
@@ -489,56 +514,67 @@ components:
           type: number
           readOnly: true
       additionalProperties: false
-    DutyStatus:
+    AddressModel:
+      required:
+      - AddressLine2
+      - City
+      - ISO3166CountryCode
+      - ZipCode
       type: object
       properties:
-        ContactId:
+        AddressId:
           format: int32
           type: integer
-        VehicleId:
-          format: int32
-          type: integer
-        DutyStatusType:
-          format: int32
-          enum:
-          - 0
-          - 1
-          - 2
-          - 3
-          type: integer
-        FromUtc:
-          format: date-time
+        CompanyName:
           type: string
-        ToUtc:
-          format: date-time
+        ContactNameAtAddress:
           type: string
-        Notes:
+        AddressLine2:
+          minLength: 1
           type: string
-        Locations:
+        AddressLine3:
           type: string
-        CycleRuleType:
-          format: int32
-          type: integer
-        WorkDayStartTime:
-          $ref: '#/components/schemas/TimeSpan'
-        DistanceInKm:
-          format: double
-          type: number
+        AddressLine4:
+          type: string
+        ZipCode:
+          minLength: 1
+          type: string
+        City:
+          minLength: 1
+          type: string
+        StateOrProvince:
+          type: string
+        ISO3166CountryCode:
+          minLength: 1
+          type: string
       additionalProperties: false
-    HoursOfServiceStatusPostModel:
+    HoursOfServiceStatusSynchModel:
       type: object
       properties:
+        LastSynchDate:
+          format: date-time
+          type: string
+          readOnly: true
         Added:
           type: array
           items:
-            $ref: '#/components/schemas/HoursOfServiceDutyStatusCreateModel'
+            $ref: '#/components/schemas/HoursOfServiceDutyStatusModel'
         Updated:
           type: array
           items:
             $ref: '#/components/schemas/HoursOfServiceDutyStatusModel'
+      additionalProperties: false
+    HoursOfServiceDutyStatusesModel:
+      type: object
+      properties:
         LastSynchDate:
           format: date-time
           type: string
+          readOnly: true
+        DutyStatuses:
+          type: array
+          items:
+            $ref: '#/components/schemas/HoursOfServiceDutyStatusModel'
       additionalProperties: false
     WorkShift:
       type: object
@@ -559,103 +595,6 @@ components:
             $ref: '#/components/schemas/DutyStatus'
         WorkShiftTime:
           $ref: '#/components/schemas/TimeSpan'
-      additionalProperties: false
-    HoursOfServiceSettingsModel:
-      type: object
-      properties:
-        TimeZoneType:
-          format: int32
-          enum:
-          - 0
-          - 1
-          - 2
-          - 3
-          - 4
-          - 5
-          - 6
-          - 7
-          - 8
-          type: integer
-        WorkDayStartTime:
-          $ref: '#/components/schemas/TimeSpan'
-        CycleRuleType:
-          format: int32
-          enum:
-          - 0
-          - 1
-          - 2
-          - 3
-          - 4
-          - 5
-          - 6
-          - 7
-          type: integer
-        CargoTypeType:
-          format: int32
-          enum:
-          - 0
-          - 1
-          - 2
-          type: integer
-        RestartRuleType:
-          format: int32
-          enum:
-          - 0
-          - 1
-          type: integer
-        RestBreakRuleType:
-          format: int32
-          enum:
-          - 0
-          - 1
-          type: integer
-        ShortHaulExceptionType:
-          format: int32
-          enum:
-          - 0
-          - 1
-          type: integer
-        OdometerUnitType:
-          format: int32
-          enum:
-          - 0
-          - 1
-          - 2
-          type: integer
-        WellSiteRuleType:
-          format: int32
-          enum:
-          - 0
-          - 1
-          type: integer
-        CarrierInfo:
-          $ref: '#/components/schemas/AddressModel'
-        IsEnabled:
-          type: boolean
-      additionalProperties: false
-    HoursOfServiceCycles:
-      type: object
-      properties:
-        Cycles:
-          type: array
-          items:
-            $ref: '#/components/schemas/Cycle'
-      additionalProperties: false
-    HoursOfServiceStatusSynchModel:
-      type: object
-      properties:
-        LastSynchDate:
-          format: date-time
-          type: string
-          readOnly: true
-        Added:
-          type: array
-          items:
-            $ref: '#/components/schemas/HoursOfServiceDutyStatusModel'
-        Updated:
-          type: array
-          items:
-            $ref: '#/components/schemas/HoursOfServiceDutyStatusModel'
       additionalProperties: false
     HoursOfServiceSettingsCreateModel:
       type: object
@@ -730,17 +669,78 @@ components:
         IsEnabled:
           type: boolean
       additionalProperties: false
-    HoursOfServiceDutyStatusesModel:
+    HoursOfServiceSettingsModel:
       type: object
       properties:
-        LastSynchDate:
-          format: date-time
-          type: string
-          readOnly: true
-        DutyStatuses:
-          type: array
-          items:
-            $ref: '#/components/schemas/HoursOfServiceDutyStatusModel'
+        TimeZoneType:
+          format: int32
+          enum:
+          - 0
+          - 1
+          - 2
+          - 3
+          - 4
+          - 5
+          - 6
+          - 7
+          - 8
+          type: integer
+        WorkDayStartTime:
+          $ref: '#/components/schemas/TimeSpan'
+        CycleRuleType:
+          format: int32
+          enum:
+          - 0
+          - 1
+          - 2
+          - 3
+          - 4
+          - 5
+          - 6
+          - 7
+          type: integer
+        CargoTypeType:
+          format: int32
+          enum:
+          - 0
+          - 1
+          - 2
+          type: integer
+        RestartRuleType:
+          format: int32
+          enum:
+          - 0
+          - 1
+          type: integer
+        RestBreakRuleType:
+          format: int32
+          enum:
+          - 0
+          - 1
+          type: integer
+        ShortHaulExceptionType:
+          format: int32
+          enum:
+          - 0
+          - 1
+          type: integer
+        OdometerUnitType:
+          format: int32
+          enum:
+          - 0
+          - 1
+          - 2
+          type: integer
+        WellSiteRuleType:
+          format: int32
+          enum:
+          - 0
+          - 1
+          type: integer
+        CarrierInfo:
+          $ref: '#/components/schemas/AddressModel'
+        IsEnabled:
+          type: boolean
       additionalProperties: false
   securitySchemes:
     oauth2:

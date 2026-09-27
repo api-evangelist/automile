@@ -161,6 +161,17 @@ components:
         Description:
           type: string
       additionalProperties: false
+    CompanyModel:
+      type: object
+      properties:
+        CompanyId:
+          format: int32
+          type: integer
+        RegisteredCompanyName:
+          type: string
+        RegistrationNumber:
+          type: string
+      additionalProperties: false
     CompanyDetailModel:
       type: object
       properties:
@@ -178,17 +189,6 @@ components:
           type: string
         Created:
           format: date-time
-          type: string
-      additionalProperties: false
-    CompanyModel:
-      type: object
-      properties:
-        CompanyId:
-          format: int32
-          type: integer
-        RegisteredCompanyName:
-          type: string
-        RegistrationNumber:
           type: string
       additionalProperties: false
     CompanyCreateModel:

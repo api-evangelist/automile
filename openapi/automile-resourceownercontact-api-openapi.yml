@@ -345,27 +345,18 @@ paths:
       - oauth2: []
 components:
   schemas:
-    ContactEditModel:
-      required:
-      - FirstName
-      - LastName
+    ContactModel:
       type: object
       properties:
+        ContactId:
+          format: int32
+          type: integer
         FirstName:
-          minLength: 1
           type: string
         LastName:
-          minLength: 1
           type: string
         EmailAddress:
           type: string
-        Description:
-          type: string
-        CultureName:
-          type: string
-        DefaultVehicleId:
-          format: int32
-          type: integer
       additionalProperties: false
     ContactDetailModel:
       type: object
@@ -391,33 +382,27 @@ components:
         FieldServiceEnabledWithinOrganization:
           type: boolean
       additionalProperties: false
-    ProblemDetails:
+    ContactEditModel:
+      required:
+      - FirstName
+      - LastName
       type: object
       properties:
-        type:
-          type: string
-        title:
-          type: string
-        status:
-          format: int32
-          type: integer
-        detail:
-          type: string
-        instance:
-          type: string
-      additionalProperties: {}
-    ContactModel:
-      type: object
-      properties:
-        ContactId:
-          format: int32
-          type: integer
         FirstName:
+          minLength: 1
           type: string
         LastName:
+          minLength: 1
           type: string
         EmailAddress:
           type: string
+        Description:
+          type: string
+        CultureName:
+          type: string
+        DefaultVehicleId:
+          format: int32
+          type: integer
       additionalProperties: false
     ContactCreateModel:
       required:
@@ -445,6 +430,21 @@ components:
           format: int32
           type: integer
       additionalProperties: false
+    ProblemDetails:
+      type: object
+      properties:
+        type:
+          type: string
+        title:
+          type: string
+        status:
+          format: int32
+          type: integer
+        detail:
+          type: string
+        instance:
+          type: string
+      additionalProperties: {}
   securitySchemes:
     oauth2:
       type: oauth2

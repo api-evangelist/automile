@@ -114,34 +114,6 @@ components:
         Method:
           type: string
       additionalProperties: false
-    Version:
-      type: object
-      properties:
-        Major:
-          format: int32
-          type: integer
-          readOnly: true
-        Minor:
-          format: int32
-          type: integer
-          readOnly: true
-        Build:
-          format: int32
-          type: integer
-          readOnly: true
-        Revision:
-          format: int32
-          type: integer
-          readOnly: true
-        MajorRevision:
-          format: int32
-          type: integer
-          readOnly: true
-        MinorRevision:
-          format: int32
-          type: integer
-          readOnly: true
-      additionalProperties: false
     HttpResponseMessage:
       type: object
       properties:
@@ -239,6 +211,34 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/StringStringIEnumerableKeyValuePair'
+          readOnly: true
+      additionalProperties: false
+    Version:
+      type: object
+      properties:
+        Major:
+          format: int32
+          type: integer
+          readOnly: true
+        Minor:
+          format: int32
+          type: integer
+          readOnly: true
+        Build:
+          format: int32
+          type: integer
+          readOnly: true
+        Revision:
+          format: int32
+          type: integer
+          readOnly: true
+        MajorRevision:
+          format: int32
+          type: integer
+          readOnly: true
+        MinorRevision:
+          format: int32
+          type: integer
           readOnly: true
       additionalProperties: false
     HttpRequestMessage:

@@ -202,18 +202,15 @@ components:
           - 255
           type: integer
       additionalProperties: false
-    IMEIConfigModel:
+    IMEIConfigEditModel:
+      required:
+      - VehicleId
       type: object
       properties:
-        IMEIConfigId:
-          format: int32
-          type: integer
-        IMEI:
-          type: string
         VehicleId:
           format: int32
           type: integer
-        DeviceType:
+        IMEIDeviceType:
           format: int32
           enum:
           - 0
@@ -229,15 +226,18 @@ components:
           - 255
           type: integer
       additionalProperties: false
-    IMEIConfigEditModel:
-      required:
-      - VehicleId
+    IMEIConfigModel:
       type: object
       properties:
+        IMEIConfigId:
+          format: int32
+          type: integer
+        IMEI:
+          type: string
         VehicleId:
           format: int32
           type: integer
-        IMEIDeviceType:
+        DeviceType:
           format: int32
           enum:
           - 0

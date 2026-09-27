@@ -701,28 +701,87 @@ paths:
         description: Model received from GET
 components:
   schemas:
-    HttpMethod:
+    IntegrationConfigurationModel:
       type: object
       properties:
-        Method:
-          type: string
-      additionalProperties: false
-    AutoPlanV2VehicleInfo:
-      type: object
-      properties:
-        VehicleId:
+        AutoPlanActive:
+          type: boolean
+        AlphabetActive:
+          type: boolean
+        BilredaActive:
+          type: boolean
+        BilredaVehicleId:
           format: int32
           type: integer
-        FriendlyName:
-          type: string
-        NumberPlate:
-          type: string
-        IsVehicleApproved:
+      additionalProperties: false
+    AutoplanMileageLogModel:
+      type: object
+      properties:
+        StartOdometerKm:
+          format: int32
+          type: integer
+        EndOdometerKm:
+          format: int32
+          type: integer
+        BusinessKm:
+          format: int32
+          type: integer
+        IsApproved:
           type: boolean
-        PeriodList:
+        TotalKm:
+          format: int32
+          type: integer
+          readOnly: true
+        OtherAndPrivateKm:
+          format: int32
+          type: integer
+          readOnly: true
+      additionalProperties: false
+    IntegrationPeriodModel:
+      type: object
+      properties:
+        Year:
+          format: int32
+          type: integer
+        Month:
+          format: int32
+          type: integer
+        IsSelected:
+          type: boolean
+      additionalProperties: false
+    AutoplanInformationModel:
+      type: object
+      properties:
+        LoginIsRequired:
+          type: boolean
+        VehicleList:
           type: array
           items:
-            $ref: '#/components/schemas/AutoPlanV2PeriodInfo'
+            $ref: '#/components/schemas/IntegrationVehicleModel'
+      additionalProperties: false
+    AutoPlanV2InformationRequestModel:
+      type: object
+      properties:
+        PersonalIdentityNumber:
+          type: string
+      additionalProperties: false
+    BilredaInformationModel:
+      type: object
+      properties:
+        LoginIsRequired:
+          type: boolean
+        VehicleList:
+          type: array
+          items:
+            $ref: '#/components/schemas/IntegrationVehicleModel'
+      additionalProperties: false
+    AutoPlanV2InformationModel:
+      type: object
+      properties:
+        VehicleList:
+          type: array
+          items:
+            $ref: '#/components/schemas/AutoPlanV2VehicleInfo'
       additionalProperties: false
     Version:
       type: object
@@ -752,30 +811,21 @@ components:
           type: integer
           readOnly: true
       additionalProperties: false
-    AlphabetMileageLogModel:
+    HttpMethod:
       type: object
       properties:
-        StartOdometerKm:
-          format: int32
-          type: integer
-        EndOdometerKm:
-          format: int32
-          type: integer
-        BusinessKm:
-          format: int32
-          type: integer
-        IsApproved:
-          type: boolean
-        TotalKm:
-          format: int32
-          type: integer
-          readOnly: true
-        OtherAndPrivateKm:
-          format: int32
-          type: integer
-          readOnly: true
+        Method:
+          type: string
       additionalProperties: false
-    AutoplanMileageLogModel:
+    AutoPlanV2SendDrivingJournalRequestModel:
+      type: object
+      properties:
+        PersonalIdentityNumber:
+          type: string
+        JournalData:
+          $ref: '#/components/schemas/AutoPlanV2DrivingJournalModel'
+      additionalProperties: false
+    AlphabetMileageLogModel:
       type: object
       properties:
         StartOdometerKm:
@@ -888,25 +938,6 @@ components:
           type: boolean
           readOnly: true
       additionalProperties: false
-    HttpContent:
-      type: object
-      properties:
-        Headers:
-          type: array
-          items:
-            $ref: '#/components/schemas/StringStringIEnumerableKeyValuePair'
-          readOnly: true
-      additionalProperties: false
-    AlphabetInformationModel:
-      type: object
-      properties:
-        LoginIsRequired:
-          type: boolean
-        VehicleList:
-          type: array
-          items:
-            $ref: '#/components/schemas/IntegrationVehicleModel'
-      additionalProperties: false
     AutoPlanV2DrivingJournalModel:
       type: object
       properties:
@@ -922,55 +953,69 @@ components:
         IsApproved:
           type: boolean
       additionalProperties: false
-    BilredaInformationModel:
+    BilredaMileageLogModel:
       type: object
       properties:
-        LoginIsRequired:
+        StartOdometerKm:
+          format: int32
+          type: integer
+        EndOdometerKm:
+          format: int32
+          type: integer
+        BusinessKm:
+          format: int32
+          type: integer
+        IsApproved:
           type: boolean
-        VehicleList:
-          type: array
-          items:
-            $ref: '#/components/schemas/IntegrationVehicleModel'
-      additionalProperties: false
-    AutoplanInformationModel:
-      type: object
-      properties:
-        LoginIsRequired:
-          type: boolean
-        VehicleList:
-          type: array
-          items:
-            $ref: '#/components/schemas/IntegrationVehicleModel'
-      additionalProperties: false
-    IntegrationConfigurationModel:
-      type: object
-      properties:
-        AutoPlanActive:
-          type: boolean
-        AlphabetActive:
-          type: boolean
-        BilredaActive:
-          type: boolean
-        BilredaVehicleId:
+        TotalKm:
+          format: int32
+          type: integer
+          readOnly: true
+        OtherAndPrivateKm:
+          format: int32
+          type: integer
+          readOnly: true
+        TollFeeBusiness:
           format: int32
           type: integer
       additionalProperties: false
-    IntegrationVehicleModel:
+    AutoPlanV2VehicleInfo:
       type: object
       properties:
+        VehicleId:
+          format: int32
+          type: integer
         FriendlyName:
           type: string
         NumberPlate:
           type: string
-        VehicleId:
-          format: int32
-          type: integer
         IsVehicleApproved:
           type: boolean
         PeriodList:
           type: array
           items:
-            $ref: '#/components/schemas/IntegrationPeriodModel'
+            $ref: '#/components/schemas/AutoPlanV2PeriodInfo'
+      additionalProperties: false
+    HttpContent:
+      type: object
+      properties:
+        Headers:
+          type: array
+          items:
+            $ref: '#/components/schemas/StringStringIEnumerableKeyValuePair'
+          readOnly: true
+      additionalProperties: false
+    AutoPlanV2PeriodInfo:
+      type: object
+      properties:
+        Year:
+          format: int32
+          type: integer
+        Month:
+          format: int32
+          type: integer
+        IsSelected:
+          type: boolean
       additionalProperties: false
     HttpRequestMessage:
       type: object
@@ -1005,44 +1050,6 @@ components:
           additionalProperties: {}
           readOnly: true
       additionalProperties: false
-    AutoPlanV2PeriodInfo:
-      type: object
-      properties:
-        Year:
-          format: int32
-          type: integer
-        Month:
-          format: int32
-          type: integer
-        IsSelected:
-          type: boolean
-      additionalProperties: false
-    AutoPlanV2InformationRequestModel:
-      type: object
-      properties:
-        PersonalIdentityNumber:
-          type: string
-      additionalProperties: false
-    IntegrationPeriodModel:
-      type: object
-      properties:
-        Year:
-          format: int32
-          type: integer
-        Month:
-          format: int32
-          type: integer
-        IsSelected:
-          type: boolean
-      additionalProperties: false
-    AutoPlanV2SendDrivingJournalRequestModel:
-      type: object
-      properties:
-        PersonalIdentityNumber:
-          type: string
-        JournalData:
-          $ref: '#/components/schemas/AutoPlanV2DrivingJournalModel'
-      additionalProperties: false
     StringStringIEnumerableKeyValuePair:
       type: object
       properties:
@@ -1053,39 +1060,32 @@ components:
           items:
             type: string
       additionalProperties: false
-    BilredaMileageLogModel:
+    AlphabetInformationModel:
       type: object
       properties:
-        StartOdometerKm:
-          format: int32
-          type: integer
-        EndOdometerKm:
-          format: int32
-          type: integer
-        BusinessKm:
-          format: int32
-          type: integer
-        IsApproved:
+        LoginIsRequired:
           type: boolean
-        TotalKm:
-          format: int32
-          type: integer
-          readOnly: true
-        OtherAndPrivateKm:
-          format: int32
-          type: integer
-          readOnly: true
-        TollFeeBusiness:
-          format: int32
-          type: integer
-      additionalProperties: false
-    AutoPlanV2InformationModel:
-      type: object
-      properties:
         VehicleList:
           type: array
           items:
-            $ref: '#/components/schemas/AutoPlanV2VehicleInfo'
+            $ref: '#/components/schemas/IntegrationVehicleModel'
+      additionalProperties: false
+    IntegrationVehicleModel:
+      type: object
+      properties:
+        FriendlyName:
+          type: string
+        NumberPlate:
+          type: string
+        VehicleId:
+          format: int32
+          type: integer
+        IsVehicleApproved:
+          type: boolean
+        PeriodList:
+          type: array
+          items:
+            $ref: '#/components/schemas/IntegrationPeriodModel'
       additionalProperties: false
   securitySchemes:
     oauth2:

@@ -356,13 +356,6 @@ components:
           format: int32
           type: integer
       additionalProperties: false
-    MovePushTriggers:
-      type: object
-      properties:
-        ToUserDeviceId:
-          format: int32
-          type: integer
-      additionalProperties: false
     Trigger3Model:
       type: object
       properties:
@@ -481,6 +474,13 @@ components:
           type: integer
         IsEditable:
           type: boolean
+      additionalProperties: false
+    MovePushTriggers:
+      type: object
+      properties:
+        ToUserDeviceId:
+          format: int32
+          type: integer
       additionalProperties: false
     Trigger3EditModel:
       required:

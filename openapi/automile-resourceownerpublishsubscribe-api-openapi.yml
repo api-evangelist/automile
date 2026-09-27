@@ -427,9 +427,12 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    PublishSubscribeEditModel:
+    PublishSubscribeModel:
       type: object
       properties:
+        PublishSubscribeId:
+          format: int32
+          type: integer
         PublishToUrl:
           type: string
         PublishType:
@@ -451,12 +454,9 @@ components:
         AuthenticationData:
           type: string
       additionalProperties: false
-    PublishSubscribeModel:
+    PublishSubscribeEditModel:
       type: object
       properties:
-        PublishSubscribeId:
-          format: int32
-          type: integer
         PublishToUrl:
           type: string
         PublishType:

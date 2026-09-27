@@ -210,22 +210,7 @@ paths:
       - oauth2: []
 components:
   schemas:
-    ProblemDetails:
-      type: object
-      properties:
-        type:
-          type: string
-        title:
-          type: string
-        status:
-          format: int32
-          type: integer
-        detail:
-          type: string
-        instance:
-          type: string
-      additionalProperties: {}
-    CompanyContactCreateModel:
+    CompanyContactEditModel:
       required:
       - CompanyId
       - ContactId
@@ -238,7 +223,7 @@ components:
           format: int32
           type: integer
       additionalProperties: false
-    CompanyContactEditModel:
+    CompanyContactCreateModel:
       required:
       - CompanyId
       - ContactId
@@ -272,6 +257,21 @@ components:
           items:
             type: string
       additionalProperties: false
+    ProblemDetails:
+      type: object
+      properties:
+        type:
+          type: string
+        title:
+          type: string
+        status:
+          format: int32
+          type: integer
+        detail:
+          type: string
+        instance:
+          type: string
+      additionalProperties: {}
   securitySchemes:
     oauth2:
       type: oauth2

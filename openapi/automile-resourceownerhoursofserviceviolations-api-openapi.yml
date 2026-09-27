@@ -92,6 +92,69 @@ paths:
         description: The settings model
 components:
   schemas:
+    TimeSpan:
+      type: object
+      properties:
+        Ticks:
+          format: int64
+          type: integer
+        Days:
+          format: int32
+          type: integer
+          readOnly: true
+        Hours:
+          format: int32
+          type: integer
+          readOnly: true
+        Milliseconds:
+          format: int32
+          type: integer
+          readOnly: true
+        Microseconds:
+          format: int32
+          type: integer
+          readOnly: true
+        Nanoseconds:
+          format: int32
+          type: integer
+          readOnly: true
+        Minutes:
+          format: int32
+          type: integer
+          readOnly: true
+        Seconds:
+          format: int32
+          type: integer
+          readOnly: true
+        TotalDays:
+          format: double
+          type: number
+          readOnly: true
+        TotalHours:
+          format: double
+          type: number
+          readOnly: true
+        TotalMilliseconds:
+          format: double
+          type: number
+          readOnly: true
+        TotalMicroseconds:
+          format: double
+          type: number
+          readOnly: true
+        TotalNanoseconds:
+          format: double
+          type: number
+          readOnly: true
+        TotalMinutes:
+          format: double
+          type: number
+          readOnly: true
+        TotalSeconds:
+          format: double
+          type: number
+          readOnly: true
+      additionalProperties: false
     HoursOfServiceDutyStatusModel:
       type: object
       properties:
@@ -172,69 +235,6 @@ components:
           format: date-time
           description: UTC
           type: string
-      additionalProperties: false
-    TimeSpan:
-      type: object
-      properties:
-        Ticks:
-          format: int64
-          type: integer
-        Days:
-          format: int32
-          type: integer
-          readOnly: true
-        Hours:
-          format: int32
-          type: integer
-          readOnly: true
-        Milliseconds:
-          format: int32
-          type: integer
-          readOnly: true
-        Microseconds:
-          format: int32
-          type: integer
-          readOnly: true
-        Nanoseconds:
-          format: int32
-          type: integer
-          readOnly: true
-        Minutes:
-          format: int32
-          type: integer
-          readOnly: true
-        Seconds:
-          format: int32
-          type: integer
-          readOnly: true
-        TotalDays:
-          format: double
-          type: number
-          readOnly: true
-        TotalHours:
-          format: double
-          type: number
-          readOnly: true
-        TotalMilliseconds:
-          format: double
-          type: number
-          readOnly: true
-        TotalMicroseconds:
-          format: double
-          type: number
-          readOnly: true
-        TotalNanoseconds:
-          format: double
-          type: number
-          readOnly: true
-        TotalMinutes:
-          format: double
-          type: number
-          readOnly: true
-        TotalSeconds:
-          format: double
-          type: number
-          readOnly: true
       additionalProperties: false
   securitySchemes:
     oauth2:
