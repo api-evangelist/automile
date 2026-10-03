@@ -83,16 +83,6 @@ paths:
       - oauth2: []
 components:
   schemas:
-    DTCEventDetail:
-      type: object
-      properties:
-        DTC:
-          type: string
-        FaultLocation:
-          type: string
-        ProbableCause:
-          type: string
-      additionalProperties: false
     MILEvent:
       type: object
       properties:
@@ -120,6 +110,54 @@ components:
         Longitude:
           format: double
           type: number
+      additionalProperties: false
+    DTCEvent:
+      type: object
+      properties:
+        Occured:
+          format: date-time
+          type: string
+        DTCEventDetails:
+          type: array
+          items:
+            $ref: '#/components/schemas/DTCEventDetail'
+        Latitude:
+          format: double
+          type: number
+        Longitude:
+          format: double
+          type: number
+      additionalProperties: false
+    DTCEventDetail:
+      type: object
+      properties:
+        DTC:
+          type: string
+        FaultLocation:
+          type: string
+        ProbableCause:
+          type: string
+      additionalProperties: false
+    BatteryEvent:
+      type: object
+      properties:
+        Occured:
+          format: date-time
+          type: string
+        Latitude:
+          format: double
+          type: number
+        Longitude:
+          format: double
+          type: number
+        BatteryStatus:
+          format: int32
+          enum:
+          - 0
+          - 1
+          - 2
+          - 3
+          type: integer
       additionalProperties: false
     VehicleHealth:
       type: object
@@ -165,44 +203,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/DTCEvent'
-      additionalProperties: false
-    DTCEvent:
-      type: object
-      properties:
-        Occured:
-          format: date-time
-          type: string
-        DTCEventDetails:
-          type: array
-          items:
-            $ref: '#/components/schemas/DTCEventDetail'
-        Latitude:
-          format: double
-          type: number
-        Longitude:
-          format: double
-          type: number
-      additionalProperties: false
-    BatteryEvent:
-      type: object
-      properties:
-        Occured:
-          format: date-time
-          type: string
-        Latitude:
-          format: double
-          type: number
-        Longitude:
-          format: double
-          type: number
-        BatteryStatus:
-          format: int32
-          enum:
-          - 0
-          - 1
-          - 2
-          - 3
-          type: integer
       additionalProperties: false
   securitySchemes:
     oauth2:

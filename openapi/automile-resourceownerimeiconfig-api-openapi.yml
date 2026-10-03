@@ -172,6 +172,57 @@ paths:
       - oauth2: []
 components:
   schemas:
+    IMEIConfigEditModel:
+      required:
+      - VehicleId
+      type: object
+      properties:
+        VehicleId:
+          format: int32
+          type: integer
+        IMEIDeviceType:
+          format: int32
+          enum:
+          - 0
+          - 1
+          - 2
+          - 3
+          - 4
+          - 5
+          - 6
+          - 7
+          - 8
+          - 9
+          - 255
+          type: integer
+      additionalProperties: false
+    IMEIConfigDetailModel:
+      type: object
+      properties:
+        IMEIConfigId:
+          format: int32
+          type: integer
+        IMEI:
+          type: string
+        VehicleId:
+          format: int32
+          type: integer
+        DeviceType:
+          format: int32
+          enum:
+          - 0
+          - 1
+          - 2
+          - 3
+          - 4
+          - 5
+          - 6
+          - 7
+          - 8
+          - 9
+          - 255
+          type: integer
+      additionalProperties: false
     IMEIConfigCreateModel:
       type: object
       properties:
@@ -202,58 +253,7 @@ components:
           - 255
           type: integer
       additionalProperties: false
-    IMEIConfigEditModel:
-      required:
-      - VehicleId
-      type: object
-      properties:
-        VehicleId:
-          format: int32
-          type: integer
-        IMEIDeviceType:
-          format: int32
-          enum:
-          - 0
-          - 1
-          - 2
-          - 3
-          - 4
-          - 5
-          - 6
-          - 7
-          - 8
-          - 9
-          - 255
-          type: integer
-      additionalProperties: false
     IMEIConfigModel:
-      type: object
-      properties:
-        IMEIConfigId:
-          format: int32
-          type: integer
-        IMEI:
-          type: string
-        VehicleId:
-          format: int32
-          type: integer
-        DeviceType:
-          format: int32
-          enum:
-          - 0
-          - 1
-          - 2
-          - 3
-          - 4
-          - 5
-          - 6
-          - 7
-          - 8
-          - 9
-          - 255
-          type: integer
-      additionalProperties: false
-    IMEIConfigDetailModel:
       type: object
       properties:
         IMEIConfigId:

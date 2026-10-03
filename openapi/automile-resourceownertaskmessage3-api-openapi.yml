@@ -102,6 +102,16 @@ paths:
         description: The TaskMessageCreateModel
 components:
   schemas:
+    PositionModel:
+      type: object
+      properties:
+        Longitude:
+          format: double
+          type: number
+        Latitude:
+          format: double
+          type: number
+      additionalProperties: false
     TaskMessageCreateModel:
       type: object
       properties:
@@ -112,16 +122,6 @@ components:
           type: string
         Position:
           $ref: '#/components/schemas/PositionModel'
-      additionalProperties: false
-    PositionModel:
-      type: object
-      properties:
-        Longitude:
-          format: double
-          type: number
-        Latitude:
-          format: double
-          type: number
       additionalProperties: false
     TaskMessageModel:
       type: object

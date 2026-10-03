@@ -159,26 +159,60 @@ paths:
         description: The task model
 components:
   schemas:
-    TaskDetailModel:
+    TaskMessageModel:
       type: object
       properties:
-        TaskId:
+        TaskMessageId:
           format: int32
           type: integer
-        CreatedByContactId:
+        SentByContactId:
           format: int32
           type: integer
-        CreatedByContactName:
+        ToContactId:
+          format: int32
+          type: integer
+        MessageText:
           type: string
-        TaskAcquiredByContactId:
+        MessageSentAtUtc:
+          format: date-time
+          type: string
+        SentByContactName:
+          type: string
+        ToContactName:
+          type: string
+        MessageIsRead:
+          type: boolean
+        Position:
+          $ref: '#/components/schemas/PositionModel'
+      additionalProperties: false
+    TaskCreateModel:
+      type: object
+      properties:
+        TaskType:
+          format: int32
+          enum:
+          - 0
+          - 1
+          type: integer
+        ToContactId:
           format: int32
           type: integer
-        TaskAcquiredByContactName:
+        TaskMessageText:
           type: string
-        TaskMessages:
-          type: array
-          items:
-            $ref: '#/components/schemas/TaskMessageModel'
+        Position:
+          $ref: '#/components/schemas/PositionModel'
+        Title:
+          type: string
+      additionalProperties: false
+    TaskEditModel:
+      type: object
+      properties:
+        TaskStatusType:
+          format: int32
+          enum:
+          - 0
+          - 1
+          type: integer
         Title:
           type: string
       additionalProperties: false
@@ -232,42 +266,6 @@ components:
         Title:
           type: string
       additionalProperties: false
-    PositionModel:
-      type: object
-      properties:
-        Longitude:
-          format: double
-          type: number
-        Latitude:
-          format: double
-          type: number
-      additionalProperties: false
-    TaskMessageModel:
-      type: object
-      properties:
-        TaskMessageId:
-          format: int32
-          type: integer
-        SentByContactId:
-          format: int32
-          type: integer
-        ToContactId:
-          format: int32
-          type: integer
-        MessageText:
-          type: string
-        MessageSentAtUtc:
-          format: date-time
-          type: string
-        SentByContactName:
-          type: string
-        ToContactName:
-          type: string
-        MessageIsRead:
-          type: boolean
-        Position:
-          $ref: '#/components/schemas/PositionModel'
-      additionalProperties: false
     TaskContactModel:
       type: object
       properties:
@@ -283,36 +281,38 @@ components:
         IsCheckedIn:
           type: boolean
       additionalProperties: false
-    TaskCreateModel:
+    TaskDetailModel:
       type: object
       properties:
-        TaskType:
-          format: int32
-          enum:
-          - 0
-          - 1
-          type: integer
-        ToContactId:
+        TaskId:
           format: int32
           type: integer
-        TaskMessageText:
+        CreatedByContactId:
+          format: int32
+          type: integer
+        CreatedByContactName:
           type: string
-        Position:
-          $ref: '#/components/schemas/PositionModel'
+        TaskAcquiredByContactId:
+          format: int32
+          type: integer
+        TaskAcquiredByContactName:
+          type: string
+        TaskMessages:
+          type: array
+          items:
+            $ref: '#/components/schemas/TaskMessageModel'
         Title:
           type: string
       additionalProperties: false
-    TaskEditModel:
+    PositionModel:
       type: object
       properties:
-        TaskStatusType:
-          format: int32
-          enum:
-          - 0
-          - 1
-          type: integer
-        Title:
-          type: string
+        Longitude:
+          format: double
+          type: number
+        Latitude:
+          format: double
+          type: number
       additionalProperties: false
   securitySchemes:
     oauth2:

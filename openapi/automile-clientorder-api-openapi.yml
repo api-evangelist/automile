@@ -65,6 +65,61 @@ paths:
       - oauth2: []
 components:
   schemas:
+    ApiPriceModel:
+      type: object
+      properties:
+        ISO4217CurrencyCode:
+          type: string
+        IsYearlySubscription:
+          type: boolean
+        SubscriptionFeePerDeviceAndMonth:
+          format: double
+          type: number
+        SubscriptionFeePerDeviceAndYear:
+          format: double
+          type: number
+        NumberOfUnits:
+          format: double
+          type: number
+        UnitFee:
+          format: double
+          type: number
+        UnitTotalFee:
+          format: double
+          type: number
+        SubscriptionFee:
+          format: double
+          type: number
+        SubscriptionTotalFee:
+          format: double
+          type: number
+        ShipmentFee:
+          format: double
+          type: number
+        TotalFee:
+          format: double
+          type: number
+        SubscriptionTotalFeeDescription:
+          type: string
+        UnitTotalFeeDescription:
+          type: string
+        ShipmentFeeDescription:
+          type: string
+        SubscriptionFeePerDeviceAndMonthDescription:
+          type: string
+        SubscriptionFeePerDeviceAndYearDescription:
+          type: string
+        FreightForwarderUrl:
+          type: string
+        FreightForwarderDescription:
+          type: string
+        ArticlePriceIdMonthlyPlan:
+          format: int32
+          type: integer
+        ArticlePriceIdYearlyPlan:
+          format: int32
+          type: integer
+      additionalProperties: false
     ProOrderModel:
       required:
       - CompanyName
@@ -141,61 +196,6 @@ components:
         ISO3166CountryCode:
           minLength: 1
           type: string
-      additionalProperties: false
-    ApiPriceModel:
-      type: object
-      properties:
-        ISO4217CurrencyCode:
-          type: string
-        IsYearlySubscription:
-          type: boolean
-        SubscriptionFeePerDeviceAndMonth:
-          format: double
-          type: number
-        SubscriptionFeePerDeviceAndYear:
-          format: double
-          type: number
-        NumberOfUnits:
-          format: double
-          type: number
-        UnitFee:
-          format: double
-          type: number
-        UnitTotalFee:
-          format: double
-          type: number
-        SubscriptionFee:
-          format: double
-          type: number
-        SubscriptionTotalFee:
-          format: double
-          type: number
-        ShipmentFee:
-          format: double
-          type: number
-        TotalFee:
-          format: double
-          type: number
-        SubscriptionTotalFeeDescription:
-          type: string
-        UnitTotalFeeDescription:
-          type: string
-        ShipmentFeeDescription:
-          type: string
-        SubscriptionFeePerDeviceAndMonthDescription:
-          type: string
-        SubscriptionFeePerDeviceAndYearDescription:
-          type: string
-        FreightForwarderUrl:
-          type: string
-        FreightForwarderDescription:
-          type: string
-        ArticlePriceIdMonthlyPlan:
-          format: int32
-          type: integer
-        ArticlePriceIdYearlyPlan:
-          format: int32
-          type: integer
       additionalProperties: false
   securitySchemes:
     oauth2:

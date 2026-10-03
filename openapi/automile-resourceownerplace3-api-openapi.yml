@@ -166,6 +166,46 @@ paths:
       - oauth2: []
 components:
   schemas:
+    Place3EditModel:
+      required:
+      - Name
+      - PositionPoint
+      - Radius
+      type: object
+      properties:
+        Name:
+          minLength: 1
+          type: string
+        Radius:
+          format: int32
+          type: integer
+        PositionPoint:
+          $ref: '#/components/schemas/PositionPointModel'
+        Description:
+          type: string
+        TripType:
+          format: int32
+          enum:
+          - 0
+          - 1
+          - 2
+          - 3
+          type: integer
+        TripTypeTrigger:
+          format: int32
+          enum:
+          - 0
+          - 1
+          - 2
+          - 3
+          type: integer
+        OrganizationNodeId:
+          format: int32
+          type: integer
+        DrivesBetweenAnotherPlaceId:
+          format: int32
+          type: integer
+      additionalProperties: false
     PositionPointModel:
       type: object
       properties:
@@ -209,46 +249,6 @@ components:
           type: integer
         IsEditable:
           type: boolean
-        OrganizationNodeId:
-          format: int32
-          type: integer
-        DrivesBetweenAnotherPlaceId:
-          format: int32
-          type: integer
-      additionalProperties: false
-    Place3EditModel:
-      required:
-      - Name
-      - PositionPoint
-      - Radius
-      type: object
-      properties:
-        Name:
-          minLength: 1
-          type: string
-        Radius:
-          format: int32
-          type: integer
-        PositionPoint:
-          $ref: '#/components/schemas/PositionPointModel'
-        Description:
-          type: string
-        TripType:
-          format: int32
-          enum:
-          - 0
-          - 1
-          - 2
-          - 3
-          type: integer
-        TripTypeTrigger:
-          format: int32
-          enum:
-          - 0
-          - 1
-          - 2
-          - 3
-          type: integer
         OrganizationNodeId:
           format: int32
           type: integer

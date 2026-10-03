@@ -238,15 +238,6 @@ paths:
       - oauth2: []
 components:
   schemas:
-    TollGeofenceModelGET:
-      type: object
-      properties:
-        GeofenceId:
-          format: int32
-          type: integer
-        Name:
-          type: string
-      additionalProperties: false
     RegisteredTollModelGET:
       type: object
       properties:
@@ -304,18 +295,36 @@ components:
           - 3
           type: integer
       additionalProperties: false
-    TollZoneModelGET:
+    TollGeofenceModelGET:
       type: object
       properties:
-        TollZoneId:
+        GeofenceId:
           format: int32
           type: integer
         Name:
           type: string
-        TollGeofenceList:
-          type: array
-          items:
-            $ref: '#/components/schemas/TollGeofenceModelGET'
+      additionalProperties: false
+    RegisteredTollModelPOST:
+      type: object
+      properties:
+        TimestampUtc:
+          format: date-time
+          type: string
+        Fee:
+          format: double
+          type: number
+        TripId:
+          format: int32
+          type: integer
+        GeofenceId:
+          format: int32
+          type: integer
+        TollZoneId:
+          format: int32
+          type: integer
+        PriceAfterDiscount:
+          format: double
+          type: number
       additionalProperties: false
     RegisteredTollMultiEditModelPUT:
       type: object
@@ -342,27 +351,18 @@ components:
           format: int32
           type: integer
       additionalProperties: false
-    RegisteredTollModelPOST:
+    TollZoneModelGET:
       type: object
       properties:
-        TimestampUtc:
-          format: date-time
-          type: string
-        Fee:
-          format: double
-          type: number
-        TripId:
-          format: int32
-          type: integer
-        GeofenceId:
-          format: int32
-          type: integer
         TollZoneId:
           format: int32
           type: integer
-        PriceAfterDiscount:
-          format: double
-          type: number
+        Name:
+          type: string
+        TollGeofenceList:
+          type: array
+          items:
+            $ref: '#/components/schemas/TollGeofenceModelGET'
       additionalProperties: false
     RegisteredTollBatchUpdateModelPUT:
       type: object

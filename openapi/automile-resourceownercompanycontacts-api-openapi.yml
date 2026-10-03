@@ -210,6 +210,21 @@ paths:
       - oauth2: []
 components:
   schemas:
+    ProblemDetails:
+      type: object
+      properties:
+        type:
+          type: string
+        title:
+          type: string
+        status:
+          format: int32
+          type: integer
+        detail:
+          type: string
+        instance:
+          type: string
+      additionalProperties: {}
     CompanyContactEditModel:
       required:
       - CompanyId
@@ -257,21 +272,6 @@ components:
           items:
             type: string
       additionalProperties: false
-    ProblemDetails:
-      type: object
-      properties:
-        type:
-          type: string
-        title:
-          type: string
-        status:
-          format: int32
-          type: integer
-        detail:
-          type: string
-        instance:
-          type: string
-      additionalProperties: {}
   securitySchemes:
     oauth2:
       type: oauth2

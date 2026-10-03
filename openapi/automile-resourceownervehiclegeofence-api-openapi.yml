@@ -171,6 +171,16 @@ paths:
         description: The company model
 components:
   schemas:
+    VehicleGeofenceEditModel:
+      type: object
+      properties:
+        ValidFrom:
+          format: date-time
+          type: string
+        ValidTo:
+          format: date-time
+          type: string
+      additionalProperties: false
     VehicleGeofenceCreateModel:
       required:
       - GeofenceId
@@ -183,16 +193,6 @@ components:
         GeofenceId:
           format: int32
           type: integer
-        ValidFrom:
-          format: date-time
-          type: string
-        ValidTo:
-          format: date-time
-          type: string
-      additionalProperties: false
-    VehicleGeofenceEditModel:
-      type: object
-      properties:
         ValidFrom:
           format: date-time
           type: string

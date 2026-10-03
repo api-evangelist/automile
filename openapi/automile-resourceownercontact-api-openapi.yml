@@ -345,65 +345,6 @@ paths:
       - oauth2: []
 components:
   schemas:
-    ContactModel:
-      type: object
-      properties:
-        ContactId:
-          format: int32
-          type: integer
-        FirstName:
-          type: string
-        LastName:
-          type: string
-        EmailAddress:
-          type: string
-      additionalProperties: false
-    ContactDetailModel:
-      type: object
-      properties:
-        ContactId:
-          format: int32
-          type: integer
-        FirstName:
-          type: string
-        LastName:
-          type: string
-        EmailAddress:
-          type: string
-        Description:
-          type: string
-        CultureName:
-          type: string
-        DefaultVehicleId:
-          format: int32
-          type: integer
-        FieldServiceEnabled:
-          type: boolean
-        FieldServiceEnabledWithinOrganization:
-          type: boolean
-      additionalProperties: false
-    ContactEditModel:
-      required:
-      - FirstName
-      - LastName
-      type: object
-      properties:
-        FirstName:
-          minLength: 1
-          type: string
-        LastName:
-          minLength: 1
-          type: string
-        EmailAddress:
-          type: string
-        Description:
-          type: string
-        CultureName:
-          type: string
-        DefaultVehicleId:
-          format: int32
-          type: integer
-      additionalProperties: false
     ContactCreateModel:
       required:
       - CreateRelationshipToCompanyId
@@ -430,6 +371,30 @@ components:
           format: int32
           type: integer
       additionalProperties: false
+    ContactDetailModel:
+      type: object
+      properties:
+        ContactId:
+          format: int32
+          type: integer
+        FirstName:
+          type: string
+        LastName:
+          type: string
+        EmailAddress:
+          type: string
+        Description:
+          type: string
+        CultureName:
+          type: string
+        DefaultVehicleId:
+          format: int32
+          type: integer
+        FieldServiceEnabled:
+          type: boolean
+        FieldServiceEnabledWithinOrganization:
+          type: boolean
+      additionalProperties: false
     ProblemDetails:
       type: object
       properties:
@@ -445,6 +410,41 @@ components:
         instance:
           type: string
       additionalProperties: {}
+    ContactModel:
+      type: object
+      properties:
+        ContactId:
+          format: int32
+          type: integer
+        FirstName:
+          type: string
+        LastName:
+          type: string
+        EmailAddress:
+          type: string
+      additionalProperties: false
+    ContactEditModel:
+      required:
+      - FirstName
+      - LastName
+      type: object
+      properties:
+        FirstName:
+          minLength: 1
+          type: string
+        LastName:
+          minLength: 1
+          type: string
+        EmailAddress:
+          type: string
+        Description:
+          type: string
+        CultureName:
+          type: string
+        DefaultVehicleId:
+          format: int32
+          type: integer
+      additionalProperties: false
   securitySchemes:
     oauth2:
       type: oauth2

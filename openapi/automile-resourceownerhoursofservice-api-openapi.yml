@@ -289,85 +289,6 @@ components:
           type: number
           readOnly: true
       additionalProperties: false
-    HoursOfServiceExportModel:
-      type: object
-      properties:
-        FromDate:
-          format: date-time
-          type: string
-        ToDate:
-          format: date-time
-          type: string
-        EmailAddress:
-          description: Recipient of the report
-          type: string
-      additionalProperties: false
-    HoursOfServiceDutyStatusCreateModel:
-      type: object
-      properties:
-        VehicleId:
-          format: int32
-          type: integer
-        DutyStatusType:
-          format: int32
-          enum:
-          - 0
-          - 1
-          - 2
-          - 3
-          type: integer
-        FromDateTime:
-          format: date-time
-          description: From date UTC
-          type: string
-        ToDateTime:
-          format: date-time
-          description: To date UTC
-          type: string
-        Notes:
-          type: string
-        Location:
-          type: string
-        ExternalId:
-          format: uuid
-          type: string
-      additionalProperties: false
-    DutyStatus:
-      type: object
-      properties:
-        ContactId:
-          format: int32
-          type: integer
-        VehicleId:
-          format: int32
-          type: integer
-        DutyStatusType:
-          format: int32
-          enum:
-          - 0
-          - 1
-          - 2
-          - 3
-          type: integer
-        FromUtc:
-          format: date-time
-          type: string
-        ToUtc:
-          format: date-time
-          type: string
-        Notes:
-          type: string
-        Locations:
-          type: string
-        CycleRuleType:
-          format: int32
-          type: integer
-        WorkDayStartTime:
-          $ref: '#/components/schemas/TimeSpan'
-        DistanceInKm:
-          format: double
-          type: number
-      additionalProperties: false
     HoursOfServiceDutyStatusModel:
       type: object
       properties:
@@ -443,109 +364,65 @@ components:
           format: date-time
           type: string
       additionalProperties: false
-    HoursOfServiceCycles:
+    HoursOfServiceDutyStatusesModel:
       type: object
       properties:
-        Cycles:
+        LastSynchDate:
+          format: date-time
+          type: string
+          readOnly: true
+        DutyStatuses:
           type: array
           items:
-            $ref: '#/components/schemas/Cycle'
+            $ref: '#/components/schemas/HoursOfServiceDutyStatusModel'
       additionalProperties: false
-    TimeSpan:
+    DutyStatus:
       type: object
       properties:
-        Ticks:
-          format: int64
-          type: integer
-        Days:
+        ContactId:
           format: int32
           type: integer
-          readOnly: true
-        Hours:
+        VehicleId:
           format: int32
           type: integer
-          readOnly: true
-        Milliseconds:
+        DutyStatusType:
+          format: int32
+          enum:
+          - 0
+          - 1
+          - 2
+          - 3
+          type: integer
+        FromUtc:
+          format: date-time
+          type: string
+        ToUtc:
+          format: date-time
+          type: string
+        Notes:
+          type: string
+        Locations:
+          type: string
+        CycleRuleType:
           format: int32
           type: integer
-          readOnly: true
-        Microseconds:
-          format: int32
-          type: integer
-          readOnly: true
-        Nanoseconds:
-          format: int32
-          type: integer
-          readOnly: true
-        Minutes:
-          format: int32
-          type: integer
-          readOnly: true
-        Seconds:
-          format: int32
-          type: integer
-          readOnly: true
-        TotalDays:
+        WorkDayStartTime:
+          $ref: '#/components/schemas/TimeSpan'
+        DistanceInKm:
           format: double
           type: number
-          readOnly: true
-        TotalHours:
-          format: double
-          type: number
-          readOnly: true
-        TotalMilliseconds:
-          format: double
-          type: number
-          readOnly: true
-        TotalMicroseconds:
-          format: double
-          type: number
-          readOnly: true
-        TotalNanoseconds:
-          format: double
-          type: number
-          readOnly: true
-        TotalMinutes:
-          format: double
-          type: number
-          readOnly: true
-        TotalSeconds:
-          format: double
-          type: number
-          readOnly: true
       additionalProperties: false
-    AddressModel:
-      required:
-      - AddressLine2
-      - City
-      - ISO3166CountryCode
-      - ZipCode
+    HoursOfServiceExportModel:
       type: object
       properties:
-        AddressId:
-          format: int32
-          type: integer
-        CompanyName:
+        FromDate:
+          format: date-time
           type: string
-        ContactNameAtAddress:
+        ToDate:
+          format: date-time
           type: string
-        AddressLine2:
-          minLength: 1
-          type: string
-        AddressLine3:
-          type: string
-        AddressLine4:
-          type: string
-        ZipCode:
-          minLength: 1
-          type: string
-        City:
-          minLength: 1
-          type: string
-        StateOrProvince:
-          type: string
-        ISO3166CountryCode:
-          minLength: 1
+        EmailAddress:
+          description: Recipient of the report
           type: string
       additionalProperties: false
     HoursOfServiceStatusSynchModel:
@@ -563,38 +440,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/HoursOfServiceDutyStatusModel'
-      additionalProperties: false
-    HoursOfServiceDutyStatusesModel:
-      type: object
-      properties:
-        LastSynchDate:
-          format: date-time
-          type: string
-          readOnly: true
-        DutyStatuses:
-          type: array
-          items:
-            $ref: '#/components/schemas/HoursOfServiceDutyStatusModel'
-      additionalProperties: false
-    WorkShift:
-      type: object
-      properties:
-        TotalTime:
-          $ref: '#/components/schemas/TimeSpan'
-        OffDutyTime:
-          $ref: '#/components/schemas/TimeSpan'
-        OnDutyTime:
-          $ref: '#/components/schemas/TimeSpan'
-        DrivingTime:
-          $ref: '#/components/schemas/TimeSpan'
-        SleeperBerthTime:
-          $ref: '#/components/schemas/TimeSpan'
-        DutyStatuses:
-          type: array
-          items:
-            $ref: '#/components/schemas/DutyStatus'
-        WorkShiftTime:
-          $ref: '#/components/schemas/TimeSpan'
       additionalProperties: false
     HoursOfServiceSettingsCreateModel:
       type: object
@@ -741,6 +586,161 @@ components:
           $ref: '#/components/schemas/AddressModel'
         IsEnabled:
           type: boolean
+      additionalProperties: false
+    HoursOfServiceDutyStatusCreateModel:
+      type: object
+      properties:
+        VehicleId:
+          format: int32
+          type: integer
+        DutyStatusType:
+          format: int32
+          enum:
+          - 0
+          - 1
+          - 2
+          - 3
+          type: integer
+        FromDateTime:
+          format: date-time
+          description: From date UTC
+          type: string
+        ToDateTime:
+          format: date-time
+          description: To date UTC
+          type: string
+        Notes:
+          type: string
+        Location:
+          type: string
+        ExternalId:
+          format: uuid
+          type: string
+      additionalProperties: false
+    AddressModel:
+      required:
+      - AddressLine2
+      - City
+      - ISO3166CountryCode
+      - ZipCode
+      type: object
+      properties:
+        AddressId:
+          format: int32
+          type: integer
+        CompanyName:
+          type: string
+        ContactNameAtAddress:
+          type: string
+        AddressLine2:
+          minLength: 1
+          type: string
+        AddressLine3:
+          type: string
+        AddressLine4:
+          type: string
+        ZipCode:
+          minLength: 1
+          type: string
+        City:
+          minLength: 1
+          type: string
+        StateOrProvince:
+          type: string
+        ISO3166CountryCode:
+          minLength: 1
+          type: string
+      additionalProperties: false
+    WorkShift:
+      type: object
+      properties:
+        TotalTime:
+          $ref: '#/components/schemas/TimeSpan'
+        OffDutyTime:
+          $ref: '#/components/schemas/TimeSpan'
+        OnDutyTime:
+          $ref: '#/components/schemas/TimeSpan'
+        DrivingTime:
+          $ref: '#/components/schemas/TimeSpan'
+        SleeperBerthTime:
+          $ref: '#/components/schemas/TimeSpan'
+        DutyStatuses:
+          type: array
+          items:
+            $ref: '#/components/schemas/DutyStatus'
+        WorkShiftTime:
+          $ref: '#/components/schemas/TimeSpan'
+      additionalProperties: false
+    TimeSpan:
+      type: object
+      properties:
+        Ticks:
+          format: int64
+          type: integer
+        Days:
+          format: int32
+          type: integer
+          readOnly: true
+        Hours:
+          format: int32
+          type: integer
+          readOnly: true
+        Milliseconds:
+          format: int32
+          type: integer
+          readOnly: true
+        Microseconds:
+          format: int32
+          type: integer
+          readOnly: true
+        Nanoseconds:
+          format: int32
+          type: integer
+          readOnly: true
+        Minutes:
+          format: int32
+          type: integer
+          readOnly: true
+        Seconds:
+          format: int32
+          type: integer
+          readOnly: true
+        TotalDays:
+          format: double
+          type: number
+          readOnly: true
+        TotalHours:
+          format: double
+          type: number
+          readOnly: true
+        TotalMilliseconds:
+          format: double
+          type: number
+          readOnly: true
+        TotalMicroseconds:
+          format: double
+          type: number
+          readOnly: true
+        TotalNanoseconds:
+          format: double
+          type: number
+          readOnly: true
+        TotalMinutes:
+          format: double
+          type: number
+          readOnly: true
+        TotalSeconds:
+          format: double
+          type: number
+          readOnly: true
+      additionalProperties: false
+    HoursOfServiceCycles:
+      type: object
+      properties:
+        Cycles:
+          type: array
+          items:
+            $ref: '#/components/schemas/Cycle'
       additionalProperties: false
   securitySchemes:
     oauth2:

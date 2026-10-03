@@ -225,12 +225,24 @@ components:
         Merchant:
           type: string
       additionalProperties: false
-    ExpenseReportRowContentUpdateEditModel:
+    ProblemDetails:
       type: object
       properties:
-        ExpenseReportRowContentId:
+        type:
+          type: string
+        title:
+          type: string
+        status:
           format: int32
           type: integer
+        detail:
+          type: string
+        instance:
+          type: string
+      additionalProperties: {}
+    ExpenseReportRowContentCreateModel:
+      type: object
+      properties:
         ExpenseReportRowId:
           format: int32
           type: integer
@@ -266,6 +278,27 @@ components:
           type: integer
         ContentFileName:
           type: string
+      additionalProperties: false
+    ExpenseReportRowContentUpdateEditModel:
+      type: object
+      properties:
+        ExpenseReportRowContentId:
+          format: int32
+          type: integer
+        ExpenseReportRowId:
+          format: int32
+          type: integer
+        Data:
+          type: string
+        ContentType:
+          format: int32
+          enum:
+          - 0
+          - 1
+          - 2
+          - 3
+          - 4
+          type: integer
       additionalProperties: false
     ExpenseReportRowCreateModel:
       type: object
@@ -313,24 +346,6 @@ components:
         Merchant:
           type: string
       additionalProperties: false
-    ExpenseReportRowContentCreateModel:
-      type: object
-      properties:
-        ExpenseReportRowId:
-          format: int32
-          type: integer
-        Data:
-          type: string
-        ContentType:
-          format: int32
-          enum:
-          - 0
-          - 1
-          - 2
-          - 3
-          - 4
-          type: integer
-      additionalProperties: false
     ExpenseReportRowEditModel:
       type: object
       properties:
@@ -374,21 +389,6 @@ components:
         Merchant:
           type: string
       additionalProperties: false
-    ProblemDetails:
-      type: object
-      properties:
-        type:
-          type: string
-        title:
-          type: string
-        status:
-          format: int32
-          type: integer
-        detail:
-          type: string
-        instance:
-          type: string
-      additionalProperties: {}
   securitySchemes:
     oauth2:
       type: oauth2

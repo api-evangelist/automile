@@ -160,25 +160,6 @@ paths:
       - oauth2: []
 components:
   schemas:
-    TripScoreSummaryModel:
-      type: object
-      properties:
-        AverageTripScore:
-          format: int32
-          type: integer
-        FromDate:
-          type: string
-        Reductions:
-          type: array
-          items:
-            $ref: '#/components/schemas/TripScoreReductionModel'
-        Strengths:
-          type: array
-          items:
-            $ref: '#/components/schemas/TripScoreReductionModel'
-        ToDate:
-          type: string
-      additionalProperties: false
     TripScoreChartDataModel:
       type: object
       properties:
@@ -213,16 +194,23 @@ components:
           format: date-time
           type: string
       additionalProperties: false
-    TripScoreReductionModel:
+    TripScoreSummaryModel:
       type: object
       properties:
-        Type:
+        AverageTripScore:
           format: int32
           type: integer
-        Value:
-          format: double
-          type: number
-        Text:
+        FromDate:
+          type: string
+        Reductions:
+          type: array
+          items:
+            $ref: '#/components/schemas/TripScoreReductionModel'
+        Strengths:
+          type: array
+          items:
+            $ref: '#/components/schemas/TripScoreReductionModel'
+        ToDate:
           type: string
       additionalProperties: false
     TripScoreChartDataListModel:
@@ -237,6 +225,18 @@ components:
           items:
             $ref: '#/components/schemas/TripScoreChartDataModel'
           readOnly: true
+      additionalProperties: false
+    TripScoreReductionModel:
+      type: object
+      properties:
+        Type:
+          format: int32
+          type: integer
+        Value:
+          format: double
+          type: number
+        Text:
+          type: string
       additionalProperties: false
     DrivingScoreModel:
       type: object

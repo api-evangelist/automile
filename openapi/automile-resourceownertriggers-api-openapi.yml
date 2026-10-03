@@ -278,12 +278,12 @@ paths:
               $ref: '#/components/schemas/MovePushTriggers'
 components:
   schemas:
-    TriggerEditModel:
-      required:
-      - DestinationData
-      - IMEIConfigId
+    TriggerDetailModel:
       type: object
       properties:
+        TriggerId:
+          format: int32
+          type: integer
         IMEIConfigId:
           format: int32
           type: integer
@@ -349,8 +349,6 @@ components:
           type: integer
         TriggerTypeData:
           type: string
-        TriggerTypeData2:
-          type: string
         ValidFrom:
           format: date-time
           type: string
@@ -360,6 +358,9 @@ components:
         MutedUntilDateTime:
           format: date-time
           type: string
+        MutedForAdditionalSeconds:
+          format: int32
+          type: integer
         DestinationType:
           format: int32
           enum:
@@ -374,7 +375,6 @@ components:
           - 9
           type: integer
         DestinationData:
-          minLength: 1
           type: string
         DeliveryType:
           format: int32
@@ -384,8 +384,31 @@ components:
           - 2
           - 3
           type: integer
+        APIClientId:
+          format: int32
+          type: integer
+        CreatedAt:
+          format: date-time
+          type: string
+        TriggerTypeData2:
+          type: string
         TriggerTypeData3:
           type: string
+        TriggerDeviceType:
+          format: int32
+          enum:
+          - 0
+          - 1
+          - 2
+          - 255
+          type: integer
+      additionalProperties: false
+    TriggerEditMutedUntilModel:
+      type: object
+      properties:
+        SecondsFromNow:
+          format: int32
+          type: integer
       additionalProperties: false
     TriggerModel:
       type: object
@@ -721,19 +744,12 @@ components:
         TriggerTypeData3:
           type: string
       additionalProperties: false
-    TriggerEditMutedUntilModel:
+    TriggerEditModel:
+      required:
+      - DestinationData
+      - IMEIConfigId
       type: object
       properties:
-        SecondsFromNow:
-          format: int32
-          type: integer
-      additionalProperties: false
-    TriggerDetailModel:
-      type: object
-      properties:
-        TriggerId:
-          format: int32
-          type: integer
         IMEIConfigId:
           format: int32
           type: integer
@@ -799,6 +815,8 @@ components:
           type: integer
         TriggerTypeData:
           type: string
+        TriggerTypeData2:
+          type: string
         ValidFrom:
           format: date-time
           type: string
@@ -808,9 +826,6 @@ components:
         MutedUntilDateTime:
           format: date-time
           type: string
-        MutedForAdditionalSeconds:
-          format: int32
-          type: integer
         DestinationType:
           format: int32
           enum:
@@ -825,6 +840,7 @@ components:
           - 9
           type: integer
         DestinationData:
+          minLength: 1
           type: string
         DeliveryType:
           format: int32
@@ -834,24 +850,8 @@ components:
           - 2
           - 3
           type: integer
-        APIClientId:
-          format: int32
-          type: integer
-        CreatedAt:
-          format: date-time
-          type: string
-        TriggerTypeData2:
-          type: string
         TriggerTypeData3:
           type: string
-        TriggerDeviceType:
-          format: int32
-          enum:
-          - 0
-          - 1
-          - 2
-          - 255
-          type: integer
       additionalProperties: false
   securitySchemes:
     oauth2:

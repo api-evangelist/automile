@@ -151,40 +151,14 @@ paths:
       - oauth2: []
 components:
   schemas:
-    IMEIEventStatusModel:
+    DTC:
       type: object
       properties:
-        Description:
+        DTCCode:
           type: string
-        TimeStamp:
-          format: date-time
+        FaultLocation:
           type: string
-        TimeZone:
-          format: int32
-          type: integer
-        EventType:
-          type: string
-        PositionLongitude:
-          format: double
-          type: number
-        PositionLatitude:
-          format: double
-          type: number
-        PositionFormattedAddress:
-          type: string
-        CellTower:
-          format: int32
-          type: integer
-        CellTowerTimeZone:
-          format: int32
-          type: integer
-        VehicleIdentificationNumber:
-          type: string
-        IMEI:
-          type: string
-        DeviceSerialNumber:
-          type: string
-        Status:
+        ProbableCause:
           type: string
       additionalProperties: false
     IMEIEventMILModel:
@@ -244,6 +218,42 @@ components:
           format: int32
           type: integer
       additionalProperties: false
+    IMEIEventStatusModel:
+      type: object
+      properties:
+        Description:
+          type: string
+        TimeStamp:
+          format: date-time
+          type: string
+        TimeZone:
+          format: int32
+          type: integer
+        EventType:
+          type: string
+        PositionLongitude:
+          format: double
+          type: number
+        PositionLatitude:
+          format: double
+          type: number
+        PositionFormattedAddress:
+          type: string
+        CellTower:
+          format: int32
+          type: integer
+        CellTowerTimeZone:
+          format: int32
+          type: integer
+        VehicleIdentificationNumber:
+          type: string
+        IMEI:
+          type: string
+        DeviceSerialNumber:
+          type: string
+        Status:
+          type: string
+      additionalProperties: false
     IMEIEventModel:
       type: object
       properties:
@@ -256,16 +266,6 @@ components:
           type: string
         TimeStamp:
           format: date-time
-          type: string
-      additionalProperties: false
-    DTC:
-      type: object
-      properties:
-        DTCCode:
-          type: string
-        FaultLocation:
-          type: string
-        ProbableCause:
           type: string
       additionalProperties: false
     IMEIEventDTCModel:

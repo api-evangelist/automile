@@ -117,15 +117,6 @@ paths:
       - oauth2: []
 components:
   schemas:
-    TripMergeModelPOST:
-      type: object
-      properties:
-        TripIdList:
-          type: array
-          items:
-            format: int32
-            type: integer
-      additionalProperties: false
     TripModel:
       type: object
       properties:
@@ -233,6 +224,15 @@ components:
           type: string
         TripEndPostalCode:
           type: string
+      additionalProperties: false
+    TripMergeModelPOST:
+      type: object
+      properties:
+        TripIdList:
+          type: array
+          items:
+            format: int32
+            type: integer
       additionalProperties: false
   securitySchemes:
     oauth2:

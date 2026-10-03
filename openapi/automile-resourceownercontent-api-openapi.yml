@@ -93,15 +93,6 @@ paths:
       - oauth2: []
 components:
   schemas:
-    ContentUploadResponseModel:
-      type: object
-      properties:
-        URL:
-          type: string
-        GUID:
-          format: uuid
-          type: string
-      additionalProperties: false
     ProblemDetails:
       type: object
       properties:
@@ -117,6 +108,15 @@ components:
         instance:
           type: string
       additionalProperties: {}
+    ContentUploadResponseModel:
+      type: object
+      properties:
+        URL:
+          type: string
+        GUID:
+          format: uuid
+          type: string
+      additionalProperties: false
   securitySchemes:
     oauth2:
       type: oauth2

@@ -382,6 +382,22 @@ components:
           items:
             $ref: '#/components/schemas/RoutePlannerMissionLocationModel'
       additionalProperties: false
+    UpdateStopModel:
+      type: object
+      properties:
+        RouteStopId:
+          format: int32
+          type: integer
+        Status:
+          format: int32
+          enum:
+          - 0
+          - 1
+          - 3
+          type: integer
+        DriverNotes:
+          type: string
+      additionalProperties: false
     RouteRequest:
       type: object
       properties:
@@ -422,22 +438,6 @@ components:
           type: boolean
         AvoidFerries:
           type: boolean
-      additionalProperties: false
-    UpdateStopModel:
-      type: object
-      properties:
-        RouteStopId:
-          format: int32
-          type: integer
-        Status:
-          format: int32
-          enum:
-          - 0
-          - 1
-          - 3
-          type: integer
-        DriverNotes:
-          type: string
       additionalProperties: false
   securitySchemes:
     oauth2:

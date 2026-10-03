@@ -92,6 +92,87 @@ paths:
         description: The settings model
 components:
   schemas:
+    HoursOfServiceViolationCreateModel:
+      type: object
+      properties:
+        HoursOfServiceLogId:
+          format: int32
+          type: integer
+        ViolationType:
+          format: int32
+          type: integer
+        RequiredActionType:
+          format: int32
+          type: integer
+        StartDateTime:
+          format: date-time
+          description: UTC
+          type: string
+        EndDateTime:
+          format: date-time
+          description: UTC
+          type: string
+      additionalProperties: false
+    HoursOfServiceDutyStatusModel:
+      type: object
+      properties:
+        HoursOfServiceLogId:
+          format: int32
+          type: integer
+        VehicleId:
+          format: int32
+          type: integer
+        DutyStatusType:
+          format: int32
+          enum:
+          - 0
+          - 1
+          - 2
+          - 3
+          type: integer
+        FromDateTime:
+          format: date-time
+          description: From date UTC
+          type: string
+        ToDateTime:
+          format: date-time
+          description: To date UTC
+          type: string
+        Notes:
+          type: string
+        Location:
+          type: string
+        CycleRuleType:
+          format: int32
+          enum:
+          - 0
+          - 1
+          - 2
+          - 3
+          - 4
+          - 5
+          - 6
+          - 7
+          type: integer
+        WorkDayStartTime:
+          $ref: '#/components/schemas/TimeSpan'
+        DistanceInKm:
+          format: double
+          type: number
+        CreatedDateTime:
+          format: date-time
+          description: Created UTC
+          type: string
+        ModifiedDateTime:
+          format: date-time
+          description: Modified UTC
+          type: string
+        ExternalId:
+          format: uuid
+          type: string
+        IsDeleted:
+          type: boolean
+      additionalProperties: false
     TimeSpan:
       type: object
       properties:
@@ -154,87 +235,6 @@ components:
           format: double
           type: number
           readOnly: true
-      additionalProperties: false
-    HoursOfServiceDutyStatusModel:
-      type: object
-      properties:
-        HoursOfServiceLogId:
-          format: int32
-          type: integer
-        VehicleId:
-          format: int32
-          type: integer
-        DutyStatusType:
-          format: int32
-          enum:
-          - 0
-          - 1
-          - 2
-          - 3
-          type: integer
-        FromDateTime:
-          format: date-time
-          description: From date UTC
-          type: string
-        ToDateTime:
-          format: date-time
-          description: To date UTC
-          type: string
-        Notes:
-          type: string
-        Location:
-          type: string
-        CycleRuleType:
-          format: int32
-          enum:
-          - 0
-          - 1
-          - 2
-          - 3
-          - 4
-          - 5
-          - 6
-          - 7
-          type: integer
-        WorkDayStartTime:
-          $ref: '#/components/schemas/TimeSpan'
-        DistanceInKm:
-          format: double
-          type: number
-        CreatedDateTime:
-          format: date-time
-          description: Created UTC
-          type: string
-        ModifiedDateTime:
-          format: date-time
-          description: Modified UTC
-          type: string
-        ExternalId:
-          format: uuid
-          type: string
-        IsDeleted:
-          type: boolean
-      additionalProperties: false
-    HoursOfServiceViolationCreateModel:
-      type: object
-      properties:
-        HoursOfServiceLogId:
-          format: int32
-          type: integer
-        ViolationType:
-          format: int32
-          type: integer
-        RequiredActionType:
-          format: int32
-          type: integer
-        StartDateTime:
-          format: date-time
-          description: UTC
-          type: string
-        EndDateTime:
-          format: date-time
-          description: UTC
-          type: string
       additionalProperties: false
   securitySchemes:
     oauth2:

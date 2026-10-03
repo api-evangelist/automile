@@ -147,6 +147,68 @@ paths:
         description: The IMEIConfig model
 components:
   schemas:
+    IMEIConfig3Model:
+      type: object
+      properties:
+        IMEIConfigId:
+          format: int32
+          type: integer
+        IMEI:
+          type: string
+        VehicleId:
+          format: int32
+          type: integer
+        DeviceType:
+          format: int32
+          enum:
+          - 0
+          - 1
+          - 2
+          - 3
+          - 4
+          - 5
+          - 6
+          - 7
+          - 8
+          - 9
+          - 255
+          type: integer
+        OrganizationId:
+          format: int32
+          type: integer
+        IsEditable:
+          type: boolean
+        OrganizationNodeId:
+          format: int32
+          type: integer
+      additionalProperties: false
+    IMEIConfigEdit3Model:
+      required:
+      - VehicleId
+      type: object
+      properties:
+        VehicleId:
+          format: int32
+          type: integer
+        IMEIDeviceType:
+          format: int32
+          enum:
+          - 0
+          - 1
+          - 2
+          - 3
+          - 4
+          - 5
+          - 6
+          - 7
+          - 8
+          - 9
+          - 255
+          type: integer
+        OrganizationNodeId:
+          format: int32
+          type: integer
+      additionalProperties: false
     IMEIConfigCreate3Model:
       type: object
       properties:
@@ -205,68 +267,6 @@ components:
           - 8
           - 9
           - 255
-          type: integer
-      additionalProperties: false
-    IMEIConfigEdit3Model:
-      required:
-      - VehicleId
-      type: object
-      properties:
-        VehicleId:
-          format: int32
-          type: integer
-        IMEIDeviceType:
-          format: int32
-          enum:
-          - 0
-          - 1
-          - 2
-          - 3
-          - 4
-          - 5
-          - 6
-          - 7
-          - 8
-          - 9
-          - 255
-          type: integer
-        OrganizationNodeId:
-          format: int32
-          type: integer
-      additionalProperties: false
-    IMEIConfig3Model:
-      type: object
-      properties:
-        IMEIConfigId:
-          format: int32
-          type: integer
-        IMEI:
-          type: string
-        VehicleId:
-          format: int32
-          type: integer
-        DeviceType:
-          format: int32
-          enum:
-          - 0
-          - 1
-          - 2
-          - 3
-          - 4
-          - 5
-          - 6
-          - 7
-          - 8
-          - 9
-          - 255
-          type: integer
-        OrganizationId:
-          format: int32
-          type: integer
-        IsEditable:
-          type: boolean
-        OrganizationNodeId:
-          format: int32
           type: integer
       additionalProperties: false
   securitySchemes:

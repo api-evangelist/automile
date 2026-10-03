@@ -98,22 +98,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    StringStringIEnumerableKeyValuePair:
-      type: object
-      properties:
-        Key:
-          type: string
-        Value:
-          type: array
-          items:
-            type: string
-      additionalProperties: false
-    HttpMethod:
-      type: object
-      properties:
-        Method:
-          type: string
-      additionalProperties: false
     HttpResponseMessage:
       type: object
       properties:
@@ -204,15 +188,6 @@ components:
           type: boolean
           readOnly: true
       additionalProperties: false
-    HttpContent:
-      type: object
-      properties:
-        Headers:
-          type: array
-          items:
-            $ref: '#/components/schemas/StringStringIEnumerableKeyValuePair'
-          readOnly: true
-      additionalProperties: false
     Version:
       type: object
       properties:
@@ -240,6 +215,22 @@ components:
           format: int32
           type: integer
           readOnly: true
+      additionalProperties: false
+    HttpMethod:
+      type: object
+      properties:
+        Method:
+          type: string
+      additionalProperties: false
+    StringStringIEnumerableKeyValuePair:
+      type: object
+      properties:
+        Key:
+          type: string
+        Value:
+          type: array
+          items:
+            type: string
       additionalProperties: false
     HttpRequestMessage:
       type: object
@@ -272,6 +263,15 @@ components:
         Options:
           type: object
           additionalProperties: {}
+          readOnly: true
+      additionalProperties: false
+    HttpContent:
+      type: object
+      properties:
+        Headers:
+          type: array
+          items:
+            $ref: '#/components/schemas/StringStringIEnumerableKeyValuePair'
           readOnly: true
       additionalProperties: false
   securitySchemes:

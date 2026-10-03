@@ -205,21 +205,6 @@ paths:
               $ref: '#/components/schemas/ExpenseReportRowContentCreateModel'
 components:
   schemas:
-    ExpenseReportRowContentEditModel:
-      type: object
-      properties:
-        Data:
-          type: string
-        ContentType:
-          format: int32
-          enum:
-          - 0
-          - 1
-          - 2
-          - 3
-          - 4
-          type: integer
-      additionalProperties: false
     ExpenseReportRowContentModel:
       type: object
       properties:
@@ -240,6 +225,21 @@ components:
           type: integer
         ContentFileName:
           type: string
+      additionalProperties: false
+    ExpenseReportRowContentEditModel:
+      type: object
+      properties:
+        Data:
+          type: string
+        ContentType:
+          format: int32
+          enum:
+          - 0
+          - 1
+          - 2
+          - 3
+          - 4
+          type: integer
       additionalProperties: false
     ProblemDetails:
       type: object

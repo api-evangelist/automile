@@ -534,20 +534,54 @@ paths:
       - oauth2: []
 components:
   schemas:
-    CustomCategoryModel:
+    Contact2CreateModel:
+      required:
+      - CreateRelationshipToCompanyId
+      - FirstName
+      - LastName
       type: object
       properties:
-        CustomCategoryId:
+        FirstName:
+          minLength: 1
+          type: string
+        LastName:
+          minLength: 1
+          type: string
+        EmailAddress:
+          type: string
+        Description:
+          type: string
+        CreateRelationshipToCompanyId:
           format: int32
           type: integer
-        Value:
+        CultureName:
           type: string
-        CustomCategoryType:
+        CountryCodeIso1366:
+          type: string
+        DefaultVehicleId:
+          format: int32
+          type: integer
+        UnitType:
           format: int32
           enum:
           - 0
           - 1
+          - 2
           type: integer
+        SubscribeToNewsLetter:
+          type: boolean
+        MobilePhoneNumber:
+          type: string
+        MapType:
+          format: int32
+          enum:
+          - 0
+          - 1
+          - 2
+          type: integer
+        CurrencyCode:
+          description: ISO 4217 Currency code
+          type: string
       additionalProperties: false
     CompanyScopesModel:
       type: object
@@ -564,6 +598,267 @@ components:
           type: array
           items:
             type: string
+      additionalProperties: false
+    Contact2UpdateRfidModel:
+      type: object
+      properties:
+        Email:
+          type: string
+        Rfid:
+          type: string
+      additionalProperties: false
+    HoursOfServiceSettingsModel:
+      type: object
+      properties:
+        TimeZoneType:
+          format: int32
+          enum:
+          - 0
+          - 1
+          - 2
+          - 3
+          - 4
+          - 5
+          - 6
+          - 7
+          - 8
+          type: integer
+        WorkDayStartTime:
+          $ref: '#/components/schemas/TimeSpan'
+        CycleRuleType:
+          format: int32
+          enum:
+          - 0
+          - 1
+          - 2
+          - 3
+          - 4
+          - 5
+          - 6
+          - 7
+          type: integer
+        CargoTypeType:
+          format: int32
+          enum:
+          - 0
+          - 1
+          - 2
+          type: integer
+        RestartRuleType:
+          format: int32
+          enum:
+          - 0
+          - 1
+          type: integer
+        RestBreakRuleType:
+          format: int32
+          enum:
+          - 0
+          - 1
+          type: integer
+        ShortHaulExceptionType:
+          format: int32
+          enum:
+          - 0
+          - 1
+          type: integer
+        OdometerUnitType:
+          format: int32
+          enum:
+          - 0
+          - 1
+          - 2
+          type: integer
+        WellSiteRuleType:
+          format: int32
+          enum:
+          - 0
+          - 1
+          type: integer
+        CarrierInfo:
+          $ref: '#/components/schemas/AddressModel'
+        IsEnabled:
+          type: boolean
+      additionalProperties: false
+    CustomCategoryCreateModel:
+      type: object
+      properties:
+        Value:
+          type: string
+        CustomCategoryType:
+          format: int32
+          enum:
+          - 0
+          - 1
+          type: integer
+      additionalProperties: false
+    AddressModel:
+      required:
+      - AddressLine2
+      - City
+      - ISO3166CountryCode
+      - ZipCode
+      type: object
+      properties:
+        AddressId:
+          format: int32
+          type: integer
+        CompanyName:
+          type: string
+        ContactNameAtAddress:
+          type: string
+        AddressLine2:
+          minLength: 1
+          type: string
+        AddressLine3:
+          type: string
+        AddressLine4:
+          type: string
+        ZipCode:
+          minLength: 1
+          type: string
+        City:
+          minLength: 1
+          type: string
+        StateOrProvince:
+          type: string
+        ISO3166CountryCode:
+          minLength: 1
+          type: string
+      additionalProperties: false
+    TimeSpan:
+      type: object
+      properties:
+        Ticks:
+          format: int64
+          type: integer
+        Days:
+          format: int32
+          type: integer
+          readOnly: true
+        Hours:
+          format: int32
+          type: integer
+          readOnly: true
+        Milliseconds:
+          format: int32
+          type: integer
+          readOnly: true
+        Microseconds:
+          format: int32
+          type: integer
+          readOnly: true
+        Nanoseconds:
+          format: int32
+          type: integer
+          readOnly: true
+        Minutes:
+          format: int32
+          type: integer
+          readOnly: true
+        Seconds:
+          format: int32
+          type: integer
+          readOnly: true
+        TotalDays:
+          format: double
+          type: number
+          readOnly: true
+        TotalHours:
+          format: double
+          type: number
+          readOnly: true
+        TotalMilliseconds:
+          format: double
+          type: number
+          readOnly: true
+        TotalMicroseconds:
+          format: double
+          type: number
+          readOnly: true
+        TotalNanoseconds:
+          format: double
+          type: number
+          readOnly: true
+        TotalMinutes:
+          format: double
+          type: number
+          readOnly: true
+        TotalSeconds:
+          format: double
+          type: number
+          readOnly: true
+      additionalProperties: false
+    ContactMenuLayoutModel:
+      type: object
+      properties:
+        MenuLayout:
+          type: object
+          additionalProperties:
+            format: int64
+            enum:
+            - 0
+            - 1
+            - 2
+            - 4
+            type: integer
+          readOnly: true
+        ExpiresAtUtc:
+          format: date-time
+          description: UTC date time when menu layout cache was refreshed
+          type: string
+        RefreshedAtUtc:
+          format: date-time
+          description: UTC date time when menu layout cache was refreshed
+          type: string
+      additionalProperties: false
+    CustomCategoryPostModel:
+      type: object
+      properties:
+        ContactId:
+          format: int32
+          type: integer
+        Added:
+          description: Custom categories to add
+          type: array
+          items:
+            $ref: '#/components/schemas/CustomCategoryCreateModel'
+        Removed:
+          description: Custom categories to delete
+          type: array
+          items:
+            format: int32
+            type: integer
+      additionalProperties: false
+    ProblemDetails:
+      type: object
+      properties:
+        type:
+          type: string
+        title:
+          type: string
+        status:
+          format: int32
+          type: integer
+        detail:
+          type: string
+        instance:
+          type: string
+      additionalProperties: {}
+    CustomCategoryModel:
+      type: object
+      properties:
+        CustomCategoryId:
+          format: int32
+          type: integer
+        Value:
+          type: string
+        CustomCategoryType:
+          format: int32
+          enum:
+          - 0
+          - 1
+          type: integer
       additionalProperties: false
     Contact2DetailModel:
       type: object
@@ -667,44 +962,6 @@ components:
           format: date-time
           type: string
       additionalProperties: false
-    CustomCategoryPostModel:
-      type: object
-      properties:
-        ContactId:
-          format: int32
-          type: integer
-        Added:
-          description: Custom categories to add
-          type: array
-          items:
-            $ref: '#/components/schemas/CustomCategoryCreateModel'
-        Removed:
-          description: Custom categories to delete
-          type: array
-          items:
-            format: int32
-            type: integer
-      additionalProperties: false
-    Contact2UpdateRfidModel:
-      type: object
-      properties:
-        Email:
-          type: string
-        Rfid:
-          type: string
-      additionalProperties: false
-    CustomCategoryCreateModel:
-      type: object
-      properties:
-        Value:
-          type: string
-        CustomCategoryType:
-          format: int32
-          enum:
-          - 0
-          - 1
-          type: integer
-      additionalProperties: false
     Contact2EditModel:
       type: object
       properties:
@@ -757,133 +1014,6 @@ components:
         CurrencyCode:
           description: ISO 4217 Currency code
           type: string
-      additionalProperties: false
-    TimeSpan:
-      type: object
-      properties:
-        Ticks:
-          format: int64
-          type: integer
-        Days:
-          format: int32
-          type: integer
-          readOnly: true
-        Hours:
-          format: int32
-          type: integer
-          readOnly: true
-        Milliseconds:
-          format: int32
-          type: integer
-          readOnly: true
-        Microseconds:
-          format: int32
-          type: integer
-          readOnly: true
-        Nanoseconds:
-          format: int32
-          type: integer
-          readOnly: true
-        Minutes:
-          format: int32
-          type: integer
-          readOnly: true
-        Seconds:
-          format: int32
-          type: integer
-          readOnly: true
-        TotalDays:
-          format: double
-          type: number
-          readOnly: true
-        TotalHours:
-          format: double
-          type: number
-          readOnly: true
-        TotalMilliseconds:
-          format: double
-          type: number
-          readOnly: true
-        TotalMicroseconds:
-          format: double
-          type: number
-          readOnly: true
-        TotalNanoseconds:
-          format: double
-          type: number
-          readOnly: true
-        TotalMinutes:
-          format: double
-          type: number
-          readOnly: true
-        TotalSeconds:
-          format: double
-          type: number
-          readOnly: true
-      additionalProperties: false
-    AddressModel:
-      required:
-      - AddressLine2
-      - City
-      - ISO3166CountryCode
-      - ZipCode
-      type: object
-      properties:
-        AddressId:
-          format: int32
-          type: integer
-        CompanyName:
-          type: string
-        ContactNameAtAddress:
-          type: string
-        AddressLine2:
-          minLength: 1
-          type: string
-        AddressLine3:
-          type: string
-        AddressLine4:
-          type: string
-        ZipCode:
-          minLength: 1
-          type: string
-        City:
-          minLength: 1
-          type: string
-        StateOrProvince:
-          type: string
-        ISO3166CountryCode:
-          minLength: 1
-          type: string
-      additionalProperties: false
-    OrganizationModel:
-      type: object
-      properties:
-        OrganizationName:
-          type: string
-        LegalIdentificationNumber:
-          type: string
-        VATNumber:
-          type: string
-        BillingAddress:
-          $ref: '#/components/schemas/AddressModel'
-        ShipmentAddress:
-          $ref: '#/components/schemas/AddressModel'
-        Culture:
-          type: string
-        UnitType:
-          format: int32
-          enum:
-          - 0
-          - 1
-          - 2
-          type: integer
-        IsHierarchyEnabled:
-          type: boolean
-        ISO4217CurrencyCode:
-          type: string
-        OrganizationId:
-          format: int32
-          type: integer
       additionalProperties: false
     Contact2Model:
       type: object
@@ -938,33 +1068,21 @@ components:
           description: ISO 4217 Currency code
           type: string
       additionalProperties: false
-    Contact2CreateModel:
-      required:
-      - CreateRelationshipToCompanyId
-      - FirstName
-      - LastName
+    OrganizationModel:
       type: object
       properties:
-        FirstName:
-          minLength: 1
+        OrganizationName:
           type: string
-        LastName:
-          minLength: 1
+        LegalIdentificationNumber:
           type: string
-        EmailAddress:
+        VATNumber:
           type: string
-        Description:
+        BillingAddress:
+          $ref: '#/components/schemas/AddressModel'
+        ShipmentAddress:
+          $ref: '#/components/schemas/AddressModel'
+        Culture:
           type: string
-        CreateRelationshipToCompanyId:
-          format: int32
-          type: integer
-        CultureName:
-          type: string
-        CountryCodeIso1366:
-          type: string
-        DefaultVehicleId:
-          format: int32
-          type: integer
         UnitType:
           format: int32
           enum:
@@ -972,131 +1090,13 @@ components:
           - 1
           - 2
           type: integer
-        SubscribeToNewsLetter:
+        IsHierarchyEnabled:
           type: boolean
-        MobilePhoneNumber:
+        ISO4217CurrencyCode:
           type: string
-        MapType:
-          format: int32
-          enum:
-          - 0
-          - 1
-          - 2
-          type: integer
-        CurrencyCode:
-          description: ISO 4217 Currency code
-          type: string
-      additionalProperties: false
-    ContactMenuLayoutModel:
-      type: object
-      properties:
-        MenuLayout:
-          type: object
-          additionalProperties:
-            format: int64
-            enum:
-            - 0
-            - 1
-            - 2
-            - 4
-            type: integer
-          readOnly: true
-        ExpiresAtUtc:
-          format: date-time
-          description: UTC date time when menu layout cache was refreshed
-          type: string
-        RefreshedAtUtc:
-          format: date-time
-          description: UTC date time when menu layout cache was refreshed
-          type: string
-      additionalProperties: false
-    ProblemDetails:
-      type: object
-      properties:
-        type:
-          type: string
-        title:
-          type: string
-        status:
+        OrganizationId:
           format: int32
           type: integer
-        detail:
-          type: string
-        instance:
-          type: string
-      additionalProperties: {}
-    HoursOfServiceSettingsModel:
-      type: object
-      properties:
-        TimeZoneType:
-          format: int32
-          enum:
-          - 0
-          - 1
-          - 2
-          - 3
-          - 4
-          - 5
-          - 6
-          - 7
-          - 8
-          type: integer
-        WorkDayStartTime:
-          $ref: '#/components/schemas/TimeSpan'
-        CycleRuleType:
-          format: int32
-          enum:
-          - 0
-          - 1
-          - 2
-          - 3
-          - 4
-          - 5
-          - 6
-          - 7
-          type: integer
-        CargoTypeType:
-          format: int32
-          enum:
-          - 0
-          - 1
-          - 2
-          type: integer
-        RestartRuleType:
-          format: int32
-          enum:
-          - 0
-          - 1
-          type: integer
-        RestBreakRuleType:
-          format: int32
-          enum:
-          - 0
-          - 1
-          type: integer
-        ShortHaulExceptionType:
-          format: int32
-          enum:
-          - 0
-          - 1
-          type: integer
-        OdometerUnitType:
-          format: int32
-          enum:
-          - 0
-          - 1
-          - 2
-          type: integer
-        WellSiteRuleType:
-          format: int32
-          enum:
-          - 0
-          - 1
-          type: integer
-        CarrierInfo:
-          $ref: '#/components/schemas/AddressModel'
-        IsEnabled:
-          type: boolean
       additionalProperties: false
   securitySchemes:
     oauth2:

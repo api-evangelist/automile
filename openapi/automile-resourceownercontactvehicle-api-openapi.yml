@@ -238,6 +238,16 @@ paths:
       - oauth2: []
 components:
   schemas:
+    ContactVehicleEditModel:
+      type: object
+      properties:
+        VehicleId:
+          format: int32
+          type: integer
+        ContactId:
+          format: int32
+          type: integer
+      additionalProperties: false
     ContactModel:
       type: object
       properties:
@@ -250,45 +260,6 @@ components:
           type: string
         EmailAddress:
           type: string
-      additionalProperties: false
-    ContactVehicleDetailModel:
-      type: object
-      properties:
-        ContactVehicleId:
-          format: int32
-          type: integer
-        VehicleId:
-          format: int32
-          type: integer
-        NumberPlate:
-          type: string
-        MakeModelName:
-          type: string
-        ContactId:
-          format: int32
-          type: integer
-        ContactName:
-          type: string
-        LastModified:
-          format: date-time
-          type: string
-        Created:
-          format: date-time
-          type: string
-        Scopes:
-          type: array
-          items:
-            type: string
-      additionalProperties: false
-    ContactVehicleEditModel:
-      type: object
-      properties:
-        VehicleId:
-          format: int32
-          type: integer
-        ContactId:
-          format: int32
-          type: integer
       additionalProperties: false
     ContactVehicleCreateModel:
       required:
@@ -318,6 +289,35 @@ components:
         instance:
           type: string
       additionalProperties: {}
+    ContactVehicleDetailModel:
+      type: object
+      properties:
+        ContactVehicleId:
+          format: int32
+          type: integer
+        VehicleId:
+          format: int32
+          type: integer
+        NumberPlate:
+          type: string
+        MakeModelName:
+          type: string
+        ContactId:
+          format: int32
+          type: integer
+        ContactName:
+          type: string
+        LastModified:
+          format: date-time
+          type: string
+        Created:
+          format: date-time
+          type: string
+        Scopes:
+          type: array
+          items:
+            type: string
+      additionalProperties: false
   securitySchemes:
     oauth2:
       type: oauth2
