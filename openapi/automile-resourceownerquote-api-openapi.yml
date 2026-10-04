@@ -291,135 +291,36 @@ paths:
       - oauth2: []
 components:
   schemas:
-    PositionPointModel:
+    QuoteNoteModelPOST:
+      required:
+      - Note
       type: object
       properties:
-        Longitude:
-          format: double
-          type: number
-        Latitude:
-          format: double
-          type: number
-      additionalProperties: false
-    HttpResponseMessage:
-      type: object
-      properties:
-        Version:
-          $ref: '#/components/schemas/Version'
-        Content:
-          $ref: '#/components/schemas/HttpContent'
-        StatusCode:
-          format: int32
-          enum:
-          - 100
-          - 101
-          - 102
-          - 103
-          - 200
-          - 201
-          - 202
-          - 203
-          - 204
-          - 205
-          - 206
-          - 207
-          - 208
-          - 226
-          - 300
-          - 301
-          - 302
-          - 303
-          - 304
-          - 305
-          - 306
-          - 307
-          - 308
-          - 400
-          - 401
-          - 402
-          - 403
-          - 404
-          - 405
-          - 406
-          - 407
-          - 408
-          - 409
-          - 410
-          - 411
-          - 412
-          - 413
-          - 414
-          - 415
-          - 416
-          - 417
-          - 421
-          - 422
-          - 423
-          - 424
-          - 426
-          - 428
-          - 429
-          - 431
-          - 451
-          - 500
-          - 501
-          - 502
-          - 503
-          - 504
-          - 505
-          - 506
-          - 507
-          - 508
-          - 510
-          - 511
-          type: integer
-        ReasonPhrase:
+        Note:
+          minLength: 1
           type: string
-        Headers:
-          type: array
-          items:
-            $ref: '#/components/schemas/StringStringIEnumerableKeyValuePair'
-          readOnly: true
-        TrailingHeaders:
-          type: array
-          items:
-            $ref: '#/components/schemas/StringStringIEnumerableKeyValuePair'
-          readOnly: true
-        RequestMessage:
-          $ref: '#/components/schemas/HttpRequestMessage'
-        IsSuccessStatusCode:
-          type: boolean
-          readOnly: true
       additionalProperties: false
-    Version:
+    CustomerJobAddressModel:
       type: object
       properties:
-        Major:
-          format: int32
-          type: integer
-          readOnly: true
-        Minor:
-          format: int32
-          type: integer
-          readOnly: true
-        Build:
-          format: int32
-          type: integer
-          readOnly: true
-        Revision:
-          format: int32
-          type: integer
-          readOnly: true
-        MajorRevision:
-          format: int32
-          type: integer
-          readOnly: true
-        MinorRevision:
-          format: int32
-          type: integer
-          readOnly: true
+        Street:
+          type: string
+        Apartment:
+          type: string
+        CareOf:
+          type: string
+        ZipCode:
+          type: string
+        City:
+          type: string
+        StateOrProvince:
+          type: string
+        ISO3166CountryCode:
+          type: string
+        Position:
+          $ref: '#/components/schemas/PositionPointModel'
       additionalProperties: false
-    QuoteModelPUT:
+    QuoteModelSyncPUT:
       required:
       - WorkOrderCustomerId
       type: object
@@ -494,152 +395,9 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/QuoteItemModelPUT'
-      additionalProperties: false
-    CustomerJobAddressModel:
-      type: object
-      properties:
-        Street:
-          type: string
-        Apartment:
-          type: string
-        CareOf:
-          type: string
-        ZipCode:
-          type: string
-        City:
-          type: string
-        StateOrProvince:
-          type: string
-        ISO3166CountryCode:
-          type: string
-        Position:
-          $ref: '#/components/schemas/PositionPointModel'
-      additionalProperties: false
-    HttpContent:
-      type: object
-      properties:
-        Headers:
-          type: array
-          items:
-            $ref: '#/components/schemas/StringStringIEnumerableKeyValuePair'
-          readOnly: true
-      additionalProperties: false
-    QuoteItemModelGET:
-      required:
-      - Quantity
-      - WorkOrderArticleId
-      type: object
-      properties:
-        Quantity:
-          format: double
-          type: number
-        PricePerQuantityExclVAT:
-          format: double
-          type: number
-        DiscountInPercentage:
-          format: double
-          type: number
-        DiscountAmount:
-          format: double
-          type: number
-        TaxRate:
-          format: double
-          type: number
-        WorkOrderArticleId:
+        QuoteId:
           format: int32
           type: integer
-        ArticleName:
-          type: string
-        UnitType:
-          format: int32
-          enum:
-          - 1
-          - 2
-          - 3
-          - 4
-          - 5
-          - 6
-          - 7
-          - 8
-          - 9
-          - 10
-          - 11
-          - 12
-          - 13
-          - 14
-          - 15
-          - 16
-          - 17
-          - 18
-          - 19
-          - 20
-          - 21
-          - 22
-          - 23
-          - 24
-          - 25
-          - 26
-          - 27
-          - 28
-          - 29
-          - 30
-          - 31
-          - 32
-          - 33
-          - 34
-          type: integer
-        QuoteItemId:
-          format: int32
-          type: integer
-        ISO4217CurrencyCode:
-          type: string
-        Created:
-          format: date-time
-          type: string
-      additionalProperties: false
-    CustomerBillingAddressModel:
-      type: object
-      properties:
-        Street:
-          type: string
-        Apartment:
-          type: string
-        CareOf:
-          type: string
-        ZipCode:
-          type: string
-        City:
-          type: string
-        StateOrProvince:
-          type: string
-        ISO3166CountryCode:
-          type: string
-        Position:
-          $ref: '#/components/schemas/PositionPointModel'
-      additionalProperties: false
-    QuoteStatusModelPUT:
-      type: object
-      properties:
-        Status:
-          format: int32
-          enum:
-          - 0
-          - 1
-          - 2
-          - 3
-          - 4
-          - 5
-          type: integer
-      additionalProperties: false
-    StringStringIEnumerableKeyValuePair:
-      type: object
-      properties:
-        Key:
-          type: string
-        Value:
-          type: array
-          items:
-            type: string
       additionalProperties: false
     HttpRequestMessage:
       type: object
@@ -673,318 +431,6 @@ components:
           type: object
           additionalProperties: {}
           readOnly: true
-      additionalProperties: false
-    QuoteStatusHistoryModelGET:
-      type: object
-      properties:
-        OccuredAt:
-          format: date-time
-          type: string
-        ContactId:
-          format: int32
-          type: integer
-        Status:
-          format: int32
-          enum:
-          - 0
-          - 1
-          - 2
-          - 3
-          - 4
-          - 5
-          type: integer
-      additionalProperties: false
-    QuoteAttachmentModelPOST:
-      required:
-      - AttachmentType
-      - URL
-      type: object
-      properties:
-        URL:
-          minLength: 1
-          type: string
-        Description:
-          type: string
-        AttachmentType:
-          format: int32
-          enum:
-          - 0
-          - 1
-          - 2
-          type: integer
-      additionalProperties: false
-    QuoteAttachmentModelGET:
-      required:
-      - AttachmentType
-      - URL
-      type: object
-      properties:
-        URL:
-          minLength: 1
-          type: string
-        Description:
-          type: string
-        AttachmentType:
-          format: int32
-          enum:
-          - 0
-          - 1
-          - 2
-          type: integer
-        QuoteAttachmentId:
-          format: int32
-          type: integer
-        CreatedByContactId:
-          format: int32
-          type: integer
-        Created:
-          format: date-time
-          type: string
-      additionalProperties: false
-    TimeSpan:
-      type: object
-      properties:
-        Ticks:
-          format: int64
-          type: integer
-        Days:
-          format: int32
-          type: integer
-          readOnly: true
-        Hours:
-          format: int32
-          type: integer
-          readOnly: true
-        Milliseconds:
-          format: int32
-          type: integer
-          readOnly: true
-        Microseconds:
-          format: int32
-          type: integer
-          readOnly: true
-        Nanoseconds:
-          format: int32
-          type: integer
-          readOnly: true
-        Minutes:
-          format: int32
-          type: integer
-          readOnly: true
-        Seconds:
-          format: int32
-          type: integer
-          readOnly: true
-        TotalDays:
-          format: double
-          type: number
-          readOnly: true
-        TotalHours:
-          format: double
-          type: number
-          readOnly: true
-        TotalMilliseconds:
-          format: double
-          type: number
-          readOnly: true
-        TotalMicroseconds:
-          format: double
-          type: number
-          readOnly: true
-        TotalNanoseconds:
-          format: double
-          type: number
-          readOnly: true
-        TotalMinutes:
-          format: double
-          type: number
-          readOnly: true
-        TotalSeconds:
-          format: double
-          type: number
-          readOnly: true
-      additionalProperties: false
-    QuoteItemModelPUT:
-      required:
-      - Quantity
-      - WorkOrderArticleId
-      type: object
-      properties:
-        Quantity:
-          format: double
-          type: number
-        PricePerQuantityExclVAT:
-          format: double
-          type: number
-        DiscountInPercentage:
-          format: double
-          type: number
-        DiscountAmount:
-          format: double
-          type: number
-        TaxRate:
-          format: double
-          type: number
-        WorkOrderArticleId:
-          format: int32
-          type: integer
-        ArticleName:
-          type: string
-        UnitType:
-          format: int32
-          enum:
-          - 1
-          - 2
-          - 3
-          - 4
-          - 5
-          - 6
-          - 7
-          - 8
-          - 9
-          - 10
-          - 11
-          - 12
-          - 13
-          - 14
-          - 15
-          - 16
-          - 17
-          - 18
-          - 19
-          - 20
-          - 21
-          - 22
-          - 23
-          - 24
-          - 25
-          - 26
-          - 27
-          - 28
-          - 29
-          - 30
-          - 31
-          - 32
-          - 33
-          - 34
-          type: integer
-        QuoteItemId:
-          format: int32
-          type: integer
-      additionalProperties: false
-    QuoteNoteModelPOST:
-      required:
-      - Note
-      type: object
-      properties:
-        Note:
-          minLength: 1
-          type: string
-      additionalProperties: false
-    QuoteItemModelPOST:
-      required:
-      - Quantity
-      - WorkOrderArticleId
-      type: object
-      properties:
-        Quantity:
-          format: double
-          type: number
-        PricePerQuantityExclVAT:
-          format: double
-          type: number
-        DiscountInPercentage:
-          format: double
-          type: number
-        DiscountAmount:
-          format: double
-          type: number
-        TaxRate:
-          format: double
-          type: number
-        WorkOrderArticleId:
-          format: int32
-          type: integer
-        ArticleName:
-          type: string
-        UnitType:
-          format: int32
-          enum:
-          - 1
-          - 2
-          - 3
-          - 4
-          - 5
-          - 6
-          - 7
-          - 8
-          - 9
-          - 10
-          - 11
-          - 12
-          - 13
-          - 14
-          - 15
-          - 16
-          - 17
-          - 18
-          - 19
-          - 20
-          - 21
-          - 22
-          - 23
-          - 24
-          - 25
-          - 26
-          - 27
-          - 28
-          - 29
-          - 30
-          - 31
-          - 32
-          - 33
-          - 34
-          type: integer
-      additionalProperties: false
-    QuoteNoteModelPUT:
-      required:
-      - Note
-      type: object
-      properties:
-        Note:
-          minLength: 1
-          type: string
-        QuoteNoteId:
-          format: int32
-          type: integer
-      additionalProperties: false
-    HttpMethod:
-      type: object
-      properties:
-        Method:
-          type: string
-      additionalProperties: false
-    QuoteAttachmentModelPUT:
-      required:
-      - AttachmentType
-      - URL
-      type: object
-      properties:
-        URL:
-          minLength: 1
-          type: string
-        Description:
-          type: string
-        AttachmentType:
-          format: int32
-          enum:
-          - 0
-          - 1
-          - 2
-          type: integer
-        QuoteAttachmentId:
-          format: int32
-          type: integer
       additionalProperties: false
     QuoteModelGET:
       required:
@@ -1077,85 +523,6 @@ components:
           items:
             $ref: '#/components/schemas/QuoteAttachmentModelGET'
       additionalProperties: false
-    QuoteModelSyncPUT:
-      required:
-      - WorkOrderCustomerId
-      type: object
-      properties:
-        JobDate:
-          format: date-time
-          type: string
-        JobTime:
-          $ref: '#/components/schemas/TimeSpan'
-        EstimatedTimeInMinutes:
-          format: int32
-          type: integer
-        JobDescription:
-          type: string
-        ExternalId:
-          type: string
-        CustomerContactName:
-          type: string
-        CustomerEmail:
-          type: string
-        CustomerName:
-          type: string
-        CustomerCommunicationLanguageISO639_2:
-          type: string
-        CustomerPhoneNumber:
-          type: string
-        CustomerJobAddress:
-          $ref: '#/components/schemas/CustomerJobAddressModel'
-        CustomerBillingAddress:
-          $ref: '#/components/schemas/CustomerBillingAddressModel'
-        NotificationType:
-          format: int32
-          enum:
-          - 0
-          - 1
-          - 2
-          - 3
-          type: integer
-        WorkOrderCategoryId:
-          format: int32
-          type: integer
-        CategoryName:
-          type: string
-        AssignedToContactId:
-          format: int32
-          type: integer
-        WorkOrderCustomerId:
-          format: int32
-          type: integer
-        EstimatedTotal:
-          format: double
-          type: number
-        Status:
-          format: int32
-          enum:
-          - 0
-          - 1
-          - 2
-          - 3
-          - 4
-          - 5
-          type: integer
-        Attachments:
-          type: array
-          items:
-            $ref: '#/components/schemas/QuoteAttachmentModelPUT'
-        Notes:
-          type: array
-          items:
-            $ref: '#/components/schemas/QuoteNoteModelPUT'
-        Items:
-          type: array
-          items:
-            $ref: '#/components/schemas/QuoteItemModelPUT'
-        QuoteId:
-          format: int32
-          type: integer
-      additionalProperties: false
     QuoteNoteModelGET:
       required:
       - Note
@@ -1173,6 +540,16 @@ components:
         Created:
           format: date-time
           type: string
+      additionalProperties: false
+    StringStringIEnumerableKeyValuePair:
+      type: object
+      properties:
+        Key:
+          type: string
+        Value:
+          type: array
+          items:
+            type: string
       additionalProperties: false
     QuoteModelPOST:
       required:
@@ -1249,6 +626,629 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/QuoteItemModelPOST'
+      additionalProperties: false
+    QuoteStatusModelPUT:
+      type: object
+      properties:
+        Status:
+          format: int32
+          enum:
+          - 0
+          - 1
+          - 2
+          - 3
+          - 4
+          - 5
+          type: integer
+      additionalProperties: false
+    CustomerBillingAddressModel:
+      type: object
+      properties:
+        Street:
+          type: string
+        Apartment:
+          type: string
+        CareOf:
+          type: string
+        ZipCode:
+          type: string
+        City:
+          type: string
+        StateOrProvince:
+          type: string
+        ISO3166CountryCode:
+          type: string
+        Position:
+          $ref: '#/components/schemas/PositionPointModel'
+      additionalProperties: false
+    HttpContent:
+      type: object
+      properties:
+        Headers:
+          type: array
+          items:
+            $ref: '#/components/schemas/StringStringIEnumerableKeyValuePair'
+          readOnly: true
+      additionalProperties: false
+    QuoteModelPUT:
+      required:
+      - WorkOrderCustomerId
+      type: object
+      properties:
+        JobDate:
+          format: date-time
+          type: string
+        JobTime:
+          $ref: '#/components/schemas/TimeSpan'
+        EstimatedTimeInMinutes:
+          format: int32
+          type: integer
+        JobDescription:
+          type: string
+        ExternalId:
+          type: string
+        CustomerContactName:
+          type: string
+        CustomerEmail:
+          type: string
+        CustomerName:
+          type: string
+        CustomerCommunicationLanguageISO639_2:
+          type: string
+        CustomerPhoneNumber:
+          type: string
+        CustomerJobAddress:
+          $ref: '#/components/schemas/CustomerJobAddressModel'
+        CustomerBillingAddress:
+          $ref: '#/components/schemas/CustomerBillingAddressModel'
+        NotificationType:
+          format: int32
+          enum:
+          - 0
+          - 1
+          - 2
+          - 3
+          type: integer
+        WorkOrderCategoryId:
+          format: int32
+          type: integer
+        CategoryName:
+          type: string
+        AssignedToContactId:
+          format: int32
+          type: integer
+        WorkOrderCustomerId:
+          format: int32
+          type: integer
+        EstimatedTotal:
+          format: double
+          type: number
+        Status:
+          format: int32
+          enum:
+          - 0
+          - 1
+          - 2
+          - 3
+          - 4
+          - 5
+          type: integer
+        Attachments:
+          type: array
+          items:
+            $ref: '#/components/schemas/QuoteAttachmentModelPUT'
+        Notes:
+          type: array
+          items:
+            $ref: '#/components/schemas/QuoteNoteModelPUT'
+        Items:
+          type: array
+          items:
+            $ref: '#/components/schemas/QuoteItemModelPUT'
+      additionalProperties: false
+    PositionPointModel:
+      type: object
+      properties:
+        Longitude:
+          format: double
+          type: number
+        Latitude:
+          format: double
+          type: number
+      additionalProperties: false
+    QuoteAttachmentModelPUT:
+      required:
+      - AttachmentType
+      - URL
+      type: object
+      properties:
+        URL:
+          minLength: 1
+          type: string
+        Description:
+          type: string
+        AttachmentType:
+          format: int32
+          enum:
+          - 0
+          - 1
+          - 2
+          type: integer
+        QuoteAttachmentId:
+          format: int32
+          type: integer
+      additionalProperties: false
+    QuoteAttachmentModelGET:
+      required:
+      - AttachmentType
+      - URL
+      type: object
+      properties:
+        URL:
+          minLength: 1
+          type: string
+        Description:
+          type: string
+        AttachmentType:
+          format: int32
+          enum:
+          - 0
+          - 1
+          - 2
+          type: integer
+        QuoteAttachmentId:
+          format: int32
+          type: integer
+        CreatedByContactId:
+          format: int32
+          type: integer
+        Created:
+          format: date-time
+          type: string
+      additionalProperties: false
+    QuoteItemModelPOST:
+      required:
+      - Quantity
+      - WorkOrderArticleId
+      type: object
+      properties:
+        Quantity:
+          format: double
+          type: number
+        PricePerQuantityExclVAT:
+          format: double
+          type: number
+        DiscountInPercentage:
+          format: double
+          type: number
+        DiscountAmount:
+          format: double
+          type: number
+        TaxRate:
+          format: double
+          type: number
+        WorkOrderArticleId:
+          format: int32
+          type: integer
+        ArticleName:
+          type: string
+        UnitType:
+          format: int32
+          enum:
+          - 1
+          - 2
+          - 3
+          - 4
+          - 5
+          - 6
+          - 7
+          - 8
+          - 9
+          - 10
+          - 11
+          - 12
+          - 13
+          - 14
+          - 15
+          - 16
+          - 17
+          - 18
+          - 19
+          - 20
+          - 21
+          - 22
+          - 23
+          - 24
+          - 25
+          - 26
+          - 27
+          - 28
+          - 29
+          - 30
+          - 31
+          - 32
+          - 33
+          - 34
+          type: integer
+      additionalProperties: false
+    Version:
+      type: object
+      properties:
+        Major:
+          format: int32
+          type: integer
+          readOnly: true
+        Minor:
+          format: int32
+          type: integer
+          readOnly: true
+        Build:
+          format: int32
+          type: integer
+          readOnly: true
+        Revision:
+          format: int32
+          type: integer
+          readOnly: true
+        MajorRevision:
+          format: int32
+          type: integer
+          readOnly: true
+        MinorRevision:
+          format: int32
+          type: integer
+          readOnly: true
+      additionalProperties: false
+    HttpMethod:
+      type: object
+      properties:
+        Method:
+          type: string
+      additionalProperties: false
+    QuoteStatusHistoryModelGET:
+      type: object
+      properties:
+        OccuredAt:
+          format: date-time
+          type: string
+        ContactId:
+          format: int32
+          type: integer
+        Status:
+          format: int32
+          enum:
+          - 0
+          - 1
+          - 2
+          - 3
+          - 4
+          - 5
+          type: integer
+      additionalProperties: false
+    QuoteItemModelPUT:
+      required:
+      - Quantity
+      - WorkOrderArticleId
+      type: object
+      properties:
+        Quantity:
+          format: double
+          type: number
+        PricePerQuantityExclVAT:
+          format: double
+          type: number
+        DiscountInPercentage:
+          format: double
+          type: number
+        DiscountAmount:
+          format: double
+          type: number
+        TaxRate:
+          format: double
+          type: number
+        WorkOrderArticleId:
+          format: int32
+          type: integer
+        ArticleName:
+          type: string
+        UnitType:
+          format: int32
+          enum:
+          - 1
+          - 2
+          - 3
+          - 4
+          - 5
+          - 6
+          - 7
+          - 8
+          - 9
+          - 10
+          - 11
+          - 12
+          - 13
+          - 14
+          - 15
+          - 16
+          - 17
+          - 18
+          - 19
+          - 20
+          - 21
+          - 22
+          - 23
+          - 24
+          - 25
+          - 26
+          - 27
+          - 28
+          - 29
+          - 30
+          - 31
+          - 32
+          - 33
+          - 34
+          type: integer
+        QuoteItemId:
+          format: int32
+          type: integer
+      additionalProperties: false
+    QuoteItemModelGET:
+      required:
+      - Quantity
+      - WorkOrderArticleId
+      type: object
+      properties:
+        Quantity:
+          format: double
+          type: number
+        PricePerQuantityExclVAT:
+          format: double
+          type: number
+        DiscountInPercentage:
+          format: double
+          type: number
+        DiscountAmount:
+          format: double
+          type: number
+        TaxRate:
+          format: double
+          type: number
+        WorkOrderArticleId:
+          format: int32
+          type: integer
+        ArticleName:
+          type: string
+        UnitType:
+          format: int32
+          enum:
+          - 1
+          - 2
+          - 3
+          - 4
+          - 5
+          - 6
+          - 7
+          - 8
+          - 9
+          - 10
+          - 11
+          - 12
+          - 13
+          - 14
+          - 15
+          - 16
+          - 17
+          - 18
+          - 19
+          - 20
+          - 21
+          - 22
+          - 23
+          - 24
+          - 25
+          - 26
+          - 27
+          - 28
+          - 29
+          - 30
+          - 31
+          - 32
+          - 33
+          - 34
+          type: integer
+        QuoteItemId:
+          format: int32
+          type: integer
+        ISO4217CurrencyCode:
+          type: string
+        Created:
+          format: date-time
+          type: string
+      additionalProperties: false
+    QuoteAttachmentModelPOST:
+      required:
+      - AttachmentType
+      - URL
+      type: object
+      properties:
+        URL:
+          minLength: 1
+          type: string
+        Description:
+          type: string
+        AttachmentType:
+          format: int32
+          enum:
+          - 0
+          - 1
+          - 2
+          type: integer
+      additionalProperties: false
+    QuoteNoteModelPUT:
+      required:
+      - Note
+      type: object
+      properties:
+        Note:
+          minLength: 1
+          type: string
+        QuoteNoteId:
+          format: int32
+          type: integer
+      additionalProperties: false
+    HttpResponseMessage:
+      type: object
+      properties:
+        Version:
+          $ref: '#/components/schemas/Version'
+        Content:
+          $ref: '#/components/schemas/HttpContent'
+        StatusCode:
+          format: int32
+          enum:
+          - 100
+          - 101
+          - 102
+          - 103
+          - 200
+          - 201
+          - 202
+          - 203
+          - 204
+          - 205
+          - 206
+          - 207
+          - 208
+          - 226
+          - 300
+          - 301
+          - 302
+          - 303
+          - 304
+          - 305
+          - 306
+          - 307
+          - 308
+          - 400
+          - 401
+          - 402
+          - 403
+          - 404
+          - 405
+          - 406
+          - 407
+          - 408
+          - 409
+          - 410
+          - 411
+          - 412
+          - 413
+          - 414
+          - 415
+          - 416
+          - 417
+          - 421
+          - 422
+          - 423
+          - 424
+          - 426
+          - 428
+          - 429
+          - 431
+          - 451
+          - 500
+          - 501
+          - 502
+          - 503
+          - 504
+          - 505
+          - 506
+          - 507
+          - 508
+          - 510
+          - 511
+          type: integer
+        ReasonPhrase:
+          type: string
+        Headers:
+          type: array
+          items:
+            $ref: '#/components/schemas/StringStringIEnumerableKeyValuePair'
+          readOnly: true
+        TrailingHeaders:
+          type: array
+          items:
+            $ref: '#/components/schemas/StringStringIEnumerableKeyValuePair'
+          readOnly: true
+        RequestMessage:
+          $ref: '#/components/schemas/HttpRequestMessage'
+        IsSuccessStatusCode:
+          type: boolean
+          readOnly: true
+      additionalProperties: false
+    TimeSpan:
+      type: object
+      properties:
+        Ticks:
+          format: int64
+          type: integer
+        Days:
+          format: int32
+          type: integer
+          readOnly: true
+        Hours:
+          format: int32
+          type: integer
+          readOnly: true
+        Milliseconds:
+          format: int32
+          type: integer
+          readOnly: true
+        Microseconds:
+          format: int32
+          type: integer
+          readOnly: true
+        Nanoseconds:
+          format: int32
+          type: integer
+          readOnly: true
+        Minutes:
+          format: int32
+          type: integer
+          readOnly: true
+        Seconds:
+          format: int32
+          type: integer
+          readOnly: true
+        TotalDays:
+          format: double
+          type: number
+          readOnly: true
+        TotalHours:
+          format: double
+          type: number
+          readOnly: true
+        TotalMilliseconds:
+          format: double
+          type: number
+          readOnly: true
+        TotalMicroseconds:
+          format: double
+          type: number
+          readOnly: true
+        TotalNanoseconds:
+          format: double
+          type: number
+          readOnly: true
+        TotalMinutes:
+          format: double
+          type: number
+          readOnly: true
+        TotalSeconds:
+          format: double
+          type: number
+          readOnly: true
       additionalProperties: false
   securitySchemes:
     oauth2:

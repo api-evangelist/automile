@@ -147,6 +147,35 @@ paths:
       - oauth2: []
 components:
   schemas:
+    CompanyCreateModel:
+      required:
+      - CreateRelationshipToContactId
+      - RegisteredCompanyName
+      type: object
+      properties:
+        RegisteredCompanyName:
+          maxLength: 255
+          minLength: 0
+          type: string
+        RegistrationNumber:
+          type: string
+        Description:
+          type: string
+        CreateRelationshipToContactId:
+          format: int32
+          type: integer
+      additionalProperties: false
+    CompanyModel:
+      type: object
+      properties:
+        CompanyId:
+          format: int32
+          type: integer
+        RegisteredCompanyName:
+          type: string
+        RegistrationNumber:
+          type: string
+      additionalProperties: false
     CompanyDetailModel:
       type: object
       properties:
@@ -166,17 +195,6 @@ components:
           format: date-time
           type: string
       additionalProperties: false
-    CompanyModel:
-      type: object
-      properties:
-        CompanyId:
-          format: int32
-          type: integer
-        RegisteredCompanyName:
-          type: string
-        RegistrationNumber:
-          type: string
-      additionalProperties: false
     CompanyEditModel:
       required:
       - RegisteredCompanyName
@@ -190,24 +208,6 @@ components:
           type: string
         Description:
           type: string
-      additionalProperties: false
-    CompanyCreateModel:
-      required:
-      - CreateRelationshipToContactId
-      - RegisteredCompanyName
-      type: object
-      properties:
-        RegisteredCompanyName:
-          maxLength: 255
-          minLength: 0
-          type: string
-        RegistrationNumber:
-          type: string
-        Description:
-          type: string
-        CreateRelationshipToContactId:
-          format: int32
-          type: integer
       additionalProperties: false
   securitySchemes:
     oauth2:

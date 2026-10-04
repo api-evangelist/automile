@@ -278,6 +278,229 @@ paths:
               $ref: '#/components/schemas/MovePushTriggers'
 components:
   schemas:
+    TriggerEditModel:
+      required:
+      - DestinationData
+      - IMEIConfigId
+      type: object
+      properties:
+        IMEIConfigId:
+          format: int32
+          type: integer
+        TriggerType:
+          format: int32
+          description: "FirmwareConfigurationUpdate = 236, Eventype 236 loggas i [IMEIPing], sättet att detektera en uppdatering är att från föregående rad se om versionen ändrats\nHur får vi tag i föregående rad? Första raden måste då hämta senaste inserten i databasen?....inom datatabellen som ska insertas är det inga problem gissar jag....men analysen kan inte ske rad för rad utan hela datatabellen ska med\n \nMILStatusOnOff = 154, åtefinns i Datalogger message decoder, flik event messages, kolumn f MIL status\n \nDeviceDisconnect = 136,, åtefinns i Datalogger message decoder, flik event messages\nDeviceStillNotConnected = 137,, åtefinns i Datalogger message decoder, flik event messages\n\n SpeedNotification, återfinns i Pid0013"
+          enum:
+          - 0
+          - 1
+          - 2
+          - 3
+          - 4
+          - 5
+          - 6
+          - 7
+          - 8
+          - 9
+          - 10
+          - 11
+          - 12
+          - 13
+          - 14
+          - 15
+          - 16
+          - 17
+          - 18
+          - 19
+          - 20
+          - 21
+          - 22
+          - 23
+          - 24
+          - 25
+          - 26
+          - 27
+          - 28
+          - 29
+          - 30
+          - 31
+          - 32
+          - 33
+          - 34
+          - 35
+          - 36
+          - 37
+          - 38
+          - 39
+          - 40
+          - 41
+          - 42
+          - 43
+          - 44
+          - 45
+          - 46
+          - 47
+          - 48
+          - 49
+          - 52
+          - 53
+          - 54
+          - 55
+          - 64
+          type: integer
+        TriggerTypeData:
+          type: string
+        TriggerTypeData2:
+          type: string
+        ValidFrom:
+          format: date-time
+          type: string
+        ValidTo:
+          format: date-time
+          type: string
+        MutedUntilDateTime:
+          format: date-time
+          type: string
+        DestinationType:
+          format: int32
+          enum:
+          - 1
+          - 2
+          - 3
+          - 4
+          - 5
+          - 6
+          - 7
+          - 8
+          - 9
+          type: integer
+        DestinationData:
+          minLength: 1
+          type: string
+        DeliveryType:
+          format: int32
+          enum:
+          - 0
+          - 1
+          - 2
+          - 3
+          type: integer
+        TriggerTypeData3:
+          type: string
+      additionalProperties: false
+    TriggerCreateBatchModel:
+      required:
+      - DestinationData
+      type: object
+      properties:
+        TriggerType:
+          format: int32
+          description: "FirmwareConfigurationUpdate = 236, Eventype 236 loggas i [IMEIPing], sättet att detektera en uppdatering är att från föregående rad se om versionen ändrats\nHur får vi tag i föregående rad? Första raden måste då hämta senaste inserten i databasen?....inom datatabellen som ska insertas är det inga problem gissar jag....men analysen kan inte ske rad för rad utan hela datatabellen ska med\n \nMILStatusOnOff = 154, åtefinns i Datalogger message decoder, flik event messages, kolumn f MIL status\n \nDeviceDisconnect = 136,, åtefinns i Datalogger message decoder, flik event messages\nDeviceStillNotConnected = 137,, åtefinns i Datalogger message decoder, flik event messages\n\n SpeedNotification, återfinns i Pid0013"
+          enum:
+          - 0
+          - 1
+          - 2
+          - 3
+          - 4
+          - 5
+          - 6
+          - 7
+          - 8
+          - 9
+          - 10
+          - 11
+          - 12
+          - 13
+          - 14
+          - 15
+          - 16
+          - 17
+          - 18
+          - 19
+          - 20
+          - 21
+          - 22
+          - 23
+          - 24
+          - 25
+          - 26
+          - 27
+          - 28
+          - 29
+          - 30
+          - 31
+          - 32
+          - 33
+          - 34
+          - 35
+          - 36
+          - 37
+          - 38
+          - 39
+          - 40
+          - 41
+          - 42
+          - 43
+          - 44
+          - 45
+          - 46
+          - 47
+          - 48
+          - 49
+          - 52
+          - 53
+          - 54
+          - 55
+          - 64
+          type: integer
+        TriggerTypeData:
+          type: string
+        TriggerTypeData2:
+          type: string
+        ValidFrom:
+          format: date-time
+          type: string
+        ValidTo:
+          format: date-time
+          type: string
+        DestinationType:
+          format: int32
+          enum:
+          - 1
+          - 2
+          - 3
+          - 4
+          - 5
+          - 6
+          - 7
+          - 8
+          - 9
+          type: integer
+        DestinationData:
+          minLength: 1
+          type: string
+        DeliveryType:
+          format: int32
+          enum:
+          - 0
+          - 1
+          - 2
+          - 3
+          type: integer
+        IMEIConfigIds:
+          type: array
+          items:
+            format: int32
+            type: integer
+        TriggerTypeData3:
+          type: string
+      additionalProperties: false
+    MovePushTriggers:
+      type: object
+      properties:
+        ToUserDeviceId:
+          format: int32
+          type: integer
+      additionalProperties: false
     TriggerDetailModel:
       type: object
       properties:
@@ -403,13 +626,6 @@ components:
           - 255
           type: integer
       additionalProperties: false
-    TriggerEditMutedUntilModel:
-      type: object
-      properties:
-        SecondsFromNow:
-          format: int32
-          type: integer
-      additionalProperties: false
     TriggerModel:
       type: object
       properties:
@@ -524,13 +740,6 @@ components:
           - 255
           type: integer
       additionalProperties: false
-    MovePushTriggers:
-      type: object
-      properties:
-        ToUserDeviceId:
-          format: int32
-          type: integer
-      additionalProperties: false
     TriggerCreateModel:
       required:
       - DestinationData
@@ -637,221 +846,12 @@ components:
           - 3
           type: integer
       additionalProperties: false
-    TriggerCreateBatchModel:
-      required:
-      - DestinationData
+    TriggerEditMutedUntilModel:
       type: object
       properties:
-        TriggerType:
-          format: int32
-          description: "FirmwareConfigurationUpdate = 236, Eventype 236 loggas i [IMEIPing], sättet att detektera en uppdatering är att från föregående rad se om versionen ändrats\nHur får vi tag i föregående rad? Första raden måste då hämta senaste inserten i databasen?....inom datatabellen som ska insertas är det inga problem gissar jag....men analysen kan inte ske rad för rad utan hela datatabellen ska med\n \nMILStatusOnOff = 154, åtefinns i Datalogger message decoder, flik event messages, kolumn f MIL status\n \nDeviceDisconnect = 136,, åtefinns i Datalogger message decoder, flik event messages\nDeviceStillNotConnected = 137,, åtefinns i Datalogger message decoder, flik event messages\n\n SpeedNotification, återfinns i Pid0013"
-          enum:
-          - 0
-          - 1
-          - 2
-          - 3
-          - 4
-          - 5
-          - 6
-          - 7
-          - 8
-          - 9
-          - 10
-          - 11
-          - 12
-          - 13
-          - 14
-          - 15
-          - 16
-          - 17
-          - 18
-          - 19
-          - 20
-          - 21
-          - 22
-          - 23
-          - 24
-          - 25
-          - 26
-          - 27
-          - 28
-          - 29
-          - 30
-          - 31
-          - 32
-          - 33
-          - 34
-          - 35
-          - 36
-          - 37
-          - 38
-          - 39
-          - 40
-          - 41
-          - 42
-          - 43
-          - 44
-          - 45
-          - 46
-          - 47
-          - 48
-          - 49
-          - 52
-          - 53
-          - 54
-          - 55
-          - 64
-          type: integer
-        TriggerTypeData:
-          type: string
-        TriggerTypeData2:
-          type: string
-        ValidFrom:
-          format: date-time
-          type: string
-        ValidTo:
-          format: date-time
-          type: string
-        DestinationType:
-          format: int32
-          enum:
-          - 1
-          - 2
-          - 3
-          - 4
-          - 5
-          - 6
-          - 7
-          - 8
-          - 9
-          type: integer
-        DestinationData:
-          minLength: 1
-          type: string
-        DeliveryType:
-          format: int32
-          enum:
-          - 0
-          - 1
-          - 2
-          - 3
-          type: integer
-        IMEIConfigIds:
-          type: array
-          items:
-            format: int32
-            type: integer
-        TriggerTypeData3:
-          type: string
-      additionalProperties: false
-    TriggerEditModel:
-      required:
-      - DestinationData
-      - IMEIConfigId
-      type: object
-      properties:
-        IMEIConfigId:
+        SecondsFromNow:
           format: int32
           type: integer
-        TriggerType:
-          format: int32
-          description: "FirmwareConfigurationUpdate = 236, Eventype 236 loggas i [IMEIPing], sättet att detektera en uppdatering är att från föregående rad se om versionen ändrats\nHur får vi tag i föregående rad? Första raden måste då hämta senaste inserten i databasen?....inom datatabellen som ska insertas är det inga problem gissar jag....men analysen kan inte ske rad för rad utan hela datatabellen ska med\n \nMILStatusOnOff = 154, åtefinns i Datalogger message decoder, flik event messages, kolumn f MIL status\n \nDeviceDisconnect = 136,, åtefinns i Datalogger message decoder, flik event messages\nDeviceStillNotConnected = 137,, åtefinns i Datalogger message decoder, flik event messages\n\n SpeedNotification, återfinns i Pid0013"
-          enum:
-          - 0
-          - 1
-          - 2
-          - 3
-          - 4
-          - 5
-          - 6
-          - 7
-          - 8
-          - 9
-          - 10
-          - 11
-          - 12
-          - 13
-          - 14
-          - 15
-          - 16
-          - 17
-          - 18
-          - 19
-          - 20
-          - 21
-          - 22
-          - 23
-          - 24
-          - 25
-          - 26
-          - 27
-          - 28
-          - 29
-          - 30
-          - 31
-          - 32
-          - 33
-          - 34
-          - 35
-          - 36
-          - 37
-          - 38
-          - 39
-          - 40
-          - 41
-          - 42
-          - 43
-          - 44
-          - 45
-          - 46
-          - 47
-          - 48
-          - 49
-          - 52
-          - 53
-          - 54
-          - 55
-          - 64
-          type: integer
-        TriggerTypeData:
-          type: string
-        TriggerTypeData2:
-          type: string
-        ValidFrom:
-          format: date-time
-          type: string
-        ValidTo:
-          format: date-time
-          type: string
-        MutedUntilDateTime:
-          format: date-time
-          type: string
-        DestinationType:
-          format: int32
-          enum:
-          - 1
-          - 2
-          - 3
-          - 4
-          - 5
-          - 6
-          - 7
-          - 8
-          - 9
-          type: integer
-        DestinationData:
-          minLength: 1
-          type: string
-        DeliveryType:
-          format: int32
-          enum:
-          - 0
-          - 1
-          - 2
-          - 3
-          type: integer
-        TriggerTypeData3:
-          type: string
       additionalProperties: false
   securitySchemes:
     oauth2:

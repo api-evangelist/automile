@@ -160,17 +160,58 @@ paths:
       - oauth2: []
 components:
   schemas:
-    TripScoreChartDataModel:
+    TripScoreSummaryModel:
       type: object
       properties:
         AverageTripScore:
           format: int32
           type: integer
+        FromDate:
+          type: string
+        Reductions:
+          type: array
+          items:
+            $ref: '#/components/schemas/TripScoreReductionModel'
+        Strengths:
+          type: array
+          items:
+            $ref: '#/components/schemas/TripScoreReductionModel'
+        ToDate:
+          type: string
+      additionalProperties: false
+    DrivingScoreModel:
+      type: object
+      properties:
+        Date:
+          format: date-time
+          type: string
         DrivingScore:
           format: int32
           type: integer
-        Date:
-          type: string
+        OrganizationScore:
+          format: int32
+          type: integer
+        Reductions:
+          type: array
+          items:
+            $ref: '#/components/schemas/TripScoreReductionModel'
+        Strengths:
+          type: array
+          items:
+            $ref: '#/components/schemas/TripScoreReductionModel'
+      additionalProperties: false
+    TripScoreChartDataListModel:
+      type: object
+      properties:
+        ContactChartDataList:
+          type: array
+          items:
+            $ref: '#/components/schemas/TripScoreChartDataModel'
+        OrganizationChartDataList:
+          type: array
+          items:
+            $ref: '#/components/schemas/TripScoreChartDataModel'
+          readOnly: true
       additionalProperties: false
     TripScoreTripModel:
       type: object
@@ -194,38 +235,6 @@ components:
           format: date-time
           type: string
       additionalProperties: false
-    TripScoreSummaryModel:
-      type: object
-      properties:
-        AverageTripScore:
-          format: int32
-          type: integer
-        FromDate:
-          type: string
-        Reductions:
-          type: array
-          items:
-            $ref: '#/components/schemas/TripScoreReductionModel'
-        Strengths:
-          type: array
-          items:
-            $ref: '#/components/schemas/TripScoreReductionModel'
-        ToDate:
-          type: string
-      additionalProperties: false
-    TripScoreChartDataListModel:
-      type: object
-      properties:
-        ContactChartDataList:
-          type: array
-          items:
-            $ref: '#/components/schemas/TripScoreChartDataModel'
-        OrganizationChartDataList:
-          type: array
-          items:
-            $ref: '#/components/schemas/TripScoreChartDataModel'
-          readOnly: true
-      additionalProperties: false
     TripScoreReductionModel:
       type: object
       properties:
@@ -238,26 +247,17 @@ components:
         Text:
           type: string
       additionalProperties: false
-    DrivingScoreModel:
+    TripScoreChartDataModel:
       type: object
       properties:
-        Date:
-          format: date-time
-          type: string
+        AverageTripScore:
+          format: int32
+          type: integer
         DrivingScore:
           format: int32
           type: integer
-        OrganizationScore:
-          format: int32
-          type: integer
-        Reductions:
-          type: array
-          items:
-            $ref: '#/components/schemas/TripScoreReductionModel'
-        Strengths:
-          type: array
-          items:
-            $ref: '#/components/schemas/TripScoreReductionModel'
+        Date:
+          type: string
       additionalProperties: false
   securitySchemes:
     oauth2:

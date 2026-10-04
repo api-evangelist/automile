@@ -116,6 +116,33 @@ paths:
       - oauth2: []
 components:
   schemas:
+    UserCreateModel:
+      required:
+      - EmailAddress
+      - FirstName
+      - LastName
+      - UserName
+      type: object
+      properties:
+        UserName:
+          minLength: 1
+          type: string
+        FirstName:
+          minLength: 1
+          type: string
+        LastName:
+          minLength: 1
+          type: string
+        EmailAddress:
+          minLength: 1
+          type: string
+        MobilePhoneNumber:
+          type: string
+        Description:
+          type: string
+        Password:
+          type: string
+      additionalProperties: false
     ProblemDetails:
       type: object
       properties:
@@ -145,33 +172,6 @@ components:
         ContactId:
           format: int32
           type: integer
-      additionalProperties: false
-    UserCreateModel:
-      required:
-      - EmailAddress
-      - FirstName
-      - LastName
-      - UserName
-      type: object
-      properties:
-        UserName:
-          minLength: 1
-          type: string
-        FirstName:
-          minLength: 1
-          type: string
-        LastName:
-          minLength: 1
-          type: string
-        EmailAddress:
-          minLength: 1
-          type: string
-        MobilePhoneNumber:
-          type: string
-        Description:
-          type: string
-        Password:
-          type: string
       additionalProperties: false
   securitySchemes:
     oauth2:

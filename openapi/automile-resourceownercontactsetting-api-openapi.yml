@@ -107,7 +107,7 @@ paths:
       - oauth2: []
 components:
   schemas:
-    ContactSettingModelGET:
+    ContactSettingModelPUT:
       type: object
       properties:
         Name:
@@ -115,7 +115,7 @@ components:
         Value:
           type: string
       additionalProperties: false
-    ContactSettingModelPUT:
+    ContactSettingModelGET:
       type: object
       properties:
         Name:

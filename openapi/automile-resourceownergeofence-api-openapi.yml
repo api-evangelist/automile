@@ -233,32 +233,25 @@ paths:
       - oauth2: []
 components:
   schemas:
-    GeofenceScheduleEditModel:
+    GeographicPosition:
       type: object
       properties:
-        GeofenceScheduleId:
-          format: int32
-          type: integer
-        Monday:
-          type: boolean
-        Tuesday:
-          type: boolean
-        Wednesday:
-          type: boolean
-        Thursday:
-          type: boolean
-        Friday:
-          type: boolean
-        Saturday:
-          type: boolean
-        Sunday:
-          type: boolean
-        StartTime:
-          $ref: '#/components/schemas/TimeSpan'
-        EndTime:
-          $ref: '#/components/schemas/TimeSpan'
+        Latitude:
+          format: double
+          type: number
+        Longitude:
+          format: double
+          type: number
       additionalProperties: false
-    GeofenceScheduleModel:
+    GeofencePolygon:
+      type: object
+      properties:
+        Coordinates:
+          type: array
+          items:
+            $ref: '#/components/schemas/GeographicPosition'
+      additionalProperties: false
+    GeofenceScheduleEditModel:
       type: object
       properties:
         GeofenceScheduleId:
@@ -309,16 +302,6 @@ components:
           items:
             $ref: '#/components/schemas/GeofenceScheduleModel'
       additionalProperties: false
-    GeographicPosition:
-      type: object
-      properties:
-        Latitude:
-          format: double
-          type: number
-        Longitude:
-          format: double
-          type: number
-      additionalProperties: false
     GeofenceCreateModel:
       required:
       - Name
@@ -346,14 +329,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/GeofenceScheduleAddModel'
-      additionalProperties: false
-    GeofencePolygon:
-      type: object
-      properties:
-        Coordinates:
-          type: array
-          items:
-            $ref: '#/components/schemas/GeographicPosition'
       additionalProperties: false
     TimeSpan:
       type: object
@@ -418,6 +393,68 @@ components:
           type: number
           readOnly: true
       additionalProperties: false
+    ProblemDetails:
+      type: object
+      properties:
+        type:
+          type: string
+        title:
+          type: string
+        status:
+          format: int32
+          type: integer
+        detail:
+          type: string
+        instance:
+          type: string
+      additionalProperties: {}
+    GeofenceScheduleAddModel:
+      type: object
+      properties:
+        Monday:
+          type: boolean
+        Tuesday:
+          type: boolean
+        Wednesday:
+          type: boolean
+        Thursday:
+          type: boolean
+        Friday:
+          type: boolean
+        Saturday:
+          type: boolean
+        Sunday:
+          type: boolean
+        StartTime:
+          $ref: '#/components/schemas/TimeSpan'
+        EndTime:
+          $ref: '#/components/schemas/TimeSpan'
+      additionalProperties: false
+    GeofenceScheduleModel:
+      type: object
+      properties:
+        GeofenceScheduleId:
+          format: int32
+          type: integer
+        Monday:
+          type: boolean
+        Tuesday:
+          type: boolean
+        Wednesday:
+          type: boolean
+        Thursday:
+          type: boolean
+        Friday:
+          type: boolean
+        Saturday:
+          type: boolean
+        Sunday:
+          type: boolean
+        StartTime:
+          $ref: '#/components/schemas/TimeSpan'
+        EndTime:
+          $ref: '#/components/schemas/TimeSpan'
+      additionalProperties: false
     GeofenceEditModel:
       required:
       - Name
@@ -442,43 +479,6 @@ components:
           items:
             $ref: '#/components/schemas/GeofenceScheduleEditModel'
       additionalProperties: false
-    GeofenceScheduleAddModel:
-      type: object
-      properties:
-        Monday:
-          type: boolean
-        Tuesday:
-          type: boolean
-        Wednesday:
-          type: boolean
-        Thursday:
-          type: boolean
-        Friday:
-          type: boolean
-        Saturday:
-          type: boolean
-        Sunday:
-          type: boolean
-        StartTime:
-          $ref: '#/components/schemas/TimeSpan'
-        EndTime:
-          $ref: '#/components/schemas/TimeSpan'
-      additionalProperties: false
-    ProblemDetails:
-      type: object
-      properties:
-        type:
-          type: string
-        title:
-          type: string
-        status:
-          format: int32
-          type: integer
-        detail:
-          type: string
-        instance:
-          type: string
-      additionalProperties: {}
   securitySchemes:
     oauth2:
       type: oauth2

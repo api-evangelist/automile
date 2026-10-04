@@ -413,41 +413,6 @@ components:
           - 2
           type: integer
       additionalProperties: false
-    ResetPasswordUserModel:
-      type: object
-      properties:
-        Email:
-          type: string
-        ResetPasswordType:
-          format: int32
-          enum:
-          - 0
-          - 1
-          type: integer
-      additionalProperties: false
-    CreatedAtRoute:
-      type: object
-      properties:
-        RouteName:
-          type: string
-          readOnly: true
-        RouteValues:
-          type: object
-          additionalProperties: {}
-          readOnly: true
-        StatusCode:
-          format: int32
-          type: integer
-          readOnly: true
-      additionalProperties: false
-    DeviceRegisteredModel:
-      type: object
-      properties:
-        QueriedDeviceIMEI:
-          type: string
-        IsRegistered:
-          type: boolean
-      additionalProperties: false
     UserPhoneNumberModel:
       type: object
       properties:
@@ -461,6 +426,12 @@ components:
         OrganizationId:
           format: int32
           type: integer
+      additionalProperties: false
+    UserCreatedPasswordModel:
+      type: object
+      properties:
+        Password:
+          type: string
       additionalProperties: false
     CustomUserCreateModel:
       required:
@@ -503,29 +474,43 @@ components:
           - 2
           type: integer
       additionalProperties: false
-    SSOConfigurationModel:
+    UsernamesPhoneNumberModel:
       type: object
       properties:
-        ClientId:
+        UserName:
           type: string
-        TenantId:
+        UserGuid:
+          format: uuid
           type: string
-        Scopes:
-          type: array
-          items:
-            type: string
+        MobilePhoneNumber:
+          type: string
+        SSO:
+          type: boolean
+        SSOConfig:
+          $ref: '#/components/schemas/SSOConfigurationModel'
       additionalProperties: false
-    ReverseGeocodingResult:
+    DeviceRegisteredModel:
       type: object
       properties:
-        FormattedAddress:
+        QueriedDeviceIMEI:
           type: string
+        IsRegistered:
+          type: boolean
       additionalProperties: false
-    UserCreatedPasswordModel:
+    CreatedAtRoute:
       type: object
       properties:
-        Password:
+        RouteName:
           type: string
+          readOnly: true
+        RouteValues:
+          type: object
+          additionalProperties: {}
+          readOnly: true
+        StatusCode:
+          format: int32
+          type: integer
+          readOnly: true
       additionalProperties: false
     UsernameTakenModel:
       type: object
@@ -550,20 +535,35 @@ components:
         instance:
           type: string
       additionalProperties: {}
-    UsernamesPhoneNumberModel:
+    SSOConfigurationModel:
       type: object
       properties:
-        UserName:
+        ClientId:
           type: string
-        UserGuid:
-          format: uuid
+        TenantId:
           type: string
-        MobilePhoneNumber:
+        Scopes:
+          type: array
+          items:
+            type: string
+      additionalProperties: false
+    ReverseGeocodingResult:
+      type: object
+      properties:
+        FormattedAddress:
           type: string
-        SSO:
-          type: boolean
-        SSOConfig:
-          $ref: '#/components/schemas/SSOConfigurationModel'
+      additionalProperties: false
+    ResetPasswordUserModel:
+      type: object
+      properties:
+        Email:
+          type: string
+        ResetPasswordType:
+          format: int32
+          enum:
+          - 0
+          - 1
+          type: integer
       additionalProperties: false
   securitySchemes:
     oauth2:

@@ -454,7 +454,7 @@ components:
         AuthenticationData:
           type: string
       additionalProperties: false
-    PublishSubscribeEditModel:
+    PublishSubscribeCreateModel:
       type: object
       properties:
         PublishToUrl:
@@ -478,7 +478,7 @@ components:
         AuthenticationData:
           type: string
       additionalProperties: false
-    PublishSubscribeCreateModel:
+    PublishSubscribeEditModel:
       type: object
       properties:
         PublishToUrl:

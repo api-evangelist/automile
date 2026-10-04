@@ -169,6 +169,44 @@ paths:
         description: The model which to create the association between vehicle and place
 components:
   schemas:
+    VehiclePlaceCreateModel:
+      required:
+      - PlaceId
+      - Radius
+      - VehicleId
+      type: object
+      properties:
+        VehicleId:
+          format: int32
+          type: integer
+        PlaceId:
+          format: int32
+          type: integer
+        Description:
+          type: string
+        TripType:
+          format: int32
+          enum:
+          - 0
+          - 1
+          - 2
+          - 3
+          type: integer
+        TripTypeTrigger:
+          format: int32
+          enum:
+          - 0
+          - 1
+          - 2
+          - 3
+          type: integer
+        Radius:
+          format: int32
+          type: integer
+        DrivesBetweenAnotherPlaceId:
+          format: int32
+          type: integer
+      additionalProperties: false
     VehiclePlaceModel:
       type: object
       properties:
@@ -211,44 +249,6 @@ components:
       - Radius
       type: object
       properties:
-        Description:
-          type: string
-        TripType:
-          format: int32
-          enum:
-          - 0
-          - 1
-          - 2
-          - 3
-          type: integer
-        TripTypeTrigger:
-          format: int32
-          enum:
-          - 0
-          - 1
-          - 2
-          - 3
-          type: integer
-        Radius:
-          format: int32
-          type: integer
-        DrivesBetweenAnotherPlaceId:
-          format: int32
-          type: integer
-      additionalProperties: false
-    VehiclePlaceCreateModel:
-      required:
-      - PlaceId
-      - Radius
-      - VehicleId
-      type: object
-      properties:
-        VehicleId:
-          format: int32
-          type: integer
-        PlaceId:
-          format: int32
-          type: integer
         Description:
           type: string
         TripType:

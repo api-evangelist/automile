@@ -137,6 +137,58 @@ paths:
         description: The new vehicle model
 components:
   schemas:
+    VehicleOdometerModelGET:
+      type: object
+      properties:
+        VehicleId:
+          format: int32
+          type: integer
+        DistanceBusiness:
+          format: double
+          type: number
+        DistancePrivate:
+          format: double
+          type: number
+        DistanceOther:
+          format: double
+          type: number
+        DistanceTotal:
+          format: double
+          type: number
+          readOnly: true
+        StartOdometer:
+          format: double
+          type: number
+        EndOdometer:
+          format: double
+          type: number
+        FromDateUtc:
+          format: date-time
+          type: string
+        ToDateUtc:
+          format: date-time
+          type: string
+      additionalProperties: false
+    VehicleOdometerModelPUT:
+      required:
+      - VehicleId
+      type: object
+      properties:
+        VehicleId:
+          format: int32
+          type: integer
+        NewEndOdometer:
+          format: double
+          maximum: 2147483647
+          minimum: 1
+          type: number
+        FromDateUtc:
+          format: date-time
+          type: string
+        ToDateUtc:
+          format: date-time
+          type: string
+      additionalProperties: false
     CalculatedOdometerModelGET:
       type: object
       properties:
@@ -184,58 +236,6 @@ components:
         NewEndOdometer:
           format: double
           type: number
-      additionalProperties: false
-    VehicleOdometerModelPUT:
-      required:
-      - VehicleId
-      type: object
-      properties:
-        VehicleId:
-          format: int32
-          type: integer
-        NewEndOdometer:
-          format: double
-          maximum: 2147483647
-          minimum: 1
-          type: number
-        FromDateUtc:
-          format: date-time
-          type: string
-        ToDateUtc:
-          format: date-time
-          type: string
-      additionalProperties: false
-    VehicleOdometerModelGET:
-      type: object
-      properties:
-        VehicleId:
-          format: int32
-          type: integer
-        DistanceBusiness:
-          format: double
-          type: number
-        DistancePrivate:
-          format: double
-          type: number
-        DistanceOther:
-          format: double
-          type: number
-        DistanceTotal:
-          format: double
-          type: number
-          readOnly: true
-        StartOdometer:
-          format: double
-          type: number
-        EndOdometer:
-          format: double
-          type: number
-        FromDateUtc:
-          format: date-time
-          type: string
-        ToDateUtc:
-          format: date-time
-          type: string
       additionalProperties: false
   securitySchemes:
     oauth2:

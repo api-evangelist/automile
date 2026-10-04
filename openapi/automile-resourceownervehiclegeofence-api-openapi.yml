@@ -181,12 +181,12 @@ components:
           format: date-time
           type: string
       additionalProperties: false
-    VehicleGeofenceCreateModel:
-      required:
-      - GeofenceId
-      - VehicleId
+    VehicleGeofenceModel:
       type: object
       properties:
+        VehicleGeofenceId:
+          format: int32
+          type: integer
         VehicleId:
           format: int32
           type: integer
@@ -200,12 +200,12 @@ components:
           format: date-time
           type: string
       additionalProperties: false
-    VehicleGeofenceModel:
+    VehicleGeofenceCreateModel:
+      required:
+      - GeofenceId
+      - VehicleId
       type: object
       properties:
-        VehicleGeofenceId:
-          format: int32
-          type: integer
         VehicleId:
           format: int32
           type: integer

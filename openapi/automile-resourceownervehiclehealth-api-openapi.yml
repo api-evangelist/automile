@@ -83,61 +83,6 @@ paths:
       - oauth2: []
 components:
   schemas:
-    MILEvent:
-      type: object
-      properties:
-        Occured:
-          format: date-time
-          type: string
-        MILStatus:
-          format: int32
-          enum:
-          - 0
-          - 1
-          type: integer
-        MILDistance:
-          format: int32
-          type: integer
-        CLRDistanceUntilToday:
-          format: double
-          type: number
-        NumberOfDTCs:
-          format: int32
-          type: integer
-        Latitude:
-          format: double
-          type: number
-        Longitude:
-          format: double
-          type: number
-      additionalProperties: false
-    DTCEvent:
-      type: object
-      properties:
-        Occured:
-          format: date-time
-          type: string
-        DTCEventDetails:
-          type: array
-          items:
-            $ref: '#/components/schemas/DTCEventDetail'
-        Latitude:
-          format: double
-          type: number
-        Longitude:
-          format: double
-          type: number
-      additionalProperties: false
-    DTCEventDetail:
-      type: object
-      properties:
-        DTC:
-          type: string
-        FaultLocation:
-          type: string
-        ProbableCause:
-          type: string
-      additionalProperties: false
     BatteryEvent:
       type: object
       properties:
@@ -158,6 +103,16 @@ components:
           - 2
           - 3
           type: integer
+      additionalProperties: false
+    DTCEventDetail:
+      type: object
+      properties:
+        DTC:
+          type: string
+        FaultLocation:
+          type: string
+        ProbableCause:
+          type: string
       additionalProperties: false
     VehicleHealth:
       type: object
@@ -203,6 +158,51 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/DTCEvent'
+      additionalProperties: false
+    MILEvent:
+      type: object
+      properties:
+        Occured:
+          format: date-time
+          type: string
+        MILStatus:
+          format: int32
+          enum:
+          - 0
+          - 1
+          type: integer
+        MILDistance:
+          format: int32
+          type: integer
+        CLRDistanceUntilToday:
+          format: double
+          type: number
+        NumberOfDTCs:
+          format: int32
+          type: integer
+        Latitude:
+          format: double
+          type: number
+        Longitude:
+          format: double
+          type: number
+      additionalProperties: false
+    DTCEvent:
+      type: object
+      properties:
+        Occured:
+          format: date-time
+          type: string
+        DTCEventDetails:
+          type: array
+          items:
+            $ref: '#/components/schemas/DTCEventDetail'
+        Latitude:
+          format: double
+          type: number
+        Longitude:
+          format: double
+          type: number
       additionalProperties: false
   securitySchemes:
     oauth2:

@@ -161,6 +161,94 @@ components:
         ProbableCause:
           type: string
       additionalProperties: false
+    IMEIEventModel:
+      type: object
+      properties:
+        IMEIEventId:
+          format: int32
+          type: integer
+        IMEI:
+          type: string
+        EventType:
+          type: string
+        TimeStamp:
+          format: date-time
+          type: string
+      additionalProperties: false
+    IMEIEventStatusModel:
+      type: object
+      properties:
+        Description:
+          type: string
+        TimeStamp:
+          format: date-time
+          type: string
+        TimeZone:
+          format: int32
+          type: integer
+        EventType:
+          type: string
+        PositionLongitude:
+          format: double
+          type: number
+        PositionLatitude:
+          format: double
+          type: number
+        PositionFormattedAddress:
+          type: string
+        CellTower:
+          format: int32
+          type: integer
+        CellTowerTimeZone:
+          format: int32
+          type: integer
+        VehicleIdentificationNumber:
+          type: string
+        IMEI:
+          type: string
+        DeviceSerialNumber:
+          type: string
+        Status:
+          type: string
+      additionalProperties: false
+    IMEIEventDTCModel:
+      type: object
+      properties:
+        Description:
+          type: string
+        TimeStamp:
+          format: date-time
+          type: string
+        TimeZone:
+          format: int32
+          type: integer
+        EventType:
+          type: string
+        PositionLongitude:
+          format: double
+          type: number
+        PositionLatitude:
+          format: double
+          type: number
+        PositionFormattedAddress:
+          type: string
+        CellTower:
+          format: int32
+          type: integer
+        CellTowerTimeZone:
+          format: int32
+          type: integer
+        VehicleIdentificationNumber:
+          type: string
+        IMEI:
+          type: string
+        DeviceSerialNumber:
+          type: string
+        Dtcs:
+          type: array
+          items:
+            $ref: '#/components/schemas/DTC'
+      additionalProperties: false
     IMEIEventMILModel:
       type: object
       properties:
@@ -217,94 +305,6 @@ components:
         TripTime:
           format: int32
           type: integer
-      additionalProperties: false
-    IMEIEventStatusModel:
-      type: object
-      properties:
-        Description:
-          type: string
-        TimeStamp:
-          format: date-time
-          type: string
-        TimeZone:
-          format: int32
-          type: integer
-        EventType:
-          type: string
-        PositionLongitude:
-          format: double
-          type: number
-        PositionLatitude:
-          format: double
-          type: number
-        PositionFormattedAddress:
-          type: string
-        CellTower:
-          format: int32
-          type: integer
-        CellTowerTimeZone:
-          format: int32
-          type: integer
-        VehicleIdentificationNumber:
-          type: string
-        IMEI:
-          type: string
-        DeviceSerialNumber:
-          type: string
-        Status:
-          type: string
-      additionalProperties: false
-    IMEIEventModel:
-      type: object
-      properties:
-        IMEIEventId:
-          format: int32
-          type: integer
-        IMEI:
-          type: string
-        EventType:
-          type: string
-        TimeStamp:
-          format: date-time
-          type: string
-      additionalProperties: false
-    IMEIEventDTCModel:
-      type: object
-      properties:
-        Description:
-          type: string
-        TimeStamp:
-          format: date-time
-          type: string
-        TimeZone:
-          format: int32
-          type: integer
-        EventType:
-          type: string
-        PositionLongitude:
-          format: double
-          type: number
-        PositionLatitude:
-          format: double
-          type: number
-        PositionFormattedAddress:
-          type: string
-        CellTower:
-          format: int32
-          type: integer
-        CellTowerTimeZone:
-          format: int32
-          type: integer
-        VehicleIdentificationNumber:
-          type: string
-        IMEI:
-          type: string
-        DeviceSerialNumber:
-          type: string
-        Dtcs:
-          type: array
-          items:
-            $ref: '#/components/schemas/DTC'
       additionalProperties: false
   securitySchemes:
     oauth2:

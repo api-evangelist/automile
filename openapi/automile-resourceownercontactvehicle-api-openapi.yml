@@ -238,16 +238,6 @@ paths:
       - oauth2: []
 components:
   schemas:
-    ContactVehicleEditModel:
-      type: object
-      properties:
-        VehicleId:
-          format: int32
-          type: integer
-        ContactId:
-          format: int32
-          type: integer
-      additionalProperties: false
     ContactModel:
       type: object
       properties:
@@ -261,34 +251,6 @@ components:
         EmailAddress:
           type: string
       additionalProperties: false
-    ContactVehicleCreateModel:
-      required:
-      - ContactId
-      - VehicleId
-      type: object
-      properties:
-        VehicleId:
-          format: int32
-          type: integer
-        ContactId:
-          format: int32
-          type: integer
-      additionalProperties: false
-    ProblemDetails:
-      type: object
-      properties:
-        type:
-          type: string
-        title:
-          type: string
-        status:
-          format: int32
-          type: integer
-        detail:
-          type: string
-        instance:
-          type: string
-      additionalProperties: {}
     ContactVehicleDetailModel:
       type: object
       properties:
@@ -317,6 +279,44 @@ components:
           type: array
           items:
             type: string
+      additionalProperties: false
+    ContactVehicleEditModel:
+      type: object
+      properties:
+        VehicleId:
+          format: int32
+          type: integer
+        ContactId:
+          format: int32
+          type: integer
+      additionalProperties: false
+    ProblemDetails:
+      type: object
+      properties:
+        type:
+          type: string
+        title:
+          type: string
+        status:
+          format: int32
+          type: integer
+        detail:
+          type: string
+        instance:
+          type: string
+      additionalProperties: {}
+    ContactVehicleCreateModel:
+      required:
+      - ContactId
+      - VehicleId
+      type: object
+      properties:
+        VehicleId:
+          format: int32
+          type: integer
+        ContactId:
+          format: int32
+          type: integer
       additionalProperties: false
   securitySchemes:
     oauth2:

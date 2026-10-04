@@ -301,38 +301,6 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    RoutePlannerMissionLocationModel:
-      type: object
-      properties:
-        DistanceInKilometers:
-          format: double
-          type: number
-        DurationInSeconds:
-          format: double
-          type: number
-        Address:
-          type: string
-        Note:
-          type: string
-        RouteStopId:
-          format: int32
-          type: integer
-        Status:
-          format: int32
-          enum:
-          - 0
-          - 1
-          - 3
-          type: integer
-        DriverNotes:
-          type: string
-        Latitude:
-          format: double
-          type: number
-        Longitude:
-          format: double
-          type: number
-      additionalProperties: false
     RoutePlannerMissionModel:
       type: object
       properties:
@@ -381,6 +349,38 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/RoutePlannerMissionLocationModel'
+      additionalProperties: false
+    RoutePlannerMissionLocationModel:
+      type: object
+      properties:
+        DistanceInKilometers:
+          format: double
+          type: number
+        DurationInSeconds:
+          format: double
+          type: number
+        Address:
+          type: string
+        Note:
+          type: string
+        RouteStopId:
+          format: int32
+          type: integer
+        Status:
+          format: int32
+          enum:
+          - 0
+          - 1
+          - 3
+          type: integer
+        DriverNotes:
+          type: string
+        Latitude:
+          format: double
+          type: number
+        Longitude:
+          format: double
+          type: number
       additionalProperties: false
     UpdateStopModel:
       type: object

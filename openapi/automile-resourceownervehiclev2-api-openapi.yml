@@ -194,6 +194,132 @@ paths:
       - oauth2: []
 components:
   schemas:
+    VehicleEditModel:
+      type: object
+      properties:
+        NumberPlate:
+          type: string
+        Make:
+          type: string
+        Model:
+          type: string
+        ModelYear:
+          format: int32
+          type: integer
+        BodyStyle:
+          type: string
+        BodyType:
+          format: int32
+          enum:
+          - 0
+          - 1
+          - 2
+          - 3
+          - 4
+          - 5
+          - 6
+          - 7
+          - 8
+          type: integer
+        OwnerContactId:
+          format: int32
+          type: integer
+        OwnerCompanyId:
+          format: int32
+          type: integer
+        DeleteTripDetailsAfter:
+          $ref: '#/components/schemas/TimeSpan'
+        DeleteTripsAfter:
+          $ref: '#/components/schemas/TimeSpan'
+      additionalProperties: false
+    VehicleStatusModel:
+      type: object
+      properties:
+        VehicleId:
+          format: int32
+          type: integer
+        LastPositionUtc:
+          format: date-time
+          type: string
+        LastKnownLatitude:
+          format: double
+          type: number
+        LastKnownLongitude:
+          format: double
+          type: number
+        IsDriving:
+          type: boolean
+        MakeImageUrl:
+          type: string
+        ParkedForNumberOfSeconds:
+          format: int32
+          type: integer
+        DrivingForNumberOfSeconds:
+          format: int32
+          type: integer
+        LastKnownFormattedAddress:
+          type: string
+        LastKnownStreetAddress:
+          type: string
+        LastKnownCity:
+          type: string
+        LastTripId:
+          format: int32
+          type: integer
+        LastLocationType:
+          format: int32
+          enum:
+          - 0
+          - 1
+          - 2
+          type: integer
+        CategoryColor:
+          format: int32
+          type: integer
+        Heading:
+          format: int32
+          type: integer
+      additionalProperties: false
+    VehicleModel:
+      type: object
+      properties:
+        VehicleId:
+          format: int32
+          type: integer
+        VehicleIdentificationNumber:
+          type: string
+        NumberPlate:
+          type: string
+        Make:
+          type: string
+        Model:
+          type: string
+        OwnerContactId:
+          format: int32
+          type: integer
+        OwnerCompanyId:
+          format: int32
+          type: integer
+        CurrentOdometerInKilometers:
+          format: double
+          type: number
+        VehicleType:
+          format: int32
+          enum:
+          - 0
+          - 1
+          - 2
+          - 3
+          - 4
+          - 5
+          - 6
+          - 255
+          type: integer
+        DeleteTripDetailsAfter:
+          $ref: '#/components/schemas/TimeSpan'
+        DeleteTripsAfter:
+          $ref: '#/components/schemas/TimeSpan'
+      additionalProperties: false
     VehicleDetailModel:
       type: object
       properties:
@@ -299,56 +425,6 @@ components:
         DeleteTripsAfter:
           $ref: '#/components/schemas/TimeSpan'
       additionalProperties: false
-    VehicleCreateModel:
-      required:
-      - CreateRelationshipToId
-      - VehicleRelationshipType
-      type: object
-      properties:
-        NumberPlate:
-          type: string
-        Make:
-          type: string
-        Model:
-          type: string
-        ModelYear:
-          format: int32
-          type: integer
-        BodyStyle:
-          type: string
-        BodyType:
-          format: int32
-          enum:
-          - 0
-          - 1
-          - 2
-          - 3
-          - 4
-          - 5
-          - 6
-          - 7
-          - 8
-          type: integer
-        OwnerContactId:
-          format: int32
-          type: integer
-        OwnerCompanyId:
-          format: int32
-          type: integer
-        CreateRelationshipToId:
-          format: int32
-          type: integer
-        VehicleRelationshipType:
-          format: int32
-          enum:
-          - 0
-          - 1
-          type: integer
-        DeleteTripDetailsAfter:
-          $ref: '#/components/schemas/TimeSpan'
-        DeleteTripsAfter:
-          $ref: '#/components/schemas/TimeSpan'
-      additionalProperties: false
     TimeSpan:
       type: object
       properties:
@@ -412,47 +488,10 @@ components:
           type: number
           readOnly: true
       additionalProperties: false
-    VehicleModel:
-      type: object
-      properties:
-        VehicleId:
-          format: int32
-          type: integer
-        VehicleIdentificationNumber:
-          type: string
-        NumberPlate:
-          type: string
-        Make:
-          type: string
-        Model:
-          type: string
-        OwnerContactId:
-          format: int32
-          type: integer
-        OwnerCompanyId:
-          format: int32
-          type: integer
-        CurrentOdometerInKilometers:
-          format: double
-          type: number
-        VehicleType:
-          format: int32
-          enum:
-          - 0
-          - 1
-          - 2
-          - 3
-          - 4
-          - 5
-          - 6
-          - 255
-          type: integer
-        DeleteTripDetailsAfter:
-          $ref: '#/components/schemas/TimeSpan'
-        DeleteTripsAfter:
-          $ref: '#/components/schemas/TimeSpan'
-      additionalProperties: false
-    VehicleEditModel:
+    VehicleCreateModel:
+      required:
+      - CreateRelationshipToId
+      - VehicleRelationshipType
       type: object
       properties:
         NumberPlate:
@@ -485,58 +524,19 @@ components:
         OwnerCompanyId:
           format: int32
           type: integer
-        DeleteTripDetailsAfter:
-          $ref: '#/components/schemas/TimeSpan'
-        DeleteTripsAfter:
-          $ref: '#/components/schemas/TimeSpan'
-      additionalProperties: false
-    VehicleStatusModel:
-      type: object
-      properties:
-        VehicleId:
+        CreateRelationshipToId:
           format: int32
           type: integer
-        LastPositionUtc:
-          format: date-time
-          type: string
-        LastKnownLatitude:
-          format: double
-          type: number
-        LastKnownLongitude:
-          format: double
-          type: number
-        IsDriving:
-          type: boolean
-        MakeImageUrl:
-          type: string
-        ParkedForNumberOfSeconds:
-          format: int32
-          type: integer
-        DrivingForNumberOfSeconds:
-          format: int32
-          type: integer
-        LastKnownFormattedAddress:
-          type: string
-        LastKnownStreetAddress:
-          type: string
-        LastKnownCity:
-          type: string
-        LastTripId:
-          format: int32
-          type: integer
-        LastLocationType:
+        VehicleRelationshipType:
           format: int32
           enum:
           - 0
           - 1
-          - 2
           type: integer
-        CategoryColor:
-          format: int32
-          type: integer
-        Heading:
-          format: int32
-          type: integer
+        DeleteTripDetailsAfter:
+          $ref: '#/components/schemas/TimeSpan'
+        DeleteTripsAfter:
+          $ref: '#/components/schemas/TimeSpan'
       additionalProperties: false
   securitySchemes:
     oauth2:

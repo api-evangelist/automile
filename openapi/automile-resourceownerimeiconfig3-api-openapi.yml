@@ -147,18 +147,17 @@ paths:
         description: The IMEIConfig model
 components:
   schemas:
-    IMEIConfig3Model:
+    IMEIConfigCreate3Model:
       type: object
       properties:
-        IMEIConfigId:
-          format: int32
-          type: integer
         IMEI:
           type: string
         VehicleId:
           format: int32
           type: integer
-        DeviceType:
+        SerialNumber:
+          type: string
+        IMEIDeviceType:
           format: int32
           enum:
           - 0
@@ -171,13 +170,12 @@ components:
           - 7
           - 8
           - 9
+          - 10
+          - 11
+          - 12
+          - 13
           - 255
           type: integer
-        OrganizationId:
-          format: int32
-          type: integer
-        IsEditable:
-          type: boolean
         OrganizationNodeId:
           format: int32
           type: integer
@@ -209,17 +207,18 @@ components:
           format: int32
           type: integer
       additionalProperties: false
-    IMEIConfigCreate3Model:
+    IMEIConfig3Model:
       type: object
       properties:
+        IMEIConfigId:
+          format: int32
+          type: integer
         IMEI:
           type: string
         VehicleId:
           format: int32
           type: integer
-        SerialNumber:
-          type: string
-        IMEIDeviceType:
+        DeviceType:
           format: int32
           enum:
           - 0
@@ -232,12 +231,13 @@ components:
           - 7
           - 8
           - 9
-          - 10
-          - 11
-          - 12
-          - 13
           - 255
           type: integer
+        OrganizationId:
+          format: int32
+          type: integer
+        IsEditable:
+          type: boolean
         OrganizationNodeId:
           format: int32
           type: integer

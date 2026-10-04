@@ -329,30 +329,6 @@ paths:
       - oauth2: []
 components:
   schemas:
-    ExpenseReportEditModel:
-      type: object
-      properties:
-        VehicleId:
-          format: int32
-          type: integer
-        ContactId:
-          format: int32
-          type: integer
-        TripId:
-          format: int32
-          type: integer
-        ExpenseReportDateUtc:
-          format: date-time
-          type: string
-      additionalProperties: false
-    EmailExpenseReportModel:
-      type: object
-      properties:
-        ToEmail:
-          type: string
-        ISO639LanguageCode:
-          type: string
-      additionalProperties: false
     EmailExpenseReportsModel:
       type: object
       properties:
@@ -369,6 +345,179 @@ components:
           type: string
         ISO639LanguageCode:
           type: string
+      additionalProperties: false
+    ExpenseReportRowContentModel:
+      type: object
+      properties:
+        ExpenseReportRowContentId:
+          format: int32
+          type: integer
+        ExpenseReportRowId:
+          format: int32
+          type: integer
+        ContentType:
+          format: int32
+          enum:
+          - 0
+          - 1
+          - 2
+          - 3
+          - 4
+          type: integer
+        ContentFileName:
+          type: string
+      additionalProperties: false
+    ExpenseReportCreateModel:
+      type: object
+      properties:
+        VehicleId:
+          format: int32
+          type: integer
+        ContactId:
+          format: int32
+          type: integer
+        TripId:
+          format: int32
+          type: integer
+        ExpenseReportDateUtc:
+          format: date-time
+          type: string
+        ExpenseReportRows:
+          type: array
+          items:
+            $ref: '#/components/schemas/ExpenseReportRowCreateModel'
+      additionalProperties: false
+    EmailExpenseReportModel:
+      type: object
+      properties:
+        ToEmail:
+          type: string
+        ISO639LanguageCode:
+          type: string
+      additionalProperties: false
+    ExpenseReportRowCreateModel:
+      type: object
+      properties:
+        ExpenseReportId:
+          format: int32
+          type: integer
+        AmountInCurrency:
+          format: double
+          type: number
+        VATInCurrency:
+          format: double
+          type: number
+        ISO4217CurrencyCode:
+          type: string
+        Notes:
+          type: string
+        Category:
+          format: int32
+          enum:
+          - 0
+          - 1
+          - 2
+          - 3
+          - 4
+          - 5
+          - 6
+          - 7
+          - 8
+          - 9
+          - 10
+          type: integer
+        ExpenseReportRowDateUtc:
+          format: date-time
+          type: string
+        ExpenseReportRowContent:
+          type: array
+          items:
+            $ref: '#/components/schemas/ExpenseReportRowContentCreateModel'
+        CustomCategory:
+          type: string
+        CategoryValue:
+          format: double
+          type: number
+        Merchant:
+          type: string
+      additionalProperties: false
+    ExpenseReportModel:
+      type: object
+      properties:
+        ExpenseReportId:
+          format: int32
+          type: integer
+        ContactId:
+          format: int32
+          type: integer
+        ContactName:
+          type: string
+        ContactImageUrl:
+          type: string
+        VehicleId:
+          format: int32
+          type: integer
+        TripId:
+          format: int32
+          type: integer
+        ExpenseReportDateUtc:
+          format: date-time
+          type: string
+        ExpenseReportRows:
+          type: array
+          items:
+            $ref: '#/components/schemas/ExpenseReportRowModel'
+        IsEditable:
+          type: boolean
+      additionalProperties: false
+    ProblemDetails:
+      type: object
+      properties:
+        type:
+          type: string
+        title:
+          type: string
+        status:
+          format: int32
+          type: integer
+        detail:
+          type: string
+        instance:
+          type: string
+      additionalProperties: {}
+    ExpenseReportEditModel:
+      type: object
+      properties:
+        VehicleId:
+          format: int32
+          type: integer
+        ContactId:
+          format: int32
+          type: integer
+        TripId:
+          format: int32
+          type: integer
+        ExpenseReportDateUtc:
+          format: date-time
+          type: string
+      additionalProperties: false
+    ExpenseReportRowContentCreateModel:
+      type: object
+      properties:
+        ExpenseReportRowId:
+          format: int32
+          type: integer
+        Data:
+          type: string
+        ContentType:
+          format: int32
+          enum:
+          - 0
+          - 1
+          - 2
+          - 3
+          - 4
+          type: integer
       additionalProperties: false
     ExpenseReportRowModel:
       type: object
@@ -418,155 +567,6 @@ components:
           type: number
         Merchant:
           type: string
-      additionalProperties: false
-    ExpenseReportRowCreateModel:
-      type: object
-      properties:
-        ExpenseReportId:
-          format: int32
-          type: integer
-        AmountInCurrency:
-          format: double
-          type: number
-        VATInCurrency:
-          format: double
-          type: number
-        ISO4217CurrencyCode:
-          type: string
-        Notes:
-          type: string
-        Category:
-          format: int32
-          enum:
-          - 0
-          - 1
-          - 2
-          - 3
-          - 4
-          - 5
-          - 6
-          - 7
-          - 8
-          - 9
-          - 10
-          type: integer
-        ExpenseReportRowDateUtc:
-          format: date-time
-          type: string
-        ExpenseReportRowContent:
-          type: array
-          items:
-            $ref: '#/components/schemas/ExpenseReportRowContentCreateModel'
-        CustomCategory:
-          type: string
-        CategoryValue:
-          format: double
-          type: number
-        Merchant:
-          type: string
-      additionalProperties: false
-    ExpenseReportRowContentCreateModel:
-      type: object
-      properties:
-        ExpenseReportRowId:
-          format: int32
-          type: integer
-        Data:
-          type: string
-        ContentType:
-          format: int32
-          enum:
-          - 0
-          - 1
-          - 2
-          - 3
-          - 4
-          type: integer
-      additionalProperties: false
-    ExpenseReportRowContentModel:
-      type: object
-      properties:
-        ExpenseReportRowContentId:
-          format: int32
-          type: integer
-        ExpenseReportRowId:
-          format: int32
-          type: integer
-        ContentType:
-          format: int32
-          enum:
-          - 0
-          - 1
-          - 2
-          - 3
-          - 4
-          type: integer
-        ContentFileName:
-          type: string
-      additionalProperties: false
-    ExpenseReportCreateModel:
-      type: object
-      properties:
-        VehicleId:
-          format: int32
-          type: integer
-        ContactId:
-          format: int32
-          type: integer
-        TripId:
-          format: int32
-          type: integer
-        ExpenseReportDateUtc:
-          format: date-time
-          type: string
-        ExpenseReportRows:
-          type: array
-          items:
-            $ref: '#/components/schemas/ExpenseReportRowCreateModel'
-      additionalProperties: false
-    ProblemDetails:
-      type: object
-      properties:
-        type:
-          type: string
-        title:
-          type: string
-        status:
-          format: int32
-          type: integer
-        detail:
-          type: string
-        instance:
-          type: string
-      additionalProperties: {}
-    ExpenseReportModel:
-      type: object
-      properties:
-        ExpenseReportId:
-          format: int32
-          type: integer
-        ContactId:
-          format: int32
-          type: integer
-        ContactName:
-          type: string
-        ContactImageUrl:
-          type: string
-        VehicleId:
-          format: int32
-          type: integer
-        TripId:
-          format: int32
-          type: integer
-        ExpenseReportDateUtc:
-          format: date-time
-          type: string
-        ExpenseReportRows:
-          type: array
-          items:
-            $ref: '#/components/schemas/ExpenseReportRowModel'
-        IsEditable:
-          type: boolean
       additionalProperties: false
   securitySchemes:
     oauth2:

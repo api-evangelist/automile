@@ -193,6 +193,21 @@ paths:
         description: The task model
 components:
   schemas:
+    TaskContactModel:
+      type: object
+      properties:
+        ContactId:
+          format: int32
+          type: integer
+        FirstName:
+          type: string
+        LastName:
+          type: string
+        ProfileImageUrl:
+          type: string
+        IsCheckedIn:
+          type: boolean
+      additionalProperties: false
     TaskMessageModel:
       type: object
       properties:
@@ -219,6 +234,16 @@ components:
         Position:
           $ref: '#/components/schemas/PositionModel'
       additionalProperties: false
+    PositionModel:
+      type: object
+      properties:
+        Longitude:
+          format: double
+          type: number
+        Latitude:
+          format: double
+          type: number
+      additionalProperties: false
     TaskCreateModel:
       type: object
       properties:
@@ -235,18 +260,6 @@ components:
           type: string
         Position:
           $ref: '#/components/schemas/PositionModel'
-        Title:
-          type: string
-      additionalProperties: false
-    TaskEditModel:
-      type: object
-      properties:
-        TaskStatusType:
-          format: int32
-          enum:
-          - 0
-          - 1
-          type: integer
         Title:
           type: string
       additionalProperties: false
@@ -300,21 +313,6 @@ components:
         Title:
           type: string
       additionalProperties: false
-    TaskContactModel:
-      type: object
-      properties:
-        ContactId:
-          format: int32
-          type: integer
-        FirstName:
-          type: string
-        LastName:
-          type: string
-        ProfileImageUrl:
-          type: string
-        IsCheckedIn:
-          type: boolean
-      additionalProperties: false
     TaskDetailModel:
       type: object
       properties:
@@ -338,15 +336,17 @@ components:
         Title:
           type: string
       additionalProperties: false
-    PositionModel:
+    TaskEditModel:
       type: object
       properties:
-        Longitude:
-          format: double
-          type: number
-        Latitude:
-          format: double
-          type: number
+        TaskStatusType:
+          format: int32
+          enum:
+          - 0
+          - 1
+          type: integer
+        Title:
+          type: string
       additionalProperties: false
   securitySchemes:
     oauth2:

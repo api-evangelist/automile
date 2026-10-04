@@ -262,48 +262,6 @@ paths:
       - oauth2: []
 components:
   schemas:
-    TripModelGET:
-      type: object
-      properties:
-        TripId:
-          format: int32
-          type: integer
-        Category:
-          format: int32
-          enum:
-          - 0
-          - 1
-          - 2
-          - 3
-          type: integer
-        TripStartDateTime:
-          format: date-time
-          type: string
-        TripEndDateTime:
-          format: date-time
-          type: string
-        TripStartAddress:
-          type: string
-        TripEndAddress:
-          type: string
-        VehicleName:
-          type: string
-        DistanceInKilometer:
-          format: double
-          type: number
-        Duration:
-          $ref: '#/components/schemas/TimeSpan'
-        Note:
-          type: string
-      additionalProperties: false
-    TripApprovalResponseModel:
-      type: object
-      properties:
-        Note:
-          type: string
-        Approved:
-          type: boolean
-      additionalProperties: false
     TripApprovalSubmitModelPOST:
       type: object
       properties:
@@ -318,6 +276,62 @@ components:
           items:
             format: int32
             type: integer
+      additionalProperties: false
+    TripApprovalRequestModelGET:
+      type: object
+      properties:
+        TripApprovalRequestId:
+          format: int32
+          type: integer
+        SubmitDateTime:
+          format: date-time
+          type: string
+        SubmitterContactId:
+          format: int32
+          type: integer
+        SubmitterProfileImage:
+          type: string
+        SubmitterFullName:
+          type: string
+        FromUtc:
+          format: date-time
+          type: string
+        ToUtc:
+          format: date-time
+          type: string
+        NrOfTrips:
+          format: int32
+          type: integer
+        VehicleId:
+          format: int32
+          type: integer
+        VehicleName:
+          type: string
+        TotalDistanceInKilometer:
+          format: double
+          type: number
+        TotalDuration:
+          $ref: '#/components/schemas/TimeSpan'
+        Status:
+          format: int32
+          enum:
+          - 0
+          - 1
+          - 2
+          - 3
+          type: integer
+        StatusList:
+          type: array
+          items:
+            $ref: '#/components/schemas/TripApprovalStatusModel'
+      additionalProperties: false
+    TripApprovalResponseModel:
+      type: object
+      properties:
+        Note:
+          type: string
+        Approved:
+          type: boolean
       additionalProperties: false
     TimeSpan:
       type: object
@@ -396,42 +410,13 @@ components:
         ApproverFullName:
           type: string
       additionalProperties: false
-    TripApprovalRequestModelGET:
+    TripModelGET:
       type: object
       properties:
-        TripApprovalRequestId:
+        TripId:
           format: int32
           type: integer
-        SubmitDateTime:
-          format: date-time
-          type: string
-        SubmitterContactId:
-          format: int32
-          type: integer
-        SubmitterProfileImage:
-          type: string
-        SubmitterFullName:
-          type: string
-        FromUtc:
-          format: date-time
-          type: string
-        ToUtc:
-          format: date-time
-          type: string
-        NrOfTrips:
-          format: int32
-          type: integer
-        VehicleId:
-          format: int32
-          type: integer
-        VehicleName:
-          type: string
-        TotalDistanceInKilometer:
-          format: double
-          type: number
-        TotalDuration:
-          $ref: '#/components/schemas/TimeSpan'
-        Status:
+        Category:
           format: int32
           enum:
           - 0
@@ -439,10 +424,25 @@ components:
           - 2
           - 3
           type: integer
-        StatusList:
-          type: array
-          items:
-            $ref: '#/components/schemas/TripApprovalStatusModel'
+        TripStartDateTime:
+          format: date-time
+          type: string
+        TripEndDateTime:
+          format: date-time
+          type: string
+        TripStartAddress:
+          type: string
+        TripEndAddress:
+          type: string
+        VehicleName:
+          type: string
+        DistanceInKilometer:
+          format: double
+          type: number
+        Duration:
+          $ref: '#/components/schemas/TimeSpan'
+        Note:
+          type: string
       additionalProperties: false
   securitySchemes:
     oauth2:

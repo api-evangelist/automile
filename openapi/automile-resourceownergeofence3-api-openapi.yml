@@ -243,56 +243,6 @@ paths:
       - oauth2: []
 components:
   schemas:
-    GeofenceScheduleEditModel:
-      type: object
-      properties:
-        GeofenceScheduleId:
-          format: int32
-          type: integer
-        Monday:
-          type: boolean
-        Tuesday:
-          type: boolean
-        Wednesday:
-          type: boolean
-        Thursday:
-          type: boolean
-        Friday:
-          type: boolean
-        Saturday:
-          type: boolean
-        Sunday:
-          type: boolean
-        StartTime:
-          $ref: '#/components/schemas/TimeSpan'
-        EndTime:
-          $ref: '#/components/schemas/TimeSpan'
-      additionalProperties: false
-    GeofenceScheduleModel:
-      type: object
-      properties:
-        GeofenceScheduleId:
-          format: int32
-          type: integer
-        Monday:
-          type: boolean
-        Tuesday:
-          type: boolean
-        Wednesday:
-          type: boolean
-        Thursday:
-          type: boolean
-        Friday:
-          type: boolean
-        Saturday:
-          type: boolean
-        Sunday:
-          type: boolean
-        StartTime:
-          $ref: '#/components/schemas/TimeSpan'
-        EndTime:
-          $ref: '#/components/schemas/TimeSpan'
-      additionalProperties: false
     GeofenceModel3:
       type: object
       properties:
@@ -339,6 +289,85 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/GeographicPosition'
+      additionalProperties: false
+    GeofenceScheduleEditModel:
+      type: object
+      properties:
+        GeofenceScheduleId:
+          format: int32
+          type: integer
+        Monday:
+          type: boolean
+        Tuesday:
+          type: boolean
+        Wednesday:
+          type: boolean
+        Thursday:
+          type: boolean
+        Friday:
+          type: boolean
+        Saturday:
+          type: boolean
+        Sunday:
+          type: boolean
+        StartTime:
+          $ref: '#/components/schemas/TimeSpan'
+        EndTime:
+          $ref: '#/components/schemas/TimeSpan'
+      additionalProperties: false
+    Geofence3CreateModel:
+      required:
+      - Name
+      type: object
+      properties:
+        Name:
+          minLength: 1
+          type: string
+        Description:
+          type: string
+        OrganizationNodeId:
+          format: int32
+          type: integer
+        GeofencePolygon:
+          $ref: '#/components/schemas/GeofencePolygon'
+        GeofenceType:
+          format: int32
+          enum:
+          - 0
+          - 1
+          - 2
+          type: integer
+        Schedules:
+          type: array
+          items:
+            $ref: '#/components/schemas/GeofenceScheduleAddModel'
+      additionalProperties: false
+    Geofence3EditModel:
+      required:
+      - Name
+      type: object
+      properties:
+        Name:
+          minLength: 1
+          type: string
+        Description:
+          type: string
+        GeofencePolygon:
+          $ref: '#/components/schemas/GeofencePolygon'
+        GeofenceType:
+          format: int32
+          enum:
+          - 0
+          - 1
+          - 2
+          type: integer
+        OrganizationNodeId:
+          format: int32
+          type: integer
+        Schedules:
+          type: array
+          items:
+            $ref: '#/components/schemas/GeofenceScheduleEditModel'
       additionalProperties: false
     TimeSpan:
       type: object
@@ -403,60 +432,21 @@ components:
           type: number
           readOnly: true
       additionalProperties: false
-    Geofence3CreateModel:
-      required:
-      - Name
+    ProblemDetails:
       type: object
       properties:
-        Name:
-          minLength: 1
+        type:
           type: string
-        Description:
+        title:
           type: string
-        OrganizationNodeId:
+        status:
           format: int32
           type: integer
-        GeofencePolygon:
-          $ref: '#/components/schemas/GeofencePolygon'
-        GeofenceType:
-          format: int32
-          enum:
-          - 0
-          - 1
-          - 2
-          type: integer
-        Schedules:
-          type: array
-          items:
-            $ref: '#/components/schemas/GeofenceScheduleAddModel'
-      additionalProperties: false
-    Geofence3EditModel:
-      required:
-      - Name
-      type: object
-      properties:
-        Name:
-          minLength: 1
+        detail:
           type: string
-        Description:
+        instance:
           type: string
-        GeofencePolygon:
-          $ref: '#/components/schemas/GeofencePolygon'
-        GeofenceType:
-          format: int32
-          enum:
-          - 0
-          - 1
-          - 2
-          type: integer
-        OrganizationNodeId:
-          format: int32
-          type: integer
-        Schedules:
-          type: array
-          items:
-            $ref: '#/components/schemas/GeofenceScheduleEditModel'
-      additionalProperties: false
+      additionalProperties: {}
     GeofenceScheduleAddModel:
       type: object
       properties:
@@ -479,21 +469,31 @@ components:
         EndTime:
           $ref: '#/components/schemas/TimeSpan'
       additionalProperties: false
-    ProblemDetails:
+    GeofenceScheduleModel:
       type: object
       properties:
-        type:
-          type: string
-        title:
-          type: string
-        status:
+        GeofenceScheduleId:
           format: int32
           type: integer
-        detail:
-          type: string
-        instance:
-          type: string
-      additionalProperties: {}
+        Monday:
+          type: boolean
+        Tuesday:
+          type: boolean
+        Wednesday:
+          type: boolean
+        Thursday:
+          type: boolean
+        Friday:
+          type: boolean
+        Saturday:
+          type: boolean
+        Sunday:
+          type: boolean
+        StartTime:
+          $ref: '#/components/schemas/TimeSpan'
+        EndTime:
+          $ref: '#/components/schemas/TimeSpan'
+      additionalProperties: false
   securitySchemes:
     oauth2:
       type: oauth2

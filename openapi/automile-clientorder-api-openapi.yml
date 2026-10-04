@@ -65,6 +65,83 @@ paths:
       - oauth2: []
 components:
   schemas:
+    AddressModel:
+      required:
+      - AddressLine2
+      - City
+      - ISO3166CountryCode
+      - ZipCode
+      type: object
+      properties:
+        AddressId:
+          format: int32
+          type: integer
+        CompanyName:
+          type: string
+        ContactNameAtAddress:
+          type: string
+        AddressLine2:
+          minLength: 1
+          type: string
+        AddressLine3:
+          type: string
+        AddressLine4:
+          type: string
+        ZipCode:
+          minLength: 1
+          type: string
+        City:
+          minLength: 1
+          type: string
+        StateOrProvince:
+          type: string
+        ISO3166CountryCode:
+          minLength: 1
+          type: string
+      additionalProperties: false
+    ProOrderModel:
+      required:
+      - CompanyName
+      - Email
+      - FirstName
+      - LastName
+      - MobilePhoneNumber
+      type: object
+      properties:
+        ISO4217CurrencyCode:
+          type: string
+        NumberOfUnits:
+          format: int32
+          type: integer
+        NonOBDUnits:
+          type: boolean
+        ExtensionCables:
+          type: boolean
+        NumberOfExtensionCords:
+          format: int32
+          type: integer
+        CompanyName:
+          minLength: 1
+          type: string
+        FirstName:
+          minLength: 1
+          type: string
+        LastName:
+          minLength: 1
+          type: string
+        Email:
+          minLength: 1
+          type: string
+        MobilePhoneNumber:
+          minLength: 1
+          type: string
+        ShippingAddress:
+          $ref: '#/components/schemas/AddressModel'
+        UseShippingAddressForBillingAddress:
+          type: boolean
+        BillingAddress:
+          $ref: '#/components/schemas/AddressModel'
+      additionalProperties: false
     ApiPriceModel:
       type: object
       properties:
@@ -119,83 +196,6 @@ components:
         ArticlePriceIdYearlyPlan:
           format: int32
           type: integer
-      additionalProperties: false
-    ProOrderModel:
-      required:
-      - CompanyName
-      - Email
-      - FirstName
-      - LastName
-      - MobilePhoneNumber
-      type: object
-      properties:
-        ISO4217CurrencyCode:
-          type: string
-        NumberOfUnits:
-          format: int32
-          type: integer
-        NonOBDUnits:
-          type: boolean
-        ExtensionCables:
-          type: boolean
-        NumberOfExtensionCords:
-          format: int32
-          type: integer
-        CompanyName:
-          minLength: 1
-          type: string
-        FirstName:
-          minLength: 1
-          type: string
-        LastName:
-          minLength: 1
-          type: string
-        Email:
-          minLength: 1
-          type: string
-        MobilePhoneNumber:
-          minLength: 1
-          type: string
-        ShippingAddress:
-          $ref: '#/components/schemas/AddressModel'
-        UseShippingAddressForBillingAddress:
-          type: boolean
-        BillingAddress:
-          $ref: '#/components/schemas/AddressModel'
-      additionalProperties: false
-    AddressModel:
-      required:
-      - AddressLine2
-      - City
-      - ISO3166CountryCode
-      - ZipCode
-      type: object
-      properties:
-        AddressId:
-          format: int32
-          type: integer
-        CompanyName:
-          type: string
-        ContactNameAtAddress:
-          type: string
-        AddressLine2:
-          minLength: 1
-          type: string
-        AddressLine3:
-          type: string
-        AddressLine4:
-          type: string
-        ZipCode:
-          minLength: 1
-          type: string
-        City:
-          minLength: 1
-          type: string
-        StateOrProvince:
-          type: string
-        ISO3166CountryCode:
-          minLength: 1
-          type: string
       additionalProperties: false
   securitySchemes:
     oauth2:

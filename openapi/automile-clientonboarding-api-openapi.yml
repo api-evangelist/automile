@@ -63,6 +63,14 @@ paths:
       - oauth2: []
 components:
   schemas:
+    VehicleMakeModel:
+      type: object
+      properties:
+        Make:
+          type: string
+        MakeUrl:
+          type: string
+      additionalProperties: false
     VehickeMakesModel:
       type: object
       properties:
@@ -77,14 +85,6 @@ components:
         Make:
           type: string
         Model:
-          type: string
-      additionalProperties: false
-    VehicleMakeModel:
-      type: object
-      properties:
-        Make:
-          type: string
-        MakeUrl:
           type: string
       additionalProperties: false
     VehicleModelsModel:

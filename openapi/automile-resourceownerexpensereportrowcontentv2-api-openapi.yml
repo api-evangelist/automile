@@ -205,15 +205,11 @@ paths:
               $ref: '#/components/schemas/ExpenseReportRowContentCreateModel'
 components:
   schemas:
-    ExpenseReportRowContentModel:
+    ExpenseReportRowContentEditModel:
       type: object
       properties:
-        ExpenseReportRowContentId:
-          format: int32
-          type: integer
-        ExpenseReportRowId:
-          format: int32
-          type: integer
+        Data:
+          type: string
         ContentType:
           format: int32
           enum:
@@ -223,12 +219,13 @@ components:
           - 3
           - 4
           type: integer
-        ContentFileName:
-          type: string
       additionalProperties: false
-    ExpenseReportRowContentEditModel:
+    ExpenseReportRowContentCreateModel:
       type: object
       properties:
+        ExpenseReportRowId:
+          format: int32
+          type: integer
         Data:
           type: string
         ContentType:
@@ -256,14 +253,15 @@ components:
         instance:
           type: string
       additionalProperties: {}
-    ExpenseReportRowContentCreateModel:
+    ExpenseReportRowContentModel:
       type: object
       properties:
+        ExpenseReportRowContentId:
+          format: int32
+          type: integer
         ExpenseReportRowId:
           format: int32
           type: integer
-        Data:
-          type: string
         ContentType:
           format: int32
           enum:
@@ -273,6 +271,8 @@ components:
           - 3
           - 4
           type: integer
+        ContentFileName:
+          type: string
       additionalProperties: false
   securitySchemes:
     oauth2:
