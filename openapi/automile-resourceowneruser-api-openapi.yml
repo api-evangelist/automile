@@ -170,18 +170,6 @@ paths:
         description: Model containing the users client device id
 components:
   schemas:
-    ChangeUserNameModel:
-      type: object
-      properties:
-        NewUserName:
-          type: string
-      additionalProperties: false
-    UserExistingPasswordModel:
-      type: object
-      properties:
-        HasPassword:
-          type: boolean
-      additionalProperties: false
     ChangePasswordModel:
       type: object
       properties:
@@ -202,15 +190,6 @@ components:
           - 1
           type: integer
       additionalProperties: false
-    LogoutModel:
-      required:
-      - UserDeviceId
-      type: object
-      properties:
-        UserDeviceId:
-          format: int32
-          type: integer
-      additionalProperties: false
     UserModel:
       type: object
       properties:
@@ -225,6 +204,27 @@ components:
         ContactId:
           format: int32
           type: integer
+      additionalProperties: false
+    LogoutModel:
+      required:
+      - UserDeviceId
+      type: object
+      properties:
+        UserDeviceId:
+          format: int32
+          type: integer
+      additionalProperties: false
+    ChangeUserNameModel:
+      type: object
+      properties:
+        NewUserName:
+          type: string
+      additionalProperties: false
+    UserExistingPasswordModel:
+      type: object
+      properties:
+        HasPassword:
+          type: boolean
       additionalProperties: false
   securitySchemes:
     oauth2:

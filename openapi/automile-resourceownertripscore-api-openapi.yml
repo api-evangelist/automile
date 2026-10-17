@@ -160,6 +160,19 @@ paths:
       - oauth2: []
 components:
   schemas:
+    TripScoreChartDataListModel:
+      type: object
+      properties:
+        ContactChartDataList:
+          type: array
+          items:
+            $ref: '#/components/schemas/TripScoreChartDataModel'
+        OrganizationChartDataList:
+          type: array
+          items:
+            $ref: '#/components/schemas/TripScoreChartDataModel'
+          readOnly: true
+      additionalProperties: false
     TripScoreSummaryModel:
       type: object
       properties:
@@ -199,19 +212,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/TripScoreReductionModel'
-      additionalProperties: false
-    TripScoreChartDataListModel:
-      type: object
-      properties:
-        ContactChartDataList:
-          type: array
-          items:
-            $ref: '#/components/schemas/TripScoreChartDataModel'
-        OrganizationChartDataList:
-          type: array
-          items:
-            $ref: '#/components/schemas/TripScoreChartDataModel'
-          readOnly: true
       additionalProperties: false
     TripScoreTripModel:
       type: object

@@ -345,56 +345,6 @@ paths:
       - oauth2: []
 components:
   schemas:
-    ContactModel:
-      type: object
-      properties:
-        ContactId:
-          format: int32
-          type: integer
-        FirstName:
-          type: string
-        LastName:
-          type: string
-        EmailAddress:
-          type: string
-      additionalProperties: false
-    ContactEditModel:
-      required:
-      - FirstName
-      - LastName
-      type: object
-      properties:
-        FirstName:
-          minLength: 1
-          type: string
-        LastName:
-          minLength: 1
-          type: string
-        EmailAddress:
-          type: string
-        Description:
-          type: string
-        CultureName:
-          type: string
-        DefaultVehicleId:
-          format: int32
-          type: integer
-      additionalProperties: false
-    ProblemDetails:
-      type: object
-      properties:
-        type:
-          type: string
-        title:
-          type: string
-        status:
-          format: int32
-          type: integer
-        detail:
-          type: string
-        instance:
-          type: string
-      additionalProperties: {}
     ContactDetailModel:
       type: object
       properties:
@@ -444,6 +394,56 @@ components:
         DefaultVehicleId:
           format: int32
           type: integer
+      additionalProperties: false
+    ProblemDetails:
+      type: object
+      properties:
+        type:
+          type: string
+        title:
+          type: string
+        status:
+          format: int32
+          type: integer
+        detail:
+          type: string
+        instance:
+          type: string
+      additionalProperties: {}
+    ContactEditModel:
+      required:
+      - FirstName
+      - LastName
+      type: object
+      properties:
+        FirstName:
+          minLength: 1
+          type: string
+        LastName:
+          minLength: 1
+          type: string
+        EmailAddress:
+          type: string
+        Description:
+          type: string
+        CultureName:
+          type: string
+        DefaultVehicleId:
+          format: int32
+          type: integer
+      additionalProperties: false
+    ContactModel:
+      type: object
+      properties:
+        ContactId:
+          format: int32
+          type: integer
+        FirstName:
+          type: string
+        LastName:
+          type: string
+        EmailAddress:
+          type: string
       additionalProperties: false
   securitySchemes:
     oauth2:

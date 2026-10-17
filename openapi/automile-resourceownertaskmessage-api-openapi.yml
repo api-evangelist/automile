@@ -119,16 +119,6 @@ components:
         IsRead:
           type: boolean
       additionalProperties: false
-    PositionModel:
-      type: object
-      properties:
-        Longitude:
-          format: double
-          type: number
-        Latitude:
-          format: double
-          type: number
-      additionalProperties: false
     TaskMessageModel:
       type: object
       properties:
@@ -154,6 +144,16 @@ components:
           type: boolean
         Position:
           $ref: '#/components/schemas/PositionModel'
+      additionalProperties: false
+    PositionModel:
+      type: object
+      properties:
+        Longitude:
+          format: double
+          type: number
+        Latitude:
+          format: double
+          type: number
       additionalProperties: false
   securitySchemes:
     oauth2:

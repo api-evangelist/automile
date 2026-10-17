@@ -193,46 +193,17 @@ paths:
         description: The task model
 components:
   schemas:
-    TaskContactModel:
+    TaskEditModel:
       type: object
       properties:
-        ContactId:
+        TaskStatusType:
           format: int32
+          enum:
+          - 0
+          - 1
           type: integer
-        FirstName:
+        Title:
           type: string
-        LastName:
-          type: string
-        ProfileImageUrl:
-          type: string
-        IsCheckedIn:
-          type: boolean
-      additionalProperties: false
-    TaskMessageModel:
-      type: object
-      properties:
-        TaskMessageId:
-          format: int32
-          type: integer
-        SentByContactId:
-          format: int32
-          type: integer
-        ToContactId:
-          format: int32
-          type: integer
-        MessageText:
-          type: string
-        MessageSentAtUtc:
-          format: date-time
-          type: string
-        SentByContactName:
-          type: string
-        ToContactName:
-          type: string
-        MessageIsRead:
-          type: boolean
-        Position:
-          $ref: '#/components/schemas/PositionModel'
       additionalProperties: false
     PositionModel:
       type: object
@@ -244,22 +215,26 @@ components:
           format: double
           type: number
       additionalProperties: false
-    TaskCreateModel:
+    TaskDetailModel:
       type: object
       properties:
-        TaskType:
-          format: int32
-          enum:
-          - 0
-          - 1
-          type: integer
-        ToContactId:
+        TaskId:
           format: int32
           type: integer
-        TaskMessageText:
+        CreatedByContactId:
+          format: int32
+          type: integer
+        CreatedByContactName:
           type: string
-        Position:
-          $ref: '#/components/schemas/PositionModel'
+        TaskAcquiredByContactId:
+          format: int32
+          type: integer
+        TaskAcquiredByContactName:
+          type: string
+        TaskMessages:
+          type: array
+          items:
+            $ref: '#/components/schemas/TaskMessageModel'
         Title:
           type: string
       additionalProperties: false
@@ -313,38 +288,63 @@ components:
         Title:
           type: string
       additionalProperties: false
-    TaskDetailModel:
+    TaskContactModel:
       type: object
       properties:
-        TaskId:
+        ContactId:
           format: int32
           type: integer
-        CreatedByContactId:
-          format: int32
-          type: integer
-        CreatedByContactName:
+        FirstName:
           type: string
-        TaskAcquiredByContactId:
-          format: int32
-          type: integer
-        TaskAcquiredByContactName:
+        LastName:
           type: string
-        TaskMessages:
-          type: array
-          items:
-            $ref: '#/components/schemas/TaskMessageModel'
-        Title:
+        ProfileImageUrl:
           type: string
+        IsCheckedIn:
+          type: boolean
       additionalProperties: false
-    TaskEditModel:
+    TaskMessageModel:
       type: object
       properties:
-        TaskStatusType:
+        TaskMessageId:
+          format: int32
+          type: integer
+        SentByContactId:
+          format: int32
+          type: integer
+        ToContactId:
+          format: int32
+          type: integer
+        MessageText:
+          type: string
+        MessageSentAtUtc:
+          format: date-time
+          type: string
+        SentByContactName:
+          type: string
+        ToContactName:
+          type: string
+        MessageIsRead:
+          type: boolean
+        Position:
+          $ref: '#/components/schemas/PositionModel'
+      additionalProperties: false
+    TaskCreateModel:
+      type: object
+      properties:
+        TaskType:
           format: int32
           enum:
           - 0
           - 1
           type: integer
+        ToContactId:
+          format: int32
+          type: integer
+        TaskMessageText:
+          type: string
+        Position:
+          $ref: '#/components/schemas/PositionModel'
         Title:
           type: string
       additionalProperties: false

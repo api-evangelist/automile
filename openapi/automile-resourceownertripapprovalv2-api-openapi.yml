@@ -262,21 +262,6 @@ paths:
       - oauth2: []
 components:
   schemas:
-    TripApprovalSubmitModelPOST:
-      type: object
-      properties:
-        From:
-          format: date-time
-          type: string
-        To:
-          format: date-time
-          type: string
-        TripIdList:
-          type: array
-          items:
-            format: int32
-            type: integer
-      additionalProperties: false
     TripApprovalRequestModelGET:
       type: object
       properties:
@@ -332,6 +317,69 @@ components:
           type: string
         Approved:
           type: boolean
+      additionalProperties: false
+    TripModelGET:
+      type: object
+      properties:
+        TripId:
+          format: int32
+          type: integer
+        Category:
+          format: int32
+          enum:
+          - 0
+          - 1
+          - 2
+          - 3
+          type: integer
+        TripStartDateTime:
+          format: date-time
+          type: string
+        TripEndDateTime:
+          format: date-time
+          type: string
+        TripStartAddress:
+          type: string
+        TripEndAddress:
+          type: string
+        VehicleName:
+          type: string
+        DistanceInKilometer:
+          format: double
+          type: number
+        Duration:
+          $ref: '#/components/schemas/TimeSpan'
+        Note:
+          type: string
+      additionalProperties: false
+    TripApprovalStatusModel:
+      type: object
+      properties:
+        Status:
+          format: int32
+          enum:
+          - 0
+          - 1
+          - 2
+          - 3
+          type: integer
+        ApproverFullName:
+          type: string
+      additionalProperties: false
+    TripApprovalSubmitModelPOST:
+      type: object
+      properties:
+        From:
+          format: date-time
+          type: string
+        To:
+          format: date-time
+          type: string
+        TripIdList:
+          type: array
+          items:
+            format: int32
+            type: integer
       additionalProperties: false
     TimeSpan:
       type: object
@@ -395,54 +443,6 @@ components:
           format: double
           type: number
           readOnly: true
-      additionalProperties: false
-    TripApprovalStatusModel:
-      type: object
-      properties:
-        Status:
-          format: int32
-          enum:
-          - 0
-          - 1
-          - 2
-          - 3
-          type: integer
-        ApproverFullName:
-          type: string
-      additionalProperties: false
-    TripModelGET:
-      type: object
-      properties:
-        TripId:
-          format: int32
-          type: integer
-        Category:
-          format: int32
-          enum:
-          - 0
-          - 1
-          - 2
-          - 3
-          type: integer
-        TripStartDateTime:
-          format: date-time
-          type: string
-        TripEndDateTime:
-          format: date-time
-          type: string
-        TripStartAddress:
-          type: string
-        TripEndAddress:
-          type: string
-        VehicleName:
-          type: string
-        DistanceInKilometer:
-          format: double
-          type: number
-        Duration:
-          $ref: '#/components/schemas/TimeSpan'
-        Note:
-          type: string
       additionalProperties: false
   securitySchemes:
     oauth2:

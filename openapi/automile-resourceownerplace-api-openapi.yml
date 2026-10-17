@@ -162,15 +162,17 @@ paths:
       - oauth2: []
 components:
   schemas:
-    PositionPointModel:
+    PlaceEditModel:
+      required:
+      - Name
+      - PositionPoint
       type: object
       properties:
-        Longitude:
-          format: double
-          type: number
-        Latitude:
-          format: double
-          type: number
+        Name:
+          minLength: 1
+          type: string
+        PositionPoint:
+          $ref: '#/components/schemas/PositionPointModel'
       additionalProperties: false
     PlaceCreateModel:
       required:
@@ -213,6 +215,16 @@ components:
           format: int32
           type: integer
       additionalProperties: false
+    PositionPointModel:
+      type: object
+      properties:
+        Longitude:
+          format: double
+          type: number
+        Latitude:
+          format: double
+          type: number
+      additionalProperties: false
     PlaceModel:
       type: object
       properties:
@@ -254,18 +266,6 @@ components:
         DrivesBetweenAnotherPlaceId:
           format: int32
           type: integer
-      additionalProperties: false
-    PlaceEditModel:
-      required:
-      - Name
-      - PositionPoint
-      type: object
-      properties:
-        Name:
-          minLength: 1
-          type: string
-        PositionPoint:
-          $ref: '#/components/schemas/PositionPointModel'
       additionalProperties: false
   securitySchemes:
     oauth2:

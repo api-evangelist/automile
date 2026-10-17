@@ -65,40 +65,6 @@ paths:
       - oauth2: []
 components:
   schemas:
-    AddressModel:
-      required:
-      - AddressLine2
-      - City
-      - ISO3166CountryCode
-      - ZipCode
-      type: object
-      properties:
-        AddressId:
-          format: int32
-          type: integer
-        CompanyName:
-          type: string
-        ContactNameAtAddress:
-          type: string
-        AddressLine2:
-          minLength: 1
-          type: string
-        AddressLine3:
-          type: string
-        AddressLine4:
-          type: string
-        ZipCode:
-          minLength: 1
-          type: string
-        City:
-          minLength: 1
-          type: string
-        StateOrProvince:
-          type: string
-        ISO3166CountryCode:
-          minLength: 1
-          type: string
-      additionalProperties: false
     ProOrderModel:
       required:
       - CompanyName
@@ -141,6 +107,40 @@ components:
           type: boolean
         BillingAddress:
           $ref: '#/components/schemas/AddressModel'
+      additionalProperties: false
+    AddressModel:
+      required:
+      - AddressLine2
+      - City
+      - ISO3166CountryCode
+      - ZipCode
+      type: object
+      properties:
+        AddressId:
+          format: int32
+          type: integer
+        CompanyName:
+          type: string
+        ContactNameAtAddress:
+          type: string
+        AddressLine2:
+          minLength: 1
+          type: string
+        AddressLine3:
+          type: string
+        AddressLine4:
+          type: string
+        ZipCode:
+          minLength: 1
+          type: string
+        City:
+          minLength: 1
+          type: string
+        StateOrProvince:
+          type: string
+        ISO3166CountryCode:
+          minLength: 1
+          type: string
       additionalProperties: false
     ApiPriceModel:
       type: object

@@ -268,19 +268,6 @@ components:
           format: int32
           type: integer
       additionalProperties: false
-    CompanyVehicleCreateModel:
-      required:
-      - CompanyId
-      - VehicleId
-      type: object
-      properties:
-        CompanyId:
-          format: int32
-          type: integer
-        VehicleId:
-          format: int32
-          type: integer
-      additionalProperties: false
     ProblemDetails:
       type: object
       properties:
@@ -296,6 +283,19 @@ components:
         instance:
           type: string
       additionalProperties: {}
+    CompanyVehicleCreateModel:
+      required:
+      - CompanyId
+      - VehicleId
+      type: object
+      properties:
+        CompanyId:
+          format: int32
+          type: integer
+        VehicleId:
+          format: int32
+          type: integer
+      additionalProperties: false
   securitySchemes:
     oauth2:
       type: oauth2

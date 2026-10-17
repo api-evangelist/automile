@@ -176,27 +176,6 @@ paths:
               $ref: '#/components/schemas/ExpenseReportRowCreateModel'
 components:
   schemas:
-    ExpenseReportRowContentModel:
-      type: object
-      properties:
-        ExpenseReportRowContentId:
-          format: int32
-          type: integer
-        ExpenseReportRowId:
-          format: int32
-          type: integer
-        ContentType:
-          format: int32
-          enum:
-          - 0
-          - 1
-          - 2
-          - 3
-          - 4
-          type: integer
-        ContentFileName:
-          type: string
-      additionalProperties: false
     ExpenseReportRowCreateModel:
       type: object
       properties:
@@ -242,82 +221,6 @@ components:
           type: number
         Merchant:
           type: string
-      additionalProperties: false
-    ExpenseReportRowEditModel:
-      type: object
-      properties:
-        AmountInCurrency:
-          format: double
-          type: number
-        VATInCurrency:
-          format: double
-          type: number
-        ISO4217CurrencyCode:
-          type: string
-        Notes:
-          type: string
-        ExpenseReportRowDateUtc:
-          format: date-time
-          type: string
-        Category:
-          format: int32
-          enum:
-          - 0
-          - 1
-          - 2
-          - 3
-          - 4
-          - 5
-          - 6
-          - 7
-          - 8
-          - 9
-          - 10
-          type: integer
-        CustomCategory:
-          type: string
-        ExpenseReportRowContent:
-          type: array
-          items:
-            $ref: '#/components/schemas/ExpenseReportRowContentUpdateEditModel'
-        CategoryValue:
-          format: double
-          type: number
-        Merchant:
-          type: string
-      additionalProperties: false
-    ProblemDetails:
-      type: object
-      properties:
-        type:
-          type: string
-        title:
-          type: string
-        status:
-          format: int32
-          type: integer
-        detail:
-          type: string
-        instance:
-          type: string
-      additionalProperties: {}
-    ExpenseReportRowContentCreateModel:
-      type: object
-      properties:
-        ExpenseReportRowId:
-          format: int32
-          type: integer
-        Data:
-          type: string
-        ContentType:
-          format: int32
-          enum:
-          - 0
-          - 1
-          - 2
-          - 3
-          - 4
-          type: integer
       additionalProperties: false
     ExpenseReportRowModel:
       type: object
@@ -366,6 +269,103 @@ components:
           format: double
           type: number
         Merchant:
+          type: string
+      additionalProperties: false
+    ProblemDetails:
+      type: object
+      properties:
+        type:
+          type: string
+        title:
+          type: string
+        status:
+          format: int32
+          type: integer
+        detail:
+          type: string
+        instance:
+          type: string
+      additionalProperties: {}
+    ExpenseReportRowEditModel:
+      type: object
+      properties:
+        AmountInCurrency:
+          format: double
+          type: number
+        VATInCurrency:
+          format: double
+          type: number
+        ISO4217CurrencyCode:
+          type: string
+        Notes:
+          type: string
+        ExpenseReportRowDateUtc:
+          format: date-time
+          type: string
+        Category:
+          format: int32
+          enum:
+          - 0
+          - 1
+          - 2
+          - 3
+          - 4
+          - 5
+          - 6
+          - 7
+          - 8
+          - 9
+          - 10
+          type: integer
+        CustomCategory:
+          type: string
+        ExpenseReportRowContent:
+          type: array
+          items:
+            $ref: '#/components/schemas/ExpenseReportRowContentUpdateEditModel'
+        CategoryValue:
+          format: double
+          type: number
+        Merchant:
+          type: string
+      additionalProperties: false
+    ExpenseReportRowContentCreateModel:
+      type: object
+      properties:
+        ExpenseReportRowId:
+          format: int32
+          type: integer
+        Data:
+          type: string
+        ContentType:
+          format: int32
+          enum:
+          - 0
+          - 1
+          - 2
+          - 3
+          - 4
+          type: integer
+      additionalProperties: false
+    ExpenseReportRowContentModel:
+      type: object
+      properties:
+        ExpenseReportRowContentId:
+          format: int32
+          type: integer
+        ExpenseReportRowId:
+          format: int32
+          type: integer
+        ContentType:
+          format: int32
+          enum:
+          - 0
+          - 1
+          - 2
+          - 3
+          - 4
+          type: integer
+        ContentFileName:
           type: string
       additionalProperties: false
     ExpenseReportRowContentUpdateEditModel:

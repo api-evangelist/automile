@@ -116,6 +116,21 @@ paths:
       - oauth2: []
 components:
   schemas:
+    UserModel:
+      type: object
+      properties:
+        UserId:
+          format: int32
+          type: integer
+        UserGuid:
+          format: uuid
+          type: string
+        UserName:
+          type: string
+        ContactId:
+          format: int32
+          type: integer
+      additionalProperties: false
     UserCreateModel:
       required:
       - EmailAddress
@@ -158,21 +173,6 @@ components:
         instance:
           type: string
       additionalProperties: {}
-    UserModel:
-      type: object
-      properties:
-        UserId:
-          format: int32
-          type: integer
-        UserGuid:
-          format: uuid
-          type: string
-        UserName:
-          type: string
-        ContactId:
-          format: int32
-          type: integer
-      additionalProperties: false
   securitySchemes:
     oauth2:
       type: oauth2
